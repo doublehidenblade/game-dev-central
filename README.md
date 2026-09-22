@@ -36,6 +36,7 @@ post-mortems — lives here, not in anyone's context window.
 - [`research/steam-vs-mobile.md`](research/steam-vs-mobile.md) — Steam vs iOS/Android publishing: fees, review, revenue splits, discoverability, audience fit. **Verdict: Steam-first.**
 - [`research/gtm-launch-and-refinement.md`](research/gtm-launch-and-refinement.md) — NEON DRIFT go-to-market: Slipstream teardown, selling points, product refinements, DLC diversification, launch timeline, **$12.99** pricing.
 - [`research/ai-assisted-forest-pipeline-skills.md`](research/ai-assisted-forest-pipeline-skills.md) — AI-assisted forest pipeline: actionable skills from the Polish brothers' Godot project (species research, Blender loops, style-direction pass, baked-leaf crossed planes, procedural roads, grass technique, micro-props, lighting perf traps, DEM+OSM import).
+- [`research/texturing-godot-pseudo3d.md`](research/texturing-godot-pseudo3d.md) — Realistic texturing: Godot 4 PBR workflow (is Blender needed? what Hyper3D/Rodin actually does, free alternatives) + pseudo-3D racer texture techniques (world-locked scanline strips, sprite scaling, water, opaque fog), with a state-of-the-art gallery (Slipstream, Horizon Chase Turbo, Final Freeway 2R, 80's OVERDRIVE, Formula Retro Racing).
 
 ## How agents should collaborate through this hub
 
