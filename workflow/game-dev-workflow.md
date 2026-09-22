@@ -124,8 +124,10 @@ These are non-negotiable. They outrank any workflow convenience:
    the live deployment (open the live URL, exercise the affected area, report
    the play link + PR + remaining limitations).
 4. Merge only when the exact PR head is satisfactory and CI is green.
-5. Release/publish: pin the reviewed candidate explicitly (run ID, full SHA);
-   the publisher promotes the pinned artifact, never an arbitrary newer run.
+5. Release/publish: merge the reviewed PR to `main`; the `publish-web`
+   workflow mirrors the built/exported output into the public `-web` build repo
+   (see §9d). Verify the live `-web` URL serves the new build (SHA/version
+   check + open it in a browser). Never ship an arbitrary unreviewed run.
    Store releases need separate explicit authorization.
 
 ## 7. Performance discipline
@@ -247,18 +249,37 @@ noticed until Craig asked why no version bumped.
 
 **The rules:**
 
-1. A session that merges a validated PR must advance the candidate
-   pointer to the reviewed run and publish before moving on to the next
-   task. Never end a session with `main` merged but the live site pinned
-   to a stale artifact.
-2. After publishing, verify the live deployment (open the live URL,
-   confirm the new SHA/version, exercise the affected area) — a
-   promotion that failed silently is worse than no promotion.
+1. A session that merges a validated PR must confirm the `publish-web`
+   workflow mirrored the new build and verify the live `-web` URL before
+   moving on to the next task. Never end a session with `main` merged but
+   the live site serving a stale build.
+2. After publishing, verify the live deployment (open the live `-web` URL,
+   confirm the new SHA/version, exercise the affected area) — a mirror that
+   failed silently is worse than no mirror.
 3. If the session cannot finish the publish (tokens, blockers), the
-   checkpoint's "exact next action" must name the publish as step 1 so
-   the resuming session does it before any new work.
+   checkpoint's "exact next action" must name the publish verification as
+   step 1 so the resuming session does it before any new work.
 
 ---
+### 9d. Hosting: private source repos, public build mirrors (2026-09-22)
+
+- Source repos (`doublehidenblade/neon-drift`, `doublehidenblade/tokyo-drift-3d`)
+  are **private**.
+- Each game is served from a public build repo (`neon-drift-web`,
+  `tokyo-drift-3d-web`) with GitHub Pages from `main` `/`.
+- `.github/workflows/publish-web.yml` in each source repo mirrors the built
+  output into its `-web` repo on every push to `main` (neon-drift:
+  `npm ci && npm run build` → `dist/`; tokyo-drift-3d: root export files
+  `index.*`, `.nojekyll`, `deployment.json`, `build-sha.txt`), via a write
+  deploy key (`WEB_DEPLOY_KEY` Actions secret on the source repo). The build
+  repos are dumb mirrors — never edit them by hand, never open issues there.
+- Live URLs: https://doublehidenblade.github.io/neon-drift-web/ and
+  https://doublehidenblade.github.io/tokyo-drift-3d-web/. The old
+  `/neon-drift/` and `/tokyo-drift-3d/` URLs are dead (404).
+- Retired: the pin-and-promote Pages dance (waiting on the legacy builder,
+  restoring artifacts via `actions/deploy-pages`) — it died with the flip to
+  private. §13's stale-artifact lesson below stays valid as history.
+
 *Local copies of this workflow in individual game repos may be stale — this
 file is the source of truth.*
 
