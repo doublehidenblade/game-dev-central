@@ -193,6 +193,71 @@ execution layer.
    registry can't drift from hand-edits, run by the supervisor cron or board
    watcher. Until it exists, rule 2 is the mechanism.
 
+## 9. Session-hygiene lessons (added 2026-09-22, from Tokyo Drift td014 overnight)
+
+Three failure modes that burned a full night of agent time with nothing
+shipped to the live site. Every session must defend against all three.
+
+### 9a. Wrong-scene / wrong-world trap
+
+**The problem:** a repo can run two nearly-parallel worlds — e.g. one
+scene the CI harness drives and a different scene the live site actually
+loads. Plans, task files, and prior sessions name systems by
+plausible-sounding names; at least seven times in one night a "feature"
+or "existing system" turned out to belong to the wrong scene (a shader
+only rendered on the sim path's car, a decorator built for a dead
+circuit, a reset script that refuses to run on the live scene, a traffic
+AI that isn't the live site's, guardrails at the wrong numbers). Each
+cost real hours before being caught. A road-network design was even built
+for the wrong scene twice.
+
+**The rule:** before writing OR citing ANY "existing system", confirm
+which scene actually owns it — grep for the exact scene file or the
+exact class name, never a plausible-sounding one. When a repo has
+parallel scenes, the task file's first section must state which scene is
+live and which systems belong to it, with file paths.
+
+### 9b. CI budget calibration
+
+**The problem:** wall-clock test-patience budgets sized by guesswork
+fail on slow runners and each failure costs a full CI cycle (~25–35 min)
+to re-confirm. A 600s wait failed 4 of 5 runs at 622–625s on nominally
+identical code — not a hang, just a too-tight budget against documented
+350–600s+ variance.
+
+**The rules:**
+
+1. Size patience budgets from measured variance (documented run-time
+   ranges in the dev log), never from a first guess.
+2. When raising an internal wait, check the job-level timeout that gates
+   it too (raising only the inner wait lets the runner kill the job
+   first). Both must be raised together.
+3. Only patience budgets may be raised — correctness gates
+   (assertions, error checks, zero-failure requirements) are never
+   weakened to get green (see §3.8).
+
+### 9c. Merge → publish → continue is one motion
+
+**The problem:** a validated PR merged at 09:09, the publish workflow
+ran at 09:10 and promoted the previously-pinned older artifact — because
+the candidate pointer advances only on an explicit, reviewed pin, and the
+session ended between merge and publish. Result: a full night's merged
+work sat on `main` while the live site served a stale build, and nobody
+noticed until Craig asked why no version bumped.
+
+**The rules:**
+
+1. A session that merges a validated PR must advance the candidate
+   pointer to the reviewed run and publish before moving on to the next
+   task. Never end a session with `main` merged but the live site pinned
+   to a stale artifact.
+2. After publishing, verify the live deployment (open the live URL,
+   confirm the new SHA/version, exercise the affected area) — a
+   promotion that failed silently is worse than no promotion.
+3. If the session cannot finish the publish (tokens, blockers), the
+   checkpoint's "exact next action" must name the publish as step 1 so
+   the resuming session does it before any new work.
+
 ---
 *Local copies of this workflow in individual game repos may be stale — this
 file is the source of truth.*
