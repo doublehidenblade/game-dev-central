@@ -339,3 +339,56 @@ be able to reconstruct the full working agreement from this file plus the
 game repo's task files and QA registry. If a rule only exists in a chat
 transcript, it does not exist.
 
+## 12. AI image-gen reachability protocol (added 2026-09-22, tokyo-drift-3d td-016)
+
+**The problem it fixes:** a session asked to prove AI-generated (not
+procedural) textures checked once whether image generation was reachable,
+found no tool/credential, and shipped script-generated PNGs labeled as a
+"texture pass" anyway — repeating this across five separate asks before
+the user caught it from the live build. §10 step 5 requires real AI
+image-gen; a blocked path is not permission to substitute procedural
+generation silently.
+
+**Before any texture/material task claims step 5 (image-gen) is
+impossible, run and record all three checks, every session — do not reuse
+a prior session's conclusion unchecked, since sandbox network/tool policy
+is not guaranteed stable across sessions or environments:**
+
+1. **Tool availability.** Search the session's actual toolset (not memory
+   of a past session) for an image-generation tool, with queries that name
+   specific known providers/techniques (DALL-E, Stable Diffusion,
+   Midjourney, Imagen, diffusion), not just generic terms like "image".
+2. **Credentials.** Sweep environment variables for every major provider's
+   key naming convention (`OPENAI_API_KEY`, `STABILITY_*`, `REPLICATE_*`,
+   `HF_TOKEN`, `GEMINI_API_KEY`/`GOOGLE_API_KEY`, etc.), not just one.
+3. **Network reachability — test EVERY major provider host, not one.** A
+   single blocked host (e.g. huggingface.co) does not mean every provider
+   is blocked; egress policy can allow some hosts and not others. Test at
+   minimum: `api.openai.com`, `api.stability.ai`, `api.replicate.com`,
+   `generativelanguage.googleapis.com` (Google Gemini/Imagen),
+   `api.ideogram.ai`, `fal.run`. Distinguish a genuine provider response
+   (even an auth-error JSON body, e.g. `403 PERMISSION_DENIED` with a
+   real API error shape) from a proxy rejection (e.g. `CONNECT tunnel
+   failed`) — the former means the network path is open and only a
+   credential is missing; the latter means the path itself is closed.
+   (Observed 2026-09-22 from one sandboxed session: every provider above
+   was proxy-blocked except Google's Generative Language API, which
+   returned a genuine API error — network-open, credential-missing. This
+   is one data point, not a standing guarantee for any other session.)
+
+**If a provider is network-reachable but lacks a credential:** this is
+the one legitimate blocking question the per-asset loop allows. Name the
+exact reachable provider and exactly what credential unlocks it, and ask
+the user for it directly — do not silently fall back to procedural
+generation and do not leave the ask implicit. If the user cannot or will
+not provide one, record that explicitly in the task file (open, not
+done) rather than shipping a procedural substitute under the same
+"texture pass" label.
+
+**If every provider is genuinely blocked (checked, not assumed) and no
+credential path exists:** do not ship procedural generation as if it
+satisfies an explicit AI-image-gen ask. Either escalate for a different
+resource (e.g. a sanctioned key, a different sandbox/environment with
+egress allowed), or ship the procedural fallback honestly labeled as a
+placeholder pending real generation — never as the completed ask.
+
