@@ -11,21 +11,31 @@ post-mortems — lives here, not in anyone's context window.
 
 | Path | Contents |
 |---|---|
-| `transcripts/` | Video transcripts, one file per video. Filenames: `<youtube-id>.md`. |
+| `transcripts/` | Video transcripts, one file per video. Filenames: `<youtube-id>.md` (or a descriptive slug when no YouTube ID is known). |
 | `research/` | Topic research briefs (Steam vs mobile, launch playbooks, pricing, marketing). One topic per file. |
+| `workflow/` | Centralized game-dev workflow (pre/post-work checklists, QA, CI, visual verification, performance discipline) — the source of truth for all game repos. |
 | `TRANSCRIPTION.md` | How we transcribe videos (methods tried, what works, what doesn't). |
 
-## Contents (2026-09-21)
+## Contents (2026-09-22)
 
 **Transcripts** (Gaby-ShareNut, Chinese, ASR via faster-whisper medium):
 
 - [`transcripts/BUGXF75K7Qk.md`](transcripts/BUGXF75K7Qk.md) — 2026 年 Steam 玩家在玩什么?2000 款高在线游戏拆解,小团队立项指南 (12:08)
 - [`transcripts/ocCLqI7EIlk.md`](transcripts/ocCLqI7EIlk.md) — 一年 2 万款新游上 Steam,近一半评测不到 10 条:你的游戏如何被看到?Steam 宣发全流程 (15:55)
 
+**Transcripts** (user-supplied transcript, translated by agent):
+
+- [`transcripts/polish-brothers-ai-godot-forest.md`](transcripts/polish-brothers-ai-godot-forest.md) — Two Polish brothers build a survival-exploration game in Godot with AI (forest pipeline, Blender automation, optimization, procedural roads/grass, DEM import). Channel/URL/duration [?] — transcript supplied by user.
+
+**Workflow (source of truth for all game repos):**
+
+- [`workflow/game-dev-workflow.md`](workflow/game-dev-workflow.md) — centralized generic game-dev workflow extracted from NEON DRIFT and Tokyo Drift 3D (pre/post-work checklists, QA, CI, screenshot/visual verification, visual standards, performance discipline).
+
 **Research:**
 
 - [`research/steam-vs-mobile.md`](research/steam-vs-mobile.md) — Steam vs iOS/Android publishing: fees, review, revenue splits, discoverability, audience fit. **Verdict: Steam-first.**
 - [`research/gtm-launch-and-refinement.md`](research/gtm-launch-and-refinement.md) — NEON DRIFT go-to-market: Slipstream teardown, selling points, product refinements, DLC diversification, launch timeline, **$12.99** pricing.
+- [`research/ai-assisted-forest-pipeline-skills.md`](research/ai-assisted-forest-pipeline-skills.md) — AI-assisted forest pipeline: actionable skills from the Polish brothers' Godot project (species research, Blender loops, style-direction pass, baked-leaf crossed planes, procedural roads, grass technique, micro-props, lighting perf traps, DEM+OSM import).
 
 ## How agents should collaborate through this hub
 

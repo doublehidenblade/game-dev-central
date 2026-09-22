@@ -1,0 +1,72 @@
+# Transcript: Two Polish brothers build a survival-exploration game with AI in Godot
+
+> Transcribed: 2026-09-22 by coordinator agent
+> Channel: [?]
+> URL: [?]
+> Duration: [?]
+> Method: user-supplied full Chinese transcript, translated to English by agent
+> Accuracy caveat: translated from the user's Chinese text, not from the original
+> video's Polish/English audio; names of the brothers and exact wording are as
+> given in the supplied transcript. Tool/product names (GPT-6 Astra, Claude
+> Fable 5.1) are unverified against external sources — treat as reported, not
+> confirmed. Original Chinese kept in `transcript-zh` task input only.
+
+## Summary
+
+- Two Polish brothers (near the Beskid Mountains) are building a survival-exploration game for Steam in Godot, enlisting GPT-6 Astra and Claude Fable 5.1 as their main workforce, using their own backyard mountains as the setting.
+- No dedicated AI interface for Godot: scripts, scenes and resource files are all plain text underneath, so the AI edits them directly, runs the game to check, and iterates.
+- Forest pipeline: AI researches local species → the brothers pick four (spruce, beech, birch, hazel) → GPT-6 Astra runs a Blender model→check→improve loop → style-direction pass (3-tree test before scaling to 5) → poly optimization (birch 34,528 → 2,812 tris via baked leaf textures on crossed planes).
+- Procedural dirt roads with ruts, material layering and gravel; grass as textured crossed planes (12 tris/tuft) after instanced 3D blades looked like "floating plastic brushes"; AI-batched micro-props (mushrooms, stumps, logs, rocks).
+- A shadow-softness slider cost them 110 fps → 42 fps (restored to 105 fps) — a reminder to measure lighting settings numerically.
+- Real terrain: 801×801 elevation points (2.6 MB) from Poland's national geo-portal plus OpenStreetMap roads/streams, covering 8×8 km; road/margin/base layers stored separately so roads can be built without destroying the survey data.
+- Takeaway: AI doesn't replace judgment; the developer's trade-offs between performance, style and realism decide whether a demo becomes a Steam product.
+
+## Full transcript (translated)
+
+Have you ever wanted to build a game of your own, only to be scared off by the high bar of code and modeling? In Poland, a pair of brothers brought in GPT-6 Astra and Claude Fable 5.1 as their core team. They're going to make a survival-exploration game for Steam, moving an entire mountain forest from their doorstep into the game.
+
+The two brothers live in southern Poland, not far from the Beskid Mountains. They want to write the real terrain here, the wooden cabins in the mountains, even the local legends passed down by word of mouth, all into the game. The game revolves around three things: exploration, survival, and the mysterious dangers deep in the forest.
+
+They chose the open-source engine Godot, and they did not give Godot any dedicated AI interface service. Because the scripts, scenes and all resource files in Godot are, underneath it all, perfectly readable plain text. AI can directly read and write the code and config files, then run it in the game to see how it looks, and keep iterating when it doesn't work.
+
+### [Building the forest]
+
+The first step in building this forest was figuring out what actually grows in these mountains. They first had the AI research the common plants of this region, and in the end the brothers made the call themselves: spruce, beech, birch and hazel.
+
+Then they had GPT-6 Astra run an automated loop in Blender — model, check, improve, round and round. In just a few hours they did generate a full set of decently realistic-looking trees and bushes. But when they placed these trees into the same scene, something was immediately off. Each one looked fine on its own, but together they were too realistic, too generic — none of the mysterious, still mood a wilderness-survival game needs.
+
+They went back and had the AI re-run reference images, steering the visual direction toward something more stylized and recognizable. They first picked three trees for a small-scale test, confirmed the style held up, and only then expanded to five tree species officially.
+
+### [Performance optimization]
+
+But good looks alone weren't enough — the real trouble came next. The birch tree the AI first produced had 34,528 triangles. If mountains full of high-precision models with tens of thousands of faces were piled everywhere, even the strongest GPU would be dragged to its knees.
+
+Their optimization trick was very clever: the trunk and main branches kept their real 3D skeletons; the dense foliage was baked into textured maps with bump lighting, applied to simple crossed planes. With that, the birch's triangle count went straight from 34,528 down to 2,812.
+
+### [Generating roads and grass]
+
+With the trees done, they needed a road to tie the forest together. They planned two kinds of routes: hiking trails and drivable dirt roads. This dirt road was fully generated by algorithmic code — no scanned real-world assets. Layer upon layer: wheel ruts, then material effects for the dirt surface texture, and finally a scatter of gravel. The feel of wheels pressing into the ruts came out convincingly.
+
+But laying grass taught them another lesson. At first they used the engine's built-in batch-copy tool, madly replicating finished 3D grass blades to fill the field. The result looked terribly off even as they packed the tufts denser and spread them wider. The blades never merged with the ground — at a glance it looked like a layer of plastic brushes floating above the surface.
+
+In the end they applied the same technique as the leaves onto the grass. Hand-drawn grass-blade textures on a few crossed simple planes — one tuft costs only 12 triangles, and all the layering between blades comes from the texture. Only then did it really look like weeds growing out of the soil.
+
+### [Adding detail, and the lighting trap]
+
+With the ground laid, the forest still needed detail. Props like mushrooms, dead stumps, fallen rotten logs and rocks were batch-produced by the AI. Once the ground was dressed with these small objects, the wilderness feel of the forest immediately grew much richer.
+
+Lighting is provisionally set to an autumn dusk, but while tuning the light they stepped into an extremely exaggerated performance trap. In that Polish-language settings panel, there is a shadow-softness slider. Normally the game runs around 110 fps, but push the slider to max and the frame rate falls to 42 on the spot — over half the performance evaporating instantly. Pull the slider back, and the frame rate returns to 105.
+
+With the lighting tuned, a red off-road vehicle rolled steadily over fallen autumn leaves on the dirt road, and the first complete test scene ran through.
+
+### [Importing real terrain]
+
+But the brothers knew the ground under their feet was still flat in the end — no match for real mountain terrain. To make true mountain exploration, you need real valley undulation.
+
+They downloaded real elevation data straight from Poland's national surveying and mapping geo-portal, and got road and stream paths from OpenStreetMap. This elevation data is like a special grid image, where each cell stores a concrete height value. Raise the points on the flat grid by those numbers, connect adjacent points into triangles pairwise, and the undulating ridges and valleys rise up.
+
+A full 801×801 height data points, all stored in just 2.6 MB. They store roads, margin layers and the original surveyed base separately — they can build roads on top without destroying the real terrain. The imported survey area is 8×8 km; how big the final playable map will be is still being polished.
+
+### [Summary]
+
+AI really can't become the omnipotent genie that replaces humans, but it did give two people the genuine ability to build a mountain forest. What still decides whether a game can go from demo to Steam is every trade-off the developers make between performance, style and reality. Only those who can truly embed AI into the development pipeline and polish a finished product have the real hard skill.
