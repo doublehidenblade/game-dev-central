@@ -11,6 +11,8 @@
 
 1. Read this file, the game repo's README, its AGENTS.md/CLAUDE.md if present, the
    dev log (newest first), current checkpoint, lessons file, and the task file.
+   **Read the QA registry FIRST** (`todos/QA_INDEX.md` — see §8): pick up the
+   oldest non-`verified` task across ALL batches, never just the latest folder.
    Never depend on chat history or a previous machine for context.
 2. Bootstrap and verify the runtime environment first (install documented
    dev/verification tools, run pinned bootstrap scripts, record tool versions
@@ -137,6 +139,59 @@ These are non-negotiable. They outrank any workflow convenience:
    loosen budgets because a shared runner was slow).
 3. Optimize representation before adding geometry: e.g. baked textures on
    crossed planes over mass-instanced 3D detail (see the skills file).
+
+## 8. QA registry flow (registry-first — added 2026-09-21)
+
+**The problem it fixes:** QA findings used to live only in per-batch folders
+(`todos/todo120/`, `godot/docs/tasks/td-*.md`, …), so agents assumed only the
+latest batch mattered and missed pending work, unfinished older tasks, and
+tasks Craig rejected after they were marked fixed.
+
+**The registry:** each game repo keeps `todos/QA_INDEX.md` — a human-scannable
+table of EVERY task across ALL batches with its status — plus
+`todos/qa-registry.jsonl`, a machine-readable mirror (one JSON object per
+line: `id`, `batch`, `title`, `status`, `task_file`, `branch`, `notes`,
+`updated_at`) for the board watcher. One QA = one folder/file (never
+renamed/moved); the registry is the roll-up view, task files remain the
+execution layer.
+
+**Status vocabulary** (registry → SYSTEM.md JSON equivalent):
+
+- `open` → `open` — recorded, not started.
+- `in_progress` → `in_progress` — being worked on.
+- `blocked` → `blocked` — needs a decision only Craig can make.
+- `fixed_pending_verify` → `in_review` — fix written; validator verdict
+  and/or Craig's phone confirmation still pending.
+- `verified` → `validated` + phone — accepted AND (for visual work) confirmed
+  by Craig on his phone. Nothing is `verified` on CI or screenshots alone.
+- `reopened` → `rejected` — claimed done but sent back by a validator or by
+  Craig's phone review. Read the rejection reason before touching code.
+- `wontfix` → `abandoned` — deliberately dropped, with reason.
+- `unknown` — status cannot be determined from evidence. Do not assume; say
+  why.
+
+**Rules:**
+
+1. **Registry-first.** Before any QA work, read the registry and take the
+   oldest non-`verified` task across all batches. `reopened` tasks jump the
+   queue.
+2. **Update both layers together.** When a task's status changes, update the
+   task file AND the registry row (and JSONL line) in the same commit.
+3. **Reopen flow.** Craig rejects a "fixed" task → the supervisor flips the
+   row to `reopened` and appends the rejection reason + date + phone-evidence
+   link to the task file (prior evidence is never deleted). Validator rejects
+   → JSON `rejected` → registry `reopened`. A worker MUST read the rejection
+   reason first and must never silently re-check a reopened item — only a
+   validator verdict (system tasks) or Craig's phone confirmation (visual
+   tasks) moves it to `verified`.
+4. **Stale scan.** Any task in `open` / `in_progress` / `reopened` with no
+   update in 7+ days is flagged for supervisor review. Silence is not progress.
+5. **Never invent statuses.** Prefer `unknown` over guessing; `unknown` means
+   stop and verify, not proceed.
+6. **Recommended follow-up (not yet built):** a `scripts/build-registry.py`
+   that regenerates the JSONL from the batch folders/task files so the
+   registry can't drift from hand-edits, run by the supervisor cron or board
+   watcher. Until it exists, rule 2 is the mechanism.
 
 ---
 *Local copies of this workflow in individual game repos may be stale — this
