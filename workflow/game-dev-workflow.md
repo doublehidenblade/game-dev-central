@@ -392,3 +392,45 @@ resource (e.g. a sanctioned key, a different sandbox/environment with
 egress allowed), or ship the procedural fallback honestly labeled as a
 placeholder pending real generation — never as the completed ask.
 
+## 13. A CI check that reads committed output can go stale silently (added 2026-09-22, tokyo-drift-3d PR #21)
+
+A check that fetches or parses a **committed build artifact** (an
+exported HTML/JS bundle, a generated asset, anything checked into the
+repo rather than derived fresh at test time) only ever tests whatever
+was last committed. If that artifact stops being refreshed — because
+publishing moved to a different pipeline, because nobody touched that
+path in a while, because a "temporary" workaround became permanent —
+the check keeps passing while silently testing a frozen fossil instead
+of the project's current, real output. Green stays green with zero
+signal value.
+
+**What happened:** Tokyo Drift's root-committed web export
+(`index.html` etc., served directly by legacy-mode GitHub Pages) went
+stale for two days while an unrelated deploy pipeline kept "succeeding"
+without actually being what Pages served. A CI test asserted the served
+`index.html` contained a literal token name (`GODOT_CONFIG`) that
+matched Godot's *default* export template. The project's actual custom
+HTML shell had — since the day it was introduced — assigned that
+token's substituted value to a differently-named, lowercased variable
+instead, so the test's assumption was wrong from day one, but the
+frozen, never-rebuilt root `index.html` (built before the custom shell
+existed) still happened to satisfy the old regex, on every PR, for as
+long as nobody actually refreshed it. The mismatch was invisible until
+the artifact was finally rebuilt from current source — at which point
+it looked like a brand-new regression, when it was really a two-day-old
+(or older) test/template inconsistency that had simply never had a
+fresh artifact to fail against.
+
+**Rule:** for any CI check that parses a committed (not freshly-built
+in that same job) artifact, periodically force a fresh rebuild of that
+artifact from current source and re-run the check against it — don't
+wait for a user-visible bug to be the thing that forces the rebuild.
+When investigating a CI failure on a PR that legitimately touched a
+committed artifact, do not assume "stale/superseded run" without first
+reading the actual failure line; a second commit reproducing the exact
+same failure is real, not noise, per the standing CI-flake discipline
+elsewhere in this file. And when a check's assumption and the thing it
+checks turn out to disagree, verify which one is actually wrong (re-run
+the canonical build process locally and inspect the real output) before
+assuming your own change is the bug.
+
