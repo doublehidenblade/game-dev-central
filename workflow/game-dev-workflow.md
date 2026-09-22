@@ -261,3 +261,119 @@ noticed until Craig asked why no version bumped.
 ---
 *Local copies of this workflow in individual game repos may be stale — this
 file is the source of truth.*
+
+## 10. Per-asset mini CI loop: design → build → validate → iterate (added 2026-09-22)
+
+**The problem it fixes:** per-pass CI (whole-build green, whole-scene
+screenshots) existed, but there was no per-ASSET loop. A "texture pass" was
+requested five times; each pass shipped shader tweaks and three
+script-generated noise PNGs (flat speckle asphalt, grey grid facade, mottle
+foliage) that read as nothing on the live build. The explicit user ask —
+"prove you can do AI image-gen textures and apply them to the 3D models" —
+was never built; the session marked texture tasks done on its own terms
+while the user's phone screenshots showed no visible change. Big CI gates
+cannot catch an asset that was never really made.
+
+**The rule:** every asset or material change runs its own mini loop, on top
+of the per-pass CI:
+
+1. **Design (state the scope in numbers first).** Name the real-world photo
+   reference (file it under the task's `reference/`), the exact
+   surfaces/zones it covers, resolution, and tiling behavior. Write the
+   numeric acceptance criteria BEFORE generating anything: how many
+   surfaces, which zones, what material each must read as.
+2. **Build (generate, don't fake).** Produce the texture with AI image
+   generation guided by the real photo reference — tileable, with albedo
+   plus roughness/normal maps where the material needs them.
+   Script-generated noise/gradient PNGs are placeholders, never a "texture
+   pass". Never pass a procedural texture off as photo-inspired work.
+3. **Validate (on the live path).** Apply it to the actual 3D model in the
+   scene the live site loads (not the sim/CI harness scene — see §9a).
+   Capture before/after from that exact scene, open both images at full
+   resolution, compare against the reference photo. Numeric checks: the
+   texture is actually sampled (UV coverage > 0 on the target), frames are
+   not blank/uniform, lit-pixel ratio sane. A green build is not visual
+   approval — the opened before/after is.
+4. **Iterate.** If it doesn't read as the reference material, regenerate —
+   do not ship "close enough" and move on. Each iteration re-runs validate;
+   the evidence folder keeps every round.
+
+**Coverage-based acceptance, not existence-based.** "One texture exists" or
+"the shader sets metallic" is not a pass. A texture/material task is done
+when every surface in the stated scope is treated and the before/after set
+proves the visible difference on the live path.
+
+**Bare-minimum pattern (failure mode).** One user ask producing one prop /
+one texture / one shader tweak, repeated across passes, is the failure this
+loop exists to prevent. When a request says "more textures" or "richer
+detail", the response is a coverage inventory (surface × zone × material),
+not a single item.
+
+## 11. Lessons live in the knowledge repo, not in chat (added 2026-09-22)
+
+Chat instructions die with the session. Any lesson, criterion, or process
+rule durable enough to matter to a future session MUST be written to this
+file (the shared game-dev knowledge repo) in the same session that learned
+it, before the task is claimed done. The game repos' READMEs point here as
+the centralized source of truth; a future agent that never saw the chat must
+be able to reconstruct the full working agreement from this file plus the
+game repo's task files and QA registry. If a rule only exists in a chat
+transcript, it does not exist.
+
+## 10. Per-asset mini CI loop: design → build → validate → iterate (added 2026-09-22)
+
+**The problem it fixes:** per-pass CI (whole-build green, whole-scene
+screenshots) existed, but there was no per-ASSET loop. A "texture pass" was
+requested five times; each pass shipped shader tweaks and three
+script-generated noise PNGs (flat speckle asphalt, grey grid facade, mottle
+foliage) that read as nothing on the live build. The explicit user ask —
+"prove you can do AI image-gen textures and apply them to the 3D models" —
+was never built; the session marked texture tasks done on its own terms
+while the user's phone screenshots showed no visible change. Big CI gates
+cannot catch an asset that was never really made.
+
+**The rule:** every asset or material change runs its own mini loop, on top
+of the per-pass CI:
+
+1. **Design (state the scope in numbers first).** Name the real-world photo
+   reference (file it under the task's `reference/`), the exact
+   surfaces/zones it covers, resolution, and tiling behavior. Write the
+   numeric acceptance criteria BEFORE generating anything: how many
+   surfaces, which zones, what material each must read as.
+2. **Build (generate, don't fake).** Produce the texture with AI image
+   generation guided by the real photo reference — tileable, with albedo
+   plus roughness/normal maps where the material needs them.
+   Script-generated noise/gradient PNGs are placeholders, never a "texture
+   pass". Never pass a procedural texture off as photo-inspired work.
+3. **Validate (on the live path).** Apply it to the actual 3D model in the
+   scene the live site loads (not the sim/CI harness scene — see §9a).
+   Capture before/after from that exact scene, open both images at full
+   resolution, compare against the reference photo. Numeric checks: the
+   texture is actually sampled (UV coverage > 0 on the target), frames are
+   not blank/uniform, lit-pixel ratio sane. A green build is not visual
+   approval — the opened before/after is.
+4. **Iterate.** If it doesn't read as the reference material, regenerate —
+   do not ship "close enough" and move on. Each iteration re-runs validate;
+   the evidence folder keeps every round.
+
+**Coverage-based acceptance, not existence-based.** "One texture exists" or
+"the shader sets metallic" is not a pass. A texture/material task is done
+when every surface in the stated scope is treated and the before/after set
+proves the visible difference on the live path.
+
+**Bare-minimum pattern (failure mode).** One user ask producing one prop /
+one texture / one shader tweak, repeated across passes, is the failure this
+loop exists to prevent. When a request says "more textures" or "richer
+detail", the response is a coverage inventory (surface × zone × material),
+not a single item.
+
+## 11. Lessons live in the knowledge repo, not in chat (added 2026-09-22)
+
+Chat instructions die with the session. Any lesson, criterion, or process
+rule durable enough to matter to a future session MUST be written to this
+file (the shared game-dev knowledge repo) in the same session that learned
+it, before the task is claimed done. The game repos' READMEs point here as
+the centralized source of truth; a future agent that never saw the chat must
+be able to reconstruct the full working agreement from this file plus the
+game repo's task files and QA registry. If a rule only exists in a chat
+transcript, it does not exist.
