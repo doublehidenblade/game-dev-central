@@ -127,11 +127,39 @@ Sources: codeincomplete.com/articles/javascript-racer (verified live) · moegame
 
 ## B3. State-of-the-art gallery — "this is the best it can look"
 
-1. **Slipstream** (ansdor, 2018) — the authenticity bar. Custom pseudo-3D engine, hand-made 2D sprites (Krita/Blender/GIMP on Linux), 20 tracks across deserts/cities/beaches, CRT+NTSC filters, Very Positive (88%, 1,728 Steam reviews). *Study: sprite-art consistency across biomes, trackside variety, authentic engine feel.* https://steambase.io/games/slipstream/info
-2. **Horizon Chase Turbo** (Aquiris, 2018) — the color/weather bar. Pseudo-3D-styled (Unity), 4K, 109 tracks, rain/snow/fog/day/night, cel-shaded pop, Barry Leitch soundtrack. *Study: color scripting per location, weather systems, sense of place.* https://store.steampowered.com/app/389140/Horizon_Chase_Turbo/
-3. **Final Freeway 2R** (Oyatsukai, iOS 2012) — the pixel-detail bar. 13–14 environments, branching paths, "more detailed sprite work and a greater draw distance," "ridiculous" sense of speed. *Study: how much texture detail survives at speed; cohesive pixel art direction.* https://www.pocketgamer.com/final-freeway-2r/review/
-4. **80's OVERDRIVE** (Insane Code; 3DS 2017 / Switch 2020) — the pixel-art + scaling bar. Handcrafted pixel art, 8 visual themes, neon 80s look; Nintendo Life: "pixel-rich visuals… sprite scaling is smooth and convincing." *Study: pixel art that holds up under continuous scaling.* https://www.nintendolife.com/reviews/3ds-eshop/80s_overdrive · longplay: https://www.youtube.com/watch?v=Ms27L6y99ko
-5. **Formula Retro Racing: World Tour** (Repixel8/CGA Studio, 2023) — NOT sprite pseudo-3D; real low-poly 3D (Unity) with the 90s arcade feel at 4K/60fps. Included deliberately: it's the proof that the *aesthetic* target is reachable with true 3D — directly relevant to the Godot side. *Study: the 90s look translated to real 3D; trackside density.* https://steambase.io/games/formula-retro-racing-world-tour/info · screenshots: https://steamdb.info/app/2141040/screenshots/
+Each entry below has a **verified direct image** (HTTP 200, content-type image/*, checked 2026-09-22) plus a label of exactly what it demonstrates. These are the visual bars to hold NEON DRIFT's sprite work against.
+
+**Pseudo-3D racers:**
+
+1. **Slipstream** (ansdor, 2018) — the authenticity bar.
+   ![Slipstream screenshot](https://media.rawg.io/media/resize/1280/-/screenshots/41e/41e72fd7afde605b4f0d91bd7fd5889e.jpg)
+   *What it demonstrates:* hand-made 2D sprite consistency across biomes (desert/city/beach), trackside variety without visible repetition, authentic engine feel with CRT+NTSC filters. 20 tracks, Very Positive (88%, 1,728 Steam reviews). Custom pseudo-3D engine built with Krita/Blender/GIMP on Linux. Source: https://RAWG.io/games/slipstream/screenshots
+
+2. **Horizon Chase Turbo** (Aquiris, 2018) — the color/weather bar.
+   ![Horizon Chase Turbo screenshot](https://cdn.mobygames.com/d3ef7bd2-ac07-11ed-b85a-02420a000135.webp)
+   *What it demonstrates:* color scripting per location, weather systems (rain/snow/fog/day/night), cel-shaded pop, sense of place. 109 tracks, 4K. Source: https://www.mobygames.com/game/108783/horizon-chase-turbo/screenshots/
+
+3. **Final Freeway 2R** (Oyatsukai, iOS 2012) — the pixel-detail bar.
+   ![Final Freeway 2R screenshot](https://media.pocketgamer.com/artwork/na-bxin/final-freeway-2r-ios-5_jpg_640.webp)
+   *What it demonstrates:* how much texture detail survives at speed, cohesive pixel art direction, "more detailed sprite work and a greater draw distance," "ridiculous" sense of speed. 13–14 environments, branching paths. Source: https://www.pocketgamer.com/final-freeway-2r/review/
+
+4. **80's OVERDRIVE** (Insane Code; 3DS 2017 / Switch 2020) — the pixel-art + scaling bar.
+   ![80's OVERDRIVE screenshot](https://xboxwire.thesourcemediaassets.com/sites/2/2022/07/80s_overdrive-2bf64dfb57ef23a2398f.jpg)
+   *What it demonstrates:* handcrafted pixel art that holds up under continuous sprite scaling ("pixel-rich visuals… sprite scaling is smooth and convincing" — Nintendo Life), neon 80s look across 8 visual themes. Source: https://news.xbox.com/en-us/2022/07/08/next-week-on-xbox-new-games-for-july-11-to-15/
+
+5. **Formula Retro Racing: World Tour** (Repixel8/CGA Studio, 2023) — the 3D proof.
+   ![Formula Retro Racing: World Tour screenshot](https://worthplaying.com/wpimages/f/o/formularetroracingworldtour/572338.jpg)
+   *What it demonstrates:* NOT sprite pseudo-3D — real low-poly 3D (Unity) with the 90s arcade feel at 4K/60fps. Included deliberately: proof that the *aesthetic* target is reachable with true 3D — directly relevant to the Godot side. Trackside density in real 3D. Source: https://worthplaying.com/article/2022/9/15/news/133761-formula-retro-racing-world-tour-is-a-retro-racing-game-coming-to-consoles-in-december-pc-in-2023-playable-demo-now-screens-trailer/images/572338/
+
+**Godot 4 visual bar:**
+
+6. **Road to Vostok** (Steam demo, app 1963610) — the de-facto realistic 3D Godot showcase (Unity port); bar *and* cautionary tale (dated visuals/glitches despite heavy custom work per Steam discussion).
+   ![Road to Vostok screenshot](https://clan.fastly.steamstatic.com/images/42476930/6902de48b3d00f8b1ee8aff3ec12157ca6549792.png)
+   *What it demonstrates:* the realistic-texture ceiling in Godot 4 — PBR materials, lighting, atmosphere pushed hard, and where it still falls short. Source: https://steamcommunity.com/app/1963610 (see also discussion: https://steamcommunity.com/app/1963610/discussions/0/4629233756626052446)
+
+7. **Godot 4.0 official engine capability** (SDFGI, volumetric fog, decals, SSAO, AgX) — the engine-can-do-it proof.
+   ![Godot 4.0 Vulkan rendering](https://itsfoss.com/content/images/size/w600/2023/03/Godot_4.0_vulkan_opengl_rendering.jpg)
+   *What it demonstrates:* what the correct lighting/tonemap stack (SDFGI interiors, volumetric fog, decals, SSAO, AgX) looks like when fully wired — the engine-side bar, independent of any shipped game's art. Source: https://itsfoss.com/news/godot-4-0-release/ · setup guide: https://hexaquo.at/pages/environment-and-light-in-godot-setting-up-for-photorealistic-3d-graphics/
 
 ## B4. Practical techniques for a JS/canvas pseudo-3D engine
 
@@ -146,7 +174,7 @@ Sources: codeincomplete.com/articles/javascript-racer (verified live) · moegame
 
 ## Apply to Craig's projects
 
-- **Tokyo Drift 3D (Godot):** the current models are largely untextured/flat (see td-014 audit when it lands). The first texture pass should be: ambientCG/Poly Haven CC0 PBR sets on StandardMaterial3D (albedo+normal+ORM, correct import settings), then SDFGI/GPU lightmaps + AgX. Blender enters only when custom UV/bake work is needed. Track in td-014 or a follow-up task.
+- **Tokyo Drift 3D (Godot):** the current build is real texturing but stylized/materially shallow — not broadly "untextured/flat" (see td-014 PBR audit): AmbientCG color/normal/roughness maps are wired for road/terrain, facade texture families exist, foliage has per-instance tint — but windows are flat, neon strips/barriers/torii lack normal/AO, road markings are emissive geometry rather than integrated paint, car paint has no real metallic/clearcoat/roughness, and no UV/bake pipeline exists. The next pass should be: full PBR coverage by material family (windows with depth/normal/AO, car paint metallic/clearcoat/roughness), road detail that survives at driving distance, signage/rooftop dressing, and output-level CI measuring rendered material contribution. Track in td-014/td-015 or a follow-up task.
 - **NEON DRIFT (pseudo-3D):** the two open texture-class items are already in TODO 122 — 122-2 (ground stripes must be world-projection-driven, matching B1/B2 above) and 122-3 (Slipstream learn list: sprite-art consistency with little canvas use, water via offset strips). The B4 strip-texture and water techniques above are directly implementable suggestions for Codex (Muse's opinion only).
 
 ## Open questions (researcher-flagged, not resolved)
