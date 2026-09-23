@@ -1,22 +1,55 @@
-# Game Dev Knowledge Hub
+# Shared Game-Dev Experience
 
-A shared knowledge base for Craig's game projects, maintained collaboratively by
-Craig and his agents. Anything an agent learns that a future agent (or Craig)
-might need — Steam publishing research, marketing playbooks, video transcripts,
-post-mortems — lives here, not in anyone's context window.
+Not a knowledge base — a shared record of what Craig's game projects have
+learned, kept as **standing rules that are enforced and reminded**, plus the
+research and references behind them. Anything an agent learns that a future
+agent (or Craig) might need lives here, not in anyone's context window.
 
-**Repo:** https://github.com/doublehidenblade/game-dev-knowledge
+**Repo:** https://github.com/doublehidenblade/shared-game-dev-experience
 
 ## What's in here
 
 | Path | Contents |
 |---|---|
-| `transcripts/` | Video transcripts, one file per video. Filenames: `<youtube-id>.md` (or a descriptive slug when no YouTube ID is known). |
-| `research/` | Topic research briefs (Steam vs mobile, launch playbooks, pricing, marketing). One topic per file. |
-| `workflow/` | Centralized game-dev workflow (pre/post-work checklists, QA, CI, visual verification, performance discipline) — the source of truth for all game repos. |
+| `standing-rules.md` | **The enforced set.** 14 standing rules (R1–R14), each with the incident that created it and the mechanism that enforces it. Every coding-agent brief links this file. This outranks everything else in the repo. |
+| `brief-snippet.md` | Copy-paste block for coordinator/worker/validator briefs — links the standing rules and names the ones that bite most often. |
+| `workflow/` | Centralized game-dev workflow (pre/post-work checklists, QA, CI, visual verification, performance discipline) — the process source of truth for all game repos. Defers to `standing-rules.md` on hard rules. |
+| `research/` | Topic research briefs (Steam vs mobile, launch playbooks, texturing, AI-assisted pipelines). One topic per file, dated, sources cited. |
+| `transcripts/` | Video transcripts, one file per video, with a 3–5 bullet summary at the top. |
 | `TRANSCRIPTION.md` | How we transcribe videos (methods tried, what works, what doesn't). |
 
+## The rules, in short (full text: `standing-rules.md`)
+
+1. Craig's phone is the final judge — ship as "for you to check", never "fixed".
+2. Everything renders 100% opaque. No transparency tricks, ever.
+3. Fix bug classes globally, never per instance.
+4. Numeric CI assertions before baseline approval — they must fail on the broken frames.
+5. Nothing closes without before/after evidence + his verdict.
+6. Registry-first: oldest non-verified QA task across ALL batches.
+7. 2D blueprint reviewed before any 3D scene assembly.
+8. QA feedback goes to the repo's `qa/<batch>/`, never chat-text alone.
+9. Intake everything immediately; the only copy is never in chat.
+10. Never nudge a working session; never duplicate a live session.
+11. Commodity textures from free CC0 libraries; imagegen for bespoke art/mocks.
+12. Never pass script-generated art off as designer-drawn.
+13. Every release notification carries screenshots + changes + risks + the play link.
+14. Branch → draft PR → exact-head green CI → manual review → merge → verify live.
+
+## How the rules stay alive (not an archive)
+
+1. **Briefs link them.** `brief-snippet.md` goes into every agent brief. No brief, no work.
+2. **Registry-first forces a re-read.** Every session re-opens the QA registry before touching code.
+3. **The supervisor cron re-checks.** Master todo + registry + release ledger on schedule.
+4. **Adding a rule** requires the incident and the mechanism, dated. Bare advice doesn't get in.
+
 ## Contents (2026-09-22)
+
+**Research:**
+
+- [`research/steam-vs-mobile.md`](research/steam-vs-mobile.md) — Steam vs iOS/Android publishing: fees, review, revenue splits, discoverability, audience fit. **Verdict: Steam-first.**
+- [`research/gtm-launch-and-refinement.md`](research/gtm-launch-and-refinement.md) — NEON DRIFT go-to-market: Slipstream teardown, selling points, product refinements, DLC diversification, launch timeline, **$12.99** pricing.
+- [`research/ai-assisted-forest-pipeline-skills.md`](research/ai-assisted-forest-pipeline-skills.md) — AI-assisted forest pipeline: actionable skills from the Polish brothers' Godot project (species research, Blender loops, style-direction pass, baked-leaf crossed planes, procedural roads, grass technique, micro-props, lighting perf traps, DEM+OSM import).
+- [`research/texturing-godot-pseudo3d.md`](research/texturing-godot-pseudo3d.md) — Realistic texturing: Godot 4 PBR workflow + pseudo-3D racer techniques (per-scanline quads, world-keyed stripes, opaque fog, the known fixes for NEON DRIFT's texture failure classes).
 
 **Transcripts** (Gaby-ShareNut, Chinese, ASR via faster-whisper medium):
 
@@ -27,16 +60,9 @@ post-mortems — lives here, not in anyone's context window.
 
 - [`transcripts/polish-brothers-ai-godot-forest.md`](transcripts/polish-brothers-ai-godot-forest.md) — Two Polish brothers build a survival-exploration game in Godot with AI (forest pipeline, Blender automation, optimization, procedural roads/grass, DEM import). Channel/URL/duration [?] — transcript supplied by user.
 
-**Workflow (source of truth for all game repos):**
+**Workflow (process source of truth for all game repos):**
 
-- [`workflow/game-dev-workflow.md`](workflow/game-dev-workflow.md) — centralized generic game-dev workflow extracted from NEON DRIFT and Tokyo Drift 3D (pre/post-work checklists, QA, CI, screenshot/visual verification, visual standards, performance discipline).
-
-**Research:**
-
-- [`research/steam-vs-mobile.md`](research/steam-vs-mobile.md) — Steam vs iOS/Android publishing: fees, review, revenue splits, discoverability, audience fit. **Verdict: Steam-first.**
-- [`research/gtm-launch-and-refinement.md`](research/gtm-launch-and-refinement.md) — NEON DRIFT go-to-market: Slipstream teardown, selling points, product refinements, DLC diversification, launch timeline, **$12.99** pricing.
-- [`research/ai-assisted-forest-pipeline-skills.md`](research/ai-assisted-forest-pipeline-skills.md) — AI-assisted forest pipeline: actionable skills from the Polish brothers' Godot project (species research, Blender loops, style-direction pass, baked-leaf crossed planes, procedural roads, grass technique, micro-props, lighting perf traps, DEM+OSM import).
-- [`research/texturing-godot-pseudo3d.md`](research/texturing-godot-pseudo3d.md) — Realistic texturing: Godot 4 PBR workflow (is Blender needed? what Hyper3D/Rodin actually does, free alternatives) + pseudo-3D racer texture techniques (world-locked scanline strips, sprite scaling, water, opaque fog), with a state-of-the-art gallery (Slipstream, Horizon Chase Turbo, Final Freeway 2R, 80's OVERDRIVE, Formula Retro Racing).
+- [`workflow/game-dev-workflow.md`](workflow/game-dev-workflow.md) — centralized generic game-dev workflow extracted from NEON DRIFT and Tokyo Drift 3D (pre/post-work checklists, QA, CI, screenshot/visual verification, performance discipline). Hard rules defer to `standing-rules.md`.
 
 ## How agents should collaborate through this hub
 
@@ -51,8 +77,9 @@ post-mortems — lives here, not in anyone's context window.
 
 ## Current projects this hub serves
 
-- **NEON DRIFT** — pseudo-3D anime-style arcade racer (web). Live: https://doublehidenblade.github.io/neon-drift/ | Repo: https://github.com/doublehidenblade/neon-drift
-- **Tunnel Time** — Android content app (separate track).
+- **NEON DRIFT** — pseudo-3D anime-style arcade racer. Live: https://doublehidenblade.github.io/neon-drift-web/ | Repo: https://github.com/doublehidenblade/neon-drift (private)
+- **Tokyo Drift 3D** — Godot 3D driving game. Live: https://doublehidenblade.github.io/tokyo-drift-3d-web/ | Repo: https://github.com/doublehidenblade/tokyo-drift-3d (private)
+- **Tunnel Time** — Android content app (separate track, own workflow).
 
 ## Adding a new transcript
 

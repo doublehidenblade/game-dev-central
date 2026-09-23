@@ -3,7 +3,8 @@
 > Created: 2026-09-22 by coordinator agent
 > Extracted from `doublehidenblade/neon-drift` and `doublehidenblade/tokyo-drift-3d`
 > (read-only API extraction 2026-09-22). Game-specific details stay in the game
-> repos; this file holds the GENERIC workflow every agent session must follow.
+> repos; this file holds the GENERIC process every agent session must follow.
+> Craig's hard rules live in `../standing-rules.md` and outrank this file.
 > If a game repo's local workflow notes conflict with this file, this file wins
 > and the repo's copy should be marked stale.
 
@@ -86,32 +87,14 @@
 6. Reference images are guidance only (composition/material) — never copy them
    as assets, never ship them.
 
-## 5. Visual standards for new agent sessions (Craig's hard rules)
+## 5. Craig's hard rules — see `../standing-rules.md`
 
-These are non-negotiable. They outrank any workflow convenience:
-
-1. **Craig's phone is the final judge.** No visual fix is claimed done on test
-   evidence, green CI, or generic screenshots alone — verify against his exact
-   frames (frame-by-frame review of his recordings) and ship as "for him to
-   check", never "fixed".
-2. **Everything 100% opaque.** No fading or transparency tricks anywhere;
-   geometry must be correct in perspective first, sprites are surface detail
-   only, never a way to game around a bug.
-3. **Fix bug classes globally, never per instance.** Classify each visual bug
-   (projection, scale, anchoring, transition, occlusion, lifecycle, …), repair
-   the shared invariant, and add deterministic CI exercising the class across
-   representative assets/scenes and continuous boundary sweeps.
-4. **Numeric CI assertions before baseline approval.** Every bug class ships
-   with a numeric assertion that fails on the broken phone frames; an
-   assertion that cannot fail on the evidence is not a guard.
-5. **Honest limitations recorded:** what wasn't verified (physical device,
-   other browsers) and what wasn't implemented (rather than faked) go into the
-   task file/dev log. Experiments that fail visual review are removed, not
-   retained as dishonest evidence.
-6. **When green CI misses a shipped bug:** write a post-mortem first — quote
-   what the assertion actually measured, explain why it passed while the bug
-   was visible, and replace it with one that fails on the evidence frames
-   (see neon-drift `todos/todo121/README.md`).
+The non-negotiable rules (R1–R5, R12: phone is the final judge, 100% opaque,
+bug classes fixed globally with numeric CI assertions, nothing closes without
+evidence + his verdict, never pass script art off as designer-drawn) now live
+in `standing-rules.md`, which **outranks this file**. They are enforced, not
+advisory — each carries the incident that created it and the mechanism that
+enforces it. Do not duplicate them here; link there.
 
 ## 6. Branch / task / release conventions
 
@@ -124,10 +107,8 @@ These are non-negotiable. They outrank any workflow convenience:
    the live deployment (open the live URL, exercise the affected area, report
    the play link + PR + remaining limitations).
 4. Merge only when the exact PR head is satisfactory and CI is green.
-5. Release/publish: merge the reviewed PR to `main`; the `publish-web`
-   workflow mirrors the built/exported output into the public `-web` build repo
-   (see §9d). Verify the live `-web` URL serves the new build (SHA/version
-   check + open it in a browser). Never ship an arbitrary unreviewed run.
+5. Release/publish: pin the reviewed candidate explicitly (run ID, full SHA);
+   the publisher promotes the pinned artifact, never an arbitrary newer run.
    Store releases need separate explicit authorization.
 
 ## 7. Performance discipline
@@ -195,263 +176,6 @@ execution layer.
    registry can't drift from hand-edits, run by the supervisor cron or board
    watcher. Until it exists, rule 2 is the mechanism.
 
-## 9. Session-hygiene lessons (added 2026-09-22, from Tokyo Drift td014 overnight)
-
-Three failure modes that burned a full night of agent time with nothing
-shipped to the live site. Every session must defend against all three.
-
-### 9a. Wrong-scene / wrong-world trap
-
-**The problem:** a repo can run two nearly-parallel worlds — e.g. one
-scene the CI harness drives and a different scene the live site actually
-loads. Plans, task files, and prior sessions name systems by
-plausible-sounding names; at least seven times in one night a "feature"
-or "existing system" turned out to belong to the wrong scene (a shader
-only rendered on the sim path's car, a decorator built for a dead
-circuit, a reset script that refuses to run on the live scene, a traffic
-AI that isn't the live site's, guardrails at the wrong numbers). Each
-cost real hours before being caught. A road-network design was even built
-for the wrong scene twice.
-
-**The rule:** before writing OR citing ANY "existing system", confirm
-which scene actually owns it — grep for the exact scene file or the
-exact class name, never a plausible-sounding one. When a repo has
-parallel scenes, the task file's first section must state which scene is
-live and which systems belong to it, with file paths.
-
-### 9b. CI budget calibration
-
-**The problem:** wall-clock test-patience budgets sized by guesswork
-fail on slow runners and each failure costs a full CI cycle (~25–35 min)
-to re-confirm. A 600s wait failed 4 of 5 runs at 622–625s on nominally
-identical code — not a hang, just a too-tight budget against documented
-350–600s+ variance.
-
-**The rules:**
-
-1. Size patience budgets from measured variance (documented run-time
-   ranges in the dev log), never from a first guess.
-2. When raising an internal wait, check the job-level timeout that gates
-   it too (raising only the inner wait lets the runner kill the job
-   first). Both must be raised together.
-3. Only patience budgets may be raised — correctness gates
-   (assertions, error checks, zero-failure requirements) are never
-   weakened to get green (see §3.8).
-
-### 9c. Merge → publish → continue is one motion
-
-**The problem:** a validated PR merged at 09:09, the publish workflow
-ran at 09:10 and promoted the previously-pinned older artifact — because
-the candidate pointer advances only on an explicit, reviewed pin, and the
-session ended between merge and publish. Result: a full night's merged
-work sat on `main` while the live site served a stale build, and nobody
-noticed until Craig asked why no version bumped.
-
-**The rules:**
-
-1. A session that merges a validated PR must confirm the `publish-web`
-   workflow mirrored the new build and verify the live `-web` URL before
-   moving on to the next task. Never end a session with `main` merged but
-   the live site serving a stale build.
-2. After publishing, verify the live deployment (open the live `-web` URL,
-   confirm the new SHA/version, exercise the affected area) — a mirror that
-   failed silently is worse than no mirror.
-3. If the session cannot finish the publish (tokens, blockers), the
-   checkpoint's "exact next action" must name the publish verification as
-   step 1 so the resuming session does it before any new work.
-
 ---
-### 9d. Hosting: private source repos, public build mirrors (2026-09-22)
-
-- Source repos (`doublehidenblade/neon-drift`, `doublehidenblade/tokyo-drift-3d`)
-  are **private**.
-- Each game is served from a public build repo (`neon-drift-web`,
-  `tokyo-drift-3d-web`) with GitHub Pages from `main` `/`.
-- `.github/workflows/publish-web.yml` in each source repo mirrors the built
-  output into its `-web` repo on every push to `main` (neon-drift:
-  `npm ci && npm run build` → `dist/`; tokyo-drift-3d: root export files
-  `index.*`, `.nojekyll`, `deployment.json`, `build-sha.txt`), via a write
-  deploy key (`WEB_DEPLOY_KEY` Actions secret on the source repo). The build
-  repos are dumb mirrors — never edit them by hand, never open issues there.
-- Live URLs: https://doublehidenblade.github.io/neon-drift-web/ and
-  https://doublehidenblade.github.io/tokyo-drift-3d-web/. The old
-  `/neon-drift/` and `/tokyo-drift-3d/` URLs are dead (404).
-- Retired: the pin-and-promote Pages dance (waiting on the legacy builder,
-  restoring artifacts via `actions/deploy-pages`) — it died with the flip to
-  private. §13's stale-artifact lesson below stays valid as history.
-
 *Local copies of this workflow in individual game repos may be stale — this
 file is the source of truth.*
-
-## 10. Per-asset mini CI loop (added 2026-09-22, refined same day by Craig)
-
-**The problem it fixes:** per-pass CI (whole-build green, whole-scene
-screenshots) existed, but there was no per-ASSET loop. A "texture pass" was
-requested five times; each pass shipped shader tweaks and three
-script-generated noise PNGs (flat speckle asphalt, grey grid facade, mottle
-foliage) that read as nothing on the live build. The explicit user ask —
-"prove you can do AI image-gen textures and apply them to the 3D models" —
-was never built; the session marked texture tasks done on its own terms
-while the user's phone screenshots showed no visible change. Big CI gates
-cannot catch an asset that was never really made.
-
-**The loop (Craig's spec — applies to 2D and 3D games).** Every asset or
-material change runs this loop, on top of the per-pass CI:
-
-1. **Inspect current screenshot.** Open the asset as it exists today, at
-   full resolution, in the scene where it ships. State what is wrong with
-   it in concrete terms.
-2. **Research images.** Gather real-world photo references for the material
-   (file them under the task's `reference/`). Reference images are
-   guidance only — never copy them as assets, never ship them (§4.6).
-3. **Compare and reflect.** Put the current screenshot next to the
-   references. Write down the gaps (color, detail density, wear, scale,
-   lighting response) before generating anything.
-4. **Design mock.** Produce a mock of the target look (2D mock for the
-   texture/material) and get its direction right before spending
-   generation budget.
-5. **Image-gen individual pieces.** Generate the components with AI image
-   generation guided by the references and the mock — tileable, with albedo
-   plus roughness/normal maps where the material needs them.
-   Script-generated noise/gradient PNGs are placeholders, never a shipped
-   asset. Never pass a procedural texture off as photo-inspired work.
-6. **Assemble into final asset.** Compose the pieces into the final
-   texture/material/model and wire it into the actual scene the live build
-   loads (not the sim/CI harness scene — see §9a).
-7. **Validate by comparing to reference and mock, and reflect.** Capture
-   before/after from the live scene path, open both at full resolution,
-   compare against the researched references AND the mock from step 4.
-   Numeric checks: the texture is actually sampled (UV coverage > 0 on the
-   target), frames are not blank/uniform, lit-pixel ratio sane. Write the
-   reflection: what matches, what still differs. A green build is not
-   visual approval — the opened before/after is.
-8. **Iterate.** If it doesn't read as the reference material, go back to
-   step 4 or 5 — do not ship "close enough". Each iteration re-runs
-   validate; the evidence folder keeps every round.
-
-**Scene-level CI runs the same loop.** After assets pass their individual
-loops, a scene-level pass repeats the loop at placement scale: inspect the
-scene screenshot, research reference scenes, compare and reflect, mock the
-composition, place/adjust, validate against reference and mock, iterate.
-Per-asset quality does not guarantee scene composition — the scene gets its
-own loop.
-
-**Coverage-based acceptance, not existence-based.** "One texture exists" or
-"the shader sets metallic" is not a pass. A texture/material task is done
-when every surface in the stated scope is treated and the before/after set
-proves the visible difference on the live path. State the numeric scope
-(how many surfaces, which zones, what material each must read as) at step
-1, before any generation.
-
-**Bare-minimum pattern (failure mode).** One user ask producing one prop /
-one texture / one shader tweak, repeated across passes, is the failure this
-loop exists to prevent. When a request says "more textures" or "richer
-detail", the response is a coverage inventory (surface × zone × material),
-not a single item.
-
-## 11. Lessons live in the knowledge repo, not in chat (added 2026-09-22)
-
-Chat instructions die with the session. Any lesson, criterion, or process
-rule durable enough to matter to a future session MUST be written to this
-file (the shared game-dev knowledge repo) in the same session that learned
-it, before the task is claimed done. The game repos' READMEs point here as
-the centralized source of truth; a future agent that never saw the chat must
-be able to reconstruct the full working agreement from this file plus the
-game repo's task files and QA registry. If a rule only exists in a chat
-transcript, it does not exist.
-
-## 12. AI image-gen reachability protocol (added 2026-09-22, tokyo-drift-3d td-016)
-
-**The problem it fixes:** a session asked to prove AI-generated (not
-procedural) textures checked once whether image generation was reachable,
-found no tool/credential, and shipped script-generated PNGs labeled as a
-"texture pass" anyway — repeating this across five separate asks before
-the user caught it from the live build. §10 step 5 requires real AI
-image-gen; a blocked path is not permission to substitute procedural
-generation silently.
-
-**Before any texture/material task claims step 5 (image-gen) is
-impossible, run and record all three checks, every session — do not reuse
-a prior session's conclusion unchecked, since sandbox network/tool policy
-is not guaranteed stable across sessions or environments:**
-
-1. **Tool availability.** Search the session's actual toolset (not memory
-   of a past session) for an image-generation tool, with queries that name
-   specific known providers/techniques (DALL-E, Stable Diffusion,
-   Midjourney, Imagen, diffusion), not just generic terms like "image".
-2. **Credentials.** Sweep environment variables for every major provider's
-   key naming convention (`OPENAI_API_KEY`, `STABILITY_*`, `REPLICATE_*`,
-   `HF_TOKEN`, `GEMINI_API_KEY`/`GOOGLE_API_KEY`, etc.), not just one.
-3. **Network reachability — test EVERY major provider host, not one.** A
-   single blocked host (e.g. huggingface.co) does not mean every provider
-   is blocked; egress policy can allow some hosts and not others. Test at
-   minimum: `api.openai.com`, `api.stability.ai`, `api.replicate.com`,
-   `generativelanguage.googleapis.com` (Google Gemini/Imagen),
-   `api.ideogram.ai`, `fal.run`. Distinguish a genuine provider response
-   (even an auth-error JSON body, e.g. `403 PERMISSION_DENIED` with a
-   real API error shape) from a proxy rejection (e.g. `CONNECT tunnel
-   failed`) — the former means the network path is open and only a
-   credential is missing; the latter means the path itself is closed.
-   (Observed 2026-09-22 from one sandboxed session: every provider above
-   was proxy-blocked except Google's Generative Language API, which
-   returned a genuine API error — network-open, credential-missing. This
-   is one data point, not a standing guarantee for any other session.)
-
-**If a provider is network-reachable but lacks a credential:** this is
-the one legitimate blocking question the per-asset loop allows. Name the
-exact reachable provider and exactly what credential unlocks it, and ask
-the user for it directly — do not silently fall back to procedural
-generation and do not leave the ask implicit. If the user cannot or will
-not provide one, record that explicitly in the task file (open, not
-done) rather than shipping a procedural substitute under the same
-"texture pass" label.
-
-**If every provider is genuinely blocked (checked, not assumed) and no
-credential path exists:** do not ship procedural generation as if it
-satisfies an explicit AI-image-gen ask. Either escalate for a different
-resource (e.g. a sanctioned key, a different sandbox/environment with
-egress allowed), or ship the procedural fallback honestly labeled as a
-placeholder pending real generation — never as the completed ask.
-
-## 13. A CI check that reads committed output can go stale silently (added 2026-09-22, tokyo-drift-3d PR #21)
-
-A check that fetches or parses a **committed build artifact** (an
-exported HTML/JS bundle, a generated asset, anything checked into the
-repo rather than derived fresh at test time) only ever tests whatever
-was last committed. If that artifact stops being refreshed — because
-publishing moved to a different pipeline, because nobody touched that
-path in a while, because a "temporary" workaround became permanent —
-the check keeps passing while silently testing a frozen fossil instead
-of the project's current, real output. Green stays green with zero
-signal value.
-
-**What happened:** Tokyo Drift's root-committed web export
-(`index.html` etc., served directly by legacy-mode GitHub Pages) went
-stale for two days while an unrelated deploy pipeline kept "succeeding"
-without actually being what Pages served. A CI test asserted the served
-`index.html` contained a literal token name (`GODOT_CONFIG`) that
-matched Godot's *default* export template. The project's actual custom
-HTML shell had — since the day it was introduced — assigned that
-token's substituted value to a differently-named, lowercased variable
-instead, so the test's assumption was wrong from day one, but the
-frozen, never-rebuilt root `index.html` (built before the custom shell
-existed) still happened to satisfy the old regex, on every PR, for as
-long as nobody actually refreshed it. The mismatch was invisible until
-the artifact was finally rebuilt from current source — at which point
-it looked like a brand-new regression, when it was really a two-day-old
-(or older) test/template inconsistency that had simply never had a
-fresh artifact to fail against.
-
-**Rule:** for any CI check that parses a committed (not freshly-built
-in that same job) artifact, periodically force a fresh rebuild of that
-artifact from current source and re-run the check against it — don't
-wait for a user-visible bug to be the thing that forces the rebuild.
-When investigating a CI failure on a PR that legitimately touched a
-committed artifact, do not assume "stale/superseded run" without first
-reading the actual failure line; a second commit reproducing the exact
-same failure is real, not noise, per the standing CI-flake discipline
-elsewhere in this file. And when a check's assumption and the thing it
-checks turn out to disagree, verify which one is actually wrong (re-run
-the canonical build process locally and inspect the real output) before
-assuming your own change is the bug.
-
