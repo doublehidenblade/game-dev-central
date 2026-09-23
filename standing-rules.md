@@ -169,6 +169,37 @@ link + PR + remaining limitations.
 - **Enforced by:** the per-session checklist; the publisher pins the reviewed
   candidate (run ID, full SHA), never an arbitrary newer run.
 
+## R15 — Symmetry check on mocks and renders; asymmetry must be by design
+
+Lane markings, paired props, road furniture, and mirrored set pieces render
+symmetric unless the design says otherwise. Mocks get eyeballed for symmetry
+before delivery; game CI asserts it numerically where the harness supports it
+(e.g. mirrored-region pixel diff on straight-road frames). An agent bypassing
+the check must state the design reason in the task notes.
+
+- **Why:** 2026-09-23 — the tunnel treatment mock shipped with blue dashes on
+  one side and purple on the other (a generation artifact, not design).
+  Craig: "if agent wanna bypass that CI it better have a good reason, like
+  it's by design."
+- **Enforced by:** the mock review checklist; CI symmetry assertions; a bypass
+  without a stated design reason fails review.
+
+## R16 — Ship the track editor as a game mode once the track format is stable
+
+Once the track data format is honed, the editor ships *inside the game* as a
+mode (not a separate tool), editing the same format the game loads. Expose it
+early so maps get hand-tuned by playing them; saves go to local storage
+first; "bake into a named track" exports the repo's track format. A track
+that can't be opened in the editor is not shippable.
+
+- **Why:** 2026-09-23 — Slipstream's `track_editor.sh` is a 7-line launcher
+  for `./slipstream --editor`: the editor is a game mode, and that is how a
+  honed system compounds into track variety. Craig: expose it early "so I can
+  edit the map by hand and tell you 'hey this configuration plays well, bake
+  it into a named track'."
+- **Enforced by:** CI round-trip check — every named track in the repo loads
+  in the editor and re-saves byte-clean.
+
 ---
 
 ## How rules get reminded (the loop that makes this more than an archive)

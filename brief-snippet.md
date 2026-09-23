@@ -19,3 +19,7 @@
 >
 > The task transcript is background noise. The standing rules + the task file +
 > the evidence are the only sources of truth.
+>
+> **Shared lessons** (technique teardowns both games build on):
+> https://github.com/doublehidenblade/shared-game-dev-experience/tree/main/lessons
+> — read the lesson file named in this brief before designing.
