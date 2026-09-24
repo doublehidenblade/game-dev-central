@@ -18,7 +18,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-066 | todo139 | remove the broken secondary roads | open — dispatch round 2026-09-23 unverified | unverified | 2026-09-23 |
 | p3d-067 | todo140 | roadblock | open — dispatch round 2026-09-23 unverified (capture on live first, then ground physically or remove) | unverified | 2026-09-23 |
 | p3d-068 | todo141 | floating torii gate | open — dispatch round 2026-09-23 unverified | unverified | 2026-09-23 |
-| p3d-070 | todo143 | player car sprite replaced with Slipstream-style 12-view set (Craig: prioritized) | open — filed 2026-09-24, awaiting dispatch | — | 2026-09-24 |
+| p3d-070 | todo143 | player car sprite replaced with Slipstream-style 12-view set | SUPERSEDED 2026-09-24 — Craig's kill order: "Give up on the steer strips and drift... Just have player car always show its rear always." Shipped as p3d-071b (rear-lock). Never dispatch, never revive. | — | 2026-09-24 |
 | p3d-069 | todo142 | neon complex roads (second map, proof of concept) | open — GATED: only after civilian-car cluster + visual fixes (p3d-062..068, bridge 128-2) are fixed and verified | — | 2026-09-23 |
 
 Related (not a task file): bridge **128-2** (wires/poles too thin) — `fixed_pending_verify` in qa-registry, still visible on Craig's live screenshot 2026-09-23 09:42 CDT after PR #19. Included in the 2026-09-23 dispatch round (unverified). Do not close without Craig's phone verdict.
