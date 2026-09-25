@@ -47,7 +47,7 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-039 | Big building in the middle of the Shuto road | merged (PR #64, watchdog cron 2026-09-24; conflict with main self-resolved) — inspected +… | — | 2026-09-25 |
 | td-040 | webgl-smoke "Verify prepared entry and local crash recovery" fails repo-wide | open | — | 2026-09-25 |
 | td-041 | player car reverted back to self driving (phone QA 2026-09-24) | open | — | 2026-09-25 |
-| td-042 | opponent cars hitting walls, bad navigation (phone QA 2026-09-24) | in_review | — | 2026-09-25 |
+| td-042 | opponent cars hitting walls, bad navigation (phone QA 2026-09-24) | in_progress | Codex | 2026-09-25 |
 | td-043 | pause menu missing items, buttons too small (phone QA 2026-09-24) | merged (PR #75 squash-merged 2026-09-25 10:13Z by watchdog cron; live via publish-web — im… | — | 2026-09-25 |
 | td-044 | 3 roads still clipping into the Shuto road (phone QA 2026-09-24) | open | — | 2026-09-25 |
 | td-045 | textures, props, signages to fill the Shuto scene (phone QA 2026-09-24) | in_progress (first pass on #48; Craig's phone verdict is final) | — | 2026-09-25 |
