@@ -57,10 +57,12 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-049 | player car too large; shrink to opponent car size (phone QA 2026-09-25) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 
 Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.github.io/tokyo-drift-3d-shuto-web/) is live per td-026. Verify live before claiming shipped.
-| td-050 | Online multiplayer: signaling server (room codes + WebRTC signaling) | open | — | — | 2026-09-25 |
-| td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | in_progress | Codex | — | 2026-09-25 |
-| td-052 | Online multiplayer: lobby UI (host room / join by code) | open | — | — | 2026-09-25 |
-| td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | open | — | — | 2026-09-25 |
-| td-054 | Online multiplayer: 2–4 player integration test (queued behind td-050–053) | queued | — | — | 2026-09-25 |
+| td-050 | Online multiplayer: signaling server (room codes + WebRTC signaling) | in_review | Muse | PR #81 | 2026-09-25 |
+| td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | in_review | Muse | PR #82 | 2026-09-25 |
+| td-052 | Online multiplayer: lobby UI (host room / join by code) | in_review | Muse | PR #83 | 2026-09-25 |
+| td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | in_review | Muse | PR #85 | 2026-09-25 |
+| td-054 | Online multiplayer: 2–4 player integration test (queued behind signaling deploy) | queued | — | — | 2026-09-25 |
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
-| td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | open | — | — | 2026-09-25 |
+| td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | in_progress | Muse | PR #84 | 2026-09-25 |
+| td-057 | Signaling wire-key mismatch: server speaks t, client speaks type — converge on one key | open | — | — | 2026-09-25 |
+| td-058 | net.gd never answers server ping — peers reaped after ~60s | open | — | — | 2026-09-25 |
