@@ -59,7 +59,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-095 (todo168) | todo168 | building sides still dead horizontal instead of 3D perspective (phone QA 2026-09-24) | open | — | 2026-09-25 |
 | p3d-096 (todo169) | todo169 | start sign still too low and in the way (phone QA 2026-09-24) | open | — | 2026-09-25 |
 | p3d-097 (todo170) | todo170 | bridge-exit CPU p95 perf check is flaky on CI (infra noise, not a game regression) | open | — | 2026-09-25 |
-| p3d-098 (todo171) | todo171 | PR #56 after-evidence shows rear sprite, not side sprite (Craig QA 2026-09-25) | open | — | 2026-09-25 |
+| p3d-098 (todo171) | todo171 | PR #56 after-evidence shows rear sprite, not side sprite (Craig QA 2026-09-25) | in_progress | Codex | 2026-09-25 |
 | p3d-099 (todo172) | todo172 | further car renders on top of the player car (Craig QA 2026-09-25) | merged — PR #59 (p3d-099: correct car painter order) squash-merged 2026-09-25T20:32:46Z as 5f4c9fee, by cron | — | 2026-09-25 |
 
 Related (not a task file): bridge **128-2** (wires/poles too thin) — `fixed_pending_verify` in qa-registry, still visible on Craig's live screenshot 2026-09-23 09:42 CDT after PR #19. Do not close without Craig's phone verdict.
