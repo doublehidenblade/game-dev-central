@@ -57,7 +57,7 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-049 | player car too large; shrink to opponent car size (phone QA 2026-09-25) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 
 Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.github.io/tokyo-drift-3d-shuto-web/) is live per td-026. Verify live before claiming shipped.
-| td-050 | Online multiplayer: signaling server (room codes + WebRTC signaling) | in_progress | Codex | — | 2026-09-25 |
+| td-050 | Online multiplayer: signaling server (room codes + WebRTC signaling) | in_review | Codex | https://github.com/doublehidenblade/tokyo-drift-3d/pull/81 | 2026-09-25 |
 | td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | open | — | — | 2026-09-25 |
 | td-052 | Online multiplayer: lobby UI (host room / join by code) | open | — | — | 2026-09-25 |
 | td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | open | — | — | 2026-09-25 |
