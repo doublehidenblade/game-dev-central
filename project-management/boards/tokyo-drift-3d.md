@@ -60,7 +60,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-050 | Online multiplayer: signaling server (room codes + WebRTC signaling) | open | — | — | 2026-09-25 |
 | td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | open | — | — | 2026-09-25 |
 | td-052 | Online multiplayer: lobby UI (host room / join by code) | open | — | — | 2026-09-25 |
-| td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | open | — | — | 2026-09-25 |
+| td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | in_progress | Codex | — | 2026-09-25 |
 | td-054 | Online multiplayer: 2–4 player integration test (queued behind td-050–053) | queued | — | — | 2026-09-25 |
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
 | td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | open | — | — | 2026-09-25 |
