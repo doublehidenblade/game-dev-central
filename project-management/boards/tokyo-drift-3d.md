@@ -63,4 +63,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | open | — | — | 2026-09-25 |
 | td-054 | Online multiplayer: 2–4 player integration test (queued behind td-050–053) | queued | — | — | 2026-09-25 |
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
-| td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | open | — | — | 2026-09-25 |
+| td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | in_progress | Codex | — | 2026-09-25 |
