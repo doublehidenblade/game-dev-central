@@ -74,4 +74,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-064 | Signaling server can't match joiners to hosts ("room not found" on a live room; Fly split-brain) | merged 2026-09-26 (PR #102, dda5df67); signaling redeploy in flight — live verification pending | Muse subagent | — | 2026-09-26 |
 | td-065 | Net node may not survive the scene change to mp_race (kicks back to menu) | verified no-change-needed on current main (Net already autoload); rides with PR #103 — live verification pending | Muse subagent | — | 2026-09-26 |
 | td-066 | Touch controls dead on mobile in multiplayer race (left/right tap does nothing) | open — filed from Craig's phone QA 2026-09-26 | — | — | 2026-09-26 |
-| td-067 | Multiplayer race loads the empty base map instead of the bridge map | open — filed from Craig's phone QA 2026-09-26 | — | — | 2026-09-26 |
+| td-067 | Multiplayer race loads the empty base map instead of the bridge map | PR #106 open (fix/td-067-mp-harbor-map): mp_race now instances harbor_slice.tscn (bridge map), slice_race skips SP setup in MP, lap logic on 8 slice checkpoints — merge/publish pending | Muse subagent | PR #106 | 2026-09-26 |
