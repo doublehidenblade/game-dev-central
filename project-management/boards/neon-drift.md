@@ -55,7 +55,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-091 (todo164) | todo164 | land and water don't stretch to the horizon in some parts (phone QA 2026-09-24) | merged (PR #54 squash-merged by cron 2026-09-25T08:05Z, sha a95321ff; terrain/water projec… | — | 2026-09-25 |
 | p3d-092 (todo165) | todo165 | terrain and water sprites look horizontally stretched (phone QA 2026-09-24) | merged (PR #63, 2026-09-26T04:50Z) — mobile LOADING-99% regression filed as p3d-100 | Muse (watchdog failover) | PR #63 | 2026-09-26 |
 | p3d-093 (todo166) | todo166 | other car sprites not showing sides when next to player (phone QA 2026-09-24) | merged — PR #56 (cron ship 2026-09-25, all 67 correctness/visual CI cases pass; CPU-only f… | — | 2026-09-25 |
-| p3d-094 (todo167) | todo167 | other cars run over obstacles without reacting or dodging (phone QA 2026-09-24) | in_progress | watchdog-subagent (refire 2026-09-26, PR #57 merge-conflict resolve) | PR #57 | 2026-09-26 |
+| p3d-094 (todo167) | todo167 | other cars run over obstacles without reacting or dodging (phone QA 2026-09-24) | in_review (PR #57 draft, reconciled 2026-09-26 12:36Z, evidence pairs committed) | watchdog-subagent | PR #57 | 2026-09-26 |
 | p3d-095 (todo168) | todo168 | building sides still dead horizontal instead of 3D perspective (phone QA 2026-09-24) | open | — | 2026-09-25 |
 | p3d-096 (todo169) | todo169 | start sign still too low and in the way (phone QA 2026-09-24) | merged — PR #61 merged by Craig 2026-09-26T01:40Z; live unchanged (no export files touched); perf gate red = pre-existing (p3d-097) | — | 2026-09-26 |
 | p3d-097 (todo170) | todo170 | bridge-exit CPU p95 perf check is flaky on CI (infra noise, not a game regression) | open | — | 2026-09-25 |
