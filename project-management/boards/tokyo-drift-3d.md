@@ -61,10 +61,15 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | merged 2026-09-25 (PR #82) | — | PR #82 | 2026-09-26 |
 | td-052 | Online multiplayer: lobby UI (host room / join by code) | merged 2026-09-25 (PR #83) | — | PR #83 | 2026-09-26 |
 | td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | merged 2026-09-25 (PR #85) | — | PR #85 | 2026-09-26 |
-| td-054 | Online multiplayer: 2–4 player integration test (queued behind signaling deploy) | open — no available worker (outcome 3) | — (3 watchdog-subagent attempts went silent 2026-09-26: 03:22Z/5h, 08:35Z/2h, 10:35Z/1.5h; 12:04Z env-probe also silent (no branch/findings); no further refire per stop-after-2; escalated to Craig) | — | 2026-09-26 |
+| td-054 | Online multiplayer: 2–4 player integration test | open — Phase 3 probe COMPLETE 2026-09-26 13:40Z: host-create PASS, bad-code reject PASS, join FAIL (room not found), race-start FAIL (WS 1006); 4 defects filed as td-062..td-065, workers dispatched | Muse subagent (probe) | — | 2026-09-26 |
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
 | td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | merged 2026-09-25 (PR #84) | — | PR #84 | 2026-09-26 |
 | td-057 | Signaling wire-key mismatch: server speaks t, client speaks type — converge on one key | merged 2026-09-26 (PR #90) — live verify pending under td-059 | — | PR #90 | 2026-09-26 |
 | td-058 | net.gd never answers server ping — peers reaped after ~60s | merged 2026-09-26 (PR #89, 01:11Z) — heartbeat pong, live-verified under td-059 | Codex | PR #89 | 2026-09-26 |
 | td-059 | Multiplayer button missing on the live site — PUBLISHED 2026-09-26 (de15deec), LIVE-VERIFIED: button visible, rooms XEB67Y/BQ5VRJ created, 2-player join w/ peer-joined, 75s+ survival (4 heartbeats), WebRTC SDP/ICE flowing, +30% speed (1.3) live | done | Muse | PR #96 | 2026-09-26 |
 | td-060 | webgl-smoke "Verify ordinary loading and immediate race entry" fails repo-wide: entry.mjs hard-coded tap (360,607) hits SHUTO C1 after the MULTIPLAYER button shifted the menu layout | merged 2026-09-26 (PR #95, 05:20Z) — keyboard-shortcut race entry; PR #94 closed unmerged | Muse (watchdog failover) | PR #95 | 2026-09-26 |
+| td-061 | Can't enter driver name on mobile (typing fails) — RANDOM-name workaround + native HTML input overlay | merged 2026-09-26 (PR #98, d5fd3886); republish in flight (run 36245866482) after stale-export diagnosis | Muse | PR #98 | 2026-09-26 |
+| td-062 | Net crashes every frame after a rejected join (null _socket in _process) | open — worker dispatched 2026-09-26 | Muse subagent | — | 2026-09-26 |
+| td-063 | begin_race RPC calls a function that doesn't exist (joiner stuck in lobby on race start) | open — worker dispatched 2026-09-26 (with td-065) | Muse subagent | — | 2026-09-26 |
+| td-064 | Signaling server can't match joiners to hosts ("room not found" on a live room; Fly split-brain) | open — worker dispatched 2026-09-26 | Muse subagent | — | 2026-09-26 |
+| td-065 | Net node may not survive the scene change to mp_race (kicks back to menu) | open — worker dispatched 2026-09-26 (with td-063) | Muse subagent | — | 2026-09-26 |
