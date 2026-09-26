@@ -44,7 +44,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-080 (todo153) | todo153 | roadblock/cone hit animation (break off / fly off) with new sprites | in_review | — | 2026-09-25 |
 | p3d-081 (todo154) | todo154 | player speed +30%, opponent speed +15% | open | — | 2026-09-25 |
 | p3d-082 (todo155) | todo155 | distinct race opponent car sprites vs civilian cars (start-grid car variety) | open | — | 2026-09-25 |
-| p3d-083 (todo156) | todo156 | split/merge fork not readable in gameplay | open — unassigned | — | 2026-09-25 |
+| p3d-083 (todo156) | todo156 | split/merge fork not readable in gameplay | in_progress | Codex worker — [PR #68](https://github.com/doublehidenblade/neon-drift/pull/68) | 2026-09-26 |
 | p3d-084 (todo157) | todo157 | feature banners look like floating debug boxes | open — unassigned | — | 2026-09-25 |
 | p3d-085 (todo158) | todo158 | water must extend vertically toward the horizon in perspective (follow-up to p3d-074) | merged | — | 2026-09-25 |
 | p3d-086 (todo159) | todo159 | roadside walls grey not blue (fix wall sprite texture, not canvas) | in_review | Codex worker | 2026-09-26 |
