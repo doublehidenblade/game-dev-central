@@ -86,4 +86,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-076 | Multiplayer: show player name above car in their color | open — filed 2026-09-26 from Craig's phone QA | unassigned | — | 2026-09-26 |
 | td-077 | Multiplayer: no traffic / AI cars | open — filed 2026-09-26 from Craig's phone QA | unassigned | — | 2026-09-26 |
 | td-078 | Multiplayer: no nitro / hearts pickups | open — filed 2026-09-26 from Craig's phone QA | unassigned | — | 2026-09-26 |
-| td-079 | Host starts race but joiner stuck on "waiting for host to start" — race must not start until all players loaded | open — filed 2026-09-26 from Craig's live 2-phone test | unassigned | — | 2026-09-26 |
+| td-079 | Host starts race but joiner stuck on "waiting for host to start" — race must not start until all players loaded | in_progress | Codex worker | Ready-gate implementation and two-client validation in progress | 2026-09-26 |
