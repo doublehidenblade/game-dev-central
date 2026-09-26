@@ -73,3 +73,5 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-063 | begin_race RPC calls a function that doesn't exist (joiner stuck in lobby on race start) | merged 2026-09-26 (PR #103, c0d21048); export/publish in flight — live 2-client acceptance pending | Muse subagent | — | 2026-09-26 |
 | td-064 | Signaling server can't match joiners to hosts ("room not found" on a live room; Fly split-brain) | merged 2026-09-26 (PR #102, dda5df67); signaling redeploy in flight — live verification pending | Muse subagent | — | 2026-09-26 |
 | td-065 | Net node may not survive the scene change to mp_race (kicks back to menu) | verified no-change-needed on current main (Net already autoload); rides with PR #103 — live verification pending | Muse subagent | — | 2026-09-26 |
+| td-066 | Touch controls dead on mobile in multiplayer race (left/right tap does nothing) | open — filed from Craig's phone QA 2026-09-26 | — | — | 2026-09-26 |
+| td-067 | Multiplayer race loads the empty base map instead of the bridge map | open — filed from Craig's phone QA 2026-09-26 | — | — | 2026-09-26 |
