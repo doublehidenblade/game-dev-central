@@ -83,10 +83,11 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-073 | JOIN: list available rooms so joining needs no typing (Craig's workaround for the td-072 typing defect) | done — PR tokyo-drift-3d#111 merged 2026-09-26, published live per Craig's publish-first order (build ce5abf6); smoke verification after-the-fact | Muse | tokyo-drift-3d#111 | 2026-09-26 |
 | td-074 | JOIN with empty/invalid room code starts solo game instead of error | in_progress | Codex worker | fix/td-074-invalid-join | 2026-09-26 |
 | td-075 | "Quit to room" quits to main menu; need room lobby page with player list | in_review | worker-td-075 | tokyo-drift-3d#115 | 2026-09-26 |
-| td-076 | Multiplayer: show player name above car in their color | open — filed 2026-09-26 from Craig's phone QA | unassigned | — | 2026-09-26 |
+| td-076 | Multiplayer: show player name above car in their color | in_review — PR #117 draft (feat/td-076-nameplates): billboarded nameplates in td-069 color, before/after evidence committed, 4 screenshots eyeballed | Muse subagent | tokyo-drift-3d#117 | 2026-09-26 |
 | td-077 | Multiplayer: no traffic / AI cars | open — filed 2026-09-26 from Craig's phone QA | unassigned | — | 2026-09-26 |
 | td-078 | Multiplayer: no nitro / hearts pickups | open — filed 2026-09-26 from Craig's phone QA | unassigned | — | 2026-09-26 |
 | td-079 | Host starts race but joiner stuck on "waiting for host to start" — race must not start until all players loaded | in_review | Codex worker | Source PR #114; local ready-gate and two-client protocol evidence green, CI/live validation pending | 2026-09-26 |
 | td-080 | Client-side multiplayer debug info (copyable) | in_progress | Codex worker | Folded into td-079 source PR #114 per Craig | 2026-09-26 |
 | td-081 | Server-side room event logging | in_progress | Codex worker | Folded into td-079 source PR #114 per Craig | 2026-09-26 |
+| td-082 | Multiplayer POS: each player sees their own race position (1st/2nd/3rd/4th) | in_progress | Codex worker | cloud task_e_6ab841087f24832ea1eb84c65915a191 — own-position HUD (not leaderboard), compatible with td-076 name labels | 2026-09-26 |
 | td-083 | Multiplayer end-of-race rank screen: finishing order, total times, DNF, race-again/quit | in_review | Codex worker | tokyo-drift-3d#116 | 2026-09-26 |
