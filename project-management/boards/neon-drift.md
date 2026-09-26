@@ -36,7 +36,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-072 (todo145) | todo145 | start banner replaces torii + opponent lineup at start | unknown | — | 2026-09-25 |
 | p3d-073 (todo146) | todo146 | player car rear view angled right | unknown | — | 2026-09-25 |
 | p3d-074 (todo147) | todo147 | water color and extent | in_review | — | 2026-09-25 |
-| p3d-075 (todo148) | todo148 | arch bridge as short tunnel (tunnel interim) | open | — | 2026-09-25 |
+| p3d-075 (todo148) | todo148 | arch bridge as short tunnel (tunnel interim) | in_review | PR [#67](https://github.com/doublehidenblade/neon-drift/pull/67) — exact-head Browser CI blocked by desktop CPU p95 | 2026-09-26 |
 | p3d-076 (todo149) | todo149 | building sides not to perspective | open | — | 2026-09-25 |
 | p3d-077 (todo150) | todo150 | START banner: raise to overhang height, center the START text | open | — | 2026-09-25 |
 | p3d-078 (todo151) | todo151 | player car collides with road rail too prematurely (collision-box inaccuracy) | open | — | 2026-09-25 |
