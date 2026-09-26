@@ -65,4 +65,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
 | td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | in_progress | Muse | PR #84 | 2026-09-25 |
 | td-057 | Signaling wire-key mismatch: server speaks t, client speaks type — converge on one key | open | — | — | 2026-09-25 |
-| td-058 | net.gd never answers server ping — peers reaped after ~60s | open | — | — | 2026-09-25 |
+| td-058 | net.gd never answers server ping — peers reaped after ~60s | in_review | Codex | PR #89 | 2026-09-26 |
