@@ -68,3 +68,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-058 | net.gd never answers server ping — peers reaped after ~60s | finished 2026-09-26 — PR #89 parked, ship queued | Codex | PR #89 | 2026-09-26 |
 | td-059 | Multiplayer button missing on the live site — live export (2026-09-25 18:41Z) predates the multiplayer merges; publish chain pending (merge #89/#91, re-export, publish-web, live verify) | open | — | — | 2026-09-26 |
 | td-060 | webgl-smoke "Verify ordinary loading and immediate race entry" fails repo-wide: entry.mjs hard-coded tap (360,607) hits SHUTO C1 after the MULTIPLAYER button shifted the menu layout | in_review | Codex | PR #94 | 2026-09-26 |
+| td-061 | Can't enter driver name on mobile (typing fails) — Godot LineEdit virtual keyboard unreliable on Android Chrome; fix via native HTML input overlay | done | Muse | PR #97, live 94ff2daf | 2026-09-26 |
