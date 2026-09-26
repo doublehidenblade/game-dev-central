@@ -61,10 +61,10 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | merged 2026-09-25 (PR #82) | — | PR #82 | 2026-09-26 |
 | td-052 | Online multiplayer: lobby UI (host room / join by code) | merged 2026-09-25 (PR #83) | — | PR #83 | 2026-09-26 |
 | td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | merged 2026-09-25 (PR #85) | — | PR #85 | 2026-09-26 |
-| td-054 | Online multiplayer: 2–4 player integration test (queued behind signaling deploy) | queued | — | — | 2026-09-25 |
+| td-054 | Online multiplayer: 2–4 player integration test (queued behind signaling deploy) | in_progress | watchdog-subagent (refired 2026-09-26T10:35Z; prior 08:35Z attempt silent 2h) | — | 2026-09-26 |
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
 | td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | merged 2026-09-25 (PR #84) | — | PR #84 | 2026-09-26 |
 | td-057 | Signaling wire-key mismatch: server speaks t, client speaks type — converge on one key | merged 2026-09-26 (PR #90) — live verify pending under td-059 | — | PR #90 | 2026-09-26 |
-| td-058 | net.gd never answers server ping — peers reaped after ~60s | finished 2026-09-26 — PR #89 parked, ship queued | Codex | PR #89 | 2026-09-26 |
-| td-059 | Multiplayer button missing on the live site — live export (2026-09-25 18:41Z) predates the multiplayer merges; publish chain pending (merge #89/#91, re-export, publish-web, live verify) | open | — | — | 2026-09-26 |
-| td-060 | webgl-smoke "Verify ordinary loading and immediate race entry" fails repo-wide: entry.mjs hard-coded tap (360,607) hits SHUTO C1 after the MULTIPLAYER button shifted the menu layout | in_progress | Codex | — | 2026-09-26 |
+| td-058 | net.gd never answers server ping — peers reaped after ~60s | merged 2026-09-26 (PR #89, 01:11Z) — heartbeat pong, live-verified under td-059 | Codex | PR #89 | 2026-09-26 |
+| td-059 | Multiplayer button missing on the live site — PUBLISHED 2026-09-26 (de15deec), LIVE-VERIFIED: button visible, rooms XEB67Y/BQ5VRJ created, 2-player join w/ peer-joined, 75s+ survival (4 heartbeats), WebRTC SDP/ICE flowing, +30% speed (1.3) live | done | Muse | PR #96 | 2026-09-26 |
+| td-060 | webgl-smoke "Verify ordinary loading and immediate race entry" fails repo-wide: entry.mjs hard-coded tap (360,607) hits SHUTO C1 after the MULTIPLAYER button shifted the menu layout | merged 2026-09-26 (PR #95, 05:20Z) — keyboard-shortcut race entry; PR #94 closed unmerged | Muse (watchdog failover) | PR #95 | 2026-09-26 |
