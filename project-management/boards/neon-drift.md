@@ -57,7 +57,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-093 (todo166) | todo166 | other car sprites not showing sides when next to player (phone QA 2026-09-24) | merged — PR #56 (cron ship 2026-09-25, all 67 correctness/visual CI cases pass; CPU-only f… | — | 2026-09-25 |
 | p3d-094 (todo167) | todo167 | other cars run over obstacles without reacting or dodging (phone QA 2026-09-24) | open | — | 2026-09-25 |
 | p3d-095 (todo168) | todo168 | building sides still dead horizontal instead of 3D perspective (phone QA 2026-09-24) | open | — | 2026-09-25 |
-| p3d-096 (todo169) | todo169 | start sign still too low and in the way (phone QA 2026-09-24) | in_progress | Codex worker | 2026-09-25 |
+| p3d-096 (todo169) | todo169 | start sign still too low and in the way (phone QA 2026-09-24) | blocked — PR #61 correctness/visual green; repeated pre-existing desktop CPU perf gate red | Codex worker | 2026-09-25 |
 | p3d-097 (todo170) | todo170 | bridge-exit CPU p95 perf check is flaky on CI (infra noise, not a game regression) | open | — | 2026-09-25 |
 | p3d-098 (todo171) | todo171 | PR #56 after-evidence shows rear sprite, not side sprite (Craig QA 2026-09-25) | merged — PR #60 squash-merged by cron 2026-09-25T22:28Z as 0e56269 (CI perf-gate red = pre-existing main failure, p3d-097 infra); dup PR #58 closed | — | 2026-09-25 |
 | p3d-099 (todo172) | todo172 | further car renders on top of the player car (Craig QA 2026-09-25) | merged — PR #59 (p3d-099: correct car painter order) squash-merged 2026-09-25T20:32:46Z as 5f4c9fee, by cron | — | 2026-09-25 |
