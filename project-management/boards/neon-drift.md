@@ -47,7 +47,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-083 (todo156) | todo156 | split/merge fork not readable in gameplay | open — unassigned | — | 2026-09-25 |
 | p3d-084 (todo157) | todo157 | feature banners look like floating debug boxes | open — unassigned | — | 2026-09-25 |
 | p3d-085 (todo158) | todo158 | water must extend vertically toward the horizon in perspective (follow-up to p3d-074) | merged | — | 2026-09-25 |
-| p3d-086 (todo159) | todo159 | roadside walls grey not blue (fix wall sprite texture, not canvas) | open | — | 2026-09-25 |
+| p3d-086 (todo159) | todo159 | roadside walls grey not blue (fix wall sprite texture, not canvas) | in_review | Codex worker | 2026-09-26 |
 | p3d-087 (todo160) | todo160 | dirt terrain brown not blue (fix dirt sprite texture, not canvas) | merged | — | 2026-09-25 |
 | p3d-088 (todo161) | todo161 | refresh stale harbor-desktop-linux.png snapshot after p3d-085 water projection (CI red on main) | open | — | 2026-09-25 |
 | p3d-089 (todo162) | todo162 | investigate city CPU render p95 regression after p3d-085 (31.7ms vs 25ms budget) | open | — | 2026-09-25 |
