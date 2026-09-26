@@ -57,12 +57,13 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-049 | player car too large; shrink to opponent car size (phone QA 2026-09-25) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 
 Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.github.io/tokyo-drift-3d-shuto-web/) is live per td-026. Verify live before claiming shipped.
-| td-050 | Online multiplayer: signaling server (room codes + WebRTC signaling) | in_review | Muse | PR #81 | 2026-09-25 |
-| td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | in_review | Muse | PR #82 | 2026-09-25 |
-| td-052 | Online multiplayer: lobby UI (host room / join by code) | in_review | Muse | PR #83 | 2026-09-25 |
-| td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | in_review | Muse | PR #85 | 2026-09-25 |
+| td-050 | Online multiplayer: signaling server (room codes + WebRTC signaling) | merged 2026-09-25 (PR #81) | — | PR #81 | 2026-09-26 |
+| td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | merged 2026-09-25 (PR #82) | — | PR #82 | 2026-09-26 |
+| td-052 | Online multiplayer: lobby UI (host room / join by code) | merged 2026-09-25 (PR #83) | — | PR #83 | 2026-09-26 |
+| td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | merged 2026-09-25 (PR #85) | — | PR #85 | 2026-09-26 |
 | td-054 | Online multiplayer: 2–4 player integration test (queued behind signaling deploy) | queued | — | — | 2026-09-25 |
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
-| td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | in_progress | Muse | PR #84 | 2026-09-25 |
-| td-057 | Signaling wire-key mismatch: server speaks t, client speaks type — converge on one key | open | — | — | 2026-09-25 |
-| td-058 | net.gd never answers server ping — peers reaped after ~60s | in_review | Codex | PR #89 | 2026-09-26 |
+| td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | merged 2026-09-25 (PR #84) | — | PR #84 | 2026-09-26 |
+| td-057 | Signaling wire-key mismatch: server speaks t, client speaks type — converge on one key | merged 2026-09-26 (PR #90) — live verify pending under td-059 | — | PR #90 | 2026-09-26 |
+| td-058 | net.gd never answers server ping — peers reaped after ~60s | finished 2026-09-26 — PR #89 parked, ship queued | Codex | PR #89 | 2026-09-26 |
+| td-059 | Multiplayer button missing on the live site — live export (2026-09-25 18:41Z) predates the multiplayer merges; publish chain pending (merge #89/#91, re-export, publish-web, live verify) | open | — | — | 2026-09-26 |
