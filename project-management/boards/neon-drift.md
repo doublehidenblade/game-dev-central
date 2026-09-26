@@ -53,7 +53,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-089 (todo162) | todo162 | investigate city CPU render p95 regression after p3d-085 (31.7ms vs 25ms budget) | open | — | 2026-09-25 |
 | p3d-090 (todo163) | todo163 | land terrain renders blue in some parts (phone QA 2026-09-24) | merged (PR #53 squash-merged by cron 2026-09-25T06:46Z, sha d5eed4f8; publish-web dispatch… | — | 2026-09-25 |
 | p3d-091 (todo164) | todo164 | land and water don't stretch to the horizon in some parts (phone QA 2026-09-24) | merged (PR #54 squash-merged by cron 2026-09-25T08:05Z, sha a95321ff; terrain/water projec… | — | 2026-09-25 |
-| p3d-092 (todo165) | todo165 | terrain and water sprites look horizontally stretched (phone QA 2026-09-24) | open | — | 2026-09-25 |
+| p3d-092 (todo165) | todo165 | terrain and water sprites look horizontally stretched (phone QA 2026-09-24) | in_review | Codex | 2026-09-26 |
 | p3d-093 (todo166) | todo166 | other car sprites not showing sides when next to player (phone QA 2026-09-24) | merged — PR #56 (cron ship 2026-09-25, all 67 correctness/visual CI cases pass; CPU-only f… | — | 2026-09-25 |
 | p3d-094 (todo167) | todo167 | other cars run over obstacles without reacting or dodging (phone QA 2026-09-24) | open | — | 2026-09-25 |
 | p3d-095 (todo168) | todo168 | building sides still dead horizontal instead of 3D perspective (phone QA 2026-09-24) | open | — | 2026-09-25 |
