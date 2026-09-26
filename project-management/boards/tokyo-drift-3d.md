@@ -61,7 +61,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | merged 2026-09-25 (PR #82) | — | PR #82 | 2026-09-26 |
 | td-052 | Online multiplayer: lobby UI (host room / join by code) | merged 2026-09-25 (PR #83) | — | PR #83 | 2026-09-26 |
 | td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | merged 2026-09-25 (PR #85) | — | PR #85 | 2026-09-26 |
-| td-054 | Online multiplayer: 2–4 player integration test | open — re-dispatched 2026-09-26 ~20:05Z to Codex Tokyo for FRESH full acceptance (signaling restored; prior Phase-3 probe failures td-062..td-065 merged live) | Codex Tokyo | — | 2026-09-26 |
+| td-054 | Online multiplayer: 2–4 player integration test | open — Codex task created & started 2026-09-26 20:09Z for FRESH full acceptance (signaling restored; prior Phase-3 probe failures td-062..td-065 merged live) | Codex Tokyo | [task](https://chatgpt.com/codex/cloud/tasks/task_e_6ab8263c22c0832eb73a9535eee7b3e2) | 2026-09-26 |
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
 | td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | merged 2026-09-25 (PR #84) | — | PR #84 | 2026-09-26 |
 | td-057 | Signaling wire-key mismatch: server speaks t, client speaks type — converge on one key | merged 2026-09-26 (PR #90) — live verify pending under td-059 | — | PR #90 | 2026-09-26 |
