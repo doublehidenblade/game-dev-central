@@ -61,7 +61,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | merged 2026-09-25 (PR #82) | — | PR #82 | 2026-09-26 |
 | td-052 | Online multiplayer: lobby UI (host room / join by code) | merged 2026-09-25 (PR #83) | — | PR #83 | 2026-09-26 |
 | td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | merged 2026-09-25 (PR #85) | — | PR #85 | 2026-09-26 |
-| td-054 | Online multiplayer: 2–4 player integration test (queued behind signaling deploy) | open — no available worker (outcome 3) | — (3 watchdog-subagent attempts went silent 2026-09-26: 03:22Z/5h, 08:35Z/2h, 10:35Z/1.5h; no 4th refire per stop-after-2 policy; escalated to Craig) | — | 2026-09-26 |
+| td-054 | Online multiplayer: 2–4 player integration test (queued behind signaling deploy) | open — no available worker (outcome 3) | — (3 watchdog-subagent attempts went silent 2026-09-26: 03:22Z/5h, 08:35Z/2h, 10:35Z/1.5h; 12:04Z env-probe also silent (no branch/findings); no further refire per stop-after-2; escalated to Craig) | — | 2026-09-26 |
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
 | td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | merged 2026-09-25 (PR #84) | — | PR #84 | 2026-09-26 |
 | td-057 | Signaling wire-key mismatch: server speaks t, client speaks type — converge on one key | merged 2026-09-26 (PR #90) — live verify pending under td-059 | — | PR #90 | 2026-09-26 |
