@@ -89,3 +89,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-079 | Host starts race but joiner stuck on "waiting for host to start" — race must not start until all players loaded | in_review | Codex worker | Source PR #114; local ready-gate and two-client protocol evidence green, CI/live validation pending | 2026-09-26 |
 | td-080 | Client-side multiplayer debug info (copyable) | in_progress | Codex worker | Folded into td-079 source PR #114 per Craig | 2026-09-26 |
 | td-081 | Server-side room event logging | in_progress | Codex worker | Folded into td-079 source PR #114 per Craig | 2026-09-26 |
+| td-083 | Multiplayer end-of-race rank screen: finishing order, total times, DNF, race-again/quit | in_review | Codex worker | tokyo-drift-3d#116 | 2026-09-26 |
