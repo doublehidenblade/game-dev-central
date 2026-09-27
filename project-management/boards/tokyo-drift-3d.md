@@ -93,3 +93,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-084 | JOIN screen: available room list and typeable room-code bar gone | in_review | Codex worker | tokyo-drift-3d#119 | 2026-09-26 |
 | td-085 | Share-link join: copy button after room creation, deep-link guest join with name/color pick | blocked | Codex worker | source PR #123 merged; Actions runner allocation blocks publication | 2026-09-26 |
 | td-087 | Live multiplayer race starts without a client car (joiner sees no car/countdown) | merged 2026-09-27 (tokyo-drift-3d [PR #133](https://github.com/doublehidenblade/tokyo-drift-3d/pull/133), squash 4aea3c2a, shipped by watchdog; joiner race-entry/countdown synchronized) — on main, not yet live (push-on-request) | Codex worker | Source PR #133; found by td-054 live probe ([PR #132](https://github.com/doublehidenblade/tokyo-drift-3d/pull/132)); task file `godot/docs/tasks/td-087.md` | 2026-09-27 |
+| td-088 | Default driver name never reshuffles — every joiner is panda996; reshuffle a random default per join (Craig 2026-09-27) | open | — | — | 2026-09-27 |
+| td-089 | Room-code/name text input stays visible after the match starts (Craig 2026-09-27) | open | — | — | 2026-09-27 |
+| td-090 | Multiplayer race HUD shows no position like 1/2 (Craig 2026-09-27) | open | — | — | 2026-09-27 |
+| td-091 | Multiplayer race HUD shows no health bar or nitro bar (Craig 2026-09-27) | open | — | — | 2026-09-27 |
