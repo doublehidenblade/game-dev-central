@@ -49,7 +49,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-085 (todo158) | todo158 | water must extend vertically toward the horizon in perspective (follow-up to p3d-074) | merged | — | 2026-09-25 |
 | p3d-086 (todo159) | todo159 | roadside walls grey not blue (fix wall sprite texture, not canvas) | in_review | Codex worker | 2026-09-26 |
 | p3d-087 (todo160) | todo160 | dirt terrain brown not blue (fix dirt sprite texture, not canvas) | merged | — | 2026-09-25 |
-| p3d-088 (todo161) | todo161 | refresh stale harbor-desktop-linux.png snapshot after p3d-085 water projection (CI red on main) | open | — | 2026-09-25 |
+| p3d-088 (todo161) | todo161 | refresh stale harbor-desktop-linux.png snapshot after p3d-085 water projection (CI red on main) | merged — PR #52 squash-merged 2026-09-27T20:58Z as b2aa9ab6; harbor snapshot green on 23:50Z post-merge CI run 36360004498 | — | 2026-09-27 |
 | p3d-089 (todo162) | todo162 | investigate city CPU render p95 regression after p3d-085 (31.7ms vs 25ms budget) | merged — [PR #86](https://github.com/doublehidenblade/neon-drift/pull/86) squash-merged 2026-09-27T19:37Z as df9af42 (docs/evidence only, no game-code changes); merged-not-live, in release ledger | — | 2026-09-27 |
 | p3d-090 (todo163) | todo163 | land terrain renders blue in some parts (phone QA 2026-09-24) | merged (PR #53 squash-merged by cron 2026-09-25T06:46Z, sha d5eed4f8; publish-web dispatch… | — | 2026-09-25 |
 | p3d-091 (todo164) | todo164 | land and water don't stretch to the horizon in some parts (phone QA 2026-09-24) | merged (PR #54 squash-merged by cron 2026-09-25T08:05Z, sha a95321ff; terrain/water projec… | — | 2026-09-25 |
