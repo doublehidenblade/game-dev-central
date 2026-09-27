@@ -64,6 +64,8 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-100 (todo174) | todo174 | mobile loader sticks at LOADING 99%, START RACE never appears (regression from PR #63) | merged — [PR #74](https://github.com/doublehidenblade/neon-drift/pull/74) squash-merged by cron 2026-09-27T04:46Z as 866bf6a; live pending Craig's push request | — | 2026-09-27 |
 | p3d-101 (todo175) | todo175 | Again, a middle out of nowhere bridge, with no roads leading out of both ends | merged — PR #71 squash-merged by cron 2026-09-27T00:01Z as a9e395ec (perf-gate red = pre-existing infra flake p3d-097) — NOT live yet: publish-web blocked, GitHub Actions budget exhausted (job 'not started because an Actions budget is preventing further use', 23:59Z); needs Craig: raise Actions spending limit | — | 2026-09-26 |
 | p3d-102 (todo176) | todo176 | race ends on lap 2 before player crosses the finish line (Craig QA 2026-09-27) | open | — | 2026-09-27 |
+| p3d-103 (todo177) | todo177 | HUD heart health icons unreadable on phone — should face the player, not sideways (Craig QA 2026-09-27) | open | — | 2026-09-27 |
+| p3d-104 (todo178) | todo178 | tapping the nitro button also steers the car (Craig QA 2026-09-27) | open | — | 2026-09-27 |
 
 Related (not a task file): bridge **128-2** (wires/poles too thin) — `fixed_pending_verify` in qa-registry, still visible on Craig's live screenshot 2026-09-23 09:42 CDT after PR #19. Do not close without Craig's phone verdict.
 
