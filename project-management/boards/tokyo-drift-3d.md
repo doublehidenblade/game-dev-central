@@ -91,4 +91,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-081 | Server-side room event logging | in_review | Codex worker | PR #114; structured/debug_dump/receipt evidence green, deploy/live validation pending | 2026-09-26 |
 | td-083 | Multiplayer end-of-race rank screen: finishing order, total times, DNF, race-again/quit | in_review | Codex worker | tokyo-drift-3d#116 | 2026-09-26 |
 | td-084 | JOIN screen: available room list and typeable room-code bar gone | in_review | Codex worker | tokyo-drift-3d#119 | 2026-09-26 |
-| td-085 | Share-link join: copy button after room creation, deep-link guest join with name/color pick | in_review | Codex worker | tokyo-drift-3d PR pending | 2026-09-26 |
+| td-085 | Share-link join: copy button after room creation, deep-link guest join with name/color pick | blocked | Codex worker | source PR #123 merged; Actions runner allocation blocks publication | 2026-09-26 |
