@@ -50,7 +50,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-086 (todo159) | todo159 | roadside walls grey not blue (fix wall sprite texture, not canvas) | in_review | Codex worker | 2026-09-26 |
 | p3d-087 (todo160) | todo160 | dirt terrain brown not blue (fix dirt sprite texture, not canvas) | merged | — | 2026-09-25 |
 | p3d-088 (todo161) | todo161 | refresh stale harbor-desktop-linux.png snapshot after p3d-085 water projection (CI red on main) | open | — | 2026-09-25 |
-| p3d-089 (todo162) | todo162 | investigate city CPU render p95 regression after p3d-085 (31.7ms vs 25ms budget) | open | — | 2026-09-25 |
+| p3d-089 (todo162) | todo162 | investigate city CPU render p95 regression after p3d-085 (31.7ms vs 25ms budget) | in_progress | Codex worker | 2026-09-27 |
 | p3d-090 (todo163) | todo163 | land terrain renders blue in some parts (phone QA 2026-09-24) | merged (PR #53 squash-merged by cron 2026-09-25T06:46Z, sha d5eed4f8; publish-web dispatch… | — | 2026-09-25 |
 | p3d-091 (todo164) | todo164 | land and water don't stretch to the horizon in some parts (phone QA 2026-09-24) | merged (PR #54 squash-merged by cron 2026-09-25T08:05Z, sha a95321ff; terrain/water projec… | — | 2026-09-25 |
 | p3d-092 (todo165) | todo165 | terrain and water sprites look horizontally stretched (phone QA 2026-09-24) | merged (PR #63, 2026-09-26T04:50Z) — mobile LOADING-99% regression filed as p3d-100 | Muse (watchdog failover) | PR #63 | 2026-09-26 |
