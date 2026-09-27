@@ -84,7 +84,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-074 | JOIN with empty/invalid room code starts solo game instead of error | blocked — implementation merged; publish-game cannot allocate a runner (two zero-step failures, run 36279975880) | Codex worker | tokyo-drift-3d#113 | 2026-09-26 |
 | td-075 | "Quit to room" quits to main menu; need room lobby page with player list | in_review | worker-td-075 | tokyo-drift-3d#115 | 2026-09-26 |
 | td-076 | Multiplayer: show player name above car in their color | in_review | Codex worker | [source PR #127](https://github.com/doublehidenblade/tokyo-drift-3d/pull/127) | 2026-09-27 |
-| td-077 | Multiplayer: no traffic / AI cars | open — filed 2026-09-26 from Craig's phone QA | unassigned | — | 2026-09-26 |
+| td-077 | Multiplayer: no traffic / AI cars | MERGED 2026-09-27 (PR #130, squash 20fa37c0 by watchdog cron — NOT live; in pending.json, goes live only on Craig's push request) | — | #130 | 2026-09-27 |
 | td-078 | Multiplayer: no nitro / hearts pickups | validated | codex-worker | tokyo-drift-3d#125 merged as 1b5fbd0; WebGL2/native green; 2-client replication passed | 2026-09-27 |
 | td-079 | Host starts race but joiner stuck on "waiting for host to start" — race must not start until all players loaded | in_review | Codex worker | Source PR #114; local ready-gate and two-client protocol evidence green, CI/live validation pending | 2026-09-26 |
 | td-080 | Client-side multiplayer debug info (copyable) | in_review | Codex worker | PR #114; local overlay/copy evidence green, exact-head CI and live validation pending | 2026-09-26 |
