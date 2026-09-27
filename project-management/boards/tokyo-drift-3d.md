@@ -98,3 +98,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-090 | Multiplayer race HUD shows no position like 1/2 (Craig 2026-09-27) | open | — | — | 2026-09-27 |
 | td-091 | Multiplayer race HUD shows no health bar or nitro bar (Craig 2026-09-27) | merged — [PR #136](https://github.com/doublehidenblade/tokyo-drift-3d/pull/136) squash-merged 2026-09-27T19:40Z as f519ede (health+nitro bars on host+client, evidence pair inspected); merged-not-live, in release ledger | — | 2026-09-27 |
 | td-092 | Smoke step 9 td084-join-dialog red on main: RoomListMock.join_game takes 3 args, production takes 4 since td-088 (test-only) | open | — | — | 2026-09-27 |
+| td-093 | Guest frozen at start line after host starts race (Craig 2026-09-27 phone QA; host drives off, guest sees both cars unmoved) | open | — | — | 2026-09-27 |
