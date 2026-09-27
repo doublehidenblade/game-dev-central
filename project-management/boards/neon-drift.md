@@ -13,7 +13,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | todo119 | todo119 | Systemic projection, biome transitions and layered tunnels | systemic implementation and local visual review complete; full QA/Browser CI pending. | — | 2026-09-25 |
 | todo120 | todo120 | Phone feedback on v119 (tunnel, camera, shadows, lamps, water, terrain) | systemic implementation complete; full QA and exact-head Browser CI pending. | — | 2026-09-25 |
 | todo121 | todo121 | Phone feedback on v120 (PR #7 world-lighting) | systemic implementation complete; full visual/CI acceptance pending. | — | 2026-09-25 |
-| todo122 | todo122 | PR #8 build phone QA + Slipstream reference | open | — | 2026-09-25 |
+| todo122 | todo122 | PR #8 build phone QA + Slipstream reference | in_review | Codex | 2026-09-27 |
 | todo123 | todo123 | TODO 122 publication audit | unknown | — | 2026-09-25 |
 | todo126 | todo126 | Complete public-repository publication migration | unknown | — | 2026-09-25 |
 | todo127 | todo127 | Reconcile TODO 126 completion evidence | unknown | — | 2026-09-25 |
