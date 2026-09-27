@@ -66,7 +66,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-102 (todo176) | todo176 | race ends on lap 2 before player crosses the finish line (Craig QA 2026-09-27) | in review — [draft PR #84](https://github.com/doublehidenblade/neon-drift/pull/84); fix/evidence complete, exact-head CI 97/99 with unrelated bridge golden/perf gates recorded | worker | 2026-09-27 |
 | p3d-103 (todo177) | todo177 | HUD heart health icons unreadable on phone — should face the player, not sideways (Craig QA 2026-09-27) | open | — | 2026-09-27 |
 | p3d-104 (todo178) | todo178 | tapping the nitro button also steers the car (Craig QA 2026-09-27) | open | — | 2026-09-27 |
-| p3d-105 (todo179) | todo179 | drawCompactHUD() referenced but never defined — HUD throws on viewports with H<500 (latent crash from p3d-103 work log 2026-09-27) | open | — | 2026-09-27 |
+| p3d-105 (todo179) | todo179 | drawCompactHUD() referenced but never defined — HUD throws on viewports with H<500 (latent crash from p3d-103 work log 2026-09-27) | closed — invalid: drawCompactHUD() was always defined (renderer.js:871, since 2026-09-21); verified working at H=480 on 2026-09-27, no code change — see [PR #85](https://github.com/doublehidenblade/neon-drift/pull/85) | — | 2026-09-27 |
 
 Related (not a task file): bridge **128-2** (wires/poles too thin) — `fixed_pending_verify` in qa-registry, still visible on Craig's live screenshot 2026-09-23 09:42 CDT after PR #19. Do not close without Craig's phone verdict.
 
