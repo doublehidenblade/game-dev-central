@@ -37,7 +37,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-073 (todo146) | todo146 | player car rear view angled right | unknown | — | 2026-09-25 |
 | p3d-074 (todo147) | todo147 | water color and extent | in_review | — | 2026-09-25 |
 | p3d-075 (todo148) | todo148 | arch bridge as short tunnel (tunnel interim) | in_review | PR [#67](https://github.com/doublehidenblade/neon-drift/pull/67) — exact-head Browser CI blocked by desktop CPU p95 | 2026-09-26 |
-| p3d-076 (todo149) | todo149 | building sides not to perspective | open | — | 2026-09-25 |
+| p3d-076 (todo149) | todo149 | building sides not to perspective | merged (neon PR #73, squash-merged by cron 2026-09-27T02:29Z as a39ff4a10; renderer.js +33/-4: second-row facades routed through shared building class with 8 world-depth projection slices; matched before/after QA pairs todos/todo149/qa/p3d-076-criterion-1-{before,after}.png + numeric projection test (<=1e-9); NOT live — awaiting Craig's push) | — | 2026-09-27 |
 | p3d-077 (todo150) | todo150 | START banner: raise to overhang height, center the START text | open | — | 2026-09-25 |
 | p3d-078 (todo151) | todo151 | player car collides with road rail too prematurely (collision-box inaccuracy) | open | — | 2026-09-25 |
 | p3d-079 (todo152) | todo152 | collision spark and nitro collect spark too small | open | — | 2026-09-25 |
