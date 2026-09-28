@@ -11,8 +11,8 @@ Seeded from the agent watchdog state 2026-09-24 00:20 UTC. Entries marked `unver
 | claude-code:tokyo-drift-3d | Claude Code | unverified — was td-010 C1 signs/PBR (PR #38); something merged by cron | WORKING (streaming tool calls) | 2026-09-24 00:00 |
 | claude-code:tokyo-drift-3d-textures | Claude Code | imagegen 6 PNGs — STALLED: GEMINI_API_KEY not set, 0/6 done; duplicate-session alert (2 extra live sessions + error-state setup session) | STALLED | 2026-09-23 23:05 |
 
-| codex:td109-sedan | Codex subagent | td-109 — reference-grounded four-door sedan | WORKING — dispatched via available coordinator channel; no branch/PR yet | 2026-09-28 21:49 |
-| codex:td110-wedge | Codex subagent | td-110 — reference-grounded orange wedge (`taxi.glb`) | WORKING — dispatched via available coordinator channel; no branch/PR yet | 2026-09-28 21:49 |
-| codex:td111-van | Codex subagent | td-111 — reference-grounded compact van | WORKING — dispatched via available coordinator channel; no branch/PR yet | 2026-09-28 21:49 |
+| codex:td109-sedan | Codex subagent | td-109 — reference-grounded four-door sedan | UNVERIFIED after Muse handoff — branch feat/td-109-dr30-sedan observed, PR not found; session not visible | 2026-09-28 22:04 |
+| codex:td110-wedge | Codex subagent | td-110 — reference-grounded orange wedge (`taxi.glb`) | UNVERIFIED after Muse handoff — branch feat/td-109-dr30-sedan observed, PR not found; session not visible | 2026-09-28 22:04 |
+| codex:td111-van | Codex subagent | td-111 — reference-grounded compact van | UNVERIFIED after Muse handoff — branch feat/td-109-dr30-sedan observed, PR not found; session not visible | 2026-09-28 22:04 |
 
 Rules: never nudge a working session; never duplicate a live session; fresh session per task (never accumulate a week of transcript); stale sessions sync/rebase onto main before resuming; stop after 2 identical failures and report.
