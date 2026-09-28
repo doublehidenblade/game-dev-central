@@ -30,7 +30,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-066 (todo139) | todo139 | remove the broken secondary roads | shipped — PR #25 (fix/p3d-066-remove-secondary-roads) merged 2026-09-24T08:38:01Z as 76109… | — | 2026-09-25 |
 | p3d-067 (todo140) | todo140 | roadblock | shipped — PR #34 merged 2026-09-24T03:44:18Z as 97a7029d, publish-web green, live. Craig's… | — | 2026-09-25 |
 | p3d-068 (todo141) | todo141 | floating torii gate | in_review — merged to main (deef2429), live verified 2026-09-23 20:10 MDT; awaiting Craig'… | — | 2026-09-25 |
-| p3d-069 (todo142) | todo142 | neon complex roads (second map, proof of concept) | in_progress | Codex | 2026-09-28 |
+| p3d-069 (todo142) | todo142 | neon complex roads (second map, proof of concept) | in_review | Codex | 2026-09-28 |
 | p3d-070 (todo143) | todo143 | : player car sprite replaced with Slipstream-style 12-view set | blocked | — | 2026-09-25 |
 | todo144 | todo144 | Browser CI perf assertions flake on PR branches (shared-runner variance) | unknown | — | 2026-09-25 |
 | p3d-072 (todo145) | todo145 | start banner replaces torii + opponent lineup at start | unknown | — | 2026-09-25 |
