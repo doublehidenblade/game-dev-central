@@ -59,6 +59,11 @@ GAME_LINKS = {
     "tokyo": "https://doublehidenblade.github.io/tokyo-drift-3d-web/",
     "neon": "https://doublehidenblade.github.io/neon-drift-web/",
 }
+# Evidence screenshots live in the shared repo; the report links to each
+# image's blob page (one link per image) instead of embedding image bytes.
+# New evidence must be committed under this path for its link to resolve.
+EVIDENCE_BLOB_BASE = ("https://github.com/doublehidenblade/game-dev-central"
+                      "/blob/main/project-management/release-evidence")
 
 
 def load_json(path, default):
@@ -90,8 +95,9 @@ def report_game(game, pending_items, baseline):
     lines.append("")
     lines.append(f"Play it: {GAME_LINKS.get(game, '')}")
     if baseline:
-        lines.append(f"Last live: {baseline.get('sha', '?')[:8]} "
-                     f"({baseline.get('at', '?')})")
+        sha = baseline.get('web_sha') or baseline.get('sha', '?')
+        at = baseline.get('web_published_at') or baseline.get('published_at') or baseline.get('at', '?')
+        lines.append(f"Last live: {sha[:8]} ({at})")
     lines.append("")
     lines.append(f"{len(pending_items)} change(s) merged, not yet live.")
     lines.append("")
@@ -108,7 +114,7 @@ def report_game(game, pending_items, baseline):
             nonvisual.append((task, short, item))
 
     if visual:
-        lines.append("## Visual fixes (screenshots below)")
+        lines.append("## Visual fixes (screenshot links below)")
         lines.append("")
         for task, short, item, paired, extra in visual:
             lines.append(f"### {short} ({task}, PR #{item.get('pr', '?')})")
@@ -116,11 +122,11 @@ def report_game(game, pending_items, baseline):
             lines.append("")
             for b, a in paired:
                 lines.append(f"Before / after:")
-                lines.append(f"![{task} before](sandbox://workspace/game-releases/evidence/{b})")
-                lines.append(f"![{task} after](sandbox://workspace/game-releases/evidence/{a})")
+                lines.append(f"- [{task} before]({EVIDENCE_BLOB_BASE}/{b})")
+                lines.append(f"- [{task} after]({EVIDENCE_BLOB_BASE}/{a})")
                 lines.append("")
             for x in extra:
-                lines.append(f"![{task}](sandbox://workspace/game-releases/evidence/{x})")
+                lines.append(f"- [{task}]({EVIDENCE_BLOB_BASE}/{x})")
                 lines.append("")
 
     if nonvisual:
