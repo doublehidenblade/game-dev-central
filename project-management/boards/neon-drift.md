@@ -69,7 +69,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | p3d-105 (todo179) | todo179 | drawCompactHUD() referenced but never defined — HUD throws on viewports with H<500 (latent crash from p3d-103 work log 2026-09-27) | closed — invalid: drawCompactHUD() was always defined (renderer.js:871, since 2026-09-21); verified working at H=480 on 2026-09-27, no code change — see [PR #85](https://github.com/doublehidenblade/neon-drift/pull/85) | — | 2026-09-27 |
 | p3d-106 (todo180) | todo180 | bridge-near-desktop-linux.png snapshot stale by 5,813 px after mainline render changes (from p3d-088 work log 2026-09-27) | merged — [neon PR #87](https://github.com/doublehidenblade/neon-drift/pull/87) merged 2026-09-27T23:50:01Z (bridge-near snapshot refresh, test-only); NOT live — awaiting Craig's push; in release ledger | — | 2026-09-28 |
 | p3d-107 (todo181) | todo181 | Bridge just got removed? (Craig phone QA 2026-09-28) | in_review | Codex worker | 2026-09-28 |
-| p3d-108 (todo182) | todo182 | Split still isn't built, just changed a sign color, why? (Craig phone QA 2026-09-28) | in_progress | Codex worker | 2026-09-28 |
+| p3d-108 (todo182) | todo182 | Split still isn't built, just changed a sign color, why? (Craig phone QA 2026-09-28) | in_review | Codex worker | 2026-09-28 |
 
 Related (not a task file): bridge **128-2** (wires/poles too thin) — `fixed_pending_verify` in qa-registry, still visible on Craig's live screenshot 2026-09-23 09:42 CDT after PR #19. Do not close without Craig's phone verdict.
 
