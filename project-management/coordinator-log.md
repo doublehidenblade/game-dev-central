@@ -25,3 +25,10 @@ Append-only. Newest entries at the bottom. Every coordinator turn that changes d
 - Reconciled merged task rows included by that source from merged-not-live to LIVE in v25. td-104 remains blocked on Craig's next physical-phone `?mptrace=1` trace; publication of instrumentation is not evidence that the lag defect is fixed.
 - Release-report blocker: pinned v25 smoke [run #439](https://github.com/doublehidenblade/tokyo-drift-3d/actions/runs/36454471117) failed after export, before generating screenshot evidence. The v24 evidence package was recovered, but the required v24→v25 screenshot report is not complete. Do not claim visual acceptance from the prose changelog or the live build alone.
 - No Actions run, merge, or additional publication was triggered in this reconciliation.
+
+
+## 2026-09-28 17:54 UTC — backup coordinator: v25 phone-QA intake
+
+- Craig replayed multiplayer on v25 and reported three independent defects: guest-only old vehicle models, host/guest civilian-position divergence with ghost collisions, and rail-following slide despite steer-away. Exact quotes, acceptance criteria, and source-audit leads were committed as td-105/106/107 in Tokyo [PR #156](https://github.com/doublehidenblade/tokyo-drift-3d/pull/156); corresponding board rows are open/unassigned, not claimed or validated.
+- td-104 remains in review/blocked on the physical-phone trace. The opt-in `?mptrace=1` recorder's COPY/DOWNLOAD output remains on each phone; no host/guest trace JSON was found in repository or latest Actions artifacts. Craig's replay without shared JSON does not establish a measured lag root cause.
+- PR #156 also restores a repository-owned screenshot release report generator. v24-vs-v24 self-test yields matched pairs; v24-vs-v25 run #439 correctly exits incomplete because v25 produced no screenshot images. No Actions were dispatched, no runtime fix, merge, or publication was performed.
