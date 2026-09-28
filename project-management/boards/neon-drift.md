@@ -21,7 +21,7 @@ Live site: https://doublehidenblade.github.io/neon-drift-web/
 | todo129 | todo129 | Continue p3d-040 verification and publication | unknown | — | 2026-09-25 |
 | todo131 | todo131 | Address merged p3d-040 review findings | unknown | — | 2026-09-25 |
 | p3d-058 (todo132) | todo132 | directional traffic frames | unknown | — | 2026-09-25 |
-| p3d-060 (todo133) | todo133 | civilian sprite view by relative player distance | in_review | PR [#70](https://github.com/doublehidenblade/neon-drift/pull/70) | 2026-09-26 |
+| p3d-060 (todo133) | todo133 | civilian sprite view by relative player distance | in_review | PR [#70](https://github.com/doublehidenblade/neon-drift/pull/70) rebased + ready | 2026-09-28 |
 | p3d-061 (todo134) | todo134 | sprite size normalization and systematic sprite CI | merged | — | 2026-09-25 |
 | p3d-062 (todo135) | todo135 | civilian-vs-civilian and civilian-vs-obstacle collision | merged — PR #44 (civilian collision response) 2026-09-24T20:16Z, live; stale draft PR #24 superseded. Closure needs Craig's phone verdict | — | 2026-09-28 |
 | p3d-063 (todo136) | todo136 | overtaken civilian cars keep their own speed | merged — PR #29 2026-09-24T02:24Z (bbee229d), live | — | 2026-09-28 |
