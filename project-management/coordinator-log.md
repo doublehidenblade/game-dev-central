@@ -16,3 +16,19 @@ Append-only. Newest entries at the bottom. Every coordinator turn that changes d
 - Craig reported Muse unavailable. Reconciled current `neon-drift` and `tokyo-drift-3d` boards against open PRs; the 2026-09-24 worker registry is stale and does not prove live sessions. No explicit Muse-resumed marker was found in the coordinator log, so no existing worker was duplicated or nudged.
 - Dispatched one independent validator for neon-drift p3d-060, exact [PR #70](https://github.com/doublehidenblade/neon-drift/pull/70) head `23258078790063b79e9dccf1ebd3d531376492ff`. Validator directly inspected the close-pass criterion-1 before/after pair: near car gains a rear-dominant side view. Four mid/far PNGs were not readable through this connector and remain unverified. `todos/todo133/qa/full-qa.log` reports 100/103 with snapshot and CPU-performance failures; no exact-head green CI was found. Craig's physical-phone verdict is outstanding. Keep task in review; no acceptance, merge, Actions dispatch, or publish was performed.
 - Other active-looking rows and paused tasks were left alone pending fresh session evidence. This log is a backup handoff record, not proof of continuous worker-session visibility.
+
+
+## 2026-09-28 17:43 UTC — backup coordinator: v25 publication reconciliation
+
+- No explicit Muse-resumed/handoff marker was present. The worker registry remains stale (last-seen 2026-09-24), so no session was treated as live and no worker was duplicated or nudged.
+- Craig explicitly requested publication. Tokyo Drift 3D v25 is live from source `313bbdbc50c0e5383609582cdc7acf91eaaa45fd`: publisher [run #83](https://github.com/doublehidenblade/tokyo-drift-3d/actions/runs/36454938529), [main site](https://doublehidenblade.github.io/tokyo-drift-3d-web/), and [Shuto site](https://doublehidenblade.github.io/tokyo-drift-3d-shuto-web/).
+- Reconciled merged task rows included by that source from merged-not-live to LIVE in v25. td-104 remains blocked on Craig's next physical-phone `?mptrace=1` trace; publication of instrumentation is not evidence that the lag defect is fixed.
+- Release-report blocker: pinned v25 smoke [run #439](https://github.com/doublehidenblade/tokyo-drift-3d/actions/runs/36454471117) failed after export, before generating screenshot evidence. The v24 evidence package was recovered, but the required v24→v25 screenshot report is not complete. Do not claim visual acceptance from the prose changelog or the live build alone.
+- No Actions run, merge, or additional publication was triggered in this reconciliation.
+
+
+## 2026-09-28 17:54 UTC — backup coordinator: v25 phone-QA intake
+
+- Craig replayed multiplayer on v25 and reported three independent defects: guest-only old vehicle models, host/guest civilian-position divergence with ghost collisions, and rail-following slide despite steer-away. Exact quotes, acceptance criteria, and source-audit leads were committed as td-105/106/107 in Tokyo [PR #156](https://github.com/doublehidenblade/tokyo-drift-3d/pull/156); corresponding board rows are open/unassigned, not claimed or validated.
+- td-104 remains in review/blocked on the physical-phone trace. The opt-in `?mptrace=1` recorder's COPY/DOWNLOAD output remains on each phone; no host/guest trace JSON was found in repository or latest Actions artifacts. Craig's replay without shared JSON does not establish a measured lag root cause.
+- PR #156 also restores a repository-owned screenshot release report generator. v24-vs-v24 self-test yields matched pairs; v24-vs-v25 run #439 correctly exits incomplete because v25 produced no screenshot images. No Actions were dispatched, no runtime fix, merge, or publication was performed.
