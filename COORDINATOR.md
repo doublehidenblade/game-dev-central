@@ -28,3 +28,4 @@ This repo is the source of truth for Craig's game-dev agent team. If you are pic
 - **Never commit credentials, tokens, or secrets** to this repo or any game repo. This repo stays credential-free, always.
 - QA feedback to sessions goes as committed files under the game repo's `qa/<topic>/` with the exact repo-relative path — never as chat text alone.
 - Every release/PR report: inspected screenshots, what changed, who shipped it, remaining work, live link.
+- For a visual release, inspect the worker's task-level before/after pairs AND current-build screenshots from the exact release run. A failed smoke run may still be explicitly released for playtest, but missing or near-identical visual proof cannot be called reviewed or accepted. Require a specific written exemption only when the change is nonvisual.
