@@ -53,7 +53,7 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-045 | textures, props, signages to fill the Shuto scene (phone QA 2026-09-24) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-046 | Shuto second URL never published: publish-game.yml fails on stale candidate pointer | merged 2026-09-25 ~10:40Z — recovery-record PR #72 merged by watchdog cron; live screensho… | — | — | 2026-09-25 |
 | td-047 | Shuto road network regressed: splits/merges/overpass gone, stub roads cut off mid-air (phone QA 2026-09-25) | merged — PR #79 squash-merged by cron 2026-09-25T18:1xZ as 4a36d33 (CI green export+smoke)… | — | — | 2026-09-25 |
-| td-048 | Shuto C1 section-end road visibly terminates mid-air in player view (Craig QA 2026-09-25) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-048 | Shuto C1 section-end road visibly terminates mid-air in player view (Craig QA 2026-09-25) | superseded 2026-09-30 — folded into systemic td-137 (all mid-air stubs in one sweep) | — | — | 2026-09-30 |
 | td-049 | player car too large; shrink to opponent car size (phone QA 2026-09-25) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 
 Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.github.io/tokyo-drift-3d-shuto-web/) is live per td-026. Verify live before claiming shipped.
@@ -136,3 +136,6 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-132 | Guest sees the host car floating above the track | in_review — merged, LIVE in v31 (validator pending) | — | — | 2026-09-30 |
 | td-133 | Player color only tints the name tag; all cars render red | in_review — fix merged [PR #216](https://github.com/doublehidenblade/tokyo-drift-3d/pull/216) 2026-09-30; NOT live — awaiting Craig's push | — | 2026-09-30 |
 | td-134 | Traffic cars visually overhang their collision boxes (up to 6.32 m visual vs 3.8 m collider; pre-td-103 scale leftover) | open — filed 2026-09-30 from td-049 worker measurements ([PR #223](https://github.com/doublehidenblade/tokyo-drift-3d/pull/223) merged) | — | 2026-09-30 |
+| td-135 | Base map stutters/glitches briefly after race start on the bridge (v31 phone QA) | open | — | — | 2026-09-30 |
+| td-136 | Road/building textures missing on base map — flat graphite look (v31 phone QA; td-038 may have regressed) | open | — | — | 2026-09-30 |
+| td-137 | Shuto secondary road network: stubs end mid-air, merges/splits missing or broken — systemic road planning (v31 phone QA) | open | — | — | 2026-09-30 |
