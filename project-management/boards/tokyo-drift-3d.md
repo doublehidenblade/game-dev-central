@@ -61,7 +61,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | merged 2026-09-25 (PR #82) | — | PR #82 | 2026-09-26 |
 | td-052 | Online multiplayer: lobby UI (host room / join by code) | merged 2026-09-25 (PR #83) | — | PR #83 | 2026-09-26 |
 | td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | merged 2026-09-25 (PR #85) | — | PR #85 | 2026-09-26 |
-| td-054 | Online multiplayer: 2–4 player integration test | blocked — v31 readiness probe fixed 2026-09-30; second WebGL2 client twice stalled after engine startup before td-087 recheck | Codex Tokyo | [evidence PR](https://github.com/doublehidenblade/tokyo-drift-3d/pull/218) | 2026-09-30 |
+| td-054 | Online multiplayer: 2–4 player integration test | blocked — reduced 320×180 two-renderer smoke passed and td-087 empty-grid did not recur; two unchanged normal-race runs then starved guest delivery into CONNECTION LOST/DNF, so matrix stopped under two-identical-failures rule | Codex Tokyo | [evidence PR](https://github.com/doublehidenblade/tokyo-drift-3d/pull/218) | 2026-09-30 |
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
 | td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | merged 2026-09-25 (PR #84) | — | PR #84 | 2026-09-26 |
 | td-057 | Signaling wire-key mismatch: server speaks t, client speaks type — converge on one key | merged 2026-09-26 (PR #90) — live verify pending under td-059 | — | PR #90 | 2026-09-26 |
