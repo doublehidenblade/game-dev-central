@@ -135,3 +135,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-131 | Guest/host position desync: guest sees own car ~5m from where host sees it (air wall) | in_review — merged, LIVE in v31 (validator pending) | — | — | 2026-09-30 |
 | td-132 | Guest sees the host car floating above the track | in_review — merged, LIVE in v31 (validator pending) | — | — | 2026-09-30 |
 | td-133 | Player color only tints the name tag; all cars render red | in_review — fix merged [PR #216](https://github.com/doublehidenblade/tokyo-drift-3d/pull/216) 2026-09-30; NOT live — awaiting Craig's push | — | 2026-09-30 |
+| td-134 | Traffic cars visually overhang their collision boxes (up to 6.32 m visual vs 3.8 m collider; pre-td-103 scale leftover) | open — filed 2026-09-30 from td-049 worker measurements ([PR #223](https://github.com/doublehidenblade/tokyo-drift-3d/pull/223) merged) | — | 2026-09-30 |
