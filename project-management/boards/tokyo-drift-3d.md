@@ -139,3 +139,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-135 | Base map stutters/glitches briefly after race start on the bridge (v31 phone QA) | open | — | — | 2026-09-30 |
 | td-136 | Road/building textures missing on base map — flat graphite look (v31 phone QA; td-038 may have regressed) | merged 2026-09-30 — PR #239; in_review pending validator/Craig phone verdict | worker | [PR #239](https://github.com/doublehidenblade/tokyo-drift-3d/pull/239) | 2026-09-30 |
 | td-137 | Shuto secondary road network: stubs end mid-air, merges/splits missing or broken — systemic road planning (v31 phone QA) | open 2026-09-30 — Craig REJECTED PR #236: ch0493 slab terminal unacceptable, split/merge evidence unconvincing; iterating| Codex worker | — | 2026-09-30 |
+| td-138 | Hero player car at showroom fidelity — standing triangle-count bar (>=60k tris, target 80k+) for all vehicles (Craig phone 2026-09-30) | open | — | — | 2026-09-30 |
