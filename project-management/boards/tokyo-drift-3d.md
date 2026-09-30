@@ -12,16 +12,16 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | Task | Defect (Craig's wording) | Status | Owner | PR | Last update |
 |---|---|---|---|---|---|
 | td-001 | Stitch assembly: HWx3 + connector + BSx3 + bridge in Godot | done | — | — | 2026-09-25 |
-| td-002 | Drive integration: vehicle + waypoints + lap logic on stitched world | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-003 | Stitch verification: 7-angle screenshots + drive-through | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-002 | Drive integration: vehicle + waypoints + lap logic on stitched world | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
+| td-003 | Stitch verification: 7-angle screenshots + drive-through | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-004 | Stitch report to Craig with public links | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-005 | Bay Strait visual polish: starry sky + ground plane + water | done | — | — | 2026-09-25 |
 | td-006 | Stitch visual polish: lighting + connector proof + BS ground fix | abandoned | — | — | 2026-09-25 |
-| td-007 | Combined bridge-centerpiece scene: harbor -> 90deg ramp -> bridge -> commercial | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-008 | Living city, material response and dependable phone driving | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-009 | Grounded world, stable manual steering and stronger race-car art | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-010 | Finish td009 acceptance and guard manual curved-road steering | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-011 | Immediate race entry, recovery, Tokyo street detail and native review | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-007 | Combined bridge-centerpiece scene: harbor -> 90deg ramp -> bridge -> commercial | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
+| td-008 | Living city, material response and dependable phone driving | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
+| td-009 | Grounded world, stable manual steering and stronger race-car art | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
+| td-010 | Finish td009 acceptance and guard manual curved-road steering | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
+| td-011 | Immediate race entry, recovery, Tokyo street detail and native review | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-012 | Anime expressway: painted 2D city backdrop, occluded near field | closed 2026-09-30 — verified fixed on main (merged 99a3173 PR #12, mipmap fix 3f1870a; Craig live playtest 2026-09-22) | — | 2026-09-30 |
 | td-013 | Reflection coverage, turn dressing, AI art pass, finish state, tuning menu | closed 2026-09-30 — all criteria verified on main via td-014 (taillights, curve-gap fix, finish overhaul, tuning panel); AI textures superseded | — | 2026-09-30 |
 | td-014 | Live-site confirmed; art, finish/opponents, containment, roads, perf, audio | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
@@ -29,25 +29,25 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-021 | Rail/parapet contact is unrecoverable (Craig's blocker #1) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-022 | Buildings/roads clipping into the drivable surface (systemic) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-023 | Track end is a huge wall; replace with checkerboard finish gate | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-024 | Road merge/ramp geometry plainly wrong (systemic) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-024 | Road merge/ramp geometry plainly wrong (systemic) | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-025 | Shared kit: road texture, pause menu, traffic, trees inherit into Shuto | MERGED 2026-09-24 (PR #45, merge 5d0ddad by main agent via Git Data API fallback — normal… | — | — | 2026-09-25 |
 | td-026 | Shuto load time much longer; split into a second URL | LIVE 2026-09-25 ~06:24Z — second URL https://doublehidenblade.github.io/tokyo-drift-3d-shu… | — | — | 2026-09-25 |
-| td-027 | Shuto C1 is auto-drive only; add controls and menus | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-028 | Shuto C1 completion: texture the scene, add traffic | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-027 | Shuto C1 is auto-drive only; add controls and menus | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
+| td-028 | Shuto C1 completion: texture the scene, add traffic | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-029 | Start button click freezes ~8 seconds after load | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-030 | Cut out-of-view buildings to reduce load (careful map study) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-031 | Game end: keep driving in auto-drive with orbiting camera instead of abrupt stop | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-030 | Cut out-of-view buildings to reduce load (careful map study) | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
+| td-031 | Game end: keep driving in auto-drive with orbiting camera instead of abrupt stop | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-032 | Loading screen: show "30M/502M downloaded" during the download step | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-033 | Rail collision box doesn't match the car model (visual clipping into rail) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-033 | Rail collision box doesn't match the car model (visual clipping into rail) | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-034 | webgl-smoke "Verify prepared entry" step fails intermittently with no printed error | merged 2026-09-25 (PR #77, squash 7a80d63d0049, shipped by cron) — all 17 smoke tests rout… | — | — | 2026-09-25 |
-| td-035 | asymmetric near-head-on rail recovery: left-side hit stalls at 0.13 m/s vs right-side 13.56 m/s | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-035 | asymmetric near-head-on rail recovery: left-side hit stalls at 0.13 m/s vs right-side 13.56 m/s | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-036 | publish merged td-033/td-035 rail fixes | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-037 | fix WebGL smoke resource leak (blocks td-024 publish) | merged (PR #62, worker doublehidenblade 2026-09-25T04:16Z; test-harness audio-stop fix, no… | — | — | 2026-09-25 |
 | td-038 | Harbor base map has no texture except road and bridge | merged — PR #65 merged 2026-09-24T23:33:14Z, published via #66, live record #67 | — | — | 2026-09-25 |
 | td-039 | Big building in the middle of the Shuto road | merged (PR #64, watchdog cron 2026-09-24; conflict with main self-resolved) — inspected +… | — | — | 2026-09-25 |
-| td-040 | webgl-smoke "Verify prepared entry and local crash recovery" fails repo-wide | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-041 | player car reverted back to self driving (phone QA 2026-09-24) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-042 | opponent cars hitting walls, bad navigation (phone QA 2026-09-24) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | Codex | — | 2026-09-25 |
+| td-040 | webgl-smoke "Verify prepared entry and local crash recovery" fails repo-wide | blocked 2026-09-30 — needs Craig to dispatch the webgl-smoke workflow on main (dispatch-only since 2026-09-27); closure requires a green run with artifact upload| — | — | 2026-09-30 |
+| td-041 | player car reverted back to self driving (phone QA 2026-09-24) | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
+| td-042 | opponent cars hitting walls, bad navigation (phone QA 2026-09-24) | abandoned 2026-09-30 — superseded by td-134 (opponent collision-box shrink folded in)| Codex | — | 2026-09-30 |
 | td-043 | pause menu missing items, buttons too small (phone QA 2026-09-24) | merged (PR #75 squash-merged 2026-09-25 10:13Z by watchdog cron; live via publish-web — im… | — | — | 2026-09-25 |
 | td-044 | 3 roads still clipping into the Shuto road (phone QA 2026-09-24) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-045 | textures, props, signages to fill the Shuto scene (phone QA 2026-09-24) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
