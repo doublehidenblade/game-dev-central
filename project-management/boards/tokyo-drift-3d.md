@@ -26,7 +26,7 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-013 | Reflection coverage, turn dressing, AI art pass, finish state, tuning menu | closed 2026-09-30 — all criteria verified on main via td-014 (taillights, curve-gap fix, finish overhaul, tuning panel); AI textures superseded | — | 2026-09-30 |
 | td-014 | Live-site confirmed; art, finish/opponents, containment, roads, perf, audio | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-020 | Artifact storage quota blocks CI artifact uploads (infra rework) | closed 2026-09-30 — verified fixed on main (artifact-upload SUCCESS, native-debug run 36358110261, 2026-09-27) | — | 2026-09-30 |
-| td-021 | Rail/parapet contact is unrecoverable (Craig's blocker #1) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-021 | Rail/parapet contact is unrecoverable (Craig's blocker #1) | done 2026-09-30 — validator 2 accepted (PR #233); implementation on main, 11/11 harness checks; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-022 | Buildings/roads clipping into the drivable surface (systemic) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-023 | Track end is a huge wall; replace with checkerboard finish gate | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-024 | Road merge/ramp geometry plainly wrong (systemic) | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
