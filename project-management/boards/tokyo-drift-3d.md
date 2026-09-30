@@ -34,7 +34,7 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-026 | Shuto load time much longer; split into a second URL | LIVE 2026-09-25 ~06:24Z — second URL https://doublehidenblade.github.io/tokyo-drift-3d-shu… | — | — | 2026-09-25 |
 | td-027 | Shuto C1 is auto-drive only; add controls and menus | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-028 | Shuto C1 completion: texture the scene, add traffic | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
-| td-029 | Start button click freezes ~8 seconds after load | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-029 | Start button click freezes ~8 seconds after load | in_review — worker reconciled with main, PR #237 stages the Shuto app boot with loading-bar progress | Muse subagent (worker) | #237 | 2026-09-30 |
 | td-030 | Cut out-of-view buildings to reduce load (careful map study) | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-031 | Game end: keep driving in auto-drive with orbiting camera instead of abrupt stop | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-032 | Loading screen: show "30M/502M downloaded" during the download step | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
