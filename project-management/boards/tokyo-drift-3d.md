@@ -27,7 +27,7 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-014 | Live-site confirmed; art, finish/opponents, containment, roads, perf, audio | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-020 | Artifact storage quota blocks CI artifact uploads (infra rework) | closed 2026-09-30 — verified fixed on main (artifact-upload SUCCESS, native-debug run 36358110261, 2026-09-27) | — | 2026-09-30 |
 | td-021 | Rail/parapet contact is unrecoverable (Craig's blocker #1) | done 2026-09-30 — validator 2 accepted (PR #233); implementation on main, 11/11 harness checks; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
-| td-022 | Buildings/roads clipping into the drivable surface (systemic) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-022 | Buildings/roads clipping into the drivable surface (systemic) | done-pending-verdict 2026-09-30 — verified on main (tokyo-drift-3d PR #235); only Craig's phone verdict outstanding | — | — | 2026-09-30 |
 | td-023 | Track end is a huge wall; replace with checkerboard finish gate | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-024 | Road merge/ramp geometry plainly wrong (systemic) | done 2026-09-30 — implementation verified on main; only Craig's phone verdict outstanding; do not re-dispatch| — | — | 2026-09-30 |
 | td-025 | Shared kit: road texture, pause menu, traffic, trees inherit into Shuto | MERGED 2026-09-24 (PR #45, merge 5d0ddad by main agent via Git Data API fallback — normal… | — | — | 2026-09-25 |
