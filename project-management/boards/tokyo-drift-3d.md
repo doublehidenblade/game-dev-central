@@ -54,7 +54,7 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-046 | Shuto second URL never published: publish-game.yml fails on stale candidate pointer | merged 2026-09-25 ~10:40Z — recovery-record PR #72 merged by watchdog cron; live screensho… | — | — | 2026-09-25 |
 | td-047 | Shuto road network regressed: splits/merges/overpass gone, stub roads cut off mid-air (phone QA 2026-09-25) | merged — PR #79 squash-merged by cron 2026-09-25T18:1xZ as 4a36d33 (CI green export+smoke)… | — | — | 2026-09-25 |
 | td-048 | Shuto C1 section-end road visibly terminates mid-air in player view (Craig QA 2026-09-25) | superseded 2026-09-30 — folded into systemic td-137 (all mid-air stubs in one sweep) | — | — | 2026-09-30 |
-| td-049 | player car too large; shrink to opponent car size (phone QA 2026-09-25) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-049 | player car too large; shrink to opponent car size (phone QA 2026-09-25) | validated 2026-09-30 — defect absent on main (player 4.34 m < every traffic car; td-103 rebuild fixed it); task-file PR #222 merged; validator verdict accepted | — | — | 2026-09-30 |
 
 Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.github.io/tokyo-drift-3d-shuto-web/) is live per td-026. Verify live before claiming shipped.
 | td-050 | Online multiplayer: signaling server (room codes + WebRTC signaling) | merged 2026-09-25 (PR #81) | — | PR #81 | 2026-09-26 |
