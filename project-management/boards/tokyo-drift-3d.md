@@ -61,7 +61,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-051 | Online multiplayer: Godot WebRTC netcode core (Net autoload) | merged 2026-09-25 (PR #82) | — | PR #82 | 2026-09-26 |
 | td-052 | Online multiplayer: lobby UI (host room / join by code) | merged 2026-09-25 (PR #83) | — | PR #83 | 2026-09-26 |
 | td-053 | Online multiplayer: race replication (cars, laps, countdown, results) | merged 2026-09-25 (PR #85) | — | PR #85 | 2026-09-26 |
-| td-054 | Online multiplayer: 2–4 player integration test | in_progress — resumed live v31 acceptance; prior join/start proof retained and td-087 fix awaiting one live recheck before the remaining matrix | Codex worker | Evidence branch `td-054-mptest` | 2026-09-30 |
+| td-054 | Online multiplayer: 2–4 player integration test | blocked — two identical live v31 preparation-gate timeouts after `TDLOAD Ready to race`; retry rule stopped the matrix before multiplayer interaction | Codex worker | Evidence branch `td-054-mptest`; game-dev-central PR #184 | 2026-09-30 |
 | td-055 | Player car speed increase (top_speed_scale 1.0 → 1.3) | done | Muse | — | 2026-09-25 |
 | td-056 | Perf: harbor map stutters on start and on bridge (Shuto does not) | merged 2026-09-25 (PR #84) | — | PR #84 | 2026-09-26 |
 | td-057 | Signaling wire-key mismatch: server speaks t, client speaks type — converge on one key | merged 2026-09-26 (PR #90) — live verify pending under td-059 | — | PR #90 | 2026-09-26 |
