@@ -22,10 +22,10 @@ Live site: https://doublehidenblade.github.io/tokyo-drift-3d-web/
 | td-009 | Grounded world, stable manual steering and stronger race-car art | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-010 | Finish td009 acceptance and guard manual curved-road steering | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-011 | Immediate race entry, recovery, Tokyo street detail and native review | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-012 | Anime expressway: painted 2D city backdrop, occluded near field | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-013 | Reflection coverage, turn dressing, AI art pass, finish state, tuning menu | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-012 | Anime expressway: painted 2D city backdrop, occluded near field | closed 2026-09-30 — verified fixed on main (merged 99a3173 PR #12, mipmap fix 3f1870a; Craig live playtest 2026-09-22) | — | 2026-09-30 |
+| td-013 | Reflection coverage, turn dressing, AI art pass, finish state, tuning menu | closed 2026-09-30 — all criteria verified on main via td-014 (taillights, curve-gap fix, finish overhaul, tuning panel); AI textures superseded | — | 2026-09-30 |
 | td-014 | Live-site confirmed; art, finish/opponents, containment, roads, perf, audio | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
-| td-020 | Artifact storage quota blocks CI artifact uploads (infra rework) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
+| td-020 | Artifact storage quota blocks CI artifact uploads (infra rework) | closed 2026-09-30 — verified fixed on main (artifact-upload SUCCESS, native-debug run 36358110261, 2026-09-27) | — | 2026-09-30 |
 | td-021 | Rail/parapet contact is unrecoverable (Craig's blocker #1) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-022 | Buildings/roads clipping into the drivable surface (systemic) | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
 | td-023 | Track end is a huge wall; replace with checkerboard finish gate | paused 2026-09-25 — Craig reprioritized to online multiplayer; stashed, resume later | — | — | 2026-09-25 |
