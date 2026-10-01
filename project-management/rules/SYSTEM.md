@@ -80,8 +80,9 @@ Everything else (routine `open` → `in_progress`, work-log edits) is silent.
    `validated`.
 4. No role invents, prioritizes, or adds new tasks. New tasks come from
    Craig's explicit asks, bug reports, or ideas.
-5. Every subagent brief MUST link this file (`~/workspace/supervisor-system/SYSTEM.md`)
-   and instruct the subagent to read it before anything else. Then the brief
+5. Every subagent brief MUST link this file (`project-management/rules/SYSTEM.md`
+   in `doublehidenblade/game-dev-central`) and instruct the subagent to read
+   it before anything else. Then the brief
    scopes the ONE task. This is how future subagents learn the system —
    never via the spawner's context memory.
 6. Evidence must be openable: on-disk paths for agents, public HTTPS links
@@ -91,6 +92,5 @@ Everything else (routine `open` → `in_progress`, work-log edits) is silent.
 
 ## Where boards live
 
-- Tokyo Drift: `~/workspace/tokyo-drift-godot/docs/tasks/td-*.md`
-  (mirrored in the `tokyo-drift-3d` repo under `godot/docs/tasks/`)
+- Tokyo Drift: `godot/docs/tasks/td-*.md` in `doublehidenblade/tokyo-drift-3d`
 - New projects: add their board path here when created.
