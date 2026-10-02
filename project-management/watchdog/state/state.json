@@ -1673,7 +1673,8 @@
   "2026-10-02T22:31Z deregistered td-152 (subagent): work complete, PR open, in_review",
   "2026-10-02T22:49Z deregistered td-150 (validator): validator complete, VALIDATED",
   "2026-10-02T22:49Z deregistered td-151 (validator): validator complete, VALIDATED",
-  "2026-10-02T22:49Z deregistered td-152 (validator): validator complete, VALIDATED"
+  "2026-10-02T22:49Z deregistered td-152 (validator): validator complete, VALIDATED",
+  "2026-10-02T22:55Z deregistered td-148 (validator): validator complete, VALIDATED"
  ],
  "workers": {
   "td-137": {
@@ -1684,15 +1685,6 @@
    "dispatched_at": "2026-10-02T19:32:25.026812+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-148": {
-   "kind": "validator",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-148.md",
-   "dispatched_at": "2026-10-02T22:33:25.345354+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
   },
   "td-149": {
    "kind": "subagent",
