@@ -1688,13 +1688,13 @@
    "last_verdict": "alive"
   },
   "td-149": {
-   "kind": "subagent",
+   "kind": "validator",
    "session": null,
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-149.md",
-   "dispatched_at": "2026-10-02T22:45:49.335507+00:00",
+   "dispatched_at": "2026-10-02T23:15:00.762878+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -1847,14 +1847,14 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T22:58:16.898352+00:00",
+  "ts": "2026-10-02T23:13:08.225679+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
-    "GRACE td-149 (dispatched 12min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-149.md&sha=main)"
+    "GRACE td-149 (dispatched 27min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-149.md&sha=main)"
    ],
    "transitions": [
-    "FLIP td-148: in_review -> validated [notify-craig]"
+    "NO-FLIPS"
    ],
    "classification-health": [
     "STALE-RUNS=0"
@@ -1873,12 +1873,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T22:57:45.015884+00:00",
-   "liveness": "2026-10-02T22:57:29.685893+00:00",
-   "classification-health": "2026-10-02T22:57:40.487098+00:00",
-   "transitions": "2026-10-02T22:57:36.780850+00:00",
-   "conflicts": "2026-10-02T22:57:33.395351+00:00",
-   "all-blocked": "2026-10-02T22:58:16.898352+00:00"
+   "board-check": "2026-10-02T23:12:35.331646+00:00",
+   "liveness": "2026-10-02T23:12:24.429415+00:00",
+   "classification-health": "2026-10-02T23:12:33.369853+00:00",
+   "transitions": "2026-10-02T23:12:28.595811+00:00",
+   "conflicts": "2026-10-02T23:12:27.468243+00:00",
+   "all-blocked": "2026-10-02T23:13:08.225679+00:00"
   }
  }
 }
