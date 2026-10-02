@@ -1667,7 +1667,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 3
+  "stale_runs": 0
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1803,14 +1803,14 @@
   "td-140": "done-pending-verdict"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T18:15:42.693595+00:00",
+  "ts": "2026-10-02T18:28:04.666787+00:00",
   "checks": {
    "liveness": [],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=3"
+    "STALE-RUNS=0"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1826,7 +1826,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T18:15:42.693595+00:00"
+   "board-check": "2026-10-02T18:27:34.033034+00:00",
+   "liveness": "2026-10-02T18:27:12.581201+00:00",
+   "classification-health": "2026-10-02T18:27:30.801342+00:00",
+   "transitions": "2026-10-02T18:27:32.728649+00:00",
+   "conflicts": "2026-10-02T18:27:45.935540+00:00",
+   "all-blocked": "2026-10-02T18:28:04.666787+00:00"
   }
  }
 }
