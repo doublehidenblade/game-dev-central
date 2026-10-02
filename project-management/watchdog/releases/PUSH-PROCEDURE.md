@@ -1,11 +1,18 @@
-# Push-on-request procedure (Craig 2026-09-27)
+# Push-on-request procedure (Craig 2026-09-27; force rule 2026-10-02)
 
 **Rule: nothing goes live until Craig explicitly asks to push.** Merges to main
 keep flowing (workers + watchdog SHIP), but the publish workflows
 (publish-web, publish-game, publish-web-shuto, deploy-signaling in
 tokyo-drift-3d; publish-web in neon-drift) are `workflow_dispatch`-only and
-are NEVER dispatched except on Craig's explicit push request. CI/smoke must
-not gate his requested push — publish then fix.
+are NEVER dispatched except on Craig's explicit push request.
+
+**Rule (Craig 2026-10-02): every authorized deploy uses `force: true`.**
+Smoke/test results NEVER gate publication — smoke runs after the fact, and
+failures become post-publication follow-up work, not publish blockers. The
+reviewed-candidate pointer, source-SHA check, same-repository check, artifact
+provenance, and rollback guards remain mandatory; only the smoke-success gate
+is bypassed by force. If the UI/car models (or any reviewed content) are ready,
+deploy without waiting for Craig to say the word — publication is Muse's job.
 
 Ledger files (this dir):
 - `baselines.json` — last live web SHAs per game (updated ONLY after a push
@@ -16,18 +23,18 @@ Ledger files (this dir):
 ## When Craig asks for a TOKYO push
 
 1. Export/publish ALL pending Tokyo client changes: dispatch `publish-game.yml`
-   (workflow_dispatch on main) via the github skill:
-   `bin/gh api POST /repos/doublehidenblade/tokyo-drift-3d/actions/workflows/publish-game.yml/dispatches '{"ref":"main"}'`
+   (workflow_dispatch on main) via the github skill with force ALWAYS on:
+   `bin/gh api POST /repos/doublehidenblade/tokyo-drift-3d/actions/workflows/publish-game.yml/dispatches '{"ref":"main","inputs":{"run_id":"<smoke-run-id>","force":true}}'`
    (needs `actions: write`). It exports the reviewed candidate build, commits it
    to the source repo root, and auto-dispatches `publish-web.yml`, which mirrors
    it to the public `-web` repo (GitHub Pages). Do NOT dispatch `publish-web.yml`
    alone: it only mirrors the repo root's already-committed export and no-ops
    when nothing was rebuilt (observed 2026-09-27).
-   Force button: if the candidate smoke run is red and Craig wants the build live
-   for playtest anyway, dispatch with inputs `'{"ref":"main","inputs":{"force":true}}'`.
-   The guard then skips ONLY the smoke-success requirement (publish-then-fix);
-   the reviewed-candidate pointer, same-repo check, and rollback guard stay on,
-   and the smoke failure becomes a follow-up task. Only Craig authorizes force.
+   The `force: true` input is MANDATORY on every dispatch (Craig 2026-10-02) —
+   never dispatch with force false or omitted. The guard then skips ONLY the
+   smoke-success requirement (publish-then-fix); the reviewed-candidate pointer,
+   same-repo check, and rollback guard stay on, and any smoke failure becomes a
+   follow-up task.
 2. Signaling: if any pending change touched the multiplayer protocol/server
    (td-079 did — server blocks START until all ready), dispatch
    `deploy-signaling.yml` in the same release, BEFORE client verification.
@@ -63,5 +70,17 @@ Ledger files (this dir):
 
 - Dispatch a publish workflow because "Actions capacity is back" or because a
   merge just landed — only on Craig's explicit push request.
+- Dispatch publish-game.yml with `force: false` or without the force input —
+  every authorized deploy uses `force: true` (Craig 2026-10-02).
 - Tell Craig to retest a fix until the updated client is confirmed live.
 - Describe a merged-but-unpublished fix as live on his phone.
+
+## Lesson: 100MB push limit (2026-10-02)
+
+GitHub rejects pushes containing any file over 100MB. The web export's
+`index.pck` counts: on 2026-10-02 the traffic-fleet's 2048x2048 car textures
+bloated the .pck to ~168MB, and publish-game.yml failed at the `git push`
+step (exit 1, "exceeds GitHub's file size limit"). Fix was to optimize the
+source assets (resized embedded textures to 512x512, 70MB → 15MB), not to
+work around the limit. Keep the export .pck comfortably under 100MB; if a
+new asset pushes it over, optimize the asset before publishing.
