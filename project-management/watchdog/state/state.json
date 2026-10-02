@@ -1684,7 +1684,7 @@
    "task_file": "godot/docs/tasks/td-148.md",
    "dispatched_at": "2026-10-02T21:55:31.649086+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-149": {
    "kind": "subagent",
@@ -1693,7 +1693,7 @@
    "task_file": "godot/docs/tasks/td-149.md",
    "dispatched_at": "2026-10-02T21:55:31.868449+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-150": {
    "kind": "subagent",
@@ -1702,7 +1702,7 @@
    "task_file": "godot/docs/tasks/td-150.md",
    "dispatched_at": "2026-10-02T21:55:32.004793+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-151": {
    "kind": "subagent",
@@ -1711,7 +1711,7 @@
    "task_file": "godot/docs/tasks/td-151.md",
    "dispatched_at": "2026-10-02T21:55:32.211440+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-152": {
    "kind": "subagent",
@@ -1720,14 +1720,14 @@
    "task_file": "godot/docs/tasks/td-152.md",
    "dispatched_at": "2026-10-02T21:55:32.378397+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 1
+  "stale_runs": 2
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1873,26 +1873,31 @@
   "td-152": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T21:42:54.633773+00:00",
+  "ts": "2026-10-02T22:18:47.873702+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()"
+    "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
+    "GRACE td-148 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-148.md&sha=main)",
+    "GRACE td-149 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-149.md&sha=main)",
+    "GRACE td-150 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-150.md&sha=main)",
+    "GRACE td-151 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-151.md&sha=main)",
+    "GRACE td-152 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-152.md&sha=main)"
    ],
    "transitions": [
-    "FLIP td-138: open -> in_progress [silent]",
-    "FLIP td-148: open -> in_progress [silent]",
-    "FLIP td-149: open -> in_progress [silent]",
-    "FLIP td-150: open -> in_progress [silent]",
-    "FLIP td-151: open -> in_progress [silent]"
+    "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1"
+    "STALE-RUNS=2"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (141 rows)"
+    "BOARD-FAIL td-148: liveness registry shows active worker but board Owner is empty",
+    "BOARD-FAIL td-149: liveness registry shows active worker but board Owner is empty",
+    "BOARD-FAIL td-150: liveness registry shows active worker but board Owner is empty",
+    "BOARD-FAIL td-151: liveness registry shows active worker but board Owner is empty",
+    "BOARD-FAIL td-152: liveness registry shows active worker but board Owner is empty"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=LOGIN_BLOCKED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -1902,12 +1907,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T21:42:36.381250+00:00",
-   "liveness": "2026-10-02T21:42:22.917439+00:00",
-   "classification-health": "2026-10-02T21:42:34.379480+00:00",
-   "transitions": "2026-10-02T21:42:31.129359+00:00",
-   "conflicts": "2026-10-02T21:42:29.803598+00:00",
-   "all-blocked": "2026-10-02T21:42:54.633773+00:00"
+   "board-check": "2026-10-02T22:18:15.933193+00:00",
+   "liveness": "2026-10-02T22:17:58.634582+00:00",
+   "classification-health": "2026-10-02T22:18:13.009747+00:00",
+   "transitions": "2026-10-02T22:18:12.829178+00:00",
+   "conflicts": "2026-10-02T22:18:11.400780+00:00",
+   "all-blocked": "2026-10-02T22:18:47.873702+00:00"
   }
  }
 }
