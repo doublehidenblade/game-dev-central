@@ -1685,6 +1685,12 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
         # work so worker idleness can't masquerade as project readiness.
         open_rows = [r for r in board_rows
                      if r.get("prefix") in _HB_OPEN_PREFIXES]
+        # Craig 2026-10-02: prioritize in_progress/in_review over plain open
+        # so active work surfaces instead of being buried by board order.
+        _HB_PRIORITY = {"in_progress": 0, "in_review": 1, "blocked": 2,
+                        "rejected": 3, "open": 4}
+        open_rows.sort(key=lambda r: (_HB_PRIORITY.get(r.get("prefix"), 9),
+                                      r.get("task", "")))
         if open_rows:
             lines.append("(no run activity — open board work:)")
             for r in open_rows[:_HB_OPEN_FALLBACK_N]:
