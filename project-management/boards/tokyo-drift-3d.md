@@ -153,3 +153,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-149 | Traffic cars: turning wheels + real headlight/taillight sources | open | — | — | 2026-10-02 |
 | td-150 | Loading screen art rework (imagegen retro, ref arts folder) | open | — | — | 2026-10-02 |
 | td-151 | Front-load game loading (kill in-game lag) | open | — | — | 2026-10-02 |
+| td-152 | Collision physics + handling feel (always sharp-left on hit, v35 QA) | open | — | — | 2026-10-02 |
