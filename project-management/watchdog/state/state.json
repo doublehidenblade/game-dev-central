@@ -582,6 +582,10 @@
   {
    "ts": "2026-10-02T15:42:00Z",
    "note": "watchdog 2026-10-02T15:42Z (11:42 EDT run): decide=NOTHING x2 (both sessions FINISHED, classifications 40min old, under 45min threshold, classification path healthy, STALE-RUNS=0). No parked PRs; td-142 #272 + td-140 #273 merged-not-live (pending.json, already reported, COUNT=2). Dispatch-eligible both sessions; candidates td-101 (Astra-owned), td-119 (Muse-coord in_progress) skipped-owned; td-054 skip (Craig), td-138 skip (standing-asset judgment). pending_actions empty (td-142 dispatch delivered + merged). Budget OK (net $0.21/$50, 0.4%, level OK, silent). idle-defect-check OK. liveness: no registered workers (workers empty). No notify-worthy events."
+  },
+  {
+   "ts": "2026-10-02T21:17:00Z",
+   "note": "td-137 in_review flip (merged->in_review): PR #282 is REAL Godot work (scene.json, shuto_c1_world.gd, QA triptychs + before/after pairs) but titled DO NOT MERGE \u2014 awaiting Craig's verdict. Validator dispatch SKIPPED \u2014 his phone verdict is the only closer; a separate validator would be overreach. Watchdog run 2026-10-02 17:12Z."
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -1806,7 +1810,7 @@
   "td-134": "merged",
   "td-135": "merged",
   "td-136": "merged",
-  "td-137": "merged",
+  "td-137": "in_review",
   "td-138": "open",
   "td-139": "in_review",
   "td-141": "merged",
@@ -1819,13 +1823,13 @@
   "td-147": "merged"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T20:57:34.847633+00:00",
+  "ts": "2026-10-02T21:12:27.507012+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead)"
+    "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-137: merged -> in_review [wake-validator]"
    ],
    "classification-health": [
     "STALE-RUNS=0"
@@ -1844,12 +1848,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T20:57:21.889853+00:00",
-   "liveness": "2026-10-02T20:57:18.921985+00:00",
-   "classification-health": "2026-10-02T20:57:20.048413+00:00",
-   "transitions": "2026-10-02T20:57:19.917978+00:00",
-   "conflicts": "2026-10-02T20:57:19.047520+00:00",
-   "all-blocked": "2026-10-02T20:57:34.847633+00:00"
+   "board-check": "2026-10-02T21:12:24.139034+00:00",
+   "liveness": "2026-10-02T21:12:14.650891+00:00",
+   "classification-health": "2026-10-02T21:12:15.649590+00:00",
+   "transitions": "2026-10-02T21:12:15.520985+00:00",
+   "conflicts": "2026-10-02T21:12:14.776487+00:00",
+   "all-blocked": "2026-10-02T21:12:27.507012+00:00"
   }
  }
 }
