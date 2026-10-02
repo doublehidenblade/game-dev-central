@@ -294,6 +294,99 @@ def test_part3():
     return fails
 
 
+def test_part4():
+    """Scripted heartbeat (Craig 2026-10-02): build_heartbeat assembles
+    ALERTS + JOBS + WORKERS + PENDING + STATE from recorded verdicts, queued
+    actions, the pending ledger, and board rows — with inline links, defect
+    names as headlines, and fold-in-rule outcome numbers."""
+    fails = 0
+
+    def check(name, cond):
+        nonlocal fails
+        if not cond:
+            fails += 1
+            print(f"  FAIL {name}")
+
+    state = {"sessions": {
+        "codex:tokyo-drift-3d": {
+            "last_classification": "WORKING",
+            "last_classification_ts": "2026-10-02T18:00:00+00:00",
+            "current_task": "td-119",
+            "task_url": "https://chatgpt.com/codex/cloud/tasks/T1"},
+        "claude-code:tokyo-drift-3d": {
+            "last_classification": "FINISHED",
+            "last_classification_ts": "2026-10-02T17:00:00+00:00",
+            "last_task": "td-140",
+            "task_url": "https://claude.ai/code/session/S1"},
+    }}
+    checks = {
+        "transitions": ["FLIP td-137: open -> in_review [wake-validator]",
+                        "FLIP td-140: in_review -> validated [notify-craig]",
+                        "FLIP td-119: open -> blocked [notify-craig]"],
+        "classification-health": ["STALE-RUNS=3"],
+        "conflicts": ["OK no duplicate task ownership"],
+        "board-check": ["BOARD-OK tokyo-drift-3d (142 rows)"],
+    }
+    actions = [{"type": "dispatch-codex", "task": "td-141",
+                "queued_at": "2026-10-02T18:05:00+00:00"}]
+    rows = [
+        {"task": "td-137", "defect": "Split/merge: Shuto interchange",
+         "status": "in_review", "prefix": "in_review", "owner": "", "pr": ""},
+        {"task": "td-119", "defect": "Showa environment models",
+         "status": "blocked on Craig: approve sign purchase", "prefix": "blocked",
+         "owner": "", "pr": ""},
+        {"task": "td-141", "defect": "Traffic fleet tripo rebuild",
+         "status": "open", "prefix": "open", "owner": "", "pr": ""},
+    ]
+    pending = [
+        {"game": "tokyo", "pr": 274, "task": "td-119",
+         "summary": "Shuto salvage merge", "reported": False},
+        {"game": "tokyo", "pr": 273, "task": "td-140",
+         "summary": "UI rework", "reported": True},
+    ]
+    out = watch.build_heartbeat(state, checks, actions, rows, pending, "OK")
+    text = "\n".join(out)
+
+    # Sections present, in order.
+    secs = ["HEARTBEAT", "ALERTS", "JOBS", "WORKERS", "STATE"]
+    idx = [text.find(s) for s in secs]
+    check("sections in order", all(i >= 0 for i in idx) and idx == sorted(idx))
+    # in_review flip -> outcome-2 JOBS line with defect name + task link.
+    check("in_review flip job",
+          any("🟢 2 [td-137](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-137.md) Split/merge: Shuto interchange" in l
+              for l in out))
+    # validated flip -> alert, NOT a job (outcome 1, closed).
+    check("validated flip alerts", "! td-140: in_review → validated — notify Craig" in out)
+    check("validated flip not a job", not any("td-140" in l and l.startswith(("🟢", "🟡", "🔴")) for l in out if "JOBS" not in l and "td-140 —" in l))
+    # blocked flip with human keyword -> outcome 4.
+    check("blocked flip outcome 4",
+          any(l.startswith("🔴 4 [td-119]") and "blocked: blocked on Craig" in l for l in out))
+    # queued dispatch -> outcome-2 job with defect name.
+    check("dispatch action job",
+          any("🟢 2 [td-141]" in l and "Traffic fleet tripo rebuild" in l and "dispatch-codex" in l for l in out))
+    # pending: unreported -> job line; reported -> count only.
+    check("pending unreported job",
+          any("🟢 2 [PR #274](https://github.com/doublehidenblade/tokyo-drift-3d/pull/274)" in l for l in out))
+    check("pending reported not a job",
+          not any("[PR #273]" in l for l in out if l.startswith("🟢")))
+    check("pending count", "PENDING 2 merged-not-live" in out)
+    # stale-runs=3 -> degraded-watchdog alert.
+    check("stale alert", any("classifications stale 3 runs" in l for l in out))
+    # workers: emoji by classification, session link, task.
+    check("worker working",
+          any("🟢 [codex:tokyo-drift-3d](https://chatgpt.com/codex/cloud/tasks/T1) — WORKING" in l and "td-119" in l for l in out))
+    check("worker finished",
+          any("🟡 [claude-code:tokyo-drift-3d](https://claude.ai/code/session/S1) — FINISHED" in l for l in out))
+    # board-check verdict carried into STATE.
+    check("state board line", "BOARD-OK tokyo-drift-3d (142 rows)" in out)
+    # Empty run: no alerts/jobs, stale verdicts ignored.
+    out2 = watch.build_heartbeat({"sessions": {}}, {}, [], [], [], None)
+    t2 = "\n".join(out2)
+    check("quiet run", "(none)" in t2 and "PENDING 0 merged-not-live" in t2
+          and "(no check verdicts recorded this run — heartbeat is stale)" in t2)
+    return fails
+
+
 if __name__ == "__main__":
     print("== Part 1: evidence -> classification ==")
     f1 = test_part1()
@@ -301,6 +394,8 @@ if __name__ == "__main__":
     f2 = test_part2()
     print("== Part 3: hard task-outcome validator (real watch.validate_task_outcome) ==")
     f3 = test_part3()
-    total = f1 + f2 + f3
+    print("== Part 4: scripted heartbeat (real watch.build_heartbeat) ==")
+    f4 = test_part4()
+    total = f1 + f2 + f3 + f4
     print(f"\n{total} failures" if total else "\nALL TESTS PASSED")
     sys.exit(1 if total else 0)

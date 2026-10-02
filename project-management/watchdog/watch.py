@@ -177,6 +177,45 @@ def save_state(state):
         json.dump(state, f, indent=1)
 
 
+# ---------------------------------------------------------------------------
+# Run-verdict recording for the scripted heartbeat (Craig 2026-10-02).
+# The mutating STEP 0 checks (transitions, classification-health, liveness)
+# consume their own evidence when they run, so the end-of-run `heartbeat`
+# command cannot re-derive their verdicts. Each check's printed verdict lines
+# are recorded here under state["run_verdicts"] = {"ts": iso,
+# "checks": {name: [lines]}}. heartbeat only trusts verdicts newer than
+# HEARTBEAT_FRESH_MIN. Recording goes through _capture_verdicts in main()
+# so the command bodies stay untouched.
+# ---------------------------------------------------------------------------
+
+HEARTBEAT_FRESH_MIN = 40  # verdicts older than this are not this run's
+
+
+def _record_verdict(check, lines):
+    state = load_state()
+    rv = state.setdefault("run_verdicts", {})
+    rv["ts"] = now().isoformat()
+    rv.setdefault("checks", {})[check] = [l for l in lines if l.strip()]
+    save_state(state)
+
+
+def _capture_verdicts(check, fn, *args):
+    """Run a check, replay its stdout, and record its verdict lines for
+    `heartbeat`. Safe around sys.exit (conflicts exits 3): the finally block
+    records before the exception propagates."""
+    import io
+    import contextlib
+    buf = io.StringIO()
+    try:
+        with contextlib.redirect_stdout(buf):
+            return fn(*args)
+    finally:
+        text = buf.getvalue()
+        sys.stdout.write(text)
+        sys.stdout.flush()
+        _record_verdict(check, text.splitlines())
+
+
 def repo_activity(repo_full):
     """Return (open_prs, open_issues, last_activity_dt, detail).
     Uses the authenticated _gh (audit 2026-10-02: the old unauthenticated
@@ -1116,8 +1155,8 @@ def _board_rows(game):
         task = cells[ti]
         status_raw = cells[ti + 2]
         prefix = status_raw.split()[0].lower().strip("*") if status_raw.split() else ""
-        rows.append({"task": task, "status": status_raw, "prefix": prefix,
-                     "owner": cells[ti + 3], "pr": cells[ti + 4]})
+        rows.append({"task": task, "defect": cells[ti + 1], "status": status_raw,
+                     "prefix": prefix, "owner": cells[ti + 3], "pr": cells[ti + 4]})
     return rows
 
 
@@ -1464,6 +1503,239 @@ def cmd_pending_reported(args):
             e["reported"] = True
     json.dump(data, open(path, "w"), indent=1)
     print(f"REPORTED PR #{pr}")
+
+
+# ---------------------------------------------------------------------------
+# Scripted heartbeat (Craig 2026-10-02): the watchdog report as code.
+# The cron's old STEP 3 hand-wrote the heartbeat from check outputs in prose,
+# which drifted run to run (missing links, reworded sections, dropped jobs).
+# `heartbeat` assembles ALERTS + JOBS + WORKERS + PENDING + STATE from this
+# run's recorded check verdicts (see _record_verdict), recent queued actions,
+# the pending ledger, and the board — with markdown inline links and the
+# board's defect names as headlines (TASK NAMING rule, Craig 2026-09-25).
+# Outcome numbers follow the FOLD-IN RULES; genuinely ambiguous placements
+# get `?` for the run's judgment. Prints the report; the cron pastes it
+# verbatim as the run's final message.
+# ---------------------------------------------------------------------------
+
+_HB_EMOJI = {"WORKING": "🟢", "FINISHED": "🟡", "IDLE": "🟡",
+             "STALLED": "🟡", "OUT_OF_TOKENS": "🔴", "LOGIN_BLOCKED": "🔴",
+             "DEAD": "🔴"}
+_HB_HUMAN_KW = ("login", "key", "purchase", "craig", "phone", "approval",
+                "sign in", "2fa", "otp")
+_HB_EXTERNAL_KW = ("outage", "down", "deprecated", "rate limit", "quota",
+                   "incident")
+
+
+def _hb_verdicts(state):
+    """This run's recorded check verdicts; {} when older than HEARTBEAT_FRESH_MIN."""
+    rv = state.get("run_verdicts", {})
+    ts = parse_ts(rv.get("ts"))
+    if not ts or (now() - ts).total_seconds() / 60 > HEARTBEAT_FRESH_MIN:
+        return {}
+    return rv.get("checks", {})
+
+
+def _hb_recent_actions():
+    pa = _load_pending_actions()
+    out = []
+    for e in pa.get("actions", []):
+        qa = parse_ts(e.get("queued_at"))
+        if qa and (now() - qa).total_seconds() / 60 <= HEARTBEAT_FRESH_MIN:
+            out.append(e)
+    return out
+
+
+def _hb_age_txt(age):
+    if age == "unknown" or age is None:
+        return "age?"
+    try:
+        m = float(age)
+    except (TypeError, ValueError):
+        return "age?"
+    return f"{m:.0f}m" if m < 90 else f"{m/60:.1f}h"
+
+
+def build_heartbeat(state, checks, actions, board_rows, pending, budget):
+    """Pure heartbeat builder (testable). Inputs: state dict, recorded check
+    verdicts {name: [lines]}, recent queued actions, board rows, pending-ledger
+    entries, budget level string ('OK'/'ALERT_WARN …'/'ALERT_HIT …'/None).
+    Returns the report lines."""
+    import re
+    repo_full = REPOS.get("tokyo-drift-3d", "")
+    defects = {r["task"].lower(): r for r in board_rows}
+
+    def task_link(task):
+        if not task:
+            return "?"
+        url = (f"https://github.com/{repo_full}/blob/main/"
+               f"godot/docs/tasks/{task}.md")
+        return f"[{task}]({url})"
+
+    def pr_link(pr):
+        return f"[PR #{pr}](https://github.com/{repo_full}/pull/{pr})"
+
+    def defect_of(task):
+        r = defects.get((task or "").lower())
+        return (r["defect"][:70] if r and r.get("defect") else (task or "?"))
+
+    lines = [f"HEARTBEAT {now().astimezone().strftime('%Y-%m-%dT%H:%M%z')}"]
+    alerts, jobs = [], []
+
+    # ---- ALERTS ----
+    # Login failures surfaced this run.
+    for session, sst in state.get("sessions", {}).items():
+        if session in ARCHIVED_SESSIONS:
+            continue
+        ts = parse_ts(sst.get("login_fail_notified_ts"))
+        if ts and (now() - ts).total_seconds() / 60 <= HEARTBEAT_FRESH_MIN:
+            alerts.append(f"! {session} hit a login wall — needs Craig's manual login")
+    # Conflicts.
+    for line in checks.get("conflicts", []):
+        if line.startswith("CONFLICT"):
+            alerts.append(f"! {line}")
+    # Board flips.
+    flips = []
+    for line in checks.get("transitions", []):
+        m = re.match(r"FLIP (\S+): (\S+) -> (\S+) \[(\S+)\]", line)
+        if m:
+            flips.append(m.groups())
+    for task, old, new, action in flips:
+        if action in ("notify-craig", "notify-or-iterate"):
+            alerts.append(f"! {task}: {old} → {new} — notify Craig")
+    # Queued actions this run.
+    for e in actions:
+        tgt = e.get("session") or e.get("task") or "?"
+        alerts.append(f"! queued {e.get('type')} → {tgt}")
+    # Stale classifications.
+    stale_n = None
+    for line in checks.get("classification-health", []):
+        m = re.match(r"STALE-RUNS=(\d+)", line)
+        if m:
+            stale_n = int(m.group(1))
+    if stale_n is not None and stale_n >= 3:
+        alerts.append(f"! classifications stale {stale_n} runs — watchdog may be "
+                      f"blind (AND with in-flight browser check before alarming)")
+    # Budget.
+    if budget and budget != "OK":
+        alerts.append(f"! GitHub Actions budget: {budget}")
+    lines.append("ALERTS")
+    lines.extend(alerts if alerts else ["(none)"])
+
+    # ---- JOBS ----
+    for task, old, new, action in flips:
+        dl, tl = defect_of(task), task_link(task)
+        if action == "wake-validator":
+            jobs.append(f"🟢 2 {tl} {dl} — validator dispatch due")
+        elif action == "notify-or-iterate":  # rejected
+            jobs.append(f"🟡 2 {tl} {dl} — rejected, rework needed")
+        elif action == "notify-craig" and new == "blocked":
+            r = defects.get(task.lower(), {})
+            status_txt = (r.get("status") or "")[:90]
+            low = status_txt.lower()
+            n = ("4" if any(k in low for k in _HB_HUMAN_KW)
+                 else "5" if any(k in low for k in _HB_EXTERNAL_KW) else "?")
+            jobs.append(f"🔴 {n} {tl} {dl} — blocked: {status_txt}")
+        # validated → outcome 1 (closed), silent → nothing to do.
+    for e in actions:
+        t = e.get("type", "")
+        if t.startswith("dispatch"):
+            task = e.get("task") or "?"
+            jobs.append(f"🟢 2 {task_link(task)} {defect_of(task)} — dispatch queued ({t})")
+        elif t.split("-")[0] in ("nudge", "resume", "steer", "failover"):
+            sst = state.get("sessions", {}).get(e.get("session"), {})
+            task = sst.get("current_task") or sst.get("last_task") or "?"
+            jobs.append(f"🟢 2 {task_link(task)} {defect_of(task)} — {t} queued")
+    for e in pending:
+        if not e.get("reported"):
+            jobs.append(f"🟢 2 {pr_link(e.get('pr'))} {e.get('task')} — "
+                        f"{e.get('summary', '')[:70]} (merged, not live)")
+    all_blocked = any(l.startswith("ALL-BLOCKED True")
+                      for l in checks.get("all-blocked", []))
+    if all_blocked:
+        for r in board_rows:
+            if (r["prefix"] not in STATUS_PREFIXES_TERMINAL
+                    and r["owner"].strip("—- ") == ""):
+                jobs.append(f"🟡 3 {task_link(r['task'])} {defect_of(r['task'])} "
+                            f"— no available worker (all sessions blocked)")
+    lines.append("JOBS")
+    lines.extend(jobs if jobs else ["(none)"])
+    lines.append(f"PENDING {len(pending)} merged-not-live")
+
+    # ---- WORKERS ----
+    lines.append("WORKERS")
+    for session in SESSIONS:
+        if session in ARCHIVED_SESSIONS:
+            continue
+        sst = state.get("sessions", {}).get(session, {})
+        cls = sst.get("last_classification") or "?"
+        emoji = _HB_EMOJI.get(cls, "⚪")
+        task = (sst.get("current_task") or sst.get("last_task")
+                or sst.get("dispatched_task") or "—")
+        age = _hb_age_txt(_state_age_min(sst))
+        name = (f"[{session}]({sst['task_url']})" if sst.get("task_url")
+                else session)
+        extra = ""
+        if cls not in ("?", "UNKNOWN"):
+            try:
+                action, _ = decide_action(session, cls, state)
+            except Exception:
+                action = "?"
+            if action != "NOTHING":
+                extra = f" → {action}"
+        lines.append(f"{emoji} {name} — {cls} ({age}) — {task}{extra}")
+
+    # ---- STATE ----
+    lines.append("STATE")
+    max_age, stale_txt = "?", ""
+    for session in SESSIONS:
+        if session in ARCHIVED_SESSIONS:
+            continue
+        a = _state_age_min(state.get("sessions", {}).get(session, {}))
+        if a != "unknown" and (max_age == "?" or a > max_age):
+            max_age = a
+    if stale_n is not None:
+        stale_txt = f" — STALE-RUNS={stale_n}"
+    lines.append(f"classifications {_hb_age_txt(max_age)} old{stale_txt}")
+    for line in checks.get("board-check", []):
+        lines.append(line)
+    for line in checks.get("liveness", []):
+        if line.startswith(("DEAD", "DROPPED")):
+            lines.append(line)
+    if not checks:
+        lines.append("(no check verdicts recorded this run — heartbeat is stale)")
+    return lines
+
+
+def cmd_heartbeat(args):
+    """heartbeat — the scripted watchdog report (Craig 2026-10-02).
+    Assembles ALERTS + JOBS + WORKERS + PENDING + STATE from this run's
+    recorded check verdicts, recent queued actions, the pending ledger, and
+    the board. The cron pastes the output verbatim as its final message."""
+    state = load_state()
+    checks = _hb_verdicts(state)
+    actions = _hb_recent_actions()
+    try:
+        board_rows = _board_rows("tokyo-drift-3d")
+    except Exception as e:
+        board_rows = []
+        print(f"(board fetch failed: {e})", file=sys.stderr)
+    pending, _ = _load_pending_ledger()
+    budget = None
+    try:
+        import subprocess
+        bp = os.path.expanduser("~/workspace/github-billing/check_budget.py")
+        out = subprocess.run([sys.executable, bp], capture_output=True,
+                             text=True, timeout=45).stdout
+        for line in out.splitlines():
+            if "ALERT_HIT" in line or "ALERT_WARN" in line or line.startswith("OK"):
+                budget = line.strip()[:100]
+                break
+    except Exception:
+        pass
+    for line in build_heartbeat(state, checks, actions, board_rows,
+                                pending.get("pending", []), budget):
+        print(line)
 
 
 def cmd_brief_check(args):
@@ -2366,7 +2638,7 @@ def main():
     elif cmd == "assign":
         cmd_assign(sys.argv[2:])
     elif cmd == "liveness":
-        cmd_liveness()
+        _capture_verdicts("liveness", cmd_liveness)
     elif cmd == "board":
         cmd_board(sys.argv[2:])
     elif cmd == "task-status":
@@ -2376,7 +2648,7 @@ def main():
     elif cmd == "owners":
         cmd_owners(sys.argv[2:])
     elif cmd == "conflicts":
-        cmd_conflicts(sys.argv[2:])
+        _capture_verdicts("conflicts", cmd_conflicts, sys.argv[2:])
     elif cmd == "dispatch-candidates":
         cmd_dispatch_candidates(sys.argv[2:])
     elif cmd == "ship-verify":
@@ -2393,6 +2665,8 @@ def main():
         cmd_pending_report(sys.argv[2:])
     elif cmd == "pending-reported":
         cmd_pending_reported(sys.argv[2:])
+    elif cmd == "heartbeat":
+        cmd_heartbeat(sys.argv[2:])
     elif cmd == "classify-report":
         cmd_classify_report(sys.argv[2:])
     elif cmd == "ci-report":
@@ -2402,7 +2676,7 @@ def main():
     elif cmd == "session-alive":
         cmd_session_alive(sys.argv[2:])
     elif cmd == "all-blocked":
-        cmd_all_blocked(sys.argv[2:])
+        _capture_verdicts("all-blocked", cmd_all_blocked, sys.argv[2:])
     elif cmd == "dispatch-eligible":
         cmd_dispatch_eligible(sys.argv[2:])
     elif cmd == "sibling-check":
@@ -2420,7 +2694,7 @@ def main():
     elif cmd == "blocker-surfaced":
         cmd_blocker_surfaced(sys.argv[2:])
     elif cmd == "classification-health":
-        cmd_classification_health(sys.argv[2:])
+        _capture_verdicts("classification-health", cmd_classification_health, sys.argv[2:])
     elif cmd == "entry-attempt":
         cmd_entry_attempt(sys.argv[2:])
     elif cmd == "entry-start":
@@ -2428,11 +2702,11 @@ def main():
     elif cmd == "pending-validate":
         cmd_pending_validate(sys.argv[2:])
     elif cmd == "idle-defect-check":
-        cmd_idle_defect_check(sys.argv[2:])
+        _capture_verdicts("idle-defect-check", cmd_idle_defect_check, sys.argv[2:])
     elif cmd == "audit-task":
         cmd_audit_task(sys.argv[2:])
     elif cmd == "transitions":
-        cmd_transitions(sys.argv[2:])
+        _capture_verdicts("transitions", cmd_transitions, sys.argv[2:])
     elif cmd == "publish-audit":
         cmd_publish_audit(sys.argv[2:])
     elif cmd == "imagegen-due":
@@ -2442,7 +2716,7 @@ def main():
     elif cmd == "taskfile-check":
         cmd_taskfile_check(sys.argv[2:])
     elif cmd == "board-check":
-        cmd_board_check(sys.argv[2:])
+        _capture_verdicts("board-check", cmd_board_check, sys.argv[2:])
     elif cmd == "validator-check":
         cmd_validator_check(sys.argv[2:])
     elif cmd == "state-pull":
