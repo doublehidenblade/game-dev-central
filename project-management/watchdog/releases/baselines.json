@@ -1,0 +1,22 @@
+{
+ "neon": {
+  "source_build": "b7096224",
+  "web_sha": "5b006961",
+  "web_published_at": "2026-09-29T16:55:00Z",
+  "url": "https://doublehidenblade.github.io/neon-drift-web/",
+  "note": "Craig push request 2026-09-29: all 24 pending NEON changes live (publish-web run 36600647269, success)"
+ },
+ "tokyo": {
+  "web_sha": "d57ab8b",
+  "source_sha": "1d92e256d86d386fb61d007e8a5f0847556ff493",
+  "published_at": "2026-10-02T04:42:20.703381+00:00",
+  "version": "v33"
+ },
+ "tokyo-drift-3d": {
+  "version": "v29",
+  "source": "4479c464093d283bb05f4f6db2c3fc5f9185b972",
+  "web_sha": "dc87cc18",
+  "pushed": "2026-09-30T00:38:17.823857+00:00",
+  "notes": "td-126 guest downstream-death fix + td-127 ping HUD + export-preset fix (qa/* excluded from pck)"
+ }
+}

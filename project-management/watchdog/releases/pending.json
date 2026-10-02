@@ -1,0 +1,22 @@
+{
+ "pending": [
+  {
+   "game": "tokyo",
+   "task": "td-142",
+   "pr": 272,
+   "merged_sha": "e10a9c83b469a8405aecb6808effa7dab85428e8",
+   "merged_at": "2026-10-02T13:44:07Z",
+   "summary": "NITRO tap no longer steers the car (Craig 10-02 phone QA; button-zone guard)",
+   "reported": true
+  },
+  {
+   "game": "tokyo",
+   "task": "td-140",
+   "pr": 273,
+   "merged_sha": "611af0924d05d302f60e07e545fa2df119702f50",
+   "merged_at": "2026-10-02T15:13:40.184631+00:00",
+   "summary": "UI rework: 80s-anime theme, 7 screens, CJK kickers",
+   "reported": true
+  }
+ ]
+}

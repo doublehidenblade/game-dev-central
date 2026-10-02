@@ -1,0 +1,7 @@
+{
+ "claude": true,
+ "codex_neon": false,
+ "codex_shuto": false,
+ "note": "2026-09-24 ~00:27 CDT: td-016 PR #47 ('td-016: AI-generated stylized PBR albedo textures', branch td016-imagegen-textures) MERGED by doublehidenblade. All 6 PNGs live on main under godot/assets/pbr/stylized/ (asphalt_graphic, facade_panel, metal_panel_albedo, painted_trim_albedo, signage_panel_albedo, wood_grain_albedo; 297KB-1.7MB each). The texture-imagegen job is COMPLETE. The Gemini-setup session session_01WFjCi6EbdJvdCsRnhfEA3B (limit reset 6:30 AM CDT) was never resumed \u2014 no retry needed, and per never-double-start no fresh imagegen session was created. No live imagegen session remains open; nothing queued. | 2026-10-02: marked complete \u2014 texture-imagegen job done (6 PNGs on main, PR #26 merged); no replacement sessions needed.",
+ "complete": true
+}

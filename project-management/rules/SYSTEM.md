@@ -47,7 +47,12 @@ Every task file MUST contain these fields (JSON):
 
 - `id`, `title`
 - `status` — one of: `open`, `in_progress`, `in_review`, `validated`,
-  `rejected`, `blocked`, `abandoned`
+  `rejected`, `blocked`, `abandoned`, `done-pending-verdict`
+  (`done-pending-verdict`: implementation complete and verified on main to
+  the extent an agent can; the ONLY outstanding item is Craig's phone
+  verdict. Terminal state — the watchdog must NEVER re-dispatch it, and no
+  worker may reopen it for engineering. Only Craig's verdict moves it to
+  `validated` or back to `open`.)
 - `ask` — whose ask it was and what was requested, with date
 - `bug_shape` — the observable shape of the bug: what it looks like, where
   it appears, reference images of the wrong state
@@ -55,7 +60,14 @@ Every task file MUST contain these fields (JSON):
 - `completion_criteria` — concrete, checkable criteria. Each one must say
   HOW it is verified (which screenshot angle, which numeric diff, which
   test). A criterion you cannot verify is not a criterion — rewrite it.
-- `evidence` — paths to captures/logs/diffs produced by the worker
+- `evidence` — paths to captures/logs/diffs produced by the worker.
+  For every VISUAL completion criterion the evidence MUST be one
+  before-frame + one after-frame of the SAME defect instance from the SAME
+  camera angle (same position, same framing), named
+  `<task-id>-<criterion-N>-before.png` / `<task-id>-<criterion-N>-after.png`,
+  committed under the task's QA folder. NO cherry-picking: the worker
+  covers EVERY defect instance the task claims to fix, not a
+  representative sample. A criterion without its pair is not done.
 - `work_log` — dated entries of what was done
 - `verdict` — written ONLY by the validator: per-criterion PASS/FAIL with
   evidence citations, plus overall status change
@@ -88,6 +100,13 @@ Everything else (routine `open` → `in_progress`, work-log edits) is silent.
    for anything Craig needs to see.
 7. Never send Craig an image the validator hasn't opened. (Standing rule
    from 2026-09-19.)
+8. VISUAL EVIDENCE RULE (Craig 2026-09-24 — one-bug-one-photo): every
+   visual completion criterion needs one before-frame and one after-frame
+   of the same defect instance from the same camera angle, committed under
+   the task's QA folder and listed per criterion in `evidence`. Cherry-picked
+   sample images are not evidence. A "before" frame labeled as "after", an
+   after-frame showing the same wrong state, or a missing pair FAILs the
+   criterion — and the validator rejects it, not a person.
 
 ## Where boards live
 
