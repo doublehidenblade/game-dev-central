@@ -1803,7 +1803,7 @@
   "td-140": "done-pending-verdict"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T18:14:07.554143+00:00",
+  "ts": "2026-10-02T18:15:42.693595+00:00",
   "checks": {
    "liveness": [],
    "transitions": [
@@ -1824,6 +1824,9 @@
    "idle-defect-check": [
     "OK no idle-with-assignable-work"
    ]
+  },
+  "check_ts": {
+   "board-check": "2026-10-02T18:15:42.693595+00:00"
   }
  }
 }
