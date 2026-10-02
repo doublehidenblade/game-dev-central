@@ -694,7 +694,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-02T18:21:21.440411+00:00",
+   "last_browser_check_ts": "2026-10-02T20:53:52.307145+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -739,9 +739,9 @@
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-02T18:21:21.509806+00:00",
+   "last_classification_ts": "2026-10-02T20:53:52.370119+00:00",
    "last_failover_ts": "2026-09-30T03:20:17.258015+00:00",
-   "last_note": "texture-imagegen: \"Merged Texture imagegen for game assets\" session in workspace \"Default tokyo-drift-3d\" \u2014 last message complete (explained no new Gemini image requests needed; all 6 PNGs under godot/assets/pbr/stylized/ already committed by the main session), PR #26 Merged, session not running, id",
+   "last_note": "duplicate",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -756,9 +756,9 @@
      "ts": "2026-09-24T19:53:48Z"
     }
    ],
-   "task_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
+   "task_url": "https://claude.ai/code/session_01WFjCi6EbdJvdCsRnhfEA",
    "workspace": "Default tokyo-drift-3d",
-   "last_finished_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
+   "last_finished_url": "https://claude.ai/code/session_01WFjCi6EbdJvdCsRnhfEA",
    "last_failover_note": "2026-10-01 ~19:10Z: shuto-c1 OOT genuine (weekly-limit banner, episode since 18:46Z) but FAILOVER not queued \u2014 no stranded open work: its planned td-045 is paused since 2026-09-25 (Craig reprioritized), and the 4f86564 CI check is trivial. Priority brief re-curated 2026-10-01 for any future episode. Trio rotation keeps last_classification=FINISHED so decide stays NOTHING until a fresh OOT-led cycle.",
    "_notes": [
     {
@@ -867,11 +867,9 @@
    "finished_urls": [
     "https://claude.ai/code/session_01Njf5TDGgwq5dzjZZsR8DW6",
     "https://claude.ai/code/session_01B2dMtdkXXse3Q2avFLBkVf",
-    "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA"
+    "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
+    "https://claude.ai/code/session_01WFjCi6EbdJvdCsRnhfEA"
    ],
-   "inspected_ts": "2026-10-02T17:05:54.634607+00:00",
-   "pr_merged": true,
-   "merged_by": "cron",
    "assignments": [],
    "last_task": null
   },
@@ -1053,9 +1051,9 @@
     "do_not_ship_pr253": "PR #253 (td-138-round3) holds ONLY the self-rejected iteration-01 negative evidence. NEVER merge it - not an acceptance submission. Set 2026-10-01 ~05:20Z after round-3 finished without iteration 02. Clear only when Craig approves a shippable iteration.",
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
-   "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-02T18:21:21.459902+00:00",
-   "last_note": "\"Most recent task 'Verify guest trace upload functionality' (Oct 1) \u2014 run finished (Worked for 9m 47s), completed summary + diff shown, idle composer; not stalled. It opened verification PR #268 and central-board PR #220; neither merged by this worker.\"",
+   "last_classification": "LOGIN_BLOCKED",
+   "last_classification_ts": "2026-10-02T20:53:52.316209+00:00",
+   "last_note": "Cloudflare bot check on chatgpt.com/codex/cloud, not solved per brief",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
