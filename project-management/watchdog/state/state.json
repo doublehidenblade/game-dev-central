@@ -1675,7 +1675,8 @@
   "2026-10-02T22:49Z deregistered td-150 (validator): validator complete, VALIDATED",
   "2026-10-02T22:49Z deregistered td-151 (validator): validator complete, VALIDATED",
   "2026-10-02T22:49Z deregistered td-152 (validator): validator complete, VALIDATED",
-  "2026-10-02T22:55Z deregistered td-148 (validator): validator complete, VALIDATED"
+  "2026-10-02T22:55Z deregistered td-148 (validator): validator complete, VALIDATED",
+  "2026-10-02T23:14Z all-blocked escalation: codex+claude LOGIN_BLOCKED; spawned Muse subagent on td-101 (Blender track + whole-map visual upgrade, brief incl. SYSTEM.md/task-file/no-merge rules). Prior Astra chat 2026-09-27 produced nothing on main \u2014 context migration: no salvage, start from task file. worker registered subagent."
  ],
  "workers": {
   "td-137": {
@@ -1694,7 +1695,16 @@
    "task_file": "godot/docs/tasks/td-149.md",
    "dispatched_at": "2026-10-02T23:15:00.762878+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
+  },
+  "td-101": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "doublehidenblade/tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-101.md",
+   "dispatched_at": "2026-10-02T23:15:29.358136+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -1847,11 +1857,12 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T23:13:08.225679+00:00",
+  "ts": "2026-10-02T23:17:12.331374+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
-    "GRACE td-149 (dispatched 27min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-149.md&sha=main)"
+    "GRACE td-149 (dispatched 2min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-149.md&sha=main)",
+    "GRACE td-101 (dispatched 2min ago; no heartbeat file)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -1874,7 +1885,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-02T23:12:35.331646+00:00",
-   "liveness": "2026-10-02T23:12:24.429415+00:00",
+   "liveness": "2026-10-02T23:17:12.331374+00:00",
    "classification-health": "2026-10-02T23:12:33.369853+00:00",
    "transitions": "2026-10-02T23:12:28.595811+00:00",
    "conflicts": "2026-10-02T23:12:27.468243+00:00",
