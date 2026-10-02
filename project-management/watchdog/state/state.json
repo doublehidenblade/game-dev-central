@@ -872,14 +872,8 @@
    "inspected_ts": "2026-10-02T17:05:54.634607+00:00",
    "pr_merged": true,
    "merged_by": "cron",
-   "assignments": [
-    {
-     "task": "td-144",
-     "note": "2026-10-02 watchdog: dispatch-claude queued for td-144 (Shuto C1 pause button, v34 phone QA)",
-     "assigned_at": "2026-10-02T19:29:23.778009+00:00"
-    }
-   ],
-   "last_task": "td-144"
+   "assignments": [],
+   "last_task": null
   },
   "claude-code:tokyo-drift-3d-textures": {
    "last_class": "STALLED",
@@ -1447,18 +1441,12 @@
    ],
    "stall_episode_start": "2026-10-01T12:33:09.253175+00:00",
    "blockers": {},
-   "assignments": [
-    {
-     "task": "td-143",
-     "note": "2026-10-02 watchdog: dispatch-codex queued for td-143 (traffic fleet not visible, v34 phone QA)",
-     "assigned_at": "2026-10-02T19:29:21.996922+00:00"
-    }
-   ],
+   "assignments": [],
    "finished_urls": [
     "https://chatgpt.com/codex/cloud/tasks/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
    "finished_no_pr": true,
-   "last_task": "td-143"
+   "last_task": null
   },
   "--help": {
    "pr_merged": true,
