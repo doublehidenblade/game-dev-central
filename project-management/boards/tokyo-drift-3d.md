@@ -149,3 +149,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-145 | Steering power differs across Tokyo Bay / Shuto / multiplayer — must be identical (Craig 2026-10-02 v34 phone QA) | merged 2026-10-02 — PR #277 squash-merged; one shared steering config, MP gets same yaw cap + ramp as SP | — | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-145.md) | 2026-10-02 |
 | td-146 | Graphics Balanced vs Sharp no perceptible difference — make distinct or remove (Craig 2026-10-02 v34 phone QA) | merged 2026-10-02 — PR #276 squash-merged; BALANCED/SHARP toggle removed (was 0.75 vs 1.0 render scale only); always full-res now | — | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-146.md) | 2026-10-02 |
 | td-147 | Collision box bigger than car model, inconsistent across maps/modes (Craig 2026-10-02 v34 phone QA) | merged 2026-10-02 — PR #275 squash-merged; collision box 2.0x4.35 shared across maps/modes | — | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-147.md) | 2026-10-02 |
+| td-148 | Purge remaining old traffic car models (fleet purity, v35 QA) | open | — | — | 2026-10-02 |
+| td-149 | Traffic cars: turning wheels + real headlight/taillight sources | open | — | — | 2026-10-02 |
+| td-150 | Loading screen art rework (imagegen retro, ref arts folder) | open | — | — | 2026-10-02 |
+| td-151 | Front-load game loading (kill in-game lag) | open | — | — | 2026-10-02 |
