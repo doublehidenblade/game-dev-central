@@ -1663,18 +1663,10 @@
   "2026-10-02T14:59Z LIVENESS: td-140 proclaimed DEAD (2 quiet cycles; heartbeat stale (38min)). Replacement dispatch-subagent queued (brief td-140-20261002-145903.md).",
   "2026-10-02T15:00Z main-agent: DROPPED the queued dispatch-subagent for td-140 \u2014 worker is live (tool-activity notes every 1-3 min, screenshot captures progressing); only its heartbeat file went stale (38min). Spawning a replacement would duplicate a live worker. Worker reminded to resume heartbeat writes; next cron STEP 0 will re-observe.",
   "2026-10-02T15:04Z marked codex:tokyo-drift-3d finished_no_pr: td-125 verify episode parked no PR (verify PR #268 closed); #253/#260 were stale note-mining artifacts",
-  "2026-10-02T15:17Z deregistered td-140 (subagent): work complete: PR #273 merged to main, board done-pending-verdict, worker subagent finished"
+  "2026-10-02T15:17Z deregistered td-140 (subagent): work complete: PR #273 merged to main, board done-pending-verdict, worker subagent finished",
+  "2026-10-02T19:35Z deregistered td-143 (subagent): fix merged (PR #278)"
  ],
  "workers": {
-  "td-143": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-143.md",
-   "dispatched_at": "2026-10-02T19:32:24.774957+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
   "td-144": {
    "kind": "subagent",
    "session": null,
