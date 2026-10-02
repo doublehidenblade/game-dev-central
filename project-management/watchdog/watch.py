@@ -1130,7 +1130,7 @@ BOARD_PATHS = {
 # (audit 2026-10-02: liveness had its own divergent copy).
 STATUS_PREFIXES_TERMINAL = {"done", "closed", "merged", "validated", "verified",
                             "superseded", "abandoned", "shipped", "resolved",
-                            "live", "paused"}
+                            "live", "paused", "done-pending-verdict"}
 LIVENESS_TERMINAL = STATUS_PREFIXES_TERMINAL  # alias; do not diverge
 # Sessions whose product is retired — skipped by construction, not by prose.
 ARCHIVED_SESSIONS = {"codex:neon-drift"}

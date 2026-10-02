@@ -415,6 +415,25 @@ def test_part4():
     out4 = watch.build_heartbeat({"sessions": {}}, {}, [], many, [], None)
     check("fallback cap", sum(1 for l in out4 if l.startswith("⬜")) == 6
           and "…and 2 more open on the board" in out4)
+    # All-blocked fallback (Craig 2026-10-02): done-pending-verdict is
+    # TERMINAL (only Craig's verdict outstanding) — it must never surface
+    # as "no available worker" work when every session is blocked.
+    rows_ab = [
+        {"task": "td-022", "defect": "Buildings clipping",
+         "status": "done-pending-verdict 2026-09-30",
+         "prefix": "done-pending-verdict", "owner": "", "pr": ""},
+        {"task": "td-040", "defect": "webgl-smoke fails",
+         "status": "blocked 2026-09-30",
+         "prefix": "blocked", "owner": "", "pr": ""},
+    ]
+    checks_ab = {"all-blocked": ["ALL-BLOCKED True "
+                                 "(codex:tokyo-drift-3d=LOGIN_BLOCKED; "
+                                 "claude-code:tokyo-drift-3d=LOGIN_BLOCKED)"]}
+    out5 = watch.build_heartbeat({"sessions": {}}, checks_ab, [], rows_ab, [], None)
+    jobs5 = "\n".join(out5).split("JOBS")[1].split("PENDING")[0]
+    check("all-blocked dpv excluded", "td-022" not in jobs5)
+    check("all-blocked blocked row shown",
+          any(l.startswith("🟡 3") and "td-040" in l for l in out5))
     return fails
 
 
