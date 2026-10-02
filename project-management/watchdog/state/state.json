@@ -1447,10 +1447,6 @@
    ],
    "finished_no_pr": true,
    "last_task": null
-  },
-  "--help": {
-   "pr_merged": true,
-   "merged_by": "worker"
   }
  },
  "td_038_confirmed_shipped": {
@@ -1682,7 +1678,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 6
+  "stale_runs": 7
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1823,7 +1819,7 @@
   "td-147": "merged"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T20:27:49.420884+00:00",
+  "ts": "2026-10-02T20:43:10.271965+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead)"
@@ -1832,7 +1828,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=6"
+    "STALE-RUNS=7"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1848,12 +1844,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T20:27:34.842142+00:00",
-   "liveness": "2026-10-02T20:27:28.428840+00:00",
-   "classification-health": "2026-10-02T20:27:31.546543+00:00",
-   "transitions": "2026-10-02T20:27:31.017037+00:00",
-   "conflicts": "2026-10-02T20:27:28.966925+00:00",
-   "all-blocked": "2026-10-02T20:27:49.420884+00:00"
+   "board-check": "2026-10-02T20:42:42.409086+00:00",
+   "liveness": "2026-10-02T20:42:17.129740+00:00",
+   "classification-health": "2026-10-02T20:42:21.024998+00:00",
+   "transitions": "2026-10-02T20:42:36.680558+00:00",
+   "conflicts": "2026-10-02T20:42:33.393054+00:00",
+   "all-blocked": "2026-10-02T20:43:10.271965+00:00"
   }
  }
 }
