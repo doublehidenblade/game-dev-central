@@ -1700,14 +1700,14 @@
    "task_file": "godot/docs/tasks/td-101.md",
    "dispatched_at": "2026-10-02T23:34:16.418252+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 1
+  "stale_runs": 2
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1853,17 +1853,17 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T23:34:47.808309+00:00",
+  "ts": "2026-10-02T23:48:09.905570+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
-    "GRACE td-101 (dispatched 18min ago; no heartbeat file)"
+    "GRACE td-101 (dispatched 13min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-101.md&sha=main)"
    ],
    "transitions": [
-    "FLIP td-149: in_progress -> validated [notify-craig]"
+    "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1"
+    "STALE-RUNS=2"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1879,12 +1879,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T23:33:46.483850+00:00",
-   "liveness": "2026-10-02T23:33:39.644151+00:00",
-   "classification-health": "2026-10-02T23:33:44.572745+00:00",
-   "transitions": "2026-10-02T23:33:45.540458+00:00",
-   "conflicts": "2026-10-02T23:33:30.485654+00:00",
-   "all-blocked": "2026-10-02T23:34:47.808309+00:00"
+   "board-check": "2026-10-02T23:47:50.994615+00:00",
+   "liveness": "2026-10-02T23:47:35.093548+00:00",
+   "classification-health": "2026-10-02T23:47:44.582834+00:00",
+   "transitions": "2026-10-02T23:47:42.204421+00:00",
+   "conflicts": "2026-10-02T23:47:37.905073+00:00",
+   "all-blocked": "2026-10-02T23:48:09.905570+00:00"
   }
  }
 }
