@@ -1683,8 +1683,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-148.md",
    "dispatched_at": "2026-10-02T21:55:31.649086+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   },
   "td-149": {
    "kind": "subagent",
@@ -1692,8 +1692,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-149.md",
    "dispatched_at": "2026-10-02T21:55:31.868449+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   },
   "td-150": {
    "kind": "subagent",
@@ -1701,8 +1701,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-150.md",
    "dispatched_at": "2026-10-02T21:55:32.004793+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   },
   "td-151": {
    "kind": "subagent",
@@ -1710,8 +1710,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-151.md",
    "dispatched_at": "2026-10-02T21:55:32.211440+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   },
   "td-152": {
    "kind": "subagent",
@@ -1719,15 +1719,15 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-152.md",
    "dispatched_at": "2026-10-02T21:55:32.378397+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 2
+  "stale_runs": 3
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1866,28 +1866,30 @@
   "td-145": "merged",
   "td-146": "merged",
   "td-147": "merged",
-  "td-148": "in_progress",
+  "td-148": "in_review",
   "td-149": "in_progress",
-  "td-150": "in_progress",
+  "td-150": "in_review",
   "td-151": "in_progress",
-  "td-152": "in_progress"
+  "td-152": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T22:18:47.873702+00:00",
+  "ts": "2026-10-02T22:28:09.175645+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
-    "GRACE td-148 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-148.md&sha=main)",
-    "GRACE td-149 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-149.md&sha=main)",
-    "GRACE td-150 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-150.md&sha=main)",
-    "GRACE td-151 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-151.md&sha=main)",
-    "GRACE td-152 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-152.md&sha=main)"
+    "QUIET(1) td-148 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-148.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)",
+    "QUIET(1) td-149 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-149.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)",
+    "QUIET(1) td-150 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-150.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)",
+    "QUIET(1) td-151 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-151.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)",
+    "QUIET(1) td-152 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-152.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-148: in_progress -> in_review [wake-validator]",
+    "FLIP td-150: in_progress -> in_review [wake-validator]",
+    "FLIP td-152: in_progress -> in_review [wake-validator]"
    ],
    "classification-health": [
-    "STALE-RUNS=2"
+    "STALE-RUNS=3"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1907,12 +1909,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T22:18:15.933193+00:00",
-   "liveness": "2026-10-02T22:17:58.634582+00:00",
-   "classification-health": "2026-10-02T22:18:13.009747+00:00",
-   "transitions": "2026-10-02T22:18:12.829178+00:00",
+   "board-check": "2026-10-02T22:27:55.380847+00:00",
+   "liveness": "2026-10-02T22:27:45.996198+00:00",
+   "classification-health": "2026-10-02T22:27:51.984577+00:00",
+   "transitions": "2026-10-02T22:27:53.715388+00:00",
    "conflicts": "2026-10-02T22:18:11.400780+00:00",
-   "all-blocked": "2026-10-02T22:18:47.873702+00:00"
+   "all-blocked": "2026-10-02T22:28:09.175645+00:00"
   }
  }
 }
