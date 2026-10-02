@@ -871,7 +871,15 @@
    ],
    "inspected_ts": "2026-10-02T17:05:54.634607+00:00",
    "pr_merged": true,
-   "merged_by": "cron"
+   "merged_by": "cron",
+   "assignments": [
+    {
+     "task": "td-144",
+     "note": "2026-10-02 watchdog: dispatch-claude queued for td-144 (Shuto C1 pause button, v34 phone QA)",
+     "assigned_at": "2026-10-02T19:29:23.778009+00:00"
+    }
+   ],
+   "last_task": "td-144"
   },
   "claude-code:tokyo-drift-3d-textures": {
    "last_class": "STALLED",
@@ -1439,11 +1447,18 @@
    ],
    "stall_episode_start": "2026-10-01T12:33:09.253175+00:00",
    "blockers": {},
-   "assignments": [],
+   "assignments": [
+    {
+     "task": "td-143",
+     "note": "2026-10-02 watchdog: dispatch-codex queued for td-143 (traffic fleet not visible, v34 phone QA)",
+     "assigned_at": "2026-10-02T19:29:21.996922+00:00"
+    }
+   ],
    "finished_urls": [
     "https://chatgpt.com/codex/cloud/tasks/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
-   "finished_no_pr": true
+   "finished_no_pr": true,
+   "last_task": "td-143"
   },
   "--help": {
    "pr_merged": true,
@@ -1667,7 +1682,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 1
+  "stale_runs": 2
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1800,23 +1815,28 @@
   "td-139": "in_review",
   "td-141": "merged",
   "td-142": "done-pending-verdict",
-  "td-140": "done-pending-verdict"
+  "td-140": "done-pending-verdict",
+  "td-143": "open",
+  "td-144": "open",
+  "td-145": "open",
+  "td-146": "open",
+  "td-147": "merged"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T19:12:44.593169+00:00",
+  "ts": "2026-10-02T19:28:08.993129+00:00",
   "checks": {
    "liveness": [],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1"
+    "STALE-RUNS=2"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (131 rows)"
+    "BOARD-OK tokyo-drift-3d (136 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -1826,12 +1846,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T19:12:18.246419+00:00",
-   "liveness": "2026-10-02T19:12:10.500551+00:00",
-   "classification-health": "2026-10-02T19:12:14.428131+00:00",
-   "transitions": "2026-10-02T19:12:15.254432+00:00",
-   "conflicts": "2026-10-02T19:12:12.557628+00:00",
-   "all-blocked": "2026-10-02T19:12:44.593169+00:00"
+   "board-check": "2026-10-02T19:27:51.974994+00:00",
+   "liveness": "2026-10-02T19:27:16.507920+00:00",
+   "classification-health": "2026-10-02T19:27:48.523480+00:00",
+   "transitions": "2026-10-02T19:27:46.011809+00:00",
+   "conflicts": "2026-10-02T19:27:21.291855+00:00",
+   "all-blocked": "2026-10-02T19:28:08.993129+00:00"
   }
  }
 }
