@@ -586,6 +586,10 @@
   {
    "ts": "2026-10-02T21:17:00Z",
    "note": "td-137 in_review flip (merged->in_review): PR #282 is REAL Godot work (scene.json, shuto_c1_world.gd, QA triptychs + before/after pairs) but titled DO NOT MERGE \u2014 awaiting Craig's verdict. Validator dispatch SKIPPED \u2014 his phone verdict is the only closer; a separate validator would be overreach. Watchdog run 2026-10-02 17:12Z."
+  },
+  {
+   "ts": "2026-10-02T23:43:00Z",
+   "note": "watchdog: ALL-BLOCKED escalation fired (both codex+claude sessions LOGIN_BLOCKED, login-fail already notified) but NO new subagent spawned: every open task is owned (td-101 Astra/GRACE, td-119 Muse coordinator, td-137 subagent/ALIVE PR #282), blocked on human/external (td-040 Craig webgl-smoke dispatch, td-074/td-085 infra, td-104 phase-2 Codex), in_review awaiting validators, or explicitly skipped (td-054 no-redispatch, td-138 standing-asset judgment). Spawning would duplicate live workers or violate skips. td-142 flipped to done-pending-verdict (PR #272) during the run \u2014 live progress. Fixed [SCRIPTED: watch.py heartbeat]: added done-pending-verdict to STATUS_PREFIXES_TERMINAL so the all-blocked JOBS fallback no longer lists done work as needing a worker (was showing td-022); test added to test_part4, ALL TESTS PASSED."
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -1849,7 +1853,7 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T23:33:46.483850+00:00",
+  "ts": "2026-10-02T23:34:47.808309+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
@@ -1880,7 +1884,7 @@
    "classification-health": "2026-10-02T23:33:44.572745+00:00",
    "transitions": "2026-10-02T23:33:45.540458+00:00",
    "conflicts": "2026-10-02T23:33:30.485654+00:00",
-   "all-blocked": "2026-10-02T23:13:08.225679+00:00"
+   "all-blocked": "2026-10-02T23:34:47.808309+00:00"
   }
  }
 }
