@@ -1445,7 +1445,8 @@
     "https://chatgpt.com/codex/cloud/tasks/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
    "finished_no_pr": true,
-   "last_task": null
+   "last_task": null,
+   "login_fail_notified_ts": "2026-10-02T20:57:28.105788+00:00"
   }
  },
  "td_038_confirmed_shipped": {
@@ -1677,7 +1678,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 7
+  "stale_runs": 0
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1818,7 +1819,7 @@
   "td-147": "merged"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T20:43:10.271965+00:00",
+  "ts": "2026-10-02T20:57:34.847633+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead)"
@@ -1827,7 +1828,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=7"
+    "STALE-RUNS=0"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1836,19 +1837,19 @@
     "BOARD-OK tokyo-drift-3d (136 rows)"
    ],
    "all-blocked": [
-    "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
+    "ALL-BLOCKED False (codex:tokyo-drift-3d=LOGIN_BLOCKED; claude-code:tokyo-drift-3d=FINISHED)"
    ],
    "idle-defect-check": [
     "OK no idle-with-assignable-work"
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T20:42:42.409086+00:00",
-   "liveness": "2026-10-02T20:42:17.129740+00:00",
-   "classification-health": "2026-10-02T20:42:21.024998+00:00",
-   "transitions": "2026-10-02T20:42:36.680558+00:00",
-   "conflicts": "2026-10-02T20:42:33.393054+00:00",
-   "all-blocked": "2026-10-02T20:43:10.271965+00:00"
+   "board-check": "2026-10-02T20:57:21.889853+00:00",
+   "liveness": "2026-10-02T20:57:18.921985+00:00",
+   "classification-health": "2026-10-02T20:57:20.048413+00:00",
+   "transitions": "2026-10-02T20:57:19.917978+00:00",
+   "conflicts": "2026-10-02T20:57:19.047520+00:00",
+   "all-blocked": "2026-10-02T20:57:34.847633+00:00"
   }
  }
 }
