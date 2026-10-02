@@ -1676,7 +1676,8 @@
   "2026-10-02T22:49Z deregistered td-151 (validator): validator complete, VALIDATED",
   "2026-10-02T22:49Z deregistered td-152 (validator): validator complete, VALIDATED",
   "2026-10-02T22:55Z deregistered td-148 (validator): validator complete, VALIDATED",
-  "2026-10-02T23:14Z all-blocked escalation: codex+claude LOGIN_BLOCKED; spawned Muse subagent on td-101 (Blender track + whole-map visual upgrade, brief incl. SYSTEM.md/task-file/no-merge rules). Prior Astra chat 2026-09-27 produced nothing on main \u2014 context migration: no salvage, start from task file. worker registered subagent."
+  "2026-10-02T23:14Z all-blocked escalation: codex+claude LOGIN_BLOCKED; spawned Muse subagent on td-101 (Blender track + whole-map visual upgrade, brief incl. SYSTEM.md/task-file/no-merge rules). Prior Astra chat 2026-09-27 produced nothing on main \u2014 context migration: no salvage, start from task file. worker registered subagent.",
+  "2026-10-02T23:19Z deregistered td-149 (validator): validator complete, VALIDATED"
  ],
  "workers": {
   "td-137": {
@@ -1687,15 +1688,6 @@
    "dispatched_at": "2026-10-02T19:32:25.026812+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-149": {
-   "kind": "validator",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-149.md",
-   "dispatched_at": "2026-10-02T23:15:00.762878+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
   },
   "td-101": {
    "kind": "subagent",
