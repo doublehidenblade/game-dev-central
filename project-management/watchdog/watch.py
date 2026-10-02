@@ -1368,6 +1368,46 @@ def cmd_evidence_audit(args):
     embedded = "![]( " in ev or "![](" in ev
     print(f"EVIDENCE-EMBED {'OK' if embedded else 'MISSING'} "
           f"(Evidence section has embedded images: {embedded})")
+    # Craig 2026-10-02: QA README link check — evidence READMEs must use
+    # rendered images (![]()) or clickable links ([]()), never bare backtick
+    # paths (`foo.png`) which render as dead text. Check README.md in each
+    # QA dir and one level of subdirectories (evidence lives in dated folders).
+    def _check_readme_links(qa_path, readme):
+        bare = []
+        for m in re.finditer(r"`([A-Za-z0-9_][A-Za-z0-9_\-./]*\.(png|jpg|jpeg))`", readme, re.I):
+            start = m.start()
+            prefix = readme[max(0, start-3):start]
+            if prefix.endswith("](") or prefix.endswith("] ("):
+                continue
+            if start > 0 and readme[start-1] == "]":
+                rest = readme[m.end():m.end()+3]
+                if rest.startswith("]("):
+                    continue
+            bare.append(m.group(1))
+        return sorted(set(bare))
+
+    for qa in qa_dirs:
+        readme_paths = [f"godot/qa/{qa}/README.md"]
+        try:
+            entries = _gh(f"/repos/{repo_full}/contents/godot/qa/{qa}?ref=main")
+            for e in entries:
+                if e["type"] == "dir":
+                    readme_paths.append(f"godot/qa/{qa}/{e['name']}/README.md")
+        except Exception:
+            pass
+        for rp in readme_paths:
+            try:
+                readme = _repo_file_text(repo_full, rp, ref="main")
+            except Exception:
+                continue
+            bare = _check_readme_links(rp, readme)
+            short = rp.replace("godot/qa/", "qa/")
+            if bare:
+                print(f"EVIDENCE-README-LINKS MISSING {short} "
+                      f"({len(bare)} bare image paths, not links: {', '.join(bare[:5])}"
+                      f"{'...' if len(bare) > 5 else ''})")
+            else:
+                print(f"EVIDENCE-README-LINKS OK {short}")
     for qa in qa_dirs:
         try:
             files = _gh(f"/repos/{repo_full}/contents/godot/qa/{qa}?ref=main")
