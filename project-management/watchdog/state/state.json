@@ -1854,15 +1854,12 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T22:50:32.537736+00:00",
+  "ts": "2026-10-02T22:52:01.544798+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
-    "GRACE td-148 (dispatched 13min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-148.md&sha=main)",
-    "GRACE td-149 (dispatched 1min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-149.md&sha=main)",
-    "GRACE td-150 (dispatched 13min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-150.md&sha=main)",
-    "GRACE td-151 (dispatched 13min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-151.md&sha=main)",
-    "GRACE td-152 (dispatched 13min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-152.md&sha=main)"
+    "GRACE td-148 (dispatched 18min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-148.md&sha=main)",
+    "GRACE td-149 (dispatched 6min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-149.md&sha=main)"
    ],
    "transitions": [
     "FLIP td-150: in_review -> validated [notify-craig]",
@@ -1886,8 +1883,8 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T22:50:32.537736+00:00",
-   "liveness": "2026-10-02T22:46:49.071892+00:00",
+   "board-check": "2026-10-02T22:52:01.544798+00:00",
+   "liveness": "2026-10-02T22:51:59.285780+00:00",
    "classification-health": "2026-10-02T22:48:16.249243+00:00",
    "transitions": "2026-10-02T22:47:51.503924+00:00",
    "conflicts": "2026-10-02T22:47:50.603916+00:00",
