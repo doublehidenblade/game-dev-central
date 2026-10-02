@@ -2149,16 +2149,29 @@ WATCHDOG_RELEASES_PREFIX = "project-management/watchdog/releases"
 
 
 def _gh_api(method, path, data=None):
-    """Authenticated github skill call with an arbitrary method + JSON body."""
-    import subprocess
-    gh = os.path.expanduser(os.environ.get("WATCHDOG_GH_BIN", "~/workspace/skills/github/bin/gh"))
-    argv = [gh, "api", method, path]
-    if data is not None:
-        argv.append(json.dumps(data))
-    out = subprocess.run(argv, capture_output=True, text=True, timeout=60)
-    if out.returncode != 0:
-        raise RuntimeError(f"gh api {method} {path}: {out.stderr[:200]}")
-    return json.loads(out.stdout) if out.stdout.strip() else {}
+    """Authenticated API call with an arbitrary method + JSON body.
+
+    Uses urllib + the authd surrogate directly (no CLI arg limits) when
+    available; falls back to the WATCHDOG_GH_BIN CLI for small payloads."""
+    import urllib.request
+    try:
+        sys.path.insert(0, "/opt/hatch/skills/skill-creator/bin")
+        from dynamic_credentials import add_surrogate_to_request, read_json_response
+        req = urllib.request.Request(
+            "https://api.github.com" + path,
+            data=json.dumps(data).encode() if data is not None else None,
+            method=method)
+        req.add_header("Accept", "application/vnd.github+json")
+        req.add_header("X-GitHub-Api-Version", "2022-11-28")
+        if data is not None:
+            req.add_header("Content-Type", "application/json")
+        add_surrogate_to_request(req, "custom.github",
+                                 allowed_hosts=("github.com", "api.github.com"))
+        with urllib.request.urlopen(req, timeout=60) as resp:
+            body = resp.read()
+        return json.loads(body) if body.strip() else {}
+    except Exception as e:
+        raise RuntimeError(f"gh api {method} {path}: {e}")
 
 
 def _sync_paths():
@@ -2206,20 +2219,28 @@ def cmd_state_push(args):
     ref = _gh(f"/repos/{WATCHDOG_REPO}/git/ref/heads/main")
     base_commit = ref["object"]["sha"]
     base_tree = _gh(f"/repos/{WATCHDOG_REPO}/git/commits/{base_commit}")["tree"]["sha"]
+    import base64 as _b64
     tree_entries = []
     changed = 0
     for repo_path, local_path in _sync_paths():
         if not os.path.exists(local_path):
             continue
         with open(local_path, "rb") as f:
-            content = base64.b64encode(f.read()).decode()
+            raw = f.read()
+        try:
+            blob0 = _gh(f"/repos/{WATCHDOG_REPO}/contents/{repo_path}?ref=main")
+            same = _b64.b64decode(blob0["content"]) == raw
+        except Exception:
+            same = False  # not in repo yet — must push
+        if same:
+            continue
         blob = _gh_api("POST", f"/repos/{WATCHDOG_REPO}/git/blobs",
-                       {"content": content, "encoding": "base64"})
+                       {"content": _b64.b64encode(raw).decode(), "encoding": "base64"})
         tree_entries.append({"path": repo_path, "mode": "100644",
                              "type": "blob", "sha": blob["sha"]})
         changed += 1
     if not changed:
-        print("STATE-PUSH nothing to sync")
+        print("STATE-PUSH nothing changed")
         return
     new_tree = _gh_api("POST", f"/repos/{WATCHDOG_REPO}/git/trees",
                        {"base_tree": base_tree, "tree": tree_entries})["sha"]
@@ -2233,7 +2254,7 @@ def cmd_state_push(args):
         print(f"STATE-PUSH-CONFLICT main moved {base_commit[:7]} -> {ref_now[:7]}; "
               f"commit {commit[:7]} NOT pushed — run state-pull and retry")
         return
-    _gh_api("PATCH", f"/repos/{WATCHDOG_REPO}/git/ref/heads/main", {"sha": commit})
+    _gh_api("PATCH", f"/repos/{WATCHDOG_REPO}/git/refs/heads/main", {"sha": commit})
     print(f"STATE-PUSHED {commit[:7]} ({changed} files)")
 
 
