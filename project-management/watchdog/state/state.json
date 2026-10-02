@@ -1682,7 +1682,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 0
+  "stale_runs": 1
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1811,7 +1811,7 @@
   "td-135": "merged",
   "td-136": "merged",
   "td-137": "in_review",
-  "td-138": "open",
+  "td-138": "in_progress",
   "td-139": "in_review",
   "td-141": "merged",
   "td-142": "done-pending-verdict",
@@ -1821,28 +1821,33 @@
   "td-145": "merged",
   "td-146": "merged",
   "td-147": "merged",
-  "td-148": "open",
-  "td-149": "open",
-  "td-150": "open",
-  "td-151": "open"
+  "td-148": "in_progress",
+  "td-149": "in_progress",
+  "td-150": "in_progress",
+  "td-151": "in_progress",
+  "td-152": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T21:27:50.181736+00:00",
+  "ts": "2026-10-02T21:42:54.633773+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-138: open -> in_progress [silent]",
+    "FLIP td-148: open -> in_progress [silent]",
+    "FLIP td-149: open -> in_progress [silent]",
+    "FLIP td-150: open -> in_progress [silent]",
+    "FLIP td-151: open -> in_progress [silent]"
    ],
    "classification-health": [
-    "STALE-RUNS=0"
+    "STALE-RUNS=1"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (140 rows)"
+    "BOARD-OK tokyo-drift-3d (141 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=LOGIN_BLOCKED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -1852,12 +1857,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T21:27:19.870212+00:00",
-   "liveness": "2026-10-02T21:27:13.705886+00:00",
-   "classification-health": "2026-10-02T21:27:16.329544+00:00",
-   "transitions": "2026-10-02T21:27:17.149041+00:00",
-   "conflicts": "2026-10-02T21:27:09.192338+00:00",
-   "all-blocked": "2026-10-02T21:27:50.181736+00:00"
+   "board-check": "2026-10-02T21:42:36.381250+00:00",
+   "liveness": "2026-10-02T21:42:22.917439+00:00",
+   "classification-health": "2026-10-02T21:42:34.379480+00:00",
+   "transitions": "2026-10-02T21:42:31.129359+00:00",
+   "conflicts": "2026-10-02T21:42:29.803598+00:00",
+   "all-blocked": "2026-10-02T21:42:54.633773+00:00"
   }
  }
 }
