@@ -1675,14 +1675,14 @@
    "task_file": "godot/docs/tasks/td-137.md",
    "dispatched_at": "2026-10-02T19:32:25.026812+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 2
+  "stale_runs": 3
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1816,21 +1816,26 @@
   "td-141": "merged",
   "td-142": "done-pending-verdict",
   "td-140": "done-pending-verdict",
-  "td-143": "open",
-  "td-144": "open",
-  "td-145": "open",
-  "td-146": "open",
+  "td-143": "merged",
+  "td-144": "merged",
+  "td-145": "merged",
+  "td-146": "merged",
   "td-147": "merged"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T19:28:08.993129+00:00",
+  "ts": "2026-10-02T19:42:53.717879+00:00",
   "checks": {
-   "liveness": [],
+   "liveness": [
+    "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead)"
+   ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-143: open -> merged [silent]",
+    "FLIP td-144: open -> merged [silent]",
+    "FLIP td-145: open -> merged [silent]",
+    "FLIP td-146: open -> merged [silent]"
    ],
    "classification-health": [
-    "STALE-RUNS=2"
+    "STALE-RUNS=3"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1846,12 +1851,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T19:27:51.974994+00:00",
-   "liveness": "2026-10-02T19:27:16.507920+00:00",
-   "classification-health": "2026-10-02T19:27:48.523480+00:00",
-   "transitions": "2026-10-02T19:27:46.011809+00:00",
-   "conflicts": "2026-10-02T19:27:21.291855+00:00",
-   "all-blocked": "2026-10-02T19:28:08.993129+00:00"
+   "board-check": "2026-10-02T19:42:32.387970+00:00",
+   "liveness": "2026-10-02T19:42:22.437868+00:00",
+   "classification-health": "2026-10-02T19:42:30.207598+00:00",
+   "transitions": "2026-10-02T19:42:27.402170+00:00",
+   "conflicts": "2026-10-02T19:42:24.722885+00:00",
+   "all-blocked": "2026-10-02T19:42:53.717879+00:00"
   }
  }
 }

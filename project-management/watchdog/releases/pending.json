@@ -1,3 +1,49 @@
 {
- "pending": []
+ "pending": [
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-143",
+   "pr": 278,
+   "merged_sha": "f474fd4b1d45bcc5bcaf79f9434dcc4aceca7cc2",
+   "merged_at": "2026-10-02T19:44:34.933775+00:00",
+   "summary": "fleet wired into Tokyo Bay/Shuto/MP traffic",
+   "reported": true
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-144",
+   "pr": 279,
+   "merged_sha": "27eb9c030e6ab75f9efed8f2fe903df8c41ffb39",
+   "merged_at": "2026-10-02T19:44:35.041149+00:00",
+   "summary": "PauseMenu layer 11 above TouchControls zones",
+   "reported": true
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-145",
+   "pr": 277,
+   "merged_sha": "4e87f7af8310d32d3a7f56706d9c1e202fbed53a",
+   "merged_at": "2026-10-02T19:44:35.150724+00:00",
+   "summary": "one shared steering config, MP same yaw cap+ramp as SP",
+   "reported": true
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-146",
+   "pr": 276,
+   "merged_sha": "4453cc07c86bfc1e4a0b4c29a892bb7ad20c6cd2",
+   "merged_at": "2026-10-02T19:44:35.255995+00:00",
+   "summary": "BALANCED/SHARP toggle removed; always full-res",
+   "reported": true
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-147",
+   "pr": 275,
+   "merged_sha": "f6c2e52ca0b311d18c924112dfe4d446535a2bb2",
+   "merged_at": "2026-10-02T19:44:35.362265+00:00",
+   "summary": "collision box 2.0x4.35 shared across maps/modes",
+   "reported": true
+  }
+ ]
 }
