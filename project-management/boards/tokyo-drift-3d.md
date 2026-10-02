@@ -151,6 +151,6 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-147 | Collision box bigger than car model, inconsistent across maps/modes (Craig 2026-10-02 v34 phone QA) | merged 2026-10-02 — PR #275 squash-merged; collision box 2.0x4.35 shared across maps/modes | — | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-147.md) | 2026-10-02 |
 | td-148 | Purge remaining old traffic car models (fleet purity, v35 QA) | in_progress | — | — | 2026-10-02 |
 | td-149 | Traffic cars: turning wheels + real headlight/taillight sources | in_progress | — | — | 2026-10-02 |
-| td-150 | Loading screen art rework (imagegen retro, ref arts folder) | in_progress | — | — | 2026-10-02 |
+| td-150 | Loading screen art rework (imagegen retro, ref arts folder) | in_review | — | [#285](https://github.com/doublehidenblade/tokyo-drift-3d/pull/285) | 2026-10-02 |
 | td-151 | Front-load game loading (kill in-game lag) | in_progress | — | — | 2026-10-02 |
 | td-152 | Collision physics + handling feel (always sharp-left on hit, v35 QA) | in_progress | — | — | 2026-10-02 |
