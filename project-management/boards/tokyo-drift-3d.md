@@ -152,5 +152,5 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-148 | Purge remaining old traffic car models (fleet purity, v35 QA) | in_review | — | #284 | 2026-10-02 |
 | td-149 | Traffic cars: turning wheels + real headlight/taillight sources | in_review — [PR #288](https://github.com/doublehidenblade/tokyo-drift-3d/pull/288) open (DO NOT MERGE); overlay wheels spin + front steer, headlights retuned + lenses, taillight omni; evidence in godot/qa/td-149/ | Muse worker (subagent) | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-149.md) · [PR #288](https://github.com/doublehidenblade/tokyo-drift-3d/pull/288) | 2026-10-02 |
  | td-150 | Loading screen art rework (imagegen retro, ref arts folder) | validated | — | [#285](https://github.com/doublehidenblade/tokyo-drift-3d/pull/285) | 2026-10-02 | 
-| td-151 | Front-load game loading (kill in-game lag) | in_review | worker | #287 | 2026-10-02 |
+ | td-151 | Front-load game loading (kill in-game lag) | validated | worker | #287 | 2026-10-02 | 
  | td-152 | Collision physics + handling feel (always sharp-left on hit, v35 QA) | validated | — | [PR #286](https://github.com/doublehidenblade/tokyo-drift-3d/pull/286) (DO NOT MERGE) | 2026-10-02 | 
