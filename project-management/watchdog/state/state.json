@@ -1820,16 +1820,20 @@
   "td-144": "merged",
   "td-145": "merged",
   "td-146": "merged",
-  "td-147": "merged"
+  "td-147": "merged",
+  "td-148": "open",
+  "td-149": "open",
+  "td-150": "open",
+  "td-151": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T21:12:27.507012+00:00",
+  "ts": "2026-10-02T21:27:50.181736+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()"
    ],
    "transitions": [
-    "FLIP td-137: merged -> in_review [wake-validator]"
+    "NO-FLIPS"
    ],
    "classification-health": [
     "STALE-RUNS=0"
@@ -1838,7 +1842,7 @@
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (136 rows)"
+    "BOARD-OK tokyo-drift-3d (140 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=LOGIN_BLOCKED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -1848,12 +1852,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T21:12:24.139034+00:00",
-   "liveness": "2026-10-02T21:12:14.650891+00:00",
-   "classification-health": "2026-10-02T21:12:15.649590+00:00",
-   "transitions": "2026-10-02T21:12:15.520985+00:00",
-   "conflicts": "2026-10-02T21:12:14.776487+00:00",
-   "all-blocked": "2026-10-02T21:12:27.507012+00:00"
+   "board-check": "2026-10-02T21:27:19.870212+00:00",
+   "liveness": "2026-10-02T21:27:13.705886+00:00",
+   "classification-health": "2026-10-02T21:27:16.329544+00:00",
+   "transitions": "2026-10-02T21:27:17.149041+00:00",
+   "conflicts": "2026-10-02T21:27:09.192338+00:00",
+   "all-blocked": "2026-10-02T21:27:50.181736+00:00"
   }
  }
 }
