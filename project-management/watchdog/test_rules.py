@@ -384,6 +384,77 @@ def test_part4():
     t2 = "\n".join(out2)
     check("quiet run", "(none)" in t2 and "PENDING 0 merged-not-live" in t2
           and "(no check verdicts recorded this run — heartbeat is stale)" in t2)
+    # Open-work fallback (Craig 2026-10-02): empty run activity must never
+    # read as "no open work / game is ready". Open board rows surface under
+    # JOBS with defect names; done-pending-verdict is excluded (done work).
+    rows_open = [
+        {"task": "td-054", "defect": "Multiplayer online", "status": "open",
+         "prefix": "open", "owner": "", "pr": ""},
+        {"task": "td-139", "defect": "QA round 2", "status": "in_review",
+         "prefix": "in_review", "owner": "Muse", "pr": "243"},
+        {"task": "td-140", "defect": "UI rework", "status": "done-pending-verdict",
+         "prefix": "done-pending-verdict", "owner": "", "pr": "273"},
+    ]
+    out3 = watch.build_heartbeat({"sessions": {}}, {}, [], rows_open, [], None)
+    t3 = "\n".join(out3)
+    check("open fallback shown",
+          any(l.startswith("⬜ [td-054]") and "Multiplayer online" in l
+              for l in out3))
+    check("fallback owner shown",
+          any("td-139" in l and "(Muse)" in l for l in out3))
+    check("done-pending-verdict excluded",
+          "td-140" not in t3.split("JOBS")[1].split("PENDING")[0])
+    check("fallback header",
+          "(no run activity — open board work:)" in t3)
+    check("fallback not bare none",
+          not any(l == "(none)" for l in
+                  t3.split("JOBS")[1].split("PENDING")[0].splitlines()))
+    # Cap: 8 open rows -> 6 lines + overflow count.
+    many = [{"task": f"td-{100 + i}", "defect": f"d{i}", "status": "open",
+             "prefix": "open", "owner": "", "pr": ""} for i in range(8)]
+    out4 = watch.build_heartbeat({"sessions": {}}, {}, [], many, [], None)
+    check("fallback cap", sum(1 for l in out4 if l.startswith("⬜")) == 6
+          and "…and 2 more open on the board" in out4)
+    return fails
+
+
+def test_part5():
+    """Verdict freshness (Craig 2026-10-02): _hb_verdicts trusts each check's
+    own recording time — a fresh command must not revalidate older keys from
+    a prior run."""
+    fails = 0
+
+    def check(name, cond):
+        nonlocal fails
+        if not cond:
+            fails += 1
+            print(f"  FAIL {name}")
+
+    now = watch.now()
+    fresh = (now - timedelta(minutes=5)).isoformat()
+    stale = (now - timedelta(minutes=120)).isoformat()
+    state = {"run_verdicts": {
+        "ts": fresh,  # shared ts bumped by the fresh check
+        "checks": {"transitions": ["NO-FLIPS"],
+                   "classification-health": ["STALE-RUNS=9"]},
+        "check_ts": {"transitions": fresh,
+                     "classification-health": stale},
+    }}
+    got = watch._hb_verdicts(state)
+    check("fresh check kept", got.get("transitions") == ["NO-FLIPS"])
+    check("stale check dropped", "classification-health" not in got)
+    # Old-format data (no per-check ts) falls back to the shared ts.
+    state2 = {"run_verdicts": {
+        "ts": fresh,
+        "checks": {"conflicts": ["OK no duplicate task ownership"]}}}
+    check("legacy shared-ts fallback",
+          watch._hb_verdicts(state2).get("conflicts")
+          == ["OK no duplicate task ownership"])
+    state3 = {"run_verdicts": {
+        "ts": stale,
+        "checks": {"conflicts": ["OK no duplicate task ownership"]}}}
+    check("legacy stale dropped", watch._hb_verdicts(state3) == {})
+    check("empty state", watch._hb_verdicts({}) == {})
     return fails
 
 
@@ -396,6 +467,8 @@ if __name__ == "__main__":
     f3 = test_part3()
     print("== Part 4: scripted heartbeat (real watch.build_heartbeat) ==")
     f4 = test_part4()
-    total = f1 + f2 + f3 + f4
+    print("== Part 5: verdict freshness (real watch._hb_verdicts) ==")
+    f5 = test_part5()
+    total = f1 + f2 + f3 + f4 + f5
     print(f"\n{total} failures" if total else "\nALL TESTS PASSED")
     sys.exit(1 if total else 0)

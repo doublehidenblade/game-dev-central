@@ -194,8 +194,12 @@ HEARTBEAT_FRESH_MIN = 40  # verdicts older than this are not this run's
 def _record_verdict(check, lines):
     state = load_state()
     rv = state.setdefault("run_verdicts", {})
-    rv["ts"] = now().isoformat()
+    ts = now().isoformat()
+    rv["ts"] = ts
     rv.setdefault("checks", {})[check] = [l for l in lines if l.strip()]
+    # Per-check timestamp: _hb_verdicts filters on this, so one command's
+    # fresh run never revalidates another command's older lines.
+    rv.setdefault("check_ts", {})[check] = ts
     save_state(state)
 
 
@@ -1525,15 +1529,29 @@ _HB_HUMAN_KW = ("login", "key", "purchase", "craig", "phone", "approval",
                 "sign in", "2fa", "otp")
 _HB_EXTERNAL_KW = ("outage", "down", "deprecated", "rate limit", "quota",
                    "incident")
+# Board prefixes that still mean project work is outstanding (Craig
+# 2026-10-02: a heartbeat must never imply the game is done/ready).
+# done-pending-verdict is deliberately excluded — implementation is complete,
+# only Craig's phone verdict is outstanding (never re-dispatched).
+_HB_OPEN_PREFIXES = {"open", "in_progress", "in_review", "blocked", "rejected"}
+_HB_OPEN_FALLBACK_N = 6
 
 
 def _hb_verdicts(state):
-    """This run's recorded check verdicts; {} when older than HEARTBEAT_FRESH_MIN."""
+    """This run's recorded check verdicts, filtered per check.
+    A check's verdicts count only if that check ran within
+    HEARTBEAT_FRESH_MIN — a newly run command must not make an older check's
+    lines look current (audit 2026-10-02: shared run_verdicts.ts let a prior
+    run's keys ride along). Falls back to the shared ts for pre-change data."""
     rv = state.get("run_verdicts", {})
-    ts = parse_ts(rv.get("ts"))
-    if not ts or (now() - ts).total_seconds() / 60 > HEARTBEAT_FRESH_MIN:
-        return {}
-    return rv.get("checks", {})
+    shared_ts = parse_ts(rv.get("ts"))
+    per = rv.get("check_ts", {})
+    out = {}
+    for name, lines in rv.get("checks", {}).items():
+        ts = parse_ts(per.get(name)) or shared_ts
+        if ts and (now() - ts).total_seconds() / 60 <= HEARTBEAT_FRESH_MIN:
+            out[name] = lines
+    return out
 
 
 def _hb_recent_actions():
@@ -1659,7 +1677,27 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
                 jobs.append(f"🟡 3 {task_link(r['task'])} {defect_of(r['task'])} "
                             f"— no available worker (all sessions blocked)")
     lines.append("JOBS")
-    lines.extend(jobs if jobs else ["(none)"])
+    if jobs:
+        lines.extend(jobs)
+    else:
+        # Craig 2026-10-02: an empty activity list must NEVER read as "the
+        # game has no open work / is ready". Fall back to the board's open
+        # work so worker idleness can't masquerade as project readiness.
+        open_rows = [r for r in board_rows
+                     if r.get("prefix") in _HB_OPEN_PREFIXES]
+        if open_rows:
+            lines.append("(no run activity — open board work:)")
+            for r in open_rows[:_HB_OPEN_FALLBACK_N]:
+                owner = (r.get("owner") or "").strip("—- ")
+                own_txt = (f" ({owner})" if owner and owner.lower()
+                           not in ("", "unassigned") else "")
+                lines.append(f"⬜ {task_link(r['task'])} {defect_of(r['task'])}"
+                             f" — {r.get('prefix')}{own_txt}")
+            if len(open_rows) > _HB_OPEN_FALLBACK_N:
+                lines.append(f"…and {len(open_rows) - _HB_OPEN_FALLBACK_N} "
+                             f"more open on the board")
+        else:
+            lines.append("(none)")
     lines.append(f"PENDING {len(pending)} merged-not-live")
 
     # ---- WORKERS ----
