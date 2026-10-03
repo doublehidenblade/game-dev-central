@@ -154,3 +154,4 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
  | td-150 | Loading screen art rework (imagegen retro, ref arts folder) | validated | — | [#285](https://github.com/doublehidenblade/tokyo-drift-3d/pull/285) | 2026-10-02 | 
  | td-151 | Front-load game loading (kill in-game lag) | validated | worker | #287 | 2026-10-02 | 
  | td-152 | Collision physics + handling feel (always sharp-left on hit, v35 QA) | validated | — | [PR #286](https://github.com/doublehidenblade/tokyo-drift-3d/pull/286) (DO NOT MERGE) | 2026-10-02 | 
+ | td-153 | Recess headlight/taillight meshes into car bodies (Craig 2026-10-03: bury the protruding rectangular light blocks so only light comes from the original lights position) | open | — | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-153.md) · [PR #293](https://github.com/doublehidenblade/tokyo-drift-3d/pull/293) | 2026-10-03 |
