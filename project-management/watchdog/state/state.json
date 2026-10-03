@@ -1489,6 +1489,30 @@
    "finished_no_pr": true,
    "last_task": null,
    "login_fail_notified_ts": "2026-10-03T15:27:42.901042+00:00"
+  },
+  "orphan-pr-292": {
+   "blockers": {
+    "held": {
+     "surfaced": true,
+     "surfaced_at": "2026-10-03T15:42:55.117074+00:00"
+    }
+   }
+  },
+  "orphan-pr-283": {
+   "blockers": {
+    "held": {
+     "surfaced": true,
+     "surfaced_at": "2026-10-03T15:42:55.282785+00:00"
+    }
+   }
+  },
+  "orphan-pr-282": {
+   "blockers": {
+    "held": {
+     "surfaced": true,
+     "surfaced_at": "2026-10-03T15:42:55.432811+00:00"
+    }
+   }
   }
  },
  "td_038_confirmed_shipped": {
