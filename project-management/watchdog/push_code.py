@@ -1,10 +1,24 @@
 #!/usr/bin/env python3
 """Push watchdog code files to game-dev-central main via git-database API.
 Reuses watch.py's _gh/_gh_api helpers (same auth). Aborts on moved ref."""
-import sys, os, base64
+import sys, os, base64, subprocess
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import watch
+
+# Self-gate (Craig 2026-10-03): the scriptification rule enforces itself —
+# no code sync while ~/AGENTS.md holds an untagged post-rule lesson.
+_here = os.path.dirname(os.path.abspath(__file__))
+_ar = subprocess.run([sys.executable, os.path.join(_here, "watch.py"),
+                      "scriptification-audit"],
+                     capture_output=True, text=True)
+sys.stdout.write(_ar.stdout)
+if _ar.returncode != 0:
+    sys.stderr.write(_ar.stderr)
+    print("push_code: ABORT — scriptification-audit failed; tag new "
+          "AGENTS.md lessons [SCRIPTED: watch.py <cmd>] or "
+          "[JUDGMENT-ONLY: <why>] before syncing code.")
+    sys.exit(1)
 
 FILES = {
     "project-management/watchdog/watch.py": "watch.py",
