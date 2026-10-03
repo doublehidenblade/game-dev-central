@@ -1748,6 +1748,10 @@
   {
    "ts": "2026-10-03T11:06:00Z",
    "note": "watchdog: ALL-BLOCKED escalation evaluated and WITHHELD. Scripted dispatch-candidates returned only 4 rows: td-054 (Craig denylist: explicit no-redispatch), td-101 (owned by ALIVE liveness subagent, PR #292), td-119 (owned board:Muse coordinator), td-138 (judgment-only skip: routing needs main-agent/supervisor judgment, never blind dispatch). No unowned dispatchable candidates; spawning subagents would duplicate live workers on the same task files. Login-fail already surfaced for both sessions (SUPPRESSED, 1.9h/5.9h). STALE-RUNS=23 recorded for the main-agent handoff AND-check."
+  },
+  {
+   "ts": "2026-10-03T18:12:00Z",
+   "note": "watchdog 2026-10-03 14:12 EDT run: STEP 0 \u2014 liveness ALIVE x2 (td-137 subagent PR #282 DO NOT MERGE open; td-101 subagent PR #292 DO NOT MERGE open), conflicts OK, transitions NO-FLIPS, board-check OK (142 rows), scriptification-audit TAGGED/OK, classification-health STALE-RUNS=14 (degraded alarm for main-agent handoff AND-check). STEP 1 \u2014 decide=REPORT_LOGIN x2 (state age 426.6min); loginfail SUPPRESSED x2 (already surfaced 2.7h/0.5h ago; blocker still browser login wall/CAPTCHA, manual login needed). ORPHAN SWEEP: no ORPHAN-READY (nothing to merge); ORPHAN-HELD #283/#282 already surfaced once (surfaced_at 15:42Z); ORPHAN-BLOCKED #253 denylist holds. ALL-BLOCKED True \u2014 escalation evaluated and WITHHELD: every open task owned (td-101/td-137 ALIVE subagents, td-119 Muse coordinator in_progress gated on Craig eyeball + PR #243, td-138 judgment-only standing skip, td-054 explicit no-redispatch). pending_actions.json actions EMPTY. No SHIP, no dispatch owed."
   }
  ],
  "workers": {
@@ -1774,7 +1778,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 13
+  "stale_runs": 14
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1921,7 +1925,7 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-03T18:00:51.689646+00:00",
+  "ts": "2026-10-03T18:12:31.260070+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
@@ -1931,7 +1935,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=13"
+    "STALE-RUNS=14"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1947,11 +1951,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-03T18:00:51.689646+00:00",
-   "liveness": "2026-10-03T18:00:37.765141+00:00",
-   "classification-health": "2026-10-03T18:00:47.422667+00:00",
-   "transitions": "2026-10-03T18:00:40.173837+00:00",
-   "conflicts": "2026-10-03T17:57:17.047822+00:00",
+   "board-check": "2026-10-03T18:12:31.260070+00:00",
+   "liveness": "2026-10-03T18:12:18.264708+00:00",
+   "classification-health": "2026-10-03T18:12:23.164173+00:00",
+   "transitions": "2026-10-03T18:12:23.980448+00:00",
+   "conflicts": "2026-10-03T18:12:10.577031+00:00",
    "all-blocked": "2026-10-03T15:13:44.734075+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
