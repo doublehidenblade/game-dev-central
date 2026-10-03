@@ -798,7 +798,7 @@ def cmd_loginfail(session):
         return
     sst["login_fail_notified_ts"] = t.isoformat()
     save_state(state)
-    label = "Codex (NEON DRIFT)" if session.startswith("codex") else "Claude Code (Tokyo Drift)"
+    label = "Codex (Tokyo Drift 3D)" if session.startswith("codex") else "Claude Code (Tokyo Drift)"
     print(f"NOTIFY: {label} needs a manual login — the watchdog's browser hit a "
           f"login page or CAPTCHA and cannot proceed on its own. Session checks for "
           f"this product are paused until you sign in again.")
