@@ -590,6 +590,10 @@
   {
    "ts": "2026-10-02T23:43:00Z",
    "note": "watchdog: ALL-BLOCKED escalation fired (both codex+claude sessions LOGIN_BLOCKED, login-fail already notified) but NO new subagent spawned: every open task is owned (td-101 Astra/GRACE, td-119 Muse coordinator, td-137 subagent/ALIVE PR #282), blocked on human/external (td-040 Craig webgl-smoke dispatch, td-074/td-085 infra, td-104 phase-2 Codex), in_review awaiting validators, or explicitly skipped (td-054 no-redispatch, td-138 standing-asset judgment). Spawning would duplicate live workers or violate skips. td-142 flipped to done-pending-verdict (PR #272) during the run \u2014 live progress. Fixed [SCRIPTED: watch.py heartbeat]: added done-pending-verdict to STATUS_PREFIXES_TERMINAL so the all-blocked JOBS fallback no longer lists done work as needing a worker (was showing td-022); test added to test_part4, ALL TESTS PASSED."
+  },
+  {
+   "ts": "2026-10-03T00:12:00Z",
+   "note": "watchdog 2026-10-02 20:11 EDT run: REPAIRED td-101 liveness registration signal \u2014 repo was truncated to \"tokyo-drift-3d\" (no owner), so every evidence check 404ed and produced a bogus QUIET(1); next run would have hit DEAD and queued a bogus dispatch-subagent replacement. Set repo=doublehidenblade/tokyo-drift-3d in place (dispatched_at 23:34Z preserved), quiet_cycles reset to 0. CONFLICT NOTE: board owner for td-101 is still Astra (chat since 2026-09-27), registration kind=subagent (main agent, 23:34Z, no dispatch note on record); no task-file commits or td-101 branches found via API. Next liveness check evaluates REAL evidence. If a bogus DEAD replacement gets queued anyway while board says Astra-owned, suppress per judgment-only rule and record why."
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -1696,18 +1700,18 @@
   "td-101": {
    "kind": "subagent",
    "session": null,
-   "repo": "tokyo-drift-3d",
+   "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-101.md",
    "dispatched_at": "2026-10-02T23:34:16.418252+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 3
+  "stale_runs": 4
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1853,17 +1857,17 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-02T23:58:31.245146+00:00",
+  "ts": "2026-10-03T00:13:31.794563+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
-    "GRACE td-101 (dispatched 23min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-101.md&sha=main)"
+    "QUIET(1) td-101 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-101.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=3"
+    "STALE-RUNS=4"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1879,12 +1883,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-02T23:57:50.576230+00:00",
-   "liveness": "2026-10-02T23:57:44.942986+00:00",
-   "classification-health": "2026-10-02T23:57:47.303775+00:00",
-   "transitions": "2026-10-02T23:57:46.889840+00:00",
-   "conflicts": "2026-10-02T23:57:45.398686+00:00",
-   "all-blocked": "2026-10-02T23:58:31.245146+00:00"
+   "board-check": "2026-10-03T00:12:56.538431+00:00",
+   "liveness": "2026-10-03T00:12:29.372646+00:00",
+   "classification-health": "2026-10-03T00:12:43.167067+00:00",
+   "transitions": "2026-10-03T00:12:37.687802+00:00",
+   "conflicts": "2026-10-03T00:12:33.944025+00:00",
+   "all-blocked": "2026-10-03T00:13:31.794563+00:00"
   }
  }
 }
