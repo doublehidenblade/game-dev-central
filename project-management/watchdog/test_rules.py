@@ -539,6 +539,35 @@ def test_part6():
     return fails
 
 
+def test_part7():
+    """Part 7: _strip_dnm_prefix — stale DO NOT MERGE title repair."""
+    fails = 0
+
+    def check(name, cond):
+        nonlocal fails
+        print(("PASS " if cond else "FAIL ") + name)
+        if not cond:
+            fails += 1
+
+    s = watch._strip_dnm_prefix
+    check("em-dash variant stripped",
+          s("DO NOT MERGE \u2014 awaiting Craig's verdict")
+          == "awaiting Craig's verdict")
+    check("colon variant stripped",
+          s("DO NOT MERGE: td-148 traffic fleet") == "td-148 traffic fleet")
+    check("bracket variant stripped",
+          s("[DO NOT MERGE] td-149 wheels") == "td-149 wheels")
+    check("lowercase stripped", s("do not merge - foo") == "foo")
+    check("bare DNM -> empty string", s("DO NOT MERGE") == "")
+    check("clean title untouched",
+          s("td-150: validator verdict") is None)
+    check("DNM mid-title untouched",
+          s("td-137: split/merge (do not merge)") is None)
+    check("missing space variant untouched",
+          s("DONOTMERGE foo") is None)
+    return fails
+
+
 if __name__ == "__main__":
     print("== Part 1: evidence -> classification ==")
     f1 = test_part1()
@@ -552,6 +581,8 @@ if __name__ == "__main__":
     f5 = test_part5()
     print("== Part 6: adopt-orphans verdicts (real watch._orphan_verdict) ==")
     f6 = test_part6()
-    total = f1 + f2 + f3 + f4 + f5 + f6
+    print("== Part 7: DNM title strip (real watch._strip_dnm_prefix) ==")
+    f7 = test_part7()
+    total = f1 + f2 + f3 + f4 + f5 + f6 + f7
     print(f"\n{total} failures" if total else "\nALL TESTS PASSED")
     sys.exit(1 if total else 0)

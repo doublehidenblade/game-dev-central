@@ -1340,6 +1340,27 @@ def _task_file_text(repo_full, task_file):
     return base64.b64decode(blob["content"]).decode("utf-8", "replace")
 
 
+def _strip_dnm_prefix(title):
+    """Remove a stale 'DO NOT MERGE' title prefix -> new title, or None.
+
+    Pure helper for unit tests (test_rules.py Part 7). Handles the variants
+    workers actually use: 'DO NOT MERGE — ...', 'DO NOT MERGE: ...',
+    '[DO NOT MERGE] ...', case-insensitive. Returns None when there is no
+    DNM prefix to strip. A bare 'DO NOT MERGE' with nothing after it returns
+    an empty string — the caller substitutes a non-empty placeholder title.
+    """
+    import re
+    m = re.match(r"^\s*\[?\s*do not merge\s*\]?\s*[:\-—–]?\s*(.*)$",
+                 title, re.IGNORECASE | re.DOTALL)
+    if not m:
+        return None
+    # Guard: the regex above matches anything starting with optional
+    # whitespace — require the literal words to have been present.
+    if "do not merge" not in title[:30].lower():
+        return None
+    return m.group(1).strip()
+
+
 def _orphan_verdict(pr, board_prefix):
     """Pure decision for one open PR -> (verdict, detail).
     Extracted for unit tests (test_rules.py Part 6)."""
@@ -1361,7 +1382,7 @@ def _orphan_verdict(pr, board_prefix):
 
 
 def cmd_adopt_orphans(args):
-    """adopt-orphans [game] — backstop for validated-but-unmerged PRs.
+    """adopt-orphans [game] [--fix-titles] — backstop for validated-but-unmerged PRs.
     The 2026-10-03 td-148..152 lesson: workers titled PRs "DO NOT MERGE —
     awaiting Craig's verdict", their sessions died, and no SHIP ever fired
     because SHIP is per-session — five validated PRs stranded with no owner.
@@ -1374,9 +1395,17 @@ def cmd_adopt_orphans(args):
       ORPHAN-HELD #N ...                 — DO NOT MERGE title, NOT validated:
                                           needs human judgment, never auto-merge
       ORPHAN-UNKNOWN #N ...              — open, no validated row: leave alone
+    With --fix-titles, every ORPHAN-READY PR whose title still carries a
+    stale DO NOT MERGE prefix gets the prefix stripped via the API
+    (TITLE-STRIPPED #N: <old> -> <new>), so the misleading title can never
+    strand validated work again — the WORKER_BRIEF title rule enforced in
+    code, not prose. Titles on ORPHAN-HELD (unvalidated) PRs are legitimate
+    holds and are never touched.
     The cron merges ORPHAN-READY with the standard SHIP sequence
     (ci-report, conflict check/rebase, squash-merge, record-pending)."""
     import re
+    fix_titles = "--fix-titles" in args
+    args = [a for a in args if a != "--fix-titles"]
     game = args[0] if args else "tokyo-drift-3d"
     repo_full = REPOS[game]
     try:
@@ -1400,6 +1429,17 @@ def cmd_adopt_orphans(args):
         n = p["number"]
         title = p.get("title", "")
         verdict, detail = _orphan_verdict(p, pr_prefix.get(n))
+        if verdict == "ORPHAN-READY" and fix_titles:
+            stripped = _strip_dnm_prefix(title)
+            if stripped is not None:
+                new_title = stripped or f"#{n} (validated)"
+                try:
+                    _gh_api("PATCH", f"/repos/{repo_full}/pulls/{n}",
+                            {"title": new_title})
+                    print(f"TITLE-STRIPPED #{n}: {title[:60]} -> {new_title[:60]}")
+                    title = new_title
+                except Exception as e:
+                    print(f"TITLE-STRIP-FAILED #{n}: {e}")
         if verdict == "ORPHAN-READY":
             print(f"{verdict} #{n} {detail} :: {title[:60]}")
         elif detail:
