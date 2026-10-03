@@ -1752,6 +1752,10 @@
   {
    "ts": "2026-10-03T18:12:00Z",
    "note": "watchdog 2026-10-03 14:12 EDT run: STEP 0 \u2014 liveness ALIVE x2 (td-137 subagent PR #282 DO NOT MERGE open; td-101 subagent PR #292 DO NOT MERGE open), conflicts OK, transitions NO-FLIPS, board-check OK (142 rows), scriptification-audit TAGGED/OK, classification-health STALE-RUNS=14 (degraded alarm for main-agent handoff AND-check). STEP 1 \u2014 decide=REPORT_LOGIN x2 (state age 426.6min); loginfail SUPPRESSED x2 (already surfaced 2.7h/0.5h ago; blocker still browser login wall/CAPTCHA, manual login needed). ORPHAN SWEEP: no ORPHAN-READY (nothing to merge); ORPHAN-HELD #283/#282 already surfaced once (surfaced_at 15:42Z); ORPHAN-BLOCKED #253 denylist holds. ALL-BLOCKED True \u2014 escalation evaluated and WITHHELD: every open task owned (td-101/td-137 ALIVE subagents, td-119 Muse coordinator in_progress gated on Craig eyeball + PR #243, td-138 judgment-only standing skip, td-054 explicit no-redispatch). pending_actions.json actions EMPTY. No SHIP, no dispatch owed."
+  },
+  {
+   "ts": "2026-10-03T20:59:54Z",
+   "note": "watchdog 2026-10-03 16:57 EDT run: STEP 0 \u2014 liveness ALIVE td-137 (PR #282 open, branch 1 ahead), ALIVE td-101 (PR #292 DO NOT MERGE); first liveness attempt hit a transient JSONDecodeError reading state.json (valid on immediate retry \u2014 likely caught a concurrent writer mid-write; watch for recurrence); conflicts OK; transitions NO-FLIPS; classification-health STALE-RUNS=25 (degraded-watchdog alarm \u2192 main-agent heartbeat); board-check BOARD-OK (142 rows); scriptification-audit SCRIPTIFICATION-OK (12 tagged). STEP 1: decide=REPORT_LOGIN x2 (state age 592.6min); loginfail SUPPRESSED x2 (notified 5.5h/3.3h ago); ALL-BLOCKED True. ORPHAN SWEEP --fix-titles: 0 ORPHAN-READY (nothing to merge); #282/#283/#292 ORPHAN-HELD (surfaced 15:42Z, suppressed per once-per-PR); #253 ORPHAN-BLOCKED (denylist, untouched); rest DRAFT/UNKNOWN left alone. DISPATCH CHECK: td-101/td-119 owned, td-054/td-138 SKIP \u2014 NO FIRE; dispatch-eligible INELIGIBLE x2 (LOGIN_BLOCKED). pending_actions empty \u2014 nothing for main-agent handoff."
   }
  ],
  "workers": {
@@ -1778,7 +1782,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 24
+  "stale_runs": 25
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1925,7 +1929,7 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-03T20:42:28.347488+00:00",
+  "ts": "2026-10-03T20:59:21.279976+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
@@ -1935,7 +1939,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=24"
+    "STALE-RUNS=25"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1951,12 +1955,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-03T20:42:28.347488+00:00",
-   "liveness": "2026-10-03T20:42:19.256139+00:00",
-   "classification-health": "2026-10-03T20:42:21.711896+00:00",
-   "transitions": "2026-10-03T20:42:22.462985+00:00",
-   "conflicts": "2026-10-03T20:27:32.782324+00:00",
-   "all-blocked": "2026-10-03T15:13:44.734075+00:00",
+   "board-check": "2026-10-03T20:58:34.140724+00:00",
+   "liveness": "2026-10-03T20:58:14.203321+00:00",
+   "classification-health": "2026-10-03T20:58:28.794755+00:00",
+   "transitions": "2026-10-03T20:58:29.881333+00:00",
+   "conflicts": "2026-10-03T20:57:17.453882+00:00",
+   "all-blocked": "2026-10-03T20:59:21.279976+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
