@@ -1698,7 +1698,11 @@
   "2026-10-02T22:55Z deregistered td-148 (validator): validator complete, VALIDATED",
   "2026-10-02T23:14Z all-blocked escalation: codex+claude LOGIN_BLOCKED; spawned Muse subagent on td-101 (Blender track + whole-map visual upgrade, brief incl. SYSTEM.md/task-file/no-merge rules). Prior Astra chat 2026-09-27 produced nothing on main \u2014 context migration: no salvage, start from task file. worker registered subagent.",
   "2026-10-02T23:19Z deregistered td-149 (validator): validator complete, VALIDATED",
-  "2026-10-03T02:12Z all-blocked re-check: codex+claude still LOGIN_BLOCKED (loginfail notify suppressed 5.3h/3.2h). Escalation already actioned 23:14Z (td-101 subagent spawned, now ALIVE w/ PR #292); td-137 subagent ALIVE since 19:32Z w/ branch 1 ahead + PR #282. Candidates td-101/td-119 owned, td-138 standing-rule SKIP, td-054 explicit no-redispatch \u2014 no unowned high-priority task, so no new subagent spawn this run (no duplicate live workers)."
+  "2026-10-03T02:12Z all-blocked re-check: codex+claude still LOGIN_BLOCKED (loginfail notify suppressed 5.3h/3.2h). Escalation already actioned 23:14Z (td-101 subagent spawned, now ALIVE w/ PR #292); td-137 subagent ALIVE since 19:32Z w/ branch 1 ahead + PR #282. Candidates td-101/td-119 owned, td-138 standing-rule SKIP, td-054 explicit no-redispatch \u2014 no unowned high-priority task, so no new subagent spawn this run (no duplicate live workers).",
+  {
+   "ts": "2026-10-03T07:58:00Z",
+   "note": "watchdog 2026-10-03T07:58Z (03:58 EDT run): ALL-BLOCKED fired (codex + claude-code both LOGIN_BLOCKED, 4.0h; loginfail SUPPRESSED for both \u2014 Craig notified 4.8h/2.8h ago, case-1 blocker only he can clear). ESCALATION SUPPRESSED by judgment: no valid open brief to route around on. Board snapshot: td-128..133 in_review (merged+live v31/v33, validator/Craig verdict only \u2014 spawning would redo merged work); td-040 blocked (needs Craig to dispatch webgl-smoke workflow); td-054 open but explicit no-redispatch per Craig; td-138 in_progress held (supervisor judgment only, #253 do-not-merge); td-101 owned by Astra; td-119 in_progress Muse coordinator. Two ALIVE subagent crews mid-flight (td-137 PR #282, td-101 PR #292) \u2014 never duplicate. TRANSIENT: state.json JSONDecodeError on first liveness read raced the 07:57Z state-pull write; re-read valid, no sibling watch.py process. STALE-RUNS=11 (4.0h classifications) \u2014 in-flight browser check must be confirmed on the main-agent handoff turn before sounding the degraded alarm. No dispatches (both sessions INELIGIBLE/LOGIN_BLOCKED; candidates all owned). No SHIP (no parked finished PR). pending.json EMPTY."
+  }
  ],
  "workers": {
   "td-137": {
@@ -1724,7 +1728,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 10
+  "stale_runs": 11
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1870,7 +1874,7 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-03T07:42:38.464515+00:00",
+  "ts": "2026-10-03T07:57:56.600387+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
@@ -1880,7 +1884,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=10"
+    "STALE-RUNS=11"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1896,12 +1900,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-03T07:42:23.518228+00:00",
-   "liveness": "2026-10-03T07:42:17.611794+00:00",
-   "classification-health": "2026-10-03T07:42:21.711960+00:00",
+   "board-check": "2026-10-03T07:57:37.478156+00:00",
+   "liveness": "2026-10-03T07:57:34.277295+00:00",
+   "classification-health": "2026-10-03T07:57:35.975374+00:00",
    "transitions": "2026-10-03T07:42:20.468710+00:00",
-   "conflicts": "2026-10-03T07:42:19.392963+00:00",
-   "all-blocked": "2026-10-03T07:42:38.464515+00:00",
+   "conflicts": "2026-10-03T07:57:09.422478+00:00",
+   "all-blocked": "2026-10-03T07:57:56.600387+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
