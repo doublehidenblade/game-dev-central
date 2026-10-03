@@ -1,54 +1,5 @@
 {
- "pending": [
-  {
-   "game": "tokyo-drift-3d",
-   "task": "td-148",
-   "pr": 284,
-   "merged_sha": "d5c56bdd",
-   "reported": false,
-   "note": "v36 (2026-10-03) published STALE build 5419db3e (v35 content) \u2014 publish-game used pinned candidate run 37060948031 (cancelled smoke). Not live; awaiting fresh export + republish."
-  },
-  {
-   "game": "tokyo-drift-3d",
-   "task": "td-149",
-   "pr": 288,
-   "merged_sha": "f51a055e",
-   "reported": false,
-   "note": "v36 (2026-10-03) published STALE build 5419db3e (v35 content) \u2014 publish-game used pinned candidate run 37060948031 (cancelled smoke). Not live; awaiting fresh export + republish."
-  },
-  {
-   "game": "tokyo-drift-3d",
-   "task": "td-150",
-   "pr": 285,
-   "merged_sha": "534635e5",
-   "reported": false,
-   "note": "v36 (2026-10-03) published STALE build 5419db3e (v35 content) \u2014 publish-game used pinned candidate run 37060948031 (cancelled smoke). Not live; awaiting fresh export + republish."
-  },
-  {
-   "game": "tokyo-drift-3d",
-   "task": "td-151",
-   "pr": 287,
-   "merged_sha": "f878be90",
-   "reported": false,
-   "note": "v36 (2026-10-03) published STALE build 5419db3e (v35 content) \u2014 publish-game used pinned candidate run 37060948031 (cancelled smoke). Not live; awaiting fresh export + republish."
-  },
-  {
-   "game": "tokyo-drift-3d",
-   "task": "td-152",
-   "pr": 286,
-   "merged_sha": "aadea337",
-   "reported": false,
-   "note": "v36 (2026-10-03) published STALE build 5419db3e (v35 content) \u2014 publish-game used pinned candidate run 37060948031 (cancelled smoke). Not live; awaiting fresh export + republish."
-  },
-  {
-   "game": "tokyo-drift-3d",
-   "task": "td-153",
-   "pr": 293,
-   "merged_sha": "e18604fd",
-   "merged_at": "2026-10-03T15:42:46.926571+00:00",
-   "summary": "Recess headlight/taillight meshes flush into traffic car bodies (supervisor-inspected, 4 triptychs pass)"
-  }
- ],
+ "pending": [],
  "cleared_at": "2026-10-02T20:54:52.365793+00:00",
  "cleared_note": "v35 live 2026-10-02 (publish run 37062548416, source 5419db3e): all 5 QA fixes + hotfixes #280/#281 published"
 }
