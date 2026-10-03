@@ -1685,7 +1685,8 @@
   "2026-10-02T22:49Z deregistered td-152 (validator): validator complete, VALIDATED",
   "2026-10-02T22:55Z deregistered td-148 (validator): validator complete, VALIDATED",
   "2026-10-02T23:14Z all-blocked escalation: codex+claude LOGIN_BLOCKED; spawned Muse subagent on td-101 (Blender track + whole-map visual upgrade, brief incl. SYSTEM.md/task-file/no-merge rules). Prior Astra chat 2026-09-27 produced nothing on main \u2014 context migration: no salvage, start from task file. worker registered subagent.",
-  "2026-10-02T23:19Z deregistered td-149 (validator): validator complete, VALIDATED"
+  "2026-10-02T23:19Z deregistered td-149 (validator): validator complete, VALIDATED",
+  "2026-10-03T02:12Z all-blocked re-check: codex+claude still LOGIN_BLOCKED (loginfail notify suppressed 5.3h/3.2h). Escalation already actioned 23:14Z (td-101 subagent spawned, now ALIVE w/ PR #292); td-137 subagent ALIVE since 19:32Z w/ branch 1 ahead + PR #282. Candidates td-101/td-119 owned, td-138 standing-rule SKIP, td-054 explicit no-redispatch \u2014 no unowned high-priority task, so no new subagent spawn this run (no duplicate live workers)."
  ],
  "workers": {
   "td-137": {
@@ -1857,7 +1858,7 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-03T01:57:38.986297+00:00",
+  "ts": "2026-10-03T02:12:43.400471+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
@@ -1883,12 +1884,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-03T01:57:26.625732+00:00",
-   "liveness": "2026-10-03T01:57:20.474422+00:00",
-   "classification-health": "2026-10-03T01:57:22.454115+00:00",
-   "transitions": "2026-10-03T01:57:23.456131+00:00",
-   "conflicts": "2026-10-03T01:42:22.828374+00:00",
-   "all-blocked": "2026-10-03T01:57:38.986297+00:00",
+   "board-check": "2026-10-03T02:12:29.331875+00:00",
+   "liveness": "2026-10-03T02:12:20.170638+00:00",
+   "classification-health": "2026-10-03T02:12:25.200774+00:00",
+   "transitions": "2026-10-03T02:12:23.866002+00:00",
+   "conflicts": "2026-10-03T02:12:21.606740+00:00",
+   "all-blocked": "2026-10-03T02:12:43.400471+00:00",
    "idle-defect-check": "2026-10-03T00:57:49.077602+00:00"
   }
  }
