@@ -594,6 +594,10 @@
   {
    "ts": "2026-10-03T00:12:00Z",
    "note": "watchdog 2026-10-02 20:11 EDT run: REPAIRED td-101 liveness registration signal \u2014 repo was truncated to \"tokyo-drift-3d\" (no owner), so every evidence check 404ed and produced a bogus QUIET(1); next run would have hit DEAD and queued a bogus dispatch-subagent replacement. Set repo=doublehidenblade/tokyo-drift-3d in place (dispatched_at 23:34Z preserved), quiet_cycles reset to 0. CONFLICT NOTE: board owner for td-101 is still Astra (chat since 2026-09-27), registration kind=subagent (main agent, 23:34Z, no dispatch note on record); no task-file commits or td-101 branches found via API. Next liveness check evaluates REAL evidence. If a bogus DEAD replacement gets queued anyway while board says Astra-owned, suppress per judgment-only rule and record why."
+  },
+  {
+   "ts": "2026-10-03T05:43Z",
+   "note": "watchdog 2026-10-03T05:4xZ (01:41 EDT run): decide=REPORT_LOGIN x2 (state age 103.1min); loginfail SUPPRESSED x2 (notified 2.5h/0.5h ago). ALL-BLOCKED True (both LOGIN_BLOCKED) \u2014 escalation fired, NO new subagent spawned: every open task owned (td-101 Astra, td-119 Muse coordinator, td-137 subagent/ALIVE PR #282), blocked on human/external, or explicitly skipped (td-054 no-redispatch, td-138 standing-asset judgment). Spawning would duplicate live workers or violate skips. Liveness: td-137 ALIVE, td-101 ALIVE (registration repair holding). pending_actions.json empty \u2014 nothing for main-agent handoff. STALE-RUNS=4 \u2014 classification path still silent; degraded-watchdog alarm rides on the heartbeat for the main agent to AND with the in-flight browser check."
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -1712,7 +1716,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 3
+  "stale_runs": 4
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1858,7 +1862,7 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-03T05:27:30.980733+00:00",
+  "ts": "2026-10-03T05:42:36.638345+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
@@ -1868,7 +1872,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=3"
+    "STALE-RUNS=4"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1884,12 +1888,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-03T05:27:21.764088+00:00",
-   "liveness": "2026-10-03T05:27:17.682017+00:00",
-   "classification-health": "2026-10-03T05:27:20.200430+00:00",
-   "transitions": "2026-10-03T05:27:18.732117+00:00",
+   "board-check": "2026-10-03T05:42:25.012897+00:00",
+   "liveness": "2026-10-03T05:42:20.280703+00:00",
+   "classification-health": "2026-10-03T05:42:23.170221+00:00",
+   "transitions": "2026-10-03T05:42:23.913848+00:00",
    "conflicts": "2026-10-03T05:27:17.813312+00:00",
-   "all-blocked": "2026-10-03T05:27:30.980733+00:00",
+   "all-blocked": "2026-10-03T05:42:36.638345+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
