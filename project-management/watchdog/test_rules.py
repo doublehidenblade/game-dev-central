@@ -568,6 +568,69 @@ def test_part7():
     return fails
 
 
+def test_part8():
+    """Part 8: _audit_lesson_sections — the scriptification rule on itself."""
+    fails = 0
+
+    def check(name, cond):
+        nonlocal fails
+        print(("PASS " if cond else "FAIL ") + name)
+        if not cond:
+            fails += 1
+
+    subs = {"heartbeat", "adopt-orphans", "evidence-audit"}
+    base = ("# AGENTS.md\n\n## Scriptify deterministic parts of every lesson/rule/workflow "
+            "(Craig 2026-10-02 \u2014 standing rule)\nEvery lesson ships checks as subcommands.\n")
+
+    def verdicts(sections):
+        return watch._audit_lesson_sections(base + sections, subs)
+
+    def kinds(v):
+        return [k for k, _ in v]
+
+    # Grandfathering: pre-rule lessons are not audited
+    v = watch._audit_lesson_sections(
+        "# AGENTS.md\n\n## Old lesson (2026-09-27)\nNo tags at all.\n" + base.split("# AGENTS.md\n\n", 1)[1],
+        subs)
+    check("pre-rule untagged lesson grandfathered",
+          kinds(v) == [])
+
+    # Valid SCRIPTED tag naming a real subcommand
+    v = verdicts("\n## New thing (Craig 2026-10-03) [SCRIPTED: watch.py heartbeat]\nBody.\n")
+    check("valid SCRIPTED tag passes", kinds(v) == ["SCRIPTIFICATION-TAGGED"])
+
+    # Missing tag
+    v = verdicts("\n## New thing (Craig 2026-10-03)\nProse only, no tag.\n")
+    check("missing tag -> SCRIPTIFICATION-MISSING",
+          kinds(v) == ["SCRIPTIFICATION-MISSING"])
+
+    # SCRIPTED naming a nonexistent subcommand
+    v = verdicts("\n## New thing (Craig 2026-10-03) [SCRIPTED: watch.py mind-reader]\nBody.\n")
+    check("bad subcommand -> SCRIPTIFICATION-BADCMD",
+          kinds(v) == ["SCRIPTIFICATION-BADCMD"])
+
+    # Empty JUDGMENT-ONLY reason
+    v = verdicts("\n## New thing (Craig 2026-10-03) [JUDGMENT-ONLY:]\nBody.\n")
+    check("empty why -> SCRIPTIFICATION-NOWHY",
+          kinds(v) == ["SCRIPTIFICATION-NOWHY"])
+
+    # Valid JUDGMENT-ONLY with a why
+    v = verdicts("\n## New thing (Craig 2026-10-03) [JUDGMENT-ONLY: chat formatting, not scriptable]\nBody.\n")
+    check("JUDGMENT-ONLY with why passes",
+          kinds(v) == ["SCRIPTIFICATION-TAGGED"])
+
+    # Tag in body (not heading) also counts
+    v = verdicts("\n## New thing (Craig 2026-10-03)\nFix [SCRIPTED: watch.py adopt-orphans] did it.\n")
+    check("tag in section body counts",
+          kinds(v) == ["SCRIPTIFICATION-TAGGED"])
+
+    # Missing anchor -> NOANCHOR, not silent pass
+    v = watch._audit_lesson_sections("## Something\nNo rule here.\n", subs)
+    check("missing anchor -> SCRIPTIFICATION-NOANCHOR",
+          kinds(v) == ["SCRIPTIFICATION-NOANCHOR"])
+    return fails
+
+
 if __name__ == "__main__":
     print("== Part 1: evidence -> classification ==")
     f1 = test_part1()
@@ -583,6 +646,8 @@ if __name__ == "__main__":
     f6 = test_part6()
     print("== Part 7: DNM title strip (real watch._strip_dnm_prefix) ==")
     f7 = test_part7()
-    total = f1 + f2 + f3 + f4 + f5 + f6 + f7
+    print("== Part 8: scriptification audit (real watch._audit_lesson_sections) ==")
+    f8 = test_part8()
+    total = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8
     print(f"\n{total} failures" if total else "\nALL TESTS PASSED")
     sys.exit(1 if total else 0)

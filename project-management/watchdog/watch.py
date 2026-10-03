@@ -1340,6 +1340,96 @@ def _task_file_text(repo_full, task_file):
     return base64.b64decode(blob["content"]).decode("utf-8", "replace")
 
 
+SCRIPTIFICATION_ANCHOR = "Scriptify deterministic parts of every lesson"
+
+
+def _watch_subcommands():
+    """All `watch.py <cmd>` subcommand names, parsed from this file's own
+    dispatch table. Used by scriptification-audit to verify [SCRIPTED:]
+    tags name a real subcommand."""
+    import re, os
+    src = open(os.path.abspath(__file__), encoding="utf-8").read()
+    return set(re.findall(r'elif cmd == "([^"]+)":', src))
+
+
+def _audit_lesson_sections(text, subcommands):
+    """Pure: audit AGENTS.md lesson sections -> [(verdict, detail)].
+
+    Only sections AFTER the scriptification rule's own section are audited
+    (earlier lessons predate the rule and are grandfathered). Each must
+    carry [SCRIPTED: watch.py <cmd>] — <cmd> must be a real subcommand —
+    or [JUDGMENT-ONLY: <why>] with a non-empty why. Extracted for unit
+    tests (test_rules.py Part 8)."""
+    import re
+    sections = []
+    for part in re.split(r"(?m)^## ", text)[1:]:
+        head, _, body = part.partition("\n")
+        sections.append((head.strip(), body))
+    anchor = next((i for i, (h, _) in enumerate(sections)
+                   if SCRIPTIFICATION_ANCHOR in h), None)
+    if anchor is None:
+        return [("SCRIPTIFICATION-NOANCHOR",
+                 "rule section not found in AGENTS.md")]
+    verdicts = []
+    for h, b in sections[anchor + 1:]:
+        tags = re.findall(r"\[(SCRIPTED|JUDGMENT-ONLY):\s*([^\]]*)\]",
+                          h + "\n" + b)
+        if not tags:
+            verdicts.append(("SCRIPTIFICATION-MISSING", h[:80]))
+            continue
+        valid = False
+        for kind, content in tags:
+            content = content.strip()
+            if kind == "JUDGMENT-ONLY":
+                if content:
+                    valid = True
+                else:
+                    verdicts.append(("SCRIPTIFICATION-NOWHY", h[:80]))
+            else:
+                m = re.match(r"watch\.py\s+([A-Za-z0-9_\-]+)", content)
+                cmd = m.group(1) if m else ""
+                if cmd and cmd in subcommands:
+                    valid = True
+                else:
+                    verdicts.append(("SCRIPTIFICATION-BADCMD",
+                                     f"[{content[:40]}] in {h[:50]}"))
+        if valid:
+            verdicts.append(("SCRIPTIFICATION-TAGGED", h[:80]))
+    return verdicts
+
+
+def cmd_scriptification_audit(args):
+    """scriptification-audit — the 2026-10-02 scriptification rule enforcing
+    itself on ~/AGENTS.md. Craig 2026-10-03: the rule was prose-only, so
+    nothing caught a prose-only lesson until he did. Now the audit runs as a
+    STEP 0 deterministic check (surfaces in the heartbeat) and as a
+    push_code.py pre-push gate. Prints one line per post-rule lesson:
+      SCRIPTIFICATION-TAGGED <heading>   — has a valid tag
+      SCRIPTIFICATION-MISSING <heading> — no [SCRIPTED:]/[JUDGMENT-ONLY:] tag
+      SCRIPTIFICATION-BADCMD [tag] in <heading> — names no real subcommand
+      SCRIPTIFICATION-NOWHY <heading>   — empty JUDGMENT-ONLY reason
+    Exit 3 on any violation (usage errors exit 2). Honest limit: the audit
+    verifies a tag exists and names a real subcommand — it cannot verify the
+    subcommand implements every clause of the lesson (that stays human)."""
+    import os
+    try:
+        text = open(os.path.expanduser("~/AGENTS.md"), encoding="utf-8").read()
+    except Exception as e:
+        print(f"SCRIPTIFICATION-ERROR cannot read ~/AGENTS.md: {e}")
+        sys.exit(2)
+    verdicts = _audit_lesson_sections(text, _watch_subcommands())
+    bad = 0
+    for v, d in verdicts:
+        print(f"{v} {d}")
+        if v != "SCRIPTIFICATION-TAGGED":
+            bad += 1
+    if bad:
+        print(f"SCRIPTIFICATION-FAIL {bad} violation(s): tag new lessons "
+              "[SCRIPTED: watch.py <cmd>] or [JUDGMENT-ONLY: <why>]")
+        sys.exit(3)
+    print(f"SCRIPTIFICATION-OK {len(verdicts)} post-rule lesson(s) tagged")
+
+
 def _strip_dnm_prefix(title):
     """Remove a stale 'DO NOT MERGE' title prefix -> new title, or None.
 
@@ -2847,6 +2937,8 @@ def main():
         cmd_ship_verify(sys.argv[2:])
     elif cmd == "adopt-orphans":
         cmd_adopt_orphans(sys.argv[2:])
+    elif cmd == "scriptification-audit":
+        cmd_scriptification_audit(sys.argv[2:])
     elif cmd == "evidence-audit":
         cmd_evidence_audit(sys.argv[2:])
     elif cmd == "brief-check":
