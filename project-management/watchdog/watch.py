@@ -1386,8 +1386,10 @@ def _audit_lesson_sections(text, subcommands):
                 else:
                     verdicts.append(("SCRIPTIFICATION-NOWHY", h[:80]))
             else:
-                m = re.match(r"watch\.py\s+([A-Za-z0-9_\-]+)", content)
+                m = re.match(r"watch\.py\s+([A-Za-z0-9_\-<>]+)", content)
                 cmd = m.group(1) if m else ""
+                if cmd.startswith("<") and cmd.endswith(">"):
+                    continue  # documented placeholder, not a scripting claim
                 if cmd and cmd in subcommands:
                     valid = True
                 else:

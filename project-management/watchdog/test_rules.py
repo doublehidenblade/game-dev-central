@@ -578,7 +578,8 @@ def test_part8():
         if not cond:
             fails += 1
 
-    subs = {"heartbeat", "adopt-orphans", "evidence-audit"}
+    subs = {"heartbeat", "adopt-orphans", "evidence-audit",
+            "scriptification-audit"}
     base = ("# AGENTS.md\n\n## Scriptify deterministic parts of every lesson/rule/workflow "
             "(Craig 2026-10-02 \u2014 standing rule)\nEvery lesson ships checks as subcommands.\n")
 
@@ -608,6 +609,12 @@ def test_part8():
     v = verdicts("\n## New thing (Craig 2026-10-03) [SCRIPTED: watch.py mind-reader]\nBody.\n")
     check("bad subcommand -> SCRIPTIFICATION-BADCMD",
           kinds(v) == ["SCRIPTIFICATION-BADCMD"])
+
+    # Documented placeholder <cmd> is not a scripting claim — skipped
+    v = verdicts("\n## New thing (Craig 2026-10-03) [SCRIPTED: watch.py scriptification-audit]\n"
+                 "Format is [SCRIPTED: watch.py <cmd>].\n")
+    check("placeholder <cmd> skipped, real tag passes",
+          kinds(v) == ["SCRIPTIFICATION-TAGGED"])
 
     # Empty JUDGMENT-ONLY reason
     v = verdicts("\n## New thing (Craig 2026-10-03) [JUDGMENT-ONLY:]\nBody.\n")
