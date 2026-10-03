@@ -39,6 +39,14 @@
    "merged_sha": "aadea337",
    "reported": false,
    "note": "v36 (2026-10-03) published STALE build 5419db3e (v35 content) \u2014 publish-game used pinned candidate run 37060948031 (cancelled smoke). Not live; awaiting fresh export + republish."
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-153",
+   "pr": 293,
+   "merged_sha": "e18604fd",
+   "merged_at": "2026-10-03T15:42:46.926571+00:00",
+   "summary": "Recess headlight/taillight meshes flush into traffic car bodies (supervisor-inspected, 4 triptychs pass)"
   }
  ],
  "cleared_at": "2026-10-02T20:54:52.365793+00:00",

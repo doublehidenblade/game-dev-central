@@ -1750,7 +1750,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 3
+  "stale_runs": 4
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1896,7 +1896,7 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-03T15:27:28.524479+00:00",
+  "ts": "2026-10-03T15:42:26.124377+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
@@ -1906,7 +1906,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=3"
+    "STALE-RUNS=4"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1922,10 +1922,10 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-03T15:27:28.524479+00:00",
-   "liveness": "2026-10-03T15:27:19.157515+00:00",
-   "classification-health": "2026-10-03T15:27:22.120926+00:00",
-   "transitions": "2026-10-03T15:27:23.202941+00:00",
+   "board-check": "2026-10-03T15:42:26.124377+00:00",
+   "liveness": "2026-10-03T15:42:21.251327+00:00",
+   "classification-health": "2026-10-03T15:42:24.553354+00:00",
+   "transitions": "2026-10-03T15:42:25.416769+00:00",
    "conflicts": "2026-10-03T15:12:20.804924+00:00",
    "all-blocked": "2026-10-03T15:13:44.734075+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
