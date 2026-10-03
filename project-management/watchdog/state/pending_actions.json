@@ -299,7 +299,8 @@
     {
       "ts": "2026-10-02T20:27:00Z",
       "note": "watchdog 20:27Z: DISPATCH CHECK held on td-119 (only viable candidate; td-101 board-owned by live Astra chat). Craig reverted the td-119 placement himself 2026-10-02T03:57Z (1d92e25): \"models fail realism check \u2014 tower looks nothing like the real thing, crossing placed on single street (should be four-way), storefront floats in air detached from building. Excluding from deploy.\" Scope reconciliation NEEDED before dispatch: (a) td-139 QA round 2 (PR #243 in_review, opened 09-30) already covers tower redo + tree lights + gantry clearance + side signs with triptych evidence \u2014 does its tower redo satisfy Craig's tower complaint? (b) crossing-four-way + storefront-attached-to-building are genuinely open rework per the standard triptych workflow (real photo -> 2D mock -> 3D screenshot). (c) board Owner cell still says \"Muse coordinator\" \u2014 no liveness signal since 10-01T20:40Z; do not double-staff. Held for main-agent/supervisor judgment, not blind dispatch. codex+claude both FINISHED/eligible, pending_actions empty."
-    }
+    },
+    "ALL-BLOCKED escalation SUPPRESSED 2026-10-03T02:41Z: both browser sessions LOGIN_BLOCKED, but liveness shows ALIVE subagent workers on td-137 (PR #282 split/merge rework) and td-101 (PR #292 vegetation kit v2 DO-NOT-MERGE), and td-119 owned by an active Muse coordinator. Spawning subagents on td-101/td-119 would duplicate live workers (forbidden). The escalation's premise (none WORKING) is false; work is progressing. Next run re-evaluates."
   ],
   "dropped": [
     {
