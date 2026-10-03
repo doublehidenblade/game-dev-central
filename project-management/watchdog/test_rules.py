@@ -477,6 +477,68 @@ def test_part5():
     return fails
 
 
+def test_part6():
+    """adopt-orphans verdicts (real watch._orphan_verdict).
+    The 2026-10-03 td-148..152 lesson: a `validated` board row overrides a
+    stale DO NOT MERGE title — Craig's verdict is a publish gate, never a
+    merge gate. Unvalidated DO NOT MERGE stays HELD for human judgment."""
+    fails = 0
+
+    def check(name, cond):
+        nonlocal fails
+        print(("PASS " if cond else "FAIL ") + name)
+        if not cond:
+            fails += 1
+
+    def pr(n, title, draft=False):
+        return {"number": n, "title": title, "draft": draft,
+                "head": {"sha": "abc1234def5678"}}
+
+    # The exact td-149 case: validated + stale DO NOT MERGE title -> READY
+    v, d = watch._orphan_verdict(
+        pr(288, "DO NOT MERGE — td-149: traffic cars overlay turning wheels"),
+        "validated")
+    check("validated + DO NOT MERGE title -> ORPHAN-READY", v == "ORPHAN-READY")
+    check("stale-title flag noted", "stale DO NOT MERGE title" in d)
+
+    # Validated without the stale title -> READY, no flag
+    v, d = watch._orphan_verdict(pr(285, "td-150: retro loading screen art"),
+                                 "validated")
+    check("validated, clean title -> ORPHAN-READY", v == "ORPHAN-READY")
+    check("no stale-title flag when title clean", "stale" not in d)
+
+    # DO NOT MERGE but NOT validated -> HELD, never auto-merge
+    v, d = watch._orphan_verdict(
+        pr(292, "DO NOT MERGE — td-101: Blender vegetation kit v2"),
+        "in_review")
+    check("unvalidated DO NOT MERGE -> ORPHAN-HELD", v == "ORPHAN-HELD")
+
+    # Denylist beats everything, even validated
+    v, d = watch._orphan_verdict(pr(253, "td-138 round 3 preservation"),
+                                 "validated")
+    check("denylisted PR -> ORPHAN-BLOCKED even if validated",
+          v == "ORPHAN-BLOCKED")
+
+    # Drafts never merge
+    v, d = watch._orphan_verdict(
+        {"number": 159, "title": "TD108: rebuild hero coupe", "draft": True,
+         "head": {"sha": "abc1234def5678"}}, "validated")
+    check("draft -> ORPHAN-DRAFT even if validated", v == "ORPHAN-DRAFT")
+
+    # Open, no validated row, clean title -> UNKNOWN (leave alone)
+    v, d = watch._orphan_verdict(pr(289, "td-150: validator verdict"), None)
+    check("no board row -> ORPHAN-UNKNOWN", v == "ORPHAN-UNKNOWN")
+    v, d = watch._orphan_verdict(pr(244, "td-110: rebuild orange wedge"),
+                                 "in_progress")
+    check("in_progress -> ORPHAN-UNKNOWN", v == "ORPHAN-UNKNOWN")
+
+    # Case-insensitivity: lowercase "do not merge" still counts
+    v, d = watch._orphan_verdict(pr(282, "td-137: split/merge (do not merge)"),
+                                 "in_review")
+    check("lowercase do not merge -> ORPHAN-HELD", v == "ORPHAN-HELD")
+    return fails
+
+
 if __name__ == "__main__":
     print("== Part 1: evidence -> classification ==")
     f1 = test_part1()
@@ -488,6 +550,8 @@ if __name__ == "__main__":
     f4 = test_part4()
     print("== Part 5: verdict freshness (real watch._hb_verdicts) ==")
     f5 = test_part5()
-    total = f1 + f2 + f3 + f4 + f5
+    print("== Part 6: adopt-orphans verdicts (real watch._orphan_verdict) ==")
+    f6 = test_part6()
+    total = f1 + f2 + f3 + f4 + f5 + f6
     print(f"\n{total} failures" if total else "\nALL TESTS PASSED")
     sys.exit(1 if total else 0)

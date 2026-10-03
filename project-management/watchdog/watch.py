@@ -1340,6 +1340,74 @@ def _task_file_text(repo_full, task_file):
     return base64.b64decode(blob["content"]).decode("utf-8", "replace")
 
 
+def _orphan_verdict(pr, board_prefix):
+    """Pure decision for one open PR -> (verdict, detail).
+    Extracted for unit tests (test_rules.py Part 6)."""
+    n = pr["number"]
+    title = pr.get("title", "")
+    if n in NEVER_SHIP_PRS:
+        return ("ORPHAN-BLOCKED", f"denylisted: {NEVER_SHIP_PRS[n][:60]}")
+    if pr.get("draft"):
+        return ("ORPHAN-DRAFT", "")
+    dnm = "DO NOT MERGE" in title.upper()
+    if board_prefix == "validated":
+        flag = (" [stale DO NOT MERGE title overridden by validated verdict]"
+                if dnm else "")
+        return ("ORPHAN-READY", f"{pr['head']['sha'][:7]}{flag}")
+    if dnm:
+        return ("ORPHAN-HELD",
+                "(DO NOT MERGE, not validated — human judgment required)")
+    return ("ORPHAN-UNKNOWN", f"(board: {board_prefix or 'no row'})")
+
+
+def cmd_adopt_orphans(args):
+    """adopt-orphans [game] — backstop for validated-but-unmerged PRs.
+    The 2026-10-03 td-148..152 lesson: workers titled PRs "DO NOT MERGE —
+    awaiting Craig's verdict", their sessions died, and no SHIP ever fired
+    because SHIP is per-session — five validated PRs stranded with no owner.
+    Craig's verdict is a PUBLISH gate, never a merge gate, so a `validated`
+    board row overrides a stale DO NOT MERGE title.
+    Prints one line per open PR:
+      ORPHAN-READY #N <sha> :: <title>   — board says validated: merge it
+      ORPHAN-BLOCKED #N ...              — NEVER_SHIP_PRS denylist
+      ORPHAN-DRAFT #N ...                — draft PR, not ready
+      ORPHAN-HELD #N ...                 — DO NOT MERGE title, NOT validated:
+                                          needs human judgment, never auto-merge
+      ORPHAN-UNKNOWN #N ...              — open, no validated row: leave alone
+    The cron merges ORPHAN-READY with the standard SHIP sequence
+    (ci-report, conflict check/rebase, squash-merge, record-pending)."""
+    import re
+    game = args[0] if args else "tokyo-drift-3d"
+    repo_full = REPOS[game]
+    try:
+        prs = _gh(f"/repos/{repo_full}/pulls?state=open&per_page=100")
+    except Exception as e:
+        print(f"ORPHAN-ERROR {e}")
+        return
+    rows = _board_rows(game)
+    pr_prefix = {}
+    for r in rows:
+        for n in re.findall(r"#(\d+)", r["pr"]):
+            n = int(n)
+            # validated is sticky: a later non-validated mention must not
+            # hide an earlier validated verdict for the same PR.
+            if pr_prefix.get(n) != "validated":
+                pr_prefix[n] = r["prefix"]
+    if not prs:
+        print("ORPHAN-NONE no open PRs")
+        return
+    for p in prs:
+        n = p["number"]
+        title = p.get("title", "")
+        verdict, detail = _orphan_verdict(p, pr_prefix.get(n))
+        if verdict == "ORPHAN-READY":
+            print(f"{verdict} #{n} {detail} :: {title[:60]}")
+        elif detail:
+            print(f"{verdict} #{n} :: {title[:60]} {detail}")
+        else:
+            print(f"{verdict} #{n} :: {title[:60]}")
+
+
 def cmd_evidence_audit(args):
     """evidence-audit <task> — verify before/after pairs exist per reference.
     The 2026-09-24/25 inspection rule: every visual criterion needs a valid
@@ -2737,6 +2805,8 @@ def main():
         cmd_dispatch_candidates(sys.argv[2:])
     elif cmd == "ship-verify":
         cmd_ship_verify(sys.argv[2:])
+    elif cmd == "adopt-orphans":
+        cmd_adopt_orphans(sys.argv[2:])
     elif cmd == "evidence-audit":
         cmd_evidence_audit(sys.argv[2:])
     elif cmd == "brief-check":
