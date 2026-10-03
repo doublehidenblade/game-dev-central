@@ -606,6 +606,10 @@
   {
    "ts": "2026-10-03T06:43:06Z",
    "note": "watchdog 2026-10-03T06:42Z (02:41 EDT run): decide=REPORT_LOGIN x2 (state age 163.0min); loginfail SUPPRESSED x2 (notified 3.5h/1.5h ago). ALL-BLOCKED True (both LOGIN_BLOCKED) \u2014 escalation fired, NO new subagent spawned: all open candidates owned (td-101 subagent ALIVE dispatched 2026-10-02T23:34Z, td-137 subagent ALIVE dispatched 2026-10-02T19:32Z, td-119 board:Muse coordinator); duplicating would violate two-workers-one-task-file rule. STALE-RUNS=7 \u2014 degraded-watchdog alarm condition holds; in-flight classification check left to main-agent handoff turn (cron worker cannot check browser tasks)."
+  },
+  {
+   "note": "2026-10-03 04:15 EDT: ALL-BLOCKED True (codex+claude sessions LOGIN_BLOCKED, blocker=manual login, surfaced to Craig 3-5h ago). Escalation subagents NOT spawned this run: both unblocked candidates are owned (td-101/td-137 have ALIVE subagents, dispatched 2026-10-02 19:32Z/23:34Z, quiet_cycles=0); td-119 owned by Muse coordinator (in_progress); td-054 explicit no-redispatch; td-138 routing needs main-agent judgment, never blind dispatch. No starving unowned dispatchable task exists; a subagent cannot replace browser-login-dependent Codex/Claude work. Revisit if a candidate becomes unowned or Craig completes login.",
+   "ts": "2026-10-03T08:15:00Z"
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -1728,7 +1732,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 11
+  "stale_runs": 12
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1874,7 +1878,7 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-03T07:57:56.600387+00:00",
+  "ts": "2026-10-03T08:12:31.201765+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
@@ -1884,7 +1888,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=11"
+    "STALE-RUNS=12"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1900,12 +1904,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-03T07:57:37.478156+00:00",
-   "liveness": "2026-10-03T07:57:34.277295+00:00",
-   "classification-health": "2026-10-03T07:57:35.975374+00:00",
-   "transitions": "2026-10-03T07:42:20.468710+00:00",
+   "board-check": "2026-10-03T08:12:22.857245+00:00",
+   "liveness": "2026-10-03T08:12:17.738343+00:00",
+   "classification-health": "2026-10-03T08:12:19.635707+00:00",
+   "transitions": "2026-10-03T08:12:20.367900+00:00",
    "conflicts": "2026-10-03T07:57:09.422478+00:00",
-   "all-blocked": "2026-10-03T07:57:56.600387+00:00",
+   "all-blocked": "2026-10-03T08:12:31.201765+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
