@@ -735,7 +735,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-03T03:59:28.651951+00:00",
+   "last_browser_check_ts": "2026-10-03T11:05:59.106512+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -780,9 +780,9 @@
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
    "last_classification": "LOGIN_BLOCKED",
-   "last_classification_ts": "2026-10-03T03:59:28.675341+00:00",
+   "last_classification_ts": "2026-10-03T11:05:59.139586+00:00",
    "last_failover_ts": "2026-09-30T03:20:17.258015+00:00",
-   "last_note": "Cloudflare bot check at 23:59 EDT",
+   "last_note": "claude.ai/code shows the same Cloudflare \"Performing security verification\" bot-check page; per task rules I did not attempt or wait on it, so no session list was reached and the tokyo-drift-3d session could not be classified.",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -1095,8 +1095,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "LOGIN_BLOCKED",
-   "last_classification_ts": "2026-10-03T03:59:28.660751+00:00",
-   "last_note": "Cloudflare bot check at 23:59 EDT",
+   "last_classification_ts": "2026-10-03T11:05:59.122301+00:00",
+   "last_note": "chatgpt.com/codex/cloud shows a Cloudflare \"Performing security verification\" bot-check page instead of the Codex environments; per task rules I did not attempt or wait on it and opened no environment (neon-drift was never touched).",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
@@ -1720,7 +1720,11 @@
    "ts": "2026-10-03T07:58:00Z",
    "note": "watchdog 2026-10-03T07:58Z (03:58 EDT run): ALL-BLOCKED fired (codex + claude-code both LOGIN_BLOCKED, 4.0h; loginfail SUPPRESSED for both \u2014 Craig notified 4.8h/2.8h ago, case-1 blocker only he can clear). ESCALATION SUPPRESSED by judgment: no valid open brief to route around on. Board snapshot: td-128..133 in_review (merged+live v31/v33, validator/Craig verdict only \u2014 spawning would redo merged work); td-040 blocked (needs Craig to dispatch webgl-smoke workflow); td-054 open but explicit no-redispatch per Craig; td-138 in_progress held (supervisor judgment only, #253 do-not-merge); td-101 owned by Astra; td-119 in_progress Muse coordinator. Two ALIVE subagent crews mid-flight (td-137 PR #282, td-101 PR #292) \u2014 never duplicate. TRANSIENT: state.json JSONDecodeError on first liveness read raced the 07:57Z state-pull write; re-read valid, no sibling watch.py process. STALE-RUNS=11 (4.0h classifications) \u2014 in-flight browser check must be confirmed on the main-agent handoff turn before sounding the degraded alarm. No dispatches (both sessions INELIGIBLE/LOGIN_BLOCKED; candidates all owned). No SHIP (no parked finished PR). pending.json EMPTY."
   },
-  "2026-10-03T09:4xZ watchdog: ALL-BLOCKED True (both browser sessions LOGIN_BLOCKED; loginfail SUPPRESSED \u2014 surfaced 0.5h/4.5h ago). Escalation assessed, no new subagent spawned: highest-priority open briefs are all covered \u2014 td-101 (registered subagent ALIVE, PR #292 DO NOT MERGE), td-137 (registered subagent ALIVE, PR #282 awaiting Craig verdict), td-119 in_progress gated on Craig's td-139 eyeball + open PR #243 (would jump a verdict gate), td-138 standing-skip (needs supervisor judgment; PR #283 fresh blockout open), td-054 explicit no-redispatch. Spawning more would duplicate live sessions or redo verdict-gated work."
+  "2026-10-03T09:4xZ watchdog: ALL-BLOCKED True (both browser sessions LOGIN_BLOCKED; loginfail SUPPRESSED \u2014 surfaced 0.5h/4.5h ago). Escalation assessed, no new subagent spawned: highest-priority open briefs are all covered \u2014 td-101 (registered subagent ALIVE, PR #292 DO NOT MERGE), td-137 (registered subagent ALIVE, PR #282 awaiting Craig verdict), td-119 in_progress gated on Craig's td-139 eyeball + open PR #243 (would jump a verdict gate), td-138 standing-skip (needs supervisor judgment; PR #283 fresh blockout open), td-054 explicit no-redispatch. Spawning more would duplicate live sessions or redo verdict-gated work.",
+  {
+   "ts": "2026-10-03T11:06:00Z",
+   "note": "watchdog: ALL-BLOCKED escalation evaluated and WITHHELD. Scripted dispatch-candidates returned only 4 rows: td-054 (Craig denylist: explicit no-redispatch), td-101 (owned by ALIVE liveness subagent, PR #292), td-119 (owned board:Muse coordinator), td-138 (judgment-only skip: routing needs main-agent/supervisor judgment, never blind dispatch). No unowned dispatchable candidates; spawning subagents would duplicate live workers on the same task files. Login-fail already surfaced for both sessions (SUPPRESSED, 1.9h/5.9h). STALE-RUNS=23 recorded for the main-agent handoff AND-check."
+  }
  ],
  "workers": {
   "td-137": {
@@ -1746,7 +1750,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 22
+  "stale_runs": 23
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1892,7 +1896,7 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-03T10:43:19.626162+00:00",
+  "ts": "2026-10-03T11:06:01.753891+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
@@ -1902,7 +1906,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=22"
+    "STALE-RUNS=23"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1918,12 +1922,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-03T10:42:24.754145+00:00",
-   "liveness": "2026-10-03T10:43:19.626162+00:00",
-   "classification-health": "2026-10-03T10:42:22.797666+00:00",
-   "transitions": "2026-10-03T10:42:23.806410+00:00",
+   "board-check": "2026-10-03T11:05:38.137489+00:00",
+   "liveness": "2026-10-03T11:05:31.829748+00:00",
+   "classification-health": "2026-10-03T11:05:33.270290+00:00",
+   "transitions": "2026-10-03T11:05:33.948222+00:00",
    "conflicts": "2026-10-03T10:27:17.520599+00:00",
-   "all-blocked": "2026-10-03T10:42:41.494808+00:00",
+   "all-blocked": "2026-10-03T11:06:01.753891+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
