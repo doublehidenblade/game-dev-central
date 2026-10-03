@@ -1896,7 +1896,7 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-03T11:27:50.741851+00:00",
+  "ts": "2026-10-03T11:42:27.376257+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
@@ -1922,12 +1922,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-03T11:27:27.511305+00:00",
-   "liveness": "2026-10-03T11:27:22.624071+00:00",
-   "classification-health": "2026-10-03T11:27:25.802650+00:00",
-   "transitions": "2026-10-03T11:27:27.363028+00:00",
+   "board-check": "2026-10-03T11:42:20.386942+00:00",
+   "liveness": "2026-10-03T11:42:16.797164+00:00",
+   "classification-health": "2026-10-03T11:42:18.721144+00:00",
+   "transitions": "2026-10-03T11:42:19.647062+00:00",
    "conflicts": "2026-10-03T11:12:11.472137+00:00",
-   "all-blocked": "2026-10-03T11:27:50.741851+00:00",
+   "all-blocked": "2026-10-03T11:42:27.376257+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
