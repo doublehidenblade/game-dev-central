@@ -1,5 +1,46 @@
 {
- "pending": [],
+ "pending": [
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-148",
+   "pr": 284,
+   "merged_sha": "d5c56bdd",
+   "merged_at": "2026-10-03T14:44:45.369401+00:00",
+   "summary": "purge legacy traffic trio (sedan/taxi/van) from pool"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-149",
+   "pr": 288,
+   "merged_sha": "f51a055e",
+   "merged_at": "2026-10-03T14:44:45.487420+00:00",
+   "summary": "overlay turning wheels + real headlights/taillights on 12-car fleet"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-150",
+   "pr": 285,
+   "merged_sha": "534635e5",
+   "merged_at": "2026-10-03T14:44:45.600544+00:00",
+   "summary": "retro 80s-anime loading screen art"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-151",
+   "pr": 287,
+   "merged_sha": "f878be90",
+   "merged_at": "2026-10-03T14:44:45.714171+00:00",
+   "summary": "warm traffic models during loading (~0.5s cost)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-152",
+   "pr": 286,
+   "merged_sha": "aadea337",
+   "merged_at": "2026-10-03T14:44:45.832117+00:00",
+   "summary": "collision response + handling feel (steering_smoothing 6->9)"
+  }
+ ],
  "cleared_at": "2026-10-02T20:54:52.365793+00:00",
  "cleared_note": "v35 live 2026-10-02 (publish run 37062548416, source 5419db3e): all 5 QA fixes + hotfixes #280/#281 published"
 }
