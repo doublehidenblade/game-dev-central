@@ -1703,15 +1703,15 @@
    "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-101.md",
    "dispatched_at": "2026-10-02T23:34:16.418252+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 4
+  "stale_runs": 0
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1857,17 +1857,17 @@
   "td-152": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-03T00:13:31.794563+00:00",
+  "ts": "2026-10-03T00:28:12.303184+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #282 td-137: Shuto split/merge rework \u2014 real diverging geometry ()",
-    "QUIET(1) td-101 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-101.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)"
+    "QUIET(1) td-101 (no heartbeat file)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=4"
+    "STALE-RUNS=0"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1883,12 +1883,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-03T00:12:56.538431+00:00",
-   "liveness": "2026-10-03T00:12:29.372646+00:00",
-   "classification-health": "2026-10-03T00:12:43.167067+00:00",
-   "transitions": "2026-10-03T00:12:37.687802+00:00",
+   "board-check": "2026-10-03T00:28:00.347597+00:00",
+   "liveness": "2026-10-03T00:27:38.272569+00:00",
+   "classification-health": "2026-10-03T00:27:41.253548+00:00",
+   "transitions": "2026-10-03T00:27:43.409197+00:00",
    "conflicts": "2026-10-03T00:12:33.944025+00:00",
-   "all-blocked": "2026-10-03T00:13:31.794563+00:00"
+   "all-blocked": "2026-10-03T00:28:12.303184+00:00"
   }
  }
 }
