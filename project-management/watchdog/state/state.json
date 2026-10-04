@@ -1804,7 +1804,8 @@
   "2026-10-04T22:24Z BOARD-CLOBBER (3rd today): td-170/td-171 rows reverted open->validated by stale-base merges. #261 (20:59Z) clobbered #258's td-170 validated flip; #265/#266 (21:51-52Z) clobbered #262's td-171 validated flip. Queued cloud dispatches for these merged tasks dropped. Repairing rows to validated.",
   "2026-10-04T22:58Z LIVENESS: td-158 proclaimed DEAD (2 quiet cycles; heartbeat stale (48min)). Replacement dispatch-subagent queued (brief td-158-20261004-225820.md).",
   "2026-10-04T23:05Z deregistered td-157 (subagent): PR #330 validated and merged; board row 'validated \u2014 PR #330 merged'",
-  "2026-10-04T23:05Z deregistered td-164 (subagent): PR #335 validated and merged; board row 'validated \u2014 PR #335 merged'"
+  "2026-10-04T23:05Z deregistered td-164 (subagent): PR #335 validated and merged; board row 'validated \u2014 PR #335 merged'",
+  "2026-10-04T23:29Z deregistered td-174 (subagent): merged PR #336"
  ],
  "workers": {
   "td-137": {
@@ -1861,15 +1862,6 @@
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
-  "td-174": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-174.md",
-   "dispatched_at": "2026-10-04T21:57:11.257837+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
   "td-174-validator": {
    "kind": "subagent",
    "session": null,
@@ -1884,7 +1876,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 3
+  "stale_runs": 4
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2052,23 +2044,23 @@
   "td-174": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T23:21:07.919858+00:00",
+  "ts": "2026-10-04T23:29:15.092544+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #322 Inspector report: 2026-10-04 15:34 EDT)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #340 Inspector report: 2026-10-04 18:34 EDT (td-168 brick koban s; open PR #304 td-138 roun)",
     "ALIVE td-160 (no heartbeat file; open PR #319 td-160: Blender asset-prep pipeline (Tripo -> Godot-ready))",
-    "ALIVE td-163 (heartbeat stale (70min); open PR #331 td-163: Showa utility pole kit (denbashira + wire tangles))",
-    "ALIVE td-168 (heartbeat stale (80min); open PR #340 Inspector report: 2026-10-04 18:34 EDT (td-168 brick koban s; open PR #339 Inspector: td-168 brick koban sits mid-road + w)",
-    "ALIVE td-173 (heartbeat stale (69min); open PR #338 td-173: JNR station boards + ticket gates kit)",
-    "ALIVE td-174 (heartbeat stale (69min); open PR #336 td-174: gas station canopy kit (Showa service station))",
-    "GRACE td-174-validator (dispatched 15min ago; no heartbeat file)"
+    "ALIVE td-163 (heartbeat stale (79min); open PR #331 td-163: Showa utility pole kit (denbashira + wire tangles))",
+    "ALIVE td-168 (heartbeat stale (88min); task-file commit 553f68d 2026-10-04T23:26; open PR #340 Inspector report: 2026-10-04 18:34 EDT (td-168 brick koban s; open PR #339 Insp)",
+    "ALIVE td-173 (heartbeat stale (77min); open PR #338 td-173: JNR station boards + ticket gates kit)",
+    "ALIVE td-174 (heartbeat stale (77min); open PR #336 td-174: gas station canopy kit (Showa service station))",
+    "GRACE td-174-validator (dispatched 23min ago; no heartbeat file)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=3"
+    "STALE-RUNS=4"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2084,11 +2076,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T23:21:07.919858+00:00",
-   "liveness": "2026-10-04T23:20:33.741697+00:00",
-   "classification-health": "2026-10-04T23:20:58.259172+00:00",
-   "transitions": "2026-10-04T23:20:56.203652+00:00",
-   "conflicts": "2026-10-04T23:20:48.434766+00:00",
+   "board-check": "2026-10-04T23:29:15.092544+00:00",
+   "liveness": "2026-10-04T23:28:46.665243+00:00",
+   "classification-health": "2026-10-04T23:28:59.701193+00:00",
+   "transitions": "2026-10-04T23:28:57.129932+00:00",
+   "conflicts": "2026-10-04T23:28:52.315799+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
