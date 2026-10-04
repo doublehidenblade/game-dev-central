@@ -177,5 +177,5 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-172 | Striped awning kit (shotengai storefront canopies, faded/torn variants) | validated | Muse subagent | PR #333 merged 8b90de80 | 2026-10-04 |
 | td-173 | JNR station boards + ticket gates kit (urban + countryside halt) | open | Muse subagent | — | 2026-10-04 |
 | td-174 | Gas station canopy kit (cantilever canopy, pump islands, enamel plates) | in_review | — | PR #336 | 2026-10-04 |
-td-175 | Full-scene Showa assembly: screenshot + honest benchmark gap analysis + Gemini iteration consult | open | — | — | 2026-10-04 |
+td-175 | Full-scene Showa assembly: screenshot + honest benchmark gap analysis + Gemini iteration consult | in_review | — | #343 | 2026-10-04 | 
 td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (MP direct, SP re-downloads) | open | — | — | 2026-10-04 |
