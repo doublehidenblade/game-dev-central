@@ -1785,7 +1785,8 @@
   "2026-10-04T18:50Z deregistered td-119-crossing (subagent): rework complete \u2014 PR #313 validated on all 7 defects and merged to main",
   "2026-10-04T18:56Z deregistered td-155 (subagent): bible complete, PR #317 merged; td-156/157/158 flipped to open",
   "2026-10-04T19:02Z LIVENESS REPAIR: td-101-trees + td-160 registrations had bare repo tokyo-drift-3d (cron-body STEP 2 template drops the owner; same defect repaired for td-138 15:14Z) -> GitHub evidence checks 404d. Corrected to doublehidenblade/tokyo-drift-3d, quiet_cycles reset to 0.",
-  "2026-10-04T20:49Z deregistered td-170 (subagent): design doc PR #325 opened; board row in_review via game-dev-central PR #257 (merged)"
+  "2026-10-04T20:49Z deregistered td-170 (subagent): design doc PR #325 opened; board row in_review via game-dev-central PR #257 (merged)",
+  "2026-10-04T21:00Z deregistered td-171 (subagent): validated 2026-10-04: PR #327 merged (2 void renders purged), EVIDENCE-VOID heuristic scripted + tests pass"
  ],
  "workers": {
   "td-137": {
@@ -1875,15 +1876,6 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-168.md",
    "dispatched_at": "2026-10-04T20:45:11.305549+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
-  },
-  "td-171": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-171.md",
-   "dispatched_at": "2026-10-04T20:45:11.666472+00:00",
    "quiet_cycles": 0,
    "last_verdict": "grace"
   },
