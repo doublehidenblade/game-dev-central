@@ -784,7 +784,7 @@
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-04T12:29:14.686359+00:00",
+   "last_classification_ts": "2026-10-04T14:12:54.578983+00:00",
    "last_failover_ts": "2026-09-30T03:20:17.258015+00:00",
    "last_note": "td-126/td-127 shipped (#262, #263 merged), standing down, nothing parked",
    "last_nudge_kind": "continue",
@@ -1099,8 +1099,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-04T12:29:14.551516+00:00",
-   "last_note": "browser re-verify 08:30 EDT: finished, page text stale on #268 (API: merged), open #220 is td-021 not this session; nothing parked",
+   "last_classification_ts": "2026-10-04T14:12:54.344032+00:00",
+   "last_note": "browser re-verify 10:14 EDT: finished, checkbox auto-resolved on reload; page text stale on #268 (API: merged), open #220 is td-021 not this session; nothing parked",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
@@ -1493,7 +1493,7 @@
    ],
    "last_task": null,
    "login_fail_notified_ts": "2026-10-04T01:57:59.059128+00:00",
-   "inspected_ts": "2026-10-04T12:29:16.513517+00:00"
+   "inspected_ts": "2026-10-04T14:12:56.398511+00:00"
   },
   "orphan-pr-292": {
    "blockers": {
@@ -1794,7 +1794,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 3
+  "stale_runs": 4
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1942,7 +1942,7 @@
   "td-154": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T13:58:32.653699+00:00",
+  "ts": "2026-10-04T14:12:54.274859+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)"
@@ -1951,7 +1951,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=3"
+    "STALE-RUNS=4"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1967,12 +1967,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T13:58:19.038861+00:00",
-   "liveness": "2026-10-04T13:58:06.589814+00:00",
-   "classification-health": "2026-10-04T13:58:11.168568+00:00",
-   "transitions": "2026-10-04T13:58:12.167855+00:00",
-   "conflicts": "2026-10-04T13:57:15.485095+00:00",
-   "all-blocked": "2026-10-04T13:58:32.653699+00:00",
+   "board-check": "2026-10-04T14:12:29.318106+00:00",
+   "liveness": "2026-10-04T14:12:15.616529+00:00",
+   "classification-health": "2026-10-04T14:12:27.578623+00:00",
+   "transitions": "2026-10-04T14:12:21.089882+00:00",
+   "conflicts": "2026-10-04T14:12:19.905920+00:00",
+   "all-blocked": "2026-10-04T14:12:54.274859+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
