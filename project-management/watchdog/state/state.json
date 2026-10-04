@@ -784,9 +784,9 @@
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-04T05:01:51.759622+00:00",
+   "last_classification_ts": "2026-10-04T07:00:32.127822+00:00",
    "last_failover_ts": "2026-09-30T03:20:17.258015+00:00",
-   "last_note": "main-agent browser check 00:31 EDT: idle since Sep 22, composer empty, no generation",
+   "last_note": "idle, session not running; subscribed PRs resolved/merged; standing down (browser check 2026-10-04T06:45Z)",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -1099,8 +1099,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-04T05:01:51.417172+00:00",
-   "last_note": "main-agent browser check 00:31 EDT: Codex Home activity idle, latest task td-125 complete, no running task",
+   "last_classification_ts": "2026-10-04T07:00:32.464185+00:00",
+   "last_note": "task complete, td-125 verification PR #268 merged 2026-10-01; nothing parked (browser check 2026-10-04T06:47Z)",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
@@ -1809,7 +1809,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 4
+  "stale_runs": 0
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1956,7 +1956,7 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T06:58:01.056260+00:00",
+  "ts": "2026-10-04T07:00:32.878046+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
@@ -1967,7 +1967,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=4"
+    "STALE-RUNS=0"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1985,7 +1985,7 @@
   "check_ts": {
    "board-check": "2026-10-04T06:57:45.252183+00:00",
    "liveness": "2026-10-04T06:57:36.935255+00:00",
-   "classification-health": "2026-10-04T06:57:43.467094+00:00",
+   "classification-health": "2026-10-04T07:00:32.878046+00:00",
    "transitions": "2026-10-04T06:57:40.999804+00:00",
    "conflicts": "2026-10-04T06:57:39.637031+00:00",
    "all-blocked": "2026-10-04T06:58:01.056260+00:00",
