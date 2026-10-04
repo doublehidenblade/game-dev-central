@@ -1782,7 +1782,8 @@
   "2026-10-04T15:14Z LIVENESS REPAIR: td-138 registration repo was bare tokyo-drift-3d (cron-body STEP 2 template drops the owner) -> every GitHub evidence check 404d and quiet_cycles advanced on a false signal. Corrected to doublehidenblade/tokyo-drift-3d, reset quiet_cycles to 0. Direct evidence the script would have seen: open PR #301 (GT-R LM Nismo Tripo rebuild, 8 validator-round commits today) + branch docs/td-138-file-20260930 1 ahead.",
   "2026-10-04T18:34Z deregistered td-132 (subagent): task done \u2014 Craig declared solved, PR #310 merged",
   "2026-10-04T18:34Z deregistered td-133 (subagent): task done \u2014 Craig declared solved, PR #309 merged",
-  "2026-10-04T18:50Z deregistered td-119-crossing (subagent): rework complete \u2014 PR #313 validated on all 7 defects and merged to main"
+  "2026-10-04T18:50Z deregistered td-119-crossing (subagent): rework complete \u2014 PR #313 validated on all 7 defects and merged to main",
+  "2026-10-04T18:56Z deregistered td-155 (subagent): bible complete, PR #317 merged; td-156/157/158 flipped to open"
  ],
  "workers": {
   "td-137": {
@@ -1809,15 +1810,6 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-101.md",
    "dispatched_at": "2026-10-04T18:50:50.681681+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
-  "td-155": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-155.md",
-   "dispatched_at": "2026-10-04T18:50:54.327282+00:00",
    "quiet_cycles": 0,
    "last_verdict": "registered"
   },
