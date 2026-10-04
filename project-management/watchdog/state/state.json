@@ -1785,7 +1785,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 31
+  "stale_runs": 0
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1932,7 +1932,7 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T02:57:58.751729+00:00",
+  "ts": "2026-10-04T03:02:29.625896+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto split/merge; open PR #282 td-137: Shuto sp)",
@@ -1942,7 +1942,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=31"
+    "STALE-RUNS=0"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1951,19 +1951,19 @@
     "BOARD-OK tokyo-drift-3d (142 rows)"
    ],
    "all-blocked": [
-    "ALL-BLOCKED True (codex:tokyo-drift-3d=LOGIN_BLOCKED; claude-code:tokyo-drift-3d=LOGIN_BLOCKED)"
+    "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
    ],
    "idle-defect-check": [
     "OK no idle-with-assignable-work"
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T02:57:26.850125+00:00",
-   "liveness": "2026-10-04T02:57:19.462372+00:00",
-   "classification-health": "2026-10-04T02:57:22.260449+00:00",
-   "transitions": "2026-10-04T02:57:26.005830+00:00",
+   "board-check": "2026-10-04T03:02:06.602612+00:00",
+   "liveness": "2026-10-04T03:02:01.605278+00:00",
+   "classification-health": "2026-10-04T03:02:04.762309+00:00",
+   "transitions": "2026-10-04T03:02:05.609439+00:00",
    "conflicts": "2026-10-04T02:57:22.184981+00:00",
-   "all-blocked": "2026-10-04T02:57:58.751729+00:00",
+   "all-blocked": "2026-10-04T03:02:29.625896+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
