@@ -1819,7 +1819,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 6
+  "stale_runs": 7
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1984,7 +1984,7 @@
   "td-171": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T20:14:32.809858+00:00",
+  "ts": "2026-10-04T20:29:38.387112+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #322 Inspector report: 2026-10-04 15:34 EDT)",
@@ -1995,7 +1995,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=6"
+    "STALE-RUNS=7"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2011,12 +2011,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T20:13:17.739068+00:00",
-   "liveness": "2026-10-04T20:12:45.459687+00:00",
-   "classification-health": "2026-10-04T20:13:10.493523+00:00",
-   "transitions": "2026-10-04T20:13:03.425652+00:00",
-   "conflicts": "2026-10-04T20:12:55.100352+00:00",
-   "all-blocked": "2026-10-04T20:14:32.809858+00:00",
+   "board-check": "2026-10-04T20:28:38.353015+00:00",
+   "liveness": "2026-10-04T20:27:52.996249+00:00",
+   "classification-health": "2026-10-04T20:28:21.061484+00:00",
+   "transitions": "2026-10-04T20:28:12.535892+00:00",
+   "conflicts": "2026-10-04T20:28:01.612976+00:00",
+   "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
