@@ -1802,27 +1802,27 @@
   "td-132": {
    "kind": "subagent",
    "session": null,
-   "repo": "tokyo-drift-3d",
+   "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-132.md",
-   "dispatched_at": "2026-10-04T16:42:55.526420+00:00",
+   "dispatched_at": "2026-10-04T17:13:56.678883+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "registered"
   },
   "td-133": {
    "kind": "subagent",
    "session": null,
-   "repo": "tokyo-drift-3d",
+   "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-133.md",
-   "dispatched_at": "2026-10-04T16:43:05.453821+00:00",
+   "dispatched_at": "2026-10-04T17:13:56.849669+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 8
+  "stale_runs": 9
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1970,19 +1970,19 @@
   "td-154": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T16:58:08.316170+00:00",
+  "ts": "2026-10-04T17:13:02.546505+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #307 Inspector brief: td-137 counter-eviden)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)",
-    "GRACE td-132 (dispatched 15min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-132.md&sha=main)",
-    "GRACE td-133 (dispatched 14min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-133.md&sha=main)"
+    "GRACE td-132 (dispatched 29min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-132.md&sha=main)",
+    "GRACE td-133 (dispatched 29min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-133.md&sha=main)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=8"
+    "STALE-RUNS=9"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1999,12 +1999,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T16:57:44.795536+00:00",
-   "liveness": "2026-10-04T16:57:32.030595+00:00",
-   "classification-health": "2026-10-04T16:57:40.115496+00:00",
-   "transitions": "2026-10-04T16:57:38.502902+00:00",
-   "conflicts": "2026-10-04T16:57:35.927527+00:00",
-   "all-blocked": "2026-10-04T16:58:08.316170+00:00",
+   "board-check": "2026-10-04T17:12:42.352154+00:00",
+   "liveness": "2026-10-04T17:12:29.485870+00:00",
+   "classification-health": "2026-10-04T17:12:38.897681+00:00",
+   "transitions": "2026-10-04T17:12:37.179782+00:00",
+   "conflicts": "2026-10-04T17:12:34.240598+00:00",
+   "all-blocked": "2026-10-04T17:13:02.546505+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
