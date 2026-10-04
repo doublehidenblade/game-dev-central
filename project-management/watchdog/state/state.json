@@ -913,7 +913,8 @@
    ],
    "assignments": [],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-04T01:57:59.186411+00:00"
+   "login_fail_notified_ts": "2026-10-04T01:57:59.186411+00:00",
+   "inspected_ts": "2026-10-04T04:58:36.598386+00:00"
   },
   "claude-code:tokyo-drift-3d-textures": {
    "last_class": "STALLED",
@@ -1487,7 +1488,10 @@
     "https://chatgpt.com/remote/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-04T01:57:59.059128+00:00"
+   "login_fail_notified_ts": "2026-10-04T01:57:59.059128+00:00",
+   "pr_merged": true,
+   "merged_by": "cron",
+   "inspected_ts": "2026-10-04T04:58:36.395398+00:00"
   },
   "orphan-pr-292": {
    "blockers": {
@@ -1787,18 +1791,18 @@
   "td-138": {
    "kind": "subagent",
    "session": null,
-   "repo": "tokyo-drift-3d",
+   "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-138.md",
    "dispatched_at": "2026-10-04T04:16:43.436943+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 4
+  "stale_runs": 5
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1945,18 +1949,18 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T04:43:11.530371+00:00",
+  "ts": "2026-10-04T04:59:46.098254+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto split/merge; open PR #282 td-137: Shuto sp)",
     "ALIVE td-101 (no heartbeat file; open PR #292 DO NOT MERGE \u2014 td-101: Blender vegetation kit v2 (cherry tre)",
-    "GRACE td-138 (dispatched 26min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-138.md&sha=main)"
+    "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #300 td-138: stage 4 blockout GT-R LM Nismo (redo); open PR #253 td-138 round 3: preserve f)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=4"
+    "STALE-RUNS=5"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1972,12 +1976,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T04:42:31.044266+00:00",
-   "liveness": "2026-10-04T04:43:11.530371+00:00",
-   "classification-health": "2026-10-04T04:42:28.496015+00:00",
-   "transitions": "2026-10-04T04:42:26.683717+00:00",
-   "conflicts": "2026-10-04T04:42:25.292509+00:00",
-   "all-blocked": "2026-10-04T04:42:49.437668+00:00",
+   "board-check": "2026-10-04T04:57:38.686881+00:00",
+   "liveness": "2026-10-04T04:59:46.098254+00:00",
+   "classification-health": "2026-10-04T04:57:33.303823+00:00",
+   "transitions": "2026-10-04T04:57:32.923445+00:00",
+   "conflicts": "2026-10-04T04:57:30.029563+00:00",
+   "all-blocked": "2026-10-04T04:58:40.159318+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
