@@ -1809,7 +1809,7 @@
    "task_file": "godot/docs/tasks/td-119.md",
    "dispatched_at": "2026-10-04T18:30:57.842572+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -1939,8 +1939,8 @@
   "td-129": "in_review",
   "td-130": "in_review",
   "td-131": "in_review",
-  "td-132": "in_review",
-  "td-133": "in_review",
+  "td-132": "done",
+  "td-133": "done",
   "td-134": "merged",
   "td-135": "merged",
   "td-136": "merged",
@@ -1961,19 +1961,24 @@
   "td-151": "validated",
   "td-152": "validated",
   "td-153": "validated",
-  "td-154": "in_review"
+  "td-154": "in_review",
+  "td-155": "open",
+  "td-156": "blocked",
+  "td-157": "blocked",
+  "td-158": "blocked",
+  "td-159": "blocked"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T18:28:24.092406+00:00",
+  "ts": "2026-10-04T18:43:43.457598+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #312 Inspector report: 2026-10-04 13:34 EDT)",
+    "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #315 Inspector report: 2026-10-04 14:34 EDT)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)",
-    "ALIVE td-132 (no heartbeat file; branch evidence/td-132-remote-body-settle 1 ahead; branch file/td-130-td-132 5 ahead; open PR #310 td-132: deterministic headless evidence te)",
-    "ALIVE td-133 (no heartbeat file; branch evidence/td-133-nameplate-closeups 1 ahead; open PR #312 Inspector report: 2026-10-04 13:34 EDT (td-137 overturned, t; open PR #309 td)"
+    "GRACE td-119-crossing (dispatched 12min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-119.md&sha=main)"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-132: in_review -> done [silent]",
+    "FLIP td-133: in_review -> done [silent]"
    ],
    "classification-health": [
     "STALE-RUNS=0"
@@ -1982,8 +1987,7 @@
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-FAIL td-132: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-133: liveness registry shows active worker but board Owner is empty"
+    "BOARD-OK tokyo-drift-3d (148 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -1993,12 +1997,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T18:27:57.777930+00:00",
-   "liveness": "2026-10-04T18:27:33.543077+00:00",
-   "classification-health": "2026-10-04T18:27:51.040134+00:00",
-   "transitions": "2026-10-04T18:27:48.065177+00:00",
-   "conflicts": "2026-10-04T18:27:45.031528+00:00",
-   "all-blocked": "2026-10-04T18:28:24.092406+00:00",
+   "board-check": "2026-10-04T18:43:43.457598+00:00",
+   "liveness": "2026-10-04T18:42:40.608675+00:00",
+   "classification-health": "2026-10-04T18:42:55.840110+00:00",
+   "transitions": "2026-10-04T18:42:48.844515+00:00",
+   "conflicts": "2026-10-04T18:42:44.938146+00:00",
+   "all-blocked": "2026-10-04T18:43:25.100729+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
