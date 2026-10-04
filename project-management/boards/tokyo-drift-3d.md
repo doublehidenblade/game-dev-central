@@ -164,3 +164,13 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-160 | Blender asset-prep pipeline: Tripo decimate/normals/separation, PBR stripdown, flat albedo bake, Material ID slots + automation script | open | Muse subagent | — | 2026-10-04 |
 | td-161 | Godot import pipeline: _post_process_import auto-assigning toon shaders by material slot | blocked — depends on td-160, td-156 | — | — | 2026-10-04 |
 | td-162 | Retro screen filter: VHS/film GLSL stack (chromatic aberration + grain) with web perf measurement | blocked — depends on td-159 | — | — | 2026-10-04 |
+
+| td-163 | Showa utility pole kit: denbashira + crossarms + transformers + wire tangles (Gemini payoff rank #1) | open | — | — | 2026-10-04 |
+| td-164 | Sode-kanban vertical sign system + enamel horo-kanban scatter (8 Showa typography variants) | open | — | — | 2026-10-04 |
+| td-165 | Nightlife light props: vending machine banks (4 liveries) + phone booths (red/NTT) | open | — | — | 2026-10-04 |
+| td-166 | Sodium streetlight retrofit: gooseneck fixtures, LPS 2100K pools on road | blocked — depends on td-158, td-163 | — | — | 2026-10-04 |
+| td-167 | Wet asphalt Showa road pass: blue-charcoal asphalt, tar patches, puddles, Showa manholes | blocked — depends on td-157 | — | — | 2026-10-04 |
+| td-168 | Hero street furniture: sento facade + chimney landmark, koban, jizo altar | open | — | — | 2026-10-04 |
+| td-169 | Skyline Showa pass: danchi/nagaya modules replace window-grid boxes; Tokyo Tower red/white hero treatment | blocked — depends on td-156 | — | — | 2026-10-04 |
+| td-170 | Procedural map framework: asset registry + per-map iconic sets + seed/fill pipeline design | open | — | — | 2026-10-04 |
+| td-171 | Void-render purge + scripted void detection (evidence-checks heuristic + standing brief ban) | open | — | — | 2026-10-04 |
