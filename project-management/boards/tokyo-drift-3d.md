@@ -158,19 +158,19 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-154 | merged 2026-10-04 — PR #298 (fake shadow planes removed from all 12 Tripo GLBs, validated) | in_review | worker (Muse subagent) | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/td-154-shadow-fix/godot/docs/tasks/td-154.md) · [PR #298](https://github.com/doublehidenblade/tokyo-drift-3d/pull/298) | 2026-10-04 |
 | td-155 | Anime reference bible: curated night-Tokyo background-art refs + per-image technique notes (Craig's anime directive) | merged 2026-10-04 — PR #317 (19 refs + technique README verified on main) | — | #317 | 2026-10-04 |
 | td-156 | Toon-shader kit (3-band cel diffuse, banded specular, foliage, banded sky, inverted-hull ink outlines) | validated 2026-10-04 — PR #329 merged; in-engine before/after proves banding, outline adopted at 0.02-0.06wu | Muse subagent | [#329](https://github.com/doublehidenblade/tokyo-drift-3d/pull/329) | 2026-10-04 |
-| td-157 | Painterly texture pass: hand-painted-look road/ground/facade textures replacing flat photographic surfaces | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | — | — | 2026-10-04 |
-| td-158 | Stylized night lighting rig: deep-blue ambient + amber sodium keys + cool moonlight, chase-cam safe | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | — | — | 2026-10-04 |
+| td-157 | Painterly texture pass: hand-painted-look road/ground/facade textures replacing flat photographic surfaces | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | Muse subagent | — | 2026-10-04 |
+| td-158 | Stylized night lighting rig: deep-blue ambient + amber sodium keys + cool moonlight, chase-cam safe | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | Muse subagent | — | 2026-10-04 |
 | td-159 | Anime post-process grade: WorldEnvironment bloom/color/vignette, perf-safe for web/mobile | blocked — depends on td-158 | — | — | 2026-10-04 |
 | td-160 | Blender asset-prep pipeline: Tripo decimate/normals/separation, PBR stripdown, flat albedo bake, Material ID slots + automation script | open | Muse subagent | — | 2026-10-04 |
 | td-161 | Godot import pipeline: _post_process_import auto-assigning toon shaders by material slot | blocked — depends on td-160, td-156 | — | — | 2026-10-04 |
 | td-162 | Retro screen filter: VHS/film GLSL stack (chromatic aberration + grain) with web perf measurement | blocked — depends on td-159 | — | — | 2026-10-04 |
 
-| td-163 | Showa utility pole kit: denbashira + crossarms + transformers + wire tangles (Gemini payoff rank #1) | open | — | — | 2026-10-04 |
-| td-164 | Sode-kanban vertical sign system + enamel horo-kanban scatter (8 Showa typography variants) | open | — | — | 2026-10-04 |
-| td-165 | Nightlife light props: vending machine banks (4 liveries) + phone booths (red/NTT) | open | — | — | 2026-10-04 |
+| td-163 | Showa utility pole kit: denbashira + crossarms + transformers + wire tangles (Gemini payoff rank #1) | open | Muse subagent | — | 2026-10-04 |
+| td-164 | Sode-kanban vertical sign system + enamel horo-kanban scatter (8 Showa typography variants) | open | Muse subagent | — | 2026-10-04 |
+| td-165 | Nightlife light props: vending machine banks (4 liveries) + phone booths (red/NTT) | open | Muse subagent | — | 2026-10-04 |
 | td-166 | Sodium streetlight retrofit: gooseneck fixtures, LPS 2100K pools on road | blocked — depends on td-158, td-163 | — | — | 2026-10-04 |
 | td-167 | Wet asphalt Showa road pass: blue-charcoal asphalt, tar patches, puddles, Showa manholes | blocked — depends on td-157 | — | — | 2026-10-04 |
-| td-168 | Hero street furniture: sento facade + chimney landmark, koban, jizo altar | open | — | — | 2026-10-04 |
+| td-168 | Hero street furniture: sento facade + chimney landmark, koban, jizo altar | open | Muse subagent | — | 2026-10-04 |
 | td-169 | Skyline Showa pass: danchi/nagaya modules replace window-grid boxes; Tokyo Tower red/white hero treatment | blocked — depends on td-156 | — | — | 2026-10-04 |
 | td-170 | Procedural map framework: asset registry + per-map iconic sets + seed/fill pipeline design | open | — | — | 2026-10-04 |
 | td-171 | Void-render purge + scripted void detection (evidence-checks heuristic + standing brief ban) | open | — | — | 2026-10-04 |
