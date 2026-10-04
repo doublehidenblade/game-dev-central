@@ -1781,7 +1781,8 @@
   "2026-10-04T10:14Z deregistered td-138 (subagent): round-2 rejected 2026-10-04, no rework authorized; stale registration cleared pending Craig's direction",
   "2026-10-04T15:14Z LIVENESS REPAIR: td-138 registration repo was bare tokyo-drift-3d (cron-body STEP 2 template drops the owner) -> every GitHub evidence check 404d and quiet_cycles advanced on a false signal. Corrected to doublehidenblade/tokyo-drift-3d, reset quiet_cycles to 0. Direct evidence the script would have seen: open PR #301 (GT-R LM Nismo Tripo rebuild, 8 validator-round commits today) + branch docs/td-138-file-20260930 1 ahead.",
   "2026-10-04T18:34Z deregistered td-132 (subagent): task done \u2014 Craig declared solved, PR #310 merged",
-  "2026-10-04T18:34Z deregistered td-133 (subagent): task done \u2014 Craig declared solved, PR #309 merged"
+  "2026-10-04T18:34Z deregistered td-133 (subagent): task done \u2014 Craig declared solved, PR #309 merged",
+  "2026-10-04T18:50Z deregistered td-119-crossing (subagent): rework complete \u2014 PR #313 validated on all 7 defects and merged to main"
  ],
  "workers": {
   "td-137": {
@@ -1802,14 +1803,32 @@
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
-  "td-119-crossing": {
+  "td-101-trees": {
    "kind": "subagent",
    "session": null,
    "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-119.md",
-   "dispatched_at": "2026-10-04T18:30:57.842572+00:00",
+   "task_file": "godot/docs/tasks/td-101.md",
+   "dispatched_at": "2026-10-04T18:50:50.681681+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "registered"
+  },
+  "td-155": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-155.md",
+   "dispatched_at": "2026-10-04T18:50:54.327282+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-160": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-160.md",
+   "dispatched_at": "2026-10-04T18:51:00.149672+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -1969,12 +1988,12 @@
   "td-159": "blocked"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T18:43:43.457598+00:00",
+  "ts": "2026-10-04T18:49:23.800495+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #315 Inspector report: 2026-10-04 14:34 EDT)",
+    "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #315 Inspector report: 2026-10-04 14:34 EDT)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)",
-    "GRACE td-119-crossing (dispatched 12min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-119.md&sha=main)"
+    "GRACE td-119-crossing (dispatched 18min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-119.md&sha=main)"
    ],
    "transitions": [
     "FLIP td-132: in_review -> done [silent]",
@@ -1998,7 +2017,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-04T18:43:43.457598+00:00",
-   "liveness": "2026-10-04T18:42:40.608675+00:00",
+   "liveness": "2026-10-04T18:49:23.800495+00:00",
    "classification-health": "2026-10-04T18:42:55.840110+00:00",
    "transitions": "2026-10-04T18:42:48.844515+00:00",
    "conflicts": "2026-10-04T18:42:44.938146+00:00",
