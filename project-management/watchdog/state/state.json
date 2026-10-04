@@ -1798,13 +1798,31 @@
    "dispatched_at": "2026-10-04T14:29:47.862742+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
+  },
+  "td-132": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-132.md",
+   "dispatched_at": "2026-10-04T16:42:55.526420+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-133": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-133.md",
+   "dispatched_at": "2026-10-04T16:43:05.453821+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 6
+  "stale_runs": 7
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1952,17 +1970,17 @@
   "td-154": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T16:27:50.382280+00:00",
+  "ts": "2026-10-04T16:43:44.259266+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
+    "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #307 Inspector brief: td-137 counter-eviden)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=6"
+    "STALE-RUNS=7"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1978,12 +1996,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T16:27:31.241860+00:00",
-   "liveness": "2026-10-04T16:27:20.513331+00:00",
-   "classification-health": "2026-10-04T16:27:27.942911+00:00",
-   "transitions": "2026-10-04T16:27:26.382163+00:00",
-   "conflicts": "2026-10-04T16:27:23.908750+00:00",
-   "all-blocked": "2026-10-04T16:27:50.382280+00:00",
+   "board-check": "2026-10-04T16:42:43.896060+00:00",
+   "liveness": "2026-10-04T16:42:28.182882+00:00",
+   "classification-health": "2026-10-04T16:42:39.173998+00:00",
+   "transitions": "2026-10-04T16:42:37.644714+00:00",
+   "conflicts": "2026-10-04T16:42:34.424501+00:00",
+   "all-blocked": "2026-10-04T16:43:44.259266+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
