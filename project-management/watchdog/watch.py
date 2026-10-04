@@ -1931,6 +1931,38 @@ def cmd_pending_reported(args):
     print(f"REPORTED PR #{pr}")
 
 
+def cmd_pending_hold(args):
+    """pending-hold <pr> "<reason>" — mark a merged-not-live entry HELD:
+    its evidence was rejected after merge (inspector FAIL, Craig overturn).
+    Held entries are NOT publishable inventory: the heartbeat renders them
+    as HELD (never "merged, not live"), and publish-verify must refuse a
+    candidate containing held code until released. [SCRIPTED: watch.py pending-hold]"""
+    pr = int(args[0])
+    reason = args[1] if len(args) > 1 else ""
+    data, path = _load_pending_ledger()
+    for e in data.get("pending", []):
+        if e.get("pr") == pr:
+            e["status"] = "HELD"
+            e["hold_reason"] = reason
+            e["held_at"] = now().isoformat()
+    json.dump(data, open(path, "w"), indent=1)
+    print(f"PENDING-HELD PR #{pr} :: {reason[:80]}")
+
+
+def cmd_pending_release(args):
+    """pending-release <pr> — clear a hold after the rework lands and its
+    evidence passes. Returns the entry to publishable merged-not-live."""
+    pr = int(args[0])
+    data, path = _load_pending_ledger()
+    for e in data.get("pending", []):
+        if e.get("pr") == pr:
+            e.pop("status", None)
+            e.pop("hold_reason", None)
+            e.pop("held_at", None)
+    json.dump(data, open(path, "w"), indent=1)
+    print(f"PENDING-RELEASED PR #{pr}")
+
+
 # ---------------------------------------------------------------------------
 # Scripted heartbeat (Craig 2026-10-02): the watchdog report as code.
 # The cron's old STEP 3 hand-wrote the heartbeat from check outputs in prose,
@@ -2088,8 +2120,12 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
             jobs.append(f"🟢 2 {task_link(task)} {defect_of(task)} — {t} queued")
     for e in pending:
         if not e.get("reported"):
-            jobs.append(f"🟢 2 {pr_link(e.get('pr'))} {e.get('task')} — "
-                        f"{e.get('summary', '')[:70]} (merged, not live)")
+            if e.get("status") == "HELD":
+                jobs.append(f"🔴 1 {pr_link(e.get('pr'))} {e.get('task')} — HELD: "
+                            f"{e.get('hold_reason', '')[:80]} (merged, evidence rejected — not for publish)")
+            else:
+                jobs.append(f"🟢 2 {pr_link(e.get('pr'))} {e.get('task')} — "
+                            f"{e.get('summary', '')[:70]} (merged, not live)")
     all_blocked = any(l.startswith("ALL-BLOCKED True")
                       for l in checks.get("all-blocked", []))
     if all_blocked:
@@ -3139,6 +3175,10 @@ def main():
         cmd_pending_report(sys.argv[2:])
     elif cmd == "pending-reported":
         cmd_pending_reported(sys.argv[2:])
+    elif cmd == "pending-hold":
+        cmd_pending_hold(sys.argv[2:])
+    elif cmd == "pending-release":
+        cmd_pending_release(sys.argv[2:])
     elif cmd == "heartbeat":
         cmd_heartbeat(sys.argv[2:])
     elif cmd == "classify-report":
