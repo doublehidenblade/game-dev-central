@@ -1806,7 +1806,7 @@
    "task_file": "godot/docs/tasks/td-132.md",
    "dispatched_at": "2026-10-04T16:42:55.526420+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-133": {
    "kind": "subagent",
@@ -1815,14 +1815,14 @@
    "task_file": "godot/docs/tasks/td-133.md",
    "dispatched_at": "2026-10-04T16:43:05.453821+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 7
+  "stale_runs": 8
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1970,23 +1970,26 @@
   "td-154": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T16:43:44.259266+00:00",
+  "ts": "2026-10-04T16:58:08.316170+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #307 Inspector brief: td-137 counter-eviden)",
-    "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)"
+    "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)",
+    "GRACE td-132 (dispatched 15min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-132.md&sha=main)",
+    "GRACE td-133 (dispatched 14min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-133.md&sha=main)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=7"
+    "STALE-RUNS=8"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (143 rows)"
+    "BOARD-FAIL td-132: liveness registry shows active worker but board Owner is empty",
+    "BOARD-FAIL td-133: liveness registry shows active worker but board Owner is empty"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -1996,12 +1999,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T16:42:43.896060+00:00",
-   "liveness": "2026-10-04T16:42:28.182882+00:00",
-   "classification-health": "2026-10-04T16:42:39.173998+00:00",
-   "transitions": "2026-10-04T16:42:37.644714+00:00",
-   "conflicts": "2026-10-04T16:42:34.424501+00:00",
-   "all-blocked": "2026-10-04T16:43:44.259266+00:00",
+   "board-check": "2026-10-04T16:57:44.795536+00:00",
+   "liveness": "2026-10-04T16:57:32.030595+00:00",
+   "classification-health": "2026-10-04T16:57:40.115496+00:00",
+   "transitions": "2026-10-04T16:57:38.502902+00:00",
+   "conflicts": "2026-10-04T16:57:35.927527+00:00",
+   "all-blocked": "2026-10-04T16:58:08.316170+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
