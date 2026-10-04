@@ -1796,7 +1796,7 @@
    "task_file": "godot/docs/tasks/td-138.md",
    "dispatched_at": "2026-10-04T14:29:47.862742+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -1951,10 +1951,11 @@
   "td-154": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T14:27:43.154713+00:00",
+  "ts": "2026-10-04T14:43:32.096627+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)"
+    "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
+    "GRACE td-138 (dispatched 13min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-138.md&sha=main)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -1966,7 +1967,7 @@
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (143 rows)"
+    "BOARD-FAIL td-138: liveness registry shows active worker but board Owner is empty"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -1976,12 +1977,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T14:27:27.252519+00:00",
-   "liveness": "2026-10-04T14:27:17.494166+00:00",
-   "classification-health": "2026-10-04T14:27:23.087301+00:00",
-   "transitions": "2026-10-04T14:27:22.952140+00:00",
-   "conflicts": "2026-10-04T14:27:22.038340+00:00",
-   "all-blocked": "2026-10-04T14:27:43.154713+00:00",
+   "board-check": "2026-10-04T14:42:34.770529+00:00",
+   "liveness": "2026-10-04T14:42:25.243180+00:00",
+   "classification-health": "2026-10-04T14:42:31.063904+00:00",
+   "transitions": "2026-10-04T14:42:30.788551+00:00",
+   "conflicts": "2026-10-04T14:42:29.289919+00:00",
+   "all-blocked": "2026-10-04T14:43:32.096627+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
