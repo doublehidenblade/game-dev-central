@@ -1,5 +1,15 @@
 {
- "actions": [],
+ "actions": [
+  {
+   "type": "dispatch-validator",
+   "task": "td-137",
+   "pr": 282,
+   "repo": "doublehidenblade/tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-137.md",
+   "note": "ORPHAN-HELD sweep: #282 in_review with committed evidence (triptychs + before/after pairs), held only by stale DO NOT MERGE title from pre-Oct-3 awaiting-verdict pattern. Oct 2 validator-skip superseded by Craig 2026-10-03 rule (in-review work goes to validators; his phone verdict gates PUBLISH, never merge). Judge #282 against td-137.md criteria; merge on PASS per VALIDATOR_BRIEF step 7.",
+   "queued_at": "2026-10-04T06:17:42.287475+00:00"
+  }
+ ],
  "notes": [
   "steer-codex codex:tokyo-drift-3d popped 2026-09-28T00:51:50Z: STEER_DONE via browser task (td-100 modeling continuation; session was idle post-provisioning checkpoint, new run started on the steered instruction). Do NOT re-steer while the session is working.",
   "dispatch-p3d-069 popped: dispatched directly by main agent via browser task in the 16:0x turn (pickup verification pending); entry removed to prevent duplicate dispatch",
