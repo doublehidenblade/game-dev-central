@@ -1950,7 +1950,7 @@
   "td-154": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T09:57:46.618507+00:00",
+  "ts": "2026-10-04T10:13:02.073923+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
@@ -1976,12 +1976,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T09:57:28.556667+00:00",
-   "liveness": "2026-10-04T09:57:22.150670+00:00",
-   "classification-health": "2026-10-04T09:57:26.650909+00:00",
-   "transitions": "2026-10-04T09:42:22.803029+00:00",
-   "conflicts": "2026-10-04T09:27:34.557552+00:00",
-   "all-blocked": "2026-10-04T09:57:46.618507+00:00",
+   "board-check": "2026-10-04T10:12:47.205417+00:00",
+   "liveness": "2026-10-04T10:12:38.098208+00:00",
+   "classification-health": "2026-10-04T10:12:43.831413+00:00",
+   "transitions": "2026-10-04T10:12:42.432744+00:00",
+   "conflicts": "2026-10-04T10:12:40.356287+00:00",
+   "all-blocked": "2026-10-04T10:13:02.073923+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
