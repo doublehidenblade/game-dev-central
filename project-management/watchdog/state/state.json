@@ -1797,7 +1797,8 @@
   "2026-10-04T21:49Z LIVENESS: td-172 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-172-20261004-214948.md).",
   "2026-10-04T21:50Z LIVENESS: td-173 proclaimed DEAD (2 quiet cycles; no heartbeat file; branch check failed: gh api /repos/doublehidenblade/tokyo-drift-3d/branches?per_page=100: Traceback (most recent call last):\n  File \"/home/ha). Replacement dispatch-subagent queued (brief td-173-20261004-215029.md).",
   "2026-10-04T21:50Z LIVENESS: td-174 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-174-20261004-215039.md).",
-  "2026-10-04T21:56Z LIVENESS-SUPPRESSION: 9 subagents (td-157/158/163/164/165/168/172/173/174) falsely proclaimed DEAD ('no heartbeat file' \u2014 Muse subagents were never briefed to write heartbeat files, and had no GitHub activity yet). Direct monitor-event evidence shows all 9 alive and working. Queued replacements dropped per JUDGMENT-ONLY override; workers re-registered; heartbeat files now maintained by main agent from observed activity. TODO: add heartbeat-file instruction to the STEP 2 dispatch brief template."
+  "2026-10-04T21:56Z LIVENESS-SUPPRESSION: 9 subagents (td-157/158/163/164/165/168/172/173/174) falsely proclaimed DEAD ('no heartbeat file' \u2014 Muse subagents were never briefed to write heartbeat files, and had no GitHub activity yet). Direct monitor-event evidence shows all 9 alive and working. Queued replacements dropped per JUDGMENT-ONLY override; workers re-registered; heartbeat files now maintained by main agent from observed activity. TODO: add heartbeat-file instruction to the STEP 2 dispatch brief template.",
+  "2026-10-04T22:00Z deregistered td-163 (subagent): work complete: PR #331 open, in_review"
  ],
  "workers": {
   "td-137": {
@@ -1842,15 +1843,6 @@
    "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-158.md",
    "dispatched_at": "2026-10-04T21:57:00.347674+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
-  "td-163": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-163.md",
-   "dispatched_at": "2026-10-04T21:57:02.191153+00:00",
    "quiet_cycles": 0,
    "last_verdict": "registered"
   },
