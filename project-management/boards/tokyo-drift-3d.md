@@ -165,7 +165,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-161 | Godot import pipeline: _post_process_import auto-assigning toon shaders by material slot | blocked — depends on td-160, td-156 | — | — | 2026-10-04 |
 | td-162 | Retro screen filter: VHS/film GLSL stack (chromatic aberration + grain) with web perf measurement | blocked — depends on td-159 | — | — | 2026-10-04 |
 
-| td-163 | Showa utility pole kit: denbashira + crossarms + transformers + wire tangles (Gemini payoff rank #1) | open | Muse subagent | — | 2026-10-04 |
+| td-163 | Showa utility pole kit: denbashira + crossarms + transformers + wire tangles (Gemini payoff rank #1) | in_review | Muse subagent | tokyo-drift-3d#331 | 2026-10-04 |
 | td-164 | Sode-kanban vertical sign system + enamel horo-kanban scatter (8 Showa typography variants) | open | Muse subagent | — | 2026-10-04 |
 | td-165 | Nightlife light props: vending machine banks (4 liveries) + phone booths (red/NTT) | open | Muse subagent | — | 2026-10-04 |
 | td-166 | Sodium streetlight retrofit: gooseneck fixtures, LPS 2100K pools on road | blocked — depends on td-158, td-163 | — | — | 2026-10-04 |
