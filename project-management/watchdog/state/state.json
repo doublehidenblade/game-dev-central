@@ -623,6 +623,10 @@
   {
    "ts": "2026-10-03T10:45:07Z",
    "note": "watchdog 2026-10-03T10:4xZ (06:41 EDT run): decide=REPORT_LOGIN x2 (browser login wall, state 403min old; notified 1.5h/5.5h ago, SUPPRESSED). STEP 0: liveness td-137 ALIVE (PR #282 DO NOT MERGE open, awaiting verdict), td-101 ALIVE (Astra; PR #292 DO NOT MERGE open); conflicts OK; transitions NO-FLIPS; board-check OK (141 rows); classification-health STALE-RUNS=22 (degraded alarm, no fresh classification). DISPATCH CHECK: both sessions LOGIN_BLOCKED; dispatch-candidates only owned/skipped (td-101, td-119, td-054 no-redispatch, td-138 judgment-only). ALL-BLOCKED True fired: spawned ONE Muse subagent on td-119 rework (four-way scramble crossing + shotengai storefront attached to building; context migration: PR #202 models on main, PR #243 QA round 2 OPEN awaiting Craig verdict - do not touch/touchless; old td-119-phase3-aaa branch content already on main). Never merges/publishes. Do not duplicate coverage on td-119."
+  },
+  {
+   "ts": "2026-10-04T05:50:00Z",
+   "note": "watchdog 2026-10-04 01:41 EDT run: ORPHAN-HELD #282 (td-137) / #292 (td-101) validator routing DEFERRED \u2014 [JUDGMENT-ONLY override] both have live registered subagent owners actively pushing: td-137 opened PR #299 (6-subtask breakdown) 21:19Z and branch docs/td-137-rejection-20260930 is 1 ahead; td-101 subagent ALIVE, #292 updated 00:45Z. Dispatching a validator now would put two agents on the same task file and judge WIP \u2014 'never nudge a working session'. Validator routing fires only when the owner is gone or quiescent. Board-check FAIL: td-138 row Owner empty despite live subagent (dispatched 04:16Z) \u2014 worker/dispatcher must claim its own row via PR."
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -1947,7 +1951,7 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T05:28:30.367669+00:00",
+  "ts": "2026-10-04T05:43:29.569402+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto split/merge; open PR #282 td-137: Shuto sp)",
@@ -1974,12 +1978,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T05:27:38.639030+00:00",
-   "liveness": "2026-10-04T05:28:13.780784+00:00",
-   "classification-health": "2026-10-04T05:27:36.683901+00:00",
-   "transitions": "2026-10-04T05:27:34.689310+00:00",
-   "conflicts": "2026-10-04T05:27:33.154350+00:00",
-   "all-blocked": "2026-10-04T05:28:30.367669+00:00",
+   "board-check": "2026-10-04T05:43:29.569402+00:00",
+   "liveness": "2026-10-04T05:42:30.732197+00:00",
+   "classification-health": "2026-10-04T05:42:38.029717+00:00",
+   "transitions": "2026-10-04T05:42:36.195791+00:00",
+   "conflicts": "2026-10-04T05:42:34.696162+00:00",
+   "all-blocked": "2026-10-04T05:43:04.340582+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
