@@ -1837,8 +1837,8 @@
    "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-158.md",
    "dispatched_at": "2026-10-04T21:57:00.347674+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   },
   "td-163": {
    "kind": "subagent",
@@ -1873,8 +1873,8 @@
    "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-173.md",
    "dispatched_at": "2026-10-04T21:57:09.938865+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   },
   "td-174": {
    "kind": "subagent",
@@ -2067,19 +2067,19 @@
   "td-174": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T22:29:03.843141+00:00",
+  "ts": "2026-10-04T22:46:50.002398+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #322 Inspector report: 2026-10-04 15:34 EDT)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)",
     "ALIVE td-160 (no heartbeat file; open PR #319 td-160: Blender asset-prep pipeline (Tripo -> Godot-ready))",
-    "ALIVE td-158 (heartbeat 18min ago (night-lighting rig: waiting on in-game capture res))",
-    "ALIVE td-163 (heartbeat 19min ago (td-163 rework: fixing validator FAIL items (wire e); open PR #335 td-164: Sode-kanban vertical sign system + enamel scatter; open PR #331 t)",
-    "ALIVE td-164 (heartbeat 17min ago (sign kit: checking capture logs for script errors); open PR #335 td-164: Sode-kanban vertical sign system + enamel scatter; open PR #331 td)",
-    "ALIVE td-168 (heartbeat 28min ago (street furniture: reviewing jizo geometry render); open PR #334 td-168: Hero street furniture \u2014 sento, koban (x2), jizo (x2))",
-    "ALIVE td-173 (heartbeat 17min ago (JNR station kit: rendering captures under xvfb))",
-    "ALIVE td-174 (heartbeat 18min ago (gas canopy kit: rendering under xvfb); open PR #336 td-174: gas station canopy kit (Showa service station))",
-    "ALIVE td-157 (heartbeat 18min ago (td-157 gap closure: facB comparison + in-engine ca); open PR #330 td-157: Painterly texture pass (asphalt, sidewalk, facA/B/C )"
+    "QUIET(1) td-158 (heartbeat stale (36min))",
+    "ALIVE td-163 (heartbeat stale (37min); open PR #331 td-163: Showa utility pole kit (denbashira + wire tangles))",
+    "ALIVE td-164 (heartbeat stale (35min); task-file commit b28ba58 2026-10-04T22:42; open PR #331 td-163: Showa utility pole kit (denbashira + wire tangles))",
+    "ALIVE td-168 (heartbeat stale (46min); open PR #334 td-168: Hero street furniture \u2014 sento, koban (x2), jizo (x2))",
+    "QUIET(1) td-173 (heartbeat stale (35min))",
+    "ALIVE td-174 (heartbeat stale (36min); open PR #336 td-174: gas station canopy kit (Showa service station))",
+    "ALIVE td-157 (heartbeat stale (36min); task-file commit 30a5d0f 2026-10-04T22:45)"
    ],
    "transitions": [
     "FLIP td-165: open -> validated [notify-craig]",
@@ -2104,10 +2104,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-04T22:29:03.843141+00:00",
-   "liveness": "2026-10-04T22:28:48.505306+00:00",
+   "liveness": "2026-10-04T22:46:50.002398+00:00",
    "classification-health": "2026-10-04T22:29:00.437645+00:00",
    "transitions": "2026-10-04T22:28:57.171098+00:00",
-   "conflicts": "2026-10-04T22:28:54.039817+00:00",
+   "conflicts": "2026-10-04T22:44:22.200956+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
