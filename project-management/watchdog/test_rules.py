@@ -638,6 +638,49 @@ def test_part8():
     return fails
 
 
+def test_part9():
+    """Part 9: evidence cheat-checks (real watch._find_duplicate_images,
+    watch._pair_findings, watch._is_tiny). Deterministic audits for the
+    hourly task-evidence inspector."""
+    fails = 0
+
+    def check(name, cond):
+        nonlocal fails
+        print(("PASS " if cond else "FAIL ") + name)
+        if not cond:
+            fails += 1
+
+    # Duplicate frames: same bytes under two names (the td-137 ch2150 case —
+    # one frame reused as evidence for two criteria).
+    d = watch._find_duplicate_images([
+        ("c1/td137-criterion-1-after.png", "aaa"),
+        ("c3/td137-criterion-3-after.png", "aaa"),
+        ("c1/other.png", "bbb"),
+    ])
+    check("same bytes two names -> one dup group",
+          list(d.values()) == [["c1/td137-criterion-1-after.png",
+                                "c3/td137-criterion-3-after.png"]])
+    check("no dups -> empty",
+          watch._find_duplicate_images([("a.png", "aaa"), ("b.png", "bbb")]) == {})
+    # Same path twice is not a duplicate (re-listed dir), only distinct paths.
+    check("same path twice -> not flagged",
+          watch._find_duplicate_images([("a.png", "aaa"), ("a.png", "aaa")]) == {})
+
+    # Pair findings: after without before.
+    m = watch._pair_findings(["x-after.png", "y-before.png", "y-after.png"])
+    check("after without before -> flagged", m == ["x-after.png"])
+    check("complete pairs -> clean",
+          watch._pair_findings(["y-before.png", "y-after.PNG"]) == [])
+    check("case-insensitive stems", watch._pair_findings(
+        ["TD-1-Before.png", "td-1-after.png"]) == [])
+
+    # Tiny images.
+    check("399px max dim -> tiny", watch._is_tiny(399, 200))
+    check("400px max dim -> ok", not watch._is_tiny(400, 200))
+    check("large -> ok", not watch._is_tiny(1920, 1080))
+    return fails
+
+
 if __name__ == "__main__":
     print("== Part 1: evidence -> classification ==")
     f1 = test_part1()
@@ -655,6 +698,8 @@ if __name__ == "__main__":
     f7 = test_part7()
     print("== Part 8: scriptification audit (real watch._audit_lesson_sections) ==")
     f8 = test_part8()
-    total = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8
+    print("== Part 9: evidence cheat-checks (duplicates, pairs, tiny) ==")
+    f9 = test_part9()
+    total = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9
     print(f"\n{total} failures" if total else "\nALL TESTS PASSED")
     sys.exit(1 if total else 0)

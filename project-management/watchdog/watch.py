@@ -1643,6 +1643,188 @@ def cmd_evidence_audit(args):
                       f"(before={has_before} after={has_after})")
 
 
+# --- Evidence collection + deterministic cheat-checks (Craig 2026-10-04) ---
+# The hourly task-evidence inspector (devil's advocate) needs the raw pixels,
+# not worker captions. These subcommands pull the QA images for a task and run
+# deterministic audits that catch laziness/cheating without any vision model:
+# duplicate frames reused across criteria, byte-identical before/after pairs,
+# after-shots with no before, and postage-stamp images.
+# [SCRIPTED: watch.py evidence-collect] [SCRIPTED: watch.py evidence-checks]
+
+def _sha256_bytes(raw):
+    import hashlib
+    return hashlib.sha256(raw).hexdigest()
+
+
+def _find_duplicate_images(entries):
+    """Pure helper. entries: [(relpath, sha)]. Returns {sha: [relpaths]} for
+    groups where the same bytes appear under 2+ distinct paths."""
+    groups = {}
+    for relpath, sha in entries:
+        groups.setdefault(sha, []).append(relpath)
+    return {s: sorted(ps) for s, ps in groups.items()
+            if len(set(ps)) > 1}
+
+
+def _pair_findings(names):
+    """Pure helper. names: image filenames (basenames, any case).
+    Returns (missing_before, identical_stems_pending) where missing_before
+    lists after-files with no matching before-file. Identical-content detection
+    needs bytes and happens in cmd_evidence_checks."""
+    import re
+    lower = {n.lower(): n for n in names}
+
+    def stem(n):
+        return re.sub(r"\.(png|jpg|jpeg)$", "", n, flags=re.I)
+
+    befores = {stem(n)[:-len("-before")] for n in lower
+               if stem(n).endswith("-before")}
+    afters = [(stem(n), n) for n in names if stem(n).lower().endswith("-after")]
+    missing = []
+    for a_stem, orig in afters:
+        base = a_stem[:-len("-after")]
+        if base.lower() not in {b.lower() for b in befores}:
+            missing.append(orig)
+    return sorted(missing)
+
+
+def _is_tiny(w, h, min_dim=400):
+    """Pure helper. Flags postage-stamp evidence too small to judge."""
+    return max(w, h) < min_dim
+
+
+def _collect_evidence_images(task, outdir):
+    """Download every image under godot/qa/<task>/ (one subdir level) on main
+    into outdir, preserving relative paths. Returns [(relpath, bytes)]."""
+    import urllib.request
+    repo_full = REPOS["tokyo-drift-3d"]
+    got = []
+
+    def listing(qa_path):
+        try:
+            return _gh(f"/repos/{repo_full}/contents/{qa_path}?ref=main")
+        except Exception:
+            return []
+
+    work = [f"godot/qa/{task}"]
+    seen_dirs = set()
+    while work:
+        qp = work.pop()
+        if qp in seen_dirs:
+            continue
+        seen_dirs.add(qp)
+        for e in listing(qp):
+            if e["type"] == "dir":
+                work.append(f"{qp}/{e['name']}")
+            elif e["type"] == "file" and e["name"].lower().endswith(
+                    (".png", ".jpg", ".jpeg")):
+                rel = f"{qp}/{e['name']}".replace(f"godot/qa/{task}/", "")
+                url = e.get("download_url")
+                size = e.get("size") or 0
+                if not url or size > 25 * 1024 * 1024:
+                    print(f"EVIDENCE-COLLECT-SKIP {rel} "
+                          f"(no url or >25MB)")
+                    continue
+                try:
+                    req = urllib.request.Request(url, headers={
+                        "User-Agent": "agent-watch-inspector"})
+                    with urllib.request.urlopen(req, timeout=90) as resp:
+                        raw = resp.read()
+                except Exception as ex:
+                    print(f"EVIDENCE-COLLECT-FAIL {rel} ({ex})")
+                    continue
+                dest = os.path.join(outdir, rel)
+                os.makedirs(os.path.dirname(dest), exist_ok=True)
+                with open(dest, "wb") as f:
+                    f.write(raw)
+                got.append((rel, raw))
+                print(f"EVIDENCE-COLLECT {rel} {len(raw)}B")
+    return got
+
+
+def cmd_evidence_collect(args):
+    """evidence-collect <task> [outdir] — download task QA images from main.
+    Prints EVIDENCE-COLLECT lines and a final EVIDENCE-COLLECT-DONE."""
+    task = args[0]
+    outdir = (args[1] if len(args) > 1 else
+              os.path.expanduser("~/workspace/agent-watch/inspector/"
+                                 f"evidence/{task}"))
+    os.makedirs(outdir, exist_ok=True)
+    got = _collect_evidence_images(task, outdir)
+    print(f"EVIDENCE-COLLECT-DONE {task} {len(got)} files -> {outdir}")
+
+
+def cmd_evidence_checks(args):
+    """evidence-checks <task> [outdir] — deterministic cheat/laziness audits
+    over the collected QA pixels. Prints EVIDENCE-DUP (same bytes, 2+ names —
+    e.g. one frame reused across criteria), EVIDENCE-PAIR-IDENTICAL (before
+    and after byte-identical — no change), EVIDENCE-PAIR-MISSING-BEFORE
+    (after-shot with no before), EVIDENCE-TINY (max dim < 400px), and a final
+    EVIDENCE-CHECKS-DONE summary line. Exit 0 always; verdicts are lines."""
+    task = args[0]
+    outdir = (args[1] if len(args) > 1 else
+              os.path.expanduser("~/workspace/agent-watch/inspector/"
+                                 f"evidence/{task}"))
+    if not os.path.isdir(outdir):
+        got = _collect_evidence_images(task, outdir)
+    else:
+        got = []
+        for root, _ds, fs in os.walk(outdir):
+            for fn in fs:
+                if fn.lower().endswith((".png", ".jpg", ".jpeg")):
+                    p = os.path.join(root, fn)
+                    with open(p, "rb") as f:
+                        got.append((os.path.relpath(p, outdir), f.read()))
+        if not got:
+            got = _collect_evidence_images(task, outdir)
+    entries = [(rel, _sha256_bytes(raw)) for rel, raw in got]
+    names = [rel.split("/")[-1] for rel, _r in entries]
+
+    dups = _find_duplicate_images(entries)
+    for sha, paths in sorted(dups.items()):
+        print(f"EVIDENCE-DUP {sha[:12]} {' '.join(paths)}")
+
+    missing = _pair_findings(names)
+    for m in missing:
+        print(f"EVIDENCE-PAIR-MISSING-BEFORE {m}")
+
+    by_stem = {}
+    for rel, raw in got:
+        import re
+        base = re.sub(r"\.(png|jpg|jpeg)$", "", rel.split("/")[-1], flags=re.I)
+        by_stem.setdefault(base.lower(), {})[rel] = raw
+    identical = 0
+    for base, variants in sorted(by_stem.items()):
+        if base.endswith("-after"):
+            stem = base[:-len("-after")]
+            b = by_stem.get(stem + "-before")
+            if b:
+                a_raw = next(iter(variants.values()))
+                b_raw = next(iter(b.values()))
+                if _sha256_bytes(a_raw) == _sha256_bytes(b_raw):
+                    identical += 1
+                    print(f"EVIDENCE-PAIR-IDENTICAL {stem}")
+
+    tiny = 0
+    try:
+        from PIL import Image
+        for rel, raw in got:
+            try:
+                with Image.open(__import__("io").BytesIO(raw)) as im:
+                    w, h = im.size
+            except Exception:
+                continue
+            if _is_tiny(w, h):
+                tiny += 1
+                print(f"EVIDENCE-TINY {rel} {w}x{h}")
+    except ImportError:
+        print("EVIDENCE-TINY-SKIP (PIL unavailable)")
+
+    print(f"EVIDENCE-CHECKS-DONE {task} files={len(got)} "
+          f"dups={len(dups)} identical_pairs={identical} "
+          f"missing_before={len(missing)} tiny={tiny}")
+
+
 PUBLISH_REPOS = {
     "tokyo": ("doublehidenblade/tokyo-drift-3d", "doublehidenblade/tokyo-drift-3d-web"),
     "neon": ("doublehidenblade/neon-drift", "doublehidenblade/neon-drift-web"),
@@ -2943,6 +3125,10 @@ def main():
         cmd_scriptification_audit(sys.argv[2:])
     elif cmd == "evidence-audit":
         cmd_evidence_audit(sys.argv[2:])
+    elif cmd == "evidence-collect":
+        cmd_evidence_collect(sys.argv[2:])
+    elif cmd == "evidence-checks":
+        cmd_evidence_checks(sys.argv[2:])
     elif cmd == "brief-check":
         cmd_brief_check(sys.argv[2:])
     elif cmd == "publish-verify":
