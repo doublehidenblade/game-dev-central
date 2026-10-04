@@ -1801,7 +1801,10 @@
   "2026-10-04T22:01Z deregistered td-157 (subagent): work complete: PR #330 open, in_review (in-engine shots blocked by VM Godot import)",
   "2026-10-04T22:03Z deregistered td-165 (subagent): work complete: PR #332 open, in_review",
   "2026-10-04T22:04Z deregistered td-172 (subagent): work complete: PR #333 open, in_review",
-  "2026-10-04T22:24Z BOARD-CLOBBER (3rd today): td-170/td-171 rows reverted open->validated by stale-base merges. #261 (20:59Z) clobbered #258's td-170 validated flip; #265/#266 (21:51-52Z) clobbered #262's td-171 validated flip. Queued cloud dispatches for these merged tasks dropped. Repairing rows to validated."
+  "2026-10-04T22:24Z BOARD-CLOBBER (3rd today): td-170/td-171 rows reverted open->validated by stale-base merges. #261 (20:59Z) clobbered #258's td-170 validated flip; #265/#266 (21:51-52Z) clobbered #262's td-171 validated flip. Queued cloud dispatches for these merged tasks dropped. Repairing rows to validated.",
+  "2026-10-04T22:58Z LIVENESS: td-158 proclaimed DEAD (2 quiet cycles; heartbeat stale (48min)). Replacement dispatch-subagent queued (brief td-158-20261004-225820.md).",
+  "2026-10-04T23:05Z deregistered td-157 (subagent): PR #330 validated and merged; board row 'validated \u2014 PR #330 merged'",
+  "2026-10-04T23:05Z deregistered td-164 (subagent): PR #335 validated and merged; board row 'validated \u2014 PR #335 merged'"
  ],
  "workers": {
   "td-137": {
@@ -1831,30 +1834,12 @@
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
-  "td-158": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-158.md",
-   "dispatched_at": "2026-10-04T21:57:00.347674+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
   "td-163": {
    "kind": "subagent",
    "session": null,
    "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-163.md",
    "dispatched_at": "2026-10-04T22:09:14.051983+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-164": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-164.md",
-   "dispatched_at": "2026-10-04T21:57:03.844086+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
@@ -1873,8 +1858,8 @@
    "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-173.md",
    "dispatched_at": "2026-10-04T21:57:09.938865+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
+   "quiet_cycles": 0,
+   "last_verdict": "alive"
   },
   "td-174": {
    "kind": "subagent",
@@ -1885,21 +1870,21 @@
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
-  "td-157": {
+  "td-174-validator": {
    "kind": "subagent",
    "session": null,
    "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-157.md",
-   "dispatched_at": "2026-10-04T22:10:17.585532+00:00",
+   "task_file": "godot/docs/tasks/td-174.md",
+   "dispatched_at": "2026-10-04T23:05:45.409006+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 1
+  "stale_runs": 2
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2047,53 +2032,51 @@
   "td-154": "in_review",
   "td-155": "merged",
   "td-156": "validated",
-  "td-157": "open",
+  "td-157": "validated",
   "td-158": "open",
   "td-159": "blocked",
   "td-160": "open",
   "td-161": "blocked",
   "td-162": "blocked",
   "td-163": "open",
-  "td-164": "open",
+  "td-164": "validated",
   "td-165": "validated",
   "td-166": "blocked",
   "td-167": "blocked",
-  "td-168": "open",
+  "td-168": "in-review",
   "td-169": "blocked",
   "td-170": "validated",
   "td-171": "validated",
-  "td-172": "open",
+  "td-172": "validated",
   "td-173": "open",
-  "td-174": "open"
+  "td-174": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T22:46:50.002398+00:00",
+  "ts": "2026-10-04T23:01:14.826285+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #322 Inspector report: 2026-10-04 15:34 EDT)",
-    "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)",
+    "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #340 Inspector report: 2026-10-04 18:34 EDT (td-168 brick koban s; open PR #304 td-138 roun)",
     "ALIVE td-160 (no heartbeat file; open PR #319 td-160: Blender asset-prep pipeline (Tripo -> Godot-ready))",
-    "QUIET(1) td-158 (heartbeat stale (36min))",
-    "ALIVE td-163 (heartbeat stale (37min); open PR #331 td-163: Showa utility pole kit (denbashira + wire tangles))",
-    "ALIVE td-164 (heartbeat stale (35min); task-file commit b28ba58 2026-10-04T22:42; open PR #331 td-163: Showa utility pole kit (denbashira + wire tangles))",
-    "ALIVE td-168 (heartbeat stale (46min); open PR #334 td-168: Hero street furniture \u2014 sento, koban (x2), jizo (x2))",
-    "QUIET(1) td-173 (heartbeat stale (35min))",
-    "ALIVE td-174 (heartbeat stale (36min); open PR #336 td-174: gas station canopy kit (Showa service station))",
-    "ALIVE td-157 (heartbeat stale (36min); task-file commit 30a5d0f 2026-10-04T22:45)"
+    "DEAD td-158 (replacement queued; heartbeat stale (48min))",
+    "ALIVE td-163 (heartbeat stale (49min); open PR #331 td-163: Showa utility pole kit (denbashira + wire tangles))",
+    "ALIVE td-164 (heartbeat stale (47min); task-file commit 8b90de8 2026-10-04T22:49; open PR #331 td-163: Showa utility pole kit (denbashira + wire tangles))",
+    "ALIVE td-168 (heartbeat stale (59min); open PR #340 Inspector report: 2026-10-04 18:34 EDT (td-168 brick koban s; open PR #339 Inspector: td-168 brick koban sits mid-road + w)",
+    "ALIVE td-173 (heartbeat stale (48min); open PR #338 td-173: JNR station boards + ticket gates kit)",
+    "ALIVE td-174 (heartbeat stale (48min); open PR #336 td-174: gas station canopy kit (Showa service station))",
+    "ALIVE td-157 (heartbeat stale (49min); task-file commit 8b90de8 2026-10-04T22:49)"
    ],
-   "transitions": [
-    "FLIP td-165: open -> validated [notify-craig]",
-    "FLIP td-170: open -> validated [notify-craig]",
-    "FLIP td-171: open -> validated [notify-craig]"
-   ],
+   "transitions": [],
    "classification-health": [
-    "STALE-RUNS=1"
+    "STALE-RUNS=2"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (163 rows)"
+    "BOARD-FAIL td-157: liveness registry shows active worker but board Owner is empty",
+    "BOARD-FAIL td-164: liveness registry shows active worker but board Owner is empty",
+    "BOARD-FAIL td-174: liveness registry shows active worker but board Owner is empty"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2103,11 +2086,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T22:29:03.843141+00:00",
-   "liveness": "2026-10-04T22:46:50.002398+00:00",
-   "classification-health": "2026-10-04T22:29:00.437645+00:00",
-   "transitions": "2026-10-04T22:28:57.171098+00:00",
-   "conflicts": "2026-10-04T22:44:22.200956+00:00",
+   "board-check": "2026-10-04T23:00:04.227855+00:00",
+   "liveness": "2026-10-04T22:59:19.871284+00:00",
+   "classification-health": "2026-10-04T22:59:53.200912+00:00",
+   "transitions": "2026-10-04T23:01:14.826285+00:00",
+   "conflicts": "2026-10-04T22:59:31.861994+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
