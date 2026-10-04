@@ -1799,7 +1799,8 @@
   "2026-10-04T21:50Z LIVENESS: td-174 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-174-20261004-215039.md).",
   "2026-10-04T21:56Z LIVENESS-SUPPRESSION: 9 subagents (td-157/158/163/164/165/168/172/173/174) falsely proclaimed DEAD ('no heartbeat file' \u2014 Muse subagents were never briefed to write heartbeat files, and had no GitHub activity yet). Direct monitor-event evidence shows all 9 alive and working. Queued replacements dropped per JUDGMENT-ONLY override; workers re-registered; heartbeat files now maintained by main agent from observed activity. TODO: add heartbeat-file instruction to the STEP 2 dispatch brief template.",
   "2026-10-04T22:01Z deregistered td-157 (subagent): work complete: PR #330 open, in_review (in-engine shots blocked by VM Godot import)",
-  "2026-10-04T22:03Z deregistered td-165 (subagent): work complete: PR #332 open, in_review"
+  "2026-10-04T22:03Z deregistered td-165 (subagent): work complete: PR #332 open, in_review",
+  "2026-10-04T22:04Z deregistered td-172 (subagent): work complete: PR #333 open, in_review"
  ],
  "workers": {
   "td-137": {
@@ -1862,15 +1863,6 @@
    "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-168.md",
    "dispatched_at": "2026-10-04T21:57:07.508417+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-172": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-172.md",
-   "dispatched_at": "2026-10-04T21:57:08.569398+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
