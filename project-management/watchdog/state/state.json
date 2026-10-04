@@ -1819,7 +1819,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 1
+  "stale_runs": 2
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1975,27 +1975,24 @@
   "td-162": "blocked"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T19:02:51.172117+00:00",
+  "ts": "2026-10-04T19:13:11.921594+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #315 Inspector report: 2026-10-04 14:34 EDT)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)",
-    "DROPPED td-101-trees (task status 'validated')",
-    "GRACE td-160 (dispatched 12min ago; no heartbeat file)"
+    "GRACE td-160 (dispatched 21min ago; no heartbeat file)"
    ],
    "transitions": [
-    "FLIP td-156: blocked -> open [silent]",
-    "FLIP td-157: blocked -> open [silent]",
-    "FLIP td-158: blocked -> open [silent]"
+    "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1"
+    "STALE-RUNS=2"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-FAIL td-160: liveness registry shows active worker but board Owner is empty"
+    "BOARD-OK tokyo-drift-3d (151 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2005,12 +2002,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T18:57:43.774176+00:00",
-   "liveness": "2026-10-04T19:02:51.172117+00:00",
-   "classification-health": "2026-10-04T18:57:39.399249+00:00",
-   "transitions": "2026-10-04T18:57:37.586983+00:00",
-   "conflicts": "2026-10-04T18:57:34.680248+00:00",
-   "all-blocked": "2026-10-04T19:01:10.390555+00:00",
+   "board-check": "2026-10-04T19:12:55.283243+00:00",
+   "liveness": "2026-10-04T19:12:29.917209+00:00",
+   "classification-health": "2026-10-04T19:12:47.329505+00:00",
+   "transitions": "2026-10-04T19:12:37.196353+00:00",
+   "conflicts": "2026-10-04T19:12:32.565985+00:00",
+   "all-blocked": "2026-10-04T19:13:11.921594+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
