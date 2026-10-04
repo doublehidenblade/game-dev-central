@@ -1794,7 +1794,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 0
+  "stale_runs": 1
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1942,23 +1942,22 @@
   "td-154": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T10:13:02.073923+00:00",
+  "ts": "2026-10-04T10:27:42.630196+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
-    "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #301 td-138: GT-R LM Nismo hero car via Tripo pipeline (71k tris,; open PR #300 td-138: sta)"
+    "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=0"
+    "STALE-RUNS=1"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-FAIL td-138: liveness registry shows active worker but board Owner is empty"
+    "BOARD-OK tokyo-drift-3d (143 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -1968,12 +1967,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T10:12:47.205417+00:00",
-   "liveness": "2026-10-04T10:12:38.098208+00:00",
-   "classification-health": "2026-10-04T10:12:43.831413+00:00",
-   "transitions": "2026-10-04T10:12:42.432744+00:00",
-   "conflicts": "2026-10-04T10:12:40.356287+00:00",
-   "all-blocked": "2026-10-04T10:13:02.073923+00:00",
+   "board-check": "2026-10-04T10:27:21.930693+00:00",
+   "liveness": "2026-10-04T10:27:42.630196+00:00",
+   "classification-health": "2026-10-04T10:27:18.840395+00:00",
+   "transitions": "2026-10-04T10:27:17.773091+00:00",
+   "conflicts": "2026-10-04T10:27:15.619490+00:00",
+   "all-blocked": "2026-10-04T10:27:30.435127+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
