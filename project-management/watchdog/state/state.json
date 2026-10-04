@@ -1947,7 +1947,7 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T05:13:01.053100+00:00",
+  "ts": "2026-10-04T05:28:30.367669+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto split/merge; open PR #282 td-137: Shuto sp)",
@@ -1974,12 +1974,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T05:12:39.145352+00:00",
-   "liveness": "2026-10-04T05:12:29.837828+00:00",
-   "classification-health": "2026-10-04T05:12:36.651106+00:00",
-   "transitions": "2026-10-04T05:12:34.880823+00:00",
-   "conflicts": "2026-10-04T05:12:32.499166+00:00",
-   "all-blocked": "2026-10-04T05:13:01.053100+00:00",
+   "board-check": "2026-10-04T05:27:38.639030+00:00",
+   "liveness": "2026-10-04T05:28:13.780784+00:00",
+   "classification-health": "2026-10-04T05:27:36.683901+00:00",
+   "transitions": "2026-10-04T05:27:34.689310+00:00",
+   "conflicts": "2026-10-04T05:27:33.154350+00:00",
+   "all-blocked": "2026-10-04T05:28:30.367669+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
