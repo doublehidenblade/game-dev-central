@@ -1892,15 +1892,6 @@
    "dispatched_at": "2026-10-04T22:10:17.585532+00:00",
    "quiet_cycles": 0,
    "last_verdict": "registered"
-  },
-  "td-172": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-172.md",
-   "dispatched_at": "2026-10-04T22:11:41.817330+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
