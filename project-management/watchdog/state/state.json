@@ -1949,11 +1949,10 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T07:14:54.900490+00:00",
+  "ts": "2026-10-04T07:27:43.595999+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
-    "ALIVE td-101 (no heartbeat file; open PR #292 DO NOT MERGE \u2014 td-101: Blender vegetation kit v2 (cherry tre)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #301 td-138: GT-R LM Nismo hero car via Tripo pipeline (71k tris,; open PR #300 td-138: sta)"
    ],
    "transitions": [
@@ -1976,12 +1975,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T07:12:39.941971+00:00",
-   "liveness": "2026-10-04T07:13:22.152006+00:00",
-   "classification-health": "2026-10-04T07:12:37.671701+00:00",
-   "transitions": "2026-10-04T07:12:35.360057+00:00",
-   "conflicts": "2026-10-04T07:12:34.014910+00:00",
-   "all-blocked": "2026-10-04T07:14:54.900490+00:00",
+   "board-check": "2026-10-04T07:27:32.896666+00:00",
+   "liveness": "2026-10-04T07:27:23.886512+00:00",
+   "classification-health": "2026-10-04T07:27:26.824220+00:00",
+   "transitions": "2026-10-04T07:27:27.776209+00:00",
+   "conflicts": "2026-10-04T07:27:13.400480+00:00",
+   "all-blocked": "2026-10-04T07:27:43.595999+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
