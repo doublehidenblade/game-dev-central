@@ -784,7 +784,7 @@
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-04T09:29:52.487675+00:00",
+   "last_classification_ts": "2026-10-04T10:29:33.550723+00:00",
    "last_failover_ts": "2026-09-30T03:20:17.258015+00:00",
    "last_note": "td-126/td-127 shipped (#262, #263 merged), standing down, nothing parked",
    "last_nudge_kind": "continue",
@@ -1099,8 +1099,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-04T09:29:52.317939+00:00",
-   "last_note": "browser re-verify 05:29 EDT: session idle, #268 verified merged via API (page text stale), #220-open is td-021 not this session, nothing parked",
+   "last_classification_ts": "2026-10-04T10:29:33.425605+00:00",
+   "last_note": "browser re-verify 06:29 EDT: idle, page text stale on #268 (API: merged), open #220 is td-021 not this session; nothing parked",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
@@ -1492,8 +1492,7 @@
     "https://chatgpt.com/remote/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-04T01:57:59.059128+00:00",
-   "inspected_ts": "2026-10-04T09:30:08.612388+00:00"
+   "login_fail_notified_ts": "2026-10-04T01:57:59.059128+00:00"
   },
   "orphan-pr-292": {
    "blockers": {
