@@ -1804,7 +1804,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 3
+  "stale_runs": 4
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1952,7 +1952,7 @@
   "td-154": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T15:43:43.365078+00:00",
+  "ts": "2026-10-04T16:01:43.800385+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
@@ -1962,13 +1962,13 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=3"
+    "STALE-RUNS=4"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-FAIL td-138: liveness registry shows active worker but board Owner is empty"
+    "BOARD-OK tokyo-drift-3d (143 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -1978,12 +1978,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T15:43:15.567952+00:00",
-   "liveness": "2026-10-04T15:42:25.304388+00:00",
-   "classification-health": "2026-10-04T15:42:33.300948+00:00",
-   "transitions": "2026-10-04T15:42:34.967854+00:00",
-   "conflicts": "2026-10-04T15:42:33.408962+00:00",
-   "all-blocked": "2026-10-04T15:43:43.365078+00:00",
+   "board-check": "2026-10-04T16:01:43.800385+00:00",
+   "liveness": "2026-10-04T15:57:54.546581+00:00",
+   "classification-health": "2026-10-04T15:58:01.233746+00:00",
+   "transitions": "2026-10-04T15:57:59.100452+00:00",
+   "conflicts": "2026-10-04T15:57:57.303979+00:00",
+   "all-blocked": "2026-10-04T15:58:15.767720+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
