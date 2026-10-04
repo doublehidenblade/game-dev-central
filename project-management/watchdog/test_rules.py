@@ -398,7 +398,10 @@ def test_part4():
     out3 = watch.build_heartbeat({"sessions": {}}, {}, [], rows_open, [], None)
     t3 = "\n".join(out3)
     check("open fallback shown",
-          any(l.startswith("⬜ [td-054]") and "Multiplayer online" in l
+          any(l.startswith("🟡 3 [td-054]") and "Multiplayer online" in l
+              for l in out3))
+    check("fallback owned outcome 2",
+          any(l.startswith("🟢 2 [td-139]") and "(Muse)" in l
               for l in out3))
     check("fallback owner shown",
           any("td-139" in l and "(Muse)" in l for l in out3))
@@ -413,8 +416,25 @@ def test_part4():
     many = [{"task": f"td-{100 + i}", "defect": f"d{i}", "status": "open",
              "prefix": "open", "owner": "", "pr": ""} for i in range(8)]
     out4 = watch.build_heartbeat({"sessions": {}}, {}, [], many, [], None)
-    check("fallback cap", sum(1 for l in out4 if l.startswith("⬜")) == 6
+    check("fallback cap", sum(1 for l in out4 if l.startswith("🟡 3")) == 6
           and "…and 2 more open on the board" in out4)
+    # Five-outcome set (Craig 2026-09-25): HELD pending (merged, evidence
+    # rejected) is open-and-assigned -> outcome 2, never 1 (closed).
+    pending_held = [{"game": "tokyo", "pr": 282, "task": "td-137",
+                     "status": "HELD", "hold_reason": "inspector rejected",
+                     "reported": False}]
+    out6 = watch.build_heartbeat({"sessions": {}}, {}, [], [], pending_held,
+                                  None)
+    check("held pending outcome 2",
+          any(l.startswith("🔴 2 [PR #282]") for l in out6))
+    # Every JOBS line carries an outcome digit 1-5 (or ? for ambiguous).
+    import re as _re
+    for tag, oo in (("main", out), ("fallback", out3), ("held", out6)):
+        jobs = "\n".join(oo).split("JOBS")[1].split("PENDING")[0].splitlines()
+        job_lines = [l for l in jobs if l and not l.startswith("(")]
+        check(f"outcome digits {tag}",
+              all(_re.match(r"^[🟢🟡🔴] [12345?] ", l) for l in job_lines)
+              and len(job_lines) > 0)
     # All-blocked fallback (Craig 2026-10-02): done-pending-verdict is
     # TERMINAL (only Craig's verdict outstanding) — it must never surface
     # as "no available worker" work when every session is blocked.

@@ -1971,9 +1971,19 @@ def cmd_pending_release(args):
 # run's recorded check verdicts (see _record_verdict), recent queued actions,
 # the pending ledger, and the board — with markdown inline links and the
 # board's defect names as headlines (TASK NAMING rule, Craig 2026-09-25).
-# Outcome numbers follow the FOLD-IN RULES; genuinely ambiguous placements
-# get `?` for the run's judgment. Prints the report; the cron pastes it
-# verbatim as the run's final message.
+# Outcome numbers follow the FOLD-IN RULES (Craig 2026-09-25 — the closed
+# five-outcome set every JOBS line must carry):
+#   1 closed (done/verified — validated flips are silent, nothing to do);
+#   2 open and assigned to a named worker/action/publish chain (stalled with
+#     a nudge/steer queued, parked PRs, and merged-but-not-live work —
+#     including HELD/rejected-evidence — all fold into 2, never 1);
+#   3 open but no available worker, only after escalation routes are
+#     exhausted, with expected return/recovery stated;
+#   4 blocked on human, naming Craig's exact required action;
+#   5 blocked on external (third-party outage/upstream failure) with a
+#     re-check plan.
+# Genuinely ambiguous placements get `?` for the run's judgment. A line
+# without any outcome digit is a failed heartbeat.
 # ---------------------------------------------------------------------------
 
 _HB_EMOJI = {"WORKING": "🟢", "FINISHED": "🟡", "IDLE": "🟡",
@@ -2121,7 +2131,9 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
     for e in pending:
         if not e.get("reported"):
             if e.get("status") == "HELD":
-                jobs.append(f"🔴 1 {pr_link(e.get('pr'))} {e.get('task')} — HELD: "
+                # Fold-in rule: merged-but-not-live with rejected evidence is
+                # still open-and-assigned (rework owned), never outcome 1.
+                jobs.append(f"🔴 2 {pr_link(e.get('pr'))} {e.get('task')} — HELD: "
                             f"{e.get('hold_reason', '')[:80]} (merged, evidence rejected — not for publish)")
             else:
                 jobs.append(f"🟢 2 {pr_link(e.get('pr'))} {e.get('task')} — "
@@ -2153,9 +2165,25 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
             lines.append("(no run activity — open board work:)")
             for r in open_rows[:_HB_OPEN_FALLBACK_N]:
                 owner = (r.get("owner") or "").strip("—- ")
-                own_txt = (f" ({owner})" if owner and owner.lower()
-                           not in ("", "unassigned") else "")
-                lines.append(f"⬜ {task_link(r['task'])} {defect_of(r['task'])}"
+                named = bool(owner and owner.lower() not in ("", "unassigned"))
+                own_txt = f" ({owner})" if named else ""
+                # Five-outcome set (Craig 2026-09-25): every fallback line
+                # carries its outcome digit — no bare ⬜ lines.
+                if named:
+                    n, emoji = "2", "🟢"  # open and assigned to a named worker
+                elif r.get("prefix") in ("blocked", "rejected"):
+                    low = ((r.get("status") or "") + " " +
+                           (r.get("defect") or "")).lower()
+                    if any(k in low for k in _HB_HUMAN_KW):
+                        n, emoji = "4", "🔴"
+                    elif any(k in low for k in _HB_EXTERNAL_KW):
+                        n, emoji = "5", "🔴"
+                    else:
+                        n, emoji = "?", "🔴"
+                else:
+                    n, emoji = "3", "🟡"  # open but no available worker
+                lines.append(f"{emoji} {n} {task_link(r['task'])} "
+                             f"{defect_of(r['task'])}"
                              f" — {r.get('prefix')}{own_txt}")
             if len(open_rows) > _HB_OPEN_FALLBACK_N:
                 lines.append(f"…and {len(open_rows) - _HB_OPEN_FALLBACK_N} "
