@@ -1787,7 +1787,16 @@
   "2026-10-04T19:02Z LIVENESS REPAIR: td-101-trees + td-160 registrations had bare repo tokyo-drift-3d (cron-body STEP 2 template drops the owner; same defect repaired for td-138 15:14Z) -> GitHub evidence checks 404d. Corrected to doublehidenblade/tokyo-drift-3d, quiet_cycles reset to 0.",
   "2026-10-04T20:49Z deregistered td-170 (subagent): design doc PR #325 opened; board row in_review via game-dev-central PR #257 (merged)",
   "2026-10-04T21:00Z deregistered td-171 (subagent): validated 2026-10-04: PR #327 merged (2 void renders purged), EVIDENCE-VOID heuristic scripted + tests pass",
-  "2026-10-04T21:32Z deregistered td-156 (subagent): validated 2026-10-04: PR #329 merged (4-shader toon kit + in-engine before/after evidence)"
+  "2026-10-04T21:32Z deregistered td-156 (subagent): validated 2026-10-04: PR #329 merged (4-shader toon kit + in-engine before/after evidence)",
+  "2026-10-04T21:48Z LIVENESS: td-157 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-157-20261004-214859.md).",
+  "2026-10-04T21:49Z LIVENESS: td-158 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-158-20261004-214906.md).",
+  "2026-10-04T21:49Z LIVENESS: td-163 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-163-20261004-214914.md).",
+  "2026-10-04T21:49Z LIVENESS: td-164 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-164-20261004-214922.md).",
+  "2026-10-04T21:49Z LIVENESS: td-165 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-165-20261004-214931.md).",
+  "2026-10-04T21:49Z LIVENESS: td-168 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-168-20261004-214940.md).",
+  "2026-10-04T21:49Z LIVENESS: td-172 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-172-20261004-214948.md).",
+  "2026-10-04T21:50Z LIVENESS: td-173 proclaimed DEAD (2 quiet cycles; no heartbeat file; branch check failed: gh api /repos/doublehidenblade/tokyo-drift-3d/branches?per_page=100: Traceback (most recent call last):\n  File \"/home/ha). Replacement dispatch-subagent queued (brief td-173-20261004-215029.md).",
+  "2026-10-04T21:50Z LIVENESS: td-174 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-174-20261004-215039.md)."
  ],
  "workers": {
   "td-137": {
@@ -1816,94 +1825,13 @@
    "dispatched_at": "2026-10-04T18:51:00.149672+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-157": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-157.md",
-   "dispatched_at": "2026-10-04T20:45:10.098022+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
-  "td-158": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-158.md",
-   "dispatched_at": "2026-10-04T20:45:10.301879+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
-  "td-163": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-163.md",
-   "dispatched_at": "2026-10-04T20:45:10.600558+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
-  "td-164": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-164.md",
-   "dispatched_at": "2026-10-04T20:45:10.810967+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
-  "td-165": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-165.md",
-   "dispatched_at": "2026-10-04T20:45:11.159380+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
-  "td-168": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-168.md",
-   "dispatched_at": "2026-10-04T20:45:11.305549+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
-  "td-172": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-172.md",
-   "dispatched_at": "2026-10-04T20:55:23.282475+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
-  "td-173": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-173.md",
-   "dispatched_at": "2026-10-04T20:55:24.440225+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
-  "td-174": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-174.md",
-   "dispatched_at": "2026-10-04T20:55:25.079771+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 9
+  "stale_runs": 0
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2014,7 +1942,7 @@
   "td-116": "merged",
   "td-117": "merged",
   "td-118": "merged",
-  "td-119": "merged",
+  "td-119": "in_progress",
   "td-120": "merged",
   "td-121": "merged",
   "td-123": "merged",
@@ -2050,7 +1978,7 @@
   "td-153": "validated",
   "td-154": "in_review",
   "td-155": "merged",
-  "td-156": "open",
+  "td-156": "validated",
   "td-157": "open",
   "td-158": "open",
   "td-159": "blocked",
@@ -2064,50 +1992,44 @@
   "td-167": "blocked",
   "td-168": "open",
   "td-169": "blocked",
-  "td-170": "validated",
-  "td-171": "validated",
+  "td-170": "open",
+  "td-171": "open",
   "td-172": "open",
   "td-173": "open",
   "td-174": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T21:31:14.030529+00:00",
+  "ts": "2026-10-04T21:50:50.759262+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #322 Inspector report: 2026-10-04 15:34 EDT)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)",
     "ALIVE td-160 (no heartbeat file; open PR #319 td-160: Blender asset-prep pipeline (Tripo -> Godot-ready))",
-    "ALIVE td-156 (no heartbeat file; open PR #329 td-156: Godot toon-shader kit (cel banding))",
-    "QUIET(1) td-157 (no heartbeat file)",
-    "QUIET(1) td-158 (no heartbeat file)",
-    "QUIET(1) td-163 (no heartbeat file)",
-    "QUIET(1) td-164 (no heartbeat file)",
-    "QUIET(1) td-165 (no heartbeat file)",
-    "QUIET(1) td-168 (no heartbeat file)",
-    "QUIET(1) td-172 (no heartbeat file)",
-    "QUIET(1) td-173 (no heartbeat file)",
-    "QUIET(1) td-174 (no heartbeat file)"
+    "DEAD td-157 (replacement queued; no heartbeat file)",
+    "DEAD td-158 (replacement queued; no heartbeat file)",
+    "DEAD td-163 (replacement queued; no heartbeat file)",
+    "DEAD td-164 (replacement queued; no heartbeat file)",
+    "DEAD td-165 (replacement queued; no heartbeat file)",
+    "DEAD td-168 (replacement queued; no heartbeat file)",
+    "DEAD td-172 (replacement queued; no heartbeat file)",
+    "DEAD td-173 (replacement queued; no heartbeat file; branch check failed: gh api /repos/doublehidenblade/tokyo-drift-3d/branches?per_page=100: Traceback (most recent call last):",
+    "  File \"/home/ha)",
+    "DEAD td-174 (replacement queued; no heartbeat file)"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-119: merged -> in_progress [silent]",
+    "FLIP td-156: open -> validated [notify-craig]",
+    "FLIP td-170: validated -> open [silent]",
+    "FLIP td-171: validated -> open [silent]"
    ],
    "classification-health": [
-    "STALE-RUNS=9"
+    "STALE-RUNS=0"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-FAIL td-156: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-157: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-158: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-163: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-164: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-165: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-168: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-172: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-173: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-174: liveness registry shows active worker but board Owner is empty"
+    "BOARD-OK tokyo-drift-3d (160 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2117,11 +2039,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T21:31:14.030529+00:00",
-   "liveness": "2026-10-04T21:29:55.839883+00:00",
-   "classification-health": "2026-10-04T21:31:01.841876+00:00",
-   "transitions": "2026-10-04T21:30:51.746149+00:00",
-   "conflicts": "2026-10-04T21:30:23.181737+00:00",
+   "board-check": "2026-10-04T21:50:50.759262+00:00",
+   "liveness": "2026-10-04T21:50:39.383934+00:00",
+   "classification-health": "2026-10-04T21:50:44.209140+00:00",
+   "transitions": "2026-10-04T21:50:42.228549+00:00",
+   "conflicts": "2026-10-04T21:50:40.462541+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
