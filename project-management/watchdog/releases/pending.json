@@ -1,5 +1,14 @@
 {
- "pending": [],
+ "pending": [
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-137",
+   "pr": 282,
+   "merged_sha": "5e42f71ad6ada2687fb433c1f987b7d7ee4e95fb",
+   "merged_at": "2026-10-04T06:29:32.078770+00:00",
+   "summary": "Shuto split/merge rework \u2014 real diverging interchange geometry (4 spots rebuilt); merged-not-live"
+  }
+ ],
  "cleared_at": "2026-10-02T20:54:52.365793+00:00",
  "cleared_note": "v35 live 2026-10-02 (publish run 37062548416, source 5419db3e): all 5 QA fixes + hotfixes #280/#281 published"
 }

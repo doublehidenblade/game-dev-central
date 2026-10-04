@@ -1769,6 +1769,11 @@
   {
    "ts": "2026-10-04T03:43Z",
    "note": "watchdog 2026-10-03 23:43 EDT run: ORPHAN-HELD surfaced to Craig once per PR (heartbeat) \u2014 #292 td-101 vegetation kit v2 (live td-101 subagent actively building, expected mid-work hold), #282 td-137 Shuto split/merge rework (live td-137 subagent, branch 1 ahead + PR #299 breakdown open, expected mid-work hold), #283 td-138 stage 4 rough blockout (NO live worker registered, stale DO NOT MERGE \u2014 genuine judgment call: keep holding, strip title, or close). Next runs: do not re-surface; #283 resolution is Craig's call only."
+  },
+  {
+   "ts": "2026-10-04T06:28:00+00:00",
+   "run": "watchdog cron",
+   "note": "Consumed stale pending dispatch-validator td-137/#282 (queued 06:17:42Z by prior run): PR #282 merged 06:25:43Z (state closed/merged). Validator dispatch no longer applicable; entry removed to prevent a duplicate/outdated dispatch. Board row td-137 still shows in_review prefix \u2014 worker updates its own row via PR."
   }
  ],
  "workers": {
@@ -1804,7 +1809,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 1
+  "stale_runs": 2
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1951,10 +1956,10 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T06:18:14.272235+00:00",
+  "ts": "2026-10-04T06:28:30.608900+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto split/merge; open PR #282 td-137: Shuto sp)",
+    "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
     "ALIVE td-101 (no heartbeat file; open PR #292 DO NOT MERGE \u2014 td-101: Blender vegetation kit v2 (cherry tre)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #301 td-138: GT-R LM Nismo hero car via Tripo pipeline (71k tris,; open PR #300 td-138: sta)"
    ],
@@ -1962,7 +1967,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1"
+    "STALE-RUNS=2"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1978,12 +1983,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T06:12:44.350881+00:00",
-   "liveness": "2026-10-04T06:18:14.272235+00:00",
-   "classification-health": "2026-10-04T06:12:38.463336+00:00",
-   "transitions": "2026-10-04T06:12:39.842693+00:00",
+   "board-check": "2026-10-04T06:27:38.542823+00:00",
+   "liveness": "2026-10-04T06:27:29.597896+00:00",
+   "classification-health": "2026-10-04T06:27:32.696111+00:00",
+   "transitions": "2026-10-04T06:27:33.938885+00:00",
    "conflicts": "2026-10-04T05:42:34.696162+00:00",
-   "all-blocked": "2026-10-04T06:17:09.255103+00:00",
+   "all-blocked": "2026-10-04T06:28:30.608900+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
