@@ -45,6 +45,22 @@
    "merged_sha": "f42b69bb63d2ceca0e4f30ace724e60a335887dd",
    "merged_at": "2026-10-04T18:33:59.012240+00:00",
    "summary": "guest car floating fix + headless evidence (Craig: solved)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-119",
+   "pr": 313,
+   "merged_sha": "04deb4af",
+   "merged_at": "2026-10-04T19:04:19.583703+00:00",
+   "summary": "td-119: full scramble crossing rework \u2014 all 7 defects fixed (supersedes #311); validated by inspector 2026-10-04"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-155",
+   "pr": 317,
+   "merged_sha": "cc9aaa61",
+   "merged_at": "2026-10-04T19:04:19.914295+00:00",
+   "summary": "td-155: anime reference bible (19 refs + technique README); merged 18:56Z"
   }
  ],
  "cleared_at": "2026-10-02T20:54:52.365793+00:00",

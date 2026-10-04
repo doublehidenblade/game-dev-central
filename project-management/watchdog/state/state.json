@@ -1783,7 +1783,8 @@
   "2026-10-04T18:34Z deregistered td-132 (subagent): task done \u2014 Craig declared solved, PR #310 merged",
   "2026-10-04T18:34Z deregistered td-133 (subagent): task done \u2014 Craig declared solved, PR #309 merged",
   "2026-10-04T18:50Z deregistered td-119-crossing (subagent): rework complete \u2014 PR #313 validated on all 7 defects and merged to main",
-  "2026-10-04T18:56Z deregistered td-155 (subagent): bible complete, PR #317 merged; td-156/157/158 flipped to open"
+  "2026-10-04T18:56Z deregistered td-155 (subagent): bible complete, PR #317 merged; td-156/157/158 flipped to open",
+  "2026-10-04T19:02Z LIVENESS REPAIR: td-101-trees + td-160 registrations had bare repo tokyo-drift-3d (cron-body STEP 2 template drops the owner; same defect repaired for td-138 15:14Z) -> GitHub evidence checks 404d. Corrected to doublehidenblade/tokyo-drift-3d, quiet_cycles reset to 0."
  ],
  "workers": {
   "td-137": {
@@ -1804,30 +1805,21 @@
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
-  "td-101-trees": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-101.md",
-   "dispatched_at": "2026-10-04T18:50:50.681681+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
   "td-160": {
    "kind": "subagent",
    "session": null,
-   "repo": "tokyo-drift-3d",
+   "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-160.md",
    "dispatched_at": "2026-10-04T18:51:00.149672+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 0
+  "stale_runs": 1
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1974,31 +1966,36 @@
   "td-153": "validated",
   "td-154": "in_review",
   "td-155": "open",
-  "td-156": "blocked",
-  "td-157": "blocked",
-  "td-158": "blocked",
-  "td-159": "blocked"
+  "td-156": "open",
+  "td-157": "open",
+  "td-158": "open",
+  "td-159": "blocked",
+  "td-160": "open",
+  "td-161": "blocked",
+  "td-162": "blocked"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T18:49:23.800495+00:00",
+  "ts": "2026-10-04T19:02:51.172117+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #315 Inspector report: 2026-10-04 14:34 EDT)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)",
-    "GRACE td-119-crossing (dispatched 18min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-119.md&sha=main)"
+    "DROPPED td-101-trees (task status 'validated')",
+    "GRACE td-160 (dispatched 12min ago; no heartbeat file)"
    ],
    "transitions": [
-    "FLIP td-132: in_review -> done [silent]",
-    "FLIP td-133: in_review -> done [silent]"
+    "FLIP td-156: blocked -> open [silent]",
+    "FLIP td-157: blocked -> open [silent]",
+    "FLIP td-158: blocked -> open [silent]"
    ],
    "classification-health": [
-    "STALE-RUNS=0"
+    "STALE-RUNS=1"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (148 rows)"
+    "BOARD-FAIL td-160: liveness registry shows active worker but board Owner is empty"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2008,12 +2005,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T18:43:43.457598+00:00",
-   "liveness": "2026-10-04T18:49:23.800495+00:00",
-   "classification-health": "2026-10-04T18:42:55.840110+00:00",
-   "transitions": "2026-10-04T18:42:48.844515+00:00",
-   "conflicts": "2026-10-04T18:42:44.938146+00:00",
-   "all-blocked": "2026-10-04T18:43:25.100729+00:00",
+   "board-check": "2026-10-04T18:57:43.774176+00:00",
+   "liveness": "2026-10-04T19:02:51.172117+00:00",
+   "classification-health": "2026-10-04T18:57:39.399249+00:00",
+   "transitions": "2026-10-04T18:57:37.586983+00:00",
+   "conflicts": "2026-10-04T18:57:34.680248+00:00",
+   "all-blocked": "2026-10-04T19:01:10.390555+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
