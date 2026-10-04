@@ -1791,14 +1791,14 @@
    "task_file": "godot/docs/tasks/td-138.md",
    "dispatched_at": "2026-10-04T04:16:43.436943+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 2
+  "stale_runs": 3
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1945,23 +1945,24 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T04:16:36.589319+00:00",
+  "ts": "2026-10-04T04:27:59.837411+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto split/merge; open PR #282 td-137: Shuto sp)",
-    "ALIVE td-101 (no heartbeat file; open PR #292 DO NOT MERGE \u2014 td-101: Blender vegetation kit v2 (cherry tre)"
+    "ALIVE td-101 (no heartbeat file; open PR #292 DO NOT MERGE \u2014 td-101: Blender vegetation kit v2 (cherry tre)",
+    "GRACE td-138 (dispatched 11min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-138.md&sha=main)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=2"
+    "STALE-RUNS=3"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (142 rows)"
+    "BOARD-FAIL td-138: liveness registry shows active worker but board Owner is empty"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -1971,12 +1972,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T04:12:25.059790+00:00",
-   "liveness": "2026-10-04T04:16:36.589319+00:00",
-   "classification-health": "2026-10-04T04:12:23.688622+00:00",
-   "transitions": "2026-10-04T04:12:21.218882+00:00",
+   "board-check": "2026-10-04T04:27:33.369403+00:00",
+   "liveness": "2026-10-04T04:27:28.428599+00:00",
+   "classification-health": "2026-10-04T04:27:31.504960+00:00",
+   "transitions": "2026-10-04T04:27:32.433177+00:00",
    "conflicts": "2026-10-04T04:12:20.488168+00:00",
-   "all-blocked": "2026-10-04T04:14:11.230937+00:00",
+   "all-blocked": "2026-10-04T04:27:59.837411+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
