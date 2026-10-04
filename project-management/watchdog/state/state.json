@@ -1903,7 +1903,7 @@
   "td-105": "merged",
   "td-109": "validated",
   "td-110": "validated",
-  "td-111": "in_review",
+  "td-111": "merged",
   "td-112": "merged",
   "td-113": "in_review",
   "td-114": "merged",
@@ -1944,18 +1944,18 @@
   "td-150": "validated",
   "td-151": "validated",
   "td-152": "validated",
-  "td-153": "validated"
+  "td-153": "validated",
+  "td-154": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T08:43:24.153012+00:00",
+  "ts": "2026-10-04T08:57:50.175860+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #301 td-138: GT-R LM Nismo hero car via Tripo pipeline (71k tris,; open PR #300 td-138: sta)"
    ],
    "transitions": [
-    "FLIP td-109: in_review -> validated [notify-craig]",
-    "FLIP td-110: in_review -> validated [notify-craig]"
+    "FLIP td-111: in_review -> merged [silent]"
    ],
    "classification-health": [
     "STALE-RUNS=0"
@@ -1974,12 +1974,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T08:42:58.139189+00:00",
-   "liveness": "2026-10-04T08:42:44.653639+00:00",
-   "classification-health": "2026-10-04T08:42:48.081224+00:00",
-   "transitions": "2026-10-04T08:42:49.471622+00:00",
+   "board-check": "2026-10-04T08:57:31.175675+00:00",
+   "liveness": "2026-10-04T08:57:23.269761+00:00",
+   "classification-health": "2026-10-04T08:57:26.125062+00:00",
+   "transitions": "2026-10-04T08:57:26.953277+00:00",
    "conflicts": "2026-10-04T08:42:25.093182+00:00",
-   "all-blocked": "2026-10-04T08:43:24.153012+00:00",
+   "all-blocked": "2026-10-04T08:57:50.175860+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
