@@ -351,22 +351,22 @@ def test_part4():
     secs = ["HEARTBEAT", "ALERTS", "JOBS", "WORKERS", "STATE"]
     idx = [text.find(s) for s in secs]
     check("sections in order", all(i >= 0 for i in idx) and idx == sorted(idx))
-    # in_review flip -> outcome-2 JOBS line with defect name + task link.
+    # in_review flip -> explicit-word JOBS line with defect name + task link.
     check("in_review flip job",
-          any("🟢 2 [td-137](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-137.md) Split/merge: Shuto interchange" in l
+          any("🟢 OPEN — assigned · [td-137](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-137.md) Split/merge: Shuto interchange" in l
               for l in out))
     # validated flip -> alert, NOT a job (outcome 1, closed).
     check("validated flip alerts", "! td-140: in_review → validated — notify Craig" in out)
     check("validated flip not a job", not any("td-140" in l and l.startswith(("🟢", "🟡", "🔴")) for l in out if "JOBS" not in l and "td-140 —" in l))
-    # blocked flip with human keyword -> outcome 4.
-    check("blocked flip outcome 4",
-          any(l.startswith("🔴 4 [td-119]") and "blocked: blocked on Craig" in l for l in out))
-    # queued dispatch -> outcome-2 job with defect name.
+    # blocked flip with human keyword -> explicit words, not a digit.
+    check("blocked flip words",
+          any(l.startswith("🔴 BLOCKED — needs you · [td-119]") and "blocked: blocked on Craig" in l for l in out))
+    # queued dispatch -> explicit-word job with defect name.
     check("dispatch action job",
-          any("🟢 2 [td-141]" in l and "Traffic fleet tripo rebuild" in l and "dispatch-codex" in l for l in out))
+          any("🟢 OPEN — assigned · [td-141]" in l and "Traffic fleet tripo rebuild" in l and "dispatch-codex" in l for l in out))
     # pending: unreported -> job line; reported -> count only.
     check("pending unreported job",
-          any("🟢 2 [PR #274](https://github.com/doublehidenblade/tokyo-drift-3d/pull/274)" in l for l in out))
+          any("🟢 OPEN — assigned · [PR #274](https://github.com/doublehidenblade/tokyo-drift-3d/pull/274)" in l for l in out))
     check("pending reported not a job",
           not any("[PR #273]" in l for l in out if l.startswith("🟢")))
     check("pending count", "PENDING 2 merged-not-live" in out)
@@ -398,10 +398,10 @@ def test_part4():
     out3 = watch.build_heartbeat({"sessions": {}}, {}, [], rows_open, [], None)
     t3 = "\n".join(out3)
     check("open fallback shown",
-          any(l.startswith("🟡 3 [td-054]") and "Multiplayer online" in l
+          any(l.startswith("🟡 OPEN — no worker · [td-054]") and "Multiplayer online" in l
               for l in out3))
-    check("fallback owned outcome 2",
-          any(l.startswith("🟢 2 [td-139]") and "(Muse)" in l
+    check("fallback owned words",
+          any(l.startswith("🟢 OPEN — assigned · [td-139]") and "(Muse)" in l
               for l in out3))
     check("fallback owner shown",
           any("td-139" in l and "(Muse)" in l for l in out3))
@@ -416,24 +416,27 @@ def test_part4():
     many = [{"task": f"td-{100 + i}", "defect": f"d{i}", "status": "open",
              "prefix": "open", "owner": "", "pr": ""} for i in range(8)]
     out4 = watch.build_heartbeat({"sessions": {}}, {}, [], many, [], None)
-    check("fallback cap", sum(1 for l in out4 if l.startswith("🟡 3")) == 6
+    check("fallback cap", sum(1 for l in out4 if l.startswith("🟡 OPEN — no worker")) == 6
           and "…and 2 more open on the board" in out4)
-    # Five-outcome set (Craig 2026-09-25): HELD pending (merged, evidence
-    # rejected) is open-and-assigned -> outcome 2, never 1 (closed).
+    # Five-outcome set (Craig 2026-09-25, words per 2026-10-04): HELD pending
+    # (merged, evidence rejected) is open-and-assigned, never closed.
     pending_held = [{"game": "tokyo", "pr": 282, "task": "td-137",
                      "status": "HELD", "hold_reason": "inspector rejected",
                      "reported": False}]
     out6 = watch.build_heartbeat({"sessions": {}}, {}, [], [], pending_held,
                                   None)
-    check("held pending outcome 2",
-          any(l.startswith("🔴 2 [PR #282]") for l in out6))
-    # Every JOBS line carries an outcome digit 1-5 (or ? for ambiguous).
+    check("held pending words",
+          any(l.startswith("🔴 OPEN — assigned · [PR #282]") for l in out6))
+    # Every JOBS line states its outcome explicitly in words with color
+    # coding — no bare digits.
     import re as _re
+    _oc = (r"^([🟢🔴] OPEN — assigned|🟡 OPEN — (assigned|no worker)|"
+           r"🔴 BLOCKED — (needs you|external|unclear)) · ")
     for tag, oo in (("main", out), ("fallback", out3), ("held", out6)):
         jobs = "\n".join(oo).split("JOBS")[1].split("PENDING")[0].splitlines()
         job_lines = [l for l in jobs if l and not l.startswith("(")]
-        check(f"outcome digits {tag}",
-              all(_re.match(r"^[🟢🟡🔴] [12345?] ", l) for l in job_lines)
+        check(f"outcome words {tag}",
+              all(_re.match(_oc, l) for l in job_lines)
               and len(job_lines) > 0)
     # All-blocked fallback (Craig 2026-10-02): done-pending-verdict is
     # TERMINAL (only Craig's verdict outstanding) — it must never surface
@@ -453,7 +456,7 @@ def test_part4():
     jobs5 = "\n".join(out5).split("JOBS")[1].split("PENDING")[0]
     check("all-blocked dpv excluded", "td-022" not in jobs5)
     check("all-blocked blocked row shown",
-          any(l.startswith("🟡 3") and "td-040" in l for l in out5))
+          any(l.startswith("🟡 OPEN — no worker") and "td-040" in l for l in out5))
     return fails
 
 

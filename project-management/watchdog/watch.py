@@ -1971,19 +1971,22 @@ def cmd_pending_release(args):
 # run's recorded check verdicts (see _record_verdict), recent queued actions,
 # the pending ledger, and the board — with markdown inline links and the
 # board's defect names as headlines (TASK NAMING rule, Craig 2026-09-25).
-# Outcome numbers follow the FOLD-IN RULES (Craig 2026-09-25 — the closed
-# five-outcome set every JOBS line must carry):
-#   1 closed (done/verified — validated flips are silent, nothing to do);
-#   2 open and assigned to a named worker/action/publish chain (stalled with
-#     a nudge/steer queued, parked PRs, and merged-but-not-live work —
-#     including HELD/rejected-evidence — all fold into 2, never 1);
-#   3 open but no available worker, only after escalation routes are
-#     exhausted, with expected return/recovery stated;
-#   4 blocked on human, naming Craig's exact required action;
-#   5 blocked on external (third-party outage/upstream failure) with a
-#     re-check plan.
-# Genuinely ambiguous placements get `?` for the run's judgment. A line
-# without any outcome digit is a failed heartbeat.
+# Outcome words follow the FOLD-IN RULES (Craig 2026-09-25 — the closed
+# five-outcome set every JOBS line must state EXPLICITLY IN WORDS, never as
+# bare digits Craig can't map):
+#   🟢 OPEN — assigned: open and assigned to a named worker/action/publish
+#     chain (stalled with a nudge/steer queued, parked PRs, and
+#     merged-but-not-live work — including HELD/rejected-evidence — all
+#     fold in here);
+#   🟡 OPEN — no worker: open but no available worker, only after escalation
+#     routes are exhausted, with expected return/recovery stated;
+#   🔴 BLOCKED — needs you: blocked on human, naming Craig's exact required
+#     action;
+#   🔴 BLOCKED — external: blocked on third-party outage/upstream failure,
+#     with a re-check plan;
+#   (1 closed = done/verified — validated flips stay silent, nothing to do.)
+# Genuinely ambiguous blockers get `🔴 BLOCKED — unclear`. A JOBS line
+# without an explicit outcome phrase is a failed heartbeat.
 # ---------------------------------------------------------------------------
 
 _HB_EMOJI = {"WORKING": "🟢", "FINISHED": "🟡", "IDLE": "🟡",
@@ -2108,35 +2111,39 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
     for task, old, new, action in flips:
         dl, tl = defect_of(task), task_link(task)
         if action == "wake-validator":
-            jobs.append(f"🟢 2 {tl} {dl} — validator dispatch due")
+            jobs.append(f"🟢 OPEN — assigned · {tl} {dl} — validator dispatch due")
         elif action == "notify-or-iterate":  # rejected
-            jobs.append(f"🟡 2 {tl} {dl} — rejected, rework needed")
+            jobs.append(f"🟡 OPEN — assigned · {tl} {dl} — rejected, rework needed")
         elif action == "notify-craig" and new == "blocked":
             r = defects.get(task.lower(), {})
             status_txt = (r.get("status") or "")[:90]
             low = status_txt.lower()
-            n = ("4" if any(k in low for k in _HB_HUMAN_KW)
-                 else "5" if any(k in low for k in _HB_EXTERNAL_KW) else "?")
-            jobs.append(f"🔴 {n} {tl} {dl} — blocked: {status_txt}")
-        # validated → outcome 1 (closed), silent → nothing to do.
+            if any(k in low for k in _HB_HUMAN_KW):
+                oc = "🔴 BLOCKED — needs you"
+            elif any(k in low for k in _HB_EXTERNAL_KW):
+                oc = "🔴 BLOCKED — external"
+            else:
+                oc = "🔴 BLOCKED — unclear"
+            jobs.append(f"{oc} · {tl} {dl} — blocked: {status_txt}")
+        # validated → closed, silent → nothing to do.
     for e in actions:
         t = e.get("type", "")
         if t.startswith("dispatch"):
             task = e.get("task") or "?"
-            jobs.append(f"🟢 2 {task_link(task)} {defect_of(task)} — dispatch queued ({t})")
+            jobs.append(f"🟢 OPEN — assigned · {task_link(task)} {defect_of(task)} — dispatch queued ({t})")
         elif t.split("-")[0] in ("nudge", "resume", "steer", "failover"):
             sst = state.get("sessions", {}).get(e.get("session"), {})
             task = sst.get("current_task") or sst.get("last_task") or "?"
-            jobs.append(f"🟢 2 {task_link(task)} {defect_of(task)} — {t} queued")
+            jobs.append(f"🟢 OPEN — assigned · {task_link(task)} {defect_of(task)} — {t} queued")
     for e in pending:
         if not e.get("reported"):
             if e.get("status") == "HELD":
                 # Fold-in rule: merged-but-not-live with rejected evidence is
-                # still open-and-assigned (rework owned), never outcome 1.
-                jobs.append(f"🔴 2 {pr_link(e.get('pr'))} {e.get('task')} — HELD: "
+                # still open-and-assigned, never closed.
+                jobs.append(f"🔴 OPEN — assigned · {pr_link(e.get('pr'))} {e.get('task')} — HELD: "
                             f"{e.get('hold_reason', '')[:80]} (merged, evidence rejected — not for publish)")
             else:
-                jobs.append(f"🟢 2 {pr_link(e.get('pr'))} {e.get('task')} — "
+                jobs.append(f"🟢 OPEN — assigned · {pr_link(e.get('pr'))} {e.get('task')} — "
                             f"{e.get('summary', '')[:70]} (merged, not live)")
     all_blocked = any(l.startswith("ALL-BLOCKED True")
                       for l in checks.get("all-blocked", []))
@@ -2144,7 +2151,7 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
         for r in board_rows:
             if (r["prefix"] not in STATUS_PREFIXES_TERMINAL
                     and r["owner"].strip("—- ") == ""):
-                jobs.append(f"🟡 3 {task_link(r['task'])} {defect_of(r['task'])} "
+                jobs.append(f"🟡 OPEN — no worker · {task_link(r['task'])} {defect_of(r['task'])} "
                             f"— no available worker (all sessions blocked)")
     lines.append("JOBS")
     if jobs:
@@ -2167,22 +2174,23 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
                 owner = (r.get("owner") or "").strip("—- ")
                 named = bool(owner and owner.lower() not in ("", "unassigned"))
                 own_txt = f" ({owner})" if named else ""
-                # Five-outcome set (Craig 2026-09-25): every fallback line
-                # carries its outcome digit — no bare ⬜ lines.
+                # Five-outcome set (Craig 2026-09-25, words not digits per
+                # 2026-10-04): every fallback line states its outcome
+                # explicitly with color coding.
                 if named:
-                    n, emoji = "2", "🟢"  # open and assigned to a named worker
+                    oc = "🟢 OPEN — assigned"  # open, named worker owns it
                 elif r.get("prefix") in ("blocked", "rejected"):
                     low = ((r.get("status") or "") + " " +
                            (r.get("defect") or "")).lower()
                     if any(k in low for k in _HB_HUMAN_KW):
-                        n, emoji = "4", "🔴"
+                        oc = "🔴 BLOCKED — needs you"
                     elif any(k in low for k in _HB_EXTERNAL_KW):
-                        n, emoji = "5", "🔴"
+                        oc = "🔴 BLOCKED — external"
                     else:
-                        n, emoji = "?", "🔴"
+                        oc = "🔴 BLOCKED — unclear"
                 else:
-                    n, emoji = "3", "🟡"  # open but no available worker
-                lines.append(f"{emoji} {n} {task_link(r['task'])} "
+                    oc = "🟡 OPEN — no worker"  # open, no available worker
+                lines.append(f"{oc} · {task_link(r['task'])} "
                              f"{defect_of(r['task'])}"
                              f" — {r.get('prefix')}{own_txt}")
             if len(open_rows) > _HB_OPEN_FALLBACK_N:
