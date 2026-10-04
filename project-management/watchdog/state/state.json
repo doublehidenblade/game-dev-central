@@ -1759,6 +1759,10 @@
   {
    "ts": "2026-10-04T02:43Z",
    "note": "watchdog 2026-10-03 22:43 EDT run: STEP 0 \u2014 liveness ALIVE x2 (td-137 subagent: PR #282 DO NOT MERGE + PR #299 breakdown open, branch 1 ahead; td-101 subagent: PR #292 DO NOT MERGE open); conflicts OK; transitions NO-FLIPS; classification-health STALE-RUNS=30 (degraded-watchdog alarm \u2192 main-agent heartbeat); board-check BOARD-OK (142 rows); scriptification-audit SCRIPTIFICATION-OK (12 tagged). STEP 1: decide=REPORT_LOGIN x2 (state age 936.6min); loginfail SUPPRESSED x2 (notified 0.7h ago; blocker still browser login wall/CAPTCHA, manual login needed). ORPHAN SWEEP --fix-titles: 0 ORPHAN-READY (nothing to merge); #282/#283/#292 ORPHAN-HELD (already surfaced, suppressed per once-per-PR); #253 ORPHAN-BLOCKED (denylist, untouched); rest DRAFT/UNKNOWN left alone. STEP 2: ALL-BLOCKED True (codex+claude LOGIN_BLOCKED) \u2014 dispatch-candidates: td-101/td-119 owned (Astra/Muse coordinator), td-054/td-138 SKIP \u2014 escalation correctly stood down, no duplicate dispatch. pending_actions empty \u2014 nothing for main-agent handoff."
+  },
+  {
+   "ts": "2026-10-04T03:43Z",
+   "note": "watchdog 2026-10-03 23:43 EDT run: ORPHAN-HELD surfaced to Craig once per PR (heartbeat) \u2014 #292 td-101 vegetation kit v2 (live td-101 subagent actively building, expected mid-work hold), #282 td-137 Shuto split/merge rework (live td-137 subagent, branch 1 ahead + PR #299 breakdown open, expected mid-work hold), #283 td-138 stage 4 rough blockout (NO live worker registered, stale DO NOT MERGE \u2014 genuine judgment call: keep holding, strip title, or close). Next runs: do not re-surface; #283 resolution is Craig's call only."
   }
  ],
  "workers": {
@@ -1932,7 +1936,7 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T03:27:58.388732+00:00",
+  "ts": "2026-10-04T03:42:58.419032+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto split/merge; open PR #282 td-137: Shuto sp)",
@@ -1958,12 +1962,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T03:27:30.893391+00:00",
-   "liveness": "2026-10-04T03:27:22.633199+00:00",
-   "classification-health": "2026-10-04T03:27:27.464068+00:00",
-   "transitions": "2026-10-04T03:27:27.094601+00:00",
-   "conflicts": "2026-10-04T03:27:25.597789+00:00",
-   "all-blocked": "2026-10-04T03:27:58.388732+00:00",
+   "board-check": "2026-10-04T03:42:23.227216+00:00",
+   "liveness": "2026-10-04T03:42:16.855532+00:00",
+   "classification-health": "2026-10-04T03:42:21.406222+00:00",
+   "transitions": "2026-10-04T03:42:19.912962+00:00",
+   "conflicts": "2026-10-04T03:42:18.876152+00:00",
+   "all-blocked": "2026-10-04T03:42:58.419032+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
