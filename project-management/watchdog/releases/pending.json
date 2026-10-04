@@ -15,6 +15,14 @@
    "merged_sha": "f3027c579990e3eea51cb3c0cd3ce9cfb71deef6",
    "merged_at": "2026-10-04T07:19:03.516924+00:00",
    "summary": "td-101 vegetation kit v2: hero cherry street tree v3 + planter shrub v6, triptych evidence, validated 4/4 by watchdog validator"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-119",
+   "pr": 302,
+   "merged_sha": "281cad61266e2e93dbf89a7e5087bfd4eef839cf",
+   "merged_at": "2026-10-04T09:18:33.609286+00:00",
+   "summary": "Retro-80s night-Tokyo phase 4 placement: AAA Tokyo Tower landmark, 30x30m scramble crossing on raised plaza pad at Start Plaza, shotengai storefront flush-attached to downtown facade; validated all 4 criteria PASS by independent validator 2026-10-04"
   }
  ],
  "cleared_at": "2026-10-02T20:54:52.365793+00:00",
