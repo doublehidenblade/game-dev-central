@@ -6,7 +6,10 @@
    "pr": 282,
    "merged_sha": "5e42f71ad6ada2687fb433c1f987b7d7ee4e95fb",
    "merged_at": "2026-10-04T06:29:32.078770+00:00",
-   "summary": "Shuto split/merge rework \u2014 real diverging interchange geometry (4 spots rebuilt); merged-not-live"
+   "summary": "Shuto split/merge rework \u2014 real diverging interchange geometry (4 spots rebuilt); merged-not-live",
+   "status": "HELD",
+   "hold_reason": "inspector evidence rejected 2026-10-04: ch2150 after-render shows ramp ending mid-air; Craig overturned PASS to FAIL; rework in flight (PR #299, brief #307)",
+   "held_at": "2026-10-04T16:49:21.431492+00:00"
   },
   {
    "game": "tokyo-drift-3d",
