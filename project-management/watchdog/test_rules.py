@@ -704,6 +704,60 @@ def test_part9():
     return fails
 
 
+def test_part10():
+    """Part 10: EVIDENCE-VOID dark-void heuristic (real
+    watch._void_dark_fraction, watch._is_void_suspect). td-171: flags
+    Blender dark-studio void renders as VOID-SUSPECT for the hourly
+    task-evidence-inspector's vision pass — triage flag, never a verdict."""
+    fails = 0
+
+    def check(name, cond):
+        nonlocal fails
+        print(("PASS " if cond else "FAIL ") + name)
+        if not cond:
+            fails += 1
+
+    from PIL import Image
+    import io
+
+    def png_bytes(color, size=(100, 100), lit_frac=0.0):
+        im = Image.new("RGB", size, color)
+        if lit_frac:
+            import random
+            random.seed(7)
+            px = im.load()
+            n = int(size[0] * size[1] * lit_frac)
+            for _ in range(n):
+                px[random.randrange(size[0]),
+                   random.randrange(size[1])] = (200, 180, 120)
+        buf = io.BytesIO()
+        im.save(buf, format="PNG")
+        return buf.getvalue()
+
+    # Void-render profile: near-black navy backdrop (luminance ~20), like the
+    # td-119 criterion-1 void pair (measured darkfrac 0.85/0.88 on real files).
+    df = watch._void_dark_fraction(png_bytes((13, 20, 41)))
+    check("void backdrop -> darkfrac ~1.0", df is not None and df > 0.95)
+    check("void backdrop -> suspect", watch._is_void_suspect(df))
+
+    # In-engine night street profile: dark sky but lit windows/road —
+    # replicates td-119-criterion-3-after (measured 0.67 on the real file).
+    df2 = watch._void_dark_fraction(png_bytes((13, 20, 41), lit_frac=0.35))
+    check("night street -> darkfrac ~0.65",
+          df2 is not None and 0.55 < df2 < 0.75)
+    check("night street -> not suspect", not watch._is_void_suspect(df2))
+
+    # Threshold boundary behavior.
+    check("0.80 -> suspect", watch._is_void_suspect(0.80))
+    check("0.79 -> not suspect", not watch._is_void_suspect(0.79))
+    check("None -> not suspect", not watch._is_void_suspect(None))
+
+    # Garbage bytes -> None, never a crash.
+    check("bad bytes -> None",
+          watch._void_dark_fraction(b"not an image") is None)
+    return fails
+
+
 if __name__ == "__main__":
     print("== Part 1: evidence -> classification ==")
     f1 = test_part1()
@@ -723,6 +777,8 @@ if __name__ == "__main__":
     f8 = test_part8()
     print("== Part 9: evidence cheat-checks (duplicates, pairs, tiny) ==")
     f9 = test_part9()
-    total = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9
+    print("== Part 10: EVIDENCE-VOID dark-void heuristic ==")
+    f10 = test_part10()
+    total = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9 + f10
     print(f"\n{total} failures" if total else "\nALL TESTS PASSED")
     sys.exit(1 if total else 0)

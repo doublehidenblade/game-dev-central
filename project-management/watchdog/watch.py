@@ -1648,7 +1648,9 @@ def cmd_evidence_audit(args):
 # not worker captions. These subcommands pull the QA images for a task and run
 # deterministic audits that catch laziness/cheating without any vision model:
 # duplicate frames reused across criteria, byte-identical before/after pairs,
-# after-shots with no before, and postage-stamp images.
+# after-shots with no before, postage-stamp images, and dark-void studio
+# renders (EVIDENCE-VOID-SUSPECT — triage flag for the inspector's vision
+# pass, never a verdict).
 # [SCRIPTED: watch.py evidence-collect] [SCRIPTED: watch.py evidence-checks]
 
 def _sha256_bytes(raw):
@@ -1691,6 +1693,44 @@ def _pair_findings(names):
 def _is_tiny(w, h, min_dim=400):
     """Pure helper. Flags postage-stamp evidence too small to judge."""
     return max(w, h) < min_dim
+
+
+# EVIDENCE-VOID tuning (td-171, 2026-10-04): Blender dark-studio void renders
+# use a near-black navy backdrop (luminance ~20). In-engine night shots are
+# also dark, so this is strictly a SUSPECT flag for the hourly
+# task-evidence-inspector's vision pass — never a verdict. Tuned on td-119:
+# fires on the criterion-1 void pair (dark fraction 0.85/0.88 at lum<32),
+# stays quiet on the in-engine night street shot criterion-3-after (0.67).
+_VOID_LUM_THRESH = 32
+_VOID_FRAC_THRESH = 0.80
+
+
+def _void_dark_fraction(raw):
+    """Pure helper. Returns the fraction of pixels with luminance below
+    _VOID_LUM_THRESH (near-black backdrop), or None when the bytes can't be
+    decoded as an image. Downsamples first; exact ratio doesn't matter, only
+    whether the frame is overwhelmingly backdrop."""
+    try:
+        from PIL import Image
+        import io
+        with Image.open(io.BytesIO(raw)) as im:
+            rgb = im.convert("RGB")
+            rgb.thumbnail((200, 200))
+            px = list(rgb.getdata())
+    except Exception:
+        return None
+    if not px:
+        return None
+    dark = sum(1 for r, g, b in px
+               if 0.299 * r + 0.587 * g + 0.114 * b < _VOID_LUM_THRESH)
+    return dark / len(px)
+
+
+def _is_void_suspect(dark_frac, thresh=_VOID_FRAC_THRESH):
+    """Pure helper. Flags images that are overwhelmingly near-black
+    background — the Blender dark-void studio signature — as VOID-SUSPECT
+    for vision review."""
+    return dark_frac is not None and dark_frac >= thresh
 
 
 def _collect_evidence_images(task, outdir):
@@ -1759,7 +1799,9 @@ def cmd_evidence_checks(args):
     over the collected QA pixels. Prints EVIDENCE-DUP (same bytes, 2+ names —
     e.g. one frame reused across criteria), EVIDENCE-PAIR-IDENTICAL (before
     and after byte-identical — no change), EVIDENCE-PAIR-MISSING-BEFORE
-    (after-shot with no before), EVIDENCE-TINY (max dim < 400px), and a final
+    (after-shot with no before), EVIDENCE-TINY (max dim < 400px),
+    EVIDENCE-VOID-SUSPECT (dark-pixel fraction >= 0.80 — Blender dark-void
+    studio signature, for the inspector's vision pass), and a final
     EVIDENCE-CHECKS-DONE summary line. Exit 0 always; verdicts are lines."""
     task = args[0]
     outdir = (args[1] if len(args) > 1 else
@@ -1806,6 +1848,7 @@ def cmd_evidence_checks(args):
                     print(f"EVIDENCE-PAIR-IDENTICAL {stem}")
 
     tiny = 0
+    void_suspects = []
     try:
         from PIL import Image
         for rel, raw in got:
@@ -1817,12 +1860,18 @@ def cmd_evidence_checks(args):
             if _is_tiny(w, h):
                 tiny += 1
                 print(f"EVIDENCE-TINY {rel} {w}x{h}")
+            df = _void_dark_fraction(raw)
+            if _is_void_suspect(df):
+                void_suspects.append((rel, df))
+                print(f"EVIDENCE-VOID-SUSPECT {rel} darkfrac={df:.2f}")
     except ImportError:
         print("EVIDENCE-TINY-SKIP (PIL unavailable)")
+        print("EVIDENCE-VOID-SKIP (PIL unavailable)")
 
     print(f"EVIDENCE-CHECKS-DONE {task} files={len(got)} "
           f"dups={len(dups)} identical_pairs={identical} "
-          f"missing_before={len(missing)} tiny={tiny}")
+          f"missing_before={len(missing)} tiny={tiny} "
+          f"void_suspects={len(void_suspects)}")
 
 
 PUBLISH_REPOS = {
