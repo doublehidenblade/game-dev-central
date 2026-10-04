@@ -1817,6 +1817,15 @@
    "dispatched_at": "2026-10-04T17:13:56.849669+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
+  },
+  "td-119-crossing": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-119.md",
+   "dispatched_at": "2026-10-04T18:30:57.842572+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
