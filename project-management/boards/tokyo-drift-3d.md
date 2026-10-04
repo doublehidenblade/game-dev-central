@@ -159,8 +159,8 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-155 | Anime reference bible: curated night-Tokyo background-art refs + per-image technique notes (Craig's anime directive) | merged 2026-10-04 — PR #317 (19 refs + technique README verified on main) | — | #317 | 2026-10-04 |
 | td-156 | Toon-shader kit (3-band cel diffuse, banded specular, foliage, banded sky, inverted-hull ink outlines) | validated 2026-10-04 — PR #329 merged; in-engine before/after proves banding, outline adopted at 0.02-0.06wu | Muse subagent | [#329](https://github.com/doublehidenblade/tokyo-drift-3d/pull/329) | 2026-10-04 |
 | td-157 | Painterly texture pass: hand-painted-look road/ground/facade textures replacing flat photographic surfaces | validated | — | PR #330 merged | 2026-10-04 |
-| td-158 | Stylized night lighting rig: deep-blue ambient + amber sodium keys + cool moonlight, chase-cam safe | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | Muse subagent | — | 2026-10-04 |
-| td-159 | Anime post-process grade: WorldEnvironment bloom/color/vignette, perf-safe for web/mobile | blocked — depends on td-158 | — | — | 2026-10-04 |
+| td-158 | Stylized night lighting rig: deep-blue ambient + amber sodium keys + cool moonlight, chase-cam safe | in_review — PR #341 opened 2026-10-04 | Muse subagent | #341 | 2026-10-04 |
+| td-159 | Anime post-process grade: WorldEnvironment bloom/color/vignette, perf-safe for web/mobile | open — td-158 in review (PR #341); unblocked 2026-10-04 | — | — | 2026-10-04 |
 | td-160 | Blender asset-prep pipeline: Tripo decimate/normals/separation, PBR stripdown, flat albedo bake, Material ID slots + automation script | open | Muse subagent | — | 2026-10-04 |
 | td-161 | Godot import pipeline: _post_process_import auto-assigning toon shaders by material slot | blocked — depends on td-160, td-156 | — | — | 2026-10-04 |
 | td-162 | Retro screen filter: VHS/film GLSL stack (chromatic aberration + grain) with web perf measurement | blocked — depends on td-159 | — | — | 2026-10-04 |
