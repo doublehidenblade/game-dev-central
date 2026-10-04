@@ -157,9 +157,9 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
  | td-153 | Recess headlight/taillight meshes into car bodies (Craig 2026-10-03: bury the protruding rectangular light blocks so only light comes from the original lights position) | validated | — | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-153.md) · [PR #293](https://github.com/doublehidenblade/tokyo-drift-3d/pull/293) | 2026-10-03 |
 | td-154 | merged 2026-10-04 — PR #298 (fake shadow planes removed from all 12 Tripo GLBs, validated) | in_review | worker (Muse subagent) | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/td-154-shadow-fix/godot/docs/tasks/td-154.md) · [PR #298](https://github.com/doublehidenblade/tokyo-drift-3d/pull/298) | 2026-10-04 |
 | td-155 | Anime reference bible: curated night-Tokyo background-art refs + per-image technique notes (Craig's anime directive) | open | — | — | 2026-10-04 |
-| td-156 | Godot toon-shader kit: cel banding (quantized NdotL + banded specular) for imported models; outline evaluation | blocked — depends on td-155 | — | — | 2026-10-04 |
-| td-157 | Painterly texture pass: hand-painted-look road/ground/facade textures replacing flat photographic surfaces | blocked — depends on td-155 | — | — | 2026-10-04 |
-| td-158 | Stylized night lighting rig: deep-blue ambient + amber sodium keys + cool moonlight, chase-cam safe | blocked — depends on td-155 | — | — | 2026-10-04 |
+| td-156 | Godot toon-shader kit: cel banding (quantized NdotL + banded specular) for imported models; outline evaluation | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | — | — | 2026-10-04 |
+| td-157 | Painterly texture pass: hand-painted-look road/ground/facade textures replacing flat photographic surfaces | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | — | — | 2026-10-04 |
+| td-158 | Stylized night lighting rig: deep-blue ambient + amber sodium keys + cool moonlight, chase-cam safe | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | — | — | 2026-10-04 |
 | td-159 | Anime post-process grade: WorldEnvironment bloom/color/vignette, perf-safe for web/mobile | blocked — depends on td-158 | — | — | 2026-10-04 |
 | td-160 | Blender asset-prep pipeline: Tripo decimate/normals/separation, PBR stripdown, flat albedo bake, Material ID slots + automation script | open | — | — | 2026-10-04 |
 | td-161 | Godot import pipeline: _post_process_import auto-assigning toon shaders by material slot | blocked — depends on td-160, td-156 | — | — | 2026-10-04 |
