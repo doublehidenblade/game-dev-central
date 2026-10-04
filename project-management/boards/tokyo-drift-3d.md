@@ -157,7 +157,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
  | td-153 | Recess headlight/taillight meshes into car bodies (Craig 2026-10-03: bury the protruding rectangular light blocks so only light comes from the original lights position) | validated | — | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-153.md) · [PR #293](https://github.com/doublehidenblade/tokyo-drift-3d/pull/293) | 2026-10-03 |
 | td-154 | merged 2026-10-04 — PR #298 (fake shadow planes removed from all 12 Tripo GLBs, validated) | in_review | worker (Muse subagent) | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/td-154-shadow-fix/godot/docs/tasks/td-154.md) · [PR #298](https://github.com/doublehidenblade/tokyo-drift-3d/pull/298) | 2026-10-04 |
 | td-155 | Anime reference bible: curated night-Tokyo background-art refs + per-image technique notes (Craig's anime directive) | merged 2026-10-04 — PR #317 (19 refs + technique README verified on main) | — | #317 | 2026-10-04 |
-| td-156 | Godot toon-shader kit: cel banding (quantized NdotL + banded specular) for imported models; outline evaluation | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | — | — | 2026-10-04 |
+| td-156 | Godot toon-shader kit: cel banding (quantized NdotL + banded specular) for imported models; outline evaluation | in_review — kit + test scene + QA evidence in PR #329 (tokyo-drift-3d); outline ADOPTED | Muse subagent | #329 | 2026-10-04 |
 | td-157 | Painterly texture pass: hand-painted-look road/ground/facade textures replacing flat photographic surfaces | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | — | — | 2026-10-04 |
 | td-158 | Stylized night lighting rig: deep-blue ambient + amber sodium keys + cool moonlight, chase-cam safe | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | — | — | 2026-10-04 |
 | td-159 | Anime post-process grade: WorldEnvironment bloom/color/vignette, perf-safe for web/mobile | blocked — depends on td-158 | — | — | 2026-10-04 |
@@ -172,8 +172,5 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-167 | Wet asphalt Showa road pass: blue-charcoal asphalt, tar patches, puddles, Showa manholes | blocked — depends on td-157 | — | — | 2026-10-04 |
 | td-168 | Hero street furniture: sento facade + chimney landmark, koban, jizo altar | open | — | — | 2026-10-04 |
 | td-169 | Skyline Showa pass: danchi/nagaya modules replace window-grid boxes; Tokyo Tower red/white hero treatment | blocked — depends on td-156 | — | — | 2026-10-04 |
-| td-170 | Procedural map framework: asset registry + per-map iconic sets + seed/fill pipeline design | validated 2026-10-04 — PR #325 merged (21-row kit registry, spline v3 + drivability contracts) | Muse subagent | [#325](https://github.com/doublehidenblade/tokyo-drift-3d/pull/325) | 2026-10-04 |
-| td-171 | Void-render purge + scripted void detection (evidence-checks heuristic + standing brief ban) | validated 2026-10-04 — PR #327 merged (2 void renders purged); EVIDENCE-VOID heuristic scripted in watch.py + tests | Muse subagent | [#327](https://github.com/doublehidenblade/tokyo-drift-3d/pull/327) | 2026-10-04 |
-| td-172 | Striped awning kit (shotengai storefront canopies, faded/torn variants) | open | — | — | 2026-10-04 |
-| td-173 | JNR station boards + ticket gates kit (urban + countryside halt) | open | — | — | 2026-10-04 |
-| td-174 | Gas station canopy kit (cantilever canopy, pump islands, enamel plates) | open | — | — | 2026-10-04 |
+| td-170 | Procedural map framework: asset registry + per-map iconic sets + seed/fill pipeline design | open | — | — | 2026-10-04 |
+| td-171 | Void-render purge + scripted void detection (evidence-checks heuristic + standing brief ban) | open | — | — | 2026-10-04 |
