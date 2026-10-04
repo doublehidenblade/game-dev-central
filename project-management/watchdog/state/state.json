@@ -779,10 +779,10 @@
   "claude-code:tokyo-drift-3d": {
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
-   "last_classification": "LOGIN_BLOCKED",
-   "last_classification_ts": "2026-10-03T11:05:59.139586+00:00",
+   "last_classification": "FINISHED",
+   "last_classification_ts": "2026-10-04T02:59:31.330751+00:00",
    "last_failover_ts": "2026-09-30T03:20:17.258015+00:00",
-   "last_note": "claude.ai/code shows the same Cloudflare \"Performing security verification\" bot-check page; per task rules I did not attempt or wait on it, so no session list was reached and the tokyo-drift-3d session could not be classified.",
+   "last_note": "idle since Sep 22; fresh browser check 2026-10-04 02:56Z post-login-recovery: session reachable, empty prompt",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -913,7 +913,6 @@
    ],
    "assignments": [],
    "last_task": null,
-   "inspected_ts": "2026-10-02T20:54:14.140257+00:00",
    "login_fail_notified_ts": "2026-10-04T01:57:59.186411+00:00"
   },
   "claude-code:tokyo-drift-3d-textures": {
@@ -1094,15 +1093,15 @@
     "do_not_ship_pr253": "PR #253 (td-138-round3) holds ONLY the self-rejected iteration-01 negative evidence. NEVER merge it - not an acceptance submission. Set 2026-10-01 ~05:20Z after round-3 finished without iteration 02. Clear only when Craig approves a shippable iteration.",
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
-   "last_classification": "LOGIN_BLOCKED",
-   "last_classification_ts": "2026-10-03T11:05:59.122301+00:00",
-   "last_note": "chatgpt.com/codex/cloud shows a Cloudflare \"Performing security verification\" bot-check page instead of the Codex environments; per task rules I did not attempt or wait on it and opened no environment (neon-drift was never touched).",
+   "last_classification": "FINISHED",
+   "last_classification_ts": "2026-10-04T02:59:31.117690+00:00",
+   "last_note": "td-125 verify complete, PR #268 merged 2026-10-01; fresh browser check 2026-10-04 02:56Z post-login-recovery: session reachable, idle",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
    "note": "td-134 dispatched 2026-10-01T14:41Z: dispatch-codex queued in pending_actions.json (brief anchors to rebuilt traffic models td-109/110/111, not stale GLBs; td-042 fold-in). td-125 verify task finished 13:49Z, verdict pending reconcile. td-138 stage pipeline blocked on Craig (PR #260 do-not-merge).\n2026-10-01T15:30Z DISPATCH HELD td-138 reskin: Craig direction-changed to licensed-base-mesh (2015 Nissan GT-R LM Nismo, CC-BY 4.0); brief ready at ~/workspace/supervisor-system/briefs/td-138-reskin-standing-asset.md but base mesh missing \u2014 DO NOT dispatch until it lands. PR #260 stays do-not-merge; PR #253 stays do-not-ship.\n2026-10-02T13:29:08Z DISPATCH QUEUED td-142 (nitro-tap-steers, Craig 2026-10-02 phone QA; new Codex cloud task). Do NOT double-dispatch td-142.",
    "partial_check_ts": "2026-09-24T19:23:14.107533+00:00",
-   "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abed1d0b670832eb8b8bf60685b9e93",
+   "task_url": "https://chatgpt.com/remote/task_e_6abed1d0b670832eb8b8bf60685b9e93",
    "out_of_tokens_since": "2026-09-29T11:47:32.134891+00:00",
    "last_failover_ts": "2026-09-29T11:47:55.783270+00:00",
    "_notes": [
@@ -1351,7 +1350,7 @@
      "note": "watchdog 2026-10-02T12:26Z (08:26 EDT run): decide=NOTHING x2 (classifications 41min old, fresh \u2014 no staleness concern). No SHIP (no parked PR; PR #256 td-119 untouched, #253 do-not-ship flag intact; td-138 #260 stage-6 closed unmerged 2026-10-01T16:59Z; #257/#258 stages 4/5 merged, no live stage branches remain). No failover. DISPATCH CHECK (fresh board): NO FIRE \u2014 td-138 outcome-4 blocked on Craig (needs his geometry-iteration vs licensed-base-mesh call; surfaced per blocker); td-054 open but no-blind-redispatch, renderer-capacity missing; td-101 Astra-owned; td-139 in_review (PR #243 awaits Craig's eyeball); td-109/110/111 + td-113 in_review; td-119 post-revert parked pending Craig's direction; td-140 active. Idle FINISHED sessions with no assignable work = not a run defect. Budget OK (net $0.15/$50). pending.json EMPTY. pending_actions empty; no own subagents."
     }
    ],
-   "last_finished_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abed1d0b670832eb8b8bf60685b9e93",
+   "last_finished_url": "https://chatgpt.com/remote/task_e_6abed1d0b670832eb8b8bf60685b9e93",
    "dispatched_task": "td-134",
    "dispatched_at": "2026-10-01T14:46:54.461121+00:00",
    "notes": [
@@ -1484,9 +1483,9 @@
    "blockers": {},
    "assignments": [],
    "finished_urls": [
-    "https://chatgpt.com/codex/cloud/tasks/task_e_6abed1d0b670832eb8b8bf60685b9e93"
+    "https://chatgpt.com/codex/cloud/tasks/task_e_6abed1d0b670832eb8b8bf60685b9e93",
+    "https://chatgpt.com/remote/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
-   "finished_no_pr": true,
    "last_task": null,
    "login_fail_notified_ts": "2026-10-04T01:57:59.059128+00:00"
   },
