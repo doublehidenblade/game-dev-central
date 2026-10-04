@@ -7,6 +7,14 @@
    "merged_sha": "5e42f71ad6ada2687fb433c1f987b7d7ee4e95fb",
    "merged_at": "2026-10-04T06:29:32.078770+00:00",
    "summary": "Shuto split/merge rework \u2014 real diverging interchange geometry (4 spots rebuilt); merged-not-live"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-101",
+   "pr": 292,
+   "merged_sha": "f3027c579990e3eea51cb3c0cd3ce9cfb71deef6",
+   "merged_at": "2026-10-04T07:19:03.516924+00:00",
+   "summary": "td-101 vegetation kit v2: hero cherry street tree v3 + planter shrub v6, triptych evidence, validated 4/4 by watchdog validator"
   }
  ],
  "cleared_at": "2026-10-02T20:54:52.365793+00:00",

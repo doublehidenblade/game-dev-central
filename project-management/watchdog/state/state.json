@@ -1774,7 +1774,9 @@
    "ts": "2026-10-04T06:28:00+00:00",
    "run": "watchdog cron",
    "note": "Consumed stale pending dispatch-validator td-137/#282 (queued 06:17:42Z by prior run): PR #282 merged 06:25:43Z (state closed/merged). Validator dispatch no longer applicable; entry removed to prevent a duplicate/outdated dispatch. Board row td-137 still shows in_review prefix \u2014 worker updates its own row via PR."
-  }
+  },
+  "2026-10-04T07:19Z deregistered td-101 (subagent): PR #292 validated 4/4 and squash-merged by watchdog validator 2026-10-04T07:18Z",
+  "2026-10-04T07:19Z deregistered td-101-validator (subagent): validator completed: validated, merged"
  ],
  "workers": {
   "td-137": {
@@ -1783,15 +1785,6 @@
    "repo": "doublehidenblade/tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-137.md",
    "dispatched_at": "2026-10-02T19:32:25.026812+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-101": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-101.md",
-   "dispatched_at": "2026-10-02T23:34:16.418252+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
@@ -1956,7 +1949,7 @@
   "td-153": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T07:00:32.878046+00:00",
+  "ts": "2026-10-04T07:14:54.900490+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
@@ -1983,12 +1976,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T06:57:45.252183+00:00",
-   "liveness": "2026-10-04T06:57:36.935255+00:00",
-   "classification-health": "2026-10-04T07:00:32.878046+00:00",
-   "transitions": "2026-10-04T06:57:40.999804+00:00",
-   "conflicts": "2026-10-04T06:57:39.637031+00:00",
-   "all-blocked": "2026-10-04T06:58:01.056260+00:00",
+   "board-check": "2026-10-04T07:12:39.941971+00:00",
+   "liveness": "2026-10-04T07:13:22.152006+00:00",
+   "classification-health": "2026-10-04T07:12:37.671701+00:00",
+   "transitions": "2026-10-04T07:12:35.360057+00:00",
+   "conflicts": "2026-10-04T07:12:34.014910+00:00",
+   "all-blocked": "2026-10-04T07:14:54.900490+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
