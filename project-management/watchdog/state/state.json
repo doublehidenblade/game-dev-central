@@ -1813,13 +1813,94 @@
    "dispatched_at": "2026-10-04T18:51:00.149672+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
+  },
+  "td-156": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-156.md",
+   "dispatched_at": "2026-10-04T20:45:09.880985+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-157": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-157.md",
+   "dispatched_at": "2026-10-04T20:45:10.098022+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-158": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-158.md",
+   "dispatched_at": "2026-10-04T20:45:10.301879+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-163": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-163.md",
+   "dispatched_at": "2026-10-04T20:45:10.600558+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-164": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-164.md",
+   "dispatched_at": "2026-10-04T20:45:10.810967+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-165": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-165.md",
+   "dispatched_at": "2026-10-04T20:45:11.159380+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-168": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-168.md",
+   "dispatched_at": "2026-10-04T20:45:11.305549+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-170": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-170.md",
+   "dispatched_at": "2026-10-04T20:45:11.440442+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-171": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-171.md",
+   "dispatched_at": "2026-10-04T20:45:11.666472+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 7
+  "stale_runs": 8
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1984,7 +2065,7 @@
   "td-171": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T20:29:38.387112+00:00",
+  "ts": "2026-10-04T20:45:02.596289+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #322 Inspector report: 2026-10-04 15:34 EDT)",
@@ -1995,7 +2076,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=7"
+    "STALE-RUNS=8"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2011,11 +2092,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T20:28:38.353015+00:00",
-   "liveness": "2026-10-04T20:27:52.996249+00:00",
-   "classification-health": "2026-10-04T20:28:21.061484+00:00",
-   "transitions": "2026-10-04T20:28:12.535892+00:00",
-   "conflicts": "2026-10-04T20:28:01.612976+00:00",
+   "board-check": "2026-10-04T20:45:02.596289+00:00",
+   "liveness": "2026-10-04T20:44:54.468958+00:00",
+   "classification-health": "2026-10-04T20:44:30.762937+00:00",
+   "transitions": "2026-10-04T20:44:14.964845+00:00",
+   "conflicts": "2026-10-04T20:43:51.380433+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
