@@ -1800,7 +1800,7 @@
   "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
  },
  "classification_health": {
-  "stale_runs": 0
+  "stale_runs": 1
  },
  "board_snapshot": {
   "td-001": "done",
@@ -1911,7 +1911,7 @@
   "td-116": "merged",
   "td-117": "merged",
   "td-118": "merged",
-  "td-119": "in_progress",
+  "td-119": "in_review",
   "td-120": "merged",
   "td-121": "merged",
   "td-123": "merged",
@@ -1948,17 +1948,17 @@
   "td-154": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T08:57:50.175860+00:00",
+  "ts": "2026-10-04T09:14:12.942142+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 5e42f71 2026-10-04T06:25; branch docs/td-137-rejection-20260930 1 ahead; open PR #299 td-137 breakdown: 6 subtasks for Shuto)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #301 td-138: GT-R LM Nismo hero car via Tripo pipeline (71k tris,; open PR #300 td-138: sta)"
    ],
    "transitions": [
-    "FLIP td-111: in_review -> merged [silent]"
+    "FLIP td-119: in_progress -> in_review [wake-validator]"
    ],
    "classification-health": [
-    "STALE-RUNS=0"
+    "STALE-RUNS=1"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -1974,12 +1974,12 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-04T08:57:31.175675+00:00",
-   "liveness": "2026-10-04T08:57:23.269761+00:00",
-   "classification-health": "2026-10-04T08:57:26.125062+00:00",
-   "transitions": "2026-10-04T08:57:26.953277+00:00",
-   "conflicts": "2026-10-04T08:42:25.093182+00:00",
-   "all-blocked": "2026-10-04T08:57:50.175860+00:00",
+   "board-check": "2026-10-04T09:12:34.571154+00:00",
+   "liveness": "2026-10-04T09:14:12.942142+00:00",
+   "classification-health": "2026-10-04T09:12:33.074632+00:00",
+   "transitions": "2026-10-04T09:12:30.276708+00:00",
+   "conflicts": "2026-10-04T09:12:28.167959+00:00",
+   "all-blocked": "2026-10-04T09:12:56.256268+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
  }
