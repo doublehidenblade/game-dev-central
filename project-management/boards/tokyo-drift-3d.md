@@ -174,3 +174,6 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-169 | Skyline Showa pass: danchi/nagaya modules replace window-grid boxes; Tokyo Tower red/white hero treatment | blocked — depends on td-156 | — | — | 2026-10-04 |
 | td-170 | Procedural map framework: asset registry + per-map iconic sets + seed/fill pipeline design | validated 2026-10-04 — PR #325 merged (21-row kit registry, spline v3 + drivability contracts) | Muse subagent | [#325](https://github.com/doublehidenblade/tokyo-drift-3d/pull/325) | 2026-10-04 |
 | td-171 | Void-render purge + scripted void detection (evidence-checks heuristic + standing brief ban) | open | — | — | 2026-10-04 |
+| td-172 | Striped awning kit (shotengai storefront canopies, faded/torn variants) | open | — | — | 2026-10-04 |
+| td-173 | JNR station boards + ticket gates kit (urban + countryside halt) | open | — | — | 2026-10-04 |
+| td-174 | Gas station canopy kit (cantilever canopy, pump islands, enamel plates) | open | — | — | 2026-10-04 |
