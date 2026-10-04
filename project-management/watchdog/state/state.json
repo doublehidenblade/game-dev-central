@@ -1784,7 +1784,8 @@
   "2026-10-04T18:34Z deregistered td-133 (subagent): task done \u2014 Craig declared solved, PR #309 merged",
   "2026-10-04T18:50Z deregistered td-119-crossing (subagent): rework complete \u2014 PR #313 validated on all 7 defects and merged to main",
   "2026-10-04T18:56Z deregistered td-155 (subagent): bible complete, PR #317 merged; td-156/157/158 flipped to open",
-  "2026-10-04T19:02Z LIVENESS REPAIR: td-101-trees + td-160 registrations had bare repo tokyo-drift-3d (cron-body STEP 2 template drops the owner; same defect repaired for td-138 15:14Z) -> GitHub evidence checks 404d. Corrected to doublehidenblade/tokyo-drift-3d, quiet_cycles reset to 0."
+  "2026-10-04T19:02Z LIVENESS REPAIR: td-101-trees + td-160 registrations had bare repo tokyo-drift-3d (cron-body STEP 2 template drops the owner; same defect repaired for td-138 15:14Z) -> GitHub evidence checks 404d. Corrected to doublehidenblade/tokyo-drift-3d, quiet_cycles reset to 0.",
+  "2026-10-04T20:49Z deregistered td-170 (subagent): design doc PR #325 opened; board row in_review via game-dev-central PR #257 (merged)"
  ],
  "workers": {
   "td-137": {
@@ -1821,7 +1822,7 @@
    "task_file": "godot/docs/tasks/td-156.md",
    "dispatched_at": "2026-10-04T20:45:09.880985+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-157": {
    "kind": "subagent",
@@ -1830,7 +1831,7 @@
    "task_file": "godot/docs/tasks/td-157.md",
    "dispatched_at": "2026-10-04T20:45:10.098022+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-158": {
    "kind": "subagent",
@@ -1839,7 +1840,7 @@
    "task_file": "godot/docs/tasks/td-158.md",
    "dispatched_at": "2026-10-04T20:45:10.301879+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-163": {
    "kind": "subagent",
@@ -1848,7 +1849,7 @@
    "task_file": "godot/docs/tasks/td-163.md",
    "dispatched_at": "2026-10-04T20:45:10.600558+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-164": {
    "kind": "subagent",
@@ -1857,7 +1858,7 @@
    "task_file": "godot/docs/tasks/td-164.md",
    "dispatched_at": "2026-10-04T20:45:10.810967+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-165": {
    "kind": "subagent",
@@ -1866,7 +1867,7 @@
    "task_file": "godot/docs/tasks/td-165.md",
    "dispatched_at": "2026-10-04T20:45:11.159380+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-168": {
    "kind": "subagent",
@@ -1875,16 +1876,7 @@
    "task_file": "godot/docs/tasks/td-168.md",
    "dispatched_at": "2026-10-04T20:45:11.305549+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
-  "td-170": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-170.md",
-   "dispatched_at": "2026-10-04T20:45:11.440442+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-171": {
    "kind": "subagent",
@@ -1892,6 +1884,33 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-171.md",
    "dispatched_at": "2026-10-04T20:45:11.666472+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "grace"
+  },
+  "td-172": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-172.md",
+   "dispatched_at": "2026-10-04T20:55:23.282475+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-173": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-173.md",
+   "dispatched_at": "2026-10-04T20:55:24.440225+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-174": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-174.md",
+   "dispatched_at": "2026-10-04T20:55:25.079771+00:00",
    "quiet_cycles": 0,
    "last_verdict": "registered"
   }
@@ -2065,12 +2084,20 @@
   "td-171": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-04T20:45:02.596289+00:00",
+  "ts": "2026-10-04T20:55:08.710817+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #322 Inspector report: 2026-10-04 15:34 EDT)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #304 td-138 round 3: independently verified body closure (4 arch ; open PR #300 td-138: sta)",
-    "ALIVE td-160 (no heartbeat file; open PR #319 td-160: Blender asset-prep pipeline (Tripo -> Godot-ready))"
+    "ALIVE td-160 (no heartbeat file; open PR #319 td-160: Blender asset-prep pipeline (Tripo -> Godot-ready))",
+    "GRACE td-156 (dispatched 9min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-156.md&sha=main)",
+    "GRACE td-157 (dispatched 9min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-157.md&sha=main)",
+    "GRACE td-158 (dispatched 9min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-158.md&sha=main)",
+    "GRACE td-163 (dispatched 9min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-163.md&sha=main)",
+    "GRACE td-164 (dispatched 10min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-164.md&sha=main)",
+    "GRACE td-165 (dispatched 10min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-165.md&sha=main)",
+    "GRACE td-168 (dispatched 10min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-168.md&sha=main)",
+    "GRACE td-171 (dispatched 10min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-171.md&sha=main)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2093,7 +2120,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-04T20:45:02.596289+00:00",
-   "liveness": "2026-10-04T20:44:54.468958+00:00",
+   "liveness": "2026-10-04T20:55:08.710817+00:00",
    "classification-health": "2026-10-04T20:44:30.762937+00:00",
    "transitions": "2026-10-04T20:44:14.964845+00:00",
    "conflicts": "2026-10-04T20:43:51.380433+00:00",
