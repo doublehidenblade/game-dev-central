@@ -1808,27 +1808,11 @@
   "2026-10-04T23:05Z deregistered td-157 (subagent): PR #330 validated and merged; board row 'validated \u2014 PR #330 merged'",
   "2026-10-04T23:05Z deregistered td-164 (subagent): PR #335 validated and merged; board row 'validated \u2014 PR #335 merged'",
   "2026-10-04T23:29Z deregistered td-174 (subagent): merged PR #336",
-  "2026-10-05T00:19Z classification reported a FOURTH claude-code session OUT_OF_TOKENS (session_01EAM6hZWtfGSLUm2bB8rEXK, branch claude/new-session-su55f9, td-153 coupe rear-lens): this is CRAIGS OWN Opus 5.5 session (known out-of-tokens since 2026-10-05, resets ~1:10 AM), NOT a duplicate worker. Never nudge/steer/failover it; its OUT_OF_TOKENS line is deliberately excluded from classify-report so the claude-code:tokyo-drift-3d ledger is never pointed at his session."
+  "2026-10-05T00:19Z classification reported a FOURTH claude-code session OUT_OF_TOKENS (session_01EAM6hZWtfGSLUm2bB8rEXK, branch claude/new-session-su55f9, td-153 coupe rear-lens): this is CRAIGS OWN Opus 5.5 session (known out-of-tokens since 2026-10-05, resets ~1:10 AM), NOT a duplicate worker. Never nudge/steer/failover it; its OUT_OF_TOKENS line is deliberately excluded from classify-report so the claude-code:tokyo-drift-3d ledger is never pointed at his session.",
+  "2026-10-05T14:22Z deregistered td-137 (subagent): Opus-owned per Craig 2026-10-05: Shuto split/merge/highway goes to Opus session (Phase 2 on PR #375); Muse worker stood down, branch kept",
+  "2026-10-05T14:22Z deregistered td-138 (subagent): Opus-owned per Craig 2026-10-05: player Tripo car goes to Opus session (PR #375); Muse worker stood down, branch kept"
  ],
  "workers": {
-  "td-137": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-137.md",
-   "dispatched_at": "2026-10-02T19:32:25.026812+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-138": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-138.md",
-   "dispatched_at": "2026-10-04T14:29:47.862742+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
   "td-160": {
    "kind": "subagent",
    "session": null,
@@ -1876,10 +1860,11 @@
   }
  },
  "dispatch_denylist": {
-  "td-138": "standing-asset reskin path; routing needs main-agent/supervisor judgment, never blind dispatch (watchdog 2026-10-02)"
+  "td-138": "Opus-owned per Craig 2026-10-05 (player Tripo car); Muse fleet does continuation from Opus notes only",
+  "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 1
+  "stale_runs": 0
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2047,22 +2032,22 @@
   "td-174": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T13:38:13.329463+00:00",
+  "ts": "2026-10-05T14:21:35.679420+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #375 td-glowup round 3: Shuto C1 day look +)",
+    "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #376 Inspector report: 2026-10-05 09:34 EDT)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #370 Inspector report: 2026-10-05 05:34 EDT; open PR #369 Inspector report: 2026-10-05 04:3)",
     "ALIVE td-160 (no heartbeat file; open PR #319 td-160: Blender asset-prep pipeline (Tripo -> Godot-ready))",
-    "ALIVE td-163 (heartbeat stale (929min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (938min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 Ins)",
-    "ALIVE td-173 (heartbeat stale (927min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (972min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (981min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 Ins)",
+    "ALIVE td-173 (heartbeat stale (970min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1"
+    "STALE-RUNS=0"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2078,10 +2063,10 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T13:31:25.142082+00:00",
-   "liveness": "2026-10-05T13:38:13.329463+00:00",
-   "classification-health": "2026-10-05T13:30:49.120203+00:00",
-   "transitions": "2026-10-05T13:30:16.168046+00:00",
+   "board-check": "2026-10-05T14:12:29.047703+00:00",
+   "liveness": "2026-10-05T14:21:35.679420+00:00",
+   "classification-health": "2026-10-05T14:11:53.910489+00:00",
+   "transitions": "2026-10-05T14:11:18.599570+00:00",
    "conflicts": "2026-10-05T13:29:42.846517+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
