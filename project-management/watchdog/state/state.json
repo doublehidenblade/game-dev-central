@@ -739,7 +739,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-05T06:32:20.702842+00:00",
+   "last_browser_check_ts": "2026-10-05T07:17:39.525631+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -783,10 +783,10 @@
   "claude-code:tokyo-drift-3d": {
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
-   "last_classification": "WORKING",
-   "last_classification_ts": "2026-10-05T06:32:20.766911+00:00",
+   "last_classification": "OUT_OF_TOKENS",
+   "last_classification_ts": "2026-10-05T07:17:39.606759+00:00",
    "last_failover_ts": "2026-09-30T03:20:17.258015+00:00",
-   "last_note": "fourth live session titled \"New session\" (NOT the legit trio): Running in Recents, currently streaming, Tripo coupe player-variant work (lamp/mirror fixes). Earlier 01:34 classification mislabeled this URL as main-dev; corrected here. Left untouched \u2014 never nudge/close a working session; may be Crai",
+   "last_note": "fourth session \"New session\" (Tripo coupe player-variant work): \"Session limit reached\" block, resets at 6:10 AM EDT; idle prompt. Left untouched.",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -918,7 +918,8 @@
    "assignments": [],
    "last_task": null,
    "login_fail_notified_ts": "2026-10-04T01:57:59.186411+00:00",
-   "finished_no_pr": true
+   "finished_no_pr": true,
+   "out_of_tokens_since": "2026-10-05T07:17:39.565274+00:00"
   },
   "claude-code:tokyo-drift-3d-textures": {
    "last_class": "STALLED",
@@ -1099,8 +1100,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T06:32:20.720661+00:00",
-   "last_note": "td-125 \"Verify guest trace upload functionality\", Thu 2026-10-01; run completed, PR #268 opened, diff +9,712/-0, idle composer.",
+   "last_classification_ts": "2026-10-05T07:17:39.543536+00:00",
+   "last_note": "\"Verify guest trace upload functionality\" (td-125, Thu 2026-10-01): completed, evidence commit 26beffca, PRs #268/#220 open unmerged; idle composer.",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
