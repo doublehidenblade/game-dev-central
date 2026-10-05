@@ -101,6 +101,14 @@
    "merged_sha": "8265a932ac25",
    "merged_at": "2026-10-04T23:29:36.397243+00:00",
    "summary": "Showa gas-station canopy kit (red fascia, price board, enamel plates, lit kiosk)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-158",
+   "pr": 342,
+   "merged_sha": "a41ed2b1",
+   "merged_at": "2026-10-04T23:58:10.951865+00:00",
+   "summary": "Stylized night lighting rig (sodium streetlights + tunnel glow + indigo sky)"
   }
  ],
  "cleared_at": "2026-10-02T20:54:52.365793+00:00",
