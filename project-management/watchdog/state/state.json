@@ -793,7 +793,7 @@
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
    "last_classification": "OUT_OF_TOKENS",
    "last_classification_ts": "2026-10-05T20:34:50.864313+00:00",
-   "last_failover_ts": "2026-10-05T07:18:43.071101+00:00",
+   "last_failover_ts": "2026-10-05T20:44:12.040563+00:00",
    "last_note": "Untitled \"New session\" (branch claude/new-session-su55f9, Shuto C1 ramp-deck-gap work) stuck at \"Session limit reached\"; main dev session session_01Njf5TDGgwq5dzjZZsR8DW6 FINISHED standing down; Shuto C1 session session_01B2dMtdkXXse3Q2avFLBkVf FINISHED PR#274 merged; texture-imagegen merged. Weekly",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
@@ -2066,16 +2066,16 @@
   "td-178": "done"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T20:29:28.567180+00:00",
+  "ts": "2026-10-05T20:42:58.433960+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-163 (heartbeat stale (1338min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1348min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
-    "ALIVE td-173 (heartbeat stale (1336min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (1353min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (1363min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
+    "ALIVE td-173 (heartbeat stale (1351min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)"
    ],
    "transitions": [
-    "FLIP td-158: open -> merged [silent]"
+    "NO-FLIPS"
    ],
    "classification-health": [
     "STALE-RUNS=0"
@@ -2094,11 +2094,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T20:29:28.567180+00:00",
-   "liveness": "2026-10-05T20:27:40.298666+00:00",
-   "classification-health": "2026-10-05T20:28:03.505530+00:00",
-   "transitions": "2026-10-05T20:27:52.244552+00:00",
-   "conflicts": "2026-10-05T20:27:44.523257+00:00",
+   "board-check": "2026-10-05T20:42:58.433960+00:00",
+   "liveness": "2026-10-05T20:42:42.099065+00:00",
+   "classification-health": "2026-10-05T20:42:54.858576+00:00",
+   "transitions": "2026-10-05T20:42:51.463217+00:00",
+   "conflicts": "2026-10-05T20:42:48.380259+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }

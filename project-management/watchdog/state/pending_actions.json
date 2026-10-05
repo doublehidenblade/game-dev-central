@@ -1,5 +1,13 @@
 {
- "actions": [],
+ "actions": [
+  {
+   "type": "steer-codex",
+   "session": "codex:tokyo-drift-3d",
+   "message": "Re-curated 2026-10-01 ~19:10Z \u2014 the 2026-09-29 curation below is STALE, do not use it. DO NOT take: td-141 (Tripo traffic fleet \u2014 Muse coordinator actively rebuilding the 12 cars in Blender, do not duplicate), td-119 (Showa environment placement \u2014 Codex Tokyo steered 18:10Z, may still be working; never steal a working session \u2014 re-verify idle before steering), td-138 (hero player car stage 4 \u2014 worker active), td-137 (Shuto split/merge \u2014 worker active, PR #249), td-140 (UI rework \u2014 worker active 2026-10-01), td-054 (explicit no-redispatch per Craig), td-126 (merged). shuto-c1's stranded context: it was checking CI on merge commit 4f86564 then continuing td-045 \u2014 adopt td-045 ONLY if the board shows it open and unowned. Otherwise read the Tokyo board (doublehidenblade/game-dev-central project-management/boards/tokyo-drift-3d.md) for the top P0 open+unowned task (match status-cell prefixes; skip done/merged/closed rows). SINGLE TASK ONLY per one-bug-one-task (Craig 2026-09-23) \u2014 never bundle. CI IS workflow_dispatch-ONLY (Craig 2026-09-27): every cost-incurring automation runs solely on his explicit request. NEVER trigger a workflow run yourself \u2014 no gh workflow run, no re-run clicks. If CI is red, fix the cause or file a task; dispatch CI only when Craig explicitly asks. All 3D modeling uses the 3dviz-pro-max skill; task-file hard rules win on conflict (Craig 2026-09-27). NOTE 2026-10-05: Opus 5.5 session owns anime-look / player-Tripo-car / Shuto split-merge-highway; Muse workers are stood down on td-137+td-138. If the board's top P0 open+unowned task falls in those areas, skip it and take the next eligible one.",
+   "failover": true,
+   "queued_at": "2026-10-05T20:44:10.457108+00:00"
+  }
+ ],
  "notes": [
   "steer-codex codex:tokyo-drift-3d popped 2026-09-28T00:51:50Z: STEER_DONE via browser task (td-100 modeling continuation; session was idle post-provisioning checkpoint, new run started on the steered instruction). Do NOT re-steer while the session is working.",
   "dispatch-p3d-069 popped: dispatched directly by main agent via browser task in the 16:0x turn (pickup verification pending); entry removed to prevent duplicate dispatch",
