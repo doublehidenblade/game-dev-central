@@ -179,5 +179,5 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-174 | Gas station canopy kit (cantilever canopy, pump islands, enamel plates) | in_review | — | PR #336 | 2026-10-04 |
 td-175 | Full-scene Showa assembly: screenshot + honest benchmark gap analysis + Gemini iteration consult | in_review | — | #343 | 2026-10-04 | 
 td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (MP direct, SP re-downloads) | open | — | — | 2026-10-04 |
-| td-177 | Bay map: bridge section near the end missing left wall/rail, empty space visible (Craig 2026-10-05, v40) | in_progress | Muse subagent | — | 2026-10-05 |
+| td-177 | Bay map: bridge section near the end missing left wall/rail, empty space visible (Craig 2026-10-05, v40) | in_review | Muse subagent | impl PR #381 | 2026-10-05 |
 | td-178 | Health UI overhaul: visible health bar next to nitro, impact sparks, bar shake, gradual-decrease animation + industry research (Craig 2026-10-05, v40) | rejected | Muse subagent | impl PR #382 — validator FAIL on evidence (sparks frame vacuous, no in-game capture); rework dispatched | 2026-10-05 |
