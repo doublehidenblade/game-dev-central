@@ -1846,7 +1846,12 @@
   "2026-10-05T16:35Z LIVENESS: td-178 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-178.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-178-20261005-163501.md).",
   "2026-10-05T16:36Z LIVENESS: td-160 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-160-20261005-163627.md).",
   "2026-10-05T16:45Z WATCHDOG: deduplicated pending_actions (duplicate DEAD proclamations from concurrent liveness runs queued td-177/td-178 twice); normalized short repo 'tokyo-drift-3d' -> 'doublehidenblade/tokyo-drift-3d' on kept entries. Root cause: STEP 2 body text registers with short repo name, which 404s liveness evidence API paths. Concurrent liveness PID 14258 observed in flight 16:44Z \u2014 one-scheduler rule violated.",
-  "2026-10-05T20:17Z deregistered td-160 (subagent): PRs #319/#385 merged to main, board row done \u2014 worker's work handed off"
+  "2026-10-05T20:17Z deregistered td-160 (subagent): PRs #319/#385 merged to main, board row done \u2014 worker's work handed off",
+  {
+   "ts": "2026-10-05T16:35-04:00",
+   "session": "claude-code:tokyo-drift-3d",
+   "text": "FAILOVER suppressed by main agent. OUT_OF_TOKENS attaches to untitled \"New session\" (branch claude/new-session-su55f9) at the URL recorded as Craig's own Opus session -- identity ambiguous, and Craig's own session must never be failed over. Failover brief also stale (2026-10-01 curation, dead task refs). Main dev session FINISHED/standing down cleanly; no stranded priority work. Awaiting Craig's call on whether the stuck session is his."
+  }
  ],
  "workers": {
   "td-163": {
