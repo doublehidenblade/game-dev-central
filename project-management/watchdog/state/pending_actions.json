@@ -1,5 +1,14 @@
 {
- "actions": [],
+ "actions": [
+  {
+   "type": "dispatch-subagent",
+   "task": "td-160",
+   "task_file": "godot/docs/tasks/td-160.md",
+   "brief": "Validator dispatch for td-160 (FLIP open->in_review 2026-10-05 ~13:42 EDT). See full brief at ~/workspace/agent-watch/hidden_files/briefs/td-160-validator-20261005-1342.md. Paste that brief VERBATIM as your first message; do not edit it. Judge the td-160 Blender asset-prep pipeline submission (tools/blender_prep_anime.py + convention doc) against its completion criteria and evidence only; write per-criterion PASS/FAIL verdicts into the task file verdict field via PR; set status validated or rejected; update only your own board row via PR; never direct-push main; never merge or publish.",
+   "queued_at": "2026-10-05T17:45:39.030434+00:00",
+   "reason": "wake-validator from transitions flip"
+  }
+ ],
  "notes": [
   "steer-codex codex:tokyo-drift-3d popped 2026-09-28T00:51:50Z: STEER_DONE via browser task (td-100 modeling continuation; session was idle post-provisioning checkpoint, new run started on the steered instruction). Do NOT re-steer while the session is working.",
   "dispatch-p3d-069 popped: dispatched directly by main agent via browser task in the 16:0x turn (pickup verification pending); entry removed to prevent duplicate dispatch",
