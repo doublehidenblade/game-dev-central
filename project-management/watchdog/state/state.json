@@ -739,7 +739,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-05T18:02:44.016223+00:00",
+   "last_browser_check_ts": "2026-10-05T18:09:12.307977+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -783,17 +783,17 @@
   "claude-code:tokyo-drift-3d": {
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
-   "last_classification": "OUT_OF_TOKENS",
-   "last_classification_ts": "2026-10-05T18:02:44.070866+00:00",
+   "last_classification": "STALLED",
+   "last_classification_ts": "2026-10-05T18:09:12.392303+00:00",
    "last_failover_ts": "2026-10-05T07:18:43.071101+00:00",
-   "last_note": "texture-imagegen \"Texture imagegen for game assets\": session not running, usage 100%; work complete - td-016/017/018 textures fulfilled via Poly Haven CC0 stock (GEMINI_API_KEY absent, no new imagegen needed), PR #26 merged.",
+   "last_note": "Craig's own Opus session (\"New session\" card, branch claude/new-session-su55f9, PR #375 Merged): Recents marks \"Something went wrong\"; not running, nothing streaming; feed shows session-limit message (resets 5:50pm UTC); weekly usage 55%. DO NOT TOUCH - Craig's session, teacher-student framework.",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
    "last_steer_kind": "standing-delegation-resume",
    "note": "Dispatched td-127 (ping HUD verification) 2026-10-01T11:19Z \u2014 brief typed into session Prompt box verbatim, session went WORKING. Verify-only: fix already on main, prior worker gone. Do not double-dispatch td-127.\n2026-10-02T13:29:08Z DISPATCH QUEUED td-140 (80s-anime UI rework, 2026-10-01 dispatch delivered nothing \u2014 needs re-dispatch; brief typed verbatim into session Prompt box; verify session idle first). Do NOT double-dispatch td-140; do NOT dispatch the td-138 reskin until the GT-R LM Nismo base mesh lands in the repo.",
    "product": "claude-code",
-   "stall_episode_start": "2026-10-05T00:49:08.544331+00:00",
+   "stall_episode_start": "2026-10-05T18:09:12.392320+00:00",
    "steered": [
     {
      "kind": "permission_grant",
@@ -801,7 +801,7 @@
      "ts": "2026-09-24T19:53:48Z"
     }
    ],
-   "task_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
+   "task_url": "https://claude.ai/code/session_01EAM6hZWtfGSLUm2bB8rEXK",
    "workspace": "Default tokyo-drift-3d",
    "last_finished_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
    "last_failover_note": "2026-10-01 ~19:10Z: shuto-c1 OOT genuine (weekly-limit banner, episode since 18:46Z) but FAILOVER not queued \u2014 no stranded open work: its planned td-045 is paused since 2026-09-25 (Craig reprioritized), and the 4f86564 CI check is trivial. Priority brief re-curated 2026-10-01 for any future episode. Trio rotation keeps last_classification=FINISHED so decide stays NOTHING until a fresh OOT-led cycle.",
@@ -921,7 +921,15 @@
    "finished_no_pr": true,
    "out_of_tokens_since": "2026-10-05T18:02:44.044468+00:00",
    "failover_declined_note": "2026-10-05 03:20 EDT: OOT failover assessed and DECLINED (not executed). All 4 Claude sessions hit 100% usage (reset ~06:10 EDT); each stood down cleanly with 'nothing pending' (main-dev: td-126/PR#263 + td-127 merged; shuto-c1: PR#274 merged; texture-imagegen: 6 textures on branch; 4th 'New session': Tripo coupe work idle). No stranded priority work to hand over. Failover brief is 4 days stale (2026-10-01 curation, refs PR#249-era exclusions); dispatch-candidates shows ZERO unowned tasks (all owned/skipped). Steering Codex with the stale brief would manufacture duplicate work. last_failover_ts set to suppress re-fire for this episode; sessions resume on token reset ~06:10 EDT.",
-   "inspected_ts": "2026-10-05T15:30:27.107084+00:00"
+   "inspected_ts": "2026-10-05T15:30:27.107084+00:00",
+   "blockers": {
+    "craig-own-session": {
+     "reason": "",
+     "recorded_at": "2026-10-05T18:09:54.074055+00:00",
+     "surfaced": true,
+     "surfaced_at": "2026-10-05T18:09:54.211779+00:00"
+    }
+   }
   },
   "claude-code:tokyo-drift-3d-textures": {
    "last_class": "STALLED",
@@ -1102,8 +1110,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T18:02:44.031928+00:00",
-   "last_note": "Most recent Recents task \"Verify guest trace upload functionality\" (repo doublehidenblade/tokyo, td-125): testing checklist fully checked, \"Edited 7 files\" diff shown (+9,712 -6), final Summary reports task file moved to in_review and PRs #268/#220 unmerged; idle follow-up box, no Working banner, no",
+   "last_classification_ts": "2026-10-05T18:09:12.322171+00:00",
+   "last_note": "\"Verify guest trace upload functionality\" task: completed summary shown - \"Completed fresh td-125 verification of doublehidenblade/tokyo-drift-3d\" with merged-PR evidence; no Working banner, no live terminal; Codex activity \"Nothing needs attention\".",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
