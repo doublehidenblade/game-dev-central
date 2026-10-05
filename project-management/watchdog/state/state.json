@@ -747,7 +747,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-05T20:34:50.842977+00:00",
+   "last_browser_check_ts": "2026-10-05T20:57:25.942744+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -791,10 +791,10 @@
   "claude-code:tokyo-drift-3d": {
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
-   "last_classification": "OUT_OF_TOKENS",
-   "last_classification_ts": "2026-10-05T20:34:50.864313+00:00",
+   "last_classification": "WORKING",
+   "last_classification_ts": "2026-10-05T20:57:26.004850+00:00",
    "last_failover_ts": "2026-10-05T20:44:12.040563+00:00",
-   "last_note": "Untitled \"New session\" (branch claude/new-session-su55f9, Shuto C1 ramp-deck-gap work) stuck at \"Session limit reached\"; main dev session session_01Njf5TDGgwq5dzjZZsR8DW6 FINISHED standing down; Shuto C1 session session_01B2dMtdkXXse3Q2avFLBkVf FINISHED PR#274 merged; texture-imagegen merged. Weekly",
+   "last_note": "Untitled \"New session\" (branch claude/new-session-su55f9, Shuto C1 ramp-deck-gap work) active again: Running in Recents, Currently streaming message with live tool calls (edited shuto_c1_world.gd, ran commands); session-limit wall gone. Expected trio all idle/complete.",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -1132,8 +1132,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T20:34:50.848878+00:00",
-   "last_note": "Most recent env task \"Verify guest trace upload functionality\" (~Oct 1, 4 days old). Full verification complete, PR#263 draft validated, summary delivered, composer idle.",
+   "last_classification_ts": "2026-10-05T20:57:25.961657+00:00",
+   "last_note": "Most recent task \"Verify guest trace upload functionality\" completed with summary; idle composer, nothing running.",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
