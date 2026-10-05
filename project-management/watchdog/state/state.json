@@ -1814,7 +1814,8 @@
   "2026-10-05T14:22Z deregistered td-138 (subagent): Opus-owned per Craig 2026-10-05: player Tripo car goes to Opus session (PR #375); Muse worker stood down, branch kept",
   "2026-10-05T16:34Z LIVENESS: td-177 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-177.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-177-20261005-163458.md).",
   "2026-10-05T16:35Z LIVENESS: td-178 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-178.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-178-20261005-163501.md).",
-  "2026-10-05T16:36Z LIVENESS: td-160 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-160-20261005-163627.md)."
+  "2026-10-05T16:36Z LIVENESS: td-160 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-160-20261005-163627.md).",
+  "2026-10-05T16:45Z WATCHDOG: deduplicated pending_actions (duplicate DEAD proclamations from concurrent liveness runs queued td-177/td-178 twice); normalized short repo 'tokyo-drift-3d' -> 'doublehidenblade/tokyo-drift-3d' on kept entries. Root cause: STEP 2 body text registers with short repo name, which 404s liveness evidence API paths. Concurrent liveness PID 14258 observed in flight 16:44Z \u2014 one-scheduler rule violated."
  ],
  "workers": {
   "td-163": {
@@ -2029,12 +2030,12 @@
   "td-178": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T16:39:07.582155+00:00",
+  "ts": "2026-10-05T16:45:20.562022+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-163 (heartbeat stale (1110min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1119min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
-    "ALIVE td-173 (heartbeat stale (1108min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (1116min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (1125min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
+    "ALIVE td-173 (heartbeat stale (1114min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)"
    ],
    "transitions": [
@@ -2060,7 +2061,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-05T16:35:37.377448+00:00",
-   "liveness": "2026-10-05T16:39:07.582155+00:00",
+   "liveness": "2026-10-05T16:45:20.562022+00:00",
    "classification-health": "2026-10-05T16:35:35.436662+00:00",
    "transitions": "2026-10-05T16:35:35.196990+00:00",
    "conflicts": "2026-10-05T16:35:34.150190+00:00",
