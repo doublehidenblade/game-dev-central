@@ -1905,7 +1905,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 4
+  "stale_runs": 5
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2076,19 +2076,19 @@
   "td-185": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T22:27:58.040538+00:00",
+  "ts": "2026-10-05T22:45:42.463959+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-163 (heartbeat stale (1458min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1468min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
-    "ALIVE td-173 (heartbeat stale (1456min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (1476min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (1486min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 )",
+    "ALIVE td-173 (heartbeat stale (1474min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=4"
+    "STALE-RUNS=5"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2104,11 +2104,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T22:27:58.040538+00:00",
-   "liveness": "2026-10-05T22:27:41.732629+00:00",
-   "classification-health": "2026-10-05T22:27:50.545089+00:00",
-   "transitions": "2026-10-05T22:27:48.536342+00:00",
-   "conflicts": "2026-10-05T22:27:44.665958+00:00",
+   "board-check": "2026-10-05T22:42:47.844612+00:00",
+   "liveness": "2026-10-05T22:45:42.463959+00:00",
+   "classification-health": "2026-10-05T22:42:43.882720+00:00",
+   "transitions": "2026-10-05T22:42:41.342419+00:00",
+   "conflicts": "2026-10-05T22:42:38.509592+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
