@@ -932,6 +932,11 @@
      "recorded_at": "2026-10-05T18:09:54.074055+00:00",
      "surfaced": true,
      "surfaced_at": "2026-10-05T18:09:54.211779+00:00"
+    },
+    "out-of-tokens": {
+     "reason": "",
+     "recorded_at": "2026-10-05T18:29:23.338438+00:00",
+     "surfaced": true
     }
    }
   },
@@ -2048,20 +2053,20 @@
   "td-173": "open",
   "td-174": "in_review",
   "td-177": "validated",
-  "td-178": "rejected"
+  "td-178": "done"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T18:12:50.531058+00:00",
+  "ts": "2026-10-05T18:31:12.940518+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-163 (heartbeat stale (1203min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1212min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
-    "ALIVE td-173 (heartbeat stale (1201min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (1222min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (1231min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
+    "ALIVE td-173 (heartbeat stale (1220min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)",
     "ALIVE td-160 (no heartbeat file; task-file commit 2bb1523 2026-10-05T17:45)"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-178: rejected -> done [silent]"
    ],
    "classification-health": [
     "STALE-RUNS=0"
@@ -2080,11 +2085,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T18:12:50.531058+00:00",
-   "liveness": "2026-10-05T18:12:37.729947+00:00",
-   "classification-health": "2026-10-05T18:12:46.689251+00:00",
-   "transitions": "2026-10-05T18:12:44.964608+00:00",
-   "conflicts": "2026-10-05T18:12:40.268604+00:00",
+   "board-check": "2026-10-05T18:28:27.097266+00:00",
+   "liveness": "2026-10-05T18:31:12.940518+00:00",
+   "classification-health": "2026-10-05T18:28:23.279704+00:00",
+   "transitions": "2026-10-05T18:28:20.814685+00:00",
+   "conflicts": "2026-10-05T18:28:18.220359+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
