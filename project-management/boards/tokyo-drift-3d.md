@@ -177,5 +177,12 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-172 | Striped awning kit (shotengai storefront canopies, faded/torn variants) | validated | Muse subagent | PR #333 merged 8b90de80 | 2026-10-04 |
 | td-173 | JNR station boards + ticket gates kit (urban + countryside halt) | open | Muse subagent | — | 2026-10-04 |
 | td-174 | Gas station canopy kit (cantilever canopy, pump islands, enamel plates) | in_review | — | PR #336 | 2026-10-04 |
-td-175 | Full-scene Showa assembly: screenshot + honest benchmark gap analysis + Gemini iteration consult | in_review | — | #343 | 2026-10-04 | 
+td-175 | Full-scene Showa assembly: screenshot + honest benchmark gap analysis + Gemini iteration consult | merged 2026-10-04 — PR #343; follow-ups td-177–td-183 filed (inspector PR #372) | Inspector | #343 | 2026-10-05 |
 td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (MP direct, SP re-downloads) | open | — | — | 2026-10-04 |
+| td-177 | Wet-road ground treatment: ground renders as a black void (td-175 follow-up) | open | — | — | 2026-10-05 |
+| td-178 | Ink outlines on everything: zero structural linework, reads as low-poly not cel (td-175 follow-up) | open | — | — | 2026-10-05 |
+| td-179 | Wire td-156 cel kit to real geometry: merged shader applied to nothing (td-175 follow-up) | open | — | — | 2026-10-05 |
+| td-180 | Night light design: sodium practicals; broken td-165 light_pool (td-175 follow-up) | open | — | — | 2026-10-05 |
+| td-181 | Hero car 80s makeover: flat-gray placeholder sedan (td-175 follow-up; depends td-178, td-179) | open | — | — | 2026-10-05 |
+| td-182 | Street-level density: two towers in an empty corridor (td-175 follow-up; depends td-163, td-164) | open | — | — | 2026-10-05 |
+| td-183 | Horizon glow + Tokyo Tower landmark: dead horizon, no vanishing-point anchor (td-175 follow-up) | open | — | — | 2026-10-05 |
