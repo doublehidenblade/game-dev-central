@@ -2039,7 +2039,7 @@
   "td-178": "rejected"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T17:08:50.265636+00:00",
+  "ts": "2026-10-05T17:11:39.342917+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-163 (heartbeat stale (1139min); task-file commit 37e6f1f 2026-10-04T23:41)",
@@ -2049,7 +2049,7 @@
     "GRACE td-160 (dispatched 13min ago; no heartbeat file)"
    ],
    "transitions": [
-    "FLIP td-177: in_progress -> validated [notify-craig]"
+    "NO-FLIPS"
    ],
    "classification-health": [
     "STALE-RUNS=1"
@@ -2071,7 +2071,7 @@
    "board-check": "2026-10-05T17:08:50.265636+00:00",
    "liveness": "2026-10-05T17:08:20.938397+00:00",
    "classification-health": "2026-10-05T17:08:39.599633+00:00",
-   "transitions": "2026-10-05T17:08:33.441048+00:00",
+   "transitions": "2026-10-05T17:11:39.342917+00:00",
    "conflicts": "2026-10-05T17:08:29.575249+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
