@@ -739,7 +739,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-05T07:17:39.525631+00:00",
+   "last_browser_check_ts": "2026-10-05T09:00:29.966900+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -783,10 +783,10 @@
   "claude-code:tokyo-drift-3d": {
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
-   "last_classification": "OUT_OF_TOKENS",
-   "last_classification_ts": "2026-10-05T07:17:39.606759+00:00",
+   "last_classification": "FINISHED",
+   "last_classification_ts": "2026-10-05T09:00:30.009460+00:00",
    "last_failover_ts": "2026-10-05T07:18:43.071101+00:00",
-   "last_note": "fourth session \"New session\" (Tripo coupe player-variant work): \"Session limit reached\" block, resets at 6:10 AM EDT; idle prompt. Left untouched.",
+   "last_note": "texture-imagegen (\"#26 Merged Texture imagegen for game assets\"): 6 CC0 textures committed and merged, work complete",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -801,7 +801,7 @@
      "ts": "2026-09-24T19:53:48Z"
     }
    ],
-   "task_url": "https://claude.ai/code/session_01EAM6hZWtfGSLUm2bB8rEXK",
+   "task_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
    "workspace": "Default tokyo-drift-3d",
    "last_finished_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
    "last_failover_note": "2026-10-01 ~19:10Z: shuto-c1 OOT genuine (weekly-limit banner, episode since 18:46Z) but FAILOVER not queued \u2014 no stranded open work: its planned td-045 is paused since 2026-09-25 (Craig reprioritized), and the 4f86564 CI check is trivial. Priority brief re-curated 2026-10-01 for any future episode. Trio rotation keeps last_classification=FINISHED so decide stays NOTHING until a fresh OOT-led cycle.",
@@ -1101,8 +1101,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T07:17:39.543536+00:00",
-   "last_note": "\"Verify guest trace upload functionality\" (td-125, Thu 2026-10-01): completed, evidence commit 26beffca, PRs #268/#220 open unmerged; idle composer.",
+   "last_classification_ts": "2026-10-05T09:00:29.978767+00:00",
+   "last_note": "\"Verify guest trace upload functionality\" (Thursday, ~4 days ago, td-125): run completed with full Summary, td-125 moved to in_review, PRs #268 and #220 opened/unmerged, idle composer, no activity banner",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
