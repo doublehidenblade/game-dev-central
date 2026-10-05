@@ -1,14 +1,5 @@
 {
- "actions": [
-  {
-   "type": "dispatch-subagent",
-   "task": "td-160",
-   "task_file": "godot/docs/tasks/td-160.md",
-   "brief": "Validator dispatch for td-160 (FLIP open->in_review 2026-10-05 ~13:42 EDT). See full brief at ~/workspace/agent-watch/hidden_files/briefs/td-160-validator-20261005-1342.md. Paste that brief VERBATIM as your first message; do not edit it. Judge the td-160 Blender asset-prep pipeline submission (tools/blender_prep_anime.py + convention doc) against its completion criteria and evidence only; write per-criterion PASS/FAIL verdicts into the task file verdict field via PR; set status validated or rejected; update only your own board row via PR; never direct-push main; never merge or publish.",
-   "queued_at": "2026-10-05T17:45:39.030434+00:00",
-   "reason": "wake-validator from transitions flip"
-  }
- ],
+ "actions": [],
  "notes": [
   "steer-codex codex:tokyo-drift-3d popped 2026-09-28T00:51:50Z: STEER_DONE via browser task (td-100 modeling continuation; session was idle post-provisioning checkpoint, new run started on the steered instruction). Do NOT re-steer while the session is working.",
   "dispatch-p3d-069 popped: dispatched directly by main agent via browser task in the 16:0x turn (pickup verification pending); entry removed to prevent duplicate dispatch",
@@ -313,7 +304,8 @@
   "2026-10-04T21:56Z SUPPRESSION (JUDGMENT-ONLY override): dropped 9 queued dispatch-subagent replacements (td-157, td-158, td-163, td-164, td-165, td-168, td-172, td-173, td-174). Liveness proclaimed them DEAD on 'no heartbeat file', but the main agent holds direct, fresher aliveness evidence the script cannot see: runtime subagent monitor events within the last ~15 min show active tool calls for all 9 (Blender renders, Godot captures, script edits, preview generation). Dispatching replacements would violate never-two-workers-on-the-same-task. Workers re-registered below; main agent now maintains worker-heartbeats/<task>.json from observed monitor events.",
   "2026-10-04T22:24Z SUPPRESSION: dropped queued [('dispatch-codex', 'td-170'), ('dispatch-claude', 'td-171')]. td-170 (PR #325) and td-171 (PR #327) are MERGED and validated; their board rows were reverted to 'open' by stale-base board merges (#261 at 20:59Z, then #265/#266 at 21:51-52Z). Dispatching workers to merged tasks would duplicate completed work. Board rows being repaired to validated via game-dev-central PR.",
   "2026-10-05T16:35Z: dropped bogus dispatch-subagent entries for td-177/td-178 \u2014 liveness DEAD was a script 404 (queried /repos/tokyo-drift-3d/commits without owner). Direct verification: both workers alive (td-177 replacement dispatched 12:30Z after runtime killed first worker; td-178 worker completed PR #382, validator dispatched). Suppressing per JUDGMENT-ONLY override to avoid duplicate workers.",
-  "2026-10-05T16:55Z: popped 3 dispatch-subagent entries. td-177/td-178 SUPPRESSED per JUDGMENT-ONLY override \u2014 replacements already live (td-177 worker dispatched 16:30Z after runtime killed first worker; td-178 rework worker dispatched 16:37Z after validator FAIL; both running, confirmed via subagent list). td-160 DELIVERED \u2014 worker genuinely gone (~21h silent, PR #319 open since 2026-10-04T19:23Z with no images in body); replacement spawned with context migration to continue PR #319, registered."
+  "2026-10-05T16:55Z: popped 3 dispatch-subagent entries. td-177/td-178 SUPPRESSED per JUDGMENT-ONLY override \u2014 replacements already live (td-177 worker dispatched 16:30Z after runtime killed first worker; td-178 rework worker dispatched 16:37Z after validator FAIL; both running, confirmed via subagent list). td-160 DELIVERED \u2014 worker genuinely gone (~21h silent, PR #319 open since 2026-10-04T19:23Z with no images in body); replacement spawned with context migration to continue PR #319, registered.",
+  "dispatch-subagent td-160 validator popped 2026-10-05T17:50Z: main agent had already spawned the validator directly at ~17:41Z (before the 17:42 transitions flip queued this entry). Validator returned PASS, PR #319 squash-merged as 901d8046, closeout PRs #385 (task file) + #295 (board) merged. Entry moot \u2014 popping to prevent duplicate validator dispatch."
  ],
  "dropped": [
   {
