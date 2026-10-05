@@ -161,7 +161,7 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-157 | Painterly texture pass: hand-painted-look road/ground/facade textures replacing flat photographic surfaces | validated | — | PR #330 merged | 2026-10-04 |
 | td-158 | Stylized night lighting rig: deep-blue ambient + amber sodium keys + cool moonlight, chase-cam safe | open — td-155 bible merged (PR #317); unblocked 2026-10-04 | Muse subagent | — | 2026-10-04 |
 | td-159 | Anime post-process grade: WorldEnvironment bloom/color/vignette, perf-safe for web/mobile | blocked — depends on td-158 | — | — | 2026-10-04 |
-| td-160 | Blender asset-prep pipeline: Tripo decimate/normals/separation, PBR stripdown, flat albedo bake, Material ID slots + automation script | open | Muse subagent | — | 2026-10-04 |
+| td-160 | Blender asset-prep pipeline: Tripo decimate/normals/separation, PBR stripdown, flat albedo bake, Material ID slots + automation script | done | Muse subagent | impl PR #319 merged 901d8046 | 2026-10-05 |
 | td-161 | Godot import pipeline: _post_process_import auto-assigning toon shaders by material slot | blocked — depends on td-160, td-156 | — | — | 2026-10-04 |
 | td-162 | Retro screen filter: VHS/film GLSL stack (chromatic aberration + grain) with web perf measurement | blocked — depends on td-159 | — | — | 2026-10-04 |
 
@@ -179,5 +179,5 @@ Related: Shuto C1 publish — the second Shuto URL (https://doublehidenblade.git
 | td-174 | Gas station canopy kit (cantilever canopy, pump islands, enamel plates) | in_review | — | PR #336 | 2026-10-04 |
 td-175 | Full-scene Showa assembly: screenshot + honest benchmark gap analysis + Gemini iteration consult | in_review | — | #343 | 2026-10-04 | 
 td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (MP direct, SP re-downloads) | open | — | — | 2026-10-04 |
-| td-177 | Bay map: bridge section near the end missing left wall/rail, empty space visible (Craig 2026-10-05, v40) | in_progress | Muse subagent | — | — | 2026-10-05 |
-| td-178 | Health UI overhaul: visible health bar next to nitro, impact sparks, bar shake, gradual-decrease animation + industry research (Craig 2026-10-05, v40) | in_review | Muse subagent | impl PR #382 | — | 2026-10-05 |
+| td-177 | Bay map: bridge section near the end missing left wall/rail, empty space visible (Craig 2026-10-05, v40) | validated | — | PR #381 merged 2104e55 | 2026-10-05 |
+| td-178 | Health UI overhaul: visible health bar next to nitro, impact sparks, bar shake, gradual-decrease animation + industry research (Craig 2026-10-05, v40) | in_review | Muse subagent | impl PR #382 — rework done: in-game bump sequence + MP HUD + v40 before + fixed sparks; kicker-font bug fixed; ready for re-validation | 2026-10-05 |
