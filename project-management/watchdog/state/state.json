@@ -739,7 +739,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-05T14:37:00.179661+00:00",
+   "last_browser_check_ts": "2026-10-05T16:13:13.202721+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -783,10 +783,10 @@
   "claude-code:tokyo-drift-3d": {
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
-   "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T14:37:00.219241+00:00",
+   "last_classification": "WORKING",
+   "last_classification_ts": "2026-10-05T16:13:13.312771+00:00",
    "last_failover_ts": "2026-10-05T07:18:43.071101+00:00",
-   "last_note": "texture-imagegen: all six PNGs already committed b3d4162, no new image requests, idle.",
+   "last_note": "duplicate-4th: Recents \"Running New session\" in tokyo-drift-3d workspace; \"Currently streaming message\", \"Working on Phase 2 now\" (Tokyo Tower rendering / shuto_c1_world.gd work); \"Session limit reached\" notice also in stream; usage 97%.",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -801,7 +801,7 @@
      "ts": "2026-09-24T19:53:48Z"
     }
    ],
-   "task_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
+   "task_url": "https://claude.ai/code/session_01EAM6hZWtfGSLUm2bB8rEXK",
    "workspace": "Default tokyo-drift-3d",
    "last_finished_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
    "last_failover_note": "2026-10-01 ~19:10Z: shuto-c1 OOT genuine (weekly-limit banner, episode since 18:46Z) but FAILOVER not queued \u2014 no stranded open work: its planned td-045 is paused since 2026-09-25 (Craig reprioritized), and the 4f86564 CI check is trivial. Priority brief re-curated 2026-10-01 for any future episode. Trio rotation keeps last_classification=FINISHED so decide stays NOTHING until a fresh OOT-led cycle.",
@@ -1102,8 +1102,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T14:37:00.190416+00:00",
-   "last_note": "\"Verify guest trace upload functionality\" (td-125, last run Thursday ~Oct 1): run completed, committed 2ea29ac, opened verification PR #268 and central-board PR #220 (both open/unmerged), idle composer.",
+   "last_classification_ts": "2026-10-05T16:13:13.242182+00:00",
+   "last_note": "\"Verify guest trace upload functionality\" (td-125, Thursday): final summary posted, commit 8cefc9b pushed, PRs #285/#286 opened; idle composer; DONE.",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
@@ -1865,8 +1865,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-177.md",
    "dispatched_at": "2026-10-05T15:39:20.231278+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   },
   "td-178": {
    "kind": "subagent",
@@ -1874,8 +1874,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-178.md",
    "dispatched_at": "2026-10-05T15:39:20.381873+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   }
  },
  "dispatch_denylist": {
@@ -2053,16 +2053,16 @@
   "td-178": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T15:54:04.198364+00:00",
+  "ts": "2026-10-05T16:13:59.109350+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-160 (no heartbeat file; open PR #319 td-160: Blender asset-prep pipeline (Tripo -> Godot-ready))",
-    "ALIVE td-163 (heartbeat stale (1062min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1071min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
-    "ALIVE td-173 (heartbeat stale (1060min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (1084min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (1094min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
+    "ALIVE td-173 (heartbeat stale (1083min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)",
-    "GRACE td-177 (dispatched 12min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-177.md&sha=main)",
-    "GRACE td-178 (dispatched 12min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-178.md&sha=main)"
+    "QUIET(1) td-177 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-177.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)",
+    "QUIET(1) td-178 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-178.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2086,7 +2086,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-05T15:54:04.198364+00:00",
-   "liveness": "2026-10-05T15:51:38.913795+00:00",
+   "liveness": "2026-10-05T16:13:59.109350+00:00",
    "classification-health": "2026-10-05T15:53:21.810351+00:00",
    "transitions": "2026-10-05T15:52:48.308247+00:00",
    "conflicts": "2026-10-05T15:52:12.652929+00:00",
