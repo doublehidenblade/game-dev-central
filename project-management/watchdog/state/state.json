@@ -747,7 +747,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-05T18:09:12.307977+00:00",
+   "last_browser_check_ts": "2026-10-05T19:48:48.633276+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -791,10 +791,10 @@
   "claude-code:tokyo-drift-3d": {
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
-   "last_classification": "STALLED",
-   "last_classification_ts": "2026-10-05T18:09:12.392303+00:00",
+   "last_classification": "WORKING",
+   "last_classification_ts": "2026-10-05T19:48:48.674456+00:00",
    "last_failover_ts": "2026-10-05T07:18:43.071101+00:00",
-   "last_note": "Craig's own Opus session (\"New session\" card, branch claude/new-session-su55f9, PR #375 Merged): Recents marks \"Something went wrong\"; not running, nothing streaming; feed shows session-limit message (resets 5:50pm UTC); weekly usage 55%. DO NOT TOUCH - Craig's session, teacher-student framework.",
+   "last_note": "\"New session\" (branch claude/new-session-su55f9, Shuto C1 work): Running badge, streaming live tool calls (rendering junction exit drive frames); context 64%/1M, weekly usage 56%. Earlier session-limit notice cleared after Craig sent \"Try again\" \u2014 not OUT_OF_TOKENS. This is Craig's own session \u2014 par",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -1132,8 +1132,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T18:09:12.322171+00:00",
-   "last_note": "\"Verify guest trace upload functionality\" task: completed summary shown - \"Completed fresh td-125 verification of doublehidenblade/tokyo-drift-3d\" with merged-PR evidence; no Working banner, no live terminal; Codex activity \"Nothing needs attention\".",
+   "last_classification_ts": "2026-10-05T19:48:48.639557+00:00",
+   "last_note": "Task \"Verify guest trace upload functionality\" (td-125): fully completed, evidence committed 2ea29ac. PR #268 verified MERGED 2026-10-01 via API; central-board PR #220 closed unmerged. Nothing parked.",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
