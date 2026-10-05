@@ -627,6 +627,10 @@
   {
    "ts": "2026-10-04T05:50:00Z",
    "note": "watchdog 2026-10-04 01:41 EDT run: ORPHAN-HELD #282 (td-137) / #292 (td-101) validator routing DEFERRED \u2014 [JUDGMENT-ONLY override] both have live registered subagent owners actively pushing: td-137 opened PR #299 (6-subtask breakdown) 21:19Z and branch docs/td-137-rejection-20260930 is 1 ahead; td-101 subagent ALIVE, #292 updated 00:45Z. Dispatching a validator now would put two agents on the same task file and judge WIP \u2014 'never nudge a working session'. Validator routing fires only when the owner is gone or quiescent. Board-check FAIL: td-138 row Owner empty despite live subagent (dispatched 04:16Z) \u2014 worker/dispatcher must claim its own row via PR."
+  },
+  {
+   "ts": "2026-10-05T18:14:22.321878+00:00",
+   "note": "watchdog 2026-10-05 14:11 EDT: suppressed scripted NUDGE for claude-code:tokyo-drift-3d. Fresh classification (18:09Z) says this is Craig's own Opus session ('New session' card, PR #375 Merged) \u2014 'Something went wrong', not streaming, session-limit message (reset 5:50pm UTC), weekly usage 55%. Note says DO NOT TOUCH - Craig's session, teacher-student framework. Token-limit reset at 17:50 UTC has passed; if it doesn't recover, context migration applies, not a blind nudge. No action queued."
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -2047,17 +2051,17 @@
   "td-178": "rejected"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T18:02:46.275162+00:00",
+  "ts": "2026-10-05T18:12:50.531058+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-163 (heartbeat stale (1188min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1197min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
-    "ALIVE td-173 (heartbeat stale (1186min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (1203min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (1212min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
+    "ALIVE td-173 (heartbeat stale (1201min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)",
     "ALIVE td-160 (no heartbeat file; task-file commit 2bb1523 2026-10-05T17:45)"
    ],
    "transitions": [
-    "FLIP td-160: in_review -> done [silent]"
+    "NO-FLIPS"
    ],
    "classification-health": [
     "STALE-RUNS=0"
@@ -2076,11 +2080,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T17:58:01.936853+00:00",
-   "liveness": "2026-10-05T17:57:41.214882+00:00",
-   "classification-health": "2026-10-05T18:02:46.275162+00:00",
-   "transitions": "2026-10-05T17:57:49.739746+00:00",
-   "conflicts": "2026-10-05T17:57:47.018514+00:00",
+   "board-check": "2026-10-05T18:12:50.531058+00:00",
+   "liveness": "2026-10-05T18:12:37.729947+00:00",
+   "classification-health": "2026-10-05T18:12:46.689251+00:00",
+   "transitions": "2026-10-05T18:12:44.964608+00:00",
+   "conflicts": "2026-10-05T18:12:40.268604+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
