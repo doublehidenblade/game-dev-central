@@ -1895,7 +1895,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 0
+  "stale_runs": 1
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2065,20 +2065,20 @@
   "td-178": "done"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T18:42:58.037044+00:00",
+  "ts": "2026-10-05T18:59:47.890122+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-163 (heartbeat stale (1233min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1243min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
-    "ALIVE td-173 (heartbeat stale (1231min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (1250min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (1260min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
+    "ALIVE td-173 (heartbeat stale (1248min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)",
-    "ALIVE td-160 (no heartbeat file; task-file commit 2bb1523 2026-10-05T17:45)"
+    "ALIVE td-160 (no heartbeat file; task-file commit 2bb1523 2026-10-05T17:45; open PR #388 Inspector report 2026-10-05 14:34 EDT \u2014 td-160 PASS, td-178 )"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=0"
+    "STALE-RUNS=1"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2094,11 +2094,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T18:42:58.037044+00:00",
-   "liveness": "2026-10-05T18:42:46.952794+00:00",
-   "classification-health": "2026-10-05T18:42:54.007136+00:00",
-   "transitions": "2026-10-05T18:42:51.277682+00:00",
-   "conflicts": "2026-10-05T18:42:48.884450+00:00",
+   "board-check": "2026-10-05T18:57:47.411441+00:00",
+   "liveness": "2026-10-05T18:59:47.890122+00:00",
+   "classification-health": "2026-10-05T18:57:43.656688+00:00",
+   "transitions": "2026-10-05T18:57:42.126730+00:00",
+   "conflicts": "2026-10-05T18:57:39.284845+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
