@@ -905,6 +905,10 @@
     {
      "ts": "2026-10-02T12:26:00Z",
      "note": "watchdog 2026-10-02T12:26Z (08:26 EDT run): decide=NOTHING x2 (classifications 41min old, fresh \u2014 no staleness concern). No SHIP (no parked PR; PR #256 td-119 untouched, #253 do-not-ship flag intact; td-138 #260 stage-6 closed unmerged 2026-10-01T16:59Z; #257/#258 stages 4/5 merged, no live stage branches remain). No failover. DISPATCH CHECK (fresh board): NO FIRE \u2014 td-138 outcome-4 blocked on Craig (needs his geometry-iteration vs licensed-base-mesh call; surfaced per blocker); td-054 open but no-blind-redispatch, renderer-capacity missing; td-101 Astra-owned; td-139 in_review (PR #243 awaits Craig's eyeball); td-109/110/111 + td-113 in_review; td-119 post-revert parked pending Craig's direction; td-140 active. Idle FINISHED sessions with no assignable work = not a run defect. Budget OK (net $0.15/$50). pending.json EMPTY. pending_actions empty; no own subagents."
+    },
+    {
+     "ts": "2026-10-05T18:47Z",
+     "note": "watchdog 2026-10-05T18:47Z (14:47 EDT run): decide=NUDGE on STALLED classification (18:09Z) SUPPRESSED by blocked-work discipline + session note: target is Craig's own Opus session (\"New session\" card), marked DO NOT TOUCH per teacher-student framework; classification shows \"Something went wrong\" + session-limit message (weekly usage 55%). Blocked-work discipline: blocker=opus-session-limit parked via watch.py block; blocker-surfaced printed SURFACE (first time on this key) \u2014 surfaced to Craig once in this run's heartbeat. Failover already ledgered 07:18Z today. No nudge, no duplicate surface."
     }
    ],
    "notes": [
@@ -936,6 +940,11 @@
     "out-of-tokens": {
      "reason": "",
      "recorded_at": "2026-10-05T18:29:23.338438+00:00",
+     "surfaced": true
+    },
+    "opus-session-limit": {
+     "reason": "",
+     "recorded_at": "2026-10-05T18:43:56.532177+00:00",
      "surfaced": true
     }
    }
@@ -2056,17 +2065,17 @@
   "td-178": "done"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T18:31:12.940518+00:00",
+  "ts": "2026-10-05T18:42:58.037044+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-163 (heartbeat stale (1222min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1231min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
-    "ALIVE td-173 (heartbeat stale (1220min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (1233min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (1243min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
+    "ALIVE td-173 (heartbeat stale (1231min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)",
     "ALIVE td-160 (no heartbeat file; task-file commit 2bb1523 2026-10-05T17:45)"
    ],
    "transitions": [
-    "FLIP td-178: rejected -> done [silent]"
+    "NO-FLIPS"
    ],
    "classification-health": [
     "STALE-RUNS=0"
@@ -2085,11 +2094,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T18:28:27.097266+00:00",
-   "liveness": "2026-10-05T18:31:12.940518+00:00",
-   "classification-health": "2026-10-05T18:28:23.279704+00:00",
-   "transitions": "2026-10-05T18:28:20.814685+00:00",
-   "conflicts": "2026-10-05T18:28:18.220359+00:00",
+   "board-check": "2026-10-05T18:42:58.037044+00:00",
+   "liveness": "2026-10-05T18:42:46.952794+00:00",
+   "classification-health": "2026-10-05T18:42:54.007136+00:00",
+   "transitions": "2026-10-05T18:42:51.277682+00:00",
+   "conflicts": "2026-10-05T18:42:48.884450+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
