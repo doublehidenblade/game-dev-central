@@ -631,6 +631,10 @@
   {
    "ts": "2026-10-05T18:14:22.321878+00:00",
    "note": "watchdog 2026-10-05 14:11 EDT: suppressed scripted NUDGE for claude-code:tokyo-drift-3d. Fresh classification (18:09Z) says this is Craig's own Opus session ('New session' card, PR #375 Merged) \u2014 'Something went wrong', not streaming, session-limit message (reset 5:50pm UTC), weekly usage 55%. Note says DO NOT TOUCH - Craig's session, teacher-student framework. Token-limit reset at 17:50 UTC has passed; if it doesn't recover, context migration applies, not a blind nudge. No action queued."
+  },
+  {
+   "ts": "2026-10-05T19:29:00Z",
+   "note": "watchdog 2026-10-05T19:29Z (15:29 EDT run): decide=NOTHING codex (inspected+reported), NUDGE on claude STALLED classification SUPPRESSED by blocked-work discipline (unchanged since 18:47Z suppression: target is Craig's own Opus session, DO NOT TOUCH per teacher-student framework; opus-session-limit blocker already surfaced, no re-surface). No SHIP (no parked PR), orphan sweep: no ORPHAN-READY (51 UNKNOWN incl. inspector-report PRs + rejected #358, 4 DRAFT incl. #357 glowup-05 evidence, #253 BLOCKED denylisted). Dispatch: codex ELIGIBLE but all 6 candidates owned or skipped (td-101 Astra, td-119 Muse coordinator, td-158/163/173 Muse subagents, td-054 SKIP, td-138 Opus-owned SKIP) \u2014 no duplicate dispatch. Budget OK 3.1%. 5 subagents ALIVE (td-163/168/173/174-validator/160). Classifications stale 3 runs \u2014 main-agent AND with in-flight browser check before alarming. pending_actions.json empty."
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -1895,7 +1899,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 2
+  "stale_runs": 3
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2065,12 +2069,12 @@
   "td-178": "done"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T19:13:01.739086+00:00",
+  "ts": "2026-10-05T19:29:35.829347+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-163 (heartbeat stale (1263min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1273min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
-    "ALIVE td-173 (heartbeat stale (1261min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (1278min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (1287min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
+    "ALIVE td-173 (heartbeat stale (1276min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)",
     "ALIVE td-160 (no heartbeat file; task-file commit 2bb1523 2026-10-05T17:45; open PR #388 Inspector report 2026-10-05 14:34 EDT \u2014 td-160 PASS, td-178 )"
    ],
@@ -2078,7 +2082,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=2"
+    "STALE-RUNS=3"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2094,11 +2098,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T19:13:01.739086+00:00",
-   "liveness": "2026-10-05T19:12:41.728870+00:00",
-   "classification-health": "2026-10-05T19:12:55.848608+00:00",
-   "transitions": "2026-10-05T19:12:48.187915+00:00",
-   "conflicts": "2026-10-05T19:12:45.141887+00:00",
+   "board-check": "2026-10-05T19:29:35.829347+00:00",
+   "liveness": "2026-10-05T19:27:43.046486+00:00",
+   "classification-health": "2026-10-05T19:27:50.500458+00:00",
+   "transitions": "2026-10-05T19:27:48.215727+00:00",
+   "conflicts": "2026-10-05T19:27:45.515178+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
