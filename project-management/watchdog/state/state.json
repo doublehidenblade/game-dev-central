@@ -747,7 +747,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-05T20:57:25.942744+00:00",
+   "last_browser_check_ts": "2026-10-05T22:53:31.587234+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -791,10 +791,10 @@
   "claude-code:tokyo-drift-3d": {
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
-   "last_classification": "WORKING",
-   "last_classification_ts": "2026-10-05T20:57:26.004850+00:00",
+   "last_classification": "FINISHED",
+   "last_classification_ts": "2026-10-05T22:53:31.657355+00:00",
    "last_failover_ts": "2026-10-05T20:44:12.040563+00:00",
-   "last_note": "Untitled \"New session\" (branch claude/new-session-su55f9, Shuto C1 ramp-deck-gap work) active again: Running in Recents, Currently streaming message with live tool calls (edited shuto_c1_world.gd, ran commands); session-limit wall gone. Expected trio all idle/complete.",
+   "last_note": "texture-imagegen \u2014 final report posted, idle, done",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -809,7 +809,7 @@
      "ts": "2026-09-24T19:53:48Z"
     }
    ],
-   "task_url": "https://claude.ai/code/session_01EAM6hZWtfGSLUm2bB8rEXK",
+   "task_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
    "workspace": "Default tokyo-drift-3d",
    "last_finished_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
    "last_failover_note": "2026-10-01 ~19:10Z: shuto-c1 OOT genuine (weekly-limit banner, episode since 18:46Z) but FAILOVER not queued \u2014 no stranded open work: its planned td-045 is paused since 2026-09-25 (Craig reprioritized), and the 4f86564 CI check is trivial. Priority brief re-curated 2026-10-01 for any future episode. Trio rotation keeps last_classification=FINISHED so decide stays NOTHING until a fresh OOT-led cycle.",
@@ -1132,8 +1132,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T20:57:25.961657+00:00",
-   "last_note": "Most recent task \"Verify guest trace upload functionality\" completed with summary; idle composer, nothing running.",
+   "last_classification_ts": "2026-10-05T22:53:31.602907+00:00",
+   "last_note": "td-125 Verify guest trace upload functionality \u2014 final summary posted, PRs #268 and #220 opened and unmerged, idle composer, done not stalled",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
