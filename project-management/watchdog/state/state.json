@@ -2047,15 +2047,15 @@
   "td-174": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T12:58:42.854367+00:00",
+  "ts": "2026-10-05T13:14:52.605265+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #374 Inspector report: 2026-10-05 08:34 EDT)",
+    "ALIVE td-137 (no heartbeat file; task-file commit 190562c 2026-10-04T18:44; branch docs/td-137-rejection-20260930 1 ahead; open PR #375 td-glowup round 3: Shuto C1 day look +)",
     "ALIVE td-138 (no heartbeat file; branch docs/td-138-file-20260930 1 ahead; open PR #370 Inspector report: 2026-10-05 05:34 EDT; open PR #369 Inspector report: 2026-10-05 04:3)",
     "ALIVE td-160 (no heartbeat file; open PR #319 td-160: Blender asset-prep pipeline (Tripo -> Godot-ready))",
-    "ALIVE td-163 (heartbeat stale (889min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (898min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 Ins)",
-    "ALIVE td-173 (heartbeat stale (887min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (904min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (913min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 Ins)",
+    "ALIVE td-173 (heartbeat stale (902min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)"
    ],
    "transitions": [
@@ -2078,11 +2078,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T12:58:42.854367+00:00",
-   "liveness": "2026-10-05T12:58:09.477279+00:00",
-   "classification-health": "2026-10-05T12:58:34.375709+00:00",
-   "transitions": "2026-10-05T12:58:27.322433+00:00",
-   "conflicts": "2026-10-05T12:58:18.763095+00:00",
+   "board-check": "2026-10-05T13:14:52.605265+00:00",
+   "liveness": "2026-10-05T13:13:28.035083+00:00",
+   "classification-health": "2026-10-05T13:14:32.878035+00:00",
+   "transitions": "2026-10-05T13:14:15.509856+00:00",
+   "conflicts": "2026-10-05T13:13:47.458701+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
