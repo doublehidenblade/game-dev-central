@@ -739,7 +739,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-05T04:06:10.501408+00:00",
+   "last_browser_check_ts": "2026-10-05T04:21:40.974553+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -784,9 +784,9 @@
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T04:06:10.560098+00:00",
+   "last_classification_ts": "2026-10-05T04:21:41.264284+00:00",
    "last_failover_ts": "2026-09-30T03:20:17.258015+00:00",
-   "last_note": "texture-imagegen \u2014 PR #26 merged, six CC0 Poly Haven textures landed/committed; idle Prompt box, Send disabled; usage 100% of session limit, resets ~1:10 AM.",
+   "last_note": "texture-imagegen: final summary complete, agent deliberately stopped. Idle, no streaming.",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -1099,8 +1099,8 @@
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
    "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T04:06:10.516438+00:00",
-   "last_note": "Verify guest trace upload functionality (td-125), most recent Thursday task in repo doublehidenblade/tokyo-drift-3d \u2014 run completed with full summary (45s two-client run, 36 trace batches room DUN5TS p1=18 p2=18, ack-loss robustness verified), evidence+board PRs #268/#220 open unmerged per rules; no",
+   "last_classification_ts": "2026-10-05T04:21:40.985947+00:00",
+   "last_note": "Most recent task \"Verify guest trace upload functionality\" (td-125): run completed, PRs #268 and #220 open/unmerged as required, composer idle.",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
@@ -1805,7 +1805,8 @@
   "2026-10-04T22:58Z LIVENESS: td-158 proclaimed DEAD (2 quiet cycles; heartbeat stale (48min)). Replacement dispatch-subagent queued (brief td-158-20261004-225820.md).",
   "2026-10-04T23:05Z deregistered td-157 (subagent): PR #330 validated and merged; board row 'validated \u2014 PR #330 merged'",
   "2026-10-04T23:05Z deregistered td-164 (subagent): PR #335 validated and merged; board row 'validated \u2014 PR #335 merged'",
-  "2026-10-04T23:29Z deregistered td-174 (subagent): merged PR #336"
+  "2026-10-04T23:29Z deregistered td-174 (subagent): merged PR #336",
+  "2026-10-05T00:19Z classification reported a FOURTH claude-code session OUT_OF_TOKENS (session_01EAM6hZWtfGSLUm2bB8rEXK, branch claude/new-session-su55f9, td-153 coupe rear-lens): this is CRAIGS OWN Opus 5.5 session (known out-of-tokens since 2026-10-05, resets ~1:10 AM), NOT a duplicate worker. Never nudge/steer/failover it; its OUT_OF_TOKENS line is deliberately excluded from classify-report so the claude-code:tokyo-drift-3d ledger is never pointed at his session."
  ],
  "workers": {
   "td-137": {
