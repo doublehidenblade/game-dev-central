@@ -1851,6 +1851,11 @@
    "ts": "2026-10-05T16:35-04:00",
    "session": "claude-code:tokyo-drift-3d",
    "text": "FAILOVER suppressed by main agent. OUT_OF_TOKENS attaches to untitled \"New session\" (branch claude/new-session-su55f9) at the URL recorded as Craig's own Opus session -- identity ambiguous, and Craig's own session must never be failed over. Failover brief also stale (2026-10-01 curation, dead task refs). Main dev session FINISHED/standing down cleanly; no stranded priority work. Awaiting Craig's call on whether the stuck session is his."
+  },
+  {
+   "ts": "2026-10-05T16:50-04:00",
+   "session": "codex:tokyo-drift-3d",
+   "text": "Dropped queued steer-codex failover (16:45 cron re-queued it). Same suppression as 16:35: target session identity ambiguous (may be Craig's own Opus session \u2014 never fail over his sessions), brief stale (2026-10-01 curation). No priority work stranded: main dev FINISHED standing down. Failover stays held until Craig identifies the stuck session."
   }
  ],
  "workers": {
