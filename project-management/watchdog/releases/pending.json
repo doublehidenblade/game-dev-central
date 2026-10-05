@@ -1,5 +1,14 @@
 {
- "pending": [],
+ "pending": [
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-177",
+   "pr": 381,
+   "merged_sha": "2104e55",
+   "merged_at": "2026-10-05T17:09:20.310649+00:00",
+   "summary": "Bay bridge: solid left parapet added near bridge end (validator PASS)"
+  }
+ ],
  "cleared_at": "2026-10-05T05:31:12.857674+00:00",
  "cleared_note": "v38 live 2026-10-05: all 13 merged PRs (#282-#342) merged before v38's publish (04:41 UTC) and are in the live build; v39 (05:05 UTC) added no game content"
 }
