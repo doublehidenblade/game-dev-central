@@ -1868,25 +1868,16 @@
   "2026-10-06T00:05Z WATCHDOG RECONCILIATION: 4 stale subagent registrations deregistered after API verification. td-163 (PR #331 merged 2026-10-04T23:41Z), td-168 (PR #334 23:26Z), td-173 (PR #338 23:36Z), td-174-validator (PR #336 23:29Z) \u2014 all 4 merge SHAs are ancestors of v41 live SHA 05a8507 (published 2026-10-05T22:13Z at Craig's request); work is LIVE. Inspector verdicts: td-168 PASS, td-174 WEAK (LED price-board gap open, brief PR #344 unmerged). Stale heartbeats ~26h + stale board rows (open/in-review) defeated liveness terminal detection; signal-B has no recency bound (task-file commits = the merges themselves). Board rows td-163/168/173/174 need hygiene PR (status->merged, owner cleared) \u2014 workers update own rows via PR, watchdog does not touch. ALSO STALE: watch.py pending ledger still lists PR #381 td-177 as merged-not-live \u2014 its merge SHA 2104e551 is in the v41 live tree; no pending-published subcommand exists to clear it (machinery gap, flagged for main agent). game-releases/pending.json correctly cleared 22:13Z.",
   "2026-10-06T00:30Z SHUTO-C1 PARK + STALLED TRIO GAP (main agent): shuto-c1 (01B2dMtdkXXse3Q2avFLBkVf) intentionally parked awaiting Craig's design answers \u2014 never nudge. STALLED branch lacks the OOT trio guard; keep the live WORKING line last in classify-report files.",
   "2026-10-06T03:00Z deregistered td-188 (subagent): PR #403 open, validator flow",
-  "2026-10-06T03:00Z deregistered td-189 (subagent): PR #406 open, validator flow"
+  "2026-10-06T03:00Z deregistered td-189 (subagent): PR #406 open, validator flow",
+  "2026-10-06T03:12Z LIVENESS: td-190 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-190-20261006-031220.md)."
  ],
- "workers": {
-  "td-190": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-190.md",
-   "dispatched_at": "2026-10-06T02:21:53.791819+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  }
- },
+ "workers": {},
  "dispatch_denylist": {
   "td-138": "Opus-owned per Craig 2026-10-05 (player Tripo car); Muse fleet does continuation from Opus notes only",
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 1
+  "stale_runs": 2
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2057,23 +2048,21 @@
   "td-185": "open",
   "td-186": "open",
   "td-187": "open",
-  "td-188": "open",
+  "td-188": "in_review",
   "td-189": "open",
   "td-190": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T02:58:08.960011+00:00",
+  "ts": "2026-10-06T03:12:26.227797+00:00",
   "checks": {
    "liveness": [
-    "QUIET(1) td-188 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-188.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)",
-    "QUIET(1) td-189 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-189.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)",
-    "QUIET(1) td-190 (no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)"
+    "DEAD td-190 (replacement queued; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-188: open -> in_review [wake-validator]"
    ],
    "classification-health": [
-    "STALE-RUNS=1"
+    "STALE-RUNS=2"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2089,11 +2078,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T02:58:08.960011+00:00",
-   "liveness": "2026-10-06T02:57:42.201427+00:00",
-   "classification-health": "2026-10-06T02:58:03.806817+00:00",
-   "transitions": "2026-10-06T02:57:54.390891+00:00",
-   "conflicts": "2026-10-06T02:57:45.949156+00:00",
+   "board-check": "2026-10-06T03:12:26.227797+00:00",
+   "liveness": "2026-10-06T03:12:20.267492+00:00",
+   "classification-health": "2026-10-06T03:12:23.978220+00:00",
+   "transitions": "2026-10-06T03:12:23.820587+00:00",
+   "conflicts": "2026-10-06T03:12:22.972837+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
