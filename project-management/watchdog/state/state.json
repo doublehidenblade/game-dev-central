@@ -1887,7 +1887,8 @@
   "2026-10-06T04:40Z LIVENESS: td-191 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-191.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-191-20261006-044037.md).",
   "2026-10-06T04:45Z: false-DEAD suppression for td-191 subagent \u2014 liveness proclaimed DEAD on the short-repo-name evidence bug (fixed same day); verified via GitHub API that PR #410 (feat/td-191-autoload) is open, non-draft, mergeable clean, with the fix commit pushed 04:12Z \u2014 worker is ALIVE. No replacement dispatched, no dispatch-subagent entry queued; re-registered worker. The replacement brief liveness-briefs/td-191-20261006-044037.md is stale \u2014 do not use it for a replacement dispatch.",
   "2026-10-06T05:32Z deregistered td-193 (subagent): PR #414 merged to main",
-  "2026-10-06T15:43Z deregistered td-194 (subagent): work complete, PR #430 in_review"
+  "2026-10-06T15:43Z deregistered td-194 (subagent): work complete, PR #430 in_review",
+  "2026-10-06T15:46Z deregistered td-196 (subagent): work complete, PR #432 in_review"
  ],
  "workers": {
   "td-192": {
@@ -1914,15 +1915,6 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-195.md",
    "dispatched_at": "2026-10-06T15:21:09.276622+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
-  },
-  "td-196": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-196.md",
-   "dispatched_at": "2026-10-06T15:21:09.515107+00:00",
    "quiet_cycles": 0,
    "last_verdict": "grace"
   }
