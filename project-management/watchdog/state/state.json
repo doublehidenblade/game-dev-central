@@ -1930,7 +1930,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 10
+  "stale_runs": 11
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2101,29 +2101,32 @@
   "td-185": "open",
   "td-186": "open",
   "td-187": "open",
-  "td-188": "in_review",
-  "td-189": "validated",
-  "td-190": "validated",
+  "td-188": "in_progress",
+  "td-189": "in_progress",
+  "td-190": "in_progress",
   "td-191": "open",
   "td-192": "open",
   "td-193": "validated",
   "td-194": "merged",
   "td-195": "open",
-  "td-196": "merged"
+  "td-196": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T23:13:07.556450+00:00",
+  "ts": "2026-10-06T23:28:34.784826+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
     "ALIVE td-191 (no heartbeat file; branch feat/td-191-autoload 1 ahead; branch file/td-191-task 1 ahead; open PR #410 td-191: fix ## comments in project.godot [autoload] (OffRo)",
-    "ALIVE td-195 (no heartbeat file; open PR #433 td-195: cop cars collide with world and vehicles; Tripo poli)"
+    "ALIVE td-195 (no heartbeat file; task-file commit 58516c0 2026-10-06T23:15; open PR #433 td-195: cop cars collide with world and vehicles; Tripo poli)"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-188: in_review -> in_progress [silent]",
+    "FLIP td-189: validated -> in_progress [silent]",
+    "FLIP td-190: validated -> in_progress [silent]",
+    "FLIP td-196: merged -> in_progress [silent]"
    ],
    "classification-health": [
-    "STALE-RUNS=10"
+    "STALE-RUNS=11"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2139,11 +2142,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T23:13:07.556450+00:00",
-   "liveness": "2026-10-06T23:12:39.256246+00:00",
-   "classification-health": "2026-10-06T23:12:54.137726+00:00",
-   "transitions": "2026-10-06T23:12:47.936861+00:00",
-   "conflicts": "2026-10-06T23:12:43.274737+00:00",
+   "board-check": "2026-10-06T23:28:34.784826+00:00",
+   "liveness": "2026-10-06T23:28:16.986223+00:00",
+   "classification-health": "2026-10-06T23:28:30.764886+00:00",
+   "transitions": "2026-10-06T23:28:26.170932+00:00",
+   "conflicts": "2026-10-06T23:28:22.350879+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
