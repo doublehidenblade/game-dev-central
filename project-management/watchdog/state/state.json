@@ -1894,7 +1894,7 @@
    "task_file": "godot/docs/tasks/td-192.md",
    "dispatched_at": "2026-10-06T04:19:42.404556+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
@@ -2080,11 +2080,10 @@
   "td-192": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T04:40:40.219749+00:00",
+  "ts": "2026-10-06T04:46:07.972028+00:00",
   "checks": {
    "liveness": [
-    "DEAD td-191 (replacement queued; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-191.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)",
-    "GRACE td-192 (dispatched 21min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-192.md&sha=main)"
+    "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)"
    ],
    "transitions": [
     "FLIP td-189: in_review -> validated [notify-craig]"
@@ -2108,10 +2107,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-06T04:39:10.283551+00:00",
-   "liveness": "2026-10-06T04:40:40.219749+00:00",
+   "liveness": "2026-10-06T04:46:07.972028+00:00",
    "classification-health": "2026-10-06T04:39:06.136112+00:00",
    "transitions": "2026-10-06T04:39:00.893767+00:00",
-   "conflicts": "2026-10-06T04:38:58.109054+00:00",
+   "conflicts": "2026-10-06T04:46:01.263794+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
