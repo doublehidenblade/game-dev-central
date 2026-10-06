@@ -1014,6 +1014,10 @@ def cmd_liveness():
     hb_dir = LIVENESS_HEARTBEAT_DIR
     for task, w in list(workers.items()):
         kind, repo = w.get("kind"), w.get("repo")
+        # Registrations carry the short repo name (e.g. "tokyo-drift-3d"); the
+        # GitHub API needs owner/repo — normalize before any evidence call.
+        if repo and "/" not in repo:
+            repo = f"doublehidenblade/{repo}"
         task_file = w.get("task_file")
         dispatched_dt = parse_ts(w.get("dispatched_at"))
         age_min = (now() - dispatched_dt).total_seconds() / 60 if dispatched_dt else 9999
@@ -3187,6 +3191,89 @@ def cmd_transitions(args):
         print("NO-FLIPS")
 
 
+def _pr_number_from_cell(cell):
+    import re
+    m = re.search(r"pull/(\d+)", cell) or re.search(r"#(\d+)", cell)
+    return int(m.group(1)) if m else None
+
+
+def _is_bot_user(u):
+    return (u or {}).get("type") == "Bot" or (u or {}).get("login", "").endswith("[bot]")
+
+
+def cmd_review_sweep(args):
+    """review-sweep [game] — the 1-hour review-queue rule (Craig 2026-10-06).
+    in_review -> validator dispatch previously had no delivery mechanism:
+    transitions printed wake-validator as a heartbeat label only, so
+    td-188/PR #403 sat 15h with no validator until Craig caught it.
+    For every board row with prefix in_review and an open PR: checks for
+    validator activity (any non-bot review submitted) and for a recorded
+    validator dispatch at the current head SHA. Prints VALIDATOR-DUE
+    <task> <pr> idle=<h>h head=<sha> when the PR has been idle >60min with
+    no validator, else VALIDATOR-OK <task> <pr> <reason>. Never dispatches —
+    the cron body acts on each DUE line, then records it."""
+    game = args[0] if args else "tokyo-drift-3d"
+    repo_full = REPOS[game]
+    state = load_state()
+    vd = state.setdefault("validators_dispatched", {})
+    idle_limit = 3600
+    now_dt = now()
+    for r in _board_rows(game):
+        if r["prefix"] != "in_review":
+            continue
+        task = r["task"]
+        prn = _pr_number_from_cell(r.get("pr") or "")
+        if not prn:
+            print(f"VALIDATOR-OK {task} none no-pr-on-board")
+            continue
+        try:
+            pr = _gh(f"/repos/{repo_full}/pulls/{prn}")
+        except Exception:
+            print(f"VALIDATOR-OK {task} {prn} pr-unreadable")
+            continue
+        if pr.get("state") != "open":
+            print(f"VALIDATOR-OK {task} {prn} pr-{pr.get('state')}")
+            continue
+        head_sha = (pr.get("head") or {}).get("sha", "")
+        rec = vd.get(task) or {}
+        if rec.get("pr") == prn and rec.get("head_sha") == head_sha:
+            print(f"VALIDATOR-OK {task} {prn} validator-dispatched")
+            continue
+        try:
+            reviews = _gh(f"/repos/{repo_full}/pulls/{prn}/reviews?per_page=30")
+        except Exception:
+            reviews = []
+        human_reviews = [x for x in reviews
+                         if x.get("state") in ("APPROVED", "CHANGES_REQUESTED", "COMMENTED")
+                         and not _is_bot_user(x.get("user"))]
+        if human_reviews:
+            print(f"VALIDATOR-OK {task} {prn} under-review")
+            continue
+        try:
+            updated = datetime.fromisoformat(pr["updated_at"].replace("Z", "+00:00"))
+        except Exception:
+            print(f"VALIDATOR-OK {task} {prn} bad-timestamp")
+            continue
+        idle_s = (now_dt - updated).total_seconds()
+        if idle_s > idle_limit:
+            print(f"VALIDATOR-DUE {task} {prn} idle={idle_s/3600:.1f}h head={head_sha[:8]}")
+        else:
+            print(f"VALIDATOR-OK {task} {prn} active-{idle_s/60:.0f}m-ago")
+
+
+def cmd_validator_dispatched(args):
+    """validator-dispatched <task> <pr> <head-sha> — record a validator
+    dispatch so review-sweep never double-dispatches at the same head.
+    A new push (new head SHA) re-arms the sweep: the next idle hour after
+    a re-push dispatches a fresh re-review."""
+    task, prn, head_sha = args[0], int(args[1]), args[2]
+    state = load_state()
+    vd = state.setdefault("validators_dispatched", {})
+    vd[task] = {"pr": prn, "head_sha": head_sha, "at": now().isoformat()}
+    save_state(state)
+    print(f"VALIDATOR-RECORDED {task} PR #{prn} head={head_sha[:8]}")
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
@@ -3318,6 +3405,10 @@ def main():
         _capture_verdicts("board-check", cmd_board_check, sys.argv[2:])
     elif cmd == "validator-check":
         cmd_validator_check(sys.argv[2:])
+    elif cmd == "review-sweep":
+        cmd_review_sweep(sys.argv[2:])
+    elif cmd == "validator-dispatched":
+        cmd_validator_dispatched(sys.argv[2:])
     elif cmd == "state-pull":
         cmd_state_pull(sys.argv[2:])
     elif cmd == "state-push":
