@@ -1888,7 +1888,8 @@
   "2026-10-06T04:45Z: false-DEAD suppression for td-191 subagent \u2014 liveness proclaimed DEAD on the short-repo-name evidence bug (fixed same day); verified via GitHub API that PR #410 (feat/td-191-autoload) is open, non-draft, mergeable clean, with the fix commit pushed 04:12Z \u2014 worker is ALIVE. No replacement dispatched, no dispatch-subagent entry queued; re-registered worker. The replacement brief liveness-briefs/td-191-20261006-044037.md is stale \u2014 do not use it for a replacement dispatch.",
   "2026-10-06T05:32Z deregistered td-193 (subagent): PR #414 merged to main",
   "2026-10-06T15:43Z deregistered td-194 (subagent): work complete, PR #430 in_review",
-  "2026-10-06T15:46Z deregistered td-196 (subagent): work complete, PR #432 in_review"
+  "2026-10-06T15:46Z deregistered td-196 (subagent): work complete, PR #432 in_review",
+  "2026-10-06T16:13Z LIVENESS: td-195 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-195-20261006-161334.md)."
  ],
  "workers": {
   "td-192": {
@@ -1908,24 +1909,6 @@
    "dispatched_at": "2026-10-06T04:47:44.760943+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-195": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-195.md",
-   "dispatched_at": "2026-10-06T15:21:09.276622+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
-  "td-101": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-101.md",
-   "dispatched_at": "2026-10-06T16:02:45.692910+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -1933,7 +1916,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 8
+  "stale_runs": 0
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2115,18 +2098,19 @@
   "td-196": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T15:58:11.956291+00:00",
+  "ts": "2026-10-06T16:14:26.365033+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
     "ALIVE td-191 (no heartbeat file; branch feat/td-191-autoload 1 ahead; branch file/td-191-task 1 ahead; open PR #410 td-191: fix ## comments in project.godot [autoload] (OffRo)",
-    "QUIET(1) td-195 (no heartbeat file)"
+    "DEAD td-195 (replacement queued; no heartbeat file)",
+    "DROPPED td-101 (task status 'validated')"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=8"
+    "STALE-RUNS=0"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2142,11 +2126,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T15:58:11.956291+00:00",
-   "liveness": "2026-10-06T15:57:46.613892+00:00",
-   "classification-health": "2026-10-06T15:58:03.762498+00:00",
-   "transitions": "2026-10-06T15:58:01.584728+00:00",
-   "conflicts": "2026-10-06T15:57:53.959833+00:00",
+   "board-check": "2026-10-06T16:14:26.365033+00:00",
+   "liveness": "2026-10-06T16:13:35.975341+00:00",
+   "classification-health": "2026-10-06T16:14:14.482545+00:00",
+   "transitions": "2026-10-06T16:13:55.384173+00:00",
+   "conflicts": "2026-10-06T16:13:46.177627+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
