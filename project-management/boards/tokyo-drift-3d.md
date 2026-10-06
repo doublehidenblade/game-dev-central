@@ -188,3 +188,4 @@ td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (M
 | td-189 | Civilian traffic AI on the road graph, braking/yielding, parked cars (basic Godot models) (Craig 2026-10-05) | rejected | Muse subagent | PR #406 | 2026-10-05 |
 | td-190 | GTA-like cop/wanted system: crime subscription, pursuit, bust, decay (Craig 2026-10-05) | validated | Muse subagent | PR #405 | 2026-10-05 |
 | td-191 | project.godot [autoload] ##-comment fix: convert to ; comments, verify bare-name resolution (Craig 2026-10-05) | open | unassigned | — | 2026-10-05 |
+| td-192 | Cop cars swarm player / overlap models: separation steering + stand-off ring (Craig playtest 2026-10-06, follows td-190) | open | unassigned | — | 2026-10-06 |
