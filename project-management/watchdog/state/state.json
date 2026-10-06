@@ -1872,7 +1872,26 @@
   "2026-10-06T03:12Z LIVENESS: td-190 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-190-20261006-031220.md).",
   "2026-10-06T03:23Z deregistered td-188-validator (subagent): validation complete: td-188 VALIDATED, PR #403 verdict recorded, board PR #305 filed"
  ],
- "workers": {},
+ "workers": {
+  "td-189-validator": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-189.md",
+   "dispatched_at": "2026-10-06T03:38:56.019643+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-190-validator": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-190.md",
+   "dispatched_at": "2026-10-06T03:38:56.207769+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  }
+ },
  "dispatch_denylist": {
   "td-138": "Opus-owned per Craig 2026-10-05 (player Tripo car); Muse fleet does continuation from Opus notes only",
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
