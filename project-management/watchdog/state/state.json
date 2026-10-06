@@ -639,6 +639,10 @@
   {
    "ts": "2026-10-06T04:45:00Z",
    "note": "SUPPRESSED script-queued td-191 replacement (JUDGMENT-ONLY liveness override, 2026-10-06 ~04:45Z): liveness printed DEAD and queued dispatch-subagent, but the verdict is false \u2014 direct evidence the script can't see: worker opened PR #410 (feat/td-191-autoload, non-draft) at 04:12:49Z, updated 04:15:34Z, task file status in_review on branch. Root cause: watch.py liveness line ~1048 passes short repo name to _worker_evidence -> all gh checks hit /repos/tokyo-drift-3d/... (no owner) -> 404, so task-file/branch/PR evidence is invisible and no-heartbeat workers get killed. Dropped the queued entry; replacement would have duplicated a live/delivered worker. watch.py bug NOT fixed locally (script is mirrored from game-dev-central) \u2014 needs a proper repo-side fix; td-192 (dispatched 04:19:42Z) faces the same false-DEAD risk after grace expires."
+  },
+  {
+   "ts": "2026-10-06T16:55:00Z",
+   "note": "watchdog FALSE-DEAD SUPPRESSION td-195 (judgment-only override, 2026-10-06 ~12:41 EDT run): worker proclaimed DEAD 16:13:34Z after 2 quiet cycles (no heartbeat file), replacement dispatch-subagent queued. Direct fresher evidence the script couldn't see: worker pushed commit 4a499b53 'td-195: cop cars collide with world and vehicles; Tripo police asset' to branch td-195-cop-collision at 16:17:34Z (4 min AFTER the DEAD verdict), open PR #433 updated 16:23Z. Dropped the queued dispatch-subagent entry (no duplicate worker spawned); re-registered the worker to repair the liveness signal. Watch: still no heartbeat file \u2014 if it stays silent with no commits for 2 more cycles, the DEAD route refires legitimately."
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -933,7 +937,7 @@
    ],
    "assignments": [],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-06T10:42:51.935389+00:00",
+   "login_fail_notified_ts": "2026-10-06T16:45:47.920435+00:00",
    "finished_no_pr": true,
    "out_of_tokens_since": "2026-10-05T20:34:50.864329+00:00",
    "failover_declined_note": "2026-10-05 03:20 EDT: OOT failover assessed and DECLINED (not executed). All 4 Claude sessions hit 100% usage (reset ~06:10 EDT); each stood down cleanly with 'nothing pending' (main-dev: td-126/PR#263 + td-127 merged; shuto-c1: PR#274 merged; texture-imagegen: 6 textures on branch; 4th 'New session': Tripo coupe work idle). No stranded priority work to hand over. Failover brief is 4 days stale (2026-10-01 curation, refs PR#249-era exclusions); dispatch-candidates shows ZERO unowned tasks (all owned/skipped). Steering Codex with the stale brief would manufacture duplicate work. last_failover_ts set to suppress re-fire for this episode; sessions resume on token reset ~06:10 EDT.",
@@ -1910,6 +1914,15 @@
    "dispatched_at": "2026-10-06T04:47:44.760943+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
+  },
+  "td-195": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-195.md",
+   "dispatched_at": "2026-10-06T16:58:09.953709+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
@@ -2099,11 +2112,12 @@
   "td-196": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T16:44:17.687848+00:00",
+  "ts": "2026-10-06T16:58:34.306821+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
-    "ALIVE td-191 (no heartbeat file; branch feat/td-191-autoload 1 ahead; branch file/td-191-task 1 ahead; open PR #410 td-191: fix ## comments in project.godot [autoload] (OffRo)"
+    "ALIVE td-191 (no heartbeat file; branch feat/td-191-autoload 1 ahead; branch file/td-191-task 1 ahead; open PR #410 td-191: fix ## comments in project.godot [autoload] (OffRo)",
+    "ALIVE td-195 (no heartbeat file; open PR #433 td-195: cop cars collide with world and vehicles; Tripo poli)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2126,7 +2140,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-06T16:44:17.687848+00:00",
-   "liveness": "2026-10-06T16:43:09.314161+00:00",
+   "liveness": "2026-10-06T16:58:34.306821+00:00",
    "classification-health": "2026-10-06T16:44:09.548871+00:00",
    "transitions": "2026-10-06T16:43:22.909312+00:00",
    "conflicts": "2026-10-06T16:43:16.210883+00:00",
