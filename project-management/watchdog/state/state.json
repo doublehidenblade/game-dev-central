@@ -1868,7 +1868,35 @@
   "2026-10-06T00:05Z WATCHDOG RECONCILIATION: 4 stale subagent registrations deregistered after API verification. td-163 (PR #331 merged 2026-10-04T23:41Z), td-168 (PR #334 23:26Z), td-173 (PR #338 23:36Z), td-174-validator (PR #336 23:29Z) \u2014 all 4 merge SHAs are ancestors of v41 live SHA 05a8507 (published 2026-10-05T22:13Z at Craig's request); work is LIVE. Inspector verdicts: td-168 PASS, td-174 WEAK (LED price-board gap open, brief PR #344 unmerged). Stale heartbeats ~26h + stale board rows (open/in-review) defeated liveness terminal detection; signal-B has no recency bound (task-file commits = the merges themselves). Board rows td-163/168/173/174 need hygiene PR (status->merged, owner cleared) \u2014 workers update own rows via PR, watchdog does not touch. ALSO STALE: watch.py pending ledger still lists PR #381 td-177 as merged-not-live \u2014 its merge SHA 2104e551 is in the v41 live tree; no pending-published subcommand exists to clear it (machinery gap, flagged for main agent). game-releases/pending.json correctly cleared 22:13Z.",
   "2026-10-06T00:30Z SHUTO-C1 PARK + STALLED TRIO GAP (main agent): shuto-c1 (01B2dMtdkXXse3Q2avFLBkVf) intentionally parked awaiting Craig's design answers \u2014 never nudge. STALLED branch lacks the OOT trio guard; keep the live WORKING line last in classify-report files."
  ],
- "workers": {},
+ "workers": {
+  "td-188": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-188.md",
+   "dispatched_at": "2026-10-06T02:21:53.458493+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-189": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-189.md",
+   "dispatched_at": "2026-10-06T02:21:53.591378+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-190": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-190.md",
+   "dispatched_at": "2026-10-06T02:21:53.791819+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  }
+ },
  "dispatch_denylist": {
   "td-138": "Opus-owned per Craig 2026-10-05 (player Tripo car); Muse fleet does continuation from Opus notes only",
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
