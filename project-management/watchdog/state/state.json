@@ -1921,7 +1921,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 0
+  "stale_runs": 1
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2100,18 +2100,18 @@
   "td-193": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T05:12:59.123635+00:00",
+  "ts": "2026-10-06T05:28:05.580697+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
     "ALIVE td-191 (no heartbeat file; branch feat/td-191-autoload 1 ahead; branch file/td-191-task 1 ahead; open PR #410 td-191: fix ## comments in project.godot [autoload] (OffRo)",
-    "ALIVE td-193 (no heartbeat file; branch feat/td-193-traffic-world 1 ahead; branch file/td-193-task 1 ahead)"
+    "ALIVE td-193 (no heartbeat file; branch feat/td-193-traffic-world 3 ahead; branch file/td-193-task 1 ahead; open PR #414 td-193: civilian traffic IN the drivable Lower City ()"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=0"
+    "STALE-RUNS=1"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2129,11 +2129,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T05:12:59.123635+00:00",
-   "liveness": "2026-10-06T05:12:49.682470+00:00",
-   "classification-health": "2026-10-06T05:12:55.140594+00:00",
-   "transitions": "2026-10-06T05:12:53.998952+00:00",
-   "conflicts": "2026-10-06T05:12:51.627798+00:00",
+   "board-check": "2026-10-06T05:28:05.580697+00:00",
+   "liveness": "2026-10-06T05:27:54.763589+00:00",
+   "classification-health": "2026-10-06T05:28:00.989128+00:00",
+   "transitions": "2026-10-06T05:27:59.723127+00:00",
+   "conflicts": "2026-10-06T05:27:56.599735+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
