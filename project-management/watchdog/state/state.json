@@ -751,7 +751,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-06T13:18:24.097643+00:00",
+   "last_browser_check_ts": "2026-10-06T15:59:58.924144+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -796,9 +796,9 @@
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
    "last_classification": "LOGIN_BLOCKED",
-   "last_classification_ts": "2026-10-06T13:18:24.119202+00:00",
+   "last_classification_ts": "2026-10-06T15:59:58.989189+00:00",
    "last_failover_ts": "2026-10-05T20:44:12.040563+00:00",
-   "last_note": "Cloudflare Verify you are human checkbox at claude.ai/code",
+   "last_note": "claude.ai/code renders Cloudflare \"Performing security verification\" bot check; per task rules did not attempt to solve; main-dev/shuto-c1/texture-imagegen sessions could not be classified",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -1135,9 +1135,9 @@
     "do_not_ship_pr253": "PR #253 (td-138-round3) holds ONLY the self-rejected iteration-01 negative evidence. NEVER merge it - not an acceptance submission. Set 2026-10-01 ~05:20Z after round-3 finished without iteration 02. Clear only when Craig approves a shippable iteration.",
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
-   "last_classification": "LOGIN_BLOCKED",
-   "last_classification_ts": "2026-10-06T13:18:24.109403+00:00",
-   "last_note": "Cloudflare Verify you are human at chatgpt.com/codex/cloud",
+   "last_classification": "FINISHED",
+   "last_classification_ts": "2026-10-06T15:59:58.955211+00:00",
+   "last_note": "td-125 \"Verify guest trace upload functionality\"; last message complete summary with evidence (10/10 checks, commit pushed, td-125 set to in_review); completed diff shown (7 files +9,712); idle composer",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
@@ -1915,8 +1915,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-195.md",
    "dispatched_at": "2026-10-06T15:21:09.276622+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   }
  },
  "dispatch_denylist": {
@@ -1924,7 +1924,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 7
+  "stale_runs": 8
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2106,20 +2106,18 @@
   "td-196": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T15:51:28.931642+00:00",
+  "ts": "2026-10-06T15:58:11.956291+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
     "ALIVE td-191 (no heartbeat file; branch feat/td-191-autoload 1 ahead; branch file/td-191-task 1 ahead; open PR #410 td-191: fix ## comments in project.godot [autoload] (OffRo)",
-    "ALIVE td-194 (no heartbeat file; open PR #430 td-194: spawn civilian traffic out of the camera frustum (fi)",
-    "GRACE td-195 (dispatched 22min ago; no heartbeat file)",
-    "GRACE td-196 (dispatched 22min ago; no heartbeat file)"
+    "QUIET(1) td-195 (no heartbeat file)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=7"
+    "STALE-RUNS=8"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2135,11 +2133,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T15:50:10.237762+00:00",
-   "liveness": "2026-10-06T15:43:34.191154+00:00",
-   "classification-health": "2026-10-06T15:51:28.931642+00:00",
-   "transitions": "2026-10-06T15:51:28.568863+00:00",
-   "conflicts": "2026-10-06T15:51:27.502383+00:00",
+   "board-check": "2026-10-06T15:58:11.956291+00:00",
+   "liveness": "2026-10-06T15:57:46.613892+00:00",
+   "classification-health": "2026-10-06T15:58:03.762498+00:00",
+   "transitions": "2026-10-06T15:58:01.584728+00:00",
+   "conflicts": "2026-10-06T15:57:53.959833+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
