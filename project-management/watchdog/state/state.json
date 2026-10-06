@@ -1880,7 +1880,7 @@
    "task_file": "godot/docs/tasks/td-189.md",
    "dispatched_at": "2026-10-06T03:38:56.019643+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-190-validator": {
    "kind": "subagent",
@@ -1889,7 +1889,7 @@
    "task_file": "godot/docs/tasks/td-190.md",
    "dispatched_at": "2026-10-06T03:38:56.207769+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -1897,7 +1897,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 3
+  "stale_runs": 4
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2069,18 +2069,22 @@
   "td-186": "open",
   "td-187": "open",
   "td-188": "in_review",
-  "td-189": "open",
-  "td-190": "open"
+  "td-189": "in_review",
+  "td-190": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T03:29:22.062522+00:00",
+  "ts": "2026-10-06T03:42:52.276193+00:00",
   "checks": {
-   "liveness": [],
+   "liveness": [
+    "GRACE td-189-validator (dispatched 3min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-189.md&sha=main)",
+    "GRACE td-190-validator (dispatched 4min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main)"
+   ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-189: open -> in_review [wake-validator]",
+    "FLIP td-190: open -> in_review [wake-validator]"
    ],
    "classification-health": [
-    "STALE-RUNS=3"
+    "STALE-RUNS=4"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2096,11 +2100,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T03:29:22.062522+00:00",
-   "liveness": "2026-10-06T03:27:27.105972+00:00",
-   "classification-health": "2026-10-06T03:27:57.421671+00:00",
-   "transitions": "2026-10-06T03:27:56.104984+00:00",
-   "conflicts": "2026-10-06T03:27:47.635894+00:00",
+   "board-check": "2026-10-06T03:42:52.276193+00:00",
+   "liveness": "2026-10-06T03:42:35.628746+00:00",
+   "classification-health": "2026-10-06T03:42:47.921021+00:00",
+   "transitions": "2026-10-06T03:42:41.577403+00:00",
+   "conflicts": "2026-10-06T03:42:38.731046+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
