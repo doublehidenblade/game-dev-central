@@ -1897,6 +1897,15 @@
    "task_file": "godot/docs/tasks/td-189.md",
    "dispatched_at": "2026-10-06T04:18:29.851231+00:00",
    "quiet_cycles": 0,
+   "last_verdict": "grace"
+  },
+  "td-192": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-192.md",
+   "dispatched_at": "2026-10-06T04:19:42.404556+00:00",
+   "quiet_cycles": 0,
    "last_verdict": "registered"
   }
  },
@@ -2083,11 +2092,11 @@
   "td-192": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T04:18:15.944645+00:00",
+  "ts": "2026-10-06T04:18:51.994067+00:00",
   "checks": {
    "liveness": [
-    "GRACE td-189 (dispatched 29min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-189.md&sha=main)",
-    "GRACE td-191 (dispatched 18min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-191.md&sha=main)"
+    "GRACE td-191 (dispatched 19min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-191.md&sha=main)",
+    "GRACE td-189-validator (dispatched 0min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-189.md&sha=main)"
    ],
    "transitions": [
     "FLIP td-189: rejected -> in_review [wake-validator]"
@@ -2110,7 +2119,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-06T04:18:15.944645+00:00",
-   "liveness": "2026-10-06T04:18:07.403782+00:00",
+   "liveness": "2026-10-06T04:18:51.994067+00:00",
    "classification-health": "2026-10-06T04:18:12.412837+00:00",
    "transitions": "2026-10-06T04:18:11.028882+00:00",
    "conflicts": "2026-10-06T04:18:08.954158+00:00",
