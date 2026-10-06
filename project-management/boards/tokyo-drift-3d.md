@@ -184,6 +184,6 @@ td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (M
 | td-185 | Open world Lower City first pass: city plan + road/alley system + real signs + minimal gig loop (Craig 2026-10-05) | open | Opus 5.5 (Craig) | — | 2026-10-05 |
 | td-186 | Asset Forge: art-directed buildings/storefronts/props/vehicles + Mixamo pedestrian kit (Craig 2026-10-05) | open | Opus (new session — Craig to create) | — | 2026-10-05 |
 | td-187 | Art-book district scenes for later assembly (Tenjin gate, back-alley, port) (Craig 2026-10-05) | open | Opus (new session — Craig to create) | — | 2026-10-05 |
-| td-188 | Pedestrian gameplay system: sidewalk walkers, hit reactions, crime signal (basic Godot models) (Craig 2026-10-05) | in_review | Muse subagent | PR #403 | 2026-10-05 |
+| td-188 | Pedestrian gameplay system: sidewalk walkers, hit reactions, crime signal (basic Godot models) (Craig 2026-10-05) | validated | Muse subagent | PR #403 validator PASS 2026-10-06 | 2026-10-05 |
 | td-189 | Civilian traffic AI on the road graph, braking/yielding, parked cars (basic Godot models) (Craig 2026-10-05) | open | Muse subagent | — | 2026-10-05 |
 | td-190 | GTA-like cop/wanted system: crime subscription, pursuit, bust, decay (Craig 2026-10-05) | open | Muse subagent | — | 2026-10-05 |
