@@ -635,6 +635,10 @@
   {
    "ts": "2026-10-05T19:29:00Z",
    "note": "watchdog 2026-10-05T19:29Z (15:29 EDT run): decide=NOTHING codex (inspected+reported), NUDGE on claude STALLED classification SUPPRESSED by blocked-work discipline (unchanged since 18:47Z suppression: target is Craig's own Opus session, DO NOT TOUCH per teacher-student framework; opus-session-limit blocker already surfaced, no re-surface). No SHIP (no parked PR), orphan sweep: no ORPHAN-READY (51 UNKNOWN incl. inspector-report PRs + rejected #358, 4 DRAFT incl. #357 glowup-05 evidence, #253 BLOCKED denylisted). Dispatch: codex ELIGIBLE but all 6 candidates owned or skipped (td-101 Astra, td-119 Muse coordinator, td-158/163/173 Muse subagents, td-054 SKIP, td-138 Opus-owned SKIP) \u2014 no duplicate dispatch. Budget OK 3.1%. 5 subagents ALIVE (td-163/168/173/174-validator/160). Classifications stale 3 runs \u2014 main-agent AND with in-flight browser check before alarming. pending_actions.json empty."
+  },
+  {
+   "ts": "2026-10-06T04:45:00Z",
+   "note": "SUPPRESSED script-queued td-191 replacement (JUDGMENT-ONLY liveness override, 2026-10-06 ~04:45Z): liveness printed DEAD and queued dispatch-subagent, but the verdict is false \u2014 direct evidence the script can't see: worker opened PR #410 (feat/td-191-autoload, non-draft) at 04:12:49Z, updated 04:15:34Z, task file status in_review on branch. Root cause: watch.py liveness line ~1048 passes short repo name to _worker_evidence -> all gh checks hit /repos/tokyo-drift-3d/... (no owner) -> 404, so task-file/branch/PR evidence is invisible and no-heartbeat workers get killed. Dropped the queued entry; replacement would have duplicated a live/delivered worker. watch.py bug NOT fixed locally (script is mirrored from game-dev-central) \u2014 needs a proper repo-side fix; td-192 (dispatched 04:19:42Z) faces the same false-DEAD risk after grace expires."
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -929,7 +933,7 @@
    ],
    "assignments": [],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-06T04:38:48.802156+00:00",
+   "login_fail_notified_ts": "2026-10-06T04:39:25.368475+00:00",
    "finished_no_pr": true,
    "out_of_tokens_since": "2026-10-05T20:34:50.864329+00:00",
    "failover_declined_note": "2026-10-05 03:20 EDT: OOT failover assessed and DECLINED (not executed). All 4 Claude sessions hit 100% usage (reset ~06:10 EDT); each stood down cleanly with 'nothing pending' (main-dev: td-126/PR#263 + td-127 merged; shuto-c1: PR#274 merged; texture-imagegen: 6 textures on branch; 4th 'New session': Tripo coupe work idle). No stranded priority work to hand over. Failover brief is 4 days stale (2026-10-01 curation, refs PR#249-era exclusions); dispatch-candidates shows ZERO unowned tasks (all owned/skipped). Steering Codex with the stale brief would manufacture duplicate work. last_failover_ts set to suppress re-fire for this episode; sessions resume on token reset ~06:10 EDT.",
@@ -1525,7 +1529,7 @@
     "https://chatgpt.com/remote/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-06T04:38:48.673384+00:00",
+   "login_fail_notified_ts": "2026-10-06T04:39:25.161422+00:00",
    "inspected_ts": "2026-10-04T14:12:56.398511+00:00",
    "finished_no_pr": true
   },
@@ -1879,18 +1883,10 @@
   "2026-10-06T03:44Z deregistered td-190-validator (subagent): validator PASS 9/9 criteria, PR #405 validated, board PR #308 filed",
   "2026-10-06T03:48Z deregistered td-189-validator (subagent): validator REJECTED: 3 evidence gaps (test file missing, real-graph drive unevidenced, braking unreadable); rework dispatched",
   "2026-10-06T04:18Z deregistered td-189 (subagent): rework complete: 3 evidence gaps closed + _advance_road dirn bug fixed; board #312 merged (in_review); validator dispatching",
-  "2026-10-06T04:23Z deregistered td-189-validator (subagent): re-validator PASS 12/12, PR #406 validated, board #314 merged"
+  "2026-10-06T04:23Z deregistered td-189-validator (subagent): re-validator PASS 12/12, PR #406 validated, board #314 merged",
+  "2026-10-06T04:40Z LIVENESS: td-191 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-191.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-191-20261006-044037.md)."
  ],
  "workers": {
-  "td-191": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-191.md",
-   "dispatched_at": "2026-10-06T03:59:43.777488+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
-  },
   "td-192": {
    "kind": "subagent",
    "session": null,
@@ -1898,7 +1894,7 @@
    "task_file": "godot/docs/tasks/td-192.md",
    "dispatched_at": "2026-10-06T04:19:42.404556+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -1906,7 +1902,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 6
+  "stale_runs": 0
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2078,29 +2074,30 @@
   "td-186": "open",
   "td-187": "open",
   "td-188": "in_review",
-  "td-189": "in_review",
+  "td-189": "validated",
   "td-190": "validated",
   "td-191": "open",
   "td-192": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T04:18:51.994067+00:00",
+  "ts": "2026-10-06T04:40:40.219749+00:00",
   "checks": {
    "liveness": [
-    "GRACE td-191 (dispatched 19min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-191.md&sha=main)",
-    "GRACE td-189-validator (dispatched 0min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-189.md&sha=main)"
+    "DEAD td-191 (replacement queued; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-191.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)",
+    "GRACE td-192 (dispatched 21min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-192.md&sha=main)"
    ],
    "transitions": [
-    "FLIP td-189: rejected -> in_review [wake-validator]"
+    "FLIP td-189: in_review -> validated [notify-craig]"
    ],
    "classification-health": [
-    "STALE-RUNS=6"
+    "STALE-RUNS=0"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-FAIL td-191: liveness registry shows active worker but board Owner is empty"
+    "BOARD-FAIL td-191: liveness registry shows active worker but board Owner is empty",
+    "BOARD-FAIL td-192: liveness registry shows active worker but board Owner is empty"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2110,11 +2107,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T04:18:15.944645+00:00",
-   "liveness": "2026-10-06T04:18:51.994067+00:00",
-   "classification-health": "2026-10-06T04:18:12.412837+00:00",
-   "transitions": "2026-10-06T04:18:11.028882+00:00",
-   "conflicts": "2026-10-06T04:18:08.954158+00:00",
+   "board-check": "2026-10-06T04:39:10.283551+00:00",
+   "liveness": "2026-10-06T04:40:40.219749+00:00",
+   "classification-health": "2026-10-06T04:39:06.136112+00:00",
+   "transitions": "2026-10-06T04:39:00.893767+00:00",
+   "conflicts": "2026-10-06T04:38:58.109054+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
