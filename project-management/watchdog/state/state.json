@@ -1906,6 +1906,33 @@
    "dispatched_at": "2026-10-06T04:47:44.760943+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
+  },
+  "td-194": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-194.md",
+   "dispatched_at": "2026-10-06T15:21:09.114613+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-195": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-195.md",
+   "dispatched_at": "2026-10-06T15:21:09.276622+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-196": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-196.md",
+   "dispatched_at": "2026-10-06T15:21:09.515107+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
