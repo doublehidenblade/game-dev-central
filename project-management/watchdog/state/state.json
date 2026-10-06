@@ -755,7 +755,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-06T15:59:58.924144+00:00",
+   "last_browser_check_ts": "2026-10-06T17:47:50.239833+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -800,9 +800,9 @@
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
    "last_classification": "LOGIN_BLOCKED",
-   "last_classification_ts": "2026-10-06T15:59:58.989189+00:00",
+   "last_classification_ts": "2026-10-06T17:47:50.270745+00:00",
    "last_failover_ts": "2026-10-05T20:44:12.040563+00:00",
-   "last_note": "claude.ai/code renders Cloudflare \"Performing security verification\" bot check; per task rules did not attempt to solve; main-dev/shuto-c1/texture-imagegen sessions could not be classified",
+   "last_note": "Cloudflare \"Verify you are human\" checkbox blocks claude.ai/code; no attempt per rules; main-dev/shuto-c1/texture-imagegen unclassified",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
@@ -1139,9 +1139,9 @@
     "do_not_ship_pr253": "PR #253 (td-138-round3) holds ONLY the self-rejected iteration-01 negative evidence. NEVER merge it - not an acceptance submission. Set 2026-10-01 ~05:20Z after round-3 finished without iteration 02. Clear only when Craig approves a shippable iteration.",
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
-   "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-06T15:59:58.955211+00:00",
-   "last_note": "td-125 \"Verify guest trace upload functionality\"; last message complete summary with evidence (10/10 checks, commit pushed, td-125 set to in_review); completed diff shown (7 files +9,712); idle composer",
+   "last_classification": "LOGIN_BLOCKED",
+   "last_classification_ts": "2026-10-06T17:47:50.257616+00:00",
+   "last_note": "Cloudflare \"Verify you are human\" bot check blocks chatgpt.com/codex/cloud; no attempt per rules",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
@@ -1930,7 +1930,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 3
+  "stale_runs": 4
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2112,7 +2112,7 @@
   "td-196": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T17:35:54.715382+00:00",
+  "ts": "2026-10-06T17:44:36.746967+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2123,7 +2123,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=3"
+    "STALE-RUNS=4"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2139,11 +2139,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T17:35:54.715382+00:00",
-   "liveness": "2026-10-06T17:27:58.242000+00:00",
-   "classification-health": "2026-10-06T17:29:11.716338+00:00",
-   "transitions": "2026-10-06T17:29:01.029671+00:00",
-   "conflicts": "2026-10-06T17:28:25.777876+00:00",
+   "board-check": "2026-10-06T17:44:36.746967+00:00",
+   "liveness": "2026-10-06T17:43:23.157071+00:00",
+   "classification-health": "2026-10-06T17:44:23.429989+00:00",
+   "transitions": "2026-10-06T17:44:18.966489+00:00",
+   "conflicts": "2026-10-06T17:44:04.726894+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
