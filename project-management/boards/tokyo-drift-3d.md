@@ -181,7 +181,7 @@ td-175 | Full-scene Showa assembly: screenshot + honest benchmark gap analysis +
 td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (MP direct, SP re-downloads) | open | — | — | 2026-10-04 |
 | td-177 | Bay map: bridge section near the end missing left wall/rail, empty space visible (Craig 2026-10-05, v40) | validated | — | PR #381 merged 2104e55 | 2026-10-05 |
 | td-178 | Health UI overhaul: visible health bar next to nitro, impact sparks, bar shake, gradual-decrease animation + industry research (Craig 2026-10-05, v40) | done | Muse subagent | impl PR #382 merged 090a1077, validator PASS (real in-game evidence); not live | 2026-10-05 |
-| td-185 | Open world Lower City first pass: city plan + road/alley system + real signs + minimal gig loop (Craig 2026-10-05) | in_review | Opus 5.5 (Craig) | tokyo-drift-3d #396 (draft) | 2026-10-06 |
+| td-185 | Open world Lower City first pass: city plan + road/alley system + real signs + minimal gig loop (Craig 2026-10-05) | in_review — merged (#396, 5358e64), not live; validator + Craig phone verdict pending | Opus 5.5 (Craig) | tokyo-drift-3d #396 | 2026-10-06 |
 | td-186 | Asset Forge: art-directed buildings/storefronts/props/vehicles + Mixamo pedestrian kit (Craig 2026-10-05) | open | Opus (new session — Craig to create) | — | 2026-10-05 |
 | td-187 | Art-book district scenes for later assembly (Tenjin gate, back-alley, port) (Craig 2026-10-05) | open | Opus (new session — Craig to create) | — | 2026-10-05 |
 | td-188 | Pedestrian gameplay system: sidewalk walkers, hit reactions, crime signal (basic Godot models) (Craig 2026-10-05) | open | Muse subagent | — | 2026-10-05 |
