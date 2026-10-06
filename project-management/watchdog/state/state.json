@@ -1860,46 +1860,14 @@
   {
    "ts": "2026-10-05T21:15:00Z",
    "note": "watchdog 2026-10-05T21:15Z (17:15 EDT run): decide=NOTHING codex (FINISHED, inspected+reported), NOTHING claude (WORKING \u2014 Shuto C1 ramp-deck-gap, streaming tool calls, DO NOT TOUCH per teacher-student). No SHIP. Orphan sweep: no ORPHAN-READY (51+ UNKNOWN inspector-report PRs + rejected #358, #253 BLOCKED denylisted, 5 DRAFT incl #357/#391). Dispatch: codex ELIGIBLE but all 6 candidates owned or skipped (td-101 Astra, td-119 Muse coordinator, td-163/173 subagents, td-054 SKIP, td-138 Opus SKIP) \u2014 no duplicate dispatch. 4 subagents ALIVE (td-163/168/173/174-validator; heartbeats ~23h stale per script, verdict ALIVE authoritative). classifications 16m old, STALE-RUNS=0. Budget OK 3.2%. pending_actions.json empty."
-  }
+  },
+  "2026-10-06T00:12Z deregistered td-163 (subagent): work merged: PR #331 merged 2026-10-04T23:41Z, live in v41 \u2014 worker's work handed off",
+  "2026-10-06T00:13Z deregistered td-168 (subagent): work merged: PR #334 merged 2026-10-04T23:26Z, live in v41 \u2014 worker's work handed off",
+  "2026-10-06T00:13Z deregistered td-173 (subagent): work merged: PR #338 merged 2026-10-04T23:36Z, live in v41 \u2014 worker's work handed off",
+  "2026-10-06T00:13Z deregistered td-174-validator (subagent): PR #336 merged 2026-10-04T23:29Z, live in v41 \u2014 nothing left to validate",
+  "2026-10-06T00:05Z WATCHDOG RECONCILIATION: 4 stale subagent registrations deregistered after API verification. td-163 (PR #331 merged 2026-10-04T23:41Z), td-168 (PR #334 23:26Z), td-173 (PR #338 23:36Z), td-174-validator (PR #336 23:29Z) \u2014 all 4 merge SHAs are ancestors of v41 live SHA 05a8507 (published 2026-10-05T22:13Z at Craig's request); work is LIVE. Inspector verdicts: td-168 PASS, td-174 WEAK (LED price-board gap open, brief PR #344 unmerged). Stale heartbeats ~26h + stale board rows (open/in-review) defeated liveness terminal detection; signal-B has no recency bound (task-file commits = the merges themselves). Board rows td-163/168/173/174 need hygiene PR (status->merged, owner cleared) \u2014 workers update own rows via PR, watchdog does not touch. ALSO STALE: watch.py pending ledger still lists PR #381 td-177 as merged-not-live \u2014 its merge SHA 2104e551 is in the v41 live tree; no pending-published subcommand exists to clear it (machinery gap, flagged for main agent). game-releases/pending.json correctly cleared 22:13Z."
  ],
- "workers": {
-  "td-163": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-163.md",
-   "dispatched_at": "2026-10-04T22:09:14.051983+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-168": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-168.md",
-   "dispatched_at": "2026-10-04T21:57:07.508417+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-173": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-173.md",
-   "dispatched_at": "2026-10-04T21:57:09.938865+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-174-validator": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-174.md",
-   "dispatched_at": "2026-10-04T23:05:45.409006+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  }
- },
+ "workers": {},
  "dispatch_denylist": {
   "td-138": "Opus-owned per Craig 2026-10-05 (player Tripo car); Muse fleet does continuation from Opus notes only",
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
@@ -2076,12 +2044,12 @@
   "td-185": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T23:47:45.944604+00:00",
+  "ts": "2026-10-06T00:06:43.418942+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-163 (heartbeat stale (1536min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1546min); task-file commit 553f68d 2026-10-04T23:26)",
-    "ALIVE td-173 (heartbeat stale (1535min); task-file commit 5e46025 2026-10-04T23:36)",
+    "ALIVE td-163 (heartbeat stale (1557min); task-file commit 37e6f1f 2026-10-04T23:41)",
+    "ALIVE td-168 (heartbeat stale (1567min); task-file commit 553f68d 2026-10-04T23:26)",
+    "ALIVE td-173 (heartbeat stale (1555min); task-file commit 5e46025 2026-10-04T23:36)",
     "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)"
    ],
    "transitions": [
@@ -2104,11 +2072,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T23:47:45.944604+00:00",
-   "liveness": "2026-10-05T23:45:58.049637+00:00",
-   "classification-health": "2026-10-05T23:47:27.487376+00:00",
-   "transitions": "2026-10-05T23:46:59.447895+00:00",
-   "conflicts": "2026-10-05T23:46:35.943704+00:00",
+   "board-check": "2026-10-05T23:58:01.874729+00:00",
+   "liveness": "2026-10-06T00:06:43.418942+00:00",
+   "classification-health": "2026-10-05T23:57:48.505105+00:00",
+   "transitions": "2026-10-05T23:57:42.137016+00:00",
+   "conflicts": "2026-10-05T23:57:39.182778+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
