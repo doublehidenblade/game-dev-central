@@ -2078,12 +2078,12 @@
   "td-190": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T02:29:14.104927+00:00",
+  "ts": "2026-10-06T02:44:04.990217+00:00",
   "checks": {
    "liveness": [
-    "GRACE td-188 (dispatched 7min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-188.md&sha=main)",
-    "GRACE td-189 (dispatched 7min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-189.md&sha=main)",
-    "GRACE td-190 (dispatched 7min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main)"
+    "GRACE td-188 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-188.md&sha=main)",
+    "GRACE td-189 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-189.md&sha=main)",
+    "GRACE td-190 (dispatched 22min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2105,11 +2105,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T02:29:14.104927+00:00",
-   "liveness": "2026-10-06T02:29:00.673267+00:00",
-   "classification-health": "2026-10-06T02:27:53.015679+00:00",
-   "transitions": "2026-10-06T02:27:51.102975+00:00",
-   "conflicts": "2026-10-06T02:27:41.968412+00:00",
+   "board-check": "2026-10-06T02:43:08.654648+00:00",
+   "liveness": "2026-10-06T02:44:04.990217+00:00",
+   "classification-health": "2026-10-06T02:43:02.257262+00:00",
+   "transitions": "2026-10-06T02:42:56.040642+00:00",
+   "conflicts": "2026-10-06T02:42:50.002846+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
