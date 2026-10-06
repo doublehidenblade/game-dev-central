@@ -1876,7 +1876,7 @@
    "task_file": "godot/docs/tasks/td-188.md",
    "dispatched_at": "2026-10-06T02:21:53.458493+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-189": {
    "kind": "subagent",
@@ -1885,7 +1885,7 @@
    "task_file": "godot/docs/tasks/td-189.md",
    "dispatched_at": "2026-10-06T02:21:53.591378+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-190": {
    "kind": "subagent",
@@ -1894,7 +1894,7 @@
    "task_file": "godot/docs/tasks/td-190.md",
    "dispatched_at": "2026-10-06T02:21:53.791819+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -2070,12 +2070,21 @@
   "td-174": "in_review",
   "td-177": "validated",
   "td-178": "done",
-  "td-185": "open"
+  "td-185": "open",
+  "td-186": "open",
+  "td-187": "open",
+  "td-188": "open",
+  "td-189": "open",
+  "td-190": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T02:14:18.677111+00:00",
+  "ts": "2026-10-06T02:29:14.104927+00:00",
   "checks": {
-   "liveness": [],
+   "liveness": [
+    "GRACE td-188 (dispatched 7min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-188.md&sha=main)",
+    "GRACE td-189 (dispatched 7min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-189.md&sha=main)",
+    "GRACE td-190 (dispatched 7min ago; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main)"
+   ],
    "transitions": [
     "NO-FLIPS"
    ],
@@ -2086,7 +2095,7 @@
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (166 rows)"
+    "BOARD-OK tokyo-drift-3d (171 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2096,11 +2105,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T02:14:18.677111+00:00",
-   "liveness": "2026-10-06T02:12:37.574929+00:00",
-   "classification-health": "2026-10-06T02:12:53.412277+00:00",
-   "transitions": "2026-10-06T02:12:45.592357+00:00",
-   "conflicts": "2026-10-06T02:12:41.588849+00:00",
+   "board-check": "2026-10-06T02:29:14.104927+00:00",
+   "liveness": "2026-10-06T02:29:00.673267+00:00",
+   "classification-health": "2026-10-06T02:27:53.015679+00:00",
+   "transitions": "2026-10-06T02:27:51.102975+00:00",
+   "conflicts": "2026-10-06T02:27:41.968412+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
