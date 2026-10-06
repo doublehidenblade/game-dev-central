@@ -1871,7 +1871,17 @@
   "2026-10-06T03:00Z deregistered td-189 (subagent): PR #406 open, validator flow",
   "2026-10-06T03:12Z LIVENESS: td-190 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-190-20261006-031220.md)."
  ],
- "workers": {},
+ "workers": {
+  "td-188-validator": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-188.md",
+   "dispatched_at": "2026-10-06T03:17:10.650590+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  }
+ },
  "dispatch_denylist": {
   "td-138": "Opus-owned per Craig 2026-10-05 (player Tripo car); Muse fleet does continuation from Opus notes only",
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
@@ -2053,11 +2063,9 @@
   "td-190": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T03:12:26.227797+00:00",
+  "ts": "2026-10-06T03:16:38.406375+00:00",
   "checks": {
-   "liveness": [
-    "DEAD td-190 (replacement queued; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F)"
-   ],
+   "liveness": [],
    "transitions": [
     "FLIP td-188: open -> in_review [wake-validator]"
    ],
@@ -2079,7 +2087,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-06T03:12:26.227797+00:00",
-   "liveness": "2026-10-06T03:12:20.267492+00:00",
+   "liveness": "2026-10-06T03:16:38.406375+00:00",
    "classification-health": "2026-10-06T03:12:23.978220+00:00",
    "transitions": "2026-10-06T03:12:23.820587+00:00",
    "conflicts": "2026-10-06T03:12:22.972837+00:00",
