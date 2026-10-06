@@ -1,5 +1,14 @@
 {
- "pending": [],
+ "pending": [
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-190",
+   "pr": 405,
+   "merged_sha": "41d9acb069feb6c72eb3dde8cd09db7cdfdd9af8",
+   "merged_at": "2026-10-06T03:58:07.256217+00:00",
+   "summary": "td-190 cop/wanted system validated 9/9, merged"
+  }
+ ],
  "cleared_at": "2026-10-06T03:35:00Z",
  "cleared_note": "v42 live 2026-10-06T02:44:34Z: td-185 Lower City first pass (PR #396) published and verified live (deployment.json source_sha 5358e64, art-book 200). Matches game-releases/pending.json cleared 02:46Z. Stale entry removed by watchdog 23:26 EDT run."
 }
