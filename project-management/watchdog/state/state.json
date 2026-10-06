@@ -1913,7 +1913,7 @@
    "task_file": "godot/docs/tasks/td-193.md",
    "dispatched_at": "2026-10-06T04:49:53.662894+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
@@ -2096,17 +2096,19 @@
   "td-189": "validated",
   "td-190": "validated",
   "td-191": "open",
-  "td-192": "open"
+  "td-192": "open",
+  "td-193": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T04:48:07.218456+00:00",
+  "ts": "2026-10-06T04:58:04.183510+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
-    "ALIVE td-191 (no heartbeat file; branch feat/td-191-autoload 1 ahead; branch file/td-191-task 1 ahead; open PR #410 td-191: fix ## comments in project.godot [autoload] (OffRo)"
+    "ALIVE td-191 (no heartbeat file; branch feat/td-191-autoload 1 ahead; branch file/td-191-task 1 ahead; open PR #410 td-191: fix ## comments in project.godot [autoload] (OffRo)",
+    "ALIVE td-193 (no heartbeat file; branch feat/td-193-traffic-world 1 ahead; branch file/td-193-task 1 ahead)"
    ],
    "transitions": [
-    "FLIP td-189: in_review -> validated [notify-craig]"
+    "NO-FLIPS"
    ],
    "classification-health": [
     "STALE-RUNS=0"
@@ -2116,7 +2118,8 @@
    ],
    "board-check": [
     "BOARD-FAIL td-191: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-192: liveness registry shows active worker but board Owner is empty"
+    "BOARD-FAIL td-192: liveness registry shows active worker but board Owner is empty",
+    "BOARD-FAIL td-193: liveness registry shows active worker but board Owner is empty"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2126,11 +2129,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T04:39:10.283551+00:00",
-   "liveness": "2026-10-06T04:48:07.218456+00:00",
-   "classification-health": "2026-10-06T04:39:06.136112+00:00",
-   "transitions": "2026-10-06T04:39:00.893767+00:00",
-   "conflicts": "2026-10-06T04:46:01.263794+00:00",
+   "board-check": "2026-10-06T04:58:04.183510+00:00",
+   "liveness": "2026-10-06T04:57:55.263825+00:00",
+   "classification-health": "2026-10-06T04:58:01.162249+00:00",
+   "transitions": "2026-10-06T04:57:59.420521+00:00",
+   "conflicts": "2026-10-06T04:57:56.652048+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
