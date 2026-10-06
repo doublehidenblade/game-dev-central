@@ -1,6 +1,8 @@
 # KUROGANE BAY — Art Book Chapter: WORLD MAP + LORE + TIMELINE
 ### The city as the gigs reveal it
 
+**Source pair (2026-10-06 draft):** [canonical chapter](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/art-book/world-lore/chapter.md) · [world bible](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/gig-city-world-bible.md) · [source audit / regeneration rules](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/README.md). The linked draft and this copy must be reconciled together; current main does not yet include these proposed mechanics.
+
 *Canon: `~/workspace/game-design/gig-city-world-bible.md` (v2). This chapter is the story the player learns from behind the wheel — never a codex, never a lecture. History law applies: nothing here is historically accurate; it is post-war in energy and retro-futurist in fact. Nobody may correct it against real history.*
 
 *Two mock layers per scene: **[REFERENCE]** is the aspirational painterly art direction; **[IMPLEMENTATION]** is what the final 3D actually renders under our real technology — Godot low-poly geometry, the AnimeLook shader module (flat color fields, ink outlines, cel-shading bands, washed-out texture noise), dust-culling fog, masked characters, no faces ever. Where a scene can't be built in-engine at all (the world map is a diagram, not a place), it stays reference-only — said explicitly, never silently.*
@@ -80,7 +82,7 @@ One highway leaves the West Gate, climbs the **Mt. Kurogane switchbacks** (mount
 
 ### The endgame war map
 
-Faction war phases move blockades and change **elevator terminal control** — the terminals are the city's tollbooths, and holding one means taxing every crate, fare, and filter that crosses the dust layer. The war map is legible from the driver's seat: a terminal under new control changes its banners, its queue bribes, its inspection strictness, and the ROUTE-88's toll brackets before any dispatcher tells you why. The endgame is not a boss fight; it is the week all three terminals change hands at once.
+**Later-phase ambition, not the local-economy MVP:** faction war phases could move blockades and change **elevator terminal control**. New banners, posted tolls and inspection notices would explain consequences from the driver's seat. For the slice, faction ownership remains authored and stable; a small number of scheduled, warned disruptions supplies route variation. A citywide terminal war needs a separate balance and recovery review before becoming an endgame promise.
 ---
 
 ## B. LORE — The City as the Gigs Reveal It
@@ -89,14 +91,48 @@ Faction war phases move blockades and change **elevator terminal control** — t
 
 ### How the player learns the economy: the settlement chit
 
-Every gig ends the same way: the ROUTE-88's brass slot spits a printed settlement chit, and the deductions are itemized before the net. The player does not read the economy in a codex — the economy *taxes* them, line by line:
+The ROUTE-88 prints a receipt with **gross earned, condition/late adjustment, costs already paid, costs still due, and net**. Sol-88 excise belongs to the fuel purchase; the Dust Tithe belongs to actual filter/rinse service; roadbed access tariffs belong to the gates used. Itemize their attribution to the trip without deducting them twice at delivery. Estimates before acceptance and actual costs afterward explain the difference. KPC owns the fuel, dust wears the car, Minami taxes the road: lore remains in the paperwork.
 
-- **Gross fare** — what the client paid.
-- **Sol-88 excise** — KPC's per-liter cut, printed as a government stamp. When faction wars spike the fuel price, this line grows and the player feels the war in their pocket before any dispatcher mentions it.
-- **Dust Tithe** — the filter-rinse levy, the radiator-scrub fee, the sealed-bearing surcharge. Every Lower City mile accrues it; Kotobuki's rinse bays are where you pay it in cash instead of performance.
-- **Roadbed access tariff** — Minami's tolls, per district crossed, per stratum changed. The elevator toll is its own line, and it is always the largest.
+### Local production — recommended bounded model
 
-A driver who never reads a word of lore still learns the city's power structure from these four lines: KPC owns the fuel, the dust owns the car, Minami owns the road. The settlement chit is the city's autobiography, printed after every job.
+**Scope proposal:** six business nodes inside the existing map, four goods, two recipes. Decorative businesses remain decorative; no simulation of every resident, worker, vehicle or faction balance sheet. The six-node proof uses two three-node chains:
+
+| Chain | Producer → converter → consumer | Visible cause and effect |
+|---|---|---|
+| Repairs | Daikoku salvage yard: scrap → Kotobuki machine shop: repair parts → Tenjin service depot | Deliver scrap, see a queued batch start; after its production time, a parts-delivery offer appears. The depot consumes parts on its bounded service schedule. |
+| Food | Kamome wholesaler: ingredients → Chidori canteen kitchen: meal crates → Daikoku shift canteen | An input shortage halts kitchen output; delivery restores one batch; the shift canteen consumes meals at scheduled intervals. |
+
+For the first recipe sheet, propose 2 scrap → 1 repair-parts crate in 6 ticks and 2 ingredient crates → 1 meal crate in 3 ticks. Recipe units are containers, not equal physical mass; outputs/byproducts must never create tradable material from nothing. Each node has finite input/output storage, batch capacity and a receiving limit. Later electronics or filter manufacture is an optional third chain, not another launch dependency.
+
+Raw stock enters through **explicit, capped port/wholesale import schedules**. End consumers remove goods on bounded schedules and replenish a capped purchasing budget from an external customer-demand allowance. These are declared economy sources/sinks, not invisible rescue spawns. Fuel, repairs, rents and taxes are cash sinks. NPC fulfillment is an abstract, scheduled stock transfer with a visible arrival notice; do not simulate every truck. Leave a measured fraction of demand for the player, rather than letting instant NPC arbitrage erase the job board. [Bannerlord inspiration and source limits](../design-review.md).
+
+### Tick, job and transaction contract
+
+**Proposed clock:** a fixed 10-second simulation tick, independent of render rate. Pause freezes economy, deadlines and spoilage together; no offline progression in the slice. Save the seed, tick index, event order, inventory, reservations, quotes, jobs, cash and upgrade state. On resume, process only uncommitted ticks; no catch-up jackpot. Tick order is stable: due imports/consumption → completed production → eligible new batches → unreserved deficits/offers. Player pickup/delivery events join the same ordered ledger with unique IDs.
+
+Procedural jobs are generated from **unreserved deficits** against available source stock and reachable legal receiving bays. A job records source, destination, quantity, mass/slots, owner, condition rule, quote expiry, loading allowance, due time, payout cap and risk band. Filter impossible routes, incompatible cargo and over-capacity loads before offering them. Offer variety is a seeded choice among feasible needs; a cooldown suppresses identical repeated manifests. No infinite timer-based job faucet divorced from inventory.
+
+Acceptance atomically reserves source stock, destination capacity and fee budget. Pickup transfers reserved stock into customer-owned cargo. Delivery atomically transfers accepted units, records condition and pays once; replaying a signal cannot pay again. Cancellation/expiry releases reservations once. Pre-pickup withdrawal has no reward; picked-up returns go back to source with no reward or material conversion. Only one legal ownership state exists for each lot: source, reserved, aboard, delivered, returned, consumed or written off.
+
+### Prices, fees and the small-city boundary
+
+Local hauling earns mainly a **service fee** for distance, handling, access and optional urgency/risk. It does not require one street selling the same box for five times its neighbor's price. Prototype merchant prices later as a modest, disclosed stock band (initial hypothesis: 0.9–1.1 × common reference price), finite quotes, transport costs and a buy/sell spread. Lock accepted contract fees; timestamp unaccepted quotes. Bulk purchases/sales move the available stock and the next quote. Cap destination demand so endless dumping stops paying.
+
+This is a deliberately open, bounded economy, not a claim of complete macroeconomic realism. Regional/intercity price differences only arrive with actual separated suppliers, distance, shipping schedules, border/toll/access costs and finite demand. Keep a legal ordinary-job floor and reserve high margins for visible constraints. If the price model demands implausible local gaps to feel fun, improve the delivery decisions before increasing the multipliers.
+
+### Failure, recovery and exploit boundaries
+
+- **Late/damaged freight:** disclose a bounded reduction or rejection threshold. Valid partial deliveries consume and pay only the accepted units. Spoiled/seized/destroyed stock is written off once. The remaining obligation closes or returns under the printed contract; no repeated failure fee.
+- **Fair disruptions:** publish checkpoint/toll bands before acceptance. A closure after pickup must leave a viable detour plus deadline relief, or allow penalty-free return. No unavoidable ambush at a blind turn or attack during a loading/menu state. If pursuit becomes inescapable, the failure must still lead to recovery, not bankruptcy without options.
+- **Bust/tow:** integrate with the existing police/arrest work through its eventual accepted interface. Proposed cap on loss, a receipt and return to a known safe bay prevent stacked fees; the exact respawn remains that task's decision. No remote teleport preserving a valuable delivery reward.
+- **Zero-cash recovery:** provide a non-transferable basic loaner or repair/fuel allowance for one legal recovery contract. It cannot be sold, stored, crafted, cashed out or repeatedly claimed while an allowance is active. The basic job covers its costs and leaves positive net; no exponential debt, permanent loss of the only working vehicle or mandatory contraband.
+- **No resource loops:** customer freight cannot fund upgrades; legal salvage has a unique origin and bounded award. Crafted output plus resale cannot exceed inputs plus paid work through a repeatable instant loop. Buying, returning, refunding, duplicate settlement, save/reload, upgrade removal and renting/canceling parking all need ledger checks. Prices round consistently in integer currency.
+- **No induced-shortage jackpot:** destroying goods or hoarding inputs cannot raise the payout of one's existing reservation; reward bands are capped. Hold/reservation expiry and capped NPC imports keep one blocked chain from freezing every legal job. Recovery work remains available independently.
+
+### Authored anchors, procedural consequences
+
+Keep the district histories, faction motives, recurring dispatchers and a few short introductions/milestone scenes. Propose one reusable manifest template per job family, a small curated bank of radio lines, and business-specific supply/risk constraints. The seven money flows below are **worldbuilding and optional anchor vignettes**, not seven mandatory branching campaigns or bespoke mechanics for every generated job. Generated work recombines approved places, goods and rules; it never invents new lore or requires runtime story generation. Review the templates, contradictory combinations and state transitions, then sample seeded shifts.
+
 
 ### The seven money flows, as jobs
 
@@ -110,7 +146,7 @@ A driver who never reads a word of lore still learns the city's power structure 
 
 **5. The Paper Chase.** *Who hires you:* Shinji "Slippery" Uno, three gold watches, sweating through a paper mask. *What you move:* bearer bond certificates and blackmail photographs in a briefcase that may not pass through corporate scanner grids — Tenjin's arteries are laced with them. *What you learn:* paper is the only true wealth left, because the paper can't be scanned, seized, or traced — only *driven*. You learn the drainage canals and service alleys the way other drivers learn shortcuts, because the main roads belong to the scanners. When the corporate recovery trucks come, they don't shoot. They pit-maneuver you into a contract default. Bureaucracy, with push-bars.
 
-**6. The Vertical Arbitrage.** *Who hires you:* "Highline" Adaeze Okafor — or rather, the queue outside Terminal 2, which is its own employer. *What you move:* Lower City goods sealed for the Upper market (3× after decontamination), Upper City tech bound for Kotobuki (filters, compensators, sealed trunks — 5× below). *What you learn:* the elevator toll is priced with surgical precision — always *just* cheaper than the cost of the alternative. The alternative is the broken industrial lift in Kotobuki (30% mechanical failure, or a syndicate ambush) or the lead-lined smuggler trunk (decon-proof, but the mass changes your drift physics for the worse). Every driver does this math at the terminal gate, every day. The arbitrage isn't a secret. It's the tollbooth.
+**6. The Vertical Freight Gate (later phase).** *Who hires you:* “Highline” Adaeze Okafor, or a licensed trader at Terminal 2. *What you move:* sealed Lower City supplies up; approved specialist parts down. *What you learn:* decontamination, queue time and access permits explain freight fees. The earlier 3×/5× local-price promise and blanket 30% lift-failure roll are retired tuning assumptions. Merchant margins, if introduced, come from finite demand and actual access/travel costs; any hazardous industrial lift needs a visible condition warning and a viable alternative. Upper City lore and its position above the cloud deck remain unchanged. Larger arbitrage belongs to later separated depot/intercity markets, not an automatic elevator money loop.
 
 **7. The Dust Tithe.** *Who hires you:* your own engine. *What you move:* yourself, to a rinse bay, before the filter chokes. *What you learn:* the filter gauge is the city's slowest countdown — boost dies as it saturates, and the rinse costs money or minutes, always both. Kotobuki's rinse bays are the most recession-proof business in Kurogane Bay because the dust is the one tax nobody can dodge, bribe, or outrun. The bay attendants stamp your union card like priests stamping a pilgrim's passport.
 

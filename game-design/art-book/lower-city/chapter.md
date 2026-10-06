@@ -1,6 +1,8 @@
 # THE TRENCH — Lower City Art Book Chapter
 ### KUROGANE BAY art book · 80s-anime cel · Showa retro-futurist · dust-forward
 
+**Source pair (2026-10-06 draft):** [canonical chapter](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/art-book/lower-city/chapter.md) · [world bible](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/gig-city-world-bible.md) · [source audit / regeneration rules](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/README.md). The linked draft and this copy must be reconciled together; current main does not yet include these proposed mechanics.
+
 *Writer: Lower City chapter. Canon sources: `gig-city-world-bible.md` (v2), `gig-city-retrofutur-identity.md`, `showa-dust-extrapolation.md`, plus design consultation digested into this text. This is 2D design only — no implementation. Craig's law honored throughout: comedy emerges from systems; nothing here is a joke.*
 
 **The Trench** is the main drivable world of Kurogane Bay: the Lower City, drowning in permanent ochre dust, visibility rarely past 100 m. The "sky" is never empty — it is the industrial underbelly of the Upper City: hydraulic conduit bundles, elevator counterweight tracks, truss bridges, dangling cranes, foundation plates blotting out the sun. Humans stay masked, inside, or above. The cab is the citizen's life-support capsule; the street is a machine trench.
@@ -199,9 +201,40 @@ Who may stand: the felony targets unsuited wandering in the drive lanes, not wor
 
 **Solari split-flap boards (the moving layer):** giant soot-stained split-flap panels on enamel gantries *clack* mechanically as traffic conditions, auction lots, elevator queue numbers, and toll brackets update. No digital message boards, ever. Reading them while driving is a skill — there is no HUD minimap feed for what the boards know.
 
-**The ROUTE-88 (the driver's layer):** the chunky in-dash CRT punch-card route computer. Accepting a gig plays the *CHUNK-CHUNK* of the card in the brass slot; the phosphor screen traces the route with a visible sweep beam. Planning is gambling with time: gas stops, garage drops, hitchhiker stacks, filter rinses, Quick-Dispatch bonuses — under 60 seconds, or the client's payout decays.
+**The ROUTE-88 (the driver's layer):** the chunky in-dash CRT punch-card manifest and settlement terminal. Accepting a gig plays the *CHUNK-CHUNK* of the card in the brass slot; the phosphor screen lists the pickup, destination, load and promised window. A pre-gig briefing marks those places on a paper map; signs and landmarks do the navigation. No moving position dot, computed route line or turn-by-turn GPS. Planning includes gas stops, garage drops, filter rinses and load consolidation. Ordinary jobs allow breathing room; an explicitly labeled Quick-Dispatch premium may reward a tight window. A universal 60-second payout decay is not the baseline.
 
 ---
+
+## 9A. THE WORKING SHIFT — systemic delivery proposal (2026-10-06)
+
+**Craig's direction:** the driver helps a small economy move, then brings money and resources home to grow an operation. **Recommended slice:** prove that loop inside the existing six-district city with a few businesses and constrained procedural jobs. [Research, staging and open decisions](../design-review.md) separate the request from tuning proposals; nothing below claims implementation.
+
+1. **Read the need.** At the home garage or a drive-up dispatch window, compare manifests: actual stock, downstream need, payload, loading time, delivery window, known tolls and restrictions. A paper route brief and timestamped split-flap notices reveal route conditions without GPS. Planning pauses the proposed single-player economy; accepting a job reserves its terms.
+2. **Assemble a load.** Choose a vehicle/module, reserve cargo and a receiving bay, and decide whether a second compatible job is worth another stop. Seats, enclosed volume and rated mass are separate constraints. A passenger cannot share a seat with a crate; dangerous cargo cannot share the cabin with a fare.
+3. **Drive the choice.** A heavy load accelerates and brakes differently and burns more fuel; a small cab can exploit narrow permitted alleys and quick loading bays. Choose a known safe detour or a disclosed toll/inspection risk. Traffic, cargo care and optional deadlines create pressure without making every run fragile, urgent and illegal.
+4. **Deliver a consequence.** Unload only in a marked bay. The recipient's stock and production board change: an empty repair shelf fills, a work lamp comes on, or a canteen resumes a batch. The next relevant job follows that change rather than an arbitrary random destination.
+5. **Settle and return.** A receipt separates gross fee, actual costs and net. Deliver any legally awarded parts/materials to garage storage; sell them or reserve them for a known upgrade. Refuel, repair and choose the next shift. A repeat player should plan a different useful manifest without needing new dialogue.
+
+### Three kinds of work; contraband is a modifier
+
+| Work | Who owns the load? | What pays / what can go wrong? |
+|---|---|---|
+| Contract freight | Customer; sealed manifest, finite stock reserved at acceptance | A quoted service fee for movement, condition and optional urgency. It cannot be sold or used for garage crafting. Partial delivery pays only under the disclosed contract rule. |
+| Merchant haul (later) | Player buys real inventory with working capital | Buyer demand, finite stock and travel/handling costs determine net resale. It can occupy garage storage but cannot also satisfy a separately paid contract unless explicitly purchased by that customer. |
+| Passenger fare | No commodity ownership; reserved seat and destination | Fare for safe arrival, optional appointment window and comfort. Existing passenger behavior is retained; extensive dialogue is not required for each generated fare. |
+
+**Contraband** tags an otherwise valid freight/trading job with declared legal exposure, inspection rules and a premium. It is not a magic fourth inventory or free cash source. Known cargo legality, seizure terms and loss limits appear before commitment; no surprise illegal flag after pickup.
+
+### Heavy consolidation versus fast repeat runs
+
+**Illustrative proposal, not balance data:** six equal crates and the same 600-yen gross freight fee. A hauler carries all six on a legal wide route: 2 minutes loading/unloading + 6 driving, 160 operating cost → 440 net / 8 minutes = **55 yen/min**. A nimble cab carries two per run: three 1-minute handling + 2-minute drives, two 1-minute empty returns, 120 total cost → 480 net / 11 minutes ≈ **44 yen/min**. Consolidation wins this forgiving bulk window despite greater per-trip cost. With a separate one-crate rush job, the cab's 3-minute cycle meets a 4-minute deadline; the hauler's 8-minute route does not. Quotes must be calibrated to legal loaded travel plus handling, not these illustrative constants.
+
+The comparison must survive playtests, not just arithmetic. More mass costs acceleration, braking distance, fuel and route access; more trips cost empty returns and handling time but expose less capital per failure. Fragile/perishable loads and passenger comfort are selected modifiers. The offer and garage preview show those tradeoffs before loading; no upgrade makes capacity, speed and maneuverability all improve without cost.
+
+### Art direction that teaches the loop
+
+Reuse the existing enamel destination plates, brass manifests, repair shelves, pallet stacks, drive-up windows and split-flap boards. Add a small set of readable states: **EMPTY / RESERVED / READY**, input/output icons with text, and a receipt linking delivered stock to the next production batch. Show suited workers loading at their permitted posts, never a newly unmasked street crowd. Preserve the dust palette and silhouettes; economic information must still read close to the loading bay. The Upper City remains above the cloud deck and outside this first economy proof.
+
 
 ## 10. MOCKS — TWO LAYERS (Craig 2026-10-05)
 
@@ -283,7 +316,7 @@ Digest of a Gemini production-translation consult (gemini-3.8-flash, 2026-10-05)
 1. **Chidori authored night vs. fixed-lighting canon.** The identity plan cuts the day/night cycle (fixed lighting per stratum; time told by shift horns and Solari boards) yet assigns Chidori "night" and Daikoku "dusk" as authored exceptions. Is Chidori's night a separate lighting scene within the Lower City stratum (one more authored variant — acceptable), or does the whole Trench share one amber-murk bake with Chidori's signage doing the work? Affects art scope: one bake vs. two.
 2. **Kotobuki welding-arc light color.** The design consult proposed cobalt/cold blue-white welding bursts as Kotobuki's luminance signature — but the identity DO-list bans cool blue/purple in Lower City shadows. Question: is welding-arc flash an *emissive light source* exception (like vacuum-tube glow and phosphor green — both cool-ish and both canon), or should arc light be re-tuned warm (sodium-white/amber) to keep the ban absolute? Art-direction call needed before Kotobuki's lighting pass.
 3. **Kamome fluorescent strips.** Same class of question: the consult proposed 4000K cool-white fluorescents bouncing off wet tarmac as Kamome's ground-plane signature. The canon palette has no cool white for the Lower City (P1 green/P4 white phosphor only). Warm-white tube lighting would read just as wet — recommend warm, but needs the call.
-4. **No BIBLE DELTA items found.** The extrapolation doc contains no pending "BIBLE DELTA" marks — nothing was folded in from pending canon. (If deltas are added to the extrapolation doc later, they should be re-triaged here.)
+4. **2026-10-06 delivery-economy delta in review.** Sections 9/9A update navigation and the working loop; the linked research review identifies recommendations awaiting approval. The upstream bible and identity plan are reconciled in the companion central draft; the published extrapolation tail remains incomplete, as recorded in the source audit.
 5. **Harbor Tram spur into Kamome.** The bible gives the tram a center-boulevard spline; this chapter dead-ends a spur at the Kamome market gate (canon-adjacent, not canon). Confirm whether the tram network may branch per district or stays one spline.
 6. **The Flare Crown's flare cycle as a timing mechanic.** This chapter proposes drivers timing runs to the flare sequence rhythm. If adopted, it becomes a gameplay system (hazard telegraphing) — needs the systems chapter's sign-off, not just art's.
 7. **Daikoku mock coverage.** Five mocks were commissioned per the brief; Daikoku's street-level (as opposed to offshore panel fields, already mocked in v2e) has no bespoke mock. Commission `mock-daikoku.png` (container canyon, Gate 7, Winch Mast) if the art director wants full six-district coverage.
