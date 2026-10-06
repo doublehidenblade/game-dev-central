@@ -747,7 +747,7 @@
    "head_sha": "e10a9c8",
    "idle_min": 26.3,
    "last_activity_ts": "2026-10-02T13:44:07+00:00",
-   "last_browser_check_ts": "2026-10-05T20:57:25.942744+00:00",
+   "last_browser_check_ts": "2026-10-06T02:05:29.097289+00:00",
    "needs_browser": false,
    "open_issues": 3,
    "open_pr_numbers": [
@@ -792,16 +792,16 @@
    "classification_ts": "2026-09-24T23:27:07.753515+00:00",
    "fresh_check_2026_09_24": "LIMITED: still shows \"Session limit reached / Try again after your session limit resets\". Weekly usage banner: resets Tue Sep 29, 8:00 PM.",
    "last_classification": "WORKING",
-   "last_classification_ts": "2026-10-05T20:57:26.004850+00:00",
+   "last_classification_ts": "2026-10-06T02:05:29.158521+00:00",
    "last_failover_ts": "2026-10-05T20:44:12.040563+00:00",
-   "last_note": "Untitled \"New session\" (branch claude/new-session-su55f9, Shuto C1 ramp-deck-gap work) active again: Running in Recents, Currently streaming message with live tool calls (edited shuto_c1_world.gd, ran commands); session-limit wall gone. Expected trio all idle/complete.",
+   "last_note": "td-185 (Craig's open-world Lower City session): \"Running\" in Recents, \"Currently streaming message\" with live tool calls (ran 18 commands, created 3 files, reading job-card.png), Stop button present",
    "last_nudge_kind": "continue",
    "last_nudge_ts": "2026-10-01T19:32:58.567326+00:00",
    "last_rebrief_ts": "2026-10-02T16:16:05.231835+00:00",
    "last_steer_kind": "standing-delegation-resume",
    "note": "Dispatched td-127 (ping HUD verification) 2026-10-01T11:19Z \u2014 brief typed into session Prompt box verbatim, session went WORKING. Verify-only: fix already on main, prior worker gone. Do not double-dispatch td-127.\n2026-10-02T13:29:08Z DISPATCH QUEUED td-140 (80s-anime UI rework, 2026-10-01 dispatch delivered nothing \u2014 needs re-dispatch; brief typed verbatim into session Prompt box; verify session idle first). Do NOT double-dispatch td-140; do NOT dispatch the td-138 reskin until the GT-R LM Nismo base mesh lands in the repo.\n2026-10-05T19:46Z NUDGE from decide NOT queued: recorded blockers craig-own-session/out-of-tokens/opus-session-limit already surfaced today; last_note says Craig's own Opus session DO NOT TOUCH (teacher-student). No nudge on a possibly-Craig-owned session.",
    "product": "claude-code",
-   "stall_episode_start": "2026-10-05T18:09:12.392320+00:00",
+   "stall_episode_start": "2026-10-06T01:22:35.324750+00:00",
    "steered": [
     {
      "kind": "permission_grant",
@@ -809,7 +809,7 @@
      "ts": "2026-09-24T19:53:48Z"
     }
    ],
-   "task_url": "https://claude.ai/code/session_01EAM6hZWtfGSLUm2bB8rEXK",
+   "task_url": "https://claude.ai/code/session_01GGh7tcyWgHuAv7fsgdUsQN",
    "workspace": "Default tokyo-drift-3d",
    "last_finished_url": "https://claude.ai/code/session_019L7ukwWhPhDj7rbQRS8rEA",
    "last_failover_note": "2026-10-01 ~19:10Z: shuto-c1 OOT genuine (weekly-limit banner, episode since 18:46Z) but FAILOVER not queued \u2014 no stranded open work: its planned td-045 is paused since 2026-09-25 (Craig reprioritized), and the 4f86564 CI check is trivial. Priority brief re-curated 2026-10-01 for any future episode. Trio rotation keeps last_classification=FINISHED so decide stays NOTHING until a fresh OOT-led cycle.",
@@ -1131,9 +1131,9 @@
     "do_not_ship_pr253": "PR #253 (td-138-round3) holds ONLY the self-rejected iteration-01 negative evidence. NEVER merge it - not an acceptance submission. Set 2026-10-01 ~05:20Z after round-3 finished without iteration 02. Clear only when Craig approves a shippable iteration.",
     "FLAG_td134_merged_no_redispatch": "td-134 MERGED 2026-10-01 08:25Z (PR #261, incl. td-042 fold-in); board row 'merged'. 14:41Z dispatch was a mis-dispatch on a closed task; stand-down steer queued 14:57Z. NEVER re-dispatch td-134."
    },
-   "last_classification": "FINISHED",
-   "last_classification_ts": "2026-10-05T20:57:25.961657+00:00",
-   "last_note": "Most recent task \"Verify guest trace upload functionality\" completed with summary; idle composer, nothing running.",
+   "last_classification": "WORKING",
+   "last_classification_ts": "2026-10-06T02:05:29.108776+00:00",
+   "last_note": "\"Verify guest trace upload functionality\" (td-125), started 10/5/2026: all five WORKING indicators present \u2014 \"Working on your task\" banner, \"Thinking\" status, loading progressbar, \"Cancel task\" button, live terminal log (npm run build / vite build running)",
    "last_nudge_kind": "resume+continue",
    "last_nudge_ts": "2026-09-24T02:40:31.971819+00:00",
    "last_rebrief_ts": "2026-10-01T20:39:56.706022+00:00",
@@ -1860,44 +1860,41 @@
   {
    "ts": "2026-10-05T21:15:00Z",
    "note": "watchdog 2026-10-05T21:15Z (17:15 EDT run): decide=NOTHING codex (FINISHED, inspected+reported), NOTHING claude (WORKING \u2014 Shuto C1 ramp-deck-gap, streaming tool calls, DO NOT TOUCH per teacher-student). No SHIP. Orphan sweep: no ORPHAN-READY (51+ UNKNOWN inspector-report PRs + rejected #358, #253 BLOCKED denylisted, 5 DRAFT incl #357/#391). Dispatch: codex ELIGIBLE but all 6 candidates owned or skipped (td-101 Astra, td-119 Muse coordinator, td-163/173 subagents, td-054 SKIP, td-138 Opus SKIP) \u2014 no duplicate dispatch. 4 subagents ALIVE (td-163/168/173/174-validator; heartbeats ~23h stale per script, verdict ALIVE authoritative). classifications 16m old, STALE-RUNS=0. Budget OK 3.2%. pending_actions.json empty."
-  }
+  },
+  "2026-10-06T00:12Z deregistered td-163 (subagent): work merged: PR #331 merged 2026-10-04T23:41Z, live in v41 \u2014 worker's work handed off",
+  "2026-10-06T00:13Z deregistered td-168 (subagent): work merged: PR #334 merged 2026-10-04T23:26Z, live in v41 \u2014 worker's work handed off",
+  "2026-10-06T00:13Z deregistered td-173 (subagent): work merged: PR #338 merged 2026-10-04T23:36Z, live in v41 \u2014 worker's work handed off",
+  "2026-10-06T00:13Z deregistered td-174-validator (subagent): PR #336 merged 2026-10-04T23:29Z, live in v41 \u2014 nothing left to validate",
+  "2026-10-06T00:05Z WATCHDOG RECONCILIATION: 4 stale subagent registrations deregistered after API verification. td-163 (PR #331 merged 2026-10-04T23:41Z), td-168 (PR #334 23:26Z), td-173 (PR #338 23:36Z), td-174-validator (PR #336 23:29Z) \u2014 all 4 merge SHAs are ancestors of v41 live SHA 05a8507 (published 2026-10-05T22:13Z at Craig's request); work is LIVE. Inspector verdicts: td-168 PASS, td-174 WEAK (LED price-board gap open, brief PR #344 unmerged). Stale heartbeats ~26h + stale board rows (open/in-review) defeated liveness terminal detection; signal-B has no recency bound (task-file commits = the merges themselves). Board rows td-163/168/173/174 need hygiene PR (status->merged, owner cleared) \u2014 workers update own rows via PR, watchdog does not touch. ALSO STALE: watch.py pending ledger still lists PR #381 td-177 as merged-not-live \u2014 its merge SHA 2104e551 is in the v41 live tree; no pending-published subcommand exists to clear it (machinery gap, flagged for main agent). game-releases/pending.json correctly cleared 22:13Z.",
+  "2026-10-06T00:30Z SHUTO-C1 PARK + STALLED TRIO GAP (main agent): shuto-c1 (01B2dMtdkXXse3Q2avFLBkVf) intentionally parked awaiting Craig's design answers \u2014 never nudge. STALLED branch lacks the OOT trio guard; keep the live WORKING line last in classify-report files."
  ],
  "workers": {
-  "td-163": {
+  "td-188": {
    "kind": "subagent",
    "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-163.md",
-   "dispatched_at": "2026-10-04T22:09:14.051983+00:00",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-188.md",
+   "dispatched_at": "2026-10-06T02:21:53.458493+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "last_verdict": "registered"
   },
-  "td-168": {
+  "td-189": {
    "kind": "subagent",
    "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-168.md",
-   "dispatched_at": "2026-10-04T21:57:07.508417+00:00",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-189.md",
+   "dispatched_at": "2026-10-06T02:21:53.591378+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "last_verdict": "registered"
   },
-  "td-173": {
+  "td-190": {
    "kind": "subagent",
    "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-173.md",
-   "dispatched_at": "2026-10-04T21:57:09.938865+00:00",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-190.md",
+   "dispatched_at": "2026-10-06T02:21:53.791819+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-174-validator": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-174.md",
-   "dispatched_at": "2026-10-04T23:05:45.409006+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -1905,7 +1902,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 4
+  "stale_runs": 0
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2076,19 +2073,14 @@
   "td-185": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-05T22:27:58.040538+00:00",
+  "ts": "2026-10-06T02:14:18.677111+00:00",
   "checks": {
-   "liveness": [
-    "ALIVE td-163 (heartbeat stale (1458min); task-file commit 37e6f1f 2026-10-04T23:41)",
-    "ALIVE td-168 (heartbeat stale (1468min); task-file commit 553f68d 2026-10-04T23:26; open PR #345 Inspector report: 2026-10-04 19:34 EDT (td-174 WEAK, td-168 ; open PR #340 In)",
-    "ALIVE td-173 (heartbeat stale (1456min); task-file commit 5e46025 2026-10-04T23:36)",
-    "ALIVE td-174-validator (no heartbeat file; task-file commit 8265a93 2026-10-04T23:29)"
-   ],
+   "liveness": [],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=4"
+    "STALE-RUNS=0"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2104,11 +2096,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-05T22:27:58.040538+00:00",
-   "liveness": "2026-10-05T22:27:41.732629+00:00",
-   "classification-health": "2026-10-05T22:27:50.545089+00:00",
-   "transitions": "2026-10-05T22:27:48.536342+00:00",
-   "conflicts": "2026-10-05T22:27:44.665958+00:00",
+   "board-check": "2026-10-06T02:14:18.677111+00:00",
+   "liveness": "2026-10-06T02:12:37.574929+00:00",
+   "classification-health": "2026-10-06T02:12:53.412277+00:00",
+   "transitions": "2026-10-06T02:12:45.592357+00:00",
+   "conflicts": "2026-10-06T02:12:41.588849+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
