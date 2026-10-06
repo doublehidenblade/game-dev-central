@@ -2092,7 +2092,7 @@
   "td-193": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T12:42:36.609631+00:00",
+  "ts": "2026-10-06T12:57:47.450933+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2108,8 +2108,7 @@
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-FAIL td-191: liveness registry shows active worker but board Owner is empty",
-    "BOARD-FAIL td-192: liveness registry shows active worker but board Owner is empty"
+    "BOARD-OK tokyo-drift-3d (174 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2119,11 +2118,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T12:42:36.609631+00:00",
-   "liveness": "2026-10-06T12:42:28.532760+00:00",
-   "classification-health": "2026-10-06T12:42:33.261633+00:00",
-   "transitions": "2026-10-06T12:42:32.159118+00:00",
-   "conflicts": "2026-10-06T12:42:30.322837+00:00",
+   "board-check": "2026-10-06T12:57:47.450933+00:00",
+   "liveness": "2026-10-06T12:57:32.590436+00:00",
+   "classification-health": "2026-10-06T12:57:43.965338+00:00",
+   "transitions": "2026-10-06T12:57:42.280314+00:00",
+   "conflicts": "2026-10-06T12:57:35.818332+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
