@@ -1885,7 +1885,8 @@
   "2026-10-06T04:18Z deregistered td-189 (subagent): rework complete: 3 evidence gaps closed + _advance_road dirn bug fixed; board #312 merged (in_review); validator dispatching",
   "2026-10-06T04:23Z deregistered td-189-validator (subagent): re-validator PASS 12/12, PR #406 validated, board #314 merged",
   "2026-10-06T04:40Z LIVENESS: td-191 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-191.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-191-20261006-044037.md).",
-  "2026-10-06T04:45Z: false-DEAD suppression for td-191 subagent \u2014 liveness proclaimed DEAD on the short-repo-name evidence bug (fixed same day); verified via GitHub API that PR #410 (feat/td-191-autoload) is open, non-draft, mergeable clean, with the fix commit pushed 04:12Z \u2014 worker is ALIVE. No replacement dispatched, no dispatch-subagent entry queued; re-registered worker. The replacement brief liveness-briefs/td-191-20261006-044037.md is stale \u2014 do not use it for a replacement dispatch."
+  "2026-10-06T04:45Z: false-DEAD suppression for td-191 subagent \u2014 liveness proclaimed DEAD on the short-repo-name evidence bug (fixed same day); verified via GitHub API that PR #410 (feat/td-191-autoload) is open, non-draft, mergeable clean, with the fix commit pushed 04:12Z \u2014 worker is ALIVE. No replacement dispatched, no dispatch-subagent entry queued; re-registered worker. The replacement brief liveness-briefs/td-191-20261006-044037.md is stale \u2014 do not use it for a replacement dispatch.",
+  "2026-10-06T05:32Z deregistered td-193 (subagent): PR #414 merged to main"
  ],
  "workers": {
   "td-192": {
@@ -1903,15 +1904,6 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-191.md",
    "dispatched_at": "2026-10-06T04:47:44.760943+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-193": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-193.md",
-   "dispatched_at": "2026-10-06T04:49:53.662894+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
   }
