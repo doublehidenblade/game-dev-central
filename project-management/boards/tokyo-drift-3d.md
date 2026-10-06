@@ -186,4 +186,4 @@ td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (M
 | td-187 | Art-book district scenes for later assembly (Tenjin gate, back-alley, port) (Craig 2026-10-05) | open | Opus (new session — Craig to create) | — | 2026-10-05 |
 | td-188 | Pedestrian gameplay system: sidewalk walkers, hit reactions, crime signal (basic Godot models) (Craig 2026-10-05) | open | Muse subagent | — | 2026-10-05 |
 | td-189 | Civilian traffic AI on the road graph, braking/yielding, parked cars (basic Godot models) (Craig 2026-10-05) | open | Muse subagent | — | 2026-10-05 |
-| td-190 | GTA-like cop/wanted system: crime subscription, pursuit, bust, decay (Craig 2026-10-05) | open | Muse subagent | — | 2026-10-05 |
+| td-190 | GTA-like cop/wanted system: crime subscription, pursuit, bust, decay (Craig 2026-10-05) | in_review | Muse subagent | #405 | 2026-10-05 |
