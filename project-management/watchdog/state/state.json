@@ -1871,17 +1871,18 @@
   "2026-10-06T03:00Z deregistered td-189 (subagent): PR #406 open, validator flow",
   "2026-10-06T03:12Z LIVENESS: td-190 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-190.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-190-20261006-031220.md).",
   "2026-10-06T03:23Z deregistered td-188-validator (subagent): validation complete: td-188 VALIDATED, PR #403 verdict recorded, board PR #305 filed",
-  "2026-10-06T03:44Z deregistered td-190-validator (subagent): validator PASS 9/9 criteria, PR #405 validated, board PR #308 filed"
+  "2026-10-06T03:44Z deregistered td-190-validator (subagent): validator PASS 9/9 criteria, PR #405 validated, board PR #308 filed",
+  "2026-10-06T03:48Z deregistered td-189-validator (subagent): validator REJECTED: 3 evidence gaps (test file missing, real-graph drive unevidenced, braking unreadable); rework dispatched"
  ],
  "workers": {
-  "td-189-validator": {
+  "td-189": {
    "kind": "subagent",
-   "session": null,
+   "session": "b9cc28ef-6493-41c2-bf4c-28f57f057b32",
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-189.md",
-   "dispatched_at": "2026-10-06T03:38:56.019643+00:00",
+   "dispatched_at": "2026-10-06T03:49:18.892143+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
