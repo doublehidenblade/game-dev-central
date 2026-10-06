@@ -1884,7 +1884,8 @@
   "2026-10-06T03:48Z deregistered td-189-validator (subagent): validator REJECTED: 3 evidence gaps (test file missing, real-graph drive unevidenced, braking unreadable); rework dispatched",
   "2026-10-06T04:18Z deregistered td-189 (subagent): rework complete: 3 evidence gaps closed + _advance_road dirn bug fixed; board #312 merged (in_review); validator dispatching",
   "2026-10-06T04:23Z deregistered td-189-validator (subagent): re-validator PASS 12/12, PR #406 validated, board #314 merged",
-  "2026-10-06T04:40Z LIVENESS: td-191 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-191.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-191-20261006-044037.md)."
+  "2026-10-06T04:40Z LIVENESS: td-191 proclaimed DEAD (2 quiet cycles; no heartbeat file; task-file check failed: gh api /repos/tokyo-drift-3d/commits?path=godot/docs/tasks/td-191.md&sha=main&per_page=3: HTTP 404: {\"message\":\"Not F). Replacement dispatch-subagent queued (brief td-191-20261006-044037.md).",
+  "2026-10-06T04:45Z: false-DEAD suppression for td-191 subagent \u2014 liveness proclaimed DEAD on the short-repo-name evidence bug (fixed same day); verified via GitHub API that PR #410 (feat/td-191-autoload) is open, non-draft, mergeable clean, with the fix commit pushed 04:12Z \u2014 worker is ALIVE. No replacement dispatched, no dispatch-subagent entry queued; re-registered worker. The replacement brief liveness-briefs/td-191-20261006-044037.md is stale \u2014 do not use it for a replacement dispatch."
  ],
  "workers": {
   "td-192": {
@@ -1893,6 +1894,15 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-192.md",
    "dispatched_at": "2026-10-06T04:19:42.404556+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "alive"
+  },
+  "td-191": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-191.md",
+   "dispatched_at": "2026-10-06T04:47:44.760943+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
   }
@@ -2080,10 +2090,11 @@
   "td-192": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T04:46:07.972028+00:00",
+  "ts": "2026-10-06T04:48:07.218456+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)"
+    "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
+    "ALIVE td-191 (no heartbeat file; branch feat/td-191-autoload 1 ahead; branch file/td-191-task 1 ahead; open PR #410 td-191: fix ## comments in project.godot [autoload] (OffRo)"
    ],
    "transitions": [
     "FLIP td-189: in_review -> validated [notify-craig]"
@@ -2107,7 +2118,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-06T04:39:10.283551+00:00",
-   "liveness": "2026-10-06T04:46:07.972028+00:00",
+   "liveness": "2026-10-06T04:48:07.218456+00:00",
    "classification-health": "2026-10-06T04:39:06.136112+00:00",
    "transitions": "2026-10-06T04:39:00.893767+00:00",
    "conflicts": "2026-10-06T04:46:01.263794+00:00",
