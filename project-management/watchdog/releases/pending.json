@@ -7,6 +7,22 @@
    "merged_sha": "f00e84802347f697b52970d9b6421e39cebb32a5",
    "merged_at": "2026-10-06T16:45:25.319672+00:00",
    "summary": "street-tree Easy Tree rebuild: zelkova/ginkgo/plane replace blob canopies, validated 4/4"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-194",
+   "pr": 430,
+   "merged_sha": "4b9c9f5f256a08ec308d7c7b8a3d450a9171b316",
+   "merged_at": "2026-10-06T22:31:13.504722+00:00",
+   "summary": "spawn civilian traffic out of the camera frustum"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-196",
+   "pr": 432,
+   "merged_sha": "1d056b9a886c3477073aea440b2fb3989f81bbc0",
+   "merged_at": "2026-10-06T22:31:13.674631+00:00",
+   "summary": "arrest: bump drops speed to 0, bust fails the gig, reset to police station"
   }
  ],
  "cleared_at": "2026-10-06T03:35:00Z",
