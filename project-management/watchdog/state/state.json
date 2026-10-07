@@ -1945,7 +1945,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 48
+  "stale_runs": 49
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2133,10 +2133,11 @@
   "td-199": "open",
   "td-200": "open",
   "td-201": "open",
-  "td-202": "open"
+  "td-202": "open",
+  "td-207": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-10-07T09:57:52.347794+00:00",
+  "ts": "2026-10-07T10:12:54.799033+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2144,16 +2145,16 @@
     "ALIVE td-195 (no heartbeat file; task-file commit 58516c0 2026-10-06T23:15; open PR #447 Inspector report: 2026-10-06 20:34 EDT; open PR #433 td-195: cop cars collide with wo)"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-207: in_review -> in_progress [silent]"
    ],
    "classification-health": [
-    "STALE-RUNS=48"
+    "STALE-RUNS=49"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (186 rows)"
+    "BOARD-FAIL line 198: 7 cells, task-parse=ok: | td-207 | REGRESSION: gig-menu merge (#460) deleted the minimap + cargo/body he"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2163,11 +2164,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-07T09:57:52.347794+00:00",
-   "liveness": "2026-10-07T09:57:41.433749+00:00",
-   "classification-health": "2026-10-07T09:57:48.149018+00:00",
-   "transitions": "2026-10-07T09:57:46.914673+00:00",
-   "conflicts": "2026-10-07T09:57:44.217844+00:00",
+   "board-check": "2026-10-07T10:12:54.799033+00:00",
+   "liveness": "2026-10-07T10:12:45.308801+00:00",
+   "classification-health": "2026-10-07T10:12:51.887780+00:00",
+   "transitions": "2026-10-07T10:12:50.540665+00:00",
+   "conflicts": "2026-10-07T10:12:47.008152+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
