@@ -3222,7 +3222,12 @@ def cmd_review_sweep(args):
         if r["prefix"] != "in_review":
             continue
         task = r["task"]
-        prn = _pr_number_from_cell(r.get("pr") or "")
+        # Board rows are hand-authored: the td-203/td-204 rows (2026-10-07) put the
+        # PR link in the Owner column and the task link in the PR column, so the
+        # 1-hour review-queue rule must read BOTH cells or the sweep silently
+        # misses in_review PRs (the exact #403 15h-rot failure Craig caught).
+        prn = _pr_number_from_cell(r.get("pr") or "") \
+            or _pr_number_from_cell(r.get("owner") or "")
         if not prn:
             print(f"VALIDATOR-OK {task} none no-pr-on-board")
             continue
