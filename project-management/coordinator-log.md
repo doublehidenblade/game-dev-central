@@ -50,3 +50,7 @@ Muse map/marker/guide and td-203/205 untouched; read-only range contract only. E
 ## 2026-10-07 — td-206 modal review correction
 
 P2 independently reported on 70a750b is reproduced and corrected in fuel-only runtime source at 825a1db85618e13e3a54de7fcb0ba310df6d734f. 62 fuel native +31 modal native +35 browser modal +10 browser economy/reload checks pass on that source. No map, guide, shared PauseMenu or asset source changes. [QA-only correction package](https://github.com/doublehidenblade/tokyo-drift-3d-web/tree/qa/td-206-fuel/qa/td-206/modal) contains the four-failure negative control and final before/after/probes. Reviewer reported 52 pre-entry errors; local one-boot runs have 28 and two-boot economy runs have 56, matching unchanged baseline by message multiset. Counts preserved by run; no unrelated asset fixes. Source draft457 and board draft330 remain unmerged; task in_review with natural-wreck, combined446 and physical-phone gates unchanged.
+
+## 2026-10-07 — td-206 combined Wanted overlap review
+
+Independent combined review found FuelHud obscures Wanted at844×390 on fuel99ca704 + PR446ad531cc6; portrait and combined gameplay/modal/arrest/tow checks passed. Reopened existing td-206 for FuelHud-only placement correction, validated in a local-only combined worktree. Only fuel fix/evidence will be pushed to existing draft457; no shared HUD/map/PR446 source edits, Actions, PR merge or deployment.
