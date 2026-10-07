@@ -46,6 +46,13 @@ transcript, this file wins.
 Every task file MUST contain these fields (JSON):
 
 - `id`, `title`
+- `recommended_setup` — capability tier, provider preference, exact requested
+  model/effort, verified environment/tools, availability, fallback, attempt
+  budget, escalation criteria, verification budget, requested-versus-confirmed
+  setup, and outcome. Use `project-management/rules/WORKER_SELECTION_POLICY.md`.
+  Required for new tasks; add to active tasks at their next ordinary planning
+  update without interrupting or reassigning their owner. This is metadata and
+  review guidance, not an automatic dispatch or ownership change.
 - `status` — one of: `open`, `in_progress`, `in_review`, `validated`,
   `rejected`, `blocked`, `abandoned`, `done-pending-verdict`
   (`done-pending-verdict`: implementation complete and verified on main to
