@@ -1,12 +1,7 @@
-# Garage progression reference boards
+# Garage progression references
 
-These are direction references for td-197, not implementation evidence. Generated mock boards are not real photographs, measured site plans or Godot screenshots.
+Current authority: [corrected mini-truck-r3 reference specification](mini-truck-r3/README.md) and [final-only manifest](mini-truck-r3/asset-manifest.json).
 
-Expected central paths:
-- `garage-entry-interior.png`: physical apron, drive-in interior, functioning shutter and parked workshop view
-- `garage-space-expansion.png`: consistent starter versus later actual adjoining bay and usable storage expansion
-- `garage-phone-progression.png`: contextual phone flow, fitting choice and hidden-tier discovery states
+All earlier detailed sedan boards and red-coupe starter boards are superseded. Only the manifest’s eleven final PNG names are current; draft, superseded and refrigerator-study files are excluded. The current design uses an original compact mini-truck, visible bed modules, room for workshop equipment and a separate paint-shop location.
 
-Only files actually present on this branch are available. Image generation/preparation is tracked separately; this initial README does not assert any board has passed review. A later update must record verified filenames, review notes, source basis and any limitations.
-
-The existing fleet/garage art-book chapters supply style context. If their binary reference pixels cannot be inspected through the supported tools, use text/palette specifications transparently; do not claim pixel matching. td-197 still requires actual game geometry and playable-car measurements before its layout gate.
+Publication status: text and manifest available; PNG bytes not yet published as of 2026-10-07 04:56 UTC. The admitted 3D worker must inspect actual pixels before image-dependent modeling. Generated mock dimensions remain provisional and require measured blockout, mounting and swept-clearance verification.
