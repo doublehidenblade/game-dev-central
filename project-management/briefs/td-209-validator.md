@@ -2,6 +2,8 @@
 
 FIRST read [task-team SYSTEM](../task-team-system/SYSTEM.md) and [worker selection policy](../rules/WORKER_SELECTION_POLICY.md). Judge the canonical [td-209 contract](https://github.com/doublehidenblade/tokyo-drift-3d/blob/feat/td-209-tenjin-live-buildings/godot/docs/tasks/td-209.md) and its listed evidence at the final source/evidence pins supplied on dispatch. Draft [implementation PR489](https://github.com/doublehidenblade/tokyo-drift-3d/pull/489) targets integration PR488. Do not review a moving working tree.
 
+Implementation source is frozen at `847270a40257c83cdcab364c52631e386218c3a2`; final evidence pin is still pending. Base runtime is `2227f71e784f581d11ace8f90e7201fbb59b1f63` / `8e7caeb1209c0d47dfea3ac57308e693a00b3983`; baseline QA tooling checkpoint is `ad4f24229a7ba80e25e3d4ddc1e83a33f3db0c47`. Initial before captures predate complete td-119 importer recovery and are being relabeled/replaced from the restored isolated baseline. Review the final restored pairs and their resource hashes, not the retained preliminary attempts. Current matching local ordinary exports are 92196912→98201888 bytes; do not equate that base with the supplied 102777824-byte playtest artifact without an artifact comparison.
+
 ## Recommended setup
 
 - Capability tier/reason: frontier; independent audit of coupled 3D geometry, visual coverage, collision and export behavior.
