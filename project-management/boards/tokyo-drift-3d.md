@@ -202,3 +202,5 @@ td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (M
 | td-200 | Atomic garage inventory and fixed supplier first loop | open | GPT Dots | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-200.md) | 2026-10-07 |
 | td-201 | Phone workshop UI and prerequisite-aware discovery | open | GPT Dots | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-201.md) | 2026-10-07 |
 | td-202 | Independent garage first-slice integration validation | open | GPT Dots | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-202.md) | 2026-10-07 |
+
+| td-206 | Lower City fuel: two stations, distance range, paid fill/tow/salvage | in_progress | Codex fuel worker (Craig delegation 01a0f882) | [Draft #457](https://github.com/doublehidenblade/tokyo-drift-3d/pull/457); Muse map/td-203–205 ownership preserved | 2026-10-07 |
