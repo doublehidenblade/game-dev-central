@@ -1,0 +1,471 @@
+{
+  "revision": "mini-truck-r3-corrected",
+  "date_utc": "2026-10-07",
+  "scope": "first-slice 2D visual mock set; not 3D assets or gameplay proof",
+  "references": [
+    {
+      "name": "24175.jpg",
+      "role": "user-supplied compact mini-truck form/proportion collage"
+    },
+    {
+      "name": "24167.jpg",
+      "role": "user-supplied actual game rendering-style screenshot"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/doublehidenblade/tokyo-drift-3d-web/3ca135088ab6997e4a6b4d6cdbdf2e2e144de922/qa/v44-systems/after/hud-portrait.png",
+      "role": "actual native viewport, rendering-style reference"
+    }
+  ],
+  "coordinate_convention": {
+    "source": "current design proposal",
+    "forward": "+Z",
+    "right": "-X",
+    "up": "+Y",
+    "units": "meters"
+  },
+  "shared_mounts": [
+    {
+      "id": "bed_A",
+      "meaning": "front-left",
+      "xyz_m": null
+    },
+    {
+      "id": "bed_B",
+      "meaning": "front-right",
+      "xyz_m": null
+    },
+    {
+      "id": "bed_C",
+      "meaning": "rear-left",
+      "xyz_m": null
+    },
+    {
+      "id": "bed_D",
+      "meaning": "rear-right",
+      "xyz_m": null
+    }
+  ],
+  "mount_status": "All numeric socket coordinates to be measured in common dimensional blockout. No numbers inferred from AI perspective.",
+  "common_validation_gates": [
+    "measured chassis, wheelbase and collider",
+    "module length/width/height and matching mount coordinates",
+    "cab/filter, rear lamps, wheel and tailgate no-build envelopes",
+    "clear drive/unload aisle and closed/open shutter bounds",
+    "empty and loaded swept paths with every permitted fitting",
+    "phone chase-camera silhouette and render budget",
+    "price/capacity/mass retest on new mini-truck"
+  ],
+  "assets": [
+    {
+      "part_id": "starter_minitruck_a",
+      "phase": "first_slice",
+      "file": "mini-truck-base.png",
+      "bytes": 1629986,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "8d8928e7debd22517c23a59b3d4dca613c01e0765edf1c29ea48a658af717d91",
+      "reveal_condition": "baseline",
+      "compatible_chassis": [],
+      "mount_ids": [],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": null,
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": null,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": null
+    },
+    {
+      "part_id": "bed_rack_01",
+      "phase": "first_slice",
+      "file": "bed-utility-rack.png",
+      "bytes": 1682598,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "befd7ea32927d39a30176868a49ce531d60a71e5e5298e0f64cfc40b1b8e41b1",
+      "reveal_condition": "starter_fitting",
+      "compatible_chassis": [
+        "starter_minitruck_a"
+      ],
+      "mount_ids": [
+        "bed_A",
+        "bed_B",
+        "bed_C",
+        "bed_D"
+      ],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": {
+        "mass_kg": 25,
+        "volume_change_units": 2,
+        "unchanged_payload_rating": true
+      },
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": false,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": "starter_minitruck_a corrected base"
+    },
+    {
+      "part_id": "bed_padded_01",
+      "phase": "first_slice",
+      "file": "padded-bed-carrier.png",
+      "bytes": 1824580,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "b140581abbb3e6cadf7895cd4040fdc973d4fff6f85c915dc922df5e6da08795",
+      "reveal_condition": "starter_fitting",
+      "compatible_chassis": [
+        "starter_minitruck_a"
+      ],
+      "mount_ids": [
+        "bed_A",
+        "bed_B",
+        "bed_C",
+        "bed_D"
+      ],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": {
+        "mass_kg": 35,
+        "occupied_volume_units": 1
+      },
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": false,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": "starter_minitruck_a corrected base"
+    },
+    {
+      "part_id": "garage_layout_starter",
+      "phase": "first_slice",
+      "file": "roomy-garage.png",
+      "bytes": 1554583,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "b78df417fdc90b094b2d1d7d5186043fda0c15202f7db9179da25a2aa0ad60ad",
+      "reveal_condition": "baseline",
+      "compatible_chassis": [],
+      "mount_ids": [],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": null,
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": null,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": null
+    },
+    {
+      "part_id": "garage_workbench_01",
+      "phase": "first_slice",
+      "file": "starter-workbench.png",
+      "bytes": 1532656,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "fdb2c295faa770ec064eb775292c798d20acbd1cb900c0e467ef5e23cad5dfa2",
+      "reveal_condition": "baseline",
+      "compatible_chassis": [],
+      "mount_ids": [],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": null,
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": null,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": null
+    },
+    {
+      "part_id": "garage_supply_shelf_01",
+      "phase": "first_slice",
+      "file": "supply-shelf.png",
+      "bytes": 1544299,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "659d8bd6a1cf19b23284cce3ccef5799ed99553a5c0160c9538bcc18a9fae529",
+      "reveal_condition": "baseline",
+      "compatible_chassis": [],
+      "mount_ids": [],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": {
+        "storage_units": 12
+      },
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": null,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": null
+    },
+    {
+      "part_id": "garage_shutter_01",
+      "phase": "first_slice",
+      "file": "entry-shutter-threshold.png",
+      "bytes": 1645809,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "7a9c1d282456e36a4d3689faa28bf2b3b5cd3b5b9a35621523839c683febc82d",
+      "reveal_condition": "baseline",
+      "compatible_chassis": [],
+      "mount_ids": [],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": null,
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": null,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": null
+    },
+    {
+      "part_id": "paint_shop_01",
+      "phase": "first_slice",
+      "file": "paint-shop.png",
+      "bytes": 1690857,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "212ad83776ec0f086bc56237122fff2846863f722e24b1e59856c92f8d95486c",
+      "reveal_condition": "physical_discovery",
+      "compatible_chassis": [],
+      "mount_ids": [],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": null,
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": null,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": null
+    },
+    {
+      "part_id": "paint_finish_single_01",
+      "phase": "first_slice",
+      "file": "paint-work.png",
+      "bytes": 1635378,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "58e1facb03d6db6bd4767f4883c044bc437a6be1c6483bb377a94577640e61ae",
+      "reveal_condition": "paint_shop_discovered",
+      "compatible_chassis": [
+        "starter_minitruck_a"
+      ],
+      "mount_ids": [],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": {
+        "price_jpy": 1200,
+        "mechanical_benefit": false
+      },
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": null,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": "starter_minitruck_a corrected base"
+    },
+    {
+      "part_id": "paint_finish_two_tone_01",
+      "phase": "first_slice",
+      "file": "paint-two-tone.png",
+      "bytes": 1635657,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "ecbc600a2dbdd2062337f1d9d8412afa969983136496465919a1c7a1c0790885",
+      "reveal_condition": "paint_shop_discovered",
+      "compatible_chassis": [
+        "starter_minitruck_a"
+      ],
+      "mount_ids": [],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": {
+        "price_jpy": 2400,
+        "mechanical_benefit": false
+      },
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": null,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": "starter_minitruck_a corrected base"
+    },
+    {
+      "part_id": "paint_finish_signature_01",
+      "phase": "first_slice",
+      "file": "paint-signature.png",
+      "bytes": 1671805,
+      "pixel_size": [
+        1536,
+        1024
+      ],
+      "sha256": "93cde1eb00160f85e4ef1f7258cdafe392be21af2cfd79ea62b9f25351806cf0",
+      "reveal_condition": "paint_shop_discovered",
+      "compatible_chassis": [
+        "starter_minitruck_a"
+      ],
+      "mount_ids": [],
+      "dimensions_m": null,
+      "collision_bounds_m": null,
+      "mass_volume_or_price_starting_points": {
+        "price_jpy": 4500,
+        "mechanical_benefit": false
+      },
+      "tuning_status": "provisional; retest on mini-truck",
+      "power_required": null,
+      "material_zones": [
+        "painted_body",
+        "painted_accent",
+        "glass",
+        "rubber",
+        "bare_metal",
+        "bed_floor",
+        "module_materials"
+      ],
+      "render_budget": "pending actual-game asset budget; preserve broad cel forms",
+      "geometry_validation": "not started; concept is not a runtime proof",
+      "visual_review": "opened and checked; corrected base and installed rear-quarter perspectives",
+      "variant_dependency": "starter_minitruck_a corrected base"
+    }
+  ],
+  "queued_not_delivered": [
+    "refrigerator (existing draft withheld; outdated installed perspective)",
+    "powered service station",
+    "second bay",
+    "side-storage addition",
+    "timber alcove",
+    "service lift",
+    "handling/reinforcement components",
+    "cage",
+    "tank",
+    "concealed module",
+    "certified hazmat module",
+    "heavy pad",
+    "heavy truck"
+  ],
+  "superseded": [
+    "all original detailed sedan boards",
+    "red-coupe starter boards",
+    "mini-truck upper-left perspective before Library base version 1",
+    "all files containing draft or superseded in filename"
+  ]
+}
