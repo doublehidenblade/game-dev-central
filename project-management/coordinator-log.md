@@ -40,3 +40,9 @@ Append-only. Newest entries at the bottom. Every coordinator turn that changes d
 ## 2026-10-07 — td-206 bounded fuel reservation
 
 Craig explicitly delegated a new independent fuel task. Checked source main `389d4a8`, open PRs, branches and board (td-203–205 already filed). Reserved td-206 in [draft PR #457](https://github.com/doublehidenblade/tokyo-drift-3d/pull/457), `feat/td-206-fuel`. This is the admitted local worker, not external-agent contact. No takeover of Muse map/guide or Claude assets/gig foundations; td-204 health remains separate. No Actions, main writes, merge or deployment. Board proposal remains unmerged by explicit request.
+
+## 2026-10-07 — td-206 implementation ready for review
+
+Bounded fuel worker finished source draft [PR457](https://github.com/doublehidenblade/tokyo-drift-3d/pull/457), `feat/td-206-fuel` @ `70a750b` (gameplay/test head `effc7e6d4a90a030e74e847c6664d1355892d62d`). Two actual Lower City stations; range/fill/tow/salvage and run-over/retry adapters, data-driven current-car profile. 62 runtime checks + 10 actual exported Web touch/reload checks passed. Real two-gig distance 6.045 km, station leg 0.264 km, reserve 1.191 km; exact-camera before/after proof in [QA-only branch](https://github.com/doublehidenblade/tokyo-drift-3d-web/tree/qa/td-206-fuel/qa/td-206) @8819e81. Task remains in_review, not self-validated.
+
+Muse map/marker/guide and td-203/205 untouched; read-only range contract only. Existing cargo damage is not car health: natural chassis event remains td-204/health-owner hookup. PR446 ad531cc6 remains unmerged; integration should retain its reset behavior and the additive car_transported signal. Run persistence does not exist; all current run state resets together on reload. Physical-phone acceptance remains pending. No Actions, main writes, merge, deployment, external-agent contact or NEON changes; public ref contains QA artifacts only.
