@@ -23,3 +23,11 @@
 > **Shared lessons** (technique teardowns both games build on):
 > https://github.com/doublehidenblade/game-dev-central/tree/main/knowledge/lessons
 > — read the lesson file named in this brief before designing.
+
+## Per-task worker setup
+
+Every task/brief includes the completed Recommended setup block from
+[WORKER_SELECTION_POLICY.md](../project-management/rules/WORKER_SELECTION_POLICY.md):
+model capability tier, provider preference, supported effort, verified tools,
+wait-or-bounded fallback, escalation and verification budgets, and requested
+versus confirmed runtime. Do not silently downgrade or replace a live owner.
