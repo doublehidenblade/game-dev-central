@@ -1941,7 +1941,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 18
+  "stale_runs": 19
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2123,18 +2123,18 @@
   "td-196": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-10-07T01:13:02.052786+00:00",
+  "ts": "2026-10-07T01:31:47.286214+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
     "ALIVE td-191 (no heartbeat file; branch feat/td-191-autoload 1 ahead; branch file/td-191-task 1 ahead; open PR #445 Inspector report: 2026-10-05 19:34 EDT; open PR #410 td-19)",
-    "ALIVE td-195 (no heartbeat file; task-file commit 58516c0 2026-10-06T23:15; open PR #433 td-195: cop cars collide with world and vehicles; Tripo poli)"
+    "ALIVE td-195 (no heartbeat file; task-file commit 58516c0 2026-10-06T23:15; open PR #447 Inspector report: 2026-10-06 20:34 EDT; open PR #433 td-195: cop cars collide with wo)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=18"
+    "STALE-RUNS=19"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2150,11 +2150,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-07T01:13:02.052786+00:00",
-   "liveness": "2026-10-07T01:12:44.094080+00:00",
-   "classification-health": "2026-10-07T01:12:53.110184+00:00",
-   "transitions": "2026-10-07T01:12:50.772446+00:00",
-   "conflicts": "2026-10-07T01:12:48.129580+00:00",
+   "board-check": "2026-10-07T01:31:47.286214+00:00",
+   "liveness": "2026-10-07T01:28:03.298711+00:00",
+   "classification-health": "2026-10-07T01:29:09.421797+00:00",
+   "transitions": "2026-10-07T01:28:43.142810+00:00",
+   "conflicts": "2026-10-07T01:28:21.379210+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
