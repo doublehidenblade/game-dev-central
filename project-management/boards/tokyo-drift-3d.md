@@ -193,3 +193,16 @@ td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (M
 | td-194 | Civilian cars spawn in view: out-of-frustum spawn/despawn (Craig playtest 2026-10-06, follows td-189/193) | merged | Muse subagent | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-194.md) | 2026-10-06 |
 | td-195 | Cop cars ignore collisions: reuse existing collision, police Tripo asset w/ livery+lights (Craig playtest 2026-10-06, follows td-190) | open | Muse subagent | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-195.md) | 2026-10-06 |
 | td-196 | Arrest: bump → speed drop → arrest fails gig, reset to police station (Craig playtest 2026-10-06, follows td-190/185; REOPENED v44 playtest 2026-10-06: arrest still too slow, had to deliberately crash + wait) | in_progress | Muse subagent | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-196.md) | 2026-10-06 |
+
+## Garage first slice — filed 2026-10-07 by dot
+
+Craig's 7 October request opens only this new garage scope. Planning rows below are blocked until explicit dependencies and confirmed runtime admission; no worker dispatch is claimed. Canonical task files are proposed on the game-repo `tasks/td-197-202-garage-progression` branch. Existing owners above are unchanged.
+
+| Task | Scope | Status | Owner | Task | Last update |
+|---|---|---|---|---|---|
+| td-197 | Garage reference mocks and measured layout gate | blocked — runtime admission; measured mock gate | dot; worker unassigned | [spec](https://github.com/doublehidenblade/tokyo-drift-3d/blob/tasks/td-197-202-garage-progression/godot/docs/tasks/td-197.md) | 2026-10-07 |
+| td-198 | Driveable garage graybox in the actual Lower City | blocked — td-197; runtime admission; owner contracts where applicable | dot; worker unassigned | [spec](https://github.com/doublehidenblade/tokyo-drift-3d/blob/tasks/td-197-202-garage-progression/godot/docs/tasks/td-198.md) | 2026-10-07 |
+| td-199 | Garage entry, shutter and police shelter contract | blocked — td-198; runtime admission; owner contracts where applicable | dot; worker unassigned | [spec](https://github.com/doublehidenblade/tokyo-drift-3d/blob/tasks/td-197-202-garage-progression/godot/docs/tasks/td-199.md) | 2026-10-07 |
+| td-200 | Atomic garage inventory and fixed supplier first loop | blocked — td-199; runtime admission; owner contracts where applicable | dot; worker unassigned | [spec](https://github.com/doublehidenblade/tokyo-drift-3d/blob/tasks/td-197-202-garage-progression/godot/docs/tasks/td-200.md) | 2026-10-07 |
+| td-201 | Phone workshop UI and prerequisite-aware discovery | blocked — td-200; runtime admission; owner contracts where applicable | dot; worker unassigned | [spec](https://github.com/doublehidenblade/tokyo-drift-3d/blob/tasks/td-197-202-garage-progression/godot/docs/tasks/td-201.md) | 2026-10-07 |
+| td-202 | Independent garage first-slice integration validation | blocked — td-197, td-198, td-199, td-200, td-201; runtime admission; owner contracts where applicable | dot; worker unassigned | [spec](https://github.com/doublehidenblade/tokyo-drift-3d/blob/tasks/td-197-202-garage-progression/godot/docs/tasks/td-202.md) | 2026-10-07 |
