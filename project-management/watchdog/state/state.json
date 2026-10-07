@@ -1945,7 +1945,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 50
+  "stale_runs": 51
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2134,10 +2134,10 @@
   "td-200": "open",
   "td-201": "open",
   "td-202": "open",
-  "td-207": "in_progress"
+  "td-207": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-07T10:27:40.686860+00:00",
+  "ts": "2026-10-07T10:42:38.974173+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2145,17 +2145,16 @@
     "ALIVE td-195 (no heartbeat file; task-file commit 58516c0 2026-10-06T23:15; open PR #447 Inspector report: 2026-10-06 20:34 EDT; open PR #433 td-195: cop cars collide with wo)"
    ],
    "transitions": [
-    "FLIP td-207: in_progress -> in_review [wake-validator]",
-    "FLIP td-207: in_review -> in_progress [silent]"
+    "FLIP td-207: in_progress -> in_review [wake-validator]"
    ],
    "classification-health": [
-    "STALE-RUNS=50"
+    "STALE-RUNS=51"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-FAIL line 198: 7 cells, task-parse=ok: | td-207 | REGRESSION: gig-menu merge (#460) deleted the minimap + cargo/body he"
+    "BOARD-OK tokyo-drift-3d (187 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2165,11 +2164,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-07T10:27:40.686860+00:00",
-   "liveness": "2026-10-07T10:27:31.237902+00:00",
-   "classification-health": "2026-10-07T10:27:37.132242+00:00",
-   "transitions": "2026-10-07T10:27:35.153556+00:00",
-   "conflicts": "2026-10-07T10:27:33.011294+00:00",
+   "board-check": "2026-10-07T10:42:38.974173+00:00",
+   "liveness": "2026-10-07T10:42:29.985593+00:00",
+   "classification-health": "2026-10-07T10:42:35.184519+00:00",
+   "transitions": "2026-10-07T10:42:33.320952+00:00",
+   "conflicts": "2026-10-07T10:42:31.214971+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
