@@ -1,3 +1,12 @@
 {
- "pending": []
+ "pending": [
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-203",
+   "pr": 459,
+   "merged_sha": "eda80acd918ac05d485983f72c934d9645f07509",
+   "merged_at": "2026-10-07T07:00:50.547229+00:00",
+   "summary": "td-203: minimap + large-map player marker (validator PASS, PR #459 merged by validator)"
+  }
+ ]
 }
