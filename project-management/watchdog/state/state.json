@@ -1941,7 +1941,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 29
+  "stale_runs": 30
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2120,10 +2120,19 @@
   "td-193": "validated",
   "td-194": "merged",
   "td-195": "open",
-  "td-196": "in_progress"
+  "td-196": "in_progress",
+  "td-203": "open",
+  "td-204": "open",
+  "td-205": "open",
+  "td-197": "open",
+  "td-198": "in_progress",
+  "td-199": "open",
+  "td-200": "open",
+  "td-201": "open",
+  "td-202": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-07T05:13:29.215330+00:00",
+  "ts": "2026-10-07T05:29:02.329101+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2134,13 +2143,13 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=29"
+    "STALE-RUNS=30"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (177 rows)"
+    "BOARD-OK tokyo-drift-3d (186 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2150,11 +2159,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-07T05:13:29.215330+00:00",
-   "liveness": "2026-10-07T05:13:08.990840+00:00",
-   "classification-health": "2026-10-07T05:13:22.273385+00:00",
-   "transitions": "2026-10-07T05:13:18.558265+00:00",
-   "conflicts": "2026-10-07T05:13:15.531490+00:00",
+   "board-check": "2026-10-07T05:29:02.329101+00:00",
+   "liveness": "2026-10-07T05:28:49.495855+00:00",
+   "classification-health": "2026-10-07T05:28:57.231328+00:00",
+   "transitions": "2026-10-07T05:28:55.424389+00:00",
+   "conflicts": "2026-10-07T05:28:50.869645+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
