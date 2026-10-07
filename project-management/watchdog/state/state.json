@@ -958,6 +958,11 @@
      "reason": "",
      "recorded_at": "2026-10-05T18:43:56.532177+00:00",
      "surfaced": true
+    },
+    "login-wall": {
+     "reason": "",
+     "recorded_at": "2026-10-07T00:13:29.970649+00:00",
+     "surfaced": true
     }
    }
   },
@@ -1526,7 +1531,13 @@
     }
    ],
    "stall_episode_start": "2026-10-01T12:33:09.253175+00:00",
-   "blockers": {},
+   "blockers": {
+    "login-wall": {
+     "reason": "",
+     "recorded_at": "2026-10-07T00:13:29.841251+00:00",
+     "surfaced": true
+    }
+   },
    "assignments": [],
    "finished_urls": [
     "https://chatgpt.com/codex/cloud/tasks/task_e_6abed1d0b670832eb8b8bf60685b9e93",
@@ -1930,7 +1941,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 13
+  "stale_runs": 14
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2112,7 +2123,7 @@
   "td-196": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-10-06T23:58:04.728865+00:00",
+  "ts": "2026-10-07T00:12:55.074851+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2123,7 +2134,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=13"
+    "STALE-RUNS=14"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2139,11 +2150,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-06T23:58:04.728865+00:00",
-   "liveness": "2026-10-06T23:57:47.245285+00:00",
-   "classification-health": "2026-10-06T23:58:00.323030+00:00",
-   "transitions": "2026-10-06T23:57:58.311632+00:00",
-   "conflicts": "2026-10-06T23:57:54.014568+00:00",
+   "board-check": "2026-10-07T00:12:55.074851+00:00",
+   "liveness": "2026-10-07T00:12:40.681514+00:00",
+   "classification-health": "2026-10-07T00:12:50.511574+00:00",
+   "transitions": "2026-10-07T00:12:47.928226+00:00",
+   "conflicts": "2026-10-07T00:12:44.959346+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
