@@ -15,6 +15,14 @@
    "merged_sha": "cc87554141db7a6ee2d35e7a4704f715a754ff46",
    "merged_at": "2026-10-07T07:41:53.454971+00:00",
    "summary": "td-204 cargo+car health HUD meters"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-205",
+   "pr": 460,
+   "merged_sha": "c14ded0722d978cade795abb34c79c333637f97d",
+   "merged_at": "2026-10-07T08:35:51.470027+00:00",
+   "summary": "collapsible gig menu + post-mission flow (Craig v46 phone verdict)"
   }
  ]
 }
