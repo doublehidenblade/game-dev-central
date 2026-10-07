@@ -1942,7 +1942,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 37
+  "stale_runs": 38
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2124,7 +2124,7 @@
   "td-196": "in_progress",
   "td-203": "merged",
   "td-204": "in_review",
-  "td-205": "open",
+  "td-205": "in_review",
   "td-197": "open",
   "td-198": "in_progress",
   "td-199": "open",
@@ -2133,7 +2133,7 @@
   "td-202": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-07T07:13:03.130661+00:00",
+  "ts": "2026-10-07T07:28:44.918480+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2141,10 +2141,10 @@
     "ALIVE td-195 (no heartbeat file; task-file commit 58516c0 2026-10-06T23:15; open PR #447 Inspector report: 2026-10-06 20:34 EDT; open PR #433 td-195: cop cars collide with wo)"
    ],
    "transitions": [
-    "FLIP td-203: in_review -> merged [silent]"
+    "FLIP td-205: open -> in_review [wake-validator]"
    ],
    "classification-health": [
-    "STALE-RUNS=37"
+    "STALE-RUNS=38"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2160,11 +2160,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-07T07:13:03.130661+00:00",
-   "liveness": "2026-10-07T07:12:46.275724+00:00",
-   "classification-health": "2026-10-07T07:12:57.318722+00:00",
-   "transitions": "2026-10-07T07:12:52.252830+00:00",
-   "conflicts": "2026-10-07T07:12:49.096188+00:00",
+   "board-check": "2026-10-07T07:28:44.918480+00:00",
+   "liveness": "2026-10-07T07:27:50.075006+00:00",
+   "classification-health": "2026-10-07T07:28:28.002172+00:00",
+   "transitions": "2026-10-07T07:28:17.162829+00:00",
+   "conflicts": "2026-10-07T07:28:05.231510+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
@@ -2174,6 +2174,11 @@
    "pr": 459,
    "head_sha": "aa1958c4567a1bd2e51d4ba639d1daceb2afd32e",
    "at": "2026-10-07T06:58:30.215171+00:00"
+  },
+  "td-204": {
+   "pr": 461,
+   "head_sha": "76b3fc4a",
+   "at": "2026-10-07T07:32:04.548130+00:00"
   }
  }
 }
