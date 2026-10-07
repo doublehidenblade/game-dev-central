@@ -1950,7 +1950,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 32
+  "stale_runs": 33
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2130,7 +2130,7 @@
   "td-194": "merged",
   "td-195": "open",
   "td-196": "in_progress",
-  "td-203": "open",
+  "td-203": "in_review",
   "td-204": "open",
   "td-205": "open",
   "td-197": "open",
@@ -2141,7 +2141,7 @@
   "td-202": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-07T05:58:06.098866+00:00",
+  "ts": "2026-10-07T06:12:56.094302+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2150,16 +2150,16 @@
     "ALIVE td-203 (no heartbeat file; open PR #459 td-203: minimap + large-map player marker)"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-203: open -> in_review [wake-validator]"
    ],
    "classification-health": [
-    "STALE-RUNS=32"
+    "STALE-RUNS=33"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-FAIL td-203: liveness registry shows active worker but board Owner is empty"
+    "BOARD-OK tokyo-drift-3d (186 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2169,11 +2169,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-07T05:58:06.098866+00:00",
-   "liveness": "2026-10-07T05:57:53.306952+00:00",
-   "classification-health": "2026-10-07T05:58:00.463402+00:00",
-   "transitions": "2026-10-07T05:57:58.752037+00:00",
-   "conflicts": "2026-10-07T05:57:55.811793+00:00",
+   "board-check": "2026-10-07T06:12:56.094302+00:00",
+   "liveness": "2026-10-07T06:12:45.694368+00:00",
+   "classification-health": "2026-10-07T06:12:52.398980+00:00",
+   "transitions": "2026-10-07T06:12:50.262922+00:00",
+   "conflicts": "2026-10-07T06:12:47.133723+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
