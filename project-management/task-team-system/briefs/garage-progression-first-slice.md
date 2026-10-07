@@ -29,7 +29,7 @@ This opens the new garage work under dot. It does not take over the wider coordi
 ## Dependency-ordered tasks
 
 - [td-197: Garage reference mocks and measured layout gate](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-197.md). Depends on: confirmed runtime plus reference/site access. Owner: dot; execution worker unassigned.
-- [td-198: Driveable garage graybox in the actual Lower City](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-198.md). Depends on: td-197. Owner: dot; execution worker unassigned.
+- [td-198: Driveable garage graybox in the actual Lower City](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-198.md). Depends on: td-197. Owner: dot; admitted worker `01a1148d-8b5e-7262-bfd2-4b7d6cf1601e`, blocked on reference image input.
 - [td-199: Garage entry, shutter and police shelter contract](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-199.md). Depends on: td-198. Owner: dot; execution worker unassigned.
 - [td-200: Atomic garage inventory and fixed supplier first loop](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-200.md). Depends on: td-199. Owner: dot; execution worker unassigned.
 - [td-201: Phone workshop UI and prerequisite-aware discovery](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-201.md). Depends on: td-200. Owner: dot; execution worker unassigned.
@@ -111,3 +111,10 @@ One exclusive task per confirmed worker; no nudging/duplicating live sessions. P
 ## Publication verification
 
 Task files and design are publication deliverables. Empty implementation evidence arrays and null verdicts remain intentional. One worker admission is confirmed above, but actual reference intake, modeling, tests and runtime validation remain unverified. Tokyo PR #449 was merged externally by GitHub actor doublehidenblade at 03:43:52 UTC; this publisher did not perform that merge.
+
+
+## Current publication links and discrepancy
+
+- [Current canonical task revision, draft PR #455](https://github.com/doublehidenblade/tokyo-drift-3d/pull/455)
+- [Feature epic #450](https://github.com/doublehidenblade/tokyo-drift-3d/issues/450)
+- Central td-198 board assignment remains stale: the update was denied twice as a read-only watchdog restriction, including one identical retry with Craig’s explicit publication/assignment authorization. No alternate board-write route was attempted. The confirmed worker remains the admitted, image-input-blocked task documented above; do not duplicate it based on the stale row.
