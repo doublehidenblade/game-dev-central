@@ -4,6 +4,8 @@ FIRST read [task-team SYSTEM](../task-team-system/SYSTEM.md) and [worker selecti
 
 Implementation source is frozen at `847270a40257c83cdcab364c52631e386218c3a2`; final evidence pin is still pending. Base runtime is `2227f71e784f581d11ace8f90e7201fbb59b1f63` / `8e7caeb1209c0d47dfea3ac57308e693a00b3983`; baseline QA tooling checkpoint is `ad4f24229a7ba80e25e3d4ddc1e83a33f3db0c47`. Initial before captures predate complete td-119 importer recovery and are being relabeled/replaced from the restored isolated baseline. Review the final restored pairs and their resource hashes, not the retained preliminary attempts. Current matching local ordinary exports are 92196912→98201888 bytes; do not equate that base with the supplied 102777824-byte playtest artifact without an artifact comparison.
 
+Final importer correction (23:31 UTC): the earlier 92/98 MB pair lacked original 3D mipmap settings and is **superseded**. `native-import-provenance.json` verifies all 666 generated outputs from 29 unchanged GLBs match between base and implementation after editor scans. Correct ordinary exports are `build/td209-base-native-import/index.pck` (102777856 bytes) and `build/td209-final-native-import/index.pck` (108704304 bytes), +5926448 bytes; the final pack exceeds 100 MiB by 3846704 bytes. Base is only 32 bytes above the supplied playtest artifact. Final native/browser evidence is now being captured with this corrected import state. Verify that the final report uses these artifacts and keeps earlier attempts clearly labeled.
+
 ## Recommended setup
 
 - Capability tier/reason: frontier; independent audit of coupled 3D geometry, visual coverage, collision and export behavior.
