@@ -54,3 +54,9 @@ P2 independently reported on 70a750b is reproduced and corrected in fuel-only ru
 ## 2026-10-07 — td-206 combined Wanted overlap review
 
 Independent combined review found FuelHud obscures Wanted at844×390 on fuel99ca704 + PR446ad531cc6; portrait and combined gameplay/modal/arrest/tow checks passed. Reopened existing td-206 for FuelHud-only placement correction, validated in a local-only combined worktree. Only fuel fix/evidence will be pushed to existing draft457; no shared HUD/map/PR446 source edits, Actions, PR merge or deployment.
+
+## 2026-10-07 — td-206 pinned Wanted layout correction handed back
+
+FuelHud-only runtime fix694750e35c52648d03511fc5ebcaf33ea26c3d51 is pushed in existing draft457; final source head ddaf35ffa337bf315647303fd6d2513a91510bb6 adds QA/docs/helper. Pinned dotad531cc69720512984f2e9686b1ec42dbf357d7e, local combinedbe4ba060e8508c459c7c963c70ce1acd90022fbc/tree8ea7c38fb156ba9b0c3565100c487efa9f1c671f. Before43 failed bounds checks; after496 native/496 browser layout checks pass over28 states,168 additional modal/control bounds pass;62 fuel/31 native modal/35 ordinary browser modal pass. Fuel-only109 HUD/glyph checks pass. QA-only mirror6a6b88348aef4358607c572784acc538fad5c6ae, same-camera pixels and logs linked from PR.
+
+This is not current-main acceptance. Parent reports cc875541 after Muse map459/health461 and will align final446 heads with their writer. Natural wreck hook remains unfulfilled by informational BODY counter. Existing Wanted/Gig settlement-card overlap remains with those owners; FuelHud clears both. No shared HUD/map/health/police edits, no Actions/main writes/PR merge/deployment/external-agent contact/NEON changes. Both draft PRs remain unmerged; td-206 in_review.
