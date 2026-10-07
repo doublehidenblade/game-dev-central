@@ -7,6 +7,14 @@
    "merged_sha": "eda80acd918ac05d485983f72c934d9645f07509",
    "merged_at": "2026-10-07T07:00:50.547229+00:00",
    "summary": "td-203: minimap + large-map player marker (validator PASS, PR #459 merged by validator)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-204",
+   "pr": 461,
+   "merged_sha": "cc87554141db7a6ee2d35e7a4704f715a754ff46",
+   "merged_at": "2026-10-07T07:41:53.454971+00:00",
+   "summary": "td-204 cargo+car health HUD meters"
   }
  ]
 }
