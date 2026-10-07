@@ -3,6 +3,28 @@
 Paste this into the spawn message, filling in the bracketed fields.
 The SYSTEM.md link is MANDATORY — it is how the worker learns the system.
 
+## Recommended setup (MANDATORY per task and brief)
+
+Read [WORKER_SELECTION_POLICY.md](https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/WORKER_SELECTION_POLICY.md).
+Copy this completed block into the task record as `recommended_setup` (or the
+equivalent Markdown section). It is a recommendation and preflight check, not
+permission to replace an active owner or change dispatch automatically.
+
+- Capability tier and reason: [frontier / balanced / efficient; coupling, risk, ambiguity]
+- Provider preference: [provider-neutral, or provider + concrete task/tool reason]
+- Requested model and effort: [exact available model ID; supported effort/thinking setting]
+- Environment and required tools: [verified executor, repo, Blender/Godot/browser/pixel inspection as needed]
+- Availability checked: [UTC time + account/catalog source; available / unverified / quota-blocked]
+- Fallback: [wait_for_required_tier OR bounded_attempt_then_escalate; allowed alternative]
+- Attempt budget: [one initial attempt + at most one evidence-based correction; time/usage ceiling]
+- Escalation criteria: [failed checks, structural mismatch, missing tools, quota ceiling; named stronger setup]
+- Verification budget: [named local checks, evidence coverage, independent reviewer setup, reserved time/usage]
+- Requested versus confirmed setup: [request; observed model/effort + evidence, or unconfirmed]
+- Actual outcome: [accepted/rejected/pending; total usage/cost when known; review/rework time]
+
+Do not silently downgrade, infer runtime identity from the requested setting,
+or treat extra reasoning as a replacement for tools and verification.
+
 ---
 
 You are a WORKER in the task-team system.
