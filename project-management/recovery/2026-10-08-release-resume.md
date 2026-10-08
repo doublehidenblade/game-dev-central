@@ -76,3 +76,75 @@ This append-only checkpoint supersedes the earlier blanket paused/review-pending
 Evidence provenance: independently authored local reports were read in full before this summary. They are not uploaded here and have no new public evidence URL. SHA256 identities: HUD report `41bcd7b002bc795516fcd8d93f08035ce71b63b9d36303f37d88198fa77984ef`; packaging report `68c6e383b143a34ad7a5b7c1a7ab9a995118b0e8d6597198e1217e638eb23f88`; legal-delivery report `1eb45809505d8907cdea0c9cac245342a41fd2c8ef5e4f4f53463325b35ab08e` and machine result `b6f4981180cf82c64ea3ddfb03321a5fb030680748731f93aa8fbe5c82159790`. Existing exact-head source/evidence links above remain the remote anchors; local counts are explicitly separate from committed author evidence.
 
 Next gate remains independently accepted combined runtime/pack/browser behavior and verified actual-origin delivery under the conditional preview scope. Preserve all raw failures, rollback versions and owner boundaries. This checkpoint changes only this existing draft-PR handoff file; no active board, registry, coordinator log, release ledger, game source, Actions, merge or deployment is changed.
+
+## 2026-10-08 06:12 UTC — reproducible candidate and pack-audit handoff
+
+Verification-only continuation. No merge, Actions, game deployment or publication authorization is added. Previous history and unmet browser/release gates remain in force.
+
+### Exact reconstruction without transferring private binaries
+
+Use an isolated verification checkout of `doublehidenblade/tokyo-drift-3d` at HUD base `067e4c620d8f41910a0e4d219e258e95e45ff19a`. Preserve every other base path. Apply only the 26 exact path/blob replacements below, plus the separate QA fixture and packaging files. Each resulting overlay file was Git-blob-hash-checked against the prepared candidate, and every overlay blob was read successfully from the repository at 06:11 UTC. These are existing source bytes, not a new gameplay implementation.
+
+Source aliases:
+- K = Kamome `09eb9455def0a27ece9f93f4946b739dc03cf712`; district scope derives from its delta against older assembly `2227f71e784f581d11ace8f90e7201fbb59b1f63`, preserving reviewed Tenjin.
+- A = repaired assets `fb1f53af6241f9af486a6565faf49acfe773f52b`; repair scope derives from its delta against main `9d4a88490c41f86e8d34e1c2c6f142838de20c73`.
+- G = pedestrian integration glue `fd1d674266335f49fa9486fbff0a6ddae757865f`.
+
+Do not merge whole older ancestry over the HUD/Fuel/systems base. For an available authenticated repository checkout, `git show <full-ref>:<path>` provides each exact file; compare `git hash-object <file>` with the table before testing. The traffic result originally constructed as a narrow three-way combination is already byte-identical to K's existing blob `a96fddd...`; use the listed exact bytes without inventing another merge.
+
+| Repository-relative path | Source | Expected Git blob |
+| --- | --- | --- |
+| `godot/export_presets.cfg` | K | `4d9e9adb3f4a30ec34612197be9c867a7e2c234a` |
+| `godot/scenes/pedestrian_manager.tscn` | G | `d1d71de044aa286c1ef1bb51739ec71971c0f1e7` |
+| `godot/scenes/td186/td186_car_taxi.tscn` | A | `1a7c752652cea507120ec14b8ebd98f0a1cfbcc8` |
+| `godot/scenes/td186/td186_pedestrian.tscn` | A | `bcbfd3fe2b9742d9964ff1c32e2eb0141f878bb8` |
+| `godot/scripts/lower_city/city_dressing.gd` | K | `f19fc062ca1cdbbdbb472f38d99d2e2caa0e3f72` |
+| `godot/scripts/lower_city/city_kamome_buildings.gd` | K | `2c4f3b107e73e45a8416a3dfa57bc9e655f16624` |
+| `godot/scripts/lower_city/city_kit_batch.gd` | K | `b31fba57f719c1058981cb494a1e480b2e4e97a3` |
+| `godot/scripts/lower_city/city_kit_instances.gd` | K | `163d3be10b020f679af7c9c989510e0306b0487c` |
+| `godot/scripts/lower_city/city_tenjin_buildings.gd` | K | `a3b77b009e8ce63e7ba510da31622b81f7bd93b1` |
+| `godot/scripts/lower_city/lower_city_world.gd` | K | `6c40d58333752ab0632fd2eba33f1478d2a2c18a` |
+| `godot/scripts/slice/anime_look.gd` | A | `dd0ccff62bed524d2ee54d26550562e9cbedddda` |
+| `godot/scripts/td186/td186_car_model.gd` | A | `b9fbd58833a95572f3e084122c86546220184625` |
+| `godot/scripts/td186/td186_car_model.gd.uid` | A | `30289b9c2bc2ff10313689161b8a3eb17c57dd72` |
+| `godot/scripts/td186/td186_pedestrian.gd` | A | `fe14ebd7aa4b945e987c5d1b4fc86c2a2c9cfc3e` |
+| `godot/scripts/td186/td186_pedestrian.gd.uid` | A | `f66eb2956d8abfb131755618a162c0fb500012fd` |
+| `godot/scripts/traffic/city_traffic.gd` | K | `a96fdddceae0511715f22d5187093f0228feb7cf` |
+| `godot/tools/qa/kamome_eave_geometry.gd` | K | `b95f4a500dc3b84b8cb826cb458fc5f93346d088` |
+| `godot/tools/td186/capture_city_slice.gd` | A | `b8ea85ea526c09763e75d633b3ba61ccc5832e67` |
+| `godot/tools/td186/capture_city_slice.gd.uid` | A | `8a7b10fedd0aa5ee9db3f5af16ee45197336848c` |
+| `godot/tools/td186/td186_test_input.gd` | A | `9c35aecc639a396e929ed7b7e68f9065af6c7d7b` |
+| `godot/tools/td186/td186_test_input.gd.uid` | A | `28b05cc555970cc66d4ef115a3e27b2efb07df2a` |
+| `godot/tools/td186/test_td186_city_slice.gd` | A | `b12ed6e9123a10009fce8420c663e1b12448accd` |
+| `godot/tools/td186/test_td186_city_slice.gd.uid` | A | `05930f91aa9433032737656a3df9e51cb5dd75fe` |
+| `godot/tools/test_kamome_buildings.gd` | K | `7c9cec4f1ce8b916d4278ae946d933e09214ddca` |
+| `godot/tools/test_lower_city_build.gd` | K | `cec2d469c1ace418d1a629725c7b271cb85f5faf` |
+| `godot/tools/test_tenjin_buildings.gd` | K | `725da113ed673b3b17400e8d20b415352cc29689` |
+
+Add QA-only `godot/qa/td-209/baseline-world.json` from K: Git blob `a2f01dc0654889faf1172a3cab39fa64857da6e7`, 71,458 bytes. This is supporting test data, not a runtime change.
+
+Copy the following packaging files from `3d1f592fad58324bc2e752fc35a5a02f39527655`:
+- `deploy/chunked/README.md`: `c30255d417fbb8b57cfb91f1e00ab5aaae33f611`
+- `deploy/chunked/RELEASE_PLAN.md`: `270a5bb00f14be2b129793ab26b7482b47f46e66`
+- `deploy/chunked/browser.test.mjs`: `c5b198a5b696975048f1193b01a52deb7f0d8360`
+- `deploy/chunked/loader.js`: `67f1b5295defae043f437399bb95530e13145985`
+- `deploy/chunked/p2-correction.test.mjs`: `6e582a797ba0b7a12dfabec09e1a37398817c3f9`
+- `deploy/chunked/package.mjs`: `6b7586715f08cac8a2af4c30269b95bfd3550b2e`
+- `deploy/chunked/package.test.mjs`: `713549b1458f7b7f50d231fb390f42245d4eab25`
+- `deploy/chunked/shuto.test.mjs`: `1795b98b76e158ce2373a39c95e737774b778cb1`
+
+### Import, export and verification boundaries
+
+Use exact Godot `4.7.2.stable.official.ed1daf0bf` and matching 4.7.2 web templates; use the pinned repository bootstrap checksums rather than the installed 4.6.3 engine. Isolate HOME and XDG_DATA_HOME/XDG_CONFIG_HOME/XDG_CACHE_HOME consistently so template lookup finds that version. A normal clean 4.7.2 headless editor import succeeded here without native texture-recovery fixtures; none was needed or used. Preserve authored assets/import recipes. If another environment fails, retain its raw output and diagnose instead of silently changing import semantics.
+
+Export preset `Web` from the base copy and `Web Shuto` from a separate otherwise-identical copy. Shuto's sole project.godot change is `run/main_scene="res://scenes/main_menu.tscn"` → `run/main_scene="res://scenes/shuto_c1/shuto_c1.tscn"`. Invoke the exact engine with `--headless --path <project> --export-release "<preset>" <output>/index.html`; retain import/export logs and hash actual resulting files. Previous pack sizes/hashes above identify these prepared exports, not a guarantee that another importer environment reproduces bytes. Record any new byte identity honestly; never relabel a different pack.
+
+The cloud preparation's five canceled, non-shipping source gaps remain disclosed. Do not retry those canceled downloads or use another route to bypass the cancellation. If the continuation already has a complete authorized checkout, retain its existing non-shipping source files rather than deleting them to imitate the cloud omissions. A local reconstructed candidate is not a source commit: no final combined source commit exists in this handoff.
+
+### New independently inspectable pack facts and status corrections
+
+The actual prepared PCKs were mounted from an empty project and audited: base **1,328/1,328 readable, hash-indexed files; 115/115 GLB models load**; Shuto **1,164/1,164 files; 97/97 GLB models load**. Final audit logs contain zero errors/warnings. Base Fuel stations JSON SHA256 `2112bb609d6f4a02339cc400f870b729709f6cf5f745a71e1133633fe95c79db` matches pinned source; its starter coupe resource remap exists, all four repaired pedestrians and taxi load. The canceled bus is absent; Shuto excludes Lower City and td186 paths. The first audit's guessed optional JSON-path fixture error remains retained; the corrected final audit checks the actual stations JSON and starter_coupe.tres.remap. This establishes pack readability/resource closure for the checked paths, not ordinary menu/gameplay, native-OpenGL district geometry, WebGL/browser, phone or release acceptance.
+
+The private 32 MiB create_blob attempt was interrupted without a response at approximately 06:05 UTC; expected object `46c22e2da32bb58cfa5d6240a983807d667b56cd` returned 404 in the 06:06 read-only check. No upload/ref change is confirmed, no retry is made, and the underlying cause remains unknown. No GitHub API size-limit failure was demonstrated; do not call the publication path ready.
+
+Coordinator's 06:03 UTC fresh Shuto build marker returns the same `4ecd2089c1b292c11c70b7e9701f77df39cca044`; Shuto version.txt remains 404. This updates the earlier pending identity read only. No new live gameplay QA or deployment occurred.
