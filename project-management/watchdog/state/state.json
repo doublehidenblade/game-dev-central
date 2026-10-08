@@ -937,7 +937,7 @@
    ],
    "assignments": [],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-07T23:44:26.743867+00:00",
+   "login_fail_notified_ts": "2026-10-08T06:15:21.560375+00:00",
    "finished_no_pr": true,
    "out_of_tokens_since": "2026-10-05T20:34:50.864329+00:00",
    "failover_declined_note": "2026-10-05 03:20 EDT: OOT failover assessed and DECLINED (not executed). All 4 Claude sessions hit 100% usage (reset ~06:10 EDT); each stood down cleanly with 'nothing pending' (main-dev: td-126/PR#263 + td-127 merged; shuto-c1: PR#274 merged; texture-imagegen: 6 textures on branch; 4th 'New session': Tripo coupe work idle). No stranded priority work to hand over. Failover brief is 4 days stale (2026-10-01 curation, refs PR#249-era exclusions); dispatch-candidates shows ZERO unowned tasks (all owned/skipped). Steering Codex with the stale brief would manufacture duplicate work. last_failover_ts set to suppress re-fire for this episode; sessions resume on token reset ~06:10 EDT.",
@@ -1544,7 +1544,7 @@
     "https://chatgpt.com/remote/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-08T00:44:13.289022+00:00",
+   "login_fail_notified_ts": "2026-10-08T06:44:29.423871+00:00",
    "inspected_ts": "2026-10-04T14:12:56.398511+00:00",
    "finished_no_pr": true
   },
@@ -1945,7 +1945,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 87
+  "stale_runs": 97
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2137,7 +2137,7 @@
   "td-207": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-08T01:43:53.524992+00:00",
+  "ts": "2026-10-08T06:44:13.265191+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2148,7 +2148,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=87"
+    "STALE-RUNS=97"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2164,11 +2164,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-08T01:43:53.524992+00:00",
-   "liveness": "2026-10-08T01:43:38.853292+00:00",
-   "classification-health": "2026-10-08T01:43:48.438487+00:00",
-   "transitions": "2026-10-08T01:43:46.513837+00:00",
-   "conflicts": "2026-10-08T01:43:43.328951+00:00",
+   "board-check": "2026-10-08T06:44:13.265191+00:00",
+   "liveness": "2026-10-08T06:44:02.413336+00:00",
+   "classification-health": "2026-10-08T06:44:09.808889+00:00",
+   "transitions": "2026-10-08T06:44:08.084985+00:00",
+   "conflicts": "2026-10-08T06:44:05.641535+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
