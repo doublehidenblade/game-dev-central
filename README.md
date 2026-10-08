@@ -65,6 +65,7 @@ agent (or Craig) might need lives here, not in anyone's context window.
 **Transcripts** (RedNote, platform subtitles, translated/polished by agent):
 
 - [`transcripts/tripo-p2-modular-water-village.md`](transcripts/tripo-p2-modular-water-village.md) — 一句话做不出好游戏！教你用 AI 搭建场景！(6:27) — Tripo P2.0 + Claude Opus 5.5 + Godot: 22 modular components assemble an interactive water village; five hard rules (three-view drawings, one-grid dimensions, negative requirements, humanoid playtest, single texture atlas). Channel: 进化中的阿陈. No-login subtitle method documented in `TRANSCRIPTION.md`; tool: `scripts/xhs_transcript.py`.
+- [`transcripts/kimi-k3-meshy-ai3d-game-pipeline.md`](transcripts/kimi-k3-meshy-ai3d-game-pipeline.md) — 都在用GPT6在做3D建模？AI3D项目到底怎么做 (2:31) — Kimi K3 + Meshy: "general LLM + specialized 3D tool" thesis; prompt→image→3D pipeline, 4K gen, 1.8M→10k-face retopo/smart-topology, auto-rigging, Godot plugin. Meshy verified as credible Tripo alternative (PBR, remesh, rigging, API/MCP). Channel: 神秘的鱼仔. Tool: `scripts/xhs_transcript.py`.
 
 **Workflow (process source of truth for all game repos):**
 
