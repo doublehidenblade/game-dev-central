@@ -5,6 +5,14 @@ unless stated otherwise. This is the portable version of the loop; the
 deterministic decisions are all `watch.py` subcommands — obey their verdicts,
 never re-derive them from prose.
 
+## Current authorization boundary (2026-10-08 19:56 UTC)
+
+Before any push or merge, read the [canonical deployment authorization and budget policy](releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc). Deploy only on Craig's explicit request, including site/deployment-branch pushes that trigger Pages. The GitHub Actions budget is **$50/month**: a ceiling, not standing permission or verified current spend. Ordinary source pushes and independently accepted merges need no fresh go-ahead; inspect current push/PR/merge and publication triggers first and hold operations that would deploy or run unauthorized Actions. Do not assume all pushes are free.
+
+This boundary applies to SHIP, conflict-resolution pushes and state-push below. Required acceptance checks and independent verification remain mandatory for merges; no incomplete or failing work is accepted by this policy. Do not manually dispatch/rerun Actions or change billing/security. Keep merged-but-unpublished changes in pending.json. Shuto stays frozen; NEON stays paused/read-only. No scripted verdict or old instruction creates permission to deploy.
+
+[JUDGMENT-ONLY: authenticated request scope and current external trigger configuration require inspection; this documentation does not implement a new automatic watchdog gate.]
+
 ## Loop wrapper (every run)
 
 1. `python3 project-management/watchdog/watch.py state-pull` — sync live
@@ -68,7 +76,7 @@ ALL-BLOCKED ESCALATION (Craig 2026-09-23, standing rule): if `watch.py all-block
 
 STEP 2 — REMOVED 2026-09-24 (structural fix): fresh browser classification is dispatched by the MAIN AGENT on the handoff turn (see MAIN-AGENT HANDOFF DUTIES), never by this job. There is no STEP 2 here.
 
-BUDGET CHECK (Craig 2026-09-27 — ask BEFORE the Actions budget fills, never after it blocks): on Muse, once per run, run `python3 ~/workspace/github-billing/check_budget.py`. On other platforms, skip (no billing access). Level OK → say nothing about billing. ALERT_WARN or ALERT_HIT → put the budget ask FIRST in the final message: "GitHub Actions at $X of your $Y budget (Z%) — raise it? (Settings → Billing → Budgets and alerts)". On ALERT_HIT add: "Paid Actions usage is stopped until you raise it." Never change the budget yourself. The script dedupes alerts per month.
+BUDGET CHECK (updated Craig 2026-10-08 19:56 UTC): the stated GitHub Actions ceiling is $50/month. On Muse, the existing read-only `python3 ~/workspace/github-billing/check_budget.py` may supply spend evidence; on platforms without billing access, report spend as unverified rather than inventing it. Alert on verified approaching/exceeded spend, including the observation time and actual configured limit if available. Do not change the ceiling or assert paid usage is stopped without evidence. Unused budget never authorizes Actions or deployment; the explicit-request rule above still applies. The script dedupes alerts per month.
 
 STEP 3 — ALWAYS report, every run (Craig 2026-09-23: he wants a heartbeat, never silence). Terse, GROUPED, TRAFFIC-LIGHT: two sections, jobs then workers. Omit jobs with no change unless the list would be empty. `watch.py pending-report`: merged-but-not-live items get exactly one REPORT line, then only the COUNT line — never repeated open/assigned noise. After reporting an item, `watch.py pending-reported <pr>` to stamp it.
 
