@@ -17,6 +17,9 @@ Seeded from the agent watchdog state 2026-09-24 00:20 UTC. Entries marked `unver
 
 Rules: never nudge a working session; never duplicate a live session; fresh session per task (never accumulate a week of transcript); stale sessions sync/rebase onto main before resuming; stop after 2 identical failures and report.
 
-| `/root/kamome_worker` | Existing Game-development /workspace; `gpt-6-astra`/`high` requested and accepted by same-environment model-selecting dispatch; runtime internals unexposed | td-210 — Kamome345 modular architecture/profile-first placement | Author finished and frozen at dd0fe146; runtime f05048b1; canonical task in_review, verdict null; no further implementation writes | 2026-10-08T01:36:49.095589+00:00 |
+## td-210 same-environment task team
 
-| `/root/kamome_validator` | Existing Game-development /workspace; `gpt-6-astra`/`high` reserved, explicit dispatch pending | td-210 independent acceptance audit of all six criteria | Reserved on frozen author dd0fe146; owns verdict and new review files only; author frozen | 2026-10-08 UTC |
+| Session | Platform | Current task | State | Last seen (UTC) |
+|---|---|---|---|---|
+| `/root/kamome_worker` | Existing Game-development /workspace; `gpt-6-astra`/`high` requested and accepted by same-environment model-selecting dispatch; runtime internals unexposed | td-210 — Kamome345 modular architecture/profile-first placement | Author finished and frozen at dd0fe146; runtime f05048b1; canonical task in_review, verdict null; no further implementation writes | 2026-10-08T01:36:49.095589+00:00 |
+| `/root/kamome_validator` | Existing Game-development /workspace; `gpt-6-astra`/`high` explicitly selected and accepted; runtime internals unexposed | td-210 independent acceptance audit of all six criteria | Running independent review of frozen author dd0fe146; owns verdict and new review files only; author frozen | 2026-10-08 UTC |

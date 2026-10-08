@@ -81,3 +81,8 @@ Worker rejected experimental near-plane clipping. Diagnosed QA street-camera2.2m
 ### 2026-10-08 UTC — td-210 ordinary-entry review safeguard
 
 Worker reports geometry20/20 with actual all-variant eave removal detecting0 versus43.2m²; paired56 native/browser cameras and car transforms match, browser route console0 errors. Ordinary baseline still has48 inherited engine errors plus a harness wait timeout despite observed live scene/speed30. Keep that result failed. Worker reports automatic approval review rejected a proposed recheck for potentially misleading completion/pass recording. Root disclosed this, requested the exact rejected payload/reason in QA, and directed truthful preservation of observations/failures without repeating the denied action or relabeling it PASS. Full driving regressions, quiet final profile and independent review remain pending.
+
+
+### 2026-10-08T03:03:30.714806+00:00 — td-210 independent review dispatched
+
+Author froze/pushed dd0fe14672a92990193194741b5fc5580040fafc and ended its turn; runtime f05048b12c176f9443cfc77e3a1bfb1ec19f62cf. Root verified canonical in_review/verdict null, PR494 draft/stacked and PR489 unchanged at0b2652bc86b6824444af277fdb34af5bdd981066. Fresh same-environment `/root/kamome_validator` explicitly accepted `gpt-6-astra`/`high`; runtime internals unexposed. No new cloud task/environment. Reviewer owns only verdict/new review evidence; author frozen, root owns central/public QA. Full brief records all six criteria,78-sheet inspection,50 visibility exceptions, raw failures and denied QA recheck. QA-only immutable mirror is prepared locally; no game deployment.

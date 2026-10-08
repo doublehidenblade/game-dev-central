@@ -24,13 +24,13 @@ FIRST read `/workspace/game-dev-central/project-management/task-team-system/SYST
   "requested_model": "gpt-6-astra",
   "requested_effort": "high",
   "environment_and_tools": "Existing Game-development /workspace only; Godot 4.7.2 ed1daf0bf, Blender4.3.2, Node24.19.0, retained native/browser harness and Xorg :99. No new cloud task or environment.",
-  "availability_checked": "Reserved gpt-6-astra/high from available model-selecting catalog; actual later dispatch will be recorded.",
+  "availability_checked": "2026-10-08T03:03:30.714806+00:00; model-selecting collaboration dispatch accepted exactly gpt-6-astra/high in this existing environment.",
   "fallback": "wait_for_required_tier; stop and report if this existing environment becomes unavailable; no switch, duplicate task or silent downgrade",
   "attempt_budget": "One coherent bounded district implementation plus evidence-based correction where needed; stop after two identical failures until a changed hypothesis is recorded. No invented billing limit.",
   "escalation_criteria": "Existing Kamome ownership, unavailable required environment/tier, necessary road/city-data/protected-owner changes, invalid reference inputs or unexplained coverage/performance regression.",
   "verification_budget": "Reserve before/after all345-lot native pairs, actual native/browser street/HUD views, baseline/prototype/full profiling, coverage/clearance/variation/material/resource checks, regressions, shipping export audit/entry, and a fresh independent Astra/high reviewer plus justified correction.",
-  "requested_versus_confirmed": "Requested Astra/high in the existing environment. Dispatch confirmation pending; runtime model internals unexposed.",
-  "actual_outcome": "Reserved independent review; not dispatched."
+  "requested_versus_confirmed": "Requested Astra/high in the existing environment; explicit gpt-6-astra/high dispatch accepted. Runtime model internals unexposed.",
+  "actual_outcome": "Independent review running on frozen author evidence dd0fe146; not yet accepted."
 }
 ```
 
