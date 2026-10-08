@@ -1,0 +1,118 @@
+{
+  "status": "blocked",
+  "owner": "dot",
+  "assigned_worker": null,
+  "ask": {
+    "by": "Craig",
+    "date": "2026-10-08",
+    "scope": "Stash the truck customization brief; prepare references, mocks and 3D; provide a rotatable garage showcase with only enough MVP functionality to pair with upgrades; sequence behind completion of ongoing gigs, UI, lively city and traffic."
+  },
+  "required_reading": [
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/SYSTEM.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/WORKER_BRIEF.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/VISUAL_BRIEF_TEMPLATE.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/WORKER_SELECTION_POLICY.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/knowledge/standing-rules.md",
+    "../README.md",
+    "../sequence.md"
+  ],
+  "reference_images": [
+    "Existing corrected td-197/td-198 references only after actual bytes and pixels are verified",
+    "New original concepts under ../mocks/ when available; none delivered by this task filing"
+  ],
+  "constraints": [
+    "No Actions dispatch/rerun/workflow changes, merge or deployment",
+    "One confirmed worker per task; no duplicate existing garage/Forge owner",
+    "Read actual source pixels; label reference photos, generated mockups and real game captures distinctly",
+    "Current release first; preserve owner files and interfaces",
+    "No copied real brands/murals; use original or verified permitted assets",
+    "Author reports in_review; independent reviewer writes verdict; Craig's final phone gate remains separate"
+  ],
+  "evidence": [],
+  "work_log": [
+    {
+      "at": "2026-10-08T02:00:00Z",
+      "by": "dot",
+      "entry": "Planning record saved as an isolated customization addendum. No dispatch, image/model publication, runtime implementation or acceptance implied."
+    }
+  ],
+  "verdict": null,
+  "id": "tc-mvp-03",
+  "title": "Integrate the later garage vehicle showcase",
+  "maps_to_existing_tasks": [
+    "td-199",
+    "td-200",
+    "td-201"
+  ],
+  "dependencies": [
+    "Current playtest release completed and coordinator releases this integration gate",
+    "tc-mvp-02 independent asset gate",
+    "td-198 actual-world garage gate",
+    "td-199 entry/shelter contract",
+    "td-200 authoritative loadout and persistence",
+    "Owner-approved exact shared-file allowlist"
+  ],
+  "blocker": "Post-release integration only; existing actual-garage, vehicle identity, upgrade and persistence contracts must be available",
+  "bug_shape": "A fake showroom or duplicate loadout state could display a vehicle/skin different from the actual equipped truck and corrupt ownership or controls.",
+  "recommended_setup": {
+    "capability_tier": "frontier",
+    "reason": "Coupled camera/input, loadout/persistence and transactional gameplay boundaries",
+    "provider_preference": "OpenAI Astra as requested for this project; verify the target executor's current catalog",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "max",
+    "environment_and_required_tools": "Current Godot project, actual Lower City garage, real equipped vehicle/save interfaces, browser/touch/controller checks and pixel capture; target executor unverified",
+    "availability_checked": {
+      "at": "2026-10-08T02:00:00Z",
+      "source": "Documentation planning only; target executor/tool and capacity preflight not performed",
+      "status": "unverified"
+    },
+    "fallback": "wait_for_required_tier",
+    "allowed_alternative": "Read-only source/tool preparation only; no lower-tier production substitute",
+    "attempt_budget": "One coherent attempt plus at most one correction supported by new evidence. One minimal viewer and base/two finishes using one already implemented visible module. One initial pass plus evidence-based correction; scope growth stops.",
+    "escalation_criteria": "Missing tier/tools/reference bytes, structural mismatch, scope or owner conflict, failed checks, repeated identical failure twice or budget exhausted; report to coordinator",
+    "verification_budget": "Reserve independent Astra/max audit, failing-before controls, save/input/reload regression matrix and actual-world phone-size captures; physical-device results separate.",
+    "requested_versus_confirmed_setup": "Requested setup is a recommendation. Actual executor, model and effort are unconfirmed; record observed evidence at admission.",
+    "actual_outcome": "pending; no implementation or accepted evidence; usage/cost unknown"
+  },
+  "scope": [
+    "Add mouse/touch-drag orbit, reset view and bounded zoom while safely parked in the actual garage. Keep vehicle framed and retain readable compact English controls.",
+    "Show the actual equipped vehicle, selected cosmetic and real visible upgrade. Reuse authoritative identity/loadout; no parallel showroom inventory, economy or save schema.",
+    "Implement preview/apply/cancel; close/cancel restores equipped appearance, Apply is once-only and reload preserves exactly what was applied. Use free already-owned finishes for MVP unless the existing owner explicitly supplies paid-service handling.",
+    "Prevent drag/zoom from steering or accelerating; restore focus/input on exit. Do not open shutters, pause jobs, clear wanted state or bypass shelter rules.",
+    "Demonstrate one existing gameplay upgrade changing the displayed and driven model. Leave cold-box functionality blocked if unavailable; do not implement refrigeration to satisfy a picture."
+  ],
+  "completion_criteria": [
+    {
+      "check": "From ordinary Lower City driving enter the actual garage, inspect every orbit angle via mouse and touch, reset and test both zoom bounds; no clipping, lost vehicle, control leak or implicit shutter action.",
+      "evidence": "Exact-head real-world video, input-event matrix and per-state matched visual pairs"
+    },
+    {
+      "check": "Preview each finish, Cancel, close, apply once and double-click Apply; exit and reload before/after commit boundaries. Displayed and driven skin/module IDs agree; no lost ownership, duplicate charge, new unlock, timer pause or heat reset.",
+      "evidence": "Authoritative loadout/save traces, negative controls and repeated/interrupted transaction tests"
+    },
+    {
+      "check": "Equip one already supported cargo module using the existing garage flow; actual geometry changes in viewer and road view and the owning gig system consumes its real capability.",
+      "evidence": "Same-camera base/module pairs, existing upgrade/gig contract trace and actual-world drive-out capture"
+    },
+    {
+      "check": "Phone portrait/landscape, mouse and controller close/back/orbit transitions retain legible controls and recover focus; baseline gig/UI/traffic regressions remain unchanged.",
+      "evidence": "Named viewport/device interaction logs, exact-head relevant local tests and independently opened frames"
+    }
+  ],
+  "out_of_scope": [
+    "Current playtest release scope",
+    "New refrigeration/cage/tank capability",
+    "Paid paint or passenger-tip economy",
+    "Full catalogue, free-building editor or fake showroom",
+    "Refactoring other owners' HUD, police, fuel, gigs or traffic"
+  ],
+  "visual_brief": {
+    "skill_workflow": "Actual reference and approved mock → phone/UI state board → runtime implementation in actual garage → matching-state captures → input walkthrough → independent review. Use relevant checkout UI/3D skills and report missing tools.",
+    "quality_bar": "Same equipped vehicle, skin and real module inside garage and on road; modest original mini-truck under current cel-anime look, readable controls and unclipped bounded orbit.",
+    "excluded_shortcuts": "No fake showroom, copied loadout inventory, isolated beauty scene as world proof, generated image as gameplay or fabricated phone-performance claim.",
+    "effort_calibration": "Coupled but strictly minimal post-release integration; inspect source contracts before estimating; reduce feature count before skipping checks.",
+    "evidence": "Exact-head actual-world logs and same-instance/same-camera before/after frames per visual criterion; reviewer opens every image.",
+    "merge_and_status": "Draft only, author in_review. Independent verdict and Craig's phone gate stay separate. No Actions, merge or deploy.",
+    "standing_constraints": "Preserve active owner files, ongoing obligations, garage door/shelter state and economy authority."
+  }
+}
