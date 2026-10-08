@@ -48,11 +48,12 @@ project-management/boards/tokyo-drift-3d.md   the board (source of truth)
    parked PRs; commit state). `watch.py` shells to a `gh api`-compatible CLI:
    set `WATCHDOG_GH_BIN` to yours (default: the Muse github skill path).
    Never commit credentials — they stay in your platform's secure storage.
-3. `python3 project-management/watchdog/watch.py state-pull` — sync live
+3. Read the [deployment authorization and $50/month budget policy](releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc) before any write. Deploy only on Craig's explicit request, including site/deployment-branch pushes triggering Pages. Inspect workflow/publication triggers before ordinary source pushes or accepted merges; hold an operation that would deploy or run unauthorized Actions. The ceiling is not permission or verified spend; Shuto is frozen and NEON paused/read-only.
+4. `python3 project-management/watchdog/watch.py state-pull` — sync live
    state from main into your working copy.
-4. Read `RUNBOOK.md` and run the loop about every 15 minutes:
+5. Read `RUNBOOK.md` and run the loop about every 15 minutes:
    `state-pull` → loop → `state-push "watchdog: sync state"`.
-5. **One scheduler at a time.** If a previous scheduler is still running,
+6. **One scheduler at a time.** If a previous scheduler is still running,
    coordinate before starting yours — two writers will conflict on
    `state-push` (it aborts loudly rather than clobber, but you must resolve it).
 
@@ -74,7 +75,9 @@ project-management/boards/tokyo-drift-3d.md   the board (source of truth)
 - `done-pending-verdict` is terminal: implementation verified on main, ONLY
   Craig's phone verdict outstanding. Never re-dispatched, never reopened.
 - Live publish happens ONLY on Craig's explicit ask. Merges to main continue
-  automatically.
+  after required acceptance checks and independent verification, with trigger
+  inspection as described above. No fresh go-ahead is needed for ordinary
+  source pushes or accepted merges; do not assume every push is free.
 - Task naming: short plain-English defect names, never "td-012"/"PR #12".
 - Standing rule: every new lesson/rule/workflow ships its deterministic
   checks as `watch.py` subcommands in the same change; prose-only rules are

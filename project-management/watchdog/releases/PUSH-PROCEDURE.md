@@ -2,13 +2,26 @@
 
 > Updated 2026-10-08. This is the existing deployment runbook, shared by every coordinator, including Muse. The current Tokyo procedure below supersedes the historical Tokyo dispatch instructions retained at the end. It does not change NEON policy, task ownership, source merge acceptance, or grant new access.
 
+## Deployment authorization and Actions budget (Craig, 2026-10-08 19:56 UTC)
+
+**Deploy only when Craig explicitly requests that deployment.** This supersedes earlier standing auto-deploy permission and any historical instruction to publish merely because a build, model or fix is ready. A request to implement, merge, or push ordinary source changes is not a deployment request.
+
+- Treat a deployment-branch or site-repository push/ref update as a deployment whenever it publishes or triggers GitHub Pages, including prebuilt Git-data publication without manual workflow dispatch. Updating live selectors, markers or rollback selection is also publication.
+- The GitHub Actions budget is **$50/month**, a spending ceiling, not standing authorization to deploy, run Actions, or incur charges. This is Craig's stated budget, not verified current spend or proof of the configured billing limit. Do not change billing, account access, credentials or security settings.
+- Ordinary source pushes and completed merges may continue without a fresh go-ahead, subject to existing ownership, required acceptance checks and independent verification. Inspect the target repository/ref's current push, pull-request and merge-triggered workflows and publication hooks first; do not assume all pushes are inherently free. If the operation would trigger deployment or unauthorized Actions, hold that operation and report the exact trigger instead of bypassing it.
+- Keep accepted-but-unpublished work in the existing pending-release ledger. Readiness, a successful merge, restored Actions capacity or unused budget never creates deployment authorization.
+- Record Craig's request and its target/scope before publication. Preserve the no-manual-Actions-dispatch/rerun restriction; an explicit deployment request does not itself authorize those actions. Once requested, a personal playtest may ship without waiting for CI/gameplay/visual acceptance, with known failures and unverified behavior disclosed; source-merge acceptance remains separate.
+- Shuto remains frozen with no new builds, fixes or deployments. NEON remains paused/read-only. A general Lower City deployment request does not lift either stop.
+
+[JUDGMENT-ONLY: this documentation records owner authorization, scope and budget; the current watchdog does not deterministically verify an authenticated deployment request or live repository trigger configuration. Do not treat this prose update as an implemented automatic authorization gate.]
+
 ## Current Lower City focus: existing destinations, prebuilt publication
 
 - Base: https://doublehidenblade.github.io/tokyo-drift-3d-web/ — public repository `doublehidenblade/tokyo-drift-3d-web`, branch `main`
 - Shuto: https://doublehidenblade.github.io/tokyo-drift-3d-shuto-web/ — public repository `doublehidenblade/tokyo-drift-3d-shuto-web`, branch `main`
 - These remain the existing repository/site names; no repository rename or new hosting target is approved. “Lower City” is a working title, not the final game name. These are the same destinations named by Muse's existing publish workflows. This does not establish which procedure another coordinator is currently executing; coordinate a single publisher before writing.
 - Export a pinned source locally with official Godot `4.7.2.stable.official.ed1daf0bf` and matching export templates. Package prebuilt static files into immutable `releases/<release-id>/` directories; the stable root selector chooses the active directory.
-- Publish Git blobs/tree/commit directly to each existing web repository. Do not commit exports to game-source main or rewrite its history. Do not manually dispatch/rerun Actions. GitHub's existing automatic Pages publication follows the web-branch update; this is not a claim of “no Actions at all.” [GitHub documents this distinction](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+- Only after Craig's explicit deployment request, publish Git blobs/tree/commit directly to the authorized active web repository. Do not commit exports to game-source main or rewrite its history. Do not manually dispatch/rerun Actions. GitHub's existing automatic Pages publication follows the web-branch update; this is not a claim of “no Actions at all.” [GitHub documents this distinction](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 - Authorized personal playtests need not wait for CI, gameplay, visual or phone acceptance. Disclose known failures and unverified behavior. Publication does not accept implementation or waive the independent source-merge gates. No paid service, credential or access change is included.
 
 ### Scope update: Shuto frozen; Lower City separation requested
@@ -72,7 +85,7 @@ The packager rejects an existing release directory, verifies every listed size/h
 
 ### 3. Publish without losing other releases or another writer's work
 
-1. Read the exact current active main/base web `main` commit and complete tree. Shuto publication is stopped; do not write its branch. For any separately authorized future variant publication, read its own tree independently. Save the expected old head. Coordinate a single publisher; base and Shuto updates are not one atomic transaction.
+1. Verify the recorded explicit Craig deployment request covers this target and release; inspect the current publication triggers. Then read the exact current active main/base web `main` commit and complete tree. Shuto publication is stopped; do not write its branch. For any separately authorized future variant publication, read its own tree independently. Save the expected old head. Coordinate a single publisher; base and Shuto updates are not one atomic transaction.
 2. Build the new tree from that existing tree. Add the new immutable release and replace only the selected root files (`index.html`, `release.json`, `deployment.json`, `build-sha.txt`, `version.txt`, `.nojekyll`) plus explicitly scoped release notes. Preserve every other existing entry, including all previous releases, rollback, `art-book/`, `qa/`, `research/`, README and unrelated galleries.
 3. Hash local bytes. Reuse same-repository Git blob IDs for byte-identical files, including unchanged engine `index.js`/`index.wasm`; upload only missing blobs using the supported base64 blob route, with PCK files at most 8 MiB. Never assume an engine blob matches merely because the engine version string matches.
 4. Create the tree using the old tree as the base, verify all preserved/new paths and blob IDs, and total the complete proposed site's file bytes. Create a commit whose parent is the expected old head. Re-read the ref and update it with an **expected-old-head lease**, normally `force: false`; stop/rebase the proposed publication on a changed head. A read followed by an unconditional forced update is not a lease. A tool without an atomic expectation must use an equivalent compare-and-swap/explicit git force-with-lease or fail safely; never discard concurrent work. Force is permitted for an authorized deployment when necessary, not required for an ordinary fast-forward. It never authorizes source-history rewriting.
@@ -123,8 +136,7 @@ Smoke/test results NEVER gate publication — smoke runs after the fact, and
 failures become post-publication follow-up work, not publish blockers. The
 reviewed-candidate pointer, source-SHA check, same-repository check, artifact
 provenance, and rollback guards remain mandatory; only the smoke-success gate
-is bypassed by force. If the UI/car models (or any reviewed content) are ready,
-deploy without waiting for Craig to say the word — publication is Muse's job.
+is bypassed by force. **Superseded 2026-10-08 19:56 UTC:** readiness never authorizes deployment; wait for Craig's explicit deployment request under the current policy above.
 
 Ledger files (this dir):
 - `baselines.json` — last live web SHAs per game (updated ONLY after a push

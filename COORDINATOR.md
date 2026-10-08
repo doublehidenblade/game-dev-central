@@ -24,6 +24,8 @@ This repo is the source of truth for Craig's game-dev agent team. If you are pic
 
 ## Hard rules (from Craig)
 
+- **Deploy only on Craig's explicit request (2026-10-08 19:56 UTC).** This includes site/deployment-branch pushes that trigger Pages, not just manual workflows. The GitHub Actions budget is **$50/month**, a ceiling, not standing permission or verified spend. Ordinary source pushes and independently accepted merges need no fresh go-ahead, but inspect current workflow/publication triggers first; hold any operation that would deploy or run unauthorized Actions. Do not assume all pushes are free. Follow the [canonical authorization and budget policy](project-management/watchdog/releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc); do not dispatch/rerun Actions or change billing/security. Shuto stays frozen and NEON stays paused/read-only.
+
 - **One defect = one task.** A batch is a filing label only. A bundled parent becomes SUPERSEDED and never closes; each child closes only when its exact defect is fixed and verified.
 - **Craig's phone verdict is the final visual gate.** Never close a visual QA item on a worker's claim or on test evidence alone — closure needs before/after screenshots from the fixed build and his verdict.
 - **Never nudge a working session. Never duplicate a live session.** Fresh session per task.
