@@ -1,0 +1,20 @@
+{
+  "revision": "r4-publication-prose-clarification-1",
+  "parent_acceptance": "Design target for an isolated nonshipping primitive study only; no geometry/runtime/full-task acceptance",
+  "independent_bounded_pass_source": "review/independent-r4-recheck.md",
+  "reviewed_manifest_sha256": "6870649889561716a407d8ce6c5652909be236779adc92536b4fb400cac7bcb1",
+  "previous_amendment_sha256": "9da5bac39e1ea313ebeb44f59751e4fd3493427db718a3e0cbbb59f9386b9592",
+  "new_amendment_sha256": "184918fd6d04b4f77c4ca15f901994157e5d263bd5a0efd54b0fa17534e2e25b",
+  "changed_original_files": [
+    "R4_TASK_BRIEF_AMENDMENT.md"
+  ],
+  "unchanged_original_files_count": 19,
+  "geometry_changed": false,
+  "clarifications": [
+    "Approved overnight isolated preparation may run in parallel without touching the frozen release; actual-world integration follows the current preview and remaining gates.",
+    "Publish only six new R4 diagram pairs and R4 docs. Do not upload/retry older concept bytes or claim them published. Selected hash-pinned concept-v2 must be verified and inspected on consumer locally; otherwise study waits."
+  ],
+  "publication_completed": false,
+  "study_admitted": false,
+  "runtime_or_3d_work": false
+}
