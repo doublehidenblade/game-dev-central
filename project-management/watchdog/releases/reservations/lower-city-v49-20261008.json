@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "status": "reserved_not_published",
+  "status": "published",
   "reserved_at": "2026-10-08T16:45:00Z",
   "publisher": "dot",
   "version": "v49",
@@ -95,5 +95,100 @@
   "references": {
     "runbook": "project-management/watchdog/releases/PUSH-PROCEDURE.md",
     "first_publication_record": "https://github.com/doublehidenblade/game-dev-central/pull/356"
+  },
+  "publication": {
+    "version": "v49",
+    "repository": "doublehidenblade/tokyo-drift-3d-web",
+    "branch": "main",
+    "commit": "b672dde82fbedc7b8b50fb4d863786ba2f170500",
+    "tree": "64f90aebb73115fe1a78f1c7ae396ad81bfeedd9",
+    "previous_commit": "bac35b433dfbdb4433e374ac1f5d1583ae7b6d5b",
+    "lease": {
+      "expected_sha": "bac35b433dfbdb4433e374ac1f5d1583ae7b6d5b",
+      "force": false,
+      "remote_main_verified": true
+    },
+    "live_url": "https://doublehidenblade.github.io/tokyo-drift-3d-web/",
+    "immutable_url": "https://doublehidenblade.github.io/tokyo-drift-3d-web/releases/v49/index.html",
+    "version_marker": "v49 fa081b42197d50e6adaf202f899146fbffeab725",
+    "badge": "v49 · fa081b42",
+    "served_verified_at": "2026-10-08T17:37:12.744195+00:00",
+    "bounded_served_verification": {
+      "all_exact": true,
+      "file_count": 10,
+      "http_status": 200,
+      "files": [
+        "index.html",
+        "release.json",
+        "deployment.json",
+        "build-sha.txt",
+        "version.txt",
+        "releases/v49/index.html",
+        "releases/v49/deployment.json",
+        "releases/v49/pack-manifest.json",
+        "releases/v49/build-sha.txt",
+        "releases/v49/version.txt"
+      ],
+      "selector_executable_target": "releases/v49/index.html",
+      "full_pack_http_check": false
+    },
+    "hashes": {
+      "pck_sha256": "cf1874594b66dbb27f62e4e2963aaecb6928a7bb2508d430f15472843feea6d3",
+      "pck_bytes": 112592312,
+      "release_deployment_sha256": "da6893d9be8a24b40f73544c2801b26d5ee12283843799b033fd8bb7ad02b84c",
+      "pack_manifest_sha256": "0c64125ae2c3c906c3537c878a81fc6b5d8f1bc4ecafd67fede118d5928eac39",
+      "served_shell_sha256": "c4b1f0f9ffa5fce880045e0812bec4d56806e391e27d43ff2ddd8700fb912af3",
+      "wasm_sha256": "11ea19645368f8e73cf337b59cfd7ceeb4ebb51f7a3bbf77d1a5c3ddfedbc522",
+      "engine_js_sha256": "ffc3898b59fba6f5af0c02f76e5ee526cc061e65c7d2d6f4f98186876cea15c4"
+    },
+    "retention": {
+      "complete_site_bytes": 882024610,
+      "site_limit_bytes": 1000000000,
+      "headroom_bytes": 117975390,
+      "net_added_bytes": 150996632,
+      "previous_release_files_preserved": 67,
+      "all_previous_paths_preserved": true,
+      "old_releases": [
+        "live-v46-4ecd2089",
+        "playtest-20261008-1a5d967",
+        "playtest-20261008-841ec6b"
+      ],
+      "existing_paths_changed": [
+        "build-sha.txt",
+        "deployment.json",
+        "index.html",
+        "release.json",
+        "version.txt"
+      ],
+      "same_repository_blob_reuse_paths": 12,
+      "new_shared_runtime_path_format": false
+    },
+    "checks": {
+      "post_export_source_files_exact": 1587,
+      "known_nonshipping_source_omissions": 5,
+      "import_exit": 0,
+      "export_exit": 0,
+      "resource_files_verified": 1328,
+      "resource_files_expected": 1328,
+      "models_loaded": 115,
+      "resource_audit_failures": 0,
+      "packaging_tests_passed": 4,
+      "packaging_tests_failed": 0,
+      "export_shutdown_warning_count": 1,
+      "export_shutdown_error_count": 8,
+      "export_script_error_count": 0,
+      "automatic_pages_run": "https://github.com/doublehidenblade/tokyo-drift-3d-web/actions/runs/37817585014",
+      "automatic_pages_result": "success",
+      "manual_actions_dispatch": false
+    },
+    "limits": [
+      "The source-main implementation PRs remain unmerged; publication is a personal playtest for Craig to check",
+      "No new rendered/browser gameplay/device/FPS acceptance or full PCK/Wasm HTTP transfer; prior cancelled complete transfer was not repeated",
+      "Export exited0 but reported shutdown resource/ObjectDB/PagedAllocator/RID leaks; no clean-console claim",
+      "Broader Fuel exact-head rerun remains timed out/inconclusive; prior camera/map reviews are bounded technical checks",
+      "Current menu entry is retained; td-233 direct launch/loading separation and final naming are not included",
+      "Shuto remains frozen with no new build, publication or relabeling; historical mapping fields are retrospective only",
+      "Historical normal-release baselines, pending entries and first-publication PR356 remain unchanged"
+    ]
   }
 }
