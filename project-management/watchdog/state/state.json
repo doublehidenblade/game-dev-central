@@ -1945,7 +1945,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 87
+  "stale_runs": 88
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2137,7 +2137,7 @@
   "td-207": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-08T01:43:53.524992+00:00",
+  "ts": "2026-10-08T02:13:41.566292+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2148,7 +2148,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=87"
+    "STALE-RUNS=88"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2164,11 +2164,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-08T01:43:53.524992+00:00",
-   "liveness": "2026-10-08T01:43:38.853292+00:00",
-   "classification-health": "2026-10-08T01:43:48.438487+00:00",
-   "transitions": "2026-10-08T01:43:46.513837+00:00",
-   "conflicts": "2026-10-08T01:43:43.328951+00:00",
+   "board-check": "2026-10-08T02:13:41.566292+00:00",
+   "liveness": "2026-10-08T02:13:30.054808+00:00",
+   "classification-health": "2026-10-08T02:13:36.256751+00:00",
+   "transitions": "2026-10-08T02:13:34.623467+00:00",
+   "conflicts": "2026-10-08T02:13:32.306313+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
