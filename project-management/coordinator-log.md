@@ -69,3 +69,7 @@ Worker found `_toon_tree` re-converts materials when multiple MultiMesh cells sh
 ### 2026-10-08 UTC — td-210 full composition and geometry checkpoint
 
 Worker source checkpoint `7f378774eff2fca2d68dfdac96cfd4ad066aa018` composes all345 Kamome lots; follow-up `f05048b12c176f9443cfc77e3a1bfb1ec19f62cf` corrects a measured concave-lot cropped-roof overflow. Author expanded-geometry run five reports zero failures (earlier four reports retained). Corrected baseline native capture completed401 frames:345 lots plus56 street/HUD views. Browser baseline capture is underway. No final after-capture/export/regression or independent verdict yet; task remains in_progress, PR494 remains draft, all whole-city gates open. Protected AnimeLook remains excluded.
+
+### 2026-10-08 UTC — td-210 baseline export dependency defect
+
+Worker's pack audit found the first baseline PCK omitted generated PNGs outside the earlier666-file recovery subset;21 unchanged Fuel/td168/JNR GLBs could not load from that PCK. The after PCK loads them. Worker invalidated/preserved the before pack and browser run, is copying complete unchanged assets/models trees (including ignored/generated files), and will audit all dependencies/semantic GLB hashes before rebuilding baseline export and recapturing browser views. No source-asset, mipmap or product-scope change. Native baseline frames loaded cleanly but still require confirmation against the complete dependency mirror. Reviewer must distinguish invalid initial baseline package/browser evidence from final paired export evidence.
