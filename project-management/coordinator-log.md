@@ -77,3 +77,7 @@ Worker's pack audit found the first baseline PCK omitted generated PNGs outside 
 ### 2026-10-08 UTC — td-210 capture geometry correction
 
 Worker rejected experimental near-plane clipping. Diagnosed QA street-camera2.2m offset outside narrow authored seri1/kori road bounds; changed only the capture harness to min(2.2m,20% road width), asserting centerline/no-lot-overlap, and is recapturing matched native/browser routes. Native front surveys are supplemented by overhead views for all345 lots. Runtime f05048b12c176f9443cfc77e3a1bfb1ec19f62cf unchanged. Superseded evidence retained and final camera/pair checks remain independent-review requirements.
+
+### 2026-10-08 UTC — td-210 ordinary-entry review safeguard
+
+Worker reports geometry20/20 with actual all-variant eave removal detecting0 versus43.2m²; paired56 native/browser cameras and car transforms match, browser route console0 errors. Ordinary baseline still has48 inherited engine errors plus a harness wait timeout despite observed live scene/speed30. Keep that result failed. Worker reports automatic approval review rejected a proposed recheck for potentially misleading completion/pass recording. Root disclosed this, requested the exact rejected payload/reason in QA, and directed truthful preservation of observations/failures without repeating the denied action or relabeling it PASS. Full driving regressions, quiet final profile and independent review remain pending.
