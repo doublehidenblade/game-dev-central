@@ -204,6 +204,14 @@ td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (M
 | td-201 | Phone workshop UI and prerequisite-aware discovery | blocked — upstream garage/inventory gates; workshop UI not implemented | dot | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-201.md) | 2026-10-08 |
 | td-202 | Independent garage first-slice integration validation | blocked — no accepted first-slice implementation available for independent integration validation | dot | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-202.md) | 2026-10-08 |
 
+## 2026-10-08 Lower City focus and Shuto freeze
+
+Craig's 2026-10-08 direction supersedes earlier Shuto continuation/publishing suggestions: stop all Shuto tasks and focus on Lower City. Preserve the existing playable Shuto site, old game, assets, URLs and historical evidence; no further Shuto fixes, builds or deployments. The freeze reference is source `841ec6b8dd7ac6150d81d21a0df95f7ea68602f3`, Shuto-web main `ca485191a6c2f8dd95c385c4ad75c5a85362d5bc`. This directive does not claim that a historical worker is live or has been contacted/stopped. No currently active dot-owned Shuto row was identified in this board snapshot. Other-owner rows, including td-137's historical in_review record, retain their owner/status history but must not be resumed under older instructions; owner reconciliation goes through authorized coordination.
+
+Lower City is a working title only. No permanent replacement name, repository rename or host rename is selected. The existing main web root is the intended future direct Lower City entry, with one continuous truthful download/startup experience; an explicit legacy-game entry must preserve the classic menu and old playable archive. This is queued scope, not a shipped behavior claim.
+
+Publication procedure remains the [canonical deployment runbook](../watchdog/releases/PUSH-PROCEDURE.md), being updated in [existing PR #360](https://github.com/doublehidenblade/game-dev-central/pull/360). Do not create a parallel procedure or treat suggested v47/v48 labels as reserved/live versions. No workflow, legacy watcher, build, merge or deployment is authorized by this board intake.
+
 ## 2026-10-08 playtest repair ownership sync
 
 This board is the coordination sync point. Workers update only their own rows through a PR, never directly on main. The issue-mapped canonical rows below track new observations independently; they do not rename, reopen or take ownership of historical td tasks. Each issue keeps its own acceptance criteria even when several issues share one bounded repair lane. Canonical td-212–228 map one-to-one to the linked issues after checking source main, the candidate tree, current branch reservations and open task PR file lists. Earlier td-206 and td-208–211 reservations are preserved. Task cells are plain IDs for the existing board parser.
@@ -261,3 +269,17 @@ Documentation intake only. These new rows are blocked to prevent automatic dispa
 | td-230 | [Tokyo #536](https://github.com/doublehidenblade/tokyo-drift-3d/issues/536): Street/highway traffic contrast and delivery-risk milestone | blocked — queued, not dispatched; no runtime allowlist; existing-owner coordination required | coordination pending | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/docs/driving-highway-feedback-20261008/godot/docs/tasks/td-230.md) | 2026-10-08 |
 | td-231 | [Tokyo #537](https://github.com/doublehidenblade/tokyo-drift-3d/issues/537): Coasting and progressive throttle/brake response | blocked — queued, not dispatched; no runtime allowlist; existing-owner coordination required | coordination pending | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/docs/driving-highway-feedback-20261008/godot/docs/tasks/td-231.md) | 2026-10-08 |
 | td-232 | [Tokyo #538](https://github.com/doublehidenblade/tokyo-drift-3d/issues/538): Gig report needs semantic row colors and skippable row-by-row payout reveal | blocked — queued; canonical brief/board acceptance and td-213/td-211 shared-file handoff required; no worker dispatched | dot — gig-report presentation (queued) | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-232.md) | 2026-10-08 |
+
+## Queued Lower City direct-launch intake
+
+| Task | Defect (Craig's wording) | Status | Owner | PR | Last update |
+|---|---|---|---|---|---|
+| td-233 | Separate Lower City from the old game's menu and two loading screens; keep the old game | blocked — queued pending accepted main-branch source/board rows and shared-scope handoff; no implementation worker | dot — launch coordination; implementation owner pending | [source PR #542](https://github.com/doublehidenblade/tokyo-drift-3d/pull/542) | 2026-10-08 |
+
+[Canonical task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-233.md) is tracked through [source PR #542](https://github.com/doublehidenblade/tokyo-drift-3d/pull/542); verify its main-branch acceptance before implementation admission. Source-task lookup uses main. Existing td-229–232 rows and their ownership are preserved unchanged. td-233 was absent from source main, preview task tree, current branch reservations and open PR review at original intake.
+
+- td-226 retains the separate Pause Restart defect and its acceptance. td-233 coordinates only variant-aware lifecycle/entry boundaries; no duplicate loading/restart worker. td-150/151/176 retain their existing scope/history
+- No runtime allowlist is granted yet. The task proposes an isolated boot scene, truthful shell/readiness handoff and per-build variant. Shared pause/RaceLoader/packaging changes require owner handoff. Committed project.godot/autoload and global main-menu surgery are excluded; preserve Muse td-191 and dot td-212
+- Four active primaries td-212/213/223/224 and Muse td-191/192/195 remain protected. No new implementation admission, owner-ledger registration or liveness claim follows from this row
+- Acceptance records source SHA + build variant + effective entry scene + immutable artifact identity; benchmark actual cold first load through Lower City ready against the current full menu-then-city path. Preserve exact visual/device evidence limits and Craig's phone verdict
+- Optional asset-closure/download optimization needs its own bounded follow-up; no blind asset exclusions or destructive cleanup
