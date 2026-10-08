@@ -12,6 +12,8 @@ repo. If you have this link, you can resume.
 
 ## Layout
 
+Read the [existing deployment runbook](releases/PUSH-PROCEDURE.md) before any Tokyo publication. Its 2026-10-08 section supersedes the historical Tokyo dispatch route and warns about legacy cleanup deleting immutable releases.
+
 ```
 project-management/watchdog/
   README.md            this file
