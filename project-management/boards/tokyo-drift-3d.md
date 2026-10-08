@@ -208,4 +208,4 @@ td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (M
 
 | ID | Task | Status | Owner | Evidence / branch | Updated |
 |---|---|---|---|---|---|
-| td-210 | All345 Kamome market lots: finished modular architecture, profile-first shared bounded placement | in_progress — admission clear; source/profile intake only; draft stacked PR pending | `/root/kamome_worker` reserved sole author, Astra/high requested; root coordination | `feat/td-210-kamome-live-buildings` from reviewed `0b2652bc`; issue491 remains open | 2026-10-08 UTC |
+| td-210 | All345 Kamome market lots: finished modular architecture, profile-first shared bounded placement | in_progress — admitted same-environment Astra/high worker; profile-first before345 scaling; draft PR494 | `/root/kamome_worker` sole author; `gpt-6-astra`/`high` accepted by dispatch; root coordination | [PR494](https://github.com/doublehidenblade/tokyo-drift-3d/pull/494) · [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/feat/td-210-kamome-live-buildings/godot/docs/tasks/td-210.md) · base `0b2652bc`; issue491 open | 2026-10-08 UTC |

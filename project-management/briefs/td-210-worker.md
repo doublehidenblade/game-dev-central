@@ -11,12 +11,12 @@ FIRST read `/workspace/game-dev-central/project-management/task-team-system/SYST
   "requested_model": "gpt-6-astra",
   "requested_effort": "high",
   "environment_and_tools": "Existing Game-development /workspace only; Godot 4.7.2 ed1daf0bf, Blender4.3.2, Node24.19.0, retained native/browser harness and Xorg :99. No new cloud task or environment.",
-  "availability_checked": "2026-10-08T01:36:49.095589+00:00; model-selecting catalog supports Astra/high; same-environment worker dispatch reserved, not yet confirmed.",
+  "availability_checked": "2026-10-08T01:36:49.095589+00:00; model-selecting catalog supports Astra/high; same-environment `/root/kamome_worker` dispatch accepted gpt-6-astra/high.",
   "fallback": "wait_for_required_tier; stop and report if this existing environment becomes unavailable; no switch, duplicate task or silent downgrade",
   "attempt_budget": "One coherent bounded district implementation plus evidence-based correction where needed; stop after two identical failures until a changed hypothesis is recorded. No invented billing limit.",
   "escalation_criteria": "Existing Kamome ownership, unavailable required environment/tier, necessary road/city-data/protected-owner changes, invalid reference inputs or unexplained coverage/performance regression.",
   "verification_budget": "Reserve before/after all345-lot native pairs, actual native/browser street/HUD views, baseline/prototype/full profiling, coverage/clearance/variation/material/resource checks, regressions, shipping export audit/entry, and a fresh independent Astra/high reviewer plus justified correction.",
-  "requested_versus_confirmed": "Requested Astra/high in the existing environment. Dispatch confirmation pending; runtime model internals unexposed.",
+  "requested_versus_confirmed": "Requested Astra/high in the existing environment; model-selecting collaboration call accepted exactly gpt-6-astra/high. Runtime internals unexposed.",
   "actual_outcome": "Admission preflight complete; implementation and independent review pending."
 }
 ```
@@ -50,3 +50,5 @@ Use official checkout `.tools/Godot_v4.7.2-stable_linux.x86_64`, never system Go
 Commit buildable source and evidence/docs checkpoints with [skip ci], pull --rebase before every push to your new branch only, and maintain its draft PR. Stage only owned paths; inherited generated import outputs are untracked and must be preserved. Root maintains central records and reserves a fresh independent Astra/high reviewer. Write a heartbeat about every10 minutes to `/workspace/game-dev-central/project-management/watchdog/state/worker-heartbeats/td-210.json` without committing the heartbeat.
 
 When complete, freeze runtime/evidence, set task in_review with verdict null, and update TODO/DEVLOG/CHECKPOINT/new PR. Do not self-accept or touch Tenjin PR489. Report exact commits, source/mesh provenance, performance/export deltas, all failures, publishing needs and whole-city/phone limits. No Muse/Claude contact.
+
+Draft implementation [PR494](https://github.com/doublehidenblade/tokyo-drift-3d/pull/494); coordination [PR350](https://github.com/doublehidenblade/game-dev-central/pull/350). Initial game intake commit6e510fb1c95dbaeecf7c1f8f675d608f4c977ae3 contains no runtime changes. Same-environment Astra/high worker dispatch accepted 2026-10-08T01:40:58.841822+00:00; no external cloud task API or environment launch was used.
