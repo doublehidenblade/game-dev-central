@@ -9,6 +9,8 @@ agent (or Craig) might need lives here, not in anyone's context window.
 
 ## What's in here
 
+- [Deployment runbook](project-management/watchdog/releases/PUSH-PROCEDURE.md) — current Tokyo publication procedure and legacy-workflow compatibility warning
+
 | Path | Contents |
 |---|---|
 | `standing-rules.md` | **The enforced set.** 14 standing rules (R1–R14), each with the incident that created it and the mechanism that enforces it. Every coding-agent brief links this file. This outranks everything else in the repo. |

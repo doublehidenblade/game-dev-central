@@ -4,6 +4,8 @@ This repo is the source of truth for Craig's game-dev agent team. If you are pic
 
 ## Where things live
 
+- [Deployment runbook](project-management/watchdog/releases/PUSH-PROCEDURE.md) — current Tokyo prebuilt/immutable-release route, shared destinations, numbered releases and legacy-cleanup compatibility stop; read before any publication
+
 - `project-management/boards/neon-drift.md` — NEON DRIFT task board (task truth: `todos/todoNNN/README.md` in the neon-drift repo)
 - `project-management/boards/tokyo-drift-3d.md` — Tokyo Drift 3D task board (task truth: `godot/docs/tasks/td-*.md` in the tokyo-drift-3d repo)
 - `project-management/workers.md` — who is on what, last-seen state
