@@ -1544,7 +1544,7 @@
     "https://chatgpt.com/remote/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-08T00:44:13.289022+00:00",
+   "login_fail_notified_ts": "2026-10-08T06:44:29.423871+00:00",
    "inspected_ts": "2026-10-04T14:12:56.398511+00:00",
    "finished_no_pr": true
   },
@@ -1945,7 +1945,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 96
+  "stale_runs": 97
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2137,7 +2137,7 @@
   "td-207": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-08T06:16:32.212988+00:00",
+  "ts": "2026-10-08T06:44:13.265191+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-192 (no heartbeat file; branch file/td-192-task 1 ahead)",
@@ -2148,7 +2148,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=96"
+    "STALE-RUNS=97"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2164,11 +2164,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-08T06:16:32.212988+00:00",
-   "liveness": "2026-10-08T06:13:38.269143+00:00",
-   "classification-health": "2026-10-08T06:14:23.314767+00:00",
-   "transitions": "2026-10-08T06:14:20.074011+00:00",
-   "conflicts": "2026-10-08T06:14:15.971338+00:00",
+   "board-check": "2026-10-08T06:44:13.265191+00:00",
+   "liveness": "2026-10-08T06:44:02.413336+00:00",
+   "classification-health": "2026-10-08T06:44:09.808889+00:00",
+   "transitions": "2026-10-08T06:44:08.084985+00:00",
+   "conflicts": "2026-10-08T06:44:05.641535+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
