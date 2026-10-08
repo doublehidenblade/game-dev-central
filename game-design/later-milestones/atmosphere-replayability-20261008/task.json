@@ -1,0 +1,172 @@
+{
+  "id": "later-atmosphere-replayability-20261008",
+  "title": "Restore day/night and dynamic weather after the priority release",
+  "status": "blocked",
+  "planning_state": "parked_later_milestone",
+  "owner": null,
+  "assigned_worker": null,
+  "execution_authorized": false,
+  "dispatch_allowed": false,
+  "release_blocker": false,
+  "blocked_reason": "Craig explicitly requested no execution now. Wait for completion of the current priority release and a later explicit go-ahead.",
+  "canonical_scope": "This is the canonical parked planning record for this request, paired with README.md. It does not allocate a global td number or replace runtime task truth. On future activation, link it from newly scoped runtime tasks rather than duplicating active ownership.",
+  "ask": {
+    "by": "Craig",
+    "date": "2026-10-08",
+    "scope": "Reject heavy permanent dust as the long-term look; restore dynamic weather/day-night as a later milestone for replayability; allow mask lore through air quality; retain two undecided upper-city alternatives; stash a brief without execution."
+  },
+  "brief": "README.md",
+  "approved_direction": [
+    "Clearer-air default instead of a permanent heavy dust/orange veil",
+    "Day/night and dynamic weather as a later replayability milestone",
+    "Materials respond to illumination, color, exposure and wetness while preserving cel/Showa identity",
+    "Measure draw-distance costs before using optimization to justify a visual compromise",
+    "Gas masks remain compatible with poor air quality without mandatory visible opaque dust"
+  ],
+  "proposed_first_slice": {
+    "times": [
+      "dawn",
+      "noon",
+      "dusk",
+      "night"
+    ],
+    "weather": [
+      "clear",
+      "overcast",
+      "rain"
+    ],
+    "stretch_only": [
+      "seasons"
+    ],
+    "options_undecided": [
+      "Long mountain road to wealthy enclave",
+      "Car-elevator cutscene to an inhabited megastructure rooftop mini-city"
+    ]
+  },
+  "dependencies": [
+    "Current priority gigs/UI/lively-city/traffic release first",
+    "Craig's explicit later authorization",
+    "Read current source/history and ownership; inspect and reuse existing clock/weather/lighting work before replacement",
+    "Agree measured target-device performance budgets and review capacity before implementation"
+  ],
+  "excluded_now": [
+    "Implementation worker dispatch",
+    "Code/configuration/asset/fog/weather changes",
+    "Image or mock generation",
+    "Runtime-repository task edits",
+    "Board, registry or active-owner changes",
+    "Actions dispatch/rerun/workflow edits",
+    "Merge and deployment"
+  ],
+  "bug_shape": "Permanent heavy dust/orange veil undermines Craig's desired driving fantasy and scenery visibility. No proven project-specific draw-distance bottleneck was supplied. This is a future design-direction request, not a claim that any runtime defect was fixed.",
+  "reference_images": [
+    {
+      "description": "Craig's supplied sunset/service-station image: directly inspected; expansive warm sky, readable mountain distance, cooler foreground surfaces and warm local lights",
+      "status": "private_reference_inspected_not_published",
+      "limit": "Inspiration for lighting relationships only; not a production render/performance benchmark or a literal location/style mandate"
+    }
+  ],
+  "required_reading": [
+    "https://github.com/doublehidenblade/game-dev-central/blob/168965ceeade680f6c8729b19a9d52059984b8d4/COORDINATOR.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/168965ceeade680f6c8729b19a9d52059984b8d4/project-management/rules/SYSTEM.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/168965ceeade680f6c8729b19a9d52059984b8d4/project-management/rules/WORKER_SELECTION_POLICY.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/168965ceeade680f6c8729b19a9d52059984b8d4/knowledge/standing-rules.md",
+    "README.md"
+  ],
+  "recommended_setup": {
+    "capability_tier": "frontier: lighting, shader response, district integration and persistence are tightly coupled",
+    "provider_preference": "OpenAI Astra preferred for the requested strong coupled-system pass; use actual tool readiness and the current catalog",
+    "requested_model_and_effort": {
+      "audit": {
+        "model": "gpt-6-astra",
+        "effort": "high"
+      },
+      "implementation": {
+        "model": "gpt-6-astra",
+        "effort": "max"
+      },
+      "independent_review": {
+        "model": "gpt-6-astra",
+        "effort": "max",
+        "separate_from_author": true
+      }
+    },
+    "environment_and_required_tools": "Before future dispatch verify the selected Tokyo repository executor, current Godot version/renderer, scene/history access, material inspection, image pixels, deterministic tests, target-device profiling and physical-phone access. No production environment was verified or launched by this filing.",
+    "availability_checked": {
+      "at": "2026-10-08",
+      "source": "No future execution catalog/quota or target environment preflight performed",
+      "status": "unverified"
+    },
+    "fallback": "wait_for_required_tier; no weaker production substitute and no current execution",
+    "attempt_budget": "After authorization: one coherent scoped attempt plus at most one correction justified by new evidence. Set an explicit time/usage ceiling at dispatch; no spending or timing promise now.",
+    "escalation_criteria": [
+      "Missing required tier/tools/references",
+      "Clock/weather and district ownership conflict",
+      "Need for a broad world rebuild or unapproved gameplay scope",
+      "Performance/visual gates fail or cannot be measured",
+      "Repeated identical failure twice or exhausted agreed budget"
+    ],
+    "verification_budget": "Reserve target-device baseline/comparison runs, full capture matrix, deterministic save/load tests, one complete separate frontier high/max review and any required correction before production starts. Agree the time/usage allowance at activation.",
+    "requested_versus_confirmed_setup": "Future request only. Actual model, effort, executor, device access and quota are unconfirmed. No runtime attestation.",
+    "actual_outcome": "Planning only; implementation not started; cost and performance outcomes unknown."
+  },
+  "completion_criteria": [
+    {
+      "id": "C1",
+      "criterion": "Audit/reuse existing systems and establish scope/ownership",
+      "verification": "Pinned source/history inventory and retained/adapted/replaced rationale; confirm one clock/weather authority and no upper-city rebuild dependency"
+    },
+    {
+      "id": "C2",
+      "criterion": "Dawn/noon/dusk/night across clear/overcast/rain on the same city routes",
+      "verification": "README capture matrix: three fixed route-anchor camera poses times 12 states; source/camera/device/settings/clock/weather provenance; matched per-defect before/after pairs"
+    },
+    {
+      "id": "C3",
+      "criterion": "Material and local-light response preserves cel/Showa identity",
+      "verification": "In-engine neutral/directional/local-light and dry/wet comparisons for every claimed changed material family/asset class; inspect baked warmth, emission, outline and reflection compatibility"
+    },
+    {
+      "id": "C4",
+      "criterion": "Gameplay and accessibility remain readable",
+      "verification": "Actual driving clips/checks for night/rain/low-sun and indoor-outdoor/district transitions; visible hazards/cues; English UI and Japanese environmental identity; no dust hiding missing scenery"
+    },
+    {
+      "id": "C5",
+      "criterion": "Performance choices are measured with transparent limits",
+      "verification": "Same-route/source/device/seed/settings clear-no-dust versus LOD/culling and weather-appropriate haze; agreed preimplementation budgets; frame-time/tail/hitch/memory observations and exact unavailable-data limits"
+    },
+    {
+      "id": "C6",
+      "criterion": "Clock/weather persistence and transitions are deterministic",
+      "verification": "Named tests for pause/resume/reload/save-load/time/weather/progress/wetness and invalid or older state; optional photo mode cannot block acceptance"
+    },
+    {
+      "id": "C7",
+      "criterion": "Independent acceptance and Craig's final visual gate",
+      "verification": "Separate strong review with per-criterion exact-head evidence citations; Craig's phone verdict retained; author may not self-validate"
+    }
+  ],
+  "upper_city_dependency": "Separate undecided future geography/level-construction decision. Compare mock and route blockout only after release and authorization; no choice or full rebuild now.",
+  "evidence": [],
+  "planning_evidence": {
+    "central_source_commit": "168965ceeade680f6c8729b19a9d52059984b8d4",
+    "runtime_read_only_source_commit": "9d4a88490c41f86e8d34e1c2c6f142838de20c73",
+    "brief": "README.md",
+    "runtime_files_inspected": [
+      "godot/scripts/lower_city/city_atmosphere.gd",
+      "godot/scripts/anime/anime_adapter_lower_city.gd",
+      "godot/scripts/night_lighting_rig.gd",
+      "godot/shaders/anime/anime_road.gdshader"
+    ],
+    "limits": "Limited read-only source audit; no complete history audit, runtime test, performance measurement or implementation acceptance"
+  },
+  "work_log": [
+    {
+      "date": "2026-10-08",
+      "by": "dot",
+      "entry": "Filed a parked documentation-only later milestone. Inspected private reference pixels, read central rules/current design and selected runtime hooks. Preserved all active owners and files. No implementation or execution authorized."
+    }
+  ],
+  "verdict": null
+}
