@@ -73,3 +73,7 @@ Worker source checkpoint `7f378774eff2fca2d68dfdac96cfd4ad066aa018` composes all
 ### 2026-10-08 UTC — td-210 baseline export dependency defect
 
 Worker's pack audit found the first baseline PCK omitted generated PNGs outside the earlier666-file recovery subset;21 unchanged Fuel/td168/JNR GLBs could not load from that PCK. The after PCK loads them. Worker invalidated/preserved the before pack and browser run, is copying complete unchanged assets/models trees (including ignored/generated files), and will audit all dependencies/semantic GLB hashes before rebuilding baseline export and recapturing browser views. No source-asset, mipmap or product-scope change. Native baseline frames loaded cleanly but still require confirmation against the complete dependency mirror. Reviewer must distinguish invalid initial baseline package/browser evidence from final paired export evidence.
+
+### 2026-10-08 UTC — td-210 capture geometry correction
+
+Worker rejected experimental near-plane clipping. Diagnosed QA street-camera2.2m offset outside narrow authored seri1/kori road bounds; changed only the capture harness to min(2.2m,20% road width), asserting centerline/no-lot-overlap, and is recapturing matched native/browser routes. Native front surveys are supplemented by overhead views for all345 lots. Runtime f05048b12c176f9443cfc77e3a1bfb1ec19f62cf unchanged. Superseded evidence retained and final camera/pair checks remain independent-review requirements.
