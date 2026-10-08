@@ -203,3 +203,9 @@ td-176 | Steering power SP vs MP mismatch; main-menu button behavior mismatch (M
 | td-200 | Atomic garage inventory and fixed supplier first loop | open | GPT Dots | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-200.md) | 2026-10-07 |
 | td-201 | Phone workshop UI and prerequisite-aware discovery | open | GPT Dots | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-201.md) | 2026-10-07 |
 | td-202 | Independent garage first-slice integration validation | open | GPT Dots | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-202.md) | 2026-10-07 |
+
+## Approved bounded district continuation
+
+| ID | Task | Status | Owner | Evidence / branch | Updated |
+|---|---|---|---|---|---|
+| td-210 | All345 Kamome market lots: finished modular architecture, profile-first shared bounded placement | in_review — frozen author dd0fe146, runtime f05048b1; independent Astra/high reviewer running; draft PR494 | `/root/kamome_worker` sole author; `gpt-6-astra`/`high` accepted by dispatch; root coordination | [PR494](https://github.com/doublehidenblade/tokyo-drift-3d/pull/494) · [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/feat/td-210-kamome-live-buildings/godot/docs/tasks/td-210.md) · base `0b2652bc`; issue491 open | 2026-10-08 UTC |
