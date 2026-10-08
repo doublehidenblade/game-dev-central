@@ -16,3 +16,5 @@ Seeded from the agent watchdog state 2026-09-24 00:20 UTC. Entries marked `unver
 | codex:td111-van | Codex subagent | td-111 — reference-grounded compact van | UNVERIFIED after Muse handoff — branch feat/td-109-dr30-sedan observed, PR not found; session not visible | 2026-09-28 22:04 |
 
 Rules: never nudge a working session; never duplicate a live session; fresh session per task (never accumulate a week of transcript); stale sessions sync/rebase onto main before resuming; stop after 2 identical failures and report.
+
+| `/root/kamome_worker` | Existing Game-development /workspace; Astra/high requested, dispatch pending | td-210 — Kamome345 modular architecture/profile-first placement | Reserved sole implementation owner after current admission check; no new cloud task/environment | 2026-10-08T01:36:49.095589+00:00 |
