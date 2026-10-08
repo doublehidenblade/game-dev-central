@@ -1,6 +1,19 @@
-# td-210 independent validator reservation — not dispatched
+# td-210 independent validator — frozen author handoff
 
 FIRST read `/workspace/game-dev-central/project-management/task-team-system/SYSTEM.md`, then the current `project-management/rules/WORKER_SELECTION_POLICY.md`, `knowledge/standing-rules.md`, applicable role brief, checkout AGENTS/README required readings, and `/workspace/tokyo-drift-3d/godot/docs/tasks/td-210.md`. User instructions override older merge, Actions, publication, blueprint-stop and branch-base rules. The canonical task supplies six measurable criteria, exact source pins, requested setup and exclusions.
+
+## Frozen inputs and review ownership
+
+- Author evidence: `dd0fe14672a92990193194741b5fc5580040fafc`, pushed on `feat/td-210-kamome-live-buildings`; clean tracked tree, canonical task `in_review` with verdict null. Author has ended its turn and frozen files.
+- Product runtime: `f05048b12c176f9443cfc77e3a1bfb1ec19f62cf`.
+- Reviewed Tenjin base: `0b2652bc86b6824444af277fdb34af5bdd981066`; its runtime `6f7818b45cd09ade3ca621354ce4eb116050a66b`. PR489 remains draft/open at the exact unchanged handoff head.
+- New source PR494 remains draft/open and targets the Tenjin branch. Root independently checked these remote heads.
+- Read `godot/qa/td-210/README.md`, `REPRODUCE.md`, the canonical task's six criteria and all linked final evidence. Historical notes below identify failures/corrections that must not be hidden; final reports distinguish superseded runs.
+- Root is preparing a byte-hashed QA-only mirror on `tokyo-drift-3d-web` branch `qa/td-210-kamome-evidence`; source game checkout remains yours for review-only task verdict/new review files. No production or author-evidence edits.
+- Write `godot/qa/td-210/REVIEW.md` and `godot/qa/td-210/review/` records, update only canonical task status/verdict/work log, and commit those owned files with `[skip ci]`. Root will push/preserve handoff after you finish. Never merge on PASS: Craig explicitly prohibits merge/Actions/deployment, overriding the older validator template.
+- Independently rerun focused native geometry/eave negative controls and relevant bounded regressions. Read paired full driving logs already completed; do not repeat expensive complete driving simulations absent a new discrepancy needing them. Verify numerical results from raw assertions, not exit codes.
+- Open all 78 final sheets, record exact inspected paths/hashes and inspect original details/50 visibility exceptions as needed for each criterion. No synthetic visual PASS. Both strict ordinary runs remain failed; assess bounded criterion language and report every limitation without masking failures.
+- Same existing environment and official Godot4.7.2 only. Read/exec network or X11 access may need additional network permission; no environment switch/new cloud task. No further agents. Runtime model internals are unexposed; root supplies accepted explicit Astra/high dispatch confirmation after spawn.
 
 ## Recommended setup
 
