@@ -3241,7 +3241,13 @@ def cmd_review_sweep(args):
             continue
         head_sha = (pr.get("head") or {}).get("sha", "")
         rec = vd.get(task) or {}
-        if rec.get("pr") == prn and rec.get("head_sha") == head_sha:
+        # Head-SHA match is prefix-tolerant: validator-dispatched may be recorded
+        # with the short SHA from the DUE line (head=XXXXXXXX) while the API gives
+        # the full SHA. A new push still re-arms the sweep (prefix no longer matches).
+        rec_sha = rec.get("head_sha") or ""
+        head_matches = bool(rec_sha) and (
+            head_sha.startswith(rec_sha) or rec_sha.startswith(head_sha))
+        if rec.get("pr") == prn and head_matches:
             print(f"VALIDATOR-OK {task} {prn} validator-dispatched")
             continue
         try:
