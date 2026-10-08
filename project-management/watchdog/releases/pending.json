@@ -1,3 +1,36 @@
 {
- "pending": []
+ "pending": [
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-203",
+   "pr": 459,
+   "merged_sha": "eda80acd918ac05d485983f72c934d9645f07509",
+   "merged_at": "2026-10-07T07:00:50.547229+00:00",
+   "summary": "td-203: minimap + large-map player marker (validator PASS, PR #459 merged by validator)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-204",
+   "pr": 461,
+   "merged_sha": "cc87554141db7a6ee2d35e7a4704f715a754ff46",
+   "merged_at": "2026-10-07T07:41:53.454971+00:00",
+   "summary": "td-204 cargo+car health HUD meters"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-205",
+   "pr": 460,
+   "merged_sha": "c14ded0722d978cade795abb34c79c333637f97d",
+   "merged_at": "2026-10-07T08:35:51.470027+00:00",
+   "summary": "collapsible gig menu + post-mission flow (Craig v46 phone verdict)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-207",
+   "pr": 472,
+   "merged_sha": "fb6f3c0ddcbb998460723fa3f954a9bf758df159",
+   "merged_at": "2026-10-07T11:31:02.320288+00:00",
+   "summary": "td-207 restore minimap + drive-HUD health meters (regression from #460)"
+  }
+ ]
 }
