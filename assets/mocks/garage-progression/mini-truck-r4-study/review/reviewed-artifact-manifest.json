@@ -1,0 +1,106 @@
+{
+  "status": "frozen_corrected_R4_local_candidate_for_independent_recheck",
+  "revision": "r4-local-correction-1",
+  "files": [
+    {
+      "path": "R4_TASK_BRIEF_AMENDMENT.md",
+      "bytes": 13048,
+      "sha256": "9da5bac39e1ea313ebeb44f59751e4fd3493427db718a3e0cbbb59f9386b9592"
+    },
+    {
+      "path": "README.md",
+      "bytes": 12448,
+      "sha256": "1d69e742e427865b63edea91c90cc2a11e1c25ada55631eb08d957f27624875e"
+    },
+    {
+      "path": "build_reference_pack.py",
+      "bytes": 16717,
+      "sha256": "65c8284b9d06bf06e8c4182e83a3e6b832ab25035d01d3a605cab29ffd1879dc"
+    },
+    {
+      "path": "correction-record.json",
+      "bytes": 1718,
+      "sha256": "e3c5b6fa040121e1d5bce0f730e74ba4073540624999a386cc02c92f57f2d0ef"
+    },
+    {
+      "path": "interfaces.json",
+      "bytes": 12042,
+      "sha256": "c2c28368b09e9e79ead0f84ff8ccd778eff1d67fb7507aca7eb2492191ecba82"
+    },
+    {
+      "path": "reference-gap-and-revision.md",
+      "bytes": 2463,
+      "sha256": "47f28e35aeb197ba967f04a1f486fab18fd3757cafae3fe7b78676641712e445"
+    },
+    {
+      "path": "sheets/01-shared-bed-sockets.png",
+      "bytes": 311910,
+      "sha256": "a6254ec4f6202d523f254b21b19e1fd8012deebf12ab79f1668aff3ff0670fd6"
+    },
+    {
+      "path": "sheets/01-shared-bed-sockets.svg",
+      "bytes": 9616,
+      "sha256": "ea93ddc1cb0da6f6d90af58b7ea0dd7d6af636e5aa72a93a2e7f67c2c3dfbe20"
+    },
+    {
+      "path": "sheets/02-utility-rack.png",
+      "bytes": 268309,
+      "sha256": "0d137bcde24ee9bd602d9f2349ba211f2defb973ed465c16feabfaede521168f"
+    },
+    {
+      "path": "sheets/02-utility-rack.svg",
+      "bytes": 9258,
+      "sha256": "c011a97449d38d634ad17b01ea091a7e6dd6e4b1deeab35a74e275df9595a95b"
+    },
+    {
+      "path": "sheets/03-padded-carrier.png",
+      "bytes": 256581,
+      "sha256": "46bf3a9444be2119cfadebc2f60d4ac1711421c065fdcd7cd61a6aca9ce17e1c"
+    },
+    {
+      "path": "sheets/03-padded-carrier.svg",
+      "bytes": 8502,
+      "sha256": "8431f247271d5571e2378c138cc7021d000f9f5f7a9b3e4c0a74bd0b146e502a"
+    },
+    {
+      "path": "sheets/04-workshop-reservations.png",
+      "bytes": 276931,
+      "sha256": "990d9f5208dfa37a451997f80678c4c047bc31a3ae3348c38762852cce508b74"
+    },
+    {
+      "path": "sheets/04-workshop-reservations.svg",
+      "bytes": 8633,
+      "sha256": "b40544e0a188e53437a6d276e4934fdd7119ba6f061f646997fcc9db4877291d"
+    },
+    {
+      "path": "sheets/05-shutter-threshold-states.png",
+      "bytes": 275137,
+      "sha256": "722c0babf3820019e626243104a5abb91307bf9e0f801400a74cc826c42539ad"
+    },
+    {
+      "path": "sheets/05-shutter-threshold-states.svg",
+      "bytes": 9500,
+      "sha256": "c0f171b94aa54cba0048db50eb8627e71a3e0097d9acc81218ccdd175a1c7882"
+    },
+    {
+      "path": "sheets/06-roll-up-retraction-section.png",
+      "bytes": 289938,
+      "sha256": "7be37cbbe173312897502f958e98e4d6a32f00a188a9ca65a42a969802e35d4a"
+    },
+    {
+      "path": "sheets/06-roll-up-retraction-section.svg",
+      "bytes": 8888,
+      "sha256": "8ae8232d3b6388eaefb59f5259558d8c9ea49e67c729aeb3ce83132bfd16d573"
+    },
+    {
+      "path": "validate_pack.py",
+      "bytes": 8038,
+      "sha256": "1e84aa68665ef880e997475d26b1779f8b22d9f5e773c5b1d31d0814f3b10b8e"
+    },
+    {
+      "path": "validation.json",
+      "bytes": 5498,
+      "sha256": "befeb010b2d65ba30200849a09798009aba942e502d33599b80f518a85dbd89e"
+    }
+  ]
+}

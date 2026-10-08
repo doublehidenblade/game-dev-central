@@ -1,0 +1,33 @@
+{
+  "revision": "R4 local correction 1",
+  "status": "awaiting independent recheck; no publication or study admission",
+  "previous_manifest_sha256": "070b2c0fa0c0717308395ea4b694d26d2e46efd61ff12d3db4969c9967e20346",
+  "independent_review_sha256": "252ca9e028cb2e31ba863f490f37b4315c294e4cfc289bdd0d109fd59b2c3a1e",
+  "corrections": [
+    {
+      "finding": "padded base was 1.28 m in rear drawing against 1.20 m contract",
+      "change": "Body, base and top dimensions derive from interfaces.json. Base x=222 px and width=360 px at 300 px/m. Mount positions derive from shared JSON socket coordinates.",
+      "new_regression": "Actual SVG extent check; prior x=210,width=384 fails the negative control."
+    },
+    {
+      "finding": "unspecified vertical shutter did not establish retraction inside 0.45 m header",
+      "change": "Explicit stylized roll-up curtain. Added metric section: casing 4.40 W x 0.50 D x 0.45 H m at h=3.20..3.65; roll diameter 0.40 m. Open curtain collision/occlusion absent below h=3.20.",
+      "new_regression": "SVG casing/roll/free-curtain extents match JSON and roll fits strictly within casing."
+    }
+  ],
+  "staging": "R4_TASK_BRIEF_AMENDMENT.md explicitly proposes reference replacement for isolated nonshipping study only, after independent recheck and verified GitHub amendment. Geometry unknowns become study outputs; actual-world/full td-197 gates remain.",
+  "author_checks_passed": 50,
+  "opened_final_pngs": 6,
+  "original_candidate_unchanged": true,
+  "mutations_excluded": [
+    "GitHub writes",
+    "upload retries",
+    "old td-198 resumption",
+    "3D authoring",
+    "runtime implementation",
+    "world edits",
+    "Actions",
+    "merge",
+    "deployment"
+  ]
+}

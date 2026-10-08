@@ -1,0 +1,215 @@
+{
+  "status": "author_checks_pass_not_independent_acceptance",
+  "checks": [
+    {
+      "check": "Source pins are full 40-character SHA strings",
+      "pass": true
+    },
+    {
+      "check": "No gate supersession or runtime edits",
+      "pass": true
+    },
+    {
+      "check": "Body and mirror fit within design plan budget",
+      "pass": true
+    },
+    {
+      "check": "Floor mount footplates fit strictly inside proposed usable bed",
+      "pass": true
+    },
+    {
+      "check": "Measured-heading sweep, not rejected tangent-only result",
+      "pass": true
+    },
+    {
+      "check": "Named shared floor grid is exact",
+      "pass": true
+    },
+    {
+      "check": "Both fittings use identical socket names",
+      "pass": true
+    },
+    {
+      "check": "rack_design bed edge margins are 0.05 m gross",
+      "pass": true
+    },
+    {
+      "check": "rack_design mount plates remain within module footprint",
+      "pass": true
+    },
+    {
+      "check": "rack_design ground-relative top consistent",
+      "pass": true
+    },
+    {
+      "check": "rack_design below proposed all-up 2.20 m height",
+      "pass": true
+    },
+    {
+      "check": "padded_design bed edge margins are 0.05 m gross",
+      "pass": true
+    },
+    {
+      "check": "padded_design mount plates remain within module footprint",
+      "pass": true
+    },
+    {
+      "check": "padded_design ground-relative top consistent",
+      "pass": true
+    },
+    {
+      "check": "padded_design below proposed all-up 2.20 m height",
+      "pass": true
+    },
+    {
+      "check": "Padded clear dimensions include combined frame/pad allowance",
+      "pass": true
+    },
+    {
+      "check": "Storage gross centered margins",
+      "pass": true
+    },
+    {
+      "check": "Door side and vertical gross margins",
+      "pass": true
+    },
+    {
+      "check": "Selected game-asset and closure margins",
+      "pass": true
+    },
+    {
+      "check": "Unknown capacity remains null",
+      "pass": true
+    },
+    {
+      "check": "Unknown physics and fastening remain null",
+      "pass": true
+    },
+    {
+      "check": "01-shared-bed-sockets.svg parses and labels proposal",
+      "pass": true
+    },
+    {
+      "check": "01-shared-bed-sockets.svg PNG dimensions",
+      "pass": true
+    },
+    {
+      "check": "02-utility-rack.svg parses and labels proposal",
+      "pass": true
+    },
+    {
+      "check": "02-utility-rack.svg PNG dimensions",
+      "pass": true
+    },
+    {
+      "check": "03-padded-carrier.svg parses and labels proposal",
+      "pass": true
+    },
+    {
+      "check": "03-padded-carrier.svg PNG dimensions",
+      "pass": true
+    },
+    {
+      "check": "04-workshop-reservations.svg parses and labels proposal",
+      "pass": true
+    },
+    {
+      "check": "04-workshop-reservations.svg PNG dimensions",
+      "pass": true
+    },
+    {
+      "check": "05-shutter-threshold-states.svg parses and labels proposal",
+      "pass": true
+    },
+    {
+      "check": "05-shutter-threshold-states.svg PNG dimensions",
+      "pass": true
+    },
+    {
+      "check": "06-roll-up-retraction-section.svg parses and labels proposal",
+      "pass": true
+    },
+    {
+      "check": "06-roll-up-retraction-section.svg PNG dimensions",
+      "pass": true
+    },
+    {
+      "check": "Padded drawn top/body/base all stay within JSON width",
+      "pass": true
+    },
+    {
+      "check": "Padded top drawn length equals JSON",
+      "pass": true
+    },
+    {
+      "check": "Drawn mount bed_A equals shared JSON coordinate",
+      "pass": true
+    },
+    {
+      "check": "Drawn mount bed_B equals shared JSON coordinate",
+      "pass": true
+    },
+    {
+      "check": "Drawn mount bed_C equals shared JSON coordinate",
+      "pass": true
+    },
+    {
+      "check": "Drawn mount bed_D equals shared JSON coordinate",
+      "pass": true
+    },
+    {
+      "check": "Negative control rejects old drawn 1.28 m padded base",
+      "pass": true
+    },
+    {
+      "check": "Drawn casing height/depth equal JSON",
+      "pass": true
+    },
+    {
+      "check": "Drawn retracted roll diameter equals JSON",
+      "pass": true
+    },
+    {
+      "check": "Retracted roll drawn strictly inside casing",
+      "pass": true
+    },
+    {
+      "check": "Closed curtain extent matches opening and collision depth",
+      "pass": true
+    },
+    {
+      "check": "Case bottom aligns with top of clear opening",
+      "pass": true
+    },
+    {
+      "check": "Roll-up is explicit, not rigid leaf",
+      "pass": true
+    },
+    {
+      "check": "Full-inside guard uses declared collision inner face plus margin",
+      "pass": true
+    },
+    {
+      "check": "Blockers split by stage without dropping world acceptance",
+      "pass": true
+    },
+    {
+      "check": "Negative control catches out-of-bed socket",
+      "pass": true
+    },
+    {
+      "check": "Negative control rejects tangent-only sweep",
+      "pass": true
+    }
+  ],
+  "passed_count": 50,
+  "visual_review": "Author opened all six final PNGs. R4 correction confines the entire padded base to JSON width, derives drawn mounts from shared coordinates, and declares/depicts roll-up casing and retraction. Added drawn-extent negative control catches prior 1.28 m base. No independent acceptance is claimed.",
+  "unverified": [
+    "Reference-matched perspective art",
+    "Real source mesh and sockets",
+    "Actual loading and handling",
+    "Moving shutter and police integration",
+    "Phone/runtime behavior",
+    "Full td-197 gate"
+  ]
+}
