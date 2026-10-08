@@ -2,14 +2,22 @@
 
 > Updated 2026-10-08. This is the existing deployment runbook, shared by every coordinator, including Muse. The current Tokyo procedure below supersedes the historical Tokyo dispatch instructions retained at the end. It does not change NEON policy, task ownership, source merge acceptance, or grant new access.
 
-## Current Tokyo route: same destinations, prebuilt publication
+## Current Lower City focus: existing destinations, prebuilt publication
 
 - Base: https://doublehidenblade.github.io/tokyo-drift-3d-web/ — public repository `doublehidenblade/tokyo-drift-3d-web`, branch `main`
 - Shuto: https://doublehidenblade.github.io/tokyo-drift-3d-shuto-web/ — public repository `doublehidenblade/tokyo-drift-3d-shuto-web`, branch `main`
-- These are the same destinations named by Muse's existing publish workflows. This does not establish which procedure another coordinator is currently executing; coordinate a single publisher before writing.
+- These remain the existing repository/site names; no repository rename or new hosting target is approved. “Lower City” is a working title, not the final game name. These are the same destinations named by Muse's existing publish workflows. This does not establish which procedure another coordinator is currently executing; coordinate a single publisher before writing.
 - Export a pinned source locally with official Godot `4.7.2.stable.official.ed1daf0bf` and matching export templates. Package prebuilt static files into immutable `releases/<release-id>/` directories; the stable root selector chooses the active directory.
 - Publish Git blobs/tree/commit directly to each existing web repository. Do not commit exports to game-source main or rewrite its history. Do not manually dispatch/rerun Actions. GitHub's existing automatic Pages publication follows the web-branch update; this is not a claim of “no Actions at all.” [GitHub documents this distinction](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 - Authorized personal playtests need not wait for CI, gameplay, visual or phone acceptance. Disclose known failures and unverified behavior. Publication does not accept implementation or waive the independent source-merge gates. No paid service, credential or access change is included.
+
+### Scope update: Shuto frozen; Lower City separation requested
+
+Craig's 2026-10-08 15:59:48 UTC direction stops all Shuto tasks and focuses development on Lower City. **No new Shuto builds, fixes or deployments.** Preserve its existing playable site at source `841ec6b8dd7ac6150d81d21a0df95f7ea68602f3`, publication `ca485191a6c2f8dd95c385c4ad75c5a85362d5bc`; this is a deliberate frozen baseline, not a stale variant to catch up. Do not delete its site, release folders or rollback.
+
+The requested future experience is a separate direct-launch Lower City build at the existing main/base site, an explicit entry to the preserved old combined game, and one continuous startup-loading experience instead of the current menu loading followed by a second Lower City loading screen. **This separation/loading change is requested, not implemented or deployed.** Keep the old combined game's immutable archives and playable links. Do not remove old game content or rename repositories/hosting under this documentation task.
+
+Going forward, select and verify the active Lower City source independently. Track Shuto's frozen source/publication separately: do not require source/version parity across both sites and do not treat their intentional future divergence as a deployment failure. The paired export/publication instructions below describe the already-shipped October 8 previews; Shuto-specific steps are frozen reference only and are not to be executed while this stop remains in effect.
 
 ### Compatibility stop: do not run the legacy Tokyo mirror cleanup
 
@@ -21,13 +29,14 @@ Inspected on 2026-10-08: source-main [publish-web.yml](https://github.com/double
 
 Record full source commit, branch, included changes, intended variants and exclusions. Export in a disposable checkout; verify its game-content tree against the selected source, including any omitted development-only files. The source commit is not the web publication commit and need not be game-source main.
 
-Use the `Web` debug preset for base. For Shuto, use a separate disposable copy, set only the established export-time `application/run/main_scene` override to `res://scenes/shuto_c1/shuto_c1.tscn`, then export `Web Shuto`. Record the override and restore/discard the copy; do not silently change source. Typical local commands, with absolute paths supplied by the publisher:
+Use the `Web` debug preset for the active main/base publication. The direct-launch Lower City preset/scene change is not implemented by this runbook. **Frozen reference only:** for the prior Shuto publication, use a separate disposable copy, set only the established export-time `application/run/main_scene` override to `res://scenes/shuto_c1/shuto_c1.tscn`, then export `Web Shuto`. Record the override and restore/discard the copy; do not silently change source. Typical local commands, with absolute paths supplied by the publisher:
 
 ```sh
 "$GODOT" --version
 "$GODOT" --headless --path "$SOURCE/godot" --editor --import
 "$GODOT" --headless --path "$SOURCE/godot" --export-debug Web "$EXPORT_BASE/index.html"
-# In the separate Shuto copy, after the documented main-scene override/import:
+# FROZEN REFERENCE ONLY: do not run new Shuto exports while the stop is active.
+# Historical separate Shuto copy, after the documented main-scene override/import:
 "$GODOT" --headless --path "$SHUTO_SOURCE/godot" --export-debug 'Web Shuto' "$EXPORT_SHUTO/index.html"
 ```
 
@@ -63,7 +72,7 @@ The packager rejects an existing release directory, verifies every listed size/h
 
 ### 3. Publish without losing other releases or another writer's work
 
-1. Read the exact current web `main` commit and complete tree for **each variant separately**. Save the expected old head. Coordinate a single publisher; base and Shuto updates are not one atomic transaction.
+1. Read the exact current active main/base web `main` commit and complete tree. Shuto publication is stopped; do not write its branch. For any separately authorized future variant publication, read its own tree independently. Save the expected old head. Coordinate a single publisher; base and Shuto updates are not one atomic transaction.
 2. Build the new tree from that existing tree. Add the new immutable release and replace only the selected root files (`index.html`, `release.json`, `deployment.json`, `build-sha.txt`, `version.txt`, `.nojekyll`) plus explicitly scoped release notes. Preserve every other existing entry, including all previous releases, rollback, `art-book/`, `qa/`, `research/`, README and unrelated galleries.
 3. Hash local bytes. Reuse same-repository Git blob IDs for byte-identical files, including unchanged engine `index.js`/`index.wasm`; upload only missing blobs using the supported base64 blob route, with PCK files at most 8 MiB. Never assume an engine blob matches merely because the engine version string matches.
 4. Create the tree using the old tree as the base, verify all preserved/new paths and blob IDs, and total the complete proposed site's file bytes. Create a commit whose parent is the expected old head. Re-read the ref and update it with an **expected-old-head lease**, normally `force: false`; stop/rebase the proposed publication on a changed head. A read followed by an unconditional forced update is not a lease. A tool without an atomic expectation must use an equivalent compare-and-swap/explicit git force-with-lease or fail safely; never discard concurrent work. Force is permitted for an authorized deployment when necessary, not required for an ordinary fast-forward. It never authorizes source-history rewriting.
@@ -87,11 +96,11 @@ Rollback selects a previously verified immutable directory by regenerating only 
 
 ### Human version numbers, storage and pipeline compatibility
 
-Use `v<N>` as the user-facing version; retain full source SHA and immutable directory ID as secondary provenance. Before assigning a number, inspect source `build-number.txt`, both live root `version.txt` files, existing release directories, release ledger and any in-flight publisher reservations. Reserve one mapping for the paired variants with the publisher; never infer a number from source main alone.
+Use `v<N>` as the user-facing version; retain full source SHA and immutable directory ID as secondary provenance. Before assigning a number, inspect source `build-number.txt`, both live root `version.txt` files, existing release directories, release ledger and any in-flight publisher reservations. Reserve a mapping for the active Lower City release with the publisher; never infer a number from source main alone. Historical paired releases may share a mapping, but frozen Shuto must not be rebuilt or relabeled to match subsequent Lower City versions.
 
 As of the 2026-10-08 inspection, source main still has counter `46` and `v46 4ecd2089c1b292c11c70b7e9701f77df39cca044`; both current web markers instead name `playtest-20261008-841ec6b`. A proposed retrospective mapping is `v47` for `playtest-20261008-1a5d967` and `v48` for `playtest-20261008-841ec6b`. **This runbook does not reserve those numbers or claim they are live.** Confirm no reservations before applying it.
 
-For future releases, allocate `v<N>` before packaging so directory, manifests, badge and root markers agree. For already-published releases, keep their immutable bytes/URLs; record a human label mapping without cloning the binary payload merely to rename it. The current schema ties release IDs across manifests, selector, badge and verifier: changing just `version.txt` creates inconsistency. Any alias/display-label implementation requires explicit compatibility verification. Before any later legacy workflow is allowed again, reconcile its source counter and teach its staging/preservation logic about the new layout; otherwise it could allocate a duplicate `v47` and erase releases.
+For future active Lower City releases, allocate `v<N>` before packaging so directory, manifests, badge and root markers agree. For already-published releases, keep their immutable bytes/URLs; record a human label mapping without cloning the binary payload merely to rename it. The current schema ties release IDs across manifests, selector, badge and verifier: changing just `version.txt` creates inconsistency. Any alias/display-label implementation requires explicit compatibility verification. Before any later legacy workflow is allowed again, reconcile its source counter and teach its staging/preservation logic about the new layout; otherwise it could allocate a duplicate `v47` and erase releases.
 
 Chunking changes delivery and per-file size, not asset size: the browser still reconstructs the full PCK. Git blob reuse avoids uploading identical objects again but does not prove a smaller client download or smaller published tree when identical bytes exist at multiple paths. No total cost saving, free-account guarantee, faster startup or lower memory use is established by this route.
 
@@ -99,7 +108,7 @@ Chunking changes delivery and per-file size, not asset size: the browser still r
 
 ---
 
-## Historical procedure (retained for context; Tokyo dispatch route currently blocked above)
+## Historical procedure (reference only; Tokyo dispatch unsafe, Shuto work frozen above)
 
 # Push-on-request procedure (Craig 2026-09-27; force rule 2026-10-02)
 
