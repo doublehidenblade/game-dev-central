@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "status": "reserved_not_published",
+  "reserved_at": "2026-10-08T16:45:00Z",
+  "publisher": "dot",
+  "version": "v49",
+  "release_id": "v49",
+  "working_title": "Lower City (not a final name)",
+  "destination": {
+    "repository": "doublehidenblade/tokyo-drift-3d-web",
+    "branch": "main",
+    "expected_current_head": "bac35b433dfbdb4433e374ac1f5d1583ae7b6d5b",
+    "expected_current_release": "playtest-20261008-841ec6b"
+  },
+  "source": {
+    "repository": "doublehidenblade/tokyo-drift-3d",
+    "branch": "preview/lower-city-v49-20261008",
+    "commit": "fa081b42197d50e6adaf202f899146fbffeab725",
+    "tree": "1d5d82051990832dd6602bd07eefd3d113d0d911",
+    "parent": "841ec6b8dd7ac6150d81d21a0df95f7ea68602f3",
+    "production_overlay": [
+      {
+        "path": "godot/scenes/lower_city/lower_city.tscn",
+        "sha": "ff179753e49eb7a1d41696bfed317284fefe0f79"
+      },
+      {
+        "path": "godot/scripts/chase_camera.gd",
+        "sha": "3c658b8dd236fc4248de2c1265370f9641ab0070"
+      },
+      {
+        "path": "godot/scripts/lower_city/gig_menu.gd",
+        "sha": "c8043ad96c1e0cca22bd47e203cf5dc2d10adb51"
+      },
+      {
+        "path": "godot/scripts/lower_city/map_sheet.gd",
+        "sha": "dfbbdda84a74de77122368a3cf52d236837879f3"
+      },
+      {
+        "path": "godot/scripts/lower_city/minimap.gd",
+        "sha": "f489a24802de386f5d8a489d8c58faea668652ae"
+      },
+      {
+        "path": "godot/scripts/lower_city/paper_map.gd",
+        "sha": "0c449f2264155d5e704827a17294469e2f953f4d"
+      }
+    ],
+    "map_pr": 545,
+    "map_head": "e8bdfc0ff742d7b3cd4a86a213c3369d555e7027",
+    "camera_pr": 544,
+    "camera_head": "d6a6961c1425fbb8cacf6b5e25baf99086a15d43"
+  },
+  "historical_labels": [
+    {
+      "version": "v47",
+      "release_id": "playtest-20261008-1a5d967",
+      "source": "1a5d967ca81d285aecf07be830811aff4fbef48f",
+      "treatment": "Retrospective human label only; immutable paths, bytes and live badges are unchanged"
+    },
+    {
+      "version": "v48",
+      "release_id": "playtest-20261008-841ec6b",
+      "source": "841ec6b8dd7ac6150d81d21a0df95f7ea68602f3",
+      "treatment": "Retrospective human label only; immutable paths, bytes and live badges are unchanged"
+    }
+  ],
+  "allocation_checks": {
+    "source_build_number": 46,
+    "main_source_observed": "bc2b175084a768571d6763bde1b007da93eb780d",
+    "both_live_version_markers": "playtest-20261008-841ec6b 841ec6b8dd7ac6150d81d21a0df95f7ea68602f3",
+    "main_site_bytes": 731027978,
+    "no_conflicting_reservation_found": true,
+    "checked": "Main release ledger/runbook, both web markers, complete main web release tree, central/source branch refs and 97 open central PRs; preserve first-publication record PR356"
+  },
+  "freeze": {
+    "shuto_source": "841ec6b8dd7ac6150d81d21a0df95f7ea68602f3",
+    "shuto_publication": "ca485191a6c2f8dd95c385c4ad75c5a85362d5bc",
+    "new_shuto_build_or_relabel": false
+  },
+  "preparation": {
+    "engine": "4.7.2.stable.official.ed1daf0bf",
+    "preset": "Web",
+    "mode": "debug",
+    "entry": "Existing main menu retained; td-233 direct-launch/loading separation is not included",
+    "packager_sha256": "c6535d3c6cd00c73a822ed3edc59d4697912c8328a330a7e4816925097f9f96c",
+    "loader_sha256": "a5bcd74193188f34ee975d60b4159ee4de22e2774fbc20823232d2d7839add7e",
+    "chunk_bytes": 8388608
+  },
+  "limitations": [
+    "This reservation does not publish a website, update live baselines or accept/merge game-source PRs",
+    "Map/camera reviews are bounded technical checks; broader Fuel rerun timed out and rendered/gameplay/device acceptance remains absent",
+    "Retain all archives and unrelated site entries; complete proposed site must stay at or below 1000000000 bytes",
+    "No manual Actions dispatch/rerun, source-history rewrite, hosting or credential changes",
+    "Source build-number remains 46; legacy publisher is blocked pending explicit counter/layout reconciliation and must not allocate these reserved labels"
+  ],
+  "references": {
+    "runbook": "project-management/watchdog/releases/PUSH-PROCEDURE.md",
+    "first_publication_record": "https://github.com/doublehidenblade/game-dev-central/pull/356"
+  }
+}
