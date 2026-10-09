@@ -18,4 +18,3 @@ Seeded from the agent watchdog state 2026-09-24 00:20 UTC. Entries marked `unver
 | codex:td111-van | Codex subagent | td-111 — reference-grounded compact van | UNVERIFIED after Muse handoff — branch feat/td-109-dr30-sedan observed, PR not found; session not visible | 2026-09-28 22:04 |
 
 Rules: never nudge a working session; never duplicate a live session; fresh session per task (never accumulate a week of transcript); stale sessions sync/rebase onto main before resuming; stop after 2 identical failures and report.
-

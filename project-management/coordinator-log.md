@@ -51,7 +51,6 @@ Append-only. Newest entries at the bottom. Every coordinator turn that changes d
 - Preliminary local suites and independent interim probes pass; exact published-source reruns and independent final acceptance remain pending. The real docs interoperability replay is historical with synthetic surrounding collection, not live merge authority. Current stale acknowledgment remains blocked.
 - No game source, live queue/state/heartbeat write, Actions, deployment, credential change, external-agent contact or author merge. Private observations are not published.
 
-
 ## 2026-10-09 21:04 UTC — td-238 partial-C2 registration proposal
 
 - Existing td-238 intake is on source main via PR570 and central main via PR378. Proposed sole pure-parser author public role: `dot-native-td238-parser-author`; documentation reservation only, no implementation assignment or dispatch. Parent stays blocked with empty runtime allowlist and null assigned worker.
