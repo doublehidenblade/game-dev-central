@@ -1,0 +1,113 @@
+{
+  "id": "ops-scoped-coordinator-admission-20261009",
+  "title": "Repair task-scoped coordinator admission",
+  "status": "open",
+  "owner": "dot-native-scoped-admission-author",
+  "phase": "Registration only; implementation awaits independent registration acceptance",
+  "ask": {
+    "author": "Craig",
+    "date": "2026-10-09",
+    "request": "Approve one isolated coordinator repair without the global prerequisite, using task-scoped ownership checks, tests and independent review; retain game acceptance, existing owners and deployment restrictions",
+    "scope": "Only this repair is exempted from the broken repository-wide prerequisite. Every other ownership, source, independent acceptance, test and publication gate remains."
+  },
+  "bug_shape": "Unmapped main/archive/non-task branches and unnormalized historical task records make repository-wide source completeness a prerequisite for every mutation, blocking independently safe task-scoped actions and the repair itself.",
+  "reference_images": [],
+  "references": [
+    "COORDINATOR.md",
+    "knowledge/standing-rules.md",
+    "project-management/rules/SYSTEM.md",
+    "project-management/rules/WORKER_BRIEF.md",
+    "project-management/rules/VALIDATOR_BRIEF.md",
+    "project-management/rules/WORKER_SELECTION_POLICY.md",
+    "project-management/watchdog/RUNBOOK.md",
+    "project-management/watchdog/EVIDENCE_POLICY.md"
+  ],
+  "implementation_scope": {
+    "allowlist": [
+      "project-management/watchdog/coordinator.py",
+      "project-management/watchdog/coordinator_cli.py",
+      "project-management/watchdog/scoped_admission.py",
+      "project-management/watchdog/test_scoped_admission.py",
+      "project-management/watchdog/fixtures/scoped-admission/",
+      "project-management/watchdog/RUNBOOK.md",
+      "project-management/watchdog/README.md",
+      "project-management/tasks/ops-scoped-coordinator-admission-20261009.json"
+    ],
+    "conditional": "Only minimal existing supported coordinator/watch entrypoint wiring if necessary; preserve the evidence-policy evaluator and all acceptance/hold/isolation tests. Own board/registry row and append-only log updates only.",
+    "excluded": [
+      "game source or acceptance weakening",
+      "legacy-route fallback or live dispatcher/collector installation",
+      "live state/queue/ledger/heartbeat mutation",
+      "Actions, deployment, credential/security/access changes",
+      "external-agent contact",
+      "unrelated owner or task changes"
+    ],
+    "registration": "This task, one additive existing-board row, one public-role registry reservation and one append-only log entry. No implementation yet."
+  },
+  "completion_criteria": [
+    {
+      "id": "C1",
+      "criterion": "A narrowly scoped operation can be evaluated without normalizing every historical task or asserting repository-wide liveness.",
+      "verification": "Positive real docs-only evidence packet and executable scoped operation test; global incomplete inventory remains INPUT_REQUIRED, never global IDLE."
+    },
+    {
+      "id": "C2",
+      "criterion": "Scoped coverage is fail-closed and bound to exact task, operation, executor, owner, full candidate/base heads, source inventory and current rules.",
+      "verification": "Mutation tests for changed candidate/base/branch/rules/receipt, stale or missing relevant receipts and unknown sources. No caller-controlled unrelated boolean or prefix-only omission."
+    },
+    {
+      "id": "C3",
+      "criterion": "Historical branches can be accounted for only with verifiable current-base, merged-ancestry or disjoint candidate/dependency/owner-region proof.",
+      "verification": "Tests for relevant and unknown branches, proved contained/disjoint branches, sibling PR/branch overlap and shared board-row changes; proof must come from immutable Git objects or explicit complete source receipts, not branch labels."
+    },
+    {
+      "id": "C4",
+      "criterion": "Existing owners, unknown liveness, pending/running queue entries, user holds/stops, provider denials and deploy restrictions are preserved for the relevant scope.",
+      "verification": "Negative owner/queue/stop/denial controls and unchanged existing acceptance-isolation, final-guard, operation-needs and hold-invariance suites."
+    },
+    {
+      "id": "C5",
+      "criterion": "Independent evidence acceptance and truthful required checks remain mandatory; documentation does not invent gameplay checks.",
+      "verification": "Real docs-only evidence-policy packet with actual acceptance-check result plus absent/failed required-check, failed independent review and stale-rule cases. Author never self-accepts."
+    },
+    {
+      "id": "C6",
+      "criterion": "Supported entrypoints use the same scoped result, with honest runbook source/collector limitations and no legacy bypass.",
+      "verification": "CLI and imported coordinator-plan/dispatch-guard and actual supported aliases; existing retired-route probes stay green. Document module bundle and private observation handling; no claim of live scheduler adoption."
+    },
+    {
+      "id": "C7",
+      "criterion": "Separate independent reviewer verifies the exact implementation head and every criterion.",
+      "verification": "Committed reproducible local test logs and fixtures, immutable source head and per-criterion independent verdict; no author merge."
+    }
+  ],
+  "recommended_setup": {
+    "capability_tier": "frontier: high-risk ownership/admission invariants and adversarial proof validation",
+    "provider_preference": "provider-neutral; native dot tools available for this explicitly approved operational repair",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "high",
+    "environment_and_tools": "Native cloud workspace; Python 3.12.14 and GitHub connector reads/Git data writes verified. Materialized exact pinned repository files; authenticated git transport unavailable. No game runtime needed for this coordinator-only task.",
+    "availability_checked": "2026-10-09T19:31:46Z: parent accepted explicit gpt-6-astra/high native author launch; parent confirmed tool result. Independent gpt-6-astra/high reviewer accepted 19:32:01Z.",
+    "fallback": "wait_for_required_tier",
+    "attempt_budget": "One implementation attempt plus at most one evidence-based correction; actual start and time ceiling recorded after registration acceptance. Stop after two identical failures.",
+    "escalation_criteria": "Owner overlap, proof unsoundness, unavailable tier/tools, untestable scope, unexpected Actions/deployment or exhausted bound: report and narrow or wait.",
+    "verification_budget": "Separate frontier/high reviewer reserved; full existing coordinator/evidence regression suites plus adversarial scoped tests and current real-input reproduction; reserve correction time.",
+    "requested_versus_confirmed": "Explicit selected Astra/high launch verified by parent; underlying runtime identity independently unconfirmed. No silent downgrade.",
+    "actual_outcome": "Registration only; no implementation acceptance; usage/billing unknown."
+  },
+  "preflight": {
+    "base_sha": "a3660901f3696e3da718bba1d9f67c47e9f518aa",
+    "observed_utc": "2026-10-09T19:34:00Z",
+    "sources": "Canonical rules/briefs/worker-selection policy, current board/registry/log/code read. 101 open PR changed-file inventories and all 372 branch comparisons checked. No active overlapping coordinator implementation PR found; prior coordinator PR396 and evidence PR406 are merged, their retained branches are historical.",
+    "publication": "Complete current tree contains no .github workflows. Source branch/draft PR only; workflow-list API endpoint unsupported, no external-hook attestation. No Actions or deployment.",
+    "limits": "This is task-specific registration under Craig's explicit exception, not a global liveness or idle assertion. Private source/session/queue observations stay private; public fixture data will be sanitized or demonstrably synthetic."
+  },
+  "evidence": [],
+  "work_log": [
+    {
+      "date": "2026-10-09",
+      "entry": "19:34 UTC: Read current canonical rules and code, checked branch/PR overlaps and workflow tree, verified selected native setup. Registering sole author and independent review gate before coding. Every existing owner, hold and unrelated row remains unchanged."
+    }
+  ],
+  "verdict": null
+}
