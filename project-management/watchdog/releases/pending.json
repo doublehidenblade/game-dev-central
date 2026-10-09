@@ -31,6 +31,14 @@
    "merged_sha": "fb6f3c0ddcbb998460723fa3f954a9bf758df159",
    "merged_at": "2026-10-07T11:31:02.320288+00:00",
    "summary": "td-207 restore minimap + drive-HUD health meters (regression from #460)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-192",
+   "pr": 505,
+   "merged_sha": "e3c03bf97e7311d3d05862733ce5950ea7f4985f",
+   "merged_at": "2026-10-09T06:24:24.348010+00:00",
+   "summary": "td-192 cop-car separation steering + box-in stand-off ring"
   }
  ]
 }

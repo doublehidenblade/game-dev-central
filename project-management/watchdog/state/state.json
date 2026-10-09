@@ -1583,6 +1583,10 @@
   },
   "td-205": {
    "inspected_ts": "2026-10-07T08:45:15.964800+00:00"
+  },
+  "td-192": {
+   "pr_merged": true,
+   "merged_by": "cron"
   }
  },
  "td_038_confirmed_shipped": {
