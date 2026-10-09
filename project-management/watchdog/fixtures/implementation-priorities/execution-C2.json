@@ -1,0 +1,15 @@
+{
+  "check_id": "priority-docs-C2",
+  "command": [
+    "python3",
+    "project-management/watchdog/fixtures/implementation-priorities/check_docs.py",
+    "--criterion",
+    "C2"
+  ],
+  "exit_code": 0,
+  "output": "C2 PASS: actual document assertions; negative control rejected; no runtime or merge acceptance claimed\n",
+  "source_head": "2233f59c30c5542a049bdd321b63a5326208ab00",
+  "build": null,
+  "performed_at": "2026-10-09T21:38:20.485994+00:00",
+  "actor_id": "dot-priority-docs-author"
+}

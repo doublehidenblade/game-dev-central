@@ -12,6 +12,137 @@ This boundary applies to any externally performed merge, conflict-resolution pus
 
 [JUDGMENT-ONLY: authenticated request scope and current external trigger configuration require inspection; this documentation does not implement a new automatic watchdog gate.]
 
+## Implementation-first Lower City priorities (Craig, 2026-10-09)
+
+Craig asked for High / Medium / Low ranking, with implementation ahead of
+browser, phone and visual-evidence follow-up. Apply this dated ordering when
+selecting among otherwise authorized, owner-safe next actions; it supersedes
+oldest-unverified-first **selection** for these records, not acceptance rules.
+Do not manufacture a new feature, dispatch, owner transfer or acceptance from a
+priority label. Existing stops, frozen authors and source-merge gates remain.
+
+- **Implement useful gameplay first.** Distinguish absent behavior from code
+  already on a branch or merged. Preserve existing work; investigate a concrete
+  remaining defect instead of recreating a feature because evidence is missing.
+- **Browser / phone / visual-evidence follow-up is LOW.** A High feature row
+  does not elevate its evidence-only follow-up. Renderer unavailability does not
+  block separately authorized implementation. Missing evidence remains missing;
+  required acceptance checks and independent verification still gate source
+  merges, and visual closure still requires the applicable Craig verdict.
+- **Personal playtests are separate.** On Craig's explicit deployment request,
+  CI/gameplay/browser/visual/phone checks need not delay that requested playtest;
+  disclose failed and unrun checks and known defects. This ranking is not a
+  deployment request, merge acceptance or permission to run Actions. Follow the
+  [existing deployment procedure](releases/PUSH-PROCEDURE.md), existing sites,
+  $50/month Actions ceiling and all publication/ownership stops.
+- **Unblock or surface the exact dependency.** Pursue safe, already-authorized
+  source recovery, contract discovery and isolated work proactively. If a
+  decision, owner handoff, denied publication or real packaging limit remains,
+  tell Craig the affected task, missing input, attempted safe next step and the
+  specific decision needed. Do not hide these as generic external waits or
+  substitute low-value parser/evidence work. Respect the existing coordination
+  cadence and external-contact limits; this creates no permission to contact an
+  outside agent. Continue another authorized implementation lane when possible.
+- **Keep explicit stops.** td-233's aborted admission stays stopped until Craig
+  explicitly resumes it, despite its High gameplay value. td-238 debug terminal
+  and parser work stay **LOW / PARKED**. Shuto stays frozen and NEON paused.
+
+### Ranked snapshot: 19 High, 13 Medium, 10 Low
+
+These 42 retained records comprise 40 unresolved/open rows plus td-245 and td-248
+whose merged-code acceptance is disputed. They are not 42 unimplemented features
+or a dispatch batch. Rank expresses gameplay value; prerequisites and current
+owners still determine which action can actually proceed. The existing
+[canonical board](../boards/tokyo-drift-3d.md) and linked source tasks remain the
+ownership/status truth. No board or task status is changed here.
+
+Source snapshot checked 2026-10-09: central main
+`4bb11ee327d2a2a766e48145e101b7b42c2354dc`, board blob
+`368e4c47574faf9b55a6b1ed31b9a275f5f9cab9`; Tokyo source main
+`50616cb024f64af4b20be8e0e0ef7738b5c918e3`. All 42 source-task blobs were checked
+against that source tree. This is a dated planning snapshot, not a live claim of
+worker availability or implementation acceptance. Re-read affected sources before
+acting; do not use stale prose to override a newer hold or an existing owner.
+
+| Rank | Priority | Task | Remaining work / existing code | Next action and dependency |
+|---:|---|---|---|---|
+| 1 | High | [td-217](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-217.md) | Implementation needed | Reproduce repeated/over-severe contact damage, then repair scaling/deduplication with the existing vehicle/damage owner; preserve cargo/body semantics. |
+| 2 | High | [td-218](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-218.md) | Implementation needed | Define real repair-service and persistent-condition providers with the existing damage owner, then implement discoverable, quoted, exactly-once paid recovery. Preserve current task criteria pending reconciliation: its zero-cash wording conflicts with Craig’s explicit broke/no-gas or unsalvageable game-over direction; no free/debt recovery is authorized. Existing runtime lacks those providers; do not invent them. |
+| 3 | High | [td-231](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-231.md) | Implementation needed | Repair abrupt coasting stop and add tunable progressive throttle/brake response; coordinate impact semantics with td-217. |
+| 4 | High | [td-195](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-195.md) | Further repair needed | Retain merged collision body; fix remaining cop height/surface alignment defect through the existing Muse lane. |
+| 5 | High | [td-220](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-220.md) | Implementation needed | Trace isolated pedestrian hit to crime/cops; prevent repeated crime escalation from a single contact. |
+| 6 | High | [td-200](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-200.md) | Foundation exists; production missing | Recover the exact previously tested corrected snapshot and reconcile publication first; then implement production inventory/supplier/save adapters after garage contracts. |
+| 7 | High | [td-197](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-197.md) | Prerequisite design work | Complete measured, real-geometry garage layout and usable first-slice mock decision; unblock geometry rather than polishing presentation indefinitely. |
+| 8 | High | [td-198](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-198.md) | Implementation needed | Build real Lower City drivable garage with loaded-car clearances, safe entry/exit and fixed workshop camera after layout acceptance. |
+| 9 | High | [td-199](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-199.md) | Implementation needed | Implement entry/shutter/obstruction and legitimate police-shelter contract without heat reset or timer exploits. |
+| 10 | High | [td-201](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-201.md) | Implementation needed | Implement usable first-upgrade workshop flow and prerequisite-aware discovery against real inventory. |
+| 11 | High | [td-213](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-213.md) | Code exists; integration/test later | Preserve shared map/gig-access candidate; make available in a requested playtest composition without rewriting already-fixed logic. |
+| 12 | High | [td-214](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-214.md) | Code exists; child acceptance | Use PR545 cancel/abandon implementation; retain lifecycle and no-double-payout checks; no new worker. |
+| 13 | High | [td-219](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-219.md) | Code exists; child acceptance | Use PR545 real fuel waypoint/navigation; retain inconclusive arrival/Fuel evidence as disclosed limit. |
+| 14 | High | [td-223](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-223.md) | Code exists; known verification failure | Preserve deadlock repair; determine whether nine shutdown errors are existing teardown noise or repair regression; only implement a demonstrated defect. |
+| 15 | High | [td-224](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-224.md) | Code exists; test later | Preserve camera-wall repair and include in requested candidate as appropriate; browser/phone proof stays later. |
+| 16 | High | [td-212](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-212.md) | Partial code; optimization still needed | Keep resolution controls; use Craig-provided slow-route evidence to scope actual bottleneck optimization, not another generic UI pass. |
+| 17 | High | [td-233](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-233.md) | Implementation needed | STOPPED: prior admission explicitly aborted. Resume only on Craig’s explicit direction; shared loader/td-226 handoff remains required. |
+| 18 | High | [td-234](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-234.md) | Packaging code exists; release capacity blocker | Recompute complete candidate size and use bounded runtime-reuse packaging for one preview if feasible; no deployment authorized now. |
+| 19 | High | [td-185](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-185.md) | Core code already merged; umbrella stale | Retain existing world/gig assembly and Craig ownership; reconcile any actual remaining scoped gaps, do not recreate PR407. |
+| 20 | Medium | [td-215](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-215.md) | Implementation needed | Expose one-action authoritative cargo/vehicle details without inventing persistent condition/capacity. |
+| 21 | Medium | [td-216](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-216.md) | Code frozen; publication incomplete | Preserve cash/fuel readability work; resolve existing publication blocker, then include exact candidate when permitted; do not recode. |
+| 22 | Medium | [td-222](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-222.md) | Implementation needed | Display existing lost-sight countdown truthfully; do not create another heat timer. |
+| 23 | Medium | [td-221](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-221.md) | Implementation needed | Render real police pose/FOV on both maps through read-only interface; distinguish geometry from actual occlusion. |
+| 24 | Medium | [td-228](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-228.md) | Code exists; child acceptance | Use shared PR545 recenter/bounds; no new worker or separate implementation. |
+| 25 | Medium | [td-226](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-226.md) | Implementation needed | Provide immediate Lower City Restart cover/progress and single restart lifecycle; reuse shared owner work without assuming Tokyo Bay fix closes it. |
+| 26 | Medium | [td-235](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-235.md) | Implementation needed | Implement contrasting target symbol only, then hand shared MapSheet region to itinerary work. |
+| 27 | Medium | [td-237](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-237.md) | Implementation needed | Build single synchronized editable itinerary and truthful destination/service cues from real owner APIs. |
+| 28 | Medium | [td-236](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-236.md) | Implementation needed | Build map-led briefing and central navigation shell as client of shared itinerary/status/inventory contracts. |
+| 29 | Medium | [td-229](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-229.md) | Implementation needed after reproduction | Identify why highway lacks civilians on reported route; fix shared spawn/lane eligibility with existing traffic owner. |
+| 30 | Medium | [td-230](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-230.md) | Feature integration/tuning needed | Establish useful street/highway speed-density-delivery contrast; consume existing signals rather than rebuild td-248. |
+| 31 | Medium | [td-248](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-248.md) | Implementation repair needed | Repair continuous pedestrian crossings and missing road-paint ARRAY_INDEX wiring through the existing Muse owner; PR620 code is merged. Evidence retakes follow functional repair. |
+| 32 | Medium | [td-186](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-186.md) | Assets already merged; integration gaps | Reuse Forge outputs; no new wholesale asset job. Track real third-party rig/access limits separately with Claude owner. |
+| 33 | Low | [td-245](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-245.md) | Code merged; acceptance disputed | Retain Lower City WantedHUD mount and evidence; do not recode notices/stars; resolve production-scene arc/log readiness dispute later. |
+| 34 | Low | [td-192](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-192.md) | Code merged; acceptance later | Keep separation source fix; later verify real-player three-cop pursuit without invented four-cop requirement. |
+| 35 | Low | [td-232](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-232.md) | Code frozen; UI refinement | Park payout animation/color refinement; preserve frozen source and known acceptance gaps; no new correction budget. |
+| 36 | Low | [td-243](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-243.md) | Code exists; Tokyo Bay check later | Let existing Muse owner finish restart criterion when capacity permits; does not outrank Lower City work. |
+| 37 | Low | [td-225](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-225.md) | Implementation needed; visual placement | Fix shared sign placement/clearance later unless a specific instance obstructs driving or essential navigation. |
+| 38 | Low | [td-227](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-227.md) | Implementation needed; cosmetic | Repair police floating black geometry in asset binding after core collision/playability work. |
+| 39 | Low | [td-187](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-187.md) | Future art assembly | Keep art-book district scene work parked until gameplay foundations; consume existing Forge assets. |
+| 40 | Low | [td-238](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-238.md) | No implementation; LOW / PARKED | Leave terminal and parser work parked. Documentation registration does not create gameplay implementation or admit an author. |
+| 41 | Low | [td-249](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-249.md) | Implementation needed; explicitly low | Later replace pedestrian pop-in/out with door entry/exit using actual door data and documented fallback. |
+| 42 | Low | [td-202](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-202.md) | Validation only; later | Run independent full garage first-slice integration after usable implementation exists; do not make this a new feature job. |
+
+### What should move next, and what is genuinely blocked
+
+- First implementation candidates are damage scaling/contact deduplication
+  (td-217), repair/tow recovery (td-218), coasting/throttle/braking (td-231),
+  remaining police road-height/collision repair (td-195), and the garage
+  progression chain (td-197 → td-198 → td-199 → td-200 → td-201). These are
+  candidates, not new admissions. Existing Muse/Claude owners retain their lanes;
+  the damage/vehicle handshake follows the existing scheduled coordination route.
+- td-200 has reviewed foundation work, but its corrected source packet must be
+  recovered before publication is proposed; its author remains frozen, production
+  adapters are absent, and the rejected obsolete payload must never be retried.
+  The garage chain also needs measured layout, real geometry and entry/shutter/
+  police contracts. td-216 likewise has frozen local code with incomplete
+  publication; preserve it instead of recoding it.
+- td-218 and td-237 require authoritative repair-service / persistent-condition
+  contracts. Missing providers are implementation dependencies, not browser
+  failures. td-217 has real contact inputs to investigate within its existing
+  damage/vehicle ownership boundary.
+- td-234 packaging capacity needs fresh accounting for the exact requested
+  candidate. The prior approximately 5.2 MB proxy headroom estimate is not current
+  verified capacity. Deferring browser checks cannot create packaging capacity.
+- Existing code should be retained: PR545 covers td-213/214/219/228; PR531 td-223;
+  PR544 td-224; PR532 td-212; PR550 td-232; PR556 td-234. Their presence is not
+  acceptance. td-223's strict verifier failure remains disclosed; td-212 still
+  lacks measured performance gain. td-185/186 have merged PR407/416 despite
+  stale open umbrella rows; reconcile actual remaining gaps, not duplicate code.
+- td-245's merged HUD mount is retained; its full production-scene acceptance
+  dispute is later evidence work. td-248's merged code has concrete crossing and
+  mesh-index defects, so those repairs remain Medium implementation work.
+  td-192 keeps its canonical three-cop criterion, not an invented four-cop gate.
+
+This section is documentation only. It installs no collector, dispatcher,
+ranking engine, queue reader or framework, and does not run a coordinator cycle.
+
 ## Coordinator engineering registration — 2026-10-09 12:44 UTC
 
 | Task | Work | Status | Owner | Review | Updated (UTC) |
