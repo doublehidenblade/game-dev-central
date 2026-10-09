@@ -1,17 +1,6 @@
 {
  "actions": [
   {
-   "type": "dispatch-subagent",
-   "task": "td-195",
-   "task_file": "godot/docs/tasks/td-195.md",
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "brief_file": "/home/hatch/workspace/agent-watch/state/liveness-briefs/td-195-20261009-061847.md",
-   "queued_at": "2026-10-09T06:18:47.722048+00:00",
-   "reason": "DEAD-equivalent: 61h since only heartbeat (predates registration; no branch/PR/task-file commits); liveness false-ALIVE on mass-annotation commit 9c96b92 (unrelated docs commit). Manual DEAD declaration per evidence.",
-   "executed": "2026-10-09T07:2xZ",
-   "executed_by": "cron worker: spawned Muse subagent directly (corrected brief with PR433 context migration: branch td-195-cop-collision @ 4a499b53); do NOT re-dispatch via main-agent handoff"
-  },
-  {
    "type": "screenshots",
    "session": "td-192",
    "pr": 505,
@@ -393,6 +382,21 @@
    "session": "codex:tokyo-drift-3d",
    "reason": "DROPPED 2026-09-28T00:0xZ by main agent: duplicate of the EXISTING td-100 worker (task_e_6ab9a3b814b8832e8f06c48c89ca605c). Read-only classification 2026-09-27 23:58Z confirmed the existing worker is NOT blocked: the 23:39Z steer produced a completed 4m53s run that provisioned Blender 4.0.2 via apt, recorded the art-direction note, and pushed commit ba4adde on feat/td-100-blender-vehicles. Task intentionally left open for the modeling/evidence phase. Dispatching a second worker would duplicate live work. Do NOT re-queue td-100 unless the existing session goes stale/blocked.",
    "dropped_at": "2026-09-28T00:05Z"
+  },
+  {
+   "dropped_at": "2026-10-09T08:45:42.024718+00:00",
+   "action": {
+    "type": "dispatch-subagent",
+    "task": "td-195",
+    "task_file": "godot/docs/tasks/td-195.md",
+    "repo": "doublehidenblade/tokyo-drift-3d",
+    "brief_file": "/home/hatch/workspace/agent-watch/state/liveness-briefs/td-195-20261009-061847.md",
+    "queued_at": "2026-10-09T06:18:47.722048+00:00",
+    "reason": "DEAD-equivalent: 61h since only heartbeat (predates registration; no branch/PR/task-file commits); liveness false-ALIVE on mass-annotation commit 9c96b92 (unrelated docs commit). Manual DEAD declaration per evidence.",
+    "executed": "2026-10-09T07:2xZ",
+    "executed_by": "cron worker: spawned Muse subagent directly (corrected brief with PR433 context migration: branch td-195-cop-collision @ 4a499b53); do NOT re-dispatch via main-agent handoff"
+   },
+   "reason": "Stale vs 2026-10-09 events: executed ~07:20Z (replacement shipped Tokyo PR #433, merged 07:25:08Z); 04:34 EDT inspector retracted the done-claim (verdict FAIL on completion: no 3-min pursuit evidence, cop floats ~5.4m over trench roads) with explicit no worker spawn (watchdog no-redispatch); defect brief PR #585 + report PR #586 opened instead; 07:48Z inbox answer preserved owners + no-redispatch stops; dot 08:30Z update requires explicit bounded repair/evidence plans by the existing owner before any stopped lane resumes. A fresh replacement now would duplicate/contradict the stopped-lane agreement."
   }
  ],
  "history": [
