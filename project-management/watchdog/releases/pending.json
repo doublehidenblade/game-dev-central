@@ -71,6 +71,14 @@
    "merged_sha": "e48d0b48",
    "merged_at": "2026-10-09T13:34:48.024140+00:00",
    "summary": "pedestrians walk Lower City sidewalks (city mode wiring)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-190",
+   "pr": 595,
+   "merged_sha": "eaeb775e",
+   "merged_at": "2026-10-09T13:58:30.481143+00:00",
+   "summary": "wanted HUD + stars + clear, crime reporting fix, cop scaling"
   }
  ]
 }
