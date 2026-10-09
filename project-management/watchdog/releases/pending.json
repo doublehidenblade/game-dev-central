@@ -103,6 +103,14 @@
    "merged_sha": "",
    "merged_at": "2026-10-09T15:31:27.915445+00:00",
    "summary": "td-189 evidence hardening"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-242",
+   "pr": 608,
+   "merged_sha": "b7bc375a",
+   "merged_at": "2026-10-09T15:53:54.458607+00:00",
+   "summary": "Tokyo Bay: front/rear wheels identical (coupe rear overlay repositioned)"
   }
  ]
 }
