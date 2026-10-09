@@ -7,7 +7,7 @@
   "negative_codes": [
     "STALE_ACKNOWLEDGMENT"
   ],
-  "snapshot_sha256": "d57c2bbf4de1f2376e4efe0f42b9a42ae5c85ba021a417af1c830f8b0e0f098b",
+  "snapshot_sha256": "ece498361280d5330e70012c231a1eb69927a458fa1e0fc188c87e5d31c3cf95",
   "authority_sha256": "a0f80b4a4c373603699651a6171d1f99e217cf2e48777f378ce56f9b3310e35f",
   "submission_sha256": "28710c7b3904b894a3a9739f5f874ff949c23f7ae53be6abb379aeebe883cc24",
   "limitations": [

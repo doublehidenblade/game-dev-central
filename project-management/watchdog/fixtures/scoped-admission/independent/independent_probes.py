@@ -129,7 +129,13 @@ for name,changes,want in [
     ('target row ownership change',{'board.md':F.docs_case()['board'].replace('ops-docs | open','ops-docs | other-owner')},False),
     ('table header scope change',{'board.md':F.docs_case()['board'].replace('# Board','# Stopped')},False),
 ]:
-    probe(name,lambda s,c,changes=changes:F.add_branch(c,changes,pr=True),want)
+    def overlap(s,c,changes=changes,name=name):
+        # A genuine explicitly declared dependency remains protected. Canonical
+        # rule authority alone is a read-only version pin after the correction.
+        if name=='sibling dependency overlap' and not any(r['path']=='rules.md' for r in s['scoped_source']['regions']):
+            s['scoped_source']['regions'].append(dict(repository=F.REPO,path='rules.md',row_keys=[]))
+        F.add_branch(c,changes,pr=True)
+    probe(name,overlap,want)
 
 for path in ('doc.md','board.md'):
     def mode_change(s,c,path=path):
