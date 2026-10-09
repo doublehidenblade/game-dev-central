@@ -1,1 +1,1 @@
-{"ts": "2026-10-09T16:13:45Z", "task": "td-245", "step": "STOPPED by cron timeout: mount+harness pushed (2 commits on branch); runnable-checkout download killed at 909/1523 files; harness runs, evidence, task-file/board/PR/merge NOT done", "status": "stopped-timeout"}
+{"status":"in-progress","step":"td-245 continuation worker started: cloned branch plan via zipball (anonymous git blocked), reading harness, will run AFTER then BEFORE modes under xvfb, then commit PNGs/log/task-file","task":"td-245","ts":"2026-10-09T16:45:00Z"}

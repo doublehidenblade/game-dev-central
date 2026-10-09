@@ -2043,10 +2043,10 @@
   },
   "td-245": {
    "kind": "subagent",
-   "session": "067a376d-b172-45d6-8ae9-cccf985ef0d5",
+   "session": "666ec3b4-5830-43fe-9b99-5a47f8b352ec",
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-245.md",
-   "dispatched_at": "2026-10-09T16:31:49.511049+00:00",
+   "dispatched_at": "2026-10-09T17:02:02.160352+00:00",
    "quiet_cycles": 0,
    "last_verdict": "registered"
   },
@@ -2057,7 +2057,7 @@
    "task_file": "godot/docs/tasks/td-246.md",
    "dispatched_at": "2026-10-09T16:25:31.924484+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-247": {
    "kind": "subagent",
@@ -2066,7 +2066,7 @@
    "task_file": "godot/docs/tasks/td-247.md",
    "dispatched_at": "2026-10-09T16:25:30.906626+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
@@ -2074,7 +2074,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 149
+  "stale_runs": 150
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2295,15 +2295,15 @@
   "td-240": "merged",
   "td-241": "merged",
   "td-243": "in_progress",
-  "td-245": "open",
+  "td-245": "in_progress",
   "td-246": "open",
-  "td-247": "merged",
+  "td-247": "validated",
   "td-248": "open",
   "td-242": "merged",
   "td-244": "merged"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T16:25:19.233705+00:00",
+  "ts": "2026-10-09T16:52:42.456497+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32; open PR #596 Inspector report: 2026-10-09 09:34 EDT)",
@@ -2317,14 +2317,16 @@
     "ALIVE td-243 (no heartbeat file; open PR #609 Inspector report: 2026-10-09 11:34 EDT (report-only, do not ; open PR #606 td-243: Tokyo Bay restart shows loading screen over t)",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
     "STALE td-248 (no fresh observation; counter frozen; no heartbeat file; session 34240e8b-1dbd-4e7f-ba52-782a5ae89c75 classification stale/missing)",
-    "ALIVE td-245 (heartbeat 11min ago (STOPPED by cron timeout: mount+harness pushed (2 c); open PR #612 td-245: mount WantedHUD in production Lower City assembly)",
-    "ALIVE td-246 (heartbeat 17min ago (harness written (td246_real_scene_harness.gd + scr))"
+    "ALIVE td-245 (heartbeat stale (38min); open PR #612 td-245: mount WantedHUD in production Lower City assembly)",
+    "GRACE td-246 (dispatched 26min ago; heartbeat stale (44min); session 5fc04d66-d1dd-4173-a580-d8e9b2355298 classification stale/missing)",
+    "ALIVE td-247 (heartbeat 27min ago (PR #610 merged (b3a194e0), board PR #424 merged (4); task-file commit b56b48e 2026-10-09T16:29)"
    ],
    "transitions": [
-    "FLIP td-247: open -> merged [silent]"
+    "FLIP td-245: open -> in_progress [silent]",
+    "FLIP td-247: merged -> validated [notify-craig]"
    ],
    "classification-health": [
-    "STALE-RUNS=149"
+    "STALE-RUNS=150"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2341,10 +2343,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-09T16:24:52.125628+00:00",
-   "classification-health": "2026-10-09T16:25:19.233705+00:00",
-   "transitions": "2026-10-09T16:25:00.365646+00:00",
-   "conflicts": "2026-10-09T16:24:55.854883+00:00",
+   "liveness": "2026-10-09T16:52:13.213088+00:00",
+   "classification-health": "2026-10-09T16:52:42.456497+00:00",
+   "transitions": "2026-10-09T16:52:35.345631+00:00",
+   "conflicts": "2026-10-09T16:52:22.694233+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }

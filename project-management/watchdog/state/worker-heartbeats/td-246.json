@@ -1,1 +1,1 @@
-{"status":"working","step":"harness written (td246_real_scene_harness.gd + scripted input); dry-running headless against production Lower City scene","task":"td-246","ts":"2026-10-09T16:08:00Z"}
+{"status":"working","step":"run11 in progress: cop driving in (76m and closing), dwell hold phase logging per-tick; cop-assist fallback armed at 15s","task":"td-246","ts":"2026-10-09T16:42:00Z"}
