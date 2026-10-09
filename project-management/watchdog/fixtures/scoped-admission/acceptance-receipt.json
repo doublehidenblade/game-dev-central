@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "actor_id": "dot-coordinator",
+  "performed_at": "2026-10-09T20:32:26+00:00",
+  "operation": "acceptance-check",
+  "exit_code": 0,
+  "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+  "artifact_head": "53fa3308a4f841d855e1f65c24b0e292d41a36d4",
+  "command": {
+    "environment": {
+      "PYTHONPATH": "project-management/watchdog"
+    },
+    "argv": [
+      "python",
+      "-c",
+      "import coordinator_cli,sys; sys.exit(coordinator_cli.run_evidence(\"acceptance-check\",sys.argv[1:]))",
+      "--authority",
+      "project-management/watchdog/fixtures/scoped-admission/acceptance-authority.json",
+      "--submission",
+      "project-management/watchdog/fixtures/scoped-admission/submission.json",
+      "--objects",
+      "/private/decoded-acceptance-objects.json"
+    ],
+    "path_normalization": "The actual command used local absolute paths to these exact authority/submission bytes and the full public-Git object database. This portable record substitutes repository-relative paths and a private decoded-object output path. The retained proof is a minimized subset; unchanged evaluate_completion was rerun against it at the actual observation time and produced the identical result. No test/gate result is inferred from path normalization."
+  },
+  "result": {
+    "authority_digest": "0e8ae1082566a9fad23de9c87cb590c1d4140577fd30812e562b318ee798e2bd",
+    "gates": {
+      "author": "PASS",
+      "human_visual": "NOT_APPLICABLE",
+      "independent_review": "PASS",
+      "test_evidence": "BOUND"
+    },
+    "issues": [],
+    "limitations": [
+      "Authenticated collection and identity attestations are caller responsibilities; this evaluator never fetches, dispatches, changes ownership or accepts work on its own."
+    ],
+    "mutations": [],
+    "operation": "completion",
+    "reconciliations": [],
+    "status": "ACCEPTABLE",
+    "version": 1
+  },
+  "inputs": {
+    "submission.json": "5b5e0a64adc9be652e0f1ad44f1baecf5919842bd24eaefe3214a86524c02657",
+    "acceptance-authority.json": "41073bac70cd3e1777842c945fb25c36e1e5e307bd163d3fce661b9ea296977d"
+  },
+  "object_proof": {
+    "encoding": "base64(gzip(utf8-json))",
+    "path": "project-management/watchdog/fixtures/scoped-admission/acceptance-objects.json.gz.b64",
+    "uncompressed_sha256": "65fb79ce31edd05faed1f4466bebdf990fc5f12bf430b915122fd319f39374d1",
+    "counts": {
+      "doublehidenblade/game-dev-central": 60,
+      "doublehidenblade/tokyo-drift-3d": 4
+    }
+  },
+  "limitations": [
+    "This is actual isolated repair evidence acceptance at the stated time, not scoped live admission for other tasks, global IDLE, or deployment permission.",
+    "Authority freshness expires. A current action requires fresh authenticated authority, exact candidate binding and preserved ownership/stops.",
+    "No private session/queue observations or private identities are included. Git objects are already-public source, rule, execution and review objects."
+  ]
+}

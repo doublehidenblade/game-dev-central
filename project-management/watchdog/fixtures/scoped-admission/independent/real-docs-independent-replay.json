@@ -1,0 +1,19 @@
+{
+  "control": "real immutable documentation packet with synthetic surrounding scoped collection",
+  "historical_evidence_policy": "ACCEPTABLE",
+  "historical_scoped_algorithm": "ACTION_REQUIRED",
+  "global_coverage": "unknown",
+  "current_rule_negative": "NO_GO",
+  "negative_codes": [
+    "STALE_ACKNOWLEDGMENT"
+  ],
+  "snapshot_sha256": "ece498361280d5330e70012c231a1eb69927a458fa1e0fc188c87e5d31c3cf95",
+  "authority_sha256": "a0f80b4a4c373603699651a6171d1f99e217cf2e48777f378ce56f9b3310e35f",
+  "submission_sha256": "28710c7b3904b894a3a9739f5f874ff949c23f7ae53be6abb379aeebe883cc24",
+  "limitations": [
+    "Historical replay is not current eligibility",
+    "Collection/ownership/queue/executor receipts are synthetic test controls",
+    "No private source observations are published",
+    "No game, gameplay, visual, runtime, Actions or deployment check is inferred"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "purpose": "Historical real documentary proof; surrounding source/owner/queue/executor collection is synthetic and never live authorization",
+  "repository": "doublehidenblade/game-dev-central",
+  "pr": "https://github.com/doublehidenblade/game-dev-central/pull/430",
+  "published_artifact_tip": "a615ad932dcf090322bcb79e7a6cd565c2646ba6",
+  "replayed_source_head": "cd252d15a910065deb3c53129d9a6680feee94e2",
+  "replayed_artifact_head": "0abe43e01f4186f5ce480aba9c0bd32ae105cb6e",
+  "authority_path": "project-management/tasks/td-218-docs-admission/authority.json",
+  "submission_path": "project-management/tasks/td-218-docs-admission/submission.json",
+  "objects_path": "project-management/tasks/td-218-docs-admission/objects.json.gz",
+  "authority_blob": "e6aadebe4dced658ae4dc6d78e06cda78871fad0",
+  "submission_blob": "26e25568d244b76745975b588eb79bf7972f5aa6",
+  "objects_blob": "8d5fd9e5525b9baff46ba0103d8cbe0e3fa25f98",
+  "fork_sha": "033deae0e984b78e8f304928a1f8ab0cb306e969",
+  "historical_clock": "2026-10-09T17:21:46.718000+00:00",
+  "additional_public_git_objects": [
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "37e94de855054149a7bfa4072b29971563a59de2",
+      "type": "tree",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/37e94de855054149a7bfa4072b29971563a59de2"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "41d3106b20934fc11585e708884ae4c585af18e7",
+      "type": "tree",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/41d3106b20934fc11585e708884ae4c585af18e7"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "7f2fcf411be297ccc842211fc4431eff5366323b",
+      "type": "tree",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/7f2fcf411be297ccc842211fc4431eff5366323b"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "9e69bb3adfa46739022f73fbc38b661abfddaff0",
+      "type": "tree",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/9e69bb3adfa46739022f73fbc38b661abfddaff0"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "9fa84dc9b4c6e8317d8ebc8370238fcb8389e9f7",
+      "type": "tree",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/9fa84dc9b4c6e8317d8ebc8370238fcb8389e9f7"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "c0a0eeab7bc8350249b869c0fd0089426b2ea5a5",
+      "type": "tree",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/c0a0eeab7bc8350249b869c0fd0089426b2ea5a5"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "cf4762677beb6b01e3fec92c27935f952cd2613e",
+      "type": "tree",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/cf4762677beb6b01e3fec92c27935f952cd2613e"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "d5ac3df89a3ef2a5b8a6c647d3eeccd923941f0f",
+      "type": "blob",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/blobs/d5ac3df89a3ef2a5b8a6c647d3eeccd923941f0f"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "e7337b4a88a53b570764474d872ffe92ebf53dd6",
+      "type": "commit",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/commits/e7337b4a88a53b570764474d872ffe92ebf53dd6"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "fbc6d829a9bfb846ab3920ec089b09c60dbe52a3",
+      "type": "commit",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/commits/fbc6d829a9bfb846ab3920ec089b09c60dbe52a3"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "sha": "fd8760846d2280e445f1636a87b6bba66ba911e9",
+      "type": "commit",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/commits/fd8760846d2280e445f1636a87b6bba66ba911e9"
+    }
+  ],
+  "private_inputs_published": false
+}

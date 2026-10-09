@@ -1,0 +1,83 @@
+PASS unmodified document-only production policy
+PASS row movement into empty semantic table detected
+PASS positive exact implementation
+PASS implementation retains stop
+PASS implementation retains denial
+PASS implementation retains security
+PASS implementation retains cancelled
+PASS positive exact verification
+PASS verification retains stop
+PASS verification retains denial
+PASS verification retains security
+PASS verification retains cancelled
+PASS positive exact upload
+PASS upload retains stop
+PASS upload retains denial
+PASS upload retains security
+PASS upload retains cancelled
+PASS positive exact merge
+PASS merge retains stop
+PASS merge retains denial
+PASS merge retains security
+PASS merge retains cancelled
+PASS executor unknown
+PASS executor busy
+PASS executor unavailable
+PASS executor capabilities absent
+PASS authority request cancelled
+PASS authority request unverified
+PASS authority wrong operation
+PASS authority wrong executor
+PASS task owner and board disagree
+PASS relevant dependency task-owner
+PASS relevant dependency board-owner
+PASS relevant dependency unknown-state
+PASS relevant dependency paused-state
+PASS board retains paused
+PASS board retains cancelled
+PASS board retains done-pending-verdict
+PASS frozen shuto
+PASS frozen neon-drift
+PASS publication triggers_checked
+PASS publication merge_runs_actions
+PASS publication merge_deploys
+PASS zero policies
+PASS two conflicting policies
+PASS reviews missing
+PASS reviews fail
+PASS reviews pending
+PASS reviews stale
+PASS reviews future
+PASS reviews head
+PASS checks missing
+PASS checks fail
+PASS checks pending
+PASS checks stale
+PASS checks future
+PASS checks head
+PASS contradictory current review
+PASS contradictory current check
+PASS guard rejects wrong task_id
+PASS guard rejects wrong operation
+PASS guard rejects wrong executor_id
+PASS guard rejects wrong owner_id
+PASS guard rejects wrong head_sha
+PASS guard rejects extra target fields
+PASS guard expires exactly at15minutes
+PASS missing-object
+PASS altered-object
+PASS no-query
+PASS receipt-extra
+PASS receipt-duplicate
+PASS inventory-missing
+PASS unknown-proof
+PASS normalized-head
+PASS disjoint file
+PASS sibling source overlap
+PASS sibling dependency overlap
+PASS row-only unrelated change
+PASS target row ownership change
+PASS table header scope change
+PASS relevant file mode overlap doc.md
+PASS relevant file mode overlap board.md
+TOTAL 82 FAILURES 0 []

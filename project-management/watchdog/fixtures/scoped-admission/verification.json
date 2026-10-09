@@ -1,0 +1,132 @@
+{
+  "observed_at": "2026-10-09T20:01:23.052335+00:00",
+  "scope": "Local read-only coordinator/evidence tests; no Actions, game build, deployment or private input publication",
+  "checks": [
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_scoped_admission.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "check-1.log",
+      "log_sha256": "cf6208a3984d927c7115d335077312ceec8f80e3ae7bb42754bed98267af6567"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_rules.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "check-2.log",
+      "log_sha256": "130c9237eaf1146ca20e7fca3b93eb00d82a7bd66e882bf6cb2da44325069c0c"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_evidence_policy.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "check-3.log",
+      "log_sha256": "b8abd6c82ebd2138b06d60488ebc6610b74af19476244d895afc56780e9e1aff"
+    },
+    {
+      "command": [
+        "python",
+        "project-management/watchdog/test_rules.py"
+      ],
+      "exit_code": 0,
+      "log": "check-4.log",
+      "log_sha256": "d86df8c70a25f2d0c15f551d4026dc3b788987a13cb4e362dc92555ec5119c27"
+    },
+    {
+      "command": [
+        "python",
+        "project-management/watchdog/test_coordinator_review.py"
+      ],
+      "exit_code": 0,
+      "log": "check-5.log",
+      "log_sha256": "f2dd2e78edf00adca0632cd3f3b47c1276f07a1eb472655b80e8c4c66b6d2d3b"
+    },
+    {
+      "command": [
+        "python",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+      ],
+      "exit_code": 0,
+      "log": "check-6.log",
+      "log_sha256": "b813e59218ba56c5b21acfca7a706f4cc43174d39c9dc0fb5e06da37fdef7eac"
+    },
+    {
+      "command": [
+        "python",
+        "project-management/watchdog/test_coordinator_final_guards.py"
+      ],
+      "exit_code": 0,
+      "log": "check-7.log",
+      "log_sha256": "02526da2bd46e229c7b1164eed117fe87b92e4200f34c4f2334e81c7d9e8bb46"
+    },
+    {
+      "command": [
+        "python",
+        "project-management/watchdog/test_coordinator_operation_needs.py"
+      ],
+      "exit_code": 0,
+      "log": "check-8.log",
+      "log_sha256": "66a2d6f0f8d99302adce1c243f6be9e086dd0d00f6c65cfcd3f2a16c5e62f688"
+    },
+    {
+      "command": [
+        "python",
+        "project-management/watchdog/test_coordinator_hold_invariance.py"
+      ],
+      "exit_code": 0,
+      "log": "check-9.log",
+      "log_sha256": "adc083070ad416e24c77c23620b0542131aaef37c7b0d32fe158369125e618f5"
+    },
+    {
+      "command": [
+        "python",
+        "-m",
+        "py_compile",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/watch.py"
+      ],
+      "exit_code": 0,
+      "log": "check-10.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "independent_acceptance": "pending exact source-head review",
+  "source_sha256": {
+    "project-management/watchdog/coordinator.py": "f6c9a97b77006c1e47baf2cff46b33c359c371a4cac3fac31336dcb8fb8da9bf",
+    "project-management/watchdog/scoped_admission.py": "5ffb2d7ebe8175f7ac0b36f0fdc6ce2cf6d6e5149b0f6333260c9e1a507930d9",
+    "project-management/watchdog/test_scoped_admission.py": "7f6ec3c8ded7e9cef838235e262cfc5b70d856fda3871137e2c4e537ec591076",
+    "project-management/watchdog/evidence_policy.py": "cba86a57001d53a25d56d69a7ca58f12ada26a68277a3bcdeedec43daf18f040",
+    "project-management/watchdog/coordinator_cli.py": "f969d645312d24c817d844b9a7cf71933cff4ae7c44a0aa0ee1ab155a9025dcd",
+    "project-management/watchdog/watch.py": "524929c808a77714a78d5bf5a113e260fa492d6363e444da96f81c1ada66aaf8"
+  }
+}

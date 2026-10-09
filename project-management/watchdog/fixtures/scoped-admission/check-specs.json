@@ -1,0 +1,75 @@
+{
+  "scoped-unit": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "project-management/watchdog",
+    "-p",
+    "test_scoped_admission.py",
+    "-v"
+  ],
+  "original-coordinator-unit": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "project-management/watchdog",
+    "-p",
+    "test_rules.py",
+    "-v"
+  ],
+  "evidence-policy-unit": [
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "project-management/watchdog",
+    "-p",
+    "test_evidence_policy.py",
+    "-v"
+  ],
+  "legacy-regression": [
+    "python3",
+    "project-management/watchdog/test_rules.py"
+  ],
+  "broken-original-regression": [
+    "python3",
+    "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+    "--original",
+    ".private-scoped-control/original_coordinator.py"
+  ],
+  "real-docs-replay": [
+    "python3",
+    "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+    "--snapshot",
+    ".private-scoped-control/snapshot.json",
+    "--negative-authority",
+    ".private-scoped-control/negative-authority.json",
+    "--negative-objects",
+    ".private-scoped-control/negative-objects.json"
+  ],
+  "retained-review": [
+    "python3",
+    "project-management/watchdog/test_coordinator_review.py"
+  ],
+  "retained-acceptance_isolation": [
+    "python3",
+    "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+  ],
+  "retained-final_guards": [
+    "python3",
+    "project-management/watchdog/test_coordinator_final_guards.py"
+  ],
+  "retained-operation_needs": [
+    "python3",
+    "project-management/watchdog/test_coordinator_operation_needs.py"
+  ],
+  "retained-hold_invariance": [
+    "python3",
+    "project-management/watchdog/test_coordinator_hold_invariance.py"
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "task_id": "ops-scoped-coordinator-admission-20261009",
+  "actor_id": "dot-native-scoped-admission-reviewer",
+  "author_id": "dot-native-scoped-admission-author",
+  "performed_at": "2026-10-09T20:29:25.151774+00:00",
+  "reviewed_source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+  "reviewed_evidence_head": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+  "overall": "PASS",
+  "criteria": {
+    "C1": {
+      "decision": "PASS",
+      "rationale": "The real immutable PR430 documentary packet independently replays ACCEPTABLE and the corrected scoped algorithm returns one action with global coverage unknown. Canonical rule authority pins are no longer conflated with write/dependency/owner regions. Full-route positive controls permit a known unmerged rule-only proposal while all actual source, owner and stop obligations remain.",
+      "evidence": [
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/independent/real-docs-independent-replay.json",
+        "project-management/watchdog/fixtures/scoped-admission/independent/baseline-regression.json"
+      ]
+    },
+    "C2": {
+      "decision": "PASS",
+      "rationale": "Exact task, operation, executor, owner, candidate/base/rule/source and receipt bindings remain verified. All82 broad independent probes and13 targeted correction controls pass. Every canonical rule still requires current immutable membership and applicability; every actual candidate write and explicitly declared/canonical source dependency region remains protected. Unsupported prerequisite graphs fail closed.",
+      "evidence": [
+        "project-management/watchdog/fixtures/scoped-admission/independent/independent_probes.py",
+        "project-management/watchdog/fixtures/scoped-admission/independent/independent-probes.log",
+        "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "project-management/watchdog/fixtures/scoped-admission/independent/correction_probes.py",
+        "project-management/watchdog/fixtures/scoped-admission/independent/correction-probes.log"
+      ]
+    },
+    "C3": {
+      "decision": "PASS",
+      "rationale": "Verified immutable ancestry/tree-delta and region proofs, table context/order/mode, empty-section row movement and base drift. Independently rehashed all37 actual public Git control objects: centralPR143 changes only four rule documents; centralPR377 changes board non-row context; TokyoPR533 changes td-218 source bytes. The latter two remain blocked. These actual controls exercise source predicates, not complete live inventories or ancestry. Separate full-route synthetic controls preserve genuine competing rule writers and explicit rule dependencies.",
+      "evidence": [
+        "project-management/watchdog/fixtures/scoped-admission/independent/independent_probes.py",
+        "project-management/watchdog/fixtures/scoped-admission/independent/independent-probes.log",
+        "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64",
+        "project-management/watchdog/fixtures/scoped-admission/independent/correction_probes.py",
+        "project-management/watchdog/fixtures/scoped-admission/independent/correction-probes.log"
+      ]
+    },
+    "C4": {
+      "decision": "PASS",
+      "rationale": "Target and related ownership/queue/stop query coverage remains required. Unknown and conflicting owner/state facts, dependency claims, wildcard holds, cross-executor denials and frozen projects cannot grant scoped mutation. All five unchanged retained regression scripts pass191 total cases, alongside37 original coordinator methods and full legacy regression. Existing no-scope verification/acceptance-isolation behavior is preserved.",
+      "evidence": [
+        "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
+        "project-management/watchdog/fixtures/scoped-admission/execution/legacy-regression.json",
+        "project-management/watchdog/fixtures/scoped-admission/execution/retained-review.json",
+        "project-management/watchdog/fixtures/scoped-admission/execution/retained-acceptance_isolation.json",
+        "project-management/watchdog/fixtures/scoped-admission/execution/retained-final_guards.json",
+        "project-management/watchdog/fixtures/scoped-admission/execution/retained-operation_needs.json",
+        "project-management/watchdog/fixtures/scoped-admission/execution/retained-hold_invariance.json",
+        "project-management/watchdog/fixtures/scoped-admission/independent/independent-probes.log"
+      ]
+    },
+    "C5": {
+      "decision": "PASS",
+      "rationale": "Evidence-policy evaluator is unchanged and53 existing policy methods pass. Real documentary acceptance executes without invented unit/game/runtime checks; later current-rule authority with the original acknowledgment returns NO_GO/STALE_ACKNOWLEDGMENT. Missing, failed, pending, contradictory, stale or self-authored acceptance evidence remains blocked. Repair policies preserve registered C1\u2013C7, explicitly declare nonvisual/build-null applicability and genuine command artifacts.",
+      "evidence": [
+        "project-management/watchdog/fixtures/scoped-admission/execution/evidence-policy-unit.json",
+        "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+        "project-management/watchdog/fixtures/scoped-admission/independent/real-docs-independent-replay.json",
+        "project-management/watchdog/fixtures/scoped-admission/independent/independent-probes.log"
+      ]
+    },
+    "C6": {
+      "decision": "PASS",
+      "rationale": "All supported CLI/imported aliases use the same pure evaluator. Independently ran actual subprocesses for all8 supported and24 retired command names, plus source/state filesystem invariance:33 checks pass. Invalid scoped input cannot fall back to legacy admission. Runbook honestly documents the complete module bundle, private-input trust boundary, no live adoption claim, source limits and global unknown.",
+      "evidence": [
+        "project-management/watchdog/fixtures/scoped-admission/independent/actual_cli_probes.py",
+        "project-management/watchdog/fixtures/scoped-admission/independent/actual-cli-probes.log",
+        "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json"
+      ]
+    },
+    "C7": {
+      "decision": "PASS",
+      "rationale": "A distinct independent reviewer freshly fetched41 corrected exact-head files, verified Git blob hashes against the complete tree, inspected the bounded correction and original evidence, reran all relevant suites, verified all37 public real-control objects, and issued new C1\u2013C7 decisions. The previous source PASS was not reused. No reviewer repository writes, merge, Actions or deployment occurred.",
+      "evidence": [
+        "project-management/watchdog/fixtures/scoped-admission/exact-source-verification.json",
+        "project-management/watchdog/fixtures/scoped-admission/independent/independent_probes.py",
+        "project-management/watchdog/fixtures/scoped-admission/independent/actual_cli_probes.py",
+        "project-management/watchdog/fixtures/scoped-admission/independent/independent-probes.log",
+        "project-management/watchdog/fixtures/scoped-admission/independent/actual-cli-probes.log"
+      ]
+    }
+  },
+  "source_blob_manifest": {
+    "project-management/watchdog/coordinator.py": "fe791a54a76eb793b97c44b9036b6f00170974b3",
+    "project-management/watchdog/scoped_admission.py": "1574376c3e8212cb0bb1d9f97ba1cf98b24c886b",
+    "project-management/watchdog/test_scoped_admission.py": "d608dd562ac150fb9da6184f4f678f10e6507722",
+    "project-management/watchdog/coordinator_cli.py": "16be941f65f6e546d330435975fb2124ef339c88",
+    "project-management/watchdog/watch.py": "bbe5e646202468472b5a9f081252e53d03e10225",
+    "project-management/watchdog/evidence_policy.py": "afbcd927a16340da5c235ea4368857ab8edc6522",
+    "project-management/watchdog/test_rules.py": "6910362ae0536450dc3ecfa4c5a63ec5c5f40fd0",
+    "project-management/watchdog/test_evidence_policy.py": "5e6748c781b2bcc46308023e810c5a0f700da51b",
+    "project-management/watchdog/test_coordinator_review.py": "e1ac1ef9ab24f297baaba6cc590d4bf5181ae603",
+    "project-management/watchdog/test_coordinator_acceptance_isolation.py": "a0fef47a343ed81fcf83969fdeec60104faf602c",
+    "project-management/watchdog/test_coordinator_final_guards.py": "704d5778d61417a977977abc80f879a35c737335",
+    "project-management/watchdog/test_coordinator_operation_needs.py": "59a14e67bccaeb5ea5d451dfd6c1fefed8b6a4a9",
+    "project-management/watchdog/test_coordinator_hold_invariance.py": "f130b99b7a9455d1a5b13a06f7dbe739b98e5a26",
+    "project-management/watchdog/RUNBOOK.md": "5b661ec6bd75305f73b583b243f686885cfbc624",
+    "project-management/watchdog/README.md": "4a6b6b7705cc01aa103b2b7c748819a35821dd3d",
+    "project-management/tasks/ops-scoped-coordinator-admission-20261009.json": "3a2383934fe5f1aca170573cca5f4aa0085c7e7f",
+    "project-management/watchdog/fixtures/scoped-admission/prove_regression.py": "a8f8c7e1548816fa4262795bf17e16df5111c4fd",
+    "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py": "a1afc5f80b781274343a82db6db9288d45d0e5cb",
+    "project-management/watchdog/fixtures/scoped-admission/README.md": "eac80afcb1c66e09cad666aeb55c92a090e3a1a1",
+    "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json": "e34bebbe0c318c4e2d92336f53d48638680e6660",
+    "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json": "cf2714cd51dedaef8839c2d49a1816cc62b937b1",
+    "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json": "7e56001075dd0efdbf0ee093087c84df1d063c8d",
+    "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64": "e7c946fa272910b4d059850a7032051296dee2d6"
+  },
+  "verification": {
+    "exact_source_files_independently_materialized_and_hashed": 41,
+    "new_scoped_unittest_methods": 39,
+    "existing_coordinator_unittest_methods": 37,
+    "existing_evidence_policy_unittest_methods": 53,
+    "retained_independent_cases": [
+      32,
+      14,
+      15,
+      128,
+      2
+    ],
+    "independent_adversarial_cases": 82,
+    "actual_cli_and_filesystem_checks": 33,
+    "legacy_regression": "PASS",
+    "in_memory_compile": "PASS",
+    "real_docs_control": "Historical ACCEPTABLE; scoped ACTION_REQUIRED with global unknown; later-rule NO_GO/STALE_ACKNOWLEDGMENT",
+    "original_coordinator_control": "Pinned original blob1e87c500bd8c7890d59e2e83dc614c0d58bbb6b9 rejects scoped input; repaired evaluator permits the independently isolated test action",
+    "independent_correction_cases": 13,
+    "actual_public_control_objects_rehashed": 37
+  },
+  "public_artifact_sha256": {
+    "actual-cli-probes.log": "b7b577fdce022ec44ae9e0ccd8a9f60ab01e6eb72d33adaaadf944e2268b0938",
+    "actual_cli_probes.py": "c0246f6c8b9a2401a1f5c482898e3bd7346182f3baed206d38334b0f1e205421",
+    "baseline-regression.json": "e410f9a53d2f203c9ad70faa09e32304d962b14f85f1c02bf64e3c896292e3a7",
+    "correction-probes.log": "ec9c9f0ea0ce1e42e9cc5de9b4942d62d9edf6a29a0dbec45746fad1bcaddf45",
+    "correction_probes.py": "8bdb448029656e0230c76ebe3abe75dc5bb5d974b87a948183efd7973b162566",
+    "independent-probes.log": "ab824d8cff06aa798af8995a7aba8bcf045b82c6d3c14bc6e156b174df027d1d",
+    "independent_probes.py": "aaed71498b23db0fcdcd4cd7e2cd5a5f6ba61d14757f97ef352be570dfdbcba2",
+    "real-docs-independent-replay.json": "bcdca2d7b2e35edfe31f12556e7d88d2440329f82c51872626306276d4d9db61"
+  },
+  "limitations": [
+    "This accepts bounded coordinator source behavior, not a live task admission, source upload, merge or deployment",
+    "Actual collector completeness, identity authentication and undisclosed semantic dependency discovery remain explicit external responsibilities",
+    "Scoped v1 supports one filed task with one open PR and candidate branch; canonical prerequisite graphs, unfiled admission and post-merge review do not use this scoped route",
+    "Global inventory/liveness remains unknown with scoped-only inputs; private live source/session/queue/ownership snapshots are not published",
+    "Real PR430 control is historical evidence inside synthetic surrounding source/ownership collection, never current game/task eligibility",
+    "Parent must authenticate this reviewer role, publish exact evidence bytes, verify evidence-only descendant equivalence and execute the required current policy gate before any merge",
+    "Selected Astra/high was confirmed by coordinator launch evidence; underlying runtime and billing were not independently attested",
+    "Canonical authority pinning does not prove a proposed rule change was merged or its author released ownership",
+    "Actual centralPR377 board-context and TokyoPR533 same-task-file overlaps remain current distinct blockers; no admission for docs430 or616 is inferred",
+    "All unrelated current-main board/state changes must be preserved during integration"
+  ],
+  "review_iteration": "Fresh independent review of the one parent-authorized correction. Earlier source8667a3cd and its review remain historical; no earlier PASS is reused as acceptance of this source."
+}

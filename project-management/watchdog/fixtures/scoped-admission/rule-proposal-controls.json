@@ -1,0 +1,118 @@
+{
+  "controls": [
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "pr": 143,
+      "head": "bfe26735ca13ae4c75b1d474ccb092c5943d7d30",
+      "base": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+      "fork": "b8d28c7fde46400f094ecdbeb827fab90831466b",
+      "changed_paths": [
+        "COORDINATOR.md",
+        "project-management/rules/SYSTEM.md",
+        "project-management/rules/VALIDATOR_BRIEF.md",
+        "project-management/rules/WORKER_BRIEF.md"
+      ],
+      "full_delta": true,
+      "regions": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "path": "COORDINATOR.md",
+          "row_keys": []
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "path": "project-management/rules/SYSTEM.md",
+          "row_keys": []
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "path": "project-management/rules/VALIDATOR_BRIEF.md",
+          "row_keys": []
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "path": "project-management/rules/WORKER_BRIEF.md",
+          "row_keys": []
+        }
+      ],
+      "expected": [
+        {
+          "path": "COORDINATOR.md",
+          "equal_to_fork": false,
+          "equal_to_base": false
+        },
+        {
+          "path": "project-management/rules/SYSTEM.md",
+          "equal_to_fork": false,
+          "equal_to_base": false
+        },
+        {
+          "path": "project-management/rules/VALIDATOR_BRIEF.md",
+          "equal_to_fork": false,
+          "equal_to_base": false
+        },
+        {
+          "path": "project-management/rules/WORKER_BRIEF.md",
+          "equal_to_fork": false,
+          "equal_to_base": false
+        }
+      ],
+      "url": "https://github.com/doublehidenblade/game-dev-central/pull/143"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "pr": 377,
+      "head": "fde2e63d49f885bca7033897483ad26a97981e5b",
+      "base": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+      "fork": "b450c6270b66d41c0c9cadcf142841f6bc01f042",
+      "changed_paths": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ],
+      "full_delta": true,
+      "regions": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "row_keys": [
+            "td-218"
+          ]
+        }
+      ],
+      "expected": [
+        {
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "error": "board non-row context changed"
+        }
+      ],
+      "url": "https://github.com/doublehidenblade/game-dev-central/pull/377"
+    },
+    {
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "pr": 533,
+      "head": "d5ca9f90348d087955ac810420626ee27191075a",
+      "base": "50616cb024f64af4b20be8e0e0ef7738b5c918e3",
+      "fork": "9d4a88490c41f86e8d34e1c2c6f142838de20c73",
+      "changed_paths": [
+        "godot/docs/tasks/td-218.md"
+      ],
+      "full_delta": false,
+      "regions": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "path": "godot/docs/tasks/td-218.md",
+          "row_keys": []
+        }
+      ],
+      "expected": [
+        {
+          "path": "godot/docs/tasks/td-218.md",
+          "equal_to_fork": false,
+          "equal_to_base": false
+        }
+      ],
+      "url": "https://github.com/doublehidenblade/tokyo-drift-3d/pull/533"
+    }
+  ],
+  "uncompressed_sha256": "de301bce683bf7b4ba8b46450c687b7c6893ef61699024ea0d4ecf14dda94ac9",
+  "limits": "Actual immutable public Git objects test source-delta and region-equivalence predicates only. API fork pins are not complete ancestry chains. No private ownership/source receipts or live admission are inferred. Full scoped routes are exercised separately by synthetic PR143-shaped positive and negative controls."
+}

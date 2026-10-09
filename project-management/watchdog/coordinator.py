@@ -8,6 +8,7 @@ import json
 import re
 
 import evidence_policy
+import scoped_admission
 from datetime import datetime, timedelta, timezone
 
 VERSION = 1
@@ -92,7 +93,7 @@ def validate(snapshot, at):
     """
     require(isinstance(at, datetime) and at.tzinfo is not None and
             at.utcoffset() == timedelta(0), "evaluation clock must be UTC")
-    fields(snapshot, "version observed_at repositories sources " + " ".join(TABLES), "snapshot", optional="evidence_policy")
+    fields(snapshot, "version observed_at repositories sources " + " ".join(TABLES), "snapshot", optional="evidence_policy scoped_source")
     require(type(snapshot["version"]) is int and snapshot["version"] == VERSION, "unsupported version")
     require(isinstance(snapshot.get("evidence_policy", {}), dict), "evidence_policy must be a task map")
     observed = utc(snapshot["observed_at"])
@@ -352,10 +353,18 @@ def evaluate(snapshot, at):
     result = {"version": VERSION, "status": "INPUT_REQUIRED", "actions": [], "blocked": [], "warnings": [], "reconciliations": []}
     try:
         index, sources, warnings = validate(snapshot, at)
+        scoped = scoped_admission.verify(snapshot, at, TABLES, SOURCES_FOR) if "scoped_source" in snapshot else None
         result["input_digest"] = digest(snapshot)
-    except (InputError, TypeError, ValueError) as exc:
+    except (InputError, TypeError, ValueError, KeyError, AttributeError, evidence_policy.PolicyError) as exc:
         result["warnings"] = [str(exc)]
         return result
+    if scoped:
+        # Positive task coverage must never be promoted to global completeness.
+        warnings.append("scoped source coverage only; global inventory/liveness remains unknown")
+        result["source_scope"] = {"binding": scoped["binding"],
+                                  "inventory_digest": scoped["inventory_digest"],
+                                  "scope_digest": scoped["scope_digest"],
+                                  "global_coverage": "unknown"}
     result["warnings"] = warnings
     opportunities = []
     disputed_tasks = set()
@@ -454,6 +463,10 @@ def evaluate(snapshot, at):
             warnings.append(f"{ex['id']}: capacity unknown")
     for tid, repo, head, operation, task, pr, accepted in opportunities:
         for ex in [e for e in snapshot["executors"] if e["repository"] == repo]:
+            binding = {"task_id": tid, "repository": repo, "operation": operation,
+                       "executor_id": ex["id"], "owner_id": ex["owner_id"], "head_sha": head}
+            if scoped and binding != scoped["binding"]:
+                continue
             reasons = []
             # Filing an unfiled ask is reconciliation, not production admission.
             # Existing read-only verification stays possible to repair evidence.
@@ -469,7 +482,7 @@ def evaluate(snapshot, at):
             required_sources = SOURCES_FOR[operation]
             if task and task["status"] in {"in_review", "validated"} and operation == "implementation":
                 required_sources = required_sources | {"reviews"}
-            missing = sorted(kind for kind in required_sources if not sources[repo, kind][0])
+            missing = [] if scoped else sorted(kind for kind in required_sources if not sources[repo, kind][0])
             if missing:
                 reasons.append("INPUT_REQUIRED: " + ",".join(missing))
             project = task["project"] if task else next(r["project"] for r in snapshot["requests"] if tid == "request:" + r["id"])
@@ -551,9 +564,11 @@ def evaluate(snapshot, at):
                     warnings.append(f"{tid}:{operation}:{ex['id']}: ownership reconciliation required")
                 result["blocked"].append({**binding, "reasons": sorted(set(reasons))})
                 continue
-            expiry = min(sources[repo, k][1] for k in required_sources) + MAX_AGE
+            expiry = scoped["expires_at"] if scoped else min(sources[repo, k][1] for k in required_sources) + MAX_AGE
             decision = {**binding, "input_digest": result["input_digest"], "expires_at": expiry.isoformat(),
                         "authorization_ids": sorted(r["id"] for r in authorized)}
+            if scoped:
+                decision.update(source_scope_digest=scoped["scope_digest"], source_inventory_digest=scoped["inventory_digest"])
             decision["decision_id"] = digest(decision)
             result["actions"].append(decision)
     result["warnings"] = sorted(set(warnings))
@@ -571,3 +586,4 @@ def revalidate(snapshot, decision, target, at):
     if set(target) != required or match is None:
         return {"status": "NO_GO", "reason": "missing, changed, expired or wrong-target decision", "evaluation": result}
     return {"status": "GO", "decision": match, "evaluation": result}
+

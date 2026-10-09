@@ -1,0 +1,192 @@
+{
+  "task_id": "ops-scoped-coordinator-admission-20261009",
+  "candidate_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+  "actor_id": "dot-native-scoped-admission-reviewer",
+  "authority_digest": "fc1a1bec0d651dfb9fa95cdafc28a0cb278c8b249e9d1ac25c9034fb8c058df3",
+  "evidence_digest": "41801fcd08825e095cdddbc42c354d6c2b93a2f56363e7095860cdad67b10d14",
+  "performed_at": "2026-10-09T20:31:24.605346+00:00",
+  "criteria": {
+    "C1": {
+      "decision": "PASS",
+      "rationale": "The real immutable PR430 documentary packet independently replays ACCEPTABLE and the corrected scoped algorithm returns one action with global coverage unknown. Canonical rule authority pins are no longer conflated with write/dependency/owner regions. Full-route positive controls permit a known unmerged rule-only proposal while all actual source, owner and stop obligations remain.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+          "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+          "blob": "0aee8d81d44d55a18a554a07a67002cbe66d0f39"
+        }
+      ],
+      "evidence_ids": [
+        "C1:scoped-unit",
+        "C1:real-docs-replay"
+      ]
+    },
+    "C2": {
+      "decision": "PASS",
+      "rationale": "Exact task, operation, executor, owner, candidate/base/rule/source and receipt bindings remain verified. All82 broad independent probes and13 targeted correction controls pass. Every canonical rule still requires current immutable membership and applicability; every actual candidate write and explicitly declared/canonical source dependency region remains protected. Unsupported prerequisite graphs fail closed.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+          "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/broken-original-regression.json",
+          "blob": "9f43987df472ede3c4e34ae2f6d5351f8cd180a7"
+        }
+      ],
+      "evidence_ids": [
+        "C2:scoped-unit",
+        "C2:broken-original-regression"
+      ]
+    },
+    "C3": {
+      "decision": "PASS",
+      "rationale": "Verified immutable ancestry/tree-delta and region proofs, table context/order/mode, empty-section row movement and base drift. Independently rehashed all37 actual public Git control objects: centralPR143 changes only four rule documents; centralPR377 changes board non-row context; TokyoPR533 changes td-218 source bytes. The latter two remain blocked. These actual controls exercise source predicates, not complete live inventories or ancestry. Separate full-route synthetic controls preserve genuine competing rule writers and explicit rule dependencies.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+          "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+        }
+      ],
+      "evidence_ids": [
+        "C3:scoped-unit"
+      ]
+    },
+    "C4": {
+      "decision": "PASS",
+      "rationale": "Target and related ownership/queue/stop query coverage remains required. Unknown and conflicting owner/state facts, dependency claims, wildcard holds, cross-executor denials and frozen projects cannot grant scoped mutation. All five unchanged retained regression scripts pass191 total cases, alongside37 original coordinator methods and full legacy regression. Existing no-scope verification/acceptance-isolation behavior is preserved.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+          "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
+          "blob": "e32f289ec96063c8dcdcc3bebe2e1d78f409d30d"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/legacy-regression.json",
+          "blob": "e4678606e2737e24c189be35054aac33a108c21d"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-review.json",
+          "blob": "b0e2210af4f6c7befdfaacf243d8b90e8bd6abe0"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-acceptance_isolation.json",
+          "blob": "7269b8ad802e152def8c9d83599d510cf2152dc0"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-final_guards.json",
+          "blob": "369f7de378dfd37645972ce0e65241d6f4fae0de"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-operation_needs.json",
+          "blob": "5d947aafe552ba3bd17191880e0d54face52dcaf"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-hold_invariance.json",
+          "blob": "f7ad16297cafa240b6ee2da6f0d2355921d4ec18"
+        }
+      ],
+      "evidence_ids": [
+        "C4:scoped-unit",
+        "C4:original-coordinator-unit",
+        "C4:legacy-regression",
+        "C4:retained-review",
+        "C4:retained-acceptance_isolation",
+        "C4:retained-final_guards",
+        "C4:retained-operation_needs",
+        "C4:retained-hold_invariance"
+      ]
+    },
+    "C5": {
+      "decision": "PASS",
+      "rationale": "Evidence-policy evaluator is unchanged and53 existing policy methods pass. Real documentary acceptance executes without invented unit/game/runtime checks; later current-rule authority with the original acknowledgment returns NO_GO/STALE_ACKNOWLEDGMENT. Missing, failed, pending, contradictory, stale or self-authored acceptance evidence remains blocked. Repair policies preserve registered C1\u2013C7, explicitly declare nonvisual/build-null applicability and genuine command artifacts.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/evidence-policy-unit.json",
+          "blob": "ac038ea2c25f6fb0bd2840314687b42c816d213e"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+          "blob": "0aee8d81d44d55a18a554a07a67002cbe66d0f39"
+        }
+      ],
+      "evidence_ids": [
+        "C5:evidence-policy-unit",
+        "C5:real-docs-replay"
+      ]
+    },
+    "C6": {
+      "decision": "PASS",
+      "rationale": "All supported CLI/imported aliases use the same pure evaluator. Independently ran actual subprocesses for all8 supported and24 retired command names, plus source/state filesystem invariance:33 checks pass. Invalid scoped input cannot fall back to legacy admission. Runbook honestly documents the complete module bundle, private-input trust boundary, no live adoption claim, source limits and global unknown.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+          "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
+          "blob": "e32f289ec96063c8dcdcc3bebe2e1d78f409d30d"
+        }
+      ],
+      "evidence_ids": [
+        "C6:scoped-unit",
+        "C6:original-coordinator-unit"
+      ]
+    },
+    "C7": {
+      "decision": "PASS",
+      "rationale": "A distinct independent reviewer freshly fetched41 corrected exact-head files, verified Git blob hashes against the complete tree, inspected the bounded correction and original evidence, reran all relevant suites, verified all37 public real-control objects, and issued new C1\u2013C7 decisions. The previous source PASS was not reused. No reviewer repository writes, merge, Actions or deployment occurred.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "31144fc5f2df1eaff7922cf25f307f2fb29b797d",
+          "path": "project-management/watchdog/fixtures/scoped-admission/independent-verification.json",
+          "blob": "b12fd9edad3bdd10469bac1c4f412bfb5bb499ef"
+        }
+      ],
+      "evidence_ids": [
+        "C7:independent-verification"
+      ]
+    }
+  }
+}

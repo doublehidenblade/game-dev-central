@@ -1,0 +1,803 @@
+{
+  "acknowledgment": {
+    "task_id": "ops-scoped-coordinator-admission-20261009",
+    "author_id": "dot-native-scoped-admission-author",
+    "rules": [
+      {
+        "id": "central:COORDINATOR.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "COORDINATOR.md",
+          "blob": "58786d160ad1bc509a7ee74df030988056389308"
+        }
+      },
+      {
+        "id": "central:knowledge/standing-rules.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "knowledge/standing-rules.md",
+          "blob": "01b19a267622992cbe7713f856e2c2bcf87b1e50"
+        }
+      },
+      {
+        "id": "central:project-management/rules/SYSTEM.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "project-management/rules/SYSTEM.md",
+          "blob": "08226c75366dfa25133fcd058477b4b854febaf2"
+        }
+      },
+      {
+        "id": "central:project-management/rules/WORKER_BRIEF.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "project-management/rules/WORKER_BRIEF.md",
+          "blob": "95dc23587561489931e897f9a58c7be0c2202e7d"
+        }
+      },
+      {
+        "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "project-management/rules/WORKER_SELECTION_POLICY.md",
+          "blob": "343d3e3f8db6976789d4a631ca38619b6c27dc0e"
+        }
+      },
+      {
+        "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "project-management/watchdog/EVIDENCE_POLICY.md",
+          "blob": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe"
+        }
+      },
+      {
+        "id": "central:project-management/watchdog/RUNBOOK.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "project-management/watchdog/RUNBOOK.md",
+          "blob": "490d6e355ca5164bc5b1f5e33316bd648f455581"
+        }
+      },
+      {
+        "id": "central:project-management/rules/DURABILITY.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "project-management/rules/DURABILITY.md",
+          "blob": "11d159e403d88c292a8051e3d7589b1ab9af72df"
+        }
+      },
+      {
+        "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "project-management/rules/VALIDATOR_BRIEF.md",
+          "blob": "405469fad99355eb23b01551c92c0c74693e75fe"
+        }
+      },
+      {
+        "id": "central:knowledge/workflow/game-dev-workflow.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "knowledge/workflow/game-dev-workflow.md",
+          "blob": "9d3b278c9b71e213d59874c5a56498630d14fc74"
+        }
+      },
+      {
+        "id": "central:knowledge/brief-snippet.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "knowledge/brief-snippet.md",
+          "blob": "54efe155ef96ac54e1d68008bd578d1a966e943e"
+        }
+      },
+      {
+        "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
+          "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md",
+          "blob": "bc5f07fbd9d2a331b01d7ee4a8c142d399fcd4e1"
+        }
+      },
+      {
+        "id": "tokyo:AGENTS.md",
+        "ref": {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "50616cb024f64af4b20be8e0e0ef7738b5c918e3",
+          "path": "AGENTS.md",
+          "blob": "0c13fa62327dd6532621a318e7a4920682b2809a"
+        }
+      },
+      {
+        "id": "tokyo:README.md",
+        "ref": {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "50616cb024f64af4b20be8e0e0ef7738b5c918e3",
+          "path": "README.md",
+          "blob": "f8ef49023683a156334878e3ccc7218ca7965285"
+        }
+      }
+    ]
+  },
+  "plans": {
+    "C1": {
+      "method": "Run the exact local checks, inspect their raw output and source bindings, then independently inspect original criterion evidence and source scope. Historical real-docs replay remains test-only; no live permission inferred.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+          "type": "log",
+          "check_id": "scoped-unit"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+          "type": "log",
+          "check_id": "real-docs-replay"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
+      ],
+      "build": null,
+      "coverage": [
+        "C1-registered-scope"
+      ],
+      "reviewer_id": "dot-native-scoped-admission-reviewer"
+    },
+    "C2": {
+      "method": "Run the exact local checks, inspect their raw output and source bindings, then independently inspect original criterion evidence and source scope. Historical real-docs replay remains test-only; no live permission inferred.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+          "type": "log",
+          "check_id": "scoped-unit"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/broken-original-regression.json",
+          "type": "log",
+          "check_id": "broken-original-regression"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
+      ],
+      "build": null,
+      "coverage": [
+        "C2-registered-scope"
+      ],
+      "reviewer_id": "dot-native-scoped-admission-reviewer"
+    },
+    "C3": {
+      "method": "Run the exact local checks, inspect their raw output and source bindings, then independently inspect original criterion evidence and source scope. Historical real-docs replay remains test-only; no live permission inferred.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+          "type": "log",
+          "check_id": "scoped-unit"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
+      ],
+      "build": null,
+      "coverage": [
+        "C3-registered-scope"
+      ],
+      "reviewer_id": "dot-native-scoped-admission-reviewer"
+    },
+    "C4": {
+      "method": "Run the exact local checks, inspect their raw output and source bindings, then independently inspect original criterion evidence and source scope. Historical real-docs replay remains test-only; no live permission inferred.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+          "type": "log",
+          "check_id": "scoped-unit"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
+          "type": "log",
+          "check_id": "original-coordinator-unit"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/legacy-regression.json",
+          "type": "log",
+          "check_id": "legacy-regression"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-review.json",
+          "type": "log",
+          "check_id": "retained-review"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-acceptance_isolation.json",
+          "type": "log",
+          "check_id": "retained-acceptance_isolation"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-final_guards.json",
+          "type": "log",
+          "check_id": "retained-final_guards"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-operation_needs.json",
+          "type": "log",
+          "check_id": "retained-operation_needs"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-hold_invariance.json",
+          "type": "log",
+          "check_id": "retained-hold_invariance"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
+      ],
+      "build": null,
+      "coverage": [
+        "C4-registered-scope"
+      ],
+      "reviewer_id": "dot-native-scoped-admission-reviewer"
+    },
+    "C5": {
+      "method": "Run the exact local checks, inspect their raw output and source bindings, then independently inspect original criterion evidence and source scope. Historical real-docs replay remains test-only; no live permission inferred.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/evidence-policy-unit.json",
+          "type": "log",
+          "check_id": "evidence-policy-unit"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+          "type": "log",
+          "check_id": "real-docs-replay"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
+      ],
+      "build": null,
+      "coverage": [
+        "C5-registered-scope"
+      ],
+      "reviewer_id": "dot-native-scoped-admission-reviewer"
+    },
+    "C6": {
+      "method": "Run the exact local checks, inspect their raw output and source bindings, then independently inspect original criterion evidence and source scope. Historical real-docs replay remains test-only; no live permission inferred.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+          "type": "log",
+          "check_id": "scoped-unit"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
+          "type": "log",
+          "check_id": "original-coordinator-unit"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
+      ],
+      "build": null,
+      "coverage": [
+        "C6-registered-scope"
+      ],
+      "reviewer_id": "dot-native-scoped-admission-reviewer"
+    },
+    "C7": {
+      "method": "Run the exact local checks, inspect their raw output and source bindings, then independently inspect original criterion evidence and source scope. Historical real-docs replay remains test-only; no live permission inferred.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/scoped-admission/independent-verification.json",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
+      ],
+      "build": null,
+      "coverage": [
+        "C7-registered-scope"
+      ],
+      "reviewer_id": "dot-native-scoped-admission-reviewer"
+    }
+  },
+  "evidence": [
+    {
+      "id": "C1:scoped-unit",
+      "criterion_id": "C1",
+      "instances": [
+        "C1-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
+      "check_id": "scoped-unit"
+    },
+    {
+      "id": "C1:real-docs-replay",
+      "criterion_id": "C1",
+      "instances": [
+        "C1-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+        "blob": "0aee8d81d44d55a18a554a07a67002cbe66d0f39"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:54.673303+00:00",
+      "check_id": "real-docs-replay"
+    },
+    {
+      "id": "C2:scoped-unit",
+      "criterion_id": "C2",
+      "instances": [
+        "C2-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
+      "check_id": "scoped-unit"
+    },
+    {
+      "id": "C2:broken-original-regression",
+      "criterion_id": "C2",
+      "instances": [
+        "C2-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/broken-original-regression.json",
+        "blob": "9f43987df472ede3c4e34ae2f6d5351f8cd180a7"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:54.558020+00:00",
+      "check_id": "broken-original-regression"
+    },
+    {
+      "id": "C3:scoped-unit",
+      "criterion_id": "C3",
+      "instances": [
+        "C3-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
+      "check_id": "scoped-unit"
+    },
+    {
+      "id": "C4:scoped-unit",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
+      "check_id": "scoped-unit"
+    },
+    {
+      "id": "C4:original-coordinator-unit",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
+        "blob": "e32f289ec96063c8dcdcc3bebe2e1d78f409d30d"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.857874+00:00",
+      "check_id": "original-coordinator-unit"
+    },
+    {
+      "id": "C4:legacy-regression",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/legacy-regression.json",
+        "blob": "e4678606e2737e24c189be35054aac33a108c21d"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:53.818211+00:00",
+      "check_id": "legacy-regression"
+    },
+    {
+      "id": "C4:retained-review",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-review.json",
+        "blob": "b0e2210af4f6c7befdfaacf243d8b90e8bd6abe0"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:54.791408+00:00",
+      "check_id": "retained-review"
+    },
+    {
+      "id": "C4:retained-acceptance_isolation",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-acceptance_isolation.json",
+        "blob": "7269b8ad802e152def8c9d83599d510cf2152dc0"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:54.928184+00:00",
+      "check_id": "retained-acceptance_isolation"
+    },
+    {
+      "id": "C4:retained-final_guards",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-final_guards.json",
+        "blob": "369f7de378dfd37645972ce0e65241d6f4fae0de"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:55.047946+00:00",
+      "check_id": "retained-final_guards"
+    },
+    {
+      "id": "C4:retained-operation_needs",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-operation_needs.json",
+        "blob": "5d947aafe552ba3bd17191880e0d54face52dcaf"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:55.175428+00:00",
+      "check_id": "retained-operation_needs"
+    },
+    {
+      "id": "C4:retained-hold_invariance",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-hold_invariance.json",
+        "blob": "f7ad16297cafa240b6ee2da6f0d2355921d4ec18"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:55.365438+00:00",
+      "check_id": "retained-hold_invariance"
+    },
+    {
+      "id": "C5:evidence-policy-unit",
+      "criterion_id": "C5",
+      "instances": [
+        "C5-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/evidence-policy-unit.json",
+        "blob": "ac038ea2c25f6fb0bd2840314687b42c816d213e"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:53.548580+00:00",
+      "check_id": "evidence-policy-unit"
+    },
+    {
+      "id": "C5:real-docs-replay",
+      "criterion_id": "C5",
+      "instances": [
+        "C5-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+        "blob": "0aee8d81d44d55a18a554a07a67002cbe66d0f39"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:54.673303+00:00",
+      "check_id": "real-docs-replay"
+    },
+    {
+      "id": "C6:scoped-unit",
+      "criterion_id": "C6",
+      "instances": [
+        "C6-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
+      "check_id": "scoped-unit"
+    },
+    {
+      "id": "C6:original-coordinator-unit",
+      "criterion_id": "C6",
+      "instances": [
+        "C6-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
+        "blob": "e32f289ec96063c8dcdcc3bebe2e1d78f409d30d"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.857874+00:00",
+      "check_id": "original-coordinator-unit"
+    },
+    {
+      "id": "C7:independent-verification",
+      "criterion_id": "C7",
+      "instances": [
+        "C7-registered-scope"
+      ],
+      "type": "document",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "31144fc5f2df1eaff7922cf25f307f2fb29b797d",
+        "path": "project-management/watchdog/fixtures/scoped-admission/independent-verification.json",
+        "blob": "b12fd9edad3bdd10469bac1c4f412bfb5bb499ef"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:29:25.151774+00:00",
+      "check_id": null
+    }
+  ],
+  "verdict": {
+    "repository": "doublehidenblade/game-dev-central",
+    "commit": "53fa3308a4f841d855e1f65c24b0e292d41a36d4",
+    "path": "project-management/watchdog/fixtures/scoped-admission/strict-independent-verdict.json",
+    "blob": "d71d4efc225c256139207108f9c7266acc82e32a"
+  },
+  "human_verdict": null
+}
