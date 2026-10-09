@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "observed_at": "2026-10-09T20:18:13.000Z",
+  "observed_at": "2026-10-09T20:32:11.000Z",
   "rule_heads": {
-    "doublehidenblade/game-dev-central": "e0229161c284fa943d87b09e4115105122d04eea",
+    "doublehidenblade/game-dev-central": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
     "doublehidenblade/tokyo-drift-3d": "50616cb024f64af4b20be8e0e0ef7738b5c918e3"
   },
   "rules": [
@@ -10,7 +10,7 @@
       "id": "central:COORDINATOR.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "COORDINATOR.md",
         "blob": "58786d160ad1bc509a7ee74df030988056389308"
       }
@@ -19,7 +19,7 @@
       "id": "central:knowledge/standing-rules.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "knowledge/standing-rules.md",
         "blob": "01b19a267622992cbe7713f856e2c2bcf87b1e50"
       }
@@ -28,7 +28,7 @@
       "id": "central:project-management/rules/SYSTEM.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "project-management/rules/SYSTEM.md",
         "blob": "08226c75366dfa25133fcd058477b4b854febaf2"
       }
@@ -37,7 +37,7 @@
       "id": "central:project-management/rules/WORKER_BRIEF.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "project-management/rules/WORKER_BRIEF.md",
         "blob": "95dc23587561489931e897f9a58c7be0c2202e7d"
       }
@@ -46,7 +46,7 @@
       "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "project-management/rules/WORKER_SELECTION_POLICY.md",
         "blob": "343d3e3f8db6976789d4a631ca38619b6c27dc0e"
       }
@@ -55,7 +55,7 @@
       "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "project-management/watchdog/EVIDENCE_POLICY.md",
         "blob": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe"
       }
@@ -64,7 +64,7 @@
       "id": "central:project-management/watchdog/RUNBOOK.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "project-management/watchdog/RUNBOOK.md",
         "blob": "490d6e355ca5164bc5b1f5e33316bd648f455581"
       }
@@ -73,7 +73,7 @@
       "id": "central:project-management/rules/DURABILITY.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "project-management/rules/DURABILITY.md",
         "blob": "11d159e403d88c292a8051e3d7589b1ab9af72df"
       }
@@ -82,7 +82,7 @@
       "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "project-management/rules/VALIDATOR_BRIEF.md",
         "blob": "405469fad99355eb23b01551c92c0c74693e75fe"
       }
@@ -91,7 +91,7 @@
       "id": "central:knowledge/workflow/game-dev-workflow.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "knowledge/workflow/game-dev-workflow.md",
         "blob": "9d3b278c9b71e213d59874c5a56498630d14fc74"
       }
@@ -100,7 +100,7 @@
       "id": "central:knowledge/brief-snippet.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "knowledge/brief-snippet.md",
         "blob": "54efe155ef96ac54e1d68008bd578d1a966e943e"
       }
@@ -109,7 +109,7 @@
       "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "e0229161c284fa943d87b09e4115105122d04eea",
+        "commit": "f22b0353f7f2d18b0b4bb5ec1148b179694b30ac",
         "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md",
         "blob": "bc5f07fbd9d2a331b01d7ee4a8c142d399fcd4e1"
       }
@@ -135,14 +135,14 @@
   ],
   "task_ref": {
     "repository": "doublehidenblade/game-dev-central",
-    "commit": "8667a3cd2fa74db9e054032c3fcf6416d26c3214",
+    "commit": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
     "path": "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
-    "blob": "4fec9f2fa7c7d8c963835aa4be0baf2cda467bd8"
+    "blob": "3a2383934fe5f1aca170573cca5f4aa0085c7e7f"
   },
   "candidate": {
     "repository": "doublehidenblade/game-dev-central",
-    "implementation_head": "8667a3cd2fa74db9e054032c3fcf6416d26c3214",
-    "artifact_head": "4f990e88fe51933aa5faab913a345d09408f94bd"
+    "implementation_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+    "artifact_head": "53fa3308a4f841d855e1f65c24b0e292d41a36d4"
   },
   "principals": {
     "author": "dot-native-scoped-admission-author",
@@ -159,145 +159,145 @@
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
-        "blob": "fdc18b0b4111ec68553635bba4658733844c0bf5"
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
-        "blob": "b60222a7844eb7c4f9b836b33f3f2e93b8477cda"
+        "blob": "0aee8d81d44d55a18a554a07a67002cbe66d0f39"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/broken-original-regression.json",
-        "blob": "8f13a1ef2d8b2f2baec6975156e287d31c1a1158"
+        "blob": "9f43987df472ede3c4e34ae2f6d5351f8cd180a7"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
-        "blob": "5ebeb387a9b9cbafaed47794d6368dd58da227f6"
+        "blob": "e32f289ec96063c8dcdcc3bebe2e1d78f409d30d"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/legacy-regression.json",
-        "blob": "b9c91123bec1e76bad4c13bc5c21e957923344a7"
+        "blob": "e4678606e2737e24c189be35054aac33a108c21d"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-review.json",
-        "blob": "bd7ab92c71e23dc62eb49013328db4fb0843cef2"
+        "blob": "b0e2210af4f6c7befdfaacf243d8b90e8bd6abe0"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-acceptance_isolation.json",
-        "blob": "02691658043d5b66d42a799c94c44f15457e4b1f"
+        "blob": "7269b8ad802e152def8c9d83599d510cf2152dc0"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-final_guards.json",
-        "blob": "2608e7eb627b81fd9455487cf4d607eb5b1f5d20"
+        "blob": "369f7de378dfd37645972ce0e65241d6f4fae0de"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-operation_needs.json",
-        "blob": "3b018c535eeaa469c941b95070a56d3d35f27e25"
+        "blob": "5d947aafe552ba3bd17191880e0d54face52dcaf"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-hold_invariance.json",
-        "blob": "edc7cbd0c3fbccc1056e8fc36b491b7730231fdb"
+        "blob": "f7ad16297cafa240b6ee2da6f0d2355921d4ec18"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "execution",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
         "path": "project-management/watchdog/fixtures/scoped-admission/execution/evidence-policy-unit.json",
-        "blob": "55d758c2e0729df3cab771abc6c4b17636a29a1c"
+        "blob": "ac038ea2c25f6fb0bd2840314687b42c816d213e"
       },
       "actor_id": "dot-native-scoped-admission-author",
-      "observed_at": "2026-10-09T20:12:52.000Z",
-      "provenance": "Coordinator authenticated direct sole-author execution report; fetched exact immutable log through GitHub connector at20:12:52UTC and independently matched path/blob in complete artifact tree. Independent reviewer separately reproduced source checks. No live task eligibility inferred from replay controls."
+      "observed_at": "2026-10-09T20:28:19.000Z",
+      "provenance": "Coordinator authenticated direct author execution report for corrected source747692a0; fetched exact11 immutable logs via GitHub connector and matched complete artifact tree path/blob20:28:19UTC. Exits, source, actor and times checked; old-source acceptance is historical only."
     },
     {
       "kind": "review",
       "ref": {
         "repository": "doublehidenblade/game-dev-central",
-        "commit": "4f990e88fe51933aa5faab913a345d09408f94bd",
+        "commit": "53fa3308a4f841d855e1f65c24b0e292d41a36d4",
         "path": "project-management/watchdog/fixtures/scoped-admission/strict-independent-verdict.json",
-        "blob": "cdfdac797f343c2bcca239716485753480aa85e5"
+        "blob": "d71d4efc225c256139207108f9c7266acc82e32a"
       },
       "actor_id": "dot-native-scoped-admission-reviewer",
-      "observed_at": "2026-10-09T20:18:13.000Z",
-      "provenance": "Coordinator directly received separate independent reviewer exact C1-C7 verdict and hash, fetched committed bytes through GitHub connector, and matched immutable tree path/blob. Separate reviewer verified all mapped evidence and unchanged implementation scope."
+      "observed_at": "2026-10-09T20:32:11.000Z",
+      "provenance": "Coordinator directly received fresh corrected-source C1-C7 verdict from separate reviewer, fetched published verdict via GitHub connector and matched immutable path/blob. Reviewer verified817 rawobjects and18evidenceitems; old-source verdict not reused."
     }
   ],
   "findings": [],

@@ -1,11 +1,11 @@
 {
   "version": 1,
   "actor_id": "dot-coordinator",
-  "performed_at": "2026-10-09T20:18:53+00:00",
+  "performed_at": "2026-10-09T20:32:26+00:00",
   "operation": "acceptance-check",
   "exit_code": 0,
-  "source_head": "8667a3cd2fa74db9e054032c3fcf6416d26c3214",
-  "artifact_head": "4f990e88fe51933aa5faab913a345d09408f94bd",
+  "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+  "artifact_head": "53fa3308a4f841d855e1f65c24b0e292d41a36d4",
   "command": {
     "environment": {
       "PYTHONPATH": "project-management/watchdog"
@@ -24,7 +24,7 @@
     "path_normalization": "The actual command used local absolute paths to these exact authority/submission bytes and the full public-Git object database. This portable record substitutes repository-relative paths and a private decoded-object output path. The retained proof is a minimized subset; unchanged evaluate_completion was rerun against it at the actual observation time and produced the identical result. No test/gate result is inferred from path normalization."
   },
   "result": {
-    "authority_digest": "e4919b3cb8d92d39d6598ce05e177bfa2aa6a61a0ca8e252957d3c58bd76aa1f",
+    "authority_digest": "0e8ae1082566a9fad23de9c87cb590c1d4140577fd30812e562b318ee798e2bd",
     "gates": {
       "author": "PASS",
       "human_visual": "NOT_APPLICABLE",
@@ -42,13 +42,13 @@
     "version": 1
   },
   "inputs": {
-    "submission.json": "8f68a35f8aa532512624c1dee9fcf43ad62683bff5832cdb193413497e02805d",
-    "acceptance-authority.json": "ec1f56d91ad4775adbbd2fa0209a35f0d64a2d7c4a3ee71cb865b9778306745c"
+    "submission.json": "5b5e0a64adc9be652e0f1ad44f1baecf5919842bd24eaefe3214a86524c02657",
+    "acceptance-authority.json": "41073bac70cd3e1777842c945fb25c36e1e5e307bd163d3fce661b9ea296977d"
   },
   "object_proof": {
     "encoding": "base64(gzip(utf8-json))",
     "path": "project-management/watchdog/fixtures/scoped-admission/acceptance-objects.json.gz.b64",
-    "uncompressed_sha256": "6a1f6a7b88f610ba8922d9f4a81be38481c6f19979809e6c99d53e35ce51b660",
+    "uncompressed_sha256": "65fb79ce31edd05faed1f4466bebdf990fc5f12bf430b915122fd319f39374d1",
     "counts": {
       "doublehidenblade/game-dev-central": 60,
       "doublehidenblade/tokyo-drift-3d": 4

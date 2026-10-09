@@ -1,11 +1,11 @@
 # Actual repair evidence and historical controls
 
-The execution logs, independent-verification.json and strict-independent-verdict.json concern the isolated coordinator repair, canonical task ops-scoped-coordinator-admission-20261009, reviewed source 8667a3cd2fa74db9e054032c3fcf6416d26c3214. The author and independent reviewer are separate public roles. The coordinator must authenticate their observations and execute the unchanged evidence-policy acceptance check; a committed verdict alone is not a live admission receipt.
+The current execution logs, independent-verification.json and strict-independent-verdict.json concern the isolated coordinator repair, canonical task ops-scoped-coordinator-admission-20261009, corrected source 747692a0021a6c3d1272ea14d8d714f144efd8cc. The author and independent reviewer are separate public roles. Parent-coordinator authenticated observations and executed the unchanged evidence-policy acceptance check at 2026-10-09 20:32:26 UTC; acceptance-result.json and acceptance-receipt.json retain that exact result. The initial 8667a3cd source and its earlier PASS/receipt remain historical in Git history and do not accept the correction.
+
+The correction uses the one registered evidence-based attempt: current rule authority pins are independent of actual source/write/dependency/owner regions. Actual PR143-shaped rule proposals no longer create automatic writer conflicts for a rule reader. Every explicit region, candidate write, canonical source dependency, relevant owner/queue and wildcard stop remains protected. Actual central PR377 board-context and Tokyo PR533 task-file differences remain negative controls. No live action on either PR is authorized by these tests.
 
 The synthetic snapshot and real PR430 replay remain historical algorithm controls. Their synthetic outer ownership/source receipts never authorize current docs merges, operations, or global IDLE. Current stale author acknowledgment remains a failing control. No private session/queue inputs are included here.
 
 Scoped operation admission additionally requires current, complete relevant source and ownership receipts, exact full-head bindings, successful required checks, and all unchanged stop, denial and deployment rules. Missing global coverage still prevents a global IDLE claim. This source change does not install a collector, live dispatcher, or private-copy synchronization.
 
-The initial 8667a3cd source and its acceptance packet are historical once the
-bounded read-only rule-pin correction begins. They do not accept that correction;
-the corrected exact source requires a fresh independent verdict and policy gate.
+The public acceptance packet binds the last evidence artifact before its own publication, avoiding self-reference. The coordinator must independently prove that a later evidence-only PR tip has the same reviewed source and bind that exact tip in its private current pre-action check. Authority freshness expires; this archived packet is not perpetual permission.

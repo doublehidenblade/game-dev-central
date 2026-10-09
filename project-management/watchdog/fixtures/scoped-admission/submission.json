@@ -467,7 +467,337 @@
       "reviewer_id": "dot-native-scoped-admission-reviewer"
     }
   },
-  "evidence": [],
-  "verdict": null,
+  "evidence": [
+    {
+      "id": "C1:scoped-unit",
+      "criterion_id": "C1",
+      "instances": [
+        "C1-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
+      "check_id": "scoped-unit"
+    },
+    {
+      "id": "C1:real-docs-replay",
+      "criterion_id": "C1",
+      "instances": [
+        "C1-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+        "blob": "0aee8d81d44d55a18a554a07a67002cbe66d0f39"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:54.673303+00:00",
+      "check_id": "real-docs-replay"
+    },
+    {
+      "id": "C2:scoped-unit",
+      "criterion_id": "C2",
+      "instances": [
+        "C2-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
+      "check_id": "scoped-unit"
+    },
+    {
+      "id": "C2:broken-original-regression",
+      "criterion_id": "C2",
+      "instances": [
+        "C2-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/broken-original-regression.json",
+        "blob": "9f43987df472ede3c4e34ae2f6d5351f8cd180a7"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:54.558020+00:00",
+      "check_id": "broken-original-regression"
+    },
+    {
+      "id": "C3:scoped-unit",
+      "criterion_id": "C3",
+      "instances": [
+        "C3-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
+      "check_id": "scoped-unit"
+    },
+    {
+      "id": "C4:scoped-unit",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
+      "check_id": "scoped-unit"
+    },
+    {
+      "id": "C4:original-coordinator-unit",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
+        "blob": "e32f289ec96063c8dcdcc3bebe2e1d78f409d30d"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.857874+00:00",
+      "check_id": "original-coordinator-unit"
+    },
+    {
+      "id": "C4:legacy-regression",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/legacy-regression.json",
+        "blob": "e4678606e2737e24c189be35054aac33a108c21d"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:53.818211+00:00",
+      "check_id": "legacy-regression"
+    },
+    {
+      "id": "C4:retained-review",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-review.json",
+        "blob": "b0e2210af4f6c7befdfaacf243d8b90e8bd6abe0"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:54.791408+00:00",
+      "check_id": "retained-review"
+    },
+    {
+      "id": "C4:retained-acceptance_isolation",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-acceptance_isolation.json",
+        "blob": "7269b8ad802e152def8c9d83599d510cf2152dc0"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:54.928184+00:00",
+      "check_id": "retained-acceptance_isolation"
+    },
+    {
+      "id": "C4:retained-final_guards",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-final_guards.json",
+        "blob": "369f7de378dfd37645972ce0e65241d6f4fae0de"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:55.047946+00:00",
+      "check_id": "retained-final_guards"
+    },
+    {
+      "id": "C4:retained-operation_needs",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-operation_needs.json",
+        "blob": "5d947aafe552ba3bd17191880e0d54face52dcaf"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:55.175428+00:00",
+      "check_id": "retained-operation_needs"
+    },
+    {
+      "id": "C4:retained-hold_invariance",
+      "criterion_id": "C4",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-hold_invariance.json",
+        "blob": "f7ad16297cafa240b6ee2da6f0d2355921d4ec18"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:55.365438+00:00",
+      "check_id": "retained-hold_invariance"
+    },
+    {
+      "id": "C5:evidence-policy-unit",
+      "criterion_id": "C5",
+      "instances": [
+        "C5-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/evidence-policy-unit.json",
+        "blob": "ac038ea2c25f6fb0bd2840314687b42c816d213e"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:53.548580+00:00",
+      "check_id": "evidence-policy-unit"
+    },
+    {
+      "id": "C5:real-docs-replay",
+      "criterion_id": "C5",
+      "instances": [
+        "C5-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+        "blob": "0aee8d81d44d55a18a554a07a67002cbe66d0f39"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:54.673303+00:00",
+      "check_id": "real-docs-replay"
+    },
+    {
+      "id": "C6:scoped-unit",
+      "criterion_id": "C6",
+      "instances": [
+        "C6-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+        "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
+      "check_id": "scoped-unit"
+    },
+    {
+      "id": "C6:original-coordinator-unit",
+      "criterion_id": "C6",
+      "instances": [
+        "C6-registered-scope"
+      ],
+      "type": "log",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
+        "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
+        "blob": "e32f289ec96063c8dcdcc3bebe2e1d78f409d30d"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:26:52.857874+00:00",
+      "check_id": "original-coordinator-unit"
+    },
+    {
+      "id": "C7:independent-verification",
+      "criterion_id": "C7",
+      "instances": [
+        "C7-registered-scope"
+      ],
+      "type": "document",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "31144fc5f2df1eaff7922cf25f307f2fb29b797d",
+        "path": "project-management/watchdog/fixtures/scoped-admission/independent-verification.json",
+        "blob": "b12fd9edad3bdd10469bac1c4f412bfb5bb499ef"
+      },
+      "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+      "build": null,
+      "performed_at": "2026-10-09T20:29:25.151774+00:00",
+      "check_id": null
+    }
+  ],
+  "verdict": {
+    "repository": "doublehidenblade/game-dev-central",
+    "commit": "53fa3308a4f841d855e1f65c24b0e292d41a36d4",
+    "path": "project-management/watchdog/fixtures/scoped-admission/strict-independent-verdict.json",
+    "blob": "d71d4efc225c256139207108f9c7266acc82e32a"
+  },
   "human_verdict": null
 }
