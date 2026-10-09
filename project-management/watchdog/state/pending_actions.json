@@ -16,7 +16,7 @@
    "session": "td-192",
    "pr": 505,
    "queued_at": "2026-10-09T07:10:00Z",
-   "reason": "INSPECT_MERGED: PR #505 merged 06:23:35Z by cron; inspected 2026-10-09 (validator VALIDATED, board reconciled by Craig, caption-correction PR #576 opened). Capture inspected screenshots of the merged separation/box-in behavior for the report."
+   "reason": "INSPECT_MERGED: PR #505 merged 06:23:35Z by cron. VERDICT RETRACTED 2026-10-09 ~07:50Z (watchdog reconciliation, Tokyo PR #582): validator VALIDATED was judged against an invented four-cop 90deg gate; original three-cop criterion stands; status back to in_review. Capture inspected screenshots of the merged separation/box-in behavior against the THREE-COP criterion (3 cops in pursuit hold visible separation, box-in distributed not stacked)."
   }
  ],
  "notes": [
