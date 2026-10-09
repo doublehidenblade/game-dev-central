@@ -5,7 +5,7 @@ Seeded from the agent watchdog state 2026-09-24 00:20 UTC. Entries marked `unver
 
 | Session | Platform | Current task | State (watchdog) | Last seen (UTC) |
 |---|---|---|---|---|
-| dot-native-td238-parser-author | Native dot | td-238 partial C2 pure parser/registry | PROPOSED RESERVATION; documentation author only; no assigned implementation worker; independent registration review and fresh admission pending | 2026-10-09 21:04 |
+| dot-native-td238-parser-author | Native dot | td-238-c2-parser-registry — bounded stage of td-238 | PROPOSED RESERVATION; documentation author only; no assigned implementation worker; independent registration review and fresh admission pending | 2026-10-09 21:04 |
 | codex:neon-drift | Codex cloud | p3d-060 — relative frame selection for civilian cars | FINISHED (completed diff +269/-39; task page failed to render, no nudge sent) | 2026-09-24 00:20 |
 | codex:tokyo-drift-3d | Codex cloud | td-020 — artifact storage quota (task_e_6ab467a3a478832eabc7ded5555f19cd) | unverified — fresh task 2026-09-23, running at 23:58 UTC check | 2026-09-23 23:58 |
 | codex:tokyo-drift-3d | Codex cloud | Shuto C1 publish (task_e_6ab436cecab4832eb514c6da1034bf6d) | FINISHED — worker PR blocked by branch protection; cron merged PR #23 | 2026-09-24 00:00 |
