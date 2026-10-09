@@ -1989,7 +1989,7 @@
    "task_file": "godot/docs/tasks/td-240.md",
    "dispatched_at": "2026-10-09T14:25:33.155789+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "alive"
   },
   "td-241": {
    "kind": "subagent",
@@ -1998,7 +1998,7 @@
    "task_file": "godot/docs/tasks/td-241.md",
    "dispatched_at": "2026-10-09T14:25:33.353278+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "alive"
   },
   "td-242": {
    "kind": "subagent",
@@ -2007,7 +2007,7 @@
    "task_file": "godot/docs/tasks/td-242.md",
    "dispatched_at": "2026-10-09T14:46:34.242163+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "stale"
   },
   "td-243": {
    "kind": "subagent",
@@ -2016,7 +2016,7 @@
    "task_file": "godot/docs/tasks/td-243.md",
    "dispatched_at": "2026-10-09T15:43:42.554430+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "alive"
   },
   "td-244": {
    "kind": "subagent",
@@ -2025,7 +2025,7 @@
    "task_file": "godot/docs/tasks/td-244.md",
    "dispatched_at": "2026-10-09T14:46:34.889967+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "stale"
   },
   "td-248": {
    "kind": "subagent",
@@ -2034,7 +2034,7 @@
    "task_file": "godot/docs/tasks/td-248.md",
    "dispatched_at": "2026-10-09T15:37:39.597766+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -2260,23 +2260,33 @@
   "td-237": "blocked",
   "td-238": "blocked",
   "td-239": "merged",
-  "td-240": "open",
-  "td-241": "open"
+  "td-240": "merged",
+  "td-241": "merged",
+  "td-243": "in_progress",
+  "td-245": "open",
+  "td-246": "open",
+  "td-247": "open",
+  "td-248": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T14:44:15.451043+00:00",
+  "ts": "2026-10-09T15:46:03.473965+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32; open PR #596 Inspector report: 2026-10-09 09:34 EDT)",
     "ALIVE td-189 (no heartbeat file; task-file commit 520abb8 2026-10-09T13:29)",
-    "ALIVE td-190 (no heartbeat file; task-file commit eaeb775 2026-10-09T13:52)",
+    "ALIVE td-190 (no heartbeat file; task-file commit eaeb775 2026-10-09T13:52; open PR #602 Inspector report: 2026-10-09 10:34 EDT (report-only, do not )",
     "ALIVE td-196 (no heartbeat file; task-file commit dbd5916 2026-10-09T13:02)",
-    "ALIVE td-239 (no heartbeat file; task-file commit c7fd96d 2026-10-09T14:21)",
-    "GRACE td-240 (dispatched 18min ago; no heartbeat file; session 565eaf25-326a-4caf-84d2-4683f03a5108 classification stale/missing)",
-    "GRACE td-241 (dispatched 18min ago; no heartbeat file; session 5094fc5c-a52b-45da-ad2c-851837db40d0 classification stale/missing)"
+    "ALIVE td-239 (no heartbeat file; task-file commit c7fd96d 2026-10-09T14:21; open PR #602 Inspector report: 2026-10-09 10:34 EDT (report-only, do not )",
+    "ALIVE td-240 (no heartbeat file; task-file commit 8771174 2026-10-09T14:51)",
+    "ALIVE td-241 (no heartbeat file; task-file commit 50902c8 2026-10-09T15:18)",
+    "STALE td-242 (no fresh observation; counter frozen; no heartbeat file; session c1251930-c07f-490a-966a-ff652dab8afc classification stale/missing)",
+    "ALIVE td-243 (no heartbeat file; open PR #606 td-243: Tokyo Bay restart shows loading screen over teardown)",
+    "STALE td-244 (no fresh observation; counter frozen; no heartbeat file; session 8fd72fe6-9e90-4a34-b391-66418817b49e classification stale/missing)",
+    "GRACE td-248 (dispatched 8min ago; no heartbeat file; session 34240e8b-1dbd-4e7f-ba52-782a5ae89c75 classification stale/missing)"
    ],
    "transitions": [
-    "FLIP td-239: open -> merged [silent]"
+    "FLIP td-240: open -> merged [silent]",
+    "FLIP td-241: open -> merged [silent]"
    ],
    "classification-health": [
     "STALE-RUNS=148"
@@ -2296,10 +2306,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-09T14:44:05.401453+00:00",
+   "liveness": "2026-10-09T15:45:52.720942+00:00",
    "classification-health": "2026-10-09T14:14:04.222590+00:00",
-   "transitions": "2026-10-09T14:44:15.451043+00:00",
-   "conflicts": "2026-10-09T14:44:11.814669+00:00",
+   "transitions": "2026-10-09T15:46:03.473965+00:00",
+   "conflicts": "2026-10-09T15:45:59.071111+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
@@ -2398,6 +2408,11 @@
    "pr": 606,
    "head_sha": "6bf2e184",
    "at": "2026-10-09T15:39:12.690190+00:00"
+  },
+  "td-242": {
+   "pr": 608,
+   "head_sha": "b5d110a4",
+   "at": "2026-10-09T15:50:01.045550+00:00"
   }
  }
 }
