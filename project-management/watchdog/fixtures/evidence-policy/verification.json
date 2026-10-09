@@ -1,6 +1,8 @@
 {
-  "observed_at": "2026-10-09T14:32:09.779888+00:00",
+  "observed_at": "2026-10-09T15:08:21.129380+00:00",
   "python": "3.12.14",
+  "attempt": "single independent-review correction",
+  "tests": "53 policy/integration methods,92 legacy assertions,37 coordinator unit methods,32+14+15+2+128 probes",
   "commands": [
     {
       "command": [
@@ -11,8 +13,8 @@
         "test_evidence_policy"
       ],
       "exit_code": 0,
-      "log": "fixtures/evidence-policy/check-1.log",
-      "sha256": "8d2216a756f3baf3c57e757b2d4f9e6b19c6a66f9d39e9c7db1247721718ce1c"
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-1.log",
+      "sha256": "7bd5561a7444ca5c286f0ec2900306f95495be9b6da15d10535e6c99dc095ab5"
     },
     {
       "command": [
@@ -20,8 +22,8 @@
         "test_rules.py"
       ],
       "exit_code": 0,
-      "log": "fixtures/evidence-policy/check-2.log",
-      "sha256": "80a636c909b956723ea5eb5f49fec36ffd22a5992faa0813810319a43725c8a9"
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-2.log",
+      "sha256": "ad9de4402f897cd84671852ac14ef60c3b8766259ff1c22d59d507732ccf7388"
     },
     {
       "command": [
@@ -29,7 +31,7 @@
         "test_coordinator_review.py"
       ],
       "exit_code": 0,
-      "log": "fixtures/evidence-policy/check-3.log",
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-3.log",
       "sha256": "7c6ca633d5d565b36428bf940dbb6d4fe9dba2364eca4c03e0d24fe32da5a6bc"
     },
     {
@@ -38,7 +40,7 @@
         "test_coordinator_acceptance_isolation.py"
       ],
       "exit_code": 0,
-      "log": "fixtures/evidence-policy/check-4.log",
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-4.log",
       "sha256": "ab19da30f34008fc738eeec182b291d73883da837c8ba09c79dbeac6dcaa2963"
     },
     {
@@ -47,7 +49,7 @@
         "test_coordinator_final_guards.py"
       ],
       "exit_code": 0,
-      "log": "fixtures/evidence-policy/check-5.log",
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-5.log",
       "sha256": "e06dc0bd76040e844fcaa5b524756f8f5c3ec54b5a73ba9d5e77b537c857aafb"
     },
     {
@@ -56,7 +58,7 @@
         "test_coordinator_hold_invariance.py"
       ],
       "exit_code": 0,
-      "log": "fixtures/evidence-policy/check-6.log",
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-6.log",
       "sha256": "fadf9550b7ee5b96649e2dd139e5b3eea4feba189bc53107ad19cbca5a63548f"
     },
     {
@@ -65,7 +67,7 @@
         "test_coordinator_operation_needs.py"
       ],
       "exit_code": 0,
-      "log": "fixtures/evidence-policy/check-7.log",
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-7.log",
       "sha256": "41a372d7349357b00cd2e81b47b704306d44f17d6ef0535038a33b69b42ba2a1"
     },
     {
@@ -80,9 +82,9 @@
         "test_evidence_policy.py"
       ],
       "exit_code": 0,
-      "log": "fixtures/evidence-policy/check-8.log",
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-8.log",
       "sha256": "f4a3d1a7b95b5f9c6d5ed760ba86de6697a1c57d35cd6de0659211d5beff16f3"
     }
   ],
-  "scope": "Local author tests only; independent acceptance pending. Prior coordinator synthetic operation-layer tests mock only the new policy boundary; production evidence tests do not. No Actions or live state mutation."
+  "scope": "Local author tests; independent corrected-head review pending. Prior operation-layer fixtures mock only the policy boundary; production proof tests are unmocked. No Actions or live mutation."
 }

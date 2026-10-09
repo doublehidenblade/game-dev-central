@@ -143,7 +143,7 @@ test_unknown_branch_and_ownership_conflicts_require_reconciliation (__main__.Coo
 test_unknown_branches_do_not_block_exact_read_only_review (__main__.CoordinatorEnforcementTests.test_unknown_branches_do_not_block_exact_read_only_review) ... ok
 
 ----------------------------------------------------------------------
-Ran 37 tests in 0.592s
+Ran 37 tests in 0.571s
 
 OK
 

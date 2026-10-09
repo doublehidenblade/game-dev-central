@@ -1,5 +1,9 @@
 $ python3 -m unittest -v test_evidence_policy
+test_actual_completion_alias_denies_unselected_current_failed_log (test_evidence_policy.EvidenceIntegrationTests.test_actual_completion_alias_denies_unselected_current_failed_log) ... ok
 test_all_real_aliases_use_shared_policy_and_exit_nonzero (test_evidence_policy.EvidenceIntegrationTests.test_all_real_aliases_use_shared_policy_and_exit_nonzero) ... ok
+test_current_failed_check_blocks_with_or_without_finding_or_new_review (test_evidence_policy.EvidenceIntegrationTests.test_current_failed_check_blocks_with_or_without_finding_or_new_review) ... ok
+test_impossible_admission_plans_are_rejected (test_evidence_policy.EvidenceIntegrationTests.test_impossible_admission_plans_are_rejected) ... ok
+test_new_findings_invalidate_old_review_and_need_explicit_inspection (test_evidence_policy.EvidenceIntegrationTests.test_new_findings_invalidate_old_review_and_need_explicit_inspection) ... ok
 test_production_admission_no_packet_or_partial_plan_denies (test_evidence_policy.EvidenceIntegrationTests.test_production_admission_no_packet_or_partial_plan_denies) ... ok
 test_production_aliases_cannot_reuse_legacy_evidence_strings (test_evidence_policy.EvidenceIntegrationTests.test_production_aliases_cannot_reuse_legacy_evidence_strings) ... ok
 test_production_coordinator_and_guard_require_full_policy (test_evidence_policy.EvidenceIntegrationTests.test_production_coordinator_and_guard_require_full_policy) ... ok
@@ -7,6 +11,7 @@ test_production_coordinator_scope_binding_and_stops (test_evidence_policy.Eviden
 test_regression_booleans_wrong_fixture_and_unrelated_failure_reject (test_evidence_policy.EvidenceIntegrationTests.test_regression_booleans_wrong_fixture_and_unrelated_failure_reject) ... ok
 test_reusable_guideline_executes_failure_and_records_bound_delta (test_evidence_policy.EvidenceIntegrationTests.test_reusable_guideline_executes_failure_and_records_bound_delta) ... ok
 test_same_source_conflicting_verdict_cannot_choose_convenient_pass (test_evidence_policy.EvidenceIntegrationTests.test_same_source_conflicting_verdict_cannot_choose_convenient_pass) ... ok
+test_visual_images_and_numeric_check_can_complete_together (test_evidence_policy.EvidenceIntegrationTests.test_visual_images_and_numeric_check_can_complete_together) ... ok
 test_build_capture_requires_authenticated_exact_binding (test_evidence_policy.EvidencePolicyTests.test_build_capture_requires_authenticated_exact_binding) ... ok
 test_canonical_rule_inventory_cannot_be_narrowed_in_both_inputs (test_evidence_policy.EvidencePolicyTests.test_canonical_rule_inventory_cannot_be_narrowed_in_both_inputs) ... ok
 test_changed_current_canonical_criteria_invalidates_review (test_evidence_policy.EvidencePolicyTests.test_changed_current_canonical_criteria_invalidates_review) ... ok
@@ -49,7 +54,7 @@ test_worker_cannot_narrow_authoritative_rules (test_evidence_policy.EvidencePoli
 test_wrong_build_variant_environment (test_evidence_policy.EvidencePolicyTests.test_wrong_build_variant_environment) ... ok
 
 ----------------------------------------------------------------------
-Ran 48 tests in 0.156s
+Ran 53 tests in 0.169s
 
 OK
 

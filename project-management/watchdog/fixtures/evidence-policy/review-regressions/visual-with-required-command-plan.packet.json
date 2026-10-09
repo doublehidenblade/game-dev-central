@@ -1,0 +1,313 @@
+{
+  "authority": {
+    "version": 1,
+    "observed_at": "2026-10-09T14:00:00Z",
+    "rule_heads": {
+      "example/evidence-policy": "904e642f18fd754803b832a6f9f54ab8b8df94b4"
+    },
+    "rules": [
+      {
+        "id": "R1",
+        "ref": {
+          "repository": "example/evidence-policy",
+          "commit": "904e642f18fd754803b832a6f9f54ab8b8df94b4",
+          "path": "rules.md",
+          "blob": "54bd7d17aa5973b2fb2471a66fae5dca9367df56"
+        }
+      }
+    ],
+    "task_ref": {
+      "repository": "example/evidence-policy",
+      "commit": "904e642f18fd754803b832a6f9f54ab8b8df94b4",
+      "path": "task.json",
+      "blob": "18f87695ecb48601bea03c79d2861a33da01f0d5"
+    },
+    "candidate": {
+      "repository": "example/evidence-policy",
+      "implementation_head": "904e642f18fd754803b832a6f9f54ab8b8df94b4",
+      "artifact_head": "ce004f55a3c509a24869ef747cb0089fa5eb34ea"
+    },
+    "principals": {
+      "author": "worker-A",
+      "coordinator": "coordinator-A",
+      "reviewer": "reviewer-B",
+      "human": "Craig"
+    },
+    "owner_id": "worker-A",
+    "status": "in_review",
+    "stopped": false,
+    "exclusions": {},
+    "attestations": [
+      {
+        "kind": "capture",
+        "ref": {
+          "repository": "example/evidence-policy",
+          "commit": "f91ac3ff5e643dcb241db4f03a0687ee37fd04f9",
+          "path": "qa/before.png",
+          "blob": "3391002dee2c46fdf9b52c61f949e94d53a91ae6"
+        },
+        "actor_id": "capture-observer",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "provenance": "Authenticated test collector record; synthetic fixture identity",
+        "binding": {
+          "source_head": "904e642f18fd754803b832a6f9f54ab8b8df94b4",
+          "build": {
+            "id": "test-build",
+            "variant": "test",
+            "environment": "python-3.12"
+          },
+          "performed_at": "2026-10-09T14:00:00Z",
+          "criterion_id": "C1",
+          "instances": [
+            "instance-A"
+          ]
+        }
+      },
+      {
+        "kind": "capture",
+        "ref": {
+          "repository": "example/evidence-policy",
+          "commit": "f91ac3ff5e643dcb241db4f03a0687ee37fd04f9",
+          "path": "qa/after.png",
+          "blob": "815bc5a73fa46b96c93e229de8d22139fe09bb88"
+        },
+        "actor_id": "capture-observer",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "provenance": "Authenticated test collector record; synthetic fixture identity",
+        "binding": {
+          "source_head": "904e642f18fd754803b832a6f9f54ab8b8df94b4",
+          "build": {
+            "id": "test-build",
+            "variant": "test",
+            "environment": "python-3.12"
+          },
+          "performed_at": "2026-10-09T14:00:00Z",
+          "criterion_id": "C1",
+          "instances": [
+            "instance-A"
+          ]
+        }
+      },
+      {
+        "kind": "review",
+        "ref": {
+          "repository": "example/evidence-policy",
+          "commit": "7edaa1f42ac0d68c9fb18af32924204c0aa96188",
+          "path": "qa/review-verdict.json",
+          "blob": "4e9b673a65ea4ce908d8bf95499ca431df3582ee"
+        },
+        "actor_id": "reviewer-B",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "provenance": "Authenticated test collector record; synthetic fixture identity"
+      },
+      {
+        "kind": "human",
+        "ref": {
+          "repository": "example/evidence-policy",
+          "commit": "ce004f55a3c509a24869ef747cb0089fa5eb34ea",
+          "path": "qa/human-verdict.json",
+          "blob": "0ab45cfff5e2af09203cad120609fe3e4b8b3e9f"
+        },
+        "actor_id": "Craig",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "provenance": "Authenticated test collector record; synthetic fixture identity"
+      }
+    ],
+    "findings": [],
+    "decisions": []
+  },
+  "submission": {
+    "acknowledgment": {
+      "task_id": "ops-example",
+      "author_id": "worker-A",
+      "rules": [
+        {
+          "id": "R1",
+          "ref": {
+            "repository": "example/evidence-policy",
+            "commit": "904e642f18fd754803b832a6f9f54ab8b8df94b4",
+            "path": "rules.md",
+            "blob": "54bd7d17aa5973b2fb2471a66fae5dca9367df56"
+          }
+        }
+      ]
+    },
+    "plans": {
+      "C1": {
+        "method": "Direct matched per-instance before/after pixel review plus Craig's phone judgment",
+        "artifacts": [
+          {
+            "path": "qa/before.png",
+            "type": "image"
+          },
+          {
+            "path": "qa/after.png",
+            "type": "image"
+          }
+        ],
+        "source_paths": [
+          "src/source.py"
+        ],
+        "build": {
+          "id": "test-build",
+          "variant": "test",
+          "environment": "python-3.12"
+        },
+        "coverage": [
+          "instance-A"
+        ],
+        "reviewer_id": "reviewer-B"
+      }
+    },
+    "evidence": [
+      {
+        "id": "E0",
+        "criterion_id": "C1",
+        "instances": [
+          "instance-A"
+        ],
+        "type": "image",
+        "ref": {
+          "repository": "example/evidence-policy",
+          "commit": "f91ac3ff5e643dcb241db4f03a0687ee37fd04f9",
+          "path": "qa/before.png",
+          "blob": "3391002dee2c46fdf9b52c61f949e94d53a91ae6"
+        },
+        "source_head": "904e642f18fd754803b832a6f9f54ab8b8df94b4",
+        "build": {
+          "id": "test-build",
+          "variant": "test",
+          "environment": "python-3.12"
+        },
+        "performed_at": "2026-10-09T14:00:00Z",
+        "check_id": null,
+        "pair": {
+          "role": "before",
+          "camera": "locked-camera-instance-A"
+        }
+      },
+      {
+        "id": "E1",
+        "criterion_id": "C1",
+        "instances": [
+          "instance-A"
+        ],
+        "type": "image",
+        "ref": {
+          "repository": "example/evidence-policy",
+          "commit": "f91ac3ff5e643dcb241db4f03a0687ee37fd04f9",
+          "path": "qa/after.png",
+          "blob": "815bc5a73fa46b96c93e229de8d22139fe09bb88"
+        },
+        "source_head": "904e642f18fd754803b832a6f9f54ab8b8df94b4",
+        "build": {
+          "id": "test-build",
+          "variant": "test",
+          "environment": "python-3.12"
+        },
+        "performed_at": "2026-10-09T14:00:00Z",
+        "check_id": null,
+        "pair": {
+          "role": "after",
+          "camera": "locked-camera-instance-A"
+        }
+      }
+    ],
+    "verdict": {
+      "repository": "example/evidence-policy",
+      "commit": "7edaa1f42ac0d68c9fb18af32924204c0aa96188",
+      "path": "qa/review-verdict.json",
+      "blob": "4e9b673a65ea4ce908d8bf95499ca431df3582ee"
+    },
+    "human_verdict": {
+      "repository": "example/evidence-policy",
+      "commit": "ce004f55a3c509a24869ef747cb0089fa5eb34ea",
+      "path": "qa/human-verdict.json",
+      "blob": "0ab45cfff5e2af09203cad120609fe3e4b8b3e9f"
+    }
+  },
+  "objects": {
+    "example/evidence-policy": {
+      "18f87695ecb48601bea03c79d2861a33da01f0d5": {
+        "type": "blob",
+        "base64": "eyJjb21wbGV0aW9uX2NyaXRlcmlhIjogW3siY3JpdGVyaW9uIjogIkZpeCBldmVyeSBtYXBwZWQgaW5zdGFuY2UiLCAiaWQiOiAiQzEiLCAidmVyaWZpY2F0aW9uIjogIkluc3BlY3Qgb3JpZ2luYWwgZXhhY3QtaGVhZCBldmlkZW5jZSJ9XSwgImV2aWRlbmNlX3BvbGljeSI6IHsiQzEiOiB7ImFwcGxpY2FiaWxpdHkiOiAicmVxdWlyZWQiLCAiYnVpbGQiOiB7ImVudmlyb25tZW50IjogInB5dGhvbi0zLjEyIiwgImlkIjogInRlc3QtYnVpbGQiLCAidmFyaWFudCI6ICJ0ZXN0In0sICJjaGVja3MiOiBbeyJjb21tYW5kIjogWyJweXRob24zIiwgImd1YXJkLnB5Il0sICJpZCI6ICJwaXhlbC1ndWFyZCJ9XSwgImluc3RhbmNlcyI6IFsiaW5zdGFuY2UtQSJdLCAicmF0aW9uYWxlIjogIkNhbm9uaWNhbCB0YXNrIHJlcXVpcmVzIHRoaXMgY3JpdGVyaW9uIiwgInJ1bGVfaWQiOiAiUjEiLCAic291cmNlX3BhdGhzIjogWyJzcmMvc291cmNlLnB5Il0sICJ2aXN1YWwiOiB0cnVlfX0sICJldmlkZW5jZV9ydWxlX2ludmVudG9yeSI6IFt7ImlkIjogIlIxIiwgInBhdGgiOiAicnVsZXMubWQiLCAicmVwb3NpdG9yeSI6ICJleGFtcGxlL2V2aWRlbmNlLXBvbGljeSJ9XSwgImlkIjogIm9wcy1leGFtcGxlIn0="
+      },
+      "54bd7d17aa5973b2fb2471a66fae5dca9367df56": {
+        "type": "blob",
+        "base64": "IyBSMQpFdmVyeSBhcHBsaWNhYmxlIGNyaXRlcmlvbiBuZWVkcyBpbmRlcGVuZGVudCBpbnNwZWN0aW9uLgo="
+      },
+      "f8cc332ed6e82f0271db0e36791c85d4d56133f0": {
+        "type": "blob",
+        "base64": "YXNzZXJ0IFRydWUK"
+      },
+      "838236970289f96ec963f61a824c53339ae439cd": {
+        "type": "blob",
+        "base64": "eyJjb2RlIjogIk1JU1NJTkdfRVZJREVOQ0UiLCAiZGVmZWN0IjogIm1pc3NpbmcgZXZpZGVuY2UifQ=="
+      },
+      "7b35db36ca3e73e7ba5c467e8dcbd4ca7ec386c3": {
+        "type": "tree",
+        "base64": "MTAwNjQ0IHNvdXJjZS5weQD4zDMu1ugvAnHbDjZ5HIXU1WEz8A=="
+      },
+      "6c32afe6a7c941d2ae5bb09109e07927950b2f53": {
+        "type": "tree",
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNMTAwNjQ0IHJ1bGVzLm1kAFS9fReqWXOy+yRxpm+uXcqTZ99WNDAwMDAgc3JjAHs12zbKPnPnulxGfo3L1Mp+w4bDMTAwNjQ0IHRhc2suanNvbgAY+HaV7LSGAb6gPHnShhoz2gHw1Q=="
+      },
+      "904e642f18fd754803b832a6f9f54ab8b8df94b4": {
+        "type": "commit",
+        "base64": "dHJlZSA2YzMyYWZlNmE3Yzk0MWQyYWU1YmIwOTEwOWUwNzkyNzk1MGIyZjUzCmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg=="
+      },
+      "3391002dee2c46fdf9b52c61f949e94d53a91ae6": {
+        "type": "blob",
+        "base64": "iVBORw0KGgpmaXh0dXJlLWJlZm9yZS1waXhlbHM="
+      },
+      "815bc5a73fa46b96c93e229de8d22139fe09bb88": {
+        "type": "blob",
+        "base64": "iVBORw0KGgpmaXh0dXJlLWFmdGVyLXBpeGVscw=="
+      },
+      "4f38957ef8b3ab6ca8af274d84dac5a12b2f37c9": {
+        "type": "tree",
+        "base64": "MTAwNjQ0IGFmdGVyLnBuZwCBW8WnP6Rrlsk+Ip3o0iE5/gm7iDEwMDY0NCBiZWZvcmUucG5nADORAC3uLEb9+bUsYflJ6U1TqRrm"
+      },
+      "4a8ee483800b4e7868c8a6d639f81b72791bb5c3": {
+        "type": "tree",
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNNDAwMDAgcWEATziVfvizq2yorydNhNrFoSsvN8kxMDA2NDQgcnVsZXMubWQAVL19F6pZc7L7JHGmb65dypNn31Y0MDAwMCBzcmMAezXbNso+c+e6XEZ+jcvUyn7DhsMxMDA2NDQgdGFzay5qc29uABj4dpXstIYBvqA8edKGGjPaAfDV"
+      },
+      "f91ac3ff5e643dcb241db4f03a0687ee37fd04f9": {
+        "type": "commit",
+        "base64": "dHJlZSA0YThlZTQ4MzgwMGI0ZTc4NjhjOGE2ZDYzOWY4MWI3Mjc5MWJiNWMzCnBhcmVudCA5MDRlNjQyZjE4ZmQ3NTQ4MDNiODMyYTZmOWY1NGFiOGI4ZGY5NGI0CmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg=="
+      },
+      "4e9b673a65ea4ce908d8bf95499ca431df3582ee": {
+        "type": "blob",
+        "base64": "eyJhY3Rvcl9pZCI6ICJyZXZpZXdlci1CIiwgImF1dGhvcml0eV9kaWdlc3QiOiAiZjdlMzYwMDI1ZjAwMjM0ZGQ2ZTliNmUzM2E1MTFlZGQ4NzdiZjIxYTA3NDAyYjFlYjMxMzhkODhhY2M5ZGJjYyIsICJjYW5kaWRhdGVfaGVhZCI6ICI5MDRlNjQyZjE4ZmQ3NTQ4MDNiODMyYTZmOWY1NGFiOGI4ZGY5NGI0IiwgImNyaXRlcmlhIjogeyJDMSI6IHsiY2l0YXRpb25zIjogW3siYmxvYiI6ICIzMzkxMDAyZGVlMmM0NmZkZjliNTJjNjFmOTQ5ZTk0ZDUzYTkxYWU2IiwgImNvbW1pdCI6ICJmOTFhYzNmZjVlNjQzZGNiMjQxZGI0ZjAzYTA2ODdlZTM3ZmQwNGY5IiwgInBhdGgiOiAicWEvYmVmb3JlLnBuZyIsICJyZXBvc2l0b3J5IjogImV4YW1wbGUvZXZpZGVuY2UtcG9saWN5In0sIHsiYmxvYiI6ICI4MTViYzVhNzNmYTQ2Yjk2YzkzZTIyOWRlOGQyMjEzOWZlMDliYjg4IiwgImNvbW1pdCI6ICJmOTFhYzNmZjVlNjQzZGNiMjQxZGI0ZjAzYTA2ODdlZTM3ZmQwNGY5IiwgInBhdGgiOiAicWEvYWZ0ZXIucG5nIiwgInJlcG9zaXRvcnkiOiAiZXhhbXBsZS9ldmlkZW5jZS1wb2xpY3kifV0sICJkZWNpc2lvbiI6ICJQQVNTIiwgImV2aWRlbmNlX2lkcyI6IFsiRTAiLCAiRTEiXSwgInJhdGlvbmFsZSI6ICJPcmlnaW5hbCBldmlkZW5jZSBpbnNwZWN0ZWQgYW5kIG1hcHBlZCBpbnN0YW5jZSBjaGVja2VkIiwgInZpc3VhbF9pbnNwZWN0aW9uIjogeyJhZnRlcl9yZXNvbHZlc19kZWZlY3QiOiB0cnVlLCAibWF0Y2hlZF9wYWlycyI6IHRydWUsICJtZWFuaW5nZnVsIjogdHJ1ZSwgIm1ldGhvZCI6ICJkaXJlY3RfcGl4ZWxfaW5zcGVjdGlvbiIsICJub25lbXB0eSI6IHRydWV9fX0sICJldmlkZW5jZV9kaWdlc3QiOiAiYjg2NTRhZDNkODA1MTczZDBjOTkyZGZmZmQ5NGM0ZjJkYmE0ZTZhMWMxMmQ3ZjBlNDYwMzAwZTJlZjY1NWIzYiIsICJwZXJmb3JtZWRfYXQiOiAiMjAyNi0xMC0wOVQxNDowMDowMFoiLCAidGFza19pZCI6ICJvcHMtZXhhbXBsZSJ9"
+      },
+      "4cc4c11378d877cf380f030cfedade5223a51a6e": {
+        "type": "tree",
+        "base64": "MTAwNjQ0IGFmdGVyLnBuZwCBW8WnP6Rrlsk+Ip3o0iE5/gm7iDEwMDY0NCBiZWZvcmUucG5nADORAC3uLEb9+bUsYflJ6U1TqRrmMTAwNjQ0IHJldmlldy12ZXJkaWN0Lmpzb24ATptnOmXqTOkI2L+VSZykMd81gu4="
+      },
+      "94dc88f9664242bcf07d3365e76927fcb58d9e03": {
+        "type": "tree",
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNNDAwMDAgcWEATMTBE3jYd884DwMM/treUiOlGm4xMDA2NDQgcnVsZXMubWQAVL19F6pZc7L7JHGmb65dypNn31Y0MDAwMCBzcmMAezXbNso+c+e6XEZ+jcvUyn7DhsMxMDA2NDQgdGFzay5qc29uABj4dpXstIYBvqA8edKGGjPaAfDV"
+      },
+      "7edaa1f42ac0d68c9fb18af32924204c0aa96188": {
+        "type": "commit",
+        "base64": "dHJlZSA5NGRjODhmOTY2NDI0MmJjZjA3ZDMzNjVlNzY5MjdmY2I1OGQ5ZTAzCnBhcmVudCBmOTFhYzNmZjVlNjQzZGNiMjQxZGI0ZjAzYTA2ODdlZTM3ZmQwNGY5CmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg=="
+      },
+      "0ab45cfff5e2af09203cad120609fe3e4b8b3e9f": {
+        "type": "blob",
+        "base64": "eyJhY3Rvcl9pZCI6ICJDcmFpZyIsICJhdXRob3JpdHlfZGlnZXN0IjogImY3ZTM2MDAyNWYwMDIzNGRkNmU5YjZlMzNhNTExZWRkODc3YmYyMWEwNzQwMmIxZWIzMTM4ZDg4YWNjOWRiY2MiLCAiY2FuZGlkYXRlX2hlYWQiOiAiOTA0ZTY0MmYxOGZkNzU0ODAzYjgzMmE2ZjlmNTRhYjhiOGRmOTRiNCIsICJjcml0ZXJpYSI6IHsiQzEiOiB7ImNpdGF0aW9ucyI6IFt7ImJsb2IiOiAiMzM5MTAwMmRlZTJjNDZmZGY5YjUyYzYxZjk0OWU5NGQ1M2E5MWFlNiIsICJjb21taXQiOiAiZjkxYWMzZmY1ZTY0M2RjYjI0MWRiNGYwM2EwNjg3ZWUzN2ZkMDRmOSIsICJwYXRoIjogInFhL2JlZm9yZS5wbmciLCAicmVwb3NpdG9yeSI6ICJleGFtcGxlL2V2aWRlbmNlLXBvbGljeSJ9LCB7ImJsb2IiOiAiODE1YmM1YTczZmE0NmI5NmM5M2UyMjlkZThkMjIxMzlmZTA5YmI4OCIsICJjb21taXQiOiAiZjkxYWMzZmY1ZTY0M2RjYjI0MWRiNGYwM2EwNjg3ZWUzN2ZkMDRmOSIsICJwYXRoIjogInFhL2FmdGVyLnBuZyIsICJyZXBvc2l0b3J5IjogImV4YW1wbGUvZXZpZGVuY2UtcG9saWN5In1dLCAiZGVjaXNpb24iOiAiUEFTUyIsICJldmlkZW5jZV9pZHMiOiBbIkUwIiwgIkUxIl0sICJyYXRpb25hbGUiOiAiT3JpZ2luYWwgZXZpZGVuY2UgaW5zcGVjdGVkIGFuZCBtYXBwZWQgaW5zdGFuY2UgY2hlY2tlZCIsICJ2aXN1YWxfaW5zcGVjdGlvbiI6IHsiYWZ0ZXJfcmVzb2x2ZXNfZGVmZWN0IjogdHJ1ZSwgIm1hdGNoZWRfcGFpcnMiOiB0cnVlLCAibWVhbmluZ2Z1bCI6IHRydWUsICJtZXRob2QiOiAiaHVtYW5fZGV2aWNlIiwgIm5vbmVtcHR5IjogdHJ1ZX19fSwgImV2aWRlbmNlX2RpZ2VzdCI6ICJiODY1NGFkM2Q4MDUxNzNkMGM5OTJkZmZmZDk0YzRmMmRiYTRlNmExYzEyZDdmMGU0NjAzMDBlMmVmNjU1YjNiIiwgInBlcmZvcm1lZF9hdCI6ICIyMDI2LTEwLTA5VDE0OjAwOjAwWiIsICJ0YXNrX2lkIjogIm9wcy1leGFtcGxlIn0="
+      },
+      "8c0415fd36735e23b160f74e62f19e1f08530136": {
+        "type": "tree",
+        "base64": "MTAwNjQ0IGFmdGVyLnBuZwCBW8WnP6Rrlsk+Ip3o0iE5/gm7iDEwMDY0NCBiZWZvcmUucG5nADORAC3uLEb9+bUsYflJ6U1TqRrmMTAwNjQ0IGh1bWFuLXZlcmRpY3QuanNvbgAKtFz/9eKvCSA8rRIGCf4+S4s+nzEwMDY0NCByZXZpZXctdmVyZGljdC5qc29uAE6bZzpl6kzpCNi/lUmcpDHfNYLu"
+      },
+      "a711651cde424411fef1b44a6de72c79b82e2b9b": {
+        "type": "tree",
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNNDAwMDAgcWEAjAQV/TZzXiOxYPdOYvGeHwhTATYxMDA2NDQgcnVsZXMubWQAVL19F6pZc7L7JHGmb65dypNn31Y0MDAwMCBzcmMAezXbNso+c+e6XEZ+jcvUyn7DhsMxMDA2NDQgdGFzay5qc29uABj4dpXstIYBvqA8edKGGjPaAfDV"
+      },
+      "ce004f55a3c509a24869ef747cb0089fa5eb34ea": {
+        "type": "commit",
+        "base64": "dHJlZSBhNzExNjUxY2RlNDI0NDExZmVmMWI0NGE2ZGU3MmM3OWI4MmUyYjliCnBhcmVudCA3ZWRhYTFmNDJhYzBkNjhjOWZiMThhZjMyOTI0MjA0YzBhYTk2MTg4CmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg=="
+      }
+    }
+  }
+}

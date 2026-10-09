@@ -100,7 +100,8 @@ def make_case(visual=False, task_transform=None, historical=False):
                  "owner_id": "worker-A", "status": "in_review", "stopped": False, "exclusions": {}, "attestations": [], "findings": [], "decisions": []}
     submission = {"acknowledgment": {"task_id": task["id"], "author_id": "worker-A", "rules": deepcopy(authority["rules"])},
                   "plans": {"C1": {"method": "Run exact local assertion and inspect result" if not visual else "Direct matched per-instance before/after pixel review plus Craig's phone judgment",
-                             "artifacts": [{"path": path, "type": "image" if visual else "log"} for path in paths],
+                             "artifacts": [({"path": path, "type": "image", "instances": ["instance-A"], "pair": {"role": "before" if i == 0 else "after", "camera": "locked-camera-instance-A"}} if visual else
+                                            {"path": path, "type": "log", "check_id": "unit"}) for i, path in enumerate(paths)],
                              "source_paths": ["src/source.py"], "build": build, "coverage": ["instance-A"], "reviewer_id": "reviewer-B"}},
                   "evidence": evidence}
     case = {"world": w, "authority": authority, "submission": submission, "source": source, "task": task, "execution": execution}
@@ -346,9 +347,9 @@ class EvidencePolicyTests(unittest.TestCase):
 
     def test_unmapped_or_missing_required_checks(self):
         c = make_case(); c["submission"]["evidence"][0]["check_id"] = None
-        self.denied(c, code="UNMAPPED_CHECK")
+        self.denied(c, code="UNPLANNED_EVIDENCE")
         c = make_case(task_transform=lambda t: t["evidence_policy"]["C1"]["checks"].append({"id": "second", "command": ["python3", "other.py"]}))
-        self.denied(c, code="MISSING_CHECK")
+        self.denied(c, code="INCOMPLETE_PLAN")
 
     def test_missing_and_unattested_independent_verdict(self):
         c = make_case(); c["submission"].pop("verdict"); self.denied(c, code="MISSING_VERDICT")
@@ -673,6 +674,69 @@ class EvidenceIntegrationTests(unittest.TestCase):
             result = json.loads(out.getvalue())
             self.assertNotIn("merge", [x["operation"] for x in result["actions"]])
             self.assertIn("verification", [x["operation"] for x in result["actions"]])
+
+
+    def test_current_failed_check_blocks_with_or_without_finding_or_new_review(self):
+        for add_finding in (False, True):
+            for refresh_review in (False, True):
+                with self.subTest(finding=add_finding, fresh_review=refresh_review):
+                    c = make_case(); a, w = c['authority'], c['world']
+                    failed = deepcopy(c['execution']); failed.update(exit_code=1, output='FAILED: mapped instance-A invariant broken')
+                    w.file('qa/new-failure.json', failed); head = w.commit(a['candidate']['artifact_head'])
+                    a['candidate']['artifact_head'] = head; ref = w.ref(head, 'qa/new-failure.json')
+                    attest(c, 'execution', ref, 'test-observer')
+                    if add_finding:
+                        f = {'id': 'F-current-failed-execution', 'repository': REPO, 'head': head, 'observed_at': STAMP,
+                             'task_id': 'ops-example', 'criterion_id': 'C1', 'evidence': [ref], 'code': 'FAILED_CHECK', 'coverage': ['instance-A'], 'limitations': []}
+                        f['fingerprint'] = ep.finding_fingerprint(f); a['findings'] = [f]
+                        decision(c, 'existing_rule')
+                    if refresh_review:
+                        install_verdict(c, 'review')
+                    self.denied(c, code='CURRENT_CHECK_FAILED')
+
+    def test_new_findings_invalidate_old_review_and_need_explicit_inspection(self):
+        c = make_case(); c['authority']['findings'] = [finding(c)]; decision(c)
+        self.denied(c, code='STALE_VERDICT')
+        install_verdict(c, 'review')
+        self.denied(c, code='UNREVIEWED_FINDING')
+        def inspected(v):
+            v['criteria']['C1']['finding_ids'] = ['F1']
+            v['criteria']['C1']['citations'] += c['authority']['findings'][0]['evidence']
+        install_verdict(c, 'review', inspected)
+        self.assertEqual(self.result(c)['status'], 'ACCEPTABLE')
+
+    def test_impossible_admission_plans_are_rejected(self):
+        c = make_case(); c['submission']['plans']['C1']['artifacts'][0]['type'] = 'document'
+        self.denied(c, 'admission', 'INCOMPLETE_PLAN')
+        c = make_case(visual=True); c['submission']['plans']['C1']['artifacts'] = c['submission']['plans']['C1']['artifacts'][:1]
+        self.denied(c, 'admission', 'VISUAL_PAIR_REQUIRED')
+        c = make_case(visual=True, task_transform=lambda t:t['evidence_policy']['C1'].update(checks=[{'id':'pixel-guard','command':['python3','guard.py']}]))
+        self.denied(c, 'admission', 'INCOMPLETE_PLAN')
+
+    def test_visual_images_and_numeric_check_can_complete_together(self):
+        c = make_case(visual=True, task_transform=lambda t:t['evidence_policy']['C1'].update(checks=[{'id':'pixel-guard','command':['python3','guard.py']}]))
+        a,w,s = c['authority'],c['world'],c['submission']
+        log = deepcopy(c['execution']); log.update(check_id='pixel-guard',command=['python3','guard.py'])
+        w.file('qa/guard.json',log); head = w.commit(a['candidate']['artifact_head']); a['candidate']['artifact_head'] = head
+        ref = w.ref(head,'qa/guard.json');attest(c,'execution',ref,'test-observer')
+        s['plans']['C1']['artifacts'].append({'path':'qa/guard.json','type':'log','check_id':'pixel-guard'})
+        s['evidence'].append({'id':'E-guard','criterion_id':'C1','instances':['instance-A'],'type':'log','ref':ref,'source_head':c['source'],
+                              'build':log['build'],'performed_at':STAMP,'check_id':'pixel-guard'})
+        install_verdict(c,'review');install_verdict(c,'human')
+        self.assertEqual(self.result(c,'admission')['status'],'ADMISSIBLE')
+        self.assertEqual(self.result(c)['status'],'ACCEPTABLE',self.result(c))
+
+    def test_actual_completion_alias_denies_unselected_current_failed_log(self):
+        import contextlib,io
+        import coordinator_cli as cli
+        c=make_case();a,w=c['authority'],c['world'];failed=deepcopy(c['execution']);failed['exit_code']=1
+        w.file('qa/unselected-failure.json',failed);head=w.commit(a['candidate']['artifact_head']);a['candidate']['artifact_head']=head
+        attest(c,'execution',w.ref(head,'qa/unselected-failure.json'),'test-observer')
+        reads={'authority':json.dumps(a),'submission':json.dumps(c['submission']),'objects':json.dumps(w.objects)}
+        for command in ('acceptance-check','validator-check','evidence-check','evidence-checks'):
+            with patch('builtins.open',side_effect=lambda path,*args,**kwargs:io.StringIO(reads[path])),contextlib.redirect_stdout(io.StringIO()) as out:
+                code=cli.run_evidence(command,['--authority','authority','--submission','submission','--objects','objects'],NOW)
+            self.assertEqual(code,3);self.assertEqual(json.loads(out.getvalue())['issues'][0]['code'],'CURRENT_CHECK_FAILED')
 
 
 

@@ -121,7 +121,11 @@ Submission fields:
 - `acknowledgment`: task ID, author ID and the exact complete current rule refs
 - `plans`: every applicable criterion, with nonempty method, concrete artifact
   paths/types, full source scope, build/variant/environment, all instances and
-  designated independent reviewer. A heading alone is not a plan
+  designated independent reviewer. Each log/assertion artifact names its
+  canonical `check_id`; every required check needs such an artifact. Every
+  visual image names exactly one `instances` entry and a `pair` with role and
+  camera, forming an explicit before/after pair per instance. Visual criteria
+  can also require numeric log/assertion artifacts. A heading alone is not a plan
 - `evidence`: per-artifact ID, criterion/instances/type/ref/source head/build/
   performance time and required check ID (null for documents/images/diffs)
 - `verdict`: independent review citation; `human_verdict` additionally for
@@ -186,6 +190,15 @@ artifact/instance. Rule content (blob) changes invalidate the review; mere
 movement of an authoritative branch with proven identical rule bytes does not.
 The acknowledgment still refreshes to the current full rule commit refs.
 Active conflicting FAIL/PENDING judgments cannot be hidden by selecting a PASS.
+Every authenticated execution observation is considered, even if the worker
+omits it from selected evidence or no inspector finding was filed. An applicable
+required-check failure on actual unchanged source/build blocks completion.
+An existing-rule disposition does not resolve that failure. Deliberate broken-
+fixture regressions are recognized only through their validated rule decision.
+New findings/decisions and non-review observations invalidate prior review;
+review hashes exclude their own review/human receipts to avoid a circular hash.
+The independent per-criterion judgment must name every `finding_ids` entry and
+inspect its original citations as well as the claimed resolution evidence.
 
 Machine source/evidence binding, independent review, and human visual judgment
 are distinct output gates. A matched before/after pair is required for each

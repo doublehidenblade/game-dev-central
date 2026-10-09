@@ -1980,7 +1980,7 @@
    "task_file": "godot/docs/tasks/td-239.md",
    "dispatched_at": "2026-10-09T13:57:43.595198+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "alive"
   },
   "td-240": {
    "kind": "subagent",
@@ -1989,7 +1989,7 @@
    "task_file": "godot/docs/tasks/td-240.md",
    "dispatched_at": "2026-10-09T14:25:33.155789+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-241": {
    "kind": "subagent",
@@ -1997,6 +1997,33 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-241.md",
    "dispatched_at": "2026-10-09T14:25:33.353278+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "grace"
+  },
+  "td-242": {
+   "kind": "subagent",
+   "session": "c1251930-c07f-490a-966a-ff652dab8afc",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-242.md",
+   "dispatched_at": "2026-10-09T14:46:34.242163+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-243": {
+   "kind": "subagent",
+   "session": "1c00c505-f983-4c9c-b38d-fda17284a037",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-243.md",
+   "dispatched_at": "2026-10-09T14:46:34.518768+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-244": {
+   "kind": "subagent",
+   "session": "8fd72fe6-9e90-4a34-b391-66418817b49e",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-244.md",
+   "dispatched_at": "2026-10-09T14:46:34.889967+00:00",
    "quiet_cycles": 0,
    "last_verdict": "registered"
   }
@@ -2223,22 +2250,24 @@
   "td-236": "blocked",
   "td-237": "blocked",
   "td-238": "blocked",
-  "td-239": "open"
+  "td-239": "merged",
+  "td-240": "open",
+  "td-241": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T14:14:04.222590+00:00",
+  "ts": "2026-10-09T14:44:15.451043+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32; open PR #596 Inspector report: 2026-10-09 09:34 EDT)",
     "ALIVE td-189 (no heartbeat file; task-file commit 520abb8 2026-10-09T13:29)",
     "ALIVE td-190 (no heartbeat file; task-file commit eaeb775 2026-10-09T13:52)",
     "ALIVE td-196 (no heartbeat file; task-file commit dbd5916 2026-10-09T13:02)",
-    "GRACE td-239 (dispatched 16min ago; no heartbeat file; session 24596696-7135-4a29-b132-31b31f670a87 classification stale/missing)"
+    "ALIVE td-239 (no heartbeat file; task-file commit c7fd96d 2026-10-09T14:21)",
+    "GRACE td-240 (dispatched 18min ago; no heartbeat file; session 565eaf25-326a-4caf-84d2-4683f03a5108 classification stale/missing)",
+    "GRACE td-241 (dispatched 18min ago; no heartbeat file; session 5094fc5c-a52b-45da-ad2c-851837db40d0 classification stale/missing)"
    ],
    "transitions": [
-    "FLIP td-188: in_progress -> merged [silent]",
-    "FLIP td-189: in_progress -> merged [silent]",
-    "FLIP td-190: in_progress -> merged [silent]"
+    "FLIP td-239: open -> merged [silent]"
    ],
    "classification-health": [
     "STALE-RUNS=148"
@@ -2258,10 +2287,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-09T14:13:47.742772+00:00",
+   "liveness": "2026-10-09T14:44:05.401453+00:00",
    "classification-health": "2026-10-09T14:14:04.222590+00:00",
-   "transitions": "2026-10-09T14:13:59.158624+00:00",
-   "conflicts": "2026-10-09T14:13:54.615147+00:00",
+   "transitions": "2026-10-09T14:44:15.451043+00:00",
+   "conflicts": "2026-10-09T14:44:11.814669+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
@@ -2345,6 +2374,11 @@
    "pr": 598,
    "head_sha": "d9f64fb0",
    "at": "2026-10-09T14:17:32.833898+00:00"
+  },
+  "td-240": {
+   "pr": 600,
+   "head_sha": "e71e7757",
+   "at": "2026-10-09T14:49:41.944922+00:00"
   }
  }
 }

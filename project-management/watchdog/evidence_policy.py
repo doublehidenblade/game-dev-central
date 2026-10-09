@@ -457,13 +457,34 @@ def _base(authority, submission, objects, at, operation):
         fields(plan, "method artifacts source_paths build coverage reviewer_id", f"plan {cid}")
         text(plan["method"], "evidence method")
         require(isinstance(plan["artifacts"], list) and bool(plan["artifacts"]), "INCOMPLETE_PLAN", "artifact path/type plan required")
-        seen = set()
+        seen, planned_checks, planned_images = set(), set(), []
+        checks = {c["id"] for c in p["checks"]}
         for artifact in plan["artifacts"]:
-            fields(artifact, "path type", "planned artifact")
+            fields(artifact, "path type", "planned artifact", "check_id instances pair")
             path_parts(artifact["path"])
             require(artifact["type"] in {"assertion", "log", "diff", "document", "image"}, "INCOMPLETE_PLAN", "appropriate artifact type required")
             require(artifact["path"] not in seen, "INCOMPLETE_PLAN", "duplicate artifact path")
             seen.add(artifact["path"])
+            if artifact["type"] in {"log", "assertion"}:
+                require(artifact.get("check_id") in checks, "INCOMPLETE_PLAN", "planned execution must identify a required canonical check")
+                planned_checks.add(artifact["check_id"])
+            else:
+                require(artifact.get("check_id") is None, "INCOMPLETE_PLAN", "non-execution artifact cannot satisfy a required check")
+            if p["visual"] and artifact["type"] == "image":
+                strings(artifact.get("instances"), "planned visual instance")
+                require(len(artifact["instances"]) == 1 and artifact["instances"][0] in p["instances"], "INCOMPLETE_PLAN", "planned image must name exactly one canonical instance")
+                fields(artifact.get("pair"), "role camera", "planned visual pair")
+                require(artifact["pair"]["role"] in {"before", "after"}, "INCOMPLETE_PLAN", "planned pair role required")
+                text(artifact["pair"]["camera"], "planned matched camera")
+                planned_images.append(artifact)
+            else:
+                require("pair" not in artifact and "instances" not in artifact, "INCOMPLETE_PLAN", "pair fields only apply to planned visual images")
+        require(planned_checks == checks, "INCOMPLETE_PLAN", "every required command needs a planned log/assertion artifact")
+        if p["visual"]:
+            for instance in p["instances"]:
+                pair = [a for a in planned_images if a["instances"] == [instance]]
+                require(len(pair) == 2 and {a["pair"]["role"] for a in pair} == {"before", "after"} and len({a["pair"]["camera"] for a in pair}) == 1,
+                        "VISUAL_PAIR_REQUIRED", "plan needs a matched before/after artifact pair for every instance")
         strings(plan["source_paths"], "planned source scope")
         strings(plan["coverage"], "planned instance coverage")
         require(set(plan["source_paths"]) == set(p["source_paths"]) and set(plan["coverage"]) == set(p["instances"]), "INCOMPLETE_PLAN", "plan narrows canonical source or instance coverage")
@@ -531,6 +552,8 @@ def _evidence(authority, submission, store, policies, required, at):
         strings(item["instances"], "evidence instances")
         require(set(item["instances"]) <= set(policies[cid]["instances"]), "UNMAPPED_EVIDENCE", "unknown defect instance")
         require(item["type"] in {a["type"] for a in submission["plans"][cid]["artifacts"] if a["path"] == item["ref"].get("path")}, "UNPLANNED_EVIDENCE", "artifact path/type not in admitted plan")
+        planned = next(a for a in submission["plans"][cid]["artifacts"] if a["path"] == item["ref"]["path"])
+        require(planned.get("check_id") == item["check_id"], "UNPLANNED_EVIDENCE", "execution check differs from admitted artifact plan")
         store.citation(item["ref"])
         require(item["ref"]["repository"] == repo, "SOURCE_MISMATCH", "evidence repository differs")
         require(store.ancestor(repo, item["ref"]["commit"], candidate["artifact_head"]), "UNCOMMITTED_PATH", "evidence not in candidate history")
@@ -562,11 +585,12 @@ def _evidence(authority, submission, store, policies, required, at):
                 binding = {k: item[k] for k in ("source_head", "build", "performed_at", "criterion_id", "instances")}
                 _receipt(authority, "capture", item["ref"], captures[0]["actor_id"], item["performed_at"], binding)
 
-        if policies[cid]["visual"]:
-            require(item["type"] == "image" and len(item["instances"]) == 1, "VISUAL_PAIR_REQUIRED", "visual evidence must identify one defect instance")
+        if policies[cid]["visual"] and item["type"] == "image":
+            require(len(item["instances"]) == 1, "VISUAL_PAIR_REQUIRED", "visual evidence must identify one defect instance")
             fields(item.get("pair"), "role camera", "visual pair")
             require(item["pair"]["role"] in {"before", "after"}, "VISUAL_PAIR_REQUIRED", "pair role missing")
             text(item["pair"]["camera"], "matched camera")
+            require(item["instances"] == planned["instances"] and item["pair"] == planned["pair"], "UNPLANNED_EVIDENCE", "visual instance/camera/role differs from admitted plan")
         else:
             require("pair" not in item, "MALFORMED", "nonvisual evidence has visual pair metadata")
         found[cid].update(item["instances"])
@@ -578,11 +602,44 @@ def _evidence(authority, submission, store, policies, required, at):
         require(actual_paths == {a["path"] for a in submission["plans"][cid]["artifacts"]}, "MISSING_EVIDENCE", "every planned artifact must be accounted for")
         if policies[cid]["visual"]:
             for instance in policies[cid]["instances"]:
-                pair = [x for x in items if x["criterion_id"] == cid and instance in x["instances"]]
+                pair = [x for x in items if x["criterion_id"] == cid and instance in x["instances"] and x["type"] == "image"]
                 require(len(pair) == 2 and {x["pair"]["role"] for x in pair} == {"before", "after"} and len({x["pair"]["camera"] for x in pair}) == 1,
                         "VISUAL_PAIR_REQUIRED", f"{cid}/{instance}: matched before/after pair required")
                 require(len({x["ref"]["blob"] for x in pair}) == 2, "IDENTICAL_VISUAL_PAIR", "before and after bytes are identical")
     return index
+
+
+
+def _current_execution_gate(authority, store, policies, required, at):
+    candidate = authority["candidate"]
+    regression_refs = {ref_key(d["detail"]["regression_ref"]) for d in (store.json(ref) for ref in authority["decisions"]) if d["kind"] == "reusable_guideline"}
+    for receipt in authority["attestations"]:
+        if receipt["kind"] != "execution" or receipt["ref"]["repository"] != candidate["repository"]:
+            continue
+        record = store.json(receipt["ref"])
+        require(isinstance(record, dict), "MALFORMED", "authenticated execution observation must be structured")
+        # Generalization regressions deliberately fail on a cited broken fixture;
+        # their distinct schema is validated during reconciliation, not confused
+        # with a check of the current candidate implementation.
+        if "check_id" not in record:
+            require(ref_key(receipt["ref"]) in regression_refs, "CURRENT_CHECK_INCOMPLETE", "unmapped execution cannot be reclassified as a regression")
+            require(set(record) == {"actor_id", "command", "broken_fixture", "assertion", "rule_delta", "exit_code", "failure_code", "observed_output", "performed_at"},
+                    "CURRENT_CHECK_INCOMPLETE", "unknown execution observation cannot be silently ignored")
+            continue
+        fields(record, "check_id command exit_code output source_head build performed_at actor_id", "observed required-check execution")
+        _receipt(authority, "execution", receipt["ref"], record["actor_id"], record["performed_at"])
+        for cid in required:
+            checks = {check["id"]: check["command"] for check in policies[cid]["checks"]}
+            if record["check_id"] not in checks or record["build"] != policies[cid]["build"]:
+                continue
+            full_sha(record["source_head"])
+            # A failure only stops this criterion when actual relevant source is
+            # the same. A real corrective source change can invalidate old logs.
+            if not store.equal_scope(candidate["repository"], record["source_head"], candidate["implementation_head"], policies[cid]["source_paths"]):
+                continue
+            require(record["command"] == checks[record["check_id"]], "CURRENT_CHECK_CONFLICT", "current required-check observation names a different command")
+            require(type(record["exit_code"]) is int and record["exit_code"] == 0, "CURRENT_CHECK_FAILED", "authenticated failure of an applicable current required check remains unresolved")
+            text(record["output"], "observed current check output")
 
 
 def _verdict(authority, submission, store, policies, required, evidence, kind, at):
@@ -619,12 +676,17 @@ def _verdict(authority, submission, store, policies, required, evidence, kind, a
     expected = required if kind == "review" else {c for c in required if policies[c]["visual"]}
     require(isinstance(criteria, dict) and bool(criteria) and set(criteria) == expected, "PARTIAL_VERDICT", "exactly one judgment per applicable criterion required")
     for cid, decision in criteria.items():
-        fields(decision, "decision rationale citations evidence_ids", "criterion judgment", "visual_inspection")
+        fields(decision, "decision rationale citations evidence_ids", "criterion judgment", "visual_inspection finding_ids")
         text(decision["rationale"], "inspection rationale")
         require(decision["decision"] in {"PASS", "FAIL", "PENDING"}, "MALFORMED", "explicit decision required")
         require(decision["decision"] == "PASS", "REJECTED_VERDICT" if kind == "review" else "HUMAN_PENDING", "pending/rejected judgments cannot become automatic acceptance")
         seen = citations(decision["citations"], store)
         strings(decision["evidence_ids"], "inspected evidence IDs")
+        current_findings = {f["id"]: f for f in authority["findings"] if f["criterion_id"] == cid}
+        finding_ids = decision.get("finding_ids", [])
+        strings(finding_ids, "reviewed finding IDs", nonempty=False)
+        require(set(finding_ids) == set(current_findings), "UNREVIEWED_FINDING", "independent judgment must account for every observed finding")
+        require({ref_key(r) for f in current_findings.values() for r in f["evidence"]} <= seen, "UNREVIEWED_FINDING", "review must inspect the finding's original evidence as well as claimed resolution")
         expected_ids = {eid for eid, item in evidence.items() if item["criterion_id"] == cid}
         require(set(decision["evidence_ids"]) == expected_ids, "PARTIAL_VERDICT", "review must inspect every claimed instance/artifact")
         require({ref_key(evidence[e]["ref"]) for e in expected_ids} <= seen, "NO_CITATIONS", "inspection citations must include actual mapped evidence")
@@ -636,11 +698,19 @@ def _verdict(authority, submission, store, policies, required, evidence, kind, a
     return verdict
 
 
+def _unique_records(records):
+    return [value for _, value in sorted({digest(value): value for value in records}.items())]
+
+
 def acceptance_binding(authority):
     """Stable across evidence/verdict-only descendants and fresh collection reads."""
     return digest({"rules": sorted([{"id": r["id"], "repository": r["ref"]["repository"], "path": r["ref"]["path"], "blob": r["ref"]["blob"]} for r in authority["rules"]], key=lambda r: r["id"]), "task_ref": authority["task_ref"],
                    "implementation_head": authority["candidate"]["implementation_head"],
-                   "principals": authority["principals"], "exclusions": authority["exclusions"]})
+                   "principals": authority["principals"], "exclusions": authority["exclusions"],
+                   "findings": _unique_records(authority["findings"]),
+                   "decisions": _unique_records(authority["decisions"]),
+                   "observations": _unique_records([{k: r[k] for k in ("kind", "ref", "actor_id", "binding") if k in r}
+                       for r in authority["attestations"] if r["kind"] not in {"review", "human"}])})
 
 
 def evaluate_completion(authority, submission, objects, at):
@@ -648,7 +718,9 @@ def evaluate_completion(authority, submission, objects, at):
     try:
         store, task, policies, required, reconciled = _base(authority, submission, objects, at, "completion")
         gates["author"] = "PASS"
+        gates["human_visual"] = "PENDING" if any(policies[c]["visual"] for c in required) else "NOT_APPLICABLE"
         _source_bound(store, authority, policies, required)
+        _current_execution_gate(authority, store, policies, required, at)
         evidence = _evidence(authority, submission, store, policies, required, at)
         gates["test_evidence"] = "BOUND"
         _verdict(authority, submission, store, policies, required, evidence, "review", at)

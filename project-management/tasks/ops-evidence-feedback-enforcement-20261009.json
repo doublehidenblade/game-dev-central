@@ -1,9 +1,9 @@
 {
   "id": "ops-evidence-feedback-enforcement-20261009",
   "title": "Enforce evidence feedback, admission and completion",
-  "status": "in_progress",
+  "status": "in_review",
   "owner": "dot native evidence-framework author (sole author; selected gpt-6-astra/xhigh)",
-  "phase": "Implementation and serialized entrypoint adoption in progress; independent final-head acceptance pending",
+  "phase": "Corrected implementation locally verified; frozen corrected-head review pending",
   "ask": {
     "author": "Craig",
     "date": "2026-10-09",
@@ -135,7 +135,7 @@
     "escalation_criteria": "Missing required tier/tools, ownership overlap, incompatible PR396 interface, untestable criterion, unsafe side effects or budget exhaustion: report to dot coordinator and narrow scope or wait",
     "verification_budget": "Reserve separate frontier/xhigh reviewer and up to one hour for schema/reconciliation/admission/completion/side-effect/route regressions and exact-head review; preserve corrective-pass capacity",
     "requested_versus_confirmed": "Requested gpt-6-astra/xhigh; accepted parent spawn explicitly selected gpt-6-astra/xhigh. Selection verified by parent tool response; underlying runtime identity independently unconfirmed. No downgrade.",
-    "actual_outcome": "Disjoint implementation in progress; no acceptance; usage/cost unknown."
+    "actual_outcome": "Implementation and local verification completed; independent exact-head C1-C7 acceptance pending; runtime identity and billed usage/cost remain unconfirmed"
   },
   "preflight": {
     "base_sha": "ce5d3413d14151d42af0476a5ddba7cadb9623e9",
@@ -148,7 +148,12 @@
   "evidence": [
     "project-management/watchdog/fixtures/evidence-policy/verification.json",
     "project-management/watchdog/EVIDENCE_POLICY.md",
-    "project-management/watchdog/test_evidence_policy.py"
+    "project-management/watchdog/test_evidence_policy.py",
+    "project-management/watchdog/fixtures/evidence-policy/real-source-manifest.json",
+    "project-management/watchdog/fixtures/evidence-policy/real-invocation.json",
+    "project-management/watchdog/fixtures/evidence-policy/real-authority.json",
+    "project-management/watchdog/fixtures/evidence-policy/real-submission.json",
+    "project-management/watchdog/fixtures/evidence-policy/real-objects.json"
   ],
   "work_log": [
     {
@@ -166,6 +171,18 @@
     {
       "date": "2026-10-09",
       "entry": "Initial implementation:48 evidence-policy/integration methods pass; inherited92 legacy assertions and37 coordinator unit methods pass; additional32+14+15+2+128 coordinator probes pass; compile checks pass. Tests use no live queue/state/API mutation and no Actions. Raw-object fixtures and actual command logs are committed under fixtures/evidence-policy. Independent acceptance has not been performed; real-input capture will bind this implementation after source publication."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T14:38:02Z: Actual read-only current operational task capture at implementation6e7c4e91e481214c817eed64417a693f5943020d and authoritative maindf37c2d68f5983a8ceff06d2e17800f5ea90c308.34 raw Git commit/tree/blob objects rehashed and immutable path membership verified. brief-check returned ADMISSIBLE exit0; acceptance-check, validator-check and evidence-checks all returned NO_GO/MISSING_EVIDENCE exit3, truthfully retaining pending independent acceptance rather than laundering author test logs. Earlier REST commit reconstruction using UTC offsets failed closed; recovering the original normalized timezone was accepted only after exact full Git commit hash matched. No production bypass. Final source-scope blob manifest and all local command outputs recorded in verification.json. Subsequent commit contains only this task work-log/status/evidence metadata and capture/test artifacts; canonical criteria/policy/rule inventory and relevant source blobs stay unchanged."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T15:02Z: Recovered from a hung artifact-publication call after parent interruption; remote remained6e7c4e91 and no uncertain publication landed. One registered correction addresses both independent blockers: current authenticated failed required checks must block completion even if omitted from findings/evidence or mapped to an existing rule; admission must reject unsatisfiable command/visual plans while supporting mixed visual and numeric evidence. Original reviewer counterexamples retained under fixtures/evidence-policy/review-regressions. Deadline remains16:07:15Z; no additional attempt or scope expansion."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T15:08Z: Single correction verified:53 policy/integration methods pass, including current failed execution with/without finding and fresh review, explicit finding inspection, impossible-plan negatives and mixed visual/numeric positive. All92 legacy assertions,37 coordinator unit methods and32+14+15+2+128 retained probes pass; compile checks pass. PR396 RUNBOOK status reconciled to accepted review5471277399 and merge39aa747c at14:17:33Z; requested/native runtime distinction and live-collector limits retained. Corrected source remains subject to independent exact-head acceptance."
     }
   ],
   "verdict": null,
@@ -173,7 +190,7 @@
   "implementation_deadline": "2026-10-09T16:07:15Z",
   "rule_acknowledgment": {
     "repository": "doublehidenblade/game-dev-central",
-    "commit": "df37c2d68f5983a8ceff06d2e17800f5ea90c308",
+    "commit": "465e4bc4852aee8cbc1d9a9230a6313b439a65c1",
     "rules": [
       {
         "path": "COORDINATOR.md",
