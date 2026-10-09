@@ -54,8 +54,9 @@ Hard rules (enforced here, not just in prose):
     ledger `merged <session> cron`. FINISHED with an already-merged PR ->
     INSPECT_MERGED: the run inspects the diff, reports to Craig, files new
     tasks / re-opens gaps, and nudges the worker if post-merge work stalled.
-This script never merges/publishes code; it only reads GitHub and keeps
-ledgers. The cron turn performs the SHIP merge+deploy.
+The historical orchestration routes described above are RETIRED.
+Use coordinator-plan --snapshot <file> for read-only scoped decisions.
+Automatic admission and legacy queue delivery are disabled; see RUNBOOK.md.
 """
 import json, os, sys, urllib.request
 from datetime import datetime, timezone, timedelta
@@ -3319,11 +3320,33 @@ def cmd_validator_dispatched(args):
     print(f"VALIDATOR-RECORDED {task} PR #{prn} head={head_sha[:8]}")
 
 
+# The supported coordinator surface uses one validated snapshot evaluator.
+# Assign wrappers over the legacy command callables as well as intercepting CLI
+# routing: imports must not quietly retain an unguarded queue/admission path.
+import coordinator_cli
+
+
+def _coordinator_command(command):
+    def invoke(args=()):
+        code = coordinator_cli.run(command, list(args))
+        if code:
+            raise SystemExit(code)
+    return invoke
+
+
+for _command in coordinator_cli.ALIASES | coordinator_cli.RETIRED:
+    globals()["cmd_" + _command.replace("-", "_")] = _coordinator_command(_command)
+
+
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
         sys.exit(2)
     cmd = sys.argv[1]
+    if cmd == "coordinator-plan" or cmd in coordinator_cli.ALIASES | coordinator_cli.RETIRED:
+        # In particular, NEVER pass idle/all-blocked/heartbeat through
+        # _capture_verdicts: that historical helper writes state in finally.
+        raise SystemExit(coordinator_cli.run(cmd, sys.argv[2:]))
     if cmd == "gate":
         cmd_gate()
     elif cmd == "check-done":
@@ -3465,3 +3488,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
