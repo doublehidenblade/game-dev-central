@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "task_id": "ops-scoped-runtime-base-20261009",
+  "author_id": "dot-scoped-runtime-base-author",
+  "kind": "read_only_author_readiness",
+  "acknowledged_at": "2026-10-09T23:10:49Z",
+  "author_statement": "I personally read all fourteen canonical rule files in full at the current heads. I adopt C1-C7 and each existing future_submission_template.plan exactly, including all check-ID/artifact/source-path/build=null/coverage mappings; all tests and evidence remain unrun. No new executable fixture/helper path is planned. I will not implement until actual unchanged-current-main admission.",
+  "submission_path": "project-management/tasks/ops-scoped-runtime-base-20261009/submission.json",
+  "selected_model": "gpt-6-astra",
+  "selected_effort": "xhigh",
+  "selection_verified_by_coordinator": true,
+  "selection_observed_at": "2026-10-09T23:09:17Z",
+  "runtime_confirmed": false,
+  "observed_model": null,
+  "observed_effort": null,
+  "tools": {
+    "python": "3.12.14",
+    "git": "2.52.0",
+    "Pillow": "12.3.0",
+    "stdlib": [
+      "unittest",
+      "hashlib",
+      "json",
+      "gzip"
+    ]
+  },
+  "tool_check_method": "Author-reported isolated no-bytecode version/import introspection; no repository tests or unchecked scripts",
+  "planned_executable_edits": [
+    "project-management/watchdog/scoped_admission.py",
+    "project-management/watchdog/test_scoped_admission.py"
+  ],
+  "planned_other_edits": [
+    "Scoped RUNBOOK text",
+    "Generated non-executable evidence in approved fixtures/scoped-runtime-base directory"
+  ],
+  "new_executable_helper_paths": [],
+  "reviewer_role": "dot-scoped-runtime-base-reviewer",
+  "reviewer_assignment": "Proposed only; actual independent designation required",
+  "implementation_started": false,
+  "admission_receipt": null,
+  "all_implementation_criteria": "PENDING_NOT_RUN",
+  "limits": [
+    "Author submission and readiness are not authority or a dispatch decision",
+    "No Actions, deployment, game work, heartbeat/state/queue mutation, source-history rewrite or original PR449 changes",
+    "Scope expansion requires prior exact source-manifest amendment"
+  ]
+}
