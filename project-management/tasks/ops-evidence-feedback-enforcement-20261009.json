@@ -1,9 +1,9 @@
 {
   "id": "ops-evidence-feedback-enforcement-20261009",
   "title": "Enforce evidence feedback, admission and completion",
-  "status": "open",
-  "owner": "dot — operational evidence framework; implementation author not dispatched",
-  "phase": "queued registration proposal; independent exact-head registration acceptance required before admission",
+  "status": "in_progress",
+  "owner": "dot native evidence-framework author (sole author; selected gpt-6-astra/xhigh)",
+  "phase": "Disjoint implementation admitted; PR396 integration hold remains; independent acceptance pending",
   "ask": {
     "author": "Craig",
     "date": "2026-10-09",
@@ -128,14 +128,14 @@
     "provider_preference": "provider-neutral; native dot path requested for this dot-owned task",
     "requested_model": "gpt-6-astra",
     "requested_effort": "xhigh",
-    "environment_and_tools": "Implementation executor not yet selected or verified. Require Python, isolated fixtures, GitHub read/write within scope and full local test capability before production work; connectors verified for registration.",
-    "availability_checked": "2026-10-09: native catalog advertises gpt-6-astra/xhigh; actual implementation runtime, quota and Python readiness unverified",
+    "environment_and_tools": "Native dot cloud workspace; Python 3.12.14 and stdlib unittest verified 2026-10-09T14:05:49Z; GitHub connector read and Git-data publication available; authenticated git clone unavailable, so materialized connector blobs and connector commits will be byte-verified. No Actions.",
+    "availability_checked": "Parent accepted native spawn at 2026-10-09T14:05:37Z, explicit gpt-6-astra/xhigh selection. Python verified; worker running. No separate runtime identity attestation or usage/billing telemetry exposed.",
     "fallback": "wait_for_required_tier",
     "attempt_budget": "One initial attempt plus at most one evidence-based correction within two hours after actual implementation admission; stop after two identical failures",
     "escalation_criteria": "Missing required tier/tools, ownership overlap, incompatible PR396 interface, untestable criterion, unsafe side effects or budget exhaustion: report to dot coordinator and narrow scope or wait",
     "verification_budget": "Reserve separate frontier/xhigh reviewer and up to one hour for schema/reconciliation/admission/completion/side-effect/route regressions and exact-head review; preserve corrective-pass capacity",
-    "requested_versus_confirmed": "Requested Astra/xhigh; no implementation worker started or runtime attested",
-    "actual_outcome": "Registration proposed; implementation and acceptance pending; usage/cost unknown"
+    "requested_versus_confirmed": "Requested gpt-6-astra/xhigh; accepted parent spawn explicitly selected gpt-6-astra/xhigh. Selection verified by parent tool response; underlying runtime identity independently unconfirmed. No downgrade.",
+    "actual_outcome": "Disjoint implementation in progress; no acceptance; usage/cost unknown."
   },
   "preflight": {
     "base_sha": "ce5d3413d14151d42af0476a5ddba7cadb9623e9",
@@ -150,7 +150,129 @@
     {
       "date": "2026-10-09",
       "entry": "Registered bounded operational task and additive board row only; no implementation, tests, live ledger registration, dispatch, Actions, merge or deploy."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T14:07:15Z: Actual disjoint implementation admission/start after independent registration acceptance (PR405 review5471139782; main2e07b0f5), verified native selected Astra/xhigh and Python tools. Refreshed all100 open PR changed-file lists (second page empty), board, workers, coordinator log, current state and queue; no disjoint owner reservation found. PR396 b0b3c8a4 and PR143 bfe26735 remain untouched until exact-region handoff. No .agents skills in complete repository tree. Scope-specific task record substitutes for live queue/heartbeat writes expressly prohibited by this task. Outer deadline16:07:15Z; one initial attempt plus one evidence-based correction, separate independent review reserved."
     }
   ],
-  "verdict": null
+  "verdict": null,
+  "implementation_started_at": "2026-10-09T14:07:15Z",
+  "implementation_deadline": "2026-10-09T16:07:15Z",
+  "rule_acknowledgment": {
+    "repository": "doublehidenblade/game-dev-central",
+    "commit": "2e07b0f5353c545892b64658d1f89452834a5be8",
+    "rules": [
+      {
+        "path": "COORDINATOR.md",
+        "blob": "02f89018f3f8d3b8e3d6a0ec03802128529688b8"
+      },
+      {
+        "path": "knowledge/standing-rules.md",
+        "blob": "01b19a267622992cbe7713f856e2c2bcf87b1e50"
+      },
+      {
+        "path": "project-management/rules/SYSTEM.md",
+        "blob": "08226c75366dfa25133fcd058477b4b854febaf2"
+      },
+      {
+        "path": "project-management/rules/WORKER_BRIEF.md",
+        "blob": "95dc23587561489931e897f9a58c7be0c2202e7d"
+      },
+      {
+        "path": "project-management/rules/VALIDATOR_BRIEF.md",
+        "blob": "405469fad99355eb23b01551c92c0c74693e75fe"
+      },
+      {
+        "path": "project-management/rules/WORKER_SELECTION_POLICY.md",
+        "blob": "343d3e3f8db6976789d4a631ca38619b6c27dc0e"
+      }
+    ]
+  },
+  "criterion_evidence_plan": [
+    {
+      "criterion_id": "C1",
+      "method": "Fixtures cover existing-rule, task-limitation, reusable-guideline-plus-regression, duplicate replay, unresolved and conflicting finding cases; identical inputs yield identical decisions. Newly generalized rules must have a regression that fails on the recorded broken fixture.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C1"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending implementation and tests"
+    },
+    {
+      "criterion_id": "C2",
+      "method": "Positive control plus missing/stale rule pin, changed rule blob, missing criterion/method/artifact/source coverage and malformed plan cases; verify scoped rejection and preservation of unrelated permitted operations. Include zero parsed criteria, empty applicability/citations and unsupported not-applicable exclusions; each applicable criterion remains accounted for.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C2"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending implementation and tests"
+    },
+    {
+      "criterion_id": "C3",
+      "method": "Table-driven negatives for each class, changed full SHA, wrong build/variant, partial coverage, self-review, no citation, partial verdict and stale evidence; complete exact-head control passes only machine-checkable gates. Include evidence-only commits with proven unchanged source as a positive control, altered relevant source as a negative, and historical evidence with/without verified scope equivalence. Do not use filenames or metadata as automatic semantic PASS.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C3"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending implementation and tests"
+    },
+    {
+      "criterion_id": "C4",
+      "method": "Tests show missing/rejected/pending human verdict never becomes accepted from script/numeric/CI results; stopped tasks remain stopped, no redispatch or owner transfer follows from findings.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C4"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending implementation and tests"
+    },
+    {
+      "criterion_id": "C5",
+      "method": "Run isolated tests locally with filesystem writes, external API, subprocess dispatch and queue/ledger mutation mocked to raise; commit exact commands/results and public-safe fixtures. No Actions execution.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C5"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending implementation and tests"
+    },
+    {
+      "criterion_id": "C6",
+      "method": "Inspect exact post-PR396 integration diff and run route/alias negatives plus existing regression suite locally; do not claim enforcement of live external schedulers. Preserve PR143 visual-onboarding content and cite accepted rule revision. Specifically test evidence-check failure exit codes, brief-check semantic plan validation and validator-check rejecting zero citations/zero parsed criteria. Capture a read-only current real-input acceptance-check invocation with pinned source manifest and resulting decisions/limitations; standalone synthetic tests do not establish adoption. No external scheduler or inspector mutation.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/integration-verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C6"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Not started: exact-region PR396 handoff required"
+    },
+    {
+      "criterion_id": "C7",
+      "method": "Reviewer opens original artifacts, reruns relevant local checks and records per-criterion PASS/FAIL with immutable citations. Implementation remains in_review until required acceptance; all human gates and verification limitations stay visible.",
+      "artifact_path": "Independent exact-head PR review",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C7"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending separate final-head acceptance"
+    }
+  ]
 }
