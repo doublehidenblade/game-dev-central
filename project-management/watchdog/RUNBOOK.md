@@ -416,3 +416,177 @@ Rules going forward (reconciled 2026-10-09, dot game-dev-central#358):
   minutes without heartbeat" is struck.)
 - When a duplicate mergeoverwrites a sibling's evidence, restore (never
   delete): keep both evidence sets, verify both, cite both.
+
+
+## Task-scoped source coverage (isolated repair, 2026-10-09)
+
+The existing `coordinator-plan` / `dispatch-guard` route accepts an optional
+`scoped_source` object in the same snapshot. This repairs a source-accounting
+circularity: an independently safe filed-task operation need not normalize every
+historical task or infer current liveness for every old branch. It does **not**
+waive acceptance, current rule acknowledgment, real required checks, ownership,
+user stops, denied routes or publication policy. No collector or dispatcher is
+installed. Craig's exception admitted only the isolated repair itself.
+
+### Supported scope and honest limits
+
+- Version 1 supports one exact filed-task `implementation`, `verification`,
+  `upload` or `merge` operation with one current open/draft PR and candidate
+  branch. Unfiled-ask registration, post-merge review and deployment retain the
+  existing routes; they cannot be smuggled through this scoped schema.
+- A successful scoped action leaves `source_scope.global_coverage: unknown` and
+  a visible coverage warning. No scoped-only snapshot can yield global `IDLE`.
+  Incomplete global source receipts remain incomplete; do not reseal them as
+  complete just to obtain an action.
+- Raw branch and open-PR inventories must still be exhaustively enumerated for
+  every declared repository. Their full SHA inventory is retained even when
+  historical tasks are not normalized. This is bounded *normalization and
+  liveness*, not permission to search only a task-name prefix or hide a sibling.
+- Normalize only the target in `task_ids`. Multi-task prerequisite graphs fail
+  closed in this first version: complete canonical/transitive source proof is
+  not implemented, so an owner-free status word cannot imply readiness. Other
+  related identities, including a canonical `parent_task` and selected board-row keys,
+  must appear in `related_task_ids` for ownership/stop queries. A parent relation
+  alone does not assert a completed prerequisite. Canonical `depends_on` and
+  `dependencies`, when present, must be empty string-ID lists; a nonempty graph
+  or unsupported shape requires canonical/transitive reconciliation outside this
+  scoped-v1 route. Source-file dependency/owner regions remain protected.
+- Source/dependency/owner-region closure is an authenticated collector and
+  independent-review responsibility. The code proves candidate diff coverage,
+  named canonical source/rule paths and Git exclusions, and rejects declared
+  prerequisite graphs it cannot prove;
+  it cannot discover an undisclosed semantic dependency or external session.
+  Unknown relevant scope, inability to perform the exact queries, or an
+  unresolved owner/queue reservation is a blocker, not an empty successful read.
+- Existing source/owner/state guards are retained. Relevant prerequisite
+  task/board ownership, unfinished/unknown states, conflicting rows, owner
+  records, queued work and holds cannot disappear behind a branch exclusion.
+  Branch ancestry is evidence about source bytes, never proof of worker death.
+- Table-row scoping is conservative. It supports unique simple first-cell IDs
+  in header-led pipe-row blocks, including this board's historical blank-
+  separated row blocks. Candidate row keys must exactly equal its real row
+  delta. All non-row bytes, each row's context anchor/order and regular-file
+  mode are retained. Duplicate IDs, header/context edits, row moves/reordering,
+  table creation/deletion or unsupported formats fail closed. There is no
+  blanket documentation exemption. Use whole-file scope when appropriate.
+
+### Scoped object contract
+
+Keep the normal version-1 snapshot, its relevant normalized tables and its
+truthful global `sources`. Add one `scoped_source` with exactly:
+
+- `version: 1`
+- `binding`: exact `task_id`, `repository`, `operation`, `executor_id`,
+  `owner_id`, `head_sha` (all SHA values are full lowercase 40-character IDs)
+- `base_heads`: exactly the snapshot repository map and current evidence-policy
+  `rule_heads`, including cross-repository rule authorities
+- `task_ids` (exactly the target), `related_task_ids`: identities described above
+- `regions`: `{repository, path, row_keys}` objects. An empty `row_keys` means
+  the entire exact file; a trailing slash means an entire directory. Nonempty
+  row keys require an exact file. Include every candidate changed path, the
+  canonical task, every canonical evidence source path, current rules and all
+  additional relevant dependency/owner regions. Rules/tasks cannot use row
+  exclusion
+- `candidate`: `pr_id`, `branch_id`, `fork_sha`, `base_chain`, `head_chain`.
+  The chains go from current base and candidate head to the same proved
+  ancestor. Every listed parent edge is verified from hash-checked raw commits
+- `inventory`: `branches` and `prs` arrays. Each item has `id`, `repository`,
+  `head_sha`, `proof`; PRs also have `branch_id`, `author_id`. Use repository-
+  qualified branch IDs. PR IDs retain `owner/repo#number`. Every PR head branch
+  must be observed at the identical head; every current base must be represented
+- `receipts`: scoped collection receipts below
+- `objects`: the existing raw Git object representation used by evidence policy
+  (`repository -> SHA -> {type, base64}`). Missing objects never mean absent
+  files. All inspected objects are content-hash verified
+
+Inventory proof variants are deliberately not `unrelated: true`:
+
+1. `{"kind":"candidate"}` only for the exact selected branch and current PR
+2. `{"kind":"base_ancestor","chain":[...]}` proves the source head is already
+   contained by the current base, including the base itself
+3. `{"kind":"candidate_ancestor","chain":[...]}` can account for an older
+   branch contained by this candidate; never an overlapping open sibling PR
+4. `{"kind":"disjoint","fork_sha":"...","base_chain":[...],"head_chain":[...]}`
+   proves the fork and computes a complete Git tree diff. Every relevant region
+   must be unchanged by that delta, or its entire relevant result must already
+   equal the current base (accounting for an already-contained squash result).
+   Unknown/overlapping source stays blocked; labels and task-name prefixes do
+   not establish disjointness
+
+The candidate's protected source dependencies must also be unchanged between its
+fork and current base, or exactly equal its reviewed candidate. Current canonical
+rule files that the candidate does not edit are checked at their actual current
+base membership instead: the unchanged evidence-policy gate separately requires
+current acknowledgment and applicable independent evidence. A rule edit in the
+candidate does not receive this treatment. Full-file equivalence includes Git
+file mode, not just blob bytes.
+
+### Actual scoped collection receipts
+
+For each required table in every declared repository, provide one receipt with:
+`id`, `kind`, `repository`, `source_repository`, `ref_sha`, `observed_at`,
+`read_status`, `pagination`, `ids`, `query_digest`, `inventory_digest`,
+`records_digest`, `provenance`.
+
+- Perform the exact query represented by `scoped_admission.query(scope)` against
+  every relevant constituent. It includes all related task identities,
+  prerequisite identities, protected regions, global/wildcard holds and all
+  target-owner/target-executor reservations anywhere. The binding retains the
+  operation. Do not omit an unknown branch/session/owner or scope a provider
+  denial down to one provider. Read-only verification retains its original
+  independent-identity requirements
+- In `provenance`, identify the actual authenticated sources, their coverage,
+  how relevant identities/regions were resolved, and what was inspected. A
+  receipt's existence or a fabricated provenance string is not authentication.
+  Incomplete/unreadable queries must remain blocked. Source collection and
+  identity attestation are the same explicit trust boundary as evidence policy
+- `ids` equals the complete raw inventory for branches/PRs, or the complete
+  relevant normalized inventory for other tables. Record actual pagination:
+  positive `pages_read`, exact `items_seen`, `exhausted: true`, `read_status: ok`
+  only after all constituents succeeded. Every relevant record must be retained
+- `query_digest` is the canonical digest of that exact query. `records_digest`
+  binds the table's normalized records for the receipt repository.
+  `scoped_admission.inventory_digest(snapshot, coordinator.TABLES)` binds the
+  complete raw inventories, normalized record IDs and collector/source
+  identities. The scope and input digests also bind all timestamps and results.
+  These helpers calculate hashes; they **do not** collect observations or prove
+  coverage. Never use the test-only `seal` helper for a real decision
+- Receipts and individual review/check observations must be genuinely retrieved
+  within 15 minutes; original performance times remain unchanged. Exactly one
+  current trigger policy per repository is required. A second contradictory
+  policy cannot be ignored in favor of a safe-looking first row
+
+Malformed scoped input fails the whole scoped request closed; it never falls
+back to legacy mutation admission. Existing snapshots without `scoped_source`
+retain their prior behavior. All supported aliases and initialized imported
+`watch.cmd_*` callables use the same evaluator. Decisions additionally bind
+`source_scope_digest` and `source_inventory_digest`. Revalidate using the usual
+exact-target `dispatch-guard`; any changed input/receipt/base/head invalidates
+an old decision. This remains a recheck, not an atomic distributed lock.
+
+### Module bundle, private inputs and reproduction
+
+Use the repository's complete matching module bundle: `watch.py`,
+`coordinator_cli.py`, `coordinator.py`, `scoped_admission.py`, `evidence_policy.py`.
+A copied historical standalone `watch.py` does not gain these commands through
+a documentation update. At module initialization, canonical `watch.py` wraps
+supported/retired `cmd_*` names, and its CLI dispatch selects the same adapters.
+Reading an old function body alone misses those wrappers. `review-sweep` remains
+a supported read-only alias; retired liveness/transitions/admission routes stay
+quarantined. This repair does not modify anyone's private copy or install sync.
+
+Keep actual session, queue, ownership and authority observations in private local
+inputs. Do not commit them or an actionable decision receipt. Published fixtures
+must be synthetic or bounded already-public source evidence with explicit limits.
+The fixtures here include a real immutable PR430 documentation packet replay
+inside synthetic surrounding collection; that proves interoperability only.
+Its current-rule stale-acknowledgment control still fails. It does not authorize
+a current docs merge or claim any game/runtime/visual check.
+
+Additional local commands (no GitHub Actions):
+
+- `python3 -m unittest discover -s project-management/watchdog -p test_scoped_admission.py -v`
+- Existing 37 coordinator methods, 53 evidence-policy methods, full legacy
+  `test_rules.py`, and all five standalone independent probe scripts above
+- See `fixtures/scoped-admission/README.md` for immutable real-source provenance,
+  local-input replay and the recorded failing-original/positive controls

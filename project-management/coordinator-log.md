@@ -43,3 +43,10 @@ Append-only. Newest entries at the bottom. Every coordinator turn that changes d
 - Sole author public role `dot-native-scoped-admission-author` is reserved; selected native Astra/high launch verified, underlying runtime identity unconfirmed. A separate Astra/high reviewer is reserved. Implementation has not started and awaits independent exact-head registration acceptance.
 - Current base `a3660901f3696e3da718bba1d9f67c47e9f518aa`; all 372 branches and 101 open PR file inventories checked for overlap. Prior coordinator #396 and evidence framework #406 are merged; their retained branches do not constitute active replacement authority. Existing game owners and rows are preserved.
 - Registration modifies only this new canonical task and additive board/registry/log entries. No game source, live queue/state/heartbeat, Actions, deployment, credentials, external-agent contact or merge. Private session and queue observations are not published.
+
+## 2026-10-09 20:06 UTC — isolated scoped repair source checkpoint
+
+- Independent registration accepted at `ca3242a61e097c7cc307c1aeb5834d1343c4c61f`, review `5474600720`, merged as `34cc47ea6f4c3c3e7a38c8f3d73bd726a59ccf58`. Actual implementation began 19:41:34 UTC under sole public-role author `dot-native-scoped-admission-author`; total implementation/review/correction ceiling 21:40:04 UTC.
+- Source branch `feat/scoped-coordinator-admission-20261009` contains the optional proof-bound one-task source evaluator, tests, runbook and original C1–C7 machine evidence policy. Parent/task/row ownership queries and existing stops remain. Multi-task prerequisite graphs fail closed. Global coverage remains unknown.
+- Preliminary local suites and independent interim probes pass; exact published-source reruns and independent final acceptance remain pending. The real docs interoperability replay is historical with synthetic surrounding collection, not live merge authority. Current stale acknowledgment remains blocked.
+- No game source, live queue/state/heartbeat write, Actions, deployment, credential change, external-agent contact or author merge. Private observations are not published.

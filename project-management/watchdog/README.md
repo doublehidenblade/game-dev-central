@@ -63,3 +63,16 @@ fail closed. Completion failures now return a nonzero exit status.
 for implementation/upload and merge, while preserving authorized independent
 read-only verification to repair missing/disputed acceptance. Task registration
 is not permission to implement. No scheduler or live state mutation is added.
+
+
+### Isolated task-scoped source coverage
+
+The optional `scoped_source` input adds proof-bound source coverage for one
+filed-task operation through the existing plan/guard evaluator. It does not
+install a collector, dispatch work or grant new permission. Complete raw branch
+and open-PR inventories plus fresh relevant owner/queue/stop queries are still
+required; old task records outside proved scope need not be normalized. Global
+coverage remains unknown. See [the scoped runbook](RUNBOOK.md#task-scoped-source-coverage-isolated-repair-2026-10-09)
+for the exact schema, limitations, module bundle and offline tests. Acceptance,
+current rules, genuine required checks, independent review and all existing
+stops/deployment rules remain unchanged.

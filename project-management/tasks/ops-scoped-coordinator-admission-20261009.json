@@ -1,9 +1,9 @@
 {
   "id": "ops-scoped-coordinator-admission-20261009",
   "title": "Repair task-scoped coordinator admission",
-  "status": "open",
+  "status": "in_review",
   "owner": "dot-native-scoped-admission-author",
-  "phase": "Registration only; implementation awaits independent registration acceptance",
+  "phase": "Source implementation prepared; exact-head structured execution artifacts and independent acceptance still required; author has not accepted or merged",
   "ask": {
     "author": "Craig",
     "date": "2026-10-09",
@@ -89,11 +89,11 @@
     "environment_and_tools": "Native cloud workspace; Python 3.12.14 and GitHub connector reads/Git data writes verified. Materialized exact pinned repository files; authenticated git transport unavailable. No game runtime needed for this coordinator-only task.",
     "availability_checked": "2026-10-09T19:31:46Z: parent accepted explicit gpt-6-astra/high native author launch; parent confirmed tool result. Independent gpt-6-astra/high reviewer accepted 19:32:01Z.",
     "fallback": "wait_for_required_tier",
-    "attempt_budget": "One implementation attempt plus at most one evidence-based correction; actual start and time ceiling recorded after registration acceptance. Stop after two identical failures.",
+    "attempt_budget": "Actual first implementation work starts 2026-10-09T19:41:34Z after registration merge 34cc47ea and independent review 5474600720; ceiling 2026-10-09T21:40:04Z including review and one evidence-based correction. Stop after two identical failures.",
     "escalation_criteria": "Owner overlap, proof unsoundness, unavailable tier/tools, untestable scope, unexpected Actions/deployment or exhausted bound: report and narrow or wait.",
     "verification_budget": "Separate frontier/high reviewer reserved; full existing coordinator/evidence regression suites plus adversarial scoped tests and current real-input reproduction; reserve correction time.",
     "requested_versus_confirmed": "Explicit selected Astra/high launch verified by parent; underlying runtime identity independently unconfirmed. No silent downgrade.",
-    "actual_outcome": "Registration only; no implementation acceptance; usage/billing unknown."
+    "actual_outcome": "Preliminary local suites pass: 32 scoped methods, 37 existing coordinator methods, 53 evidence-policy methods and retained standalone probes. Historical real documentary replay is compatible; current stale acknowledgment still blocks. Exact published-source reruns and independent final verdict pending. Usage/billing and independent runtime identity unavailable."
   },
   "preflight": {
     "base_sha": "a3660901f3696e3da718bba1d9f67c47e9f518aa",
@@ -102,12 +102,550 @@
     "publication": "Complete current tree contains no .github workflows. Source branch/draft PR only; workflow-list API endpoint unsupported, no external-hook attestation. No Actions or deployment.",
     "limits": "This is task-specific registration under Craig's explicit exception, not a global liveness or idle assertion. Private source/session/queue observations stay private; public fixture data will be sanitized or demonstrably synthetic."
   },
-  "evidence": [],
+  "evidence": [
+    "project-management/watchdog/fixtures/scoped-admission/verification.json",
+    "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+    "project-management/watchdog/fixtures/scoped-admission/real-docs-replay-result.json",
+    "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/evidence-policy-unit.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/legacy-regression.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/broken-original-regression.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/retained-review.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/retained-acceptance_isolation.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/retained-final_guards.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/retained-operation_needs.json",
+    "project-management/watchdog/fixtures/scoped-admission/execution/retained-hold_invariance.json",
+    "project-management/watchdog/fixtures/scoped-admission/independent-verification.json"
+  ],
   "work_log": [
     {
       "date": "2026-10-09",
       "entry": "19:34 UTC: Read current canonical rules and code, checked branch/PR overlaps and workflow tree, verified selected native setup. Registering sole author and independent review gate before coding. Every existing owner, hold and unrelated row remains unchanged."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T19:41:34Z: Actual isolated implementation start following independent registration PASS at ca3242a6, review 5474600720 and verified merge 34cc47ea6f4c3c3e7a38c8f3d73bd726a59ccf58. One sole-author implementation branch. Baseline tests were run read-only before this start; their standalone probes must be invoked separately rather than unittest discovery because they intentionally exit on import. No global liveness or current docs acceptance claimed."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T20:06:00Z: Initial isolated source implementation and adversarial tests prepared. Independent read-only probes exposed policy-cardinality, table-context/mode and declared-dependency closure risks during the initial attempt; those cases now fail closed and have regressions. Historical immutable PR430 documentary evidence passes a labeled synthetic surrounding-collection interoperability control, while later-rule stale acknowledgment remains NO_GO. Added explicit nonvisual policies for the original C1\u2013C7, with actual local command checks and a separate reviewer-authored C7 artifact. Source is not accepted; no merge or deployment."
     }
   ],
-  "verdict": null
+  "verdict": null,
+  "evidence_rule_inventory": [
+    {
+      "id": "central:COORDINATOR.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "COORDINATOR.md"
+    },
+    {
+      "id": "central:knowledge/standing-rules.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/standing-rules.md"
+    },
+    {
+      "id": "central:project-management/rules/SYSTEM.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/SYSTEM.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_BRIEF.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_SELECTION_POLICY.md"
+    },
+    {
+      "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/EVIDENCE_POLICY.md"
+    },
+    {
+      "id": "central:project-management/watchdog/RUNBOOK.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/RUNBOOK.md"
+    },
+    {
+      "id": "central:project-management/rules/DURABILITY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/DURABILITY.md"
+    },
+    {
+      "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/VALIDATOR_BRIEF.md"
+    },
+    {
+      "id": "central:knowledge/workflow/game-dev-workflow.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/workflow/game-dev-workflow.md"
+    },
+    {
+      "id": "central:knowledge/brief-snippet.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/brief-snippet.md"
+    },
+    {
+      "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md"
+    },
+    {
+      "id": "tokyo:AGENTS.md",
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "path": "AGENTS.md"
+    },
+    {
+      "id": "tokyo:README.md",
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "path": "README.md"
+    }
+  ],
+  "evidence_policy": {
+    "C1": {
+      "applicability": "required",
+      "rationale": "Registered coordinator-only criterion; nonvisual source/ownership/proof behavior verified by exact-source local tests and separate independent review. No game, rendering, device or deployment result is inferred.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C1-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "real-docs-replay",
+          "command": [
+            "python3",
+            "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+            "--snapshot",
+            ".private-scoped-control/snapshot.json",
+            "--negative-authority",
+            ".private-scoped-control/negative-authority.json",
+            "--negative-objects",
+            ".private-scoped-control/negative-objects.json"
+          ]
+        }
+      ]
+    },
+    "C2": {
+      "applicability": "required",
+      "rationale": "Registered coordinator-only criterion; nonvisual source/ownership/proof behavior verified by exact-source local tests and separate independent review. No game, rendering, device or deployment result is inferred.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C2-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "broken-original-regression",
+          "command": [
+            "python3",
+            "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+            "--original",
+            ".private-scoped-control/original_coordinator.py"
+          ]
+        }
+      ]
+    },
+    "C3": {
+      "applicability": "required",
+      "rationale": "Registered coordinator-only criterion; nonvisual source/ownership/proof behavior verified by exact-source local tests and separate independent review. No game, rendering, device or deployment result is inferred.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C3-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        }
+      ]
+    },
+    "C4": {
+      "applicability": "required",
+      "rationale": "Registered coordinator-only criterion; nonvisual source/ownership/proof behavior verified by exact-source local tests and separate independent review. No game, rendering, device or deployment result is inferred.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "original-coordinator-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_rules.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "legacy-regression",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_rules.py"
+          ]
+        },
+        {
+          "id": "retained-review",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_review.py"
+          ]
+        },
+        {
+          "id": "retained-acceptance_isolation",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+          ]
+        },
+        {
+          "id": "retained-final_guards",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_final_guards.py"
+          ]
+        },
+        {
+          "id": "retained-operation_needs",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_operation_needs.py"
+          ]
+        },
+        {
+          "id": "retained-hold_invariance",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_hold_invariance.py"
+          ]
+        }
+      ]
+    },
+    "C5": {
+      "applicability": "required",
+      "rationale": "Registered coordinator-only criterion; nonvisual source/ownership/proof behavior verified by exact-source local tests and separate independent review. No game, rendering, device or deployment result is inferred.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C5-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "evidence-policy-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_evidence_policy.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "real-docs-replay",
+          "command": [
+            "python3",
+            "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+            "--snapshot",
+            ".private-scoped-control/snapshot.json",
+            "--negative-authority",
+            ".private-scoped-control/negative-authority.json",
+            "--negative-objects",
+            ".private-scoped-control/negative-objects.json"
+          ]
+        }
+      ]
+    },
+    "C6": {
+      "applicability": "required",
+      "rationale": "Registered coordinator-only criterion; nonvisual source/ownership/proof behavior verified by exact-source local tests and separate independent review. No game, rendering, device or deployment result is inferred.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C6-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "original-coordinator-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_rules.py",
+            "-v"
+          ]
+        }
+      ]
+    },
+    "C7": {
+      "applicability": "required",
+      "rationale": "Registered coordinator-only criterion; nonvisual source/ownership/proof behavior verified by exact-source local tests and separate independent review. No game, rendering, device or deployment result is inferred.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C7-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/README.md",
+        "project-management/tasks/ops-scoped-coordinator-admission-20261009.json",
+        "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+        "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+        "project-management/watchdog/fixtures/scoped-admission/README.md",
+        "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    }
+  },
+  "source_scope_limitations": [
+    "Optional single filed-task implementation/verification/upload/merge scope, one current open/draft PR and branch; no new dispatcher or collector",
+    "Multi-task prerequisite graphs and unsupported dependency shapes fail closed; canonical source/dependency/owner regions and related parent/row ownership queries remain required",
+    "Raw branch/PR enumeration remains exhaustive; historical task normalization and live-state queries are bounded by proved relevant scope",
+    "No scoped-only global IDLE; no modification of existing acceptance evaluator, old stopped routes, game sources, deployment or access"
+  ]
 }

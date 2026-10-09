@@ -1,0 +1,487 @@
+"""Offline scoped-source regressions using hash-verified Git objects.
+
+All generated people, repositories and collection receipts here are SYNTHETIC.
+No fixture seal is evidence of a real external read or live permission.
+"""
+import contextlib
+from copy import deepcopy
+from datetime import timedelta
+import io
+import json
+import socket
+import subprocess
+import unittest
+from unittest.mock import patch
+
+import coordinator as co
+import coordinator_cli as cli
+import evidence_policy as ep
+import scoped_admission as sa
+import watch
+from test_evidence_policy import World, REPO, NOW, STAMP
+
+
+def seal(snapshot):
+    """TEST ONLY: simulate all completed collector queries after a fixture edit."""
+    scope = snapshot["scoped_source"]
+    scope["receipts"] = []
+    for repo, head in snapshot["repositories"].items():
+        for kind in co.TABLES:
+            rows = [r for r in snapshot[kind] if r["repository"] == repo]
+            raw = scope["inventory"][kind] if kind in ("branches", "prs") else snapshot[kind]
+            ids = [r["id"] for r in raw if r["repository"] == repo]
+            scope["receipts"].append({"id": repo + ":" + kind, "kind": kind,
+                "repository": repo, "source_repository": repo, "ref_sha": head,
+                "observed_at": STAMP, "read_status": "ok", "ids": ids,
+                "pagination": {"pages_read": 1, "items_seen": len(ids), "exhausted": True},
+                "query_digest": ep.digest(sa.query(scope)),
+                "inventory_digest": ep.digest(scope["inventory"]), "records_digest": ep.digest(rows),
+                "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"})
+    for receipt in scope["receipts"]:
+        receipt["inventory_digest"] = sa.inventory_digest(snapshot, co.TABLES)
+    return snapshot
+
+
+def docs_case(task_transform=None):
+    w = World()
+    task_id = "ops-docs"
+    task = {"id": task_id, "completion_criteria": [{"id": "C1", "criterion": "Document one scoped decision", "verification": "Inspect the exact document and board diff"}],
+            "evidence_rule_inventory": [{"id": "R1", "repository": REPO, "path": "rules.md"}],
+            "evidence_policy": {"C1": {"applicability": "required", "rationale": "Documentary criterion", "rule_id": "R1", "instances": ["doc-decision"],
+                "source_paths": ["doc.md", "board.md"], "build": None, "visual": False, "checks": []}}}
+    if task_transform:
+        task_transform(task)
+    w.file("task.json", task)
+    w.file("rules.md", "# R1\nIndependent document review required.\n")
+    board = "# Board\n\n| Task | State |\n|---|---|\n| ops-docs | open |\n| unrelated | open |\n\nContext remains unchanged.\n"
+    w.file("board.md", board)
+    w.file("doc.md", "Before scoped decision\n")
+    base = w.commit()
+    base_files = deepcopy(w.files)
+    w.file("board.md", board.replace("ops-docs | open", "ops-docs | in_review"))
+    w.file("doc.md", "After: scope and independent review are explicit.\n")
+    source = w.commit(base)
+    authority = {"version": 1, "observed_at": STAMP, "rule_heads": {REPO: base},
+        "rules": [{"id": "R1", "ref": w.ref(base, "rules.md")}], "task_ref": w.ref(source, "task.json"),
+        "candidate": {"repository": REPO, "implementation_head": source, "artifact_head": source},
+        "principals": {"author": "worker-A", "coordinator": "coordinator-A", "reviewer": "reviewer-B", "human": None},
+        "owner_id": "worker-A", "status": "in_review", "stopped": False, "exclusions": {}, "attestations": [], "findings": [], "decisions": []}
+    item = {"id": "document-proof", "criterion_id": "C1", "instances": ["doc-decision"], "type": "document",
+        "ref": w.ref(source, "doc.md"), "source_head": source, "build": None, "performed_at": STAMP, "check_id": None}
+    submission = {"acknowledgment": {"task_id": task_id, "author_id": "worker-A", "rules": deepcopy(authority["rules"])},
+        "plans": {"C1": {"method": "Inspect document and exact board-row diff", "artifacts": [{"path": "doc.md", "type": "document"}],
+            "source_paths": ["doc.md", "board.md"], "build": None, "coverage": ["doc-decision"], "reviewer_id": "reviewer-B"}}, "evidence": [item], "human_verdict": None}
+    verdict = {"task_id": task_id, "candidate_head": source, "actor_id": "reviewer-B",
+        "authority_digest": ep.acceptance_binding(authority), "evidence_digest": ep.digest(submission["evidence"]), "performed_at": STAMP,
+        "criteria": {"C1": {"decision": "PASS", "rationale": "Original documentary evidence inspected", "citations": [item["ref"]], "evidence_ids": [item["id"]]}}}
+    w.file("qa/review.json", verdict)
+    head = w.commit(source)
+    authority["candidate"]["artifact_head"] = head
+    submission["verdict"] = w.ref(head, "qa/review.json")
+    authority["attestations"] = [{"kind": "review", "ref": submission["verdict"], "actor_id": "reviewer-B", "observed_at": STAMP,
+        "provenance": "SYNTHETIC authenticated fixture review; not external acceptance"}]
+    check = ep.evaluate_completion(authority, submission, w.objects, NOW)
+    assert check["status"] == "ACCEPTABLE", check
+    snapshot = {"version": 1, "observed_at": STAMP, "repositories": {REPO: base}, "sources": [], **{k: [] for k in co.TABLES}}
+    snapshot["policies"] = [{"id": "policy", "repository": REPO, "triggers_checked": True,
+        "push_runs_actions": False, "push_deploys": False, "merge_runs_actions": False, "merge_deploys": False}]
+    normalized = {"id": task_id, "repository": REPO, "head_sha": head, "status": "in_review", "owner_id": "worker-A", "author_id": "worker-A", "project": "docs",
+        "needs": [], "criteria": ["C1"], "required_checks": ["evidence-policy:acceptance-check"],
+        "requirements": {op: {"capabilities": [op], "model": None, "effort": None, "runtime_confirmation_required": False} for op in co.OPERATIONS[1:]}}
+    snapshot["tasks"] = [normalized]
+    snapshot["board"] = [{k: normalized[k] for k in ("id", "repository", "head_sha", "status", "owner_id")}]
+    pr_id, branch_id = REPO + "#1", REPO + ":refs/heads/docs"
+    snapshot["prs"] = [{"id": pr_id, "repository": REPO, "task_id": task_id, "head_sha": head, "author_id": "worker-A", "state": "open", "review_ids": ["review"], "check_ids": ["check"]}]
+    snapshot["branches"] = [{"id": branch_id, "repository": REPO, "task_id": task_id, "head_sha": head}]
+    snapshot["reviews"] = [{"id": "review", "repository": REPO, "task_id": task_id, "pr_id": pr_id, "head_sha": source,
+        "observed_at": STAMP, "performed_at": STAMP, "reviewer_id": "reviewer-B", "verdict": "pass", "criteria": {"C1": {"result": "pass", "evidence": "qa/review.json"}}}]
+    snapshot["checks"] = [{"id": "check", "repository": REPO, "task_id": task_id, "pr_id": pr_id, "head_sha": head,
+        "observed_at": STAMP, "performed_at": STAMP, "name": "evidence-policy:acceptance-check", "result": "pass"}]
+    snapshot["requests"] = [{"id": "authorized-source", "repository": REPO, "task_id": task_id, "project": "docs", "operations": list(co.OPERATIONS),
+        "executors": ["*"], "kind": "standing", "state": "active", "authority_verified": True, "evidence": "SYNTHETIC user authorization fixture"}]
+    snapshot["executors"] = [{"id": "native", "repository": REPO, "owner_id": "coordinator-A", "kind": "native", "state": "available",
+        "capabilities": list(co.OPERATIONS), "observed_model": None, "observed_effort": None, "runtime_confirmed": False, "resume_task": None}]
+    snapshot["evidence_policy"] = {task_id: {"authority": authority, "submission": submission, "objects": w.objects}}
+    snapshot["scoped_source"] = {"version": 1,
+        "binding": {"task_id": task_id, "repository": REPO, "operation": "merge", "executor_id": "native", "owner_id": "coordinator-A", "head_sha": head},
+        "base_heads": {REPO: base}, "task_ids": [task_id], "related_task_ids": [task_id],
+        "regions": [{"repository": REPO, "path": p, "row_keys": [task_id] if p == "board.md" else []} for p in ("doc.md", "board.md", "task.json", "rules.md", "qa/")],
+        "candidate": {"pr_id": pr_id, "branch_id": branch_id, "fork_sha": base, "base_chain": [base], "head_chain": [head, source, base]},
+        "inventory": {"branches": [
+            {"id": REPO + ":refs/heads/main", "repository": REPO, "head_sha": base, "proof": {"kind": "base_ancestor", "chain": [base]}},
+            {"id": branch_id, "repository": REPO, "head_sha": head, "proof": {"kind": "candidate"}}],
+            "prs": [{"id": pr_id, "repository": REPO, "head_sha": head, "branch_id": branch_id, "author_id": "worker-A", "proof": {"kind": "candidate"}}]},
+        "receipts": [], "objects": w.objects}
+    return {"snapshot": seal(snapshot), "world": w, "base": base, "source": source, "head": head, "base_files": base_files, "board": board}
+
+
+def add_branch(case, changes, pr=False, name="another"):
+    w, s = case["world"], case["snapshot"]
+    w.files = deepcopy(case["base_files"])
+    for path, content in changes.items():
+        w.file(path, content)
+    head = w.commit(case["base"])
+    branch_id = REPO + ":refs/heads/" + name
+    proof = {"kind": "disjoint", "fork_sha": case["base"], "base_chain": [case["base"]], "head_chain": [head, case["base"]]}
+    s["scoped_source"]["inventory"]["branches"].append({"id": branch_id, "repository": REPO, "head_sha": head, "proof": proof})
+    if pr:
+        s["scoped_source"]["inventory"]["prs"].append({"id": REPO + "#2", "repository": REPO, "head_sha": head, "branch_id": branch_id, "author_id": "another-worker", "proof": deepcopy(proof)})
+    seal(s)
+    return head
+
+
+class ScopedAdmissionTests(unittest.TestCase):
+    def setUp(self):
+        self.case = docs_case()
+        self.s = self.case["snapshot"]
+
+    def result(self):
+        return co.evaluate(self.s, NOW)
+
+    def assert_allowed(self):
+        result = self.result()
+        self.assertEqual(result["status"], "ACTION_REQUIRED", result)
+        self.assertEqual(len(result["actions"]), 1, result)
+        self.assertEqual(result["source_scope"]["global_coverage"], "unknown")
+        return result["actions"][0]
+
+    def assert_blocked(self):
+        result = self.result()
+        self.assertFalse(result["actions"], result)
+        self.assertNotEqual(result["status"], "IDLE", result)
+        return result
+
+    def test_docs_only_actual_policy_check_positive(self):
+        self.assertEqual(self.case["world"].objects, self.s["scoped_source"]["objects"])
+        self.assert_allowed()
+        self.assertEqual(self.s["tasks"][0]["required_checks"], ["evidence-policy:acceptance-check"])
+
+    def test_old_global_missing_coverage_stays_blocked(self):
+        self.s.pop("scoped_source")
+        self.assert_blocked()
+
+    def test_scoped_empty_work_never_global_idle(self):
+        self.s["tasks"][0]["status"] = "paused"
+        self.s["board"][0]["status"] = "paused"
+        self.s["evidence_policy"]["ops-docs"]["authority"]["status"] = "paused"
+        seal(self.s)
+        self.assertEqual(self.assert_blocked()["status"], "INPUT_REQUIRED")
+
+    def test_proved_disjoint_branch_and_pr_need_no_historical_task_normalization(self):
+        add_branch(self.case, {"unrelated/game.py": "historical unrelated source"}, pr=True)
+        self.assert_allowed()
+
+    def test_ancestor_branch_does_not_need_task_id(self):
+        self.s["scoped_source"]["inventory"]["branches"].append({"id": REPO + ":archive", "repository": REPO, "head_sha": self.case["source"],
+            "proof": {"kind": "candidate_ancestor", "chain": [self.case["head"], self.case["source"]]}})
+        seal(self.s)
+        self.assert_allowed()
+
+    def test_relevant_branch_blocks(self):
+        add_branch(self.case, {"doc.md": "a live overlapping edit"})
+        self.assertIn("overlapping", " ".join(self.assert_blocked()["warnings"]))
+
+    def test_sibling_pr_cannot_hide_behind_task_name(self):
+        add_branch(self.case, {"doc.md": "overlapping unrelated-name branch"}, pr=True, name="totally-unrelated-title")
+        self.assert_blocked()
+
+    def test_unknown_branch_proof_fails_closed(self):
+        add_branch(self.case, {"unrelated.txt": "unrelated"})
+        self.s["scoped_source"]["inventory"]["branches"][-1]["proof"] = {"kind": "unrelated", "unrelated": True}
+        seal(self.s)
+        self.assert_blocked()
+
+    def test_forged_ancestry_edge_fails(self):
+        add_branch(self.case, {"unrelated.txt": "unrelated"})
+        row = self.s["scoped_source"]["inventory"]["branches"][-1]
+        row["proof"] = {"kind": "base_ancestor", "chain": [self.case["base"], row["head_sha"]]}
+        seal(self.s)
+        self.assert_blocked()
+
+    def test_relevant_file_and_row_mode_changes_are_not_disjoint(self):
+        for path in ("doc.md", "board.md"):
+            with self.subTest(path=path):
+                case = docs_case()
+                w, s, base = case["world"], case["snapshot"], case["base"]
+                store = ep.GitObjects(w.objects)
+                tree, _ = store.commit(REPO, base)
+                entries = store.tree(REPO, tree)
+                entries[path] = (b"100755", entries[path][1])
+                raw = b"".join(mode + b" " + name.encode() + b"\0" + bytes.fromhex(oid)
+                               for name, (mode, oid) in sorted(entries.items()))
+                changed_tree = w.object("tree", raw)
+                head = w.object("commit", "tree " + changed_tree + "\nparent " + base + "\n\nSynthetic mode change\n")
+                s["scoped_source"]["inventory"]["branches"].append({"id": REPO + ":mode-change", "repository": REPO, "head_sha": head,
+                    "proof": {"kind": "disjoint", "fork_sha": base, "base_chain": [base], "head_chain": [head, base]}})
+                seal(s)
+                self.assertFalse(co.evaluate(s, NOW)["actions"])
+
+    def test_shared_board_disjoint_row_allowed(self):
+        add_branch(self.case, {"board.md": self.case["board"].replace("unrelated | open", "unrelated | in_progress")}, pr=True)
+        self.assert_allowed()
+
+    def test_shared_board_target_row_blocks(self):
+        add_branch(self.case, {"board.md": self.case["board"].replace("ops-docs | open", "ops-docs | blocked")}, pr=True)
+        self.assert_blocked()
+
+    def test_shared_board_context_and_duplicates_block(self):
+        for text in [self.case["board"].replace("# Board", "# Changed authority"), self.case["board"] + "\n| Task | State |\n|---|---|\n| ops-docs | duplicate |\n"]:
+            with self.subTest(text=text):
+                case = docs_case()
+                add_branch(case, {"board.md": text})
+                self.assertFalse(co.evaluate(case["snapshot"], NOW)["actions"])
+
+    def test_candidate_scope_cannot_omit_path_or_row(self):
+        for remove in ["doc.md", "task.json", "rules.md", "qa/"]:
+            with self.subTest(remove=remove):
+                s = deepcopy(self.s)
+                s["scoped_source"]["regions"] = [r for r in s["scoped_source"]["regions"] if r["path"] != remove]
+                seal(s)
+                self.assertFalse(co.evaluate(s, NOW)["actions"])
+        next(r for r in self.s["scoped_source"]["regions"] if r["path"] == "board.md")["row_keys"] = ["unrelated"]
+        seal(self.s)
+        self.assert_blocked()
+
+    def test_every_receipt_missing_partial_stale_or_query_changed_blocks(self):
+        for kind in co.TABLES:
+            for bad in ("missing", "partial", "stale", "query", "inventory", "records", "pagination"):
+                with self.subTest(kind=kind, bad=bad):
+                    s = deepcopy(self.s)
+                    r = next(x for x in s["scoped_source"]["receipts"] if x["kind"] == kind)
+                    if bad == "missing": s["scoped_source"]["receipts"].remove(r)
+                    if bad == "partial": r["read_status"] = "partial"
+                    if bad == "stale": r["observed_at"] = (NOW - timedelta(minutes=15)).isoformat()
+                    if bad in {"query", "inventory", "records"}: r[bad + "_digest"] = "changed"
+                    if bad == "pagination": r["pagination"]["exhausted"] = False
+                    self.assertFalse(co.evaluate(s, NOW)["actions"])
+
+    def test_unknown_owner_and_queue_are_retained_even_when_branch_contained(self):
+        owner = {"id": "owner", "repository": REPO, "task_id": "ops-docs", "operation": "merge", "owner_id": "coordinator-A", "executor_id": "native", "state": "unknown"}
+        self.s["owners"] = [owner]
+        seal(self.s)
+        self.assert_blocked()
+        self.s["owners"] = []
+        self.s["queue"] = [{"id": "queue", "repository": REPO, "task_id": "ops-docs", "operation": "merge", "executor_id": "native", "owner_id": "coordinator-A", "head_sha": self.case["head"], "state": "pending"}]
+        seal(self.s)
+        self.assert_blocked()
+
+    def test_provider_denial_stop_and_global_hold_remain(self):
+        for kind in ("hold", "stop", "denial", "security", "cancelled"):
+            for tid in ("ops-docs", "*"):
+                with self.subTest(kind=kind, tid=tid):
+                    s = deepcopy(self.s)
+                    s["blockers"] = [{"id": "block", "repository": REPO, "task_id": tid, "operations": ["merge"], "executors": ["*"], "kind": kind, "reason": "Retained user decision"}]
+                    seal(s)
+                    self.assertFalse(co.evaluate(s, NOW)["actions"])
+
+    def test_required_checks_never_empty_missing_failed_or_invented(self):
+        for mode in ("empty", "missing", "failed", "different"):
+            with self.subTest(mode=mode):
+                s = deepcopy(self.s)
+                if mode == "empty": s["tasks"][0]["required_checks"] = []
+                if mode == "missing": s["checks"] = []; s["prs"][0]["check_ids"] = []
+                if mode == "failed": s["checks"][0]["result"] = "fail"
+                if mode == "different": s["checks"][0]["name"] = "fake-unit-test"
+                seal(s)
+                self.assertFalse(co.evaluate(s, NOW)["actions"])
+
+    def test_independent_proof_cannot_be_replaced_by_pass_word(self):
+        for mode in ("no-proof", "self-review", "failed", "stale-ack"):
+            with self.subTest(mode=mode):
+                s = deepcopy(self.s)
+                if mode == "no-proof": s["evidence_policy"]["ops-docs"]["submission"]["verdict"] = None
+                if mode == "self-review": s["reviews"][0]["reviewer_id"] = "worker-A"
+                if mode == "failed": s["reviews"][0]["verdict"] = "fail"
+                if mode == "stale-ack": s["evidence_policy"]["ops-docs"]["submission"]["acknowledgment"]["rules"][0]["ref"]["commit"] = self.case["source"]
+                seal(s)
+                self.assertFalse(co.evaluate(s, NOW)["actions"])
+
+    def test_decision_binds_candidate_base_owner_rules_inventory_and_receipt(self):
+        action = self.assert_allowed()
+        target = {k: action[k] for k in ("task_id", "operation", "executor_id", "owner_id", "head_sha")}
+        self.assertEqual(co.revalidate(self.s, action, target, NOW)["status"], "GO")
+        mutations = [lambda s: s["tasks"][0].update(head_sha=self.case["source"]),
+            lambda s: s["repositories"].update({REPO: self.case["source"]}),
+            lambda s: s["executors"][0].update(owner_id="someone-else"),
+            lambda s: s["evidence_policy"]["ops-docs"]["authority"]["rules"][0]["ref"].update(blob="f" * 40),
+            lambda s: s["scoped_source"]["inventory"]["branches"][0].update(head_sha=self.case["source"]),
+            lambda s: s["scoped_source"]["receipts"][0].update(provenance="changed receipt")]
+        for mutate in mutations:
+            s = deepcopy(self.s); mutate(s)
+            self.assertEqual(co.revalidate(s, action, target, NOW)["status"], "NO_GO")
+        self.assertEqual(co.revalidate(self.s, action, target, NOW + timedelta(minutes=15))["status"], "NO_GO")
+
+    def test_invalid_scope_never_falls_back_to_complete_legacy_sources(self):
+        from test_rules import coordinator_seal
+        coordinator_seal(self.s)
+        self.s["scoped_source"]["unexpected"] = True
+        self.assert_blocked()
+
+    def test_all_cli_and_imported_supported_aliases_share_result_without_io(self):
+        action = self.assert_allowed()
+        args = ["--snapshot", "snapshot.json"]
+        guard = args + ["--decision", "decision.json", "--task", "ops-docs", "--operation", "merge", "--executor", "native", "--owner", "coordinator-A", "--head", self.case["head"]]
+        original = deepcopy(self.s)
+        class FrozenClock:
+            @staticmethod
+            def now(tz):
+                return NOW
+        with patch.object(cli, "_load", side_effect=lambda p: self.s if p == "snapshot.json" else action), \
+             patch.object(cli, "datetime", FrozenClock), \
+             patch("builtins.open", side_effect=AssertionError("unexpected filesystem read")), \
+             patch.object(socket, "socket", side_effect=AssertionError("network forbidden")), \
+             patch.object(subprocess, "run", side_effect=AssertionError("dispatch forbidden")):
+            for alias in cli.ALIASES:
+                argv = guard if alias == "dispatch-guard" else args
+                for imported in (False, True):
+                    with self.subTest(alias=alias, imported=imported), contextlib.redirect_stdout(io.StringIO()) as out:
+                        try:
+                            if imported:
+                                code = getattr(watch, "cmd_" + alias.replace("-", "_"))(argv) or 0
+                            else:
+                                code = cli.run(alias, argv, NOW)
+                        except SystemExit as stop:
+                            code = stop.code
+                        result = json.loads(out.getvalue())
+                        self.assertEqual(result["status"], "GO" if alias == "dispatch-guard" else "ACTION_REQUIRED")
+                        self.assertEqual(code, 3 if alias == "idle-defect-check" else 0)
+                        if alias != "dispatch-guard":
+                            self.assertEqual(result["actions"], [action])
+        self.assertEqual(self.s, original)
+
+    def test_duplicate_trigger_policy_cannot_use_first_safe_record(self):
+        second = deepcopy(self.s["policies"][0])
+        second.update(id="conflicting-policy", merge_runs_actions=True)
+        self.s["policies"].append(second)
+        seal(self.s)
+        self.assert_blocked()
+
+    def test_supported_operation_positives_and_deploy_not_supported(self):
+        for operation in ("implementation", "verification", "upload", "merge"):
+            with self.subTest(operation=operation):
+                s = deepcopy(self.s)
+                s["scoped_source"]["binding"]["operation"] = operation
+                s["tasks"][0]["needs"] = [operation]
+                if operation == "implementation":
+                    s["tasks"][0]["status"] = s["board"][0]["status"] = "in_progress"
+                    s["evidence_policy"]["ops-docs"]["authority"]["status"] = "in_progress"
+                    s["executors"][0].update(owner_id="worker-A", resume_task="ops-docs")
+                    s["scoped_source"]["binding"]["owner_id"] = "worker-A"
+                seal(s)
+                result = co.evaluate(s, NOW)
+                self.assertEqual([a["operation"] for a in result["actions"]], [operation], result)
+        self.s["scoped_source"]["binding"]["operation"] = "deploy"
+        seal(self.s)
+        self.assert_blocked()
+
+    def test_relevant_dependency_owner_queue_or_hold_blocks(self):
+        other = deepcopy(self.s["tasks"][0])
+        other.update(id="dependency", status="paused")
+        self.s["tasks"].append(other)
+        self.s["board"].append({k: other[k] for k in ("id", "repository", "head_sha", "status", "owner_id")})
+        self.s["scoped_source"]["task_ids"].append("dependency")
+        self.s["scoped_source"]["related_task_ids"].append("dependency")
+        for table, row in [
+            ("owners", {"id": "dependency-owner", "repository": REPO, "task_id": "dependency", "operation": "implementation", "owner_id": "coordinator-A", "executor_id": "native", "state": "reserved"}),
+            ("queue", {"id": "dependency-queue", "repository": REPO, "task_id": "dependency", "operation": "implementation", "executor_id": "native", "owner_id": "coordinator-A", "head_sha": self.case["head"], "state": "running"}),
+            ("blockers", {"id": "dependency-stop", "repository": REPO, "task_id": "dependency", "operations": ["*"], "executors": ["*"], "kind": "stop", "reason": "Retain dependent owner's stop"})]:
+            with self.subTest(table=table):
+                s = deepcopy(self.s)
+                s[table] = [row]
+                seal(s)
+                self.assertFalse(co.evaluate(s, NOW)["actions"])
+
+    def test_dependency_board_task_owner_cannot_disappear_from_owner_table(self):
+        other = deepcopy(self.s["tasks"][0])
+        other.update(id="dependency", status="in_progress", owner_id="another-worker")
+        self.s["tasks"].append(other)
+        self.s["board"].append({k: other[k] for k in ("id", "repository", "head_sha", "status", "owner_id")})
+        self.s["scoped_source"]["task_ids"].append("dependency")
+        self.s["scoped_source"]["related_task_ids"].append("dependency")
+        seal(self.s)
+        self.assert_blocked()
+
+    def test_unproved_prerequisite_graphs_fail_even_with_owner_free_status(self):
+        for key in ("depends_on", "dependencies"):
+            with self.subTest(key=key):
+                case = docs_case(lambda t: t.update({key: ["hidden-prerequisite"]}))
+                self.assertFalse(co.evaluate(case["snapshot"], NOW)["actions"])
+        other = deepcopy(self.s["tasks"][0])
+        other.update(id="dependency", status="validated", owner_id=None)
+        self.s["tasks"].append(other)
+        self.s["board"].append({k: other[k] for k in ("id", "repository", "head_sha", "status", "owner_id")})
+        self.s["scoped_source"]["task_ids"].append("dependency")
+        self.s["scoped_source"]["related_task_ids"].append("dependency")
+        seal(self.s)
+        self.assert_blocked()
+
+    def test_declared_dependency_region_cannot_be_hidden_as_disjoint(self):
+        self.s["scoped_source"]["regions"].append({"repository": REPO, "path": "dependency/", "row_keys": []})
+        add_branch(self.case, {"dependency/shared.py": "changed prerequisite source"})
+        self.assert_blocked()
+
+    def test_closed_current_task_and_original_frozen_holds_are_retained(self):
+        for mode in ("cancelled", "done-pending-verdict", "shuto", "neon-drift", "td-054", "preservation"):
+            with self.subTest(mode=mode):
+                s = deepcopy(self.s)
+                if mode in ("cancelled", "done-pending-verdict"):
+                    s["board"][0]["status"] = mode
+                elif mode in ("shuto", "neon-drift"):
+                    s["tasks"][0]["project"] = mode
+                    s["requests"][0]["project"] = mode
+                elif mode == "preservation":
+                    old, new = REPO + "#1", REPO + "#253"
+                    s["prs"][0]["id"] = new
+                    s["reviews"][0]["pr_id"] = s["checks"][0]["pr_id"] = new
+                    s["scoped_source"]["candidate"]["pr_id"] = new
+                    s["scoped_source"]["inventory"]["prs"][0]["id"] = new
+                else:
+                    # td-054's existing implementation gate is also covered by
+                    # the unchanged inherited suite; a scoped binding cannot
+                    # relabel this canonical task to impersonate it.
+                    s["scoped_source"]["binding"]["task_id"] = "td-054"
+                seal(s)
+                self.assertFalse(co.evaluate(s, NOW)["actions"])
+
+    def test_unrequested_actions_or_triggered_publication_remain_blocked(self):
+        for mode in ("unauthorized", "cancelled", "actions", "deployment", "unverified-trigger"):
+            with self.subTest(mode=mode):
+                s = deepcopy(self.s)
+                if mode == "unauthorized": s["requests"][0]["operations"] = ["verification"]
+                if mode == "cancelled": s["requests"][0]["state"] = "cancelled"
+                if mode == "actions": s["policies"][0]["merge_runs_actions"] = True
+                if mode == "deployment": s["policies"][0]["merge_deploys"] = True
+                if mode == "unverified-trigger": s["policies"][0]["triggers_checked"] = False
+                seal(s)
+                self.assertFalse(co.evaluate(s, NOW)["actions"])
+
+    def test_board_reorder_or_table_move_is_not_disjoint(self):
+        two = "# Active\n\n| Task | State |\n|---|---|\n| ops-docs | open |\n| unrelated | open |\n\n# History\n\n| Task | State |\n|---|---|\n| archived | old |\n"
+        swapped = two.replace("| ops-docs | open |", "SWAP").replace("| archived | old |", "| ops-docs | open |").replace("SWAP", "| archived | old |")
+        reordered = two.replace("| ops-docs | open |\n| unrelated | open |", "| unrelated | open |\n| ops-docs | open |")
+        self.assertNotEqual(sa.board_rows(two.encode()), sa.board_rows(swapped.encode()))
+        self.assertNotEqual(sa.board_rows(two.encode()), sa.board_rows(reordered.encode()))
+        active = "# Active\n\n| Task | State |\n|---|---|\n"
+        historical = "# Historical\n\n| Task | State |\n|---|---|\n"
+        row = "| ops-docs | open |\n"
+        self.assertNotEqual(sa.board_rows((active + row + "\n" + historical).encode()),
+                            sa.board_rows((active + "\n" + historical + row).encode()))
+
+    def test_current_base_dependency_change_blocks(self):
+        w = self.case["world"]
+        w.files = deepcopy(self.case["base_files"])
+        w.file("doc.md", "new main dependency incompatible with old branch")
+        new_base = w.commit(self.case["base"])
+        self.s["repositories"][REPO] = new_base
+        self.s["scoped_source"]["base_heads"][REPO] = new_base
+        self.s["evidence_policy"]["ops-docs"]["authority"]["rule_heads"][REPO] = new_base
+        self.s["evidence_policy"]["ops-docs"]["authority"]["rules"][0]["ref"]["commit"] = new_base
+        self.s["scoped_source"]["candidate"]["base_chain"] = [new_base, self.case["base"]]
+        main = self.s["scoped_source"]["inventory"]["branches"][0]
+        main.update(head_sha=new_base, proof={"kind": "base_ancestor", "chain": [new_base]})
+        seal(self.s)
+        self.assertIn("current-base dependency", " ".join(self.assert_blocked()["warnings"]))
+
+
+if __name__ == "__main__":
+    unittest.main()
