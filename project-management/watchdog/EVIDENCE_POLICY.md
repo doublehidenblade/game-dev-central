@@ -89,7 +89,7 @@ Authority version 1 contains:
   from author, human null only when no visual human gate is applicable
 - `owner_id`, `status`, `stopped`: current ownership and explicit stop facts
 - `exclusions`: bounded coordinator-authorized criterion exclusions
-- `attestations`: authenticated observations of review, human, execution or
+- `attestations`: authenticated observations of review, human, execution, capture or
   coordinator-decision artifacts, with exact ref, actor, observation time and
   collection provenance. Executions cannot postdate their collection receipts
 - `findings`, `decisions`: all relevant structured findings and committed
@@ -131,7 +131,9 @@ A log/assertion is a structured actual execution record with exact required
 command/check ID, exit code, observed output, source head, build/variant/
 environment, time and actor. It requires an authenticated execution observation.
 A nonzero, missing, unrelated or unbound command cannot become green from a
-reviewer's text. Nonvisual documents/diffs can be appropriate when the task
+reviewer's text. Source/build-dependent non-execution artifacts also need an
+authenticated capture receipt binding exact source, build, time, criterion and
+instances; screenshot metadata alone cannot establish capture provenance. Nonvisual documents/diffs can be appropriate when the task
 requires them; screenshots are not universally compulsory.
 
 ## Reconciliation, not automatic rule creation
@@ -156,7 +158,9 @@ Allowed decisions:
 The module cannot judge the intellectual quality of a generalization rationale.
 That remains independent review. Repetition counts alone never create a rule.
 Regression booleans, invented paths, unrelated failures and unchanged rule bytes
-are rejected. The tests actually execute the synthetic broken-fixture assertion
+are rejected. Version 1 requires the exact regression command to be
+`python3 <cited-assertion-path> <cited-broken-fixture-path>`; the cited previous
+rule must be an actual ancestor of its authoritative replacement. The tests actually execute the synthetic broken-fixture assertion
 and inspect the resulting failure; the evaluator itself never executes code.
 
 ## Source, evidence and verdict commits are separate

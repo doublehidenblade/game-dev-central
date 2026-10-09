@@ -329,7 +329,8 @@
       ],
       "source_paths": [
         "project-management/watchdog/evidence_policy.py",
-        "project-management/watchdog/test_evidence_policy.py"
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/guideline.json"
       ],
       "build": null,
       "visual": false,
@@ -355,7 +356,8 @@
       ],
       "source_paths": [
         "project-management/watchdog/evidence_policy.py",
-        "project-management/watchdog/test_evidence_policy.py"
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json"
       ],
       "build": null,
       "visual": false,
@@ -381,7 +383,8 @@
       ],
       "source_paths": [
         "project-management/watchdog/evidence_policy.py",
-        "project-management/watchdog/test_evidence_policy.py"
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json"
       ],
       "build": null,
       "visual": false,
@@ -407,7 +410,8 @@
       ],
       "source_paths": [
         "project-management/watchdog/evidence_policy.py",
-        "project-management/watchdog/test_evidence_policy.py"
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/visual.json"
       ],
       "build": null,
       "visual": false,
@@ -433,7 +437,11 @@
       ],
       "source_paths": [
         "project-management/watchdog/evidence_policy.py",
-        "project-management/watchdog/test_evidence_policy.py"
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/EVIDENCE_POLICY.md",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json",
+        "project-management/watchdog/fixtures/evidence-policy/visual.json",
+        "project-management/watchdog/fixtures/evidence-policy/guideline.json"
       ],
       "build": null,
       "visual": false,
@@ -462,7 +470,8 @@
         "project-management/watchdog/test_evidence_policy.py",
         "project-management/watchdog/watch.py",
         "project-management/watchdog/coordinator.py",
-        "project-management/watchdog/coordinator_cli.py"
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/test_rules.py"
       ],
       "build": null,
       "visual": false,
@@ -491,7 +500,12 @@
         "project-management/watchdog/test_evidence_policy.py",
         "project-management/watchdog/watch.py",
         "project-management/watchdog/coordinator.py",
-        "project-management/watchdog/coordinator_cli.py"
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/EVIDENCE_POLICY.md",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json",
+        "project-management/watchdog/fixtures/evidence-policy/visual.json",
+        "project-management/watchdog/fixtures/evidence-policy/guideline.json"
       ],
       "build": null,
       "visual": false,
