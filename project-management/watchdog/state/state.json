@@ -1981,6 +1981,24 @@
    "dispatched_at": "2026-10-09T13:57:43.595198+00:00",
    "quiet_cycles": 0,
    "last_verdict": "grace"
+  },
+  "td-240": {
+   "kind": "subagent",
+   "session": "565eaf25-326a-4caf-84d2-4683f03a5108",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-240.md",
+   "dispatched_at": "2026-10-09T14:25:33.155789+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-241": {
+   "kind": "subagent",
+   "session": "5094fc5c-a52b-45da-ad2c-851837db40d0",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-241.md",
+   "dispatched_at": "2026-10-09T14:25:33.353278+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
