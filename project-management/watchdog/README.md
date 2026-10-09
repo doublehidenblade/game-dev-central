@@ -30,6 +30,8 @@ run `push_code.py` or use old browser handoff instructions as a bypass.
 
 `python3 project-management/watchdog/watch.py idle-defect-check --snapshot <file>`
 
+Construct fresh inputs from the [connected-source checklist](RUNBOOK.md#constructing-a-truthful-snapshot-with-connected-reads); the synthetic fixture is not live adoption proof.
+
 The plan returns `ACTION_REQUIRED`, `INPUT_REQUIRED`, or scope-bounded `IDLE`.
 Permitted alternatives may coexist with warnings; warnings prevent global idle.
 Each alternative is bound to its task, operation, executor, owner, full source

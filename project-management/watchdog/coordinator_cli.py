@@ -39,7 +39,10 @@ def run(command, argv, at=None):
         print(json.dumps({"status": "INPUT_REQUIRED", "reason": "RETIRED_UNGUARDED_ROUTE", "command": command,
                           "next": "Use coordinator-plan with a fresh explicit snapshot; automatic dispatch is disabled"}))
         return 2
-    parser = argparse.ArgumentParser(prog="watch.py " + command)
+    class InputParser(argparse.ArgumentParser):
+        def error(self, message):
+            raise ValueError(message)
+    parser = InputParser(prog="watch.py " + command)
     parser.add_argument("--snapshot")
     parser.add_argument("--decision")
     for key in ("task", "operation", "executor", "owner", "head"):

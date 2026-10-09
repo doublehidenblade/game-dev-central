@@ -33,9 +33,11 @@ def require(condition, message):
         raise InputError(message)
 
 
-def fields(value, names, where):
-    require(isinstance(value, dict) and set(value) == set(names.split()),
-            f"{where}: expected fields {names}")
+def fields(value, names, where, optional=""):
+    required = set(names.split())
+    allowed = required | set(optional.split())
+    require(isinstance(value, dict) and required <= set(value) <= allowed,
+            f"{where}: expected fields {names}" + (f"; optional {optional}" if optional else ""))
 
 
 def strings(value, where, allowed=None, nonempty=False):
@@ -139,9 +141,12 @@ def validate(snapshot, at):
         for row in snapshot[table]:
             names = "id repository task_id pr_id head_sha observed_at"
             names += " reviewer_id verdict criteria" if table == "reviews" else " name result"
-            fields(row, names, table)
+            fields(row, names, table, optional="performed_at")
             sha(row["head_sha"])
-            require(utc(row["observed_at"]) <= at, f"future-dated {table}")
+            row_observed = utc(row["observed_at"])
+            require(row_observed <= observed, f"{table} observation exceeds snapshot time")
+            if row.get("performed_at") is not None:
+                require(utc(row["performed_at"]) <= row_observed, f"{table} performance time exceeds observation")
             if table == "checks":
                 require(isinstance(row["name"], str) and row["name"] and row["result"] in {"pass", "fail", "pending"}, "invalid check")
             else:
@@ -179,7 +184,7 @@ def validate(snapshot, at):
         if row["kind"] in {"denial", "security", "stop", "cancelled"}:
             require(row["executors"] == ["*"], "hard stops/denials must retain cross-executor scope")
     for row in snapshot["executors"]:
-        fields(row, "id repository owner_id kind state capabilities observed_model observed_effort runtime_confirmed resume_task", "executor")
+        fields(row, "id repository owner_id kind state capabilities observed_model observed_effort runtime_confirmed resume_task", "executor", optional="selected_model selected_effort selection_verified selection_evidence")
         require(row["kind"] in {"native", "codex", "claude"}, "unsupported executor (external agent contact not admitted)")
         require(row["state"] in {"available", "busy", "unavailable", "unknown"}, "invalid capacity")
         require(isinstance(row["owner_id"], str) and row["owner_id"], "executor owner required")
@@ -188,6 +193,13 @@ def validate(snapshot, at):
         for key in ("observed_model", "observed_effort"):
             require(row[key] is None or isinstance(row[key], str) and row[key], "invalid observed setup")
         require(not row["runtime_confirmed"] or row["observed_model"] is not None and row["observed_effort"] is not None, "confirmed runtime needs observed model and effort")
+        selection_keys = {"selected_model", "selected_effort", "selection_verified", "selection_evidence"}
+        if selection_keys.intersection(row):
+            require(selection_keys <= set(row), "selection record must include model, effort, verification and evidence")
+            require(type(row["selection_verified"]) is bool and isinstance(row["selection_evidence"], str), "invalid selection verification")
+            for key in ("selected_model", "selected_effort"):
+                require(row[key] is None or isinstance(row[key], str) and row[key], "invalid selected setup")
+            require(not row["selection_verified"] or row["selected_model"] and row["selected_effort"] and row["selection_evidence"].strip(), "verified selection needs exact supported setup and evidence")
     # Unfiled asks have stable admission identities too, so they can retain
     # their own owner/queue/hold rather than forcing a global admission stop.
     task_scopes = {r["id"]: r["repository"] for r in snapshot["tasks"]}
@@ -256,6 +268,20 @@ def validate(snapshot, at):
         if board != tasks:
             sources[repo, "tasks"] = (False, observed)
             warnings.append(f"{repo}: board/task inventory mismatch")
+    # A fresh aggregate receipt cannot launder an expired individual read.
+    # Immutable evidence may have been performed long ago; observed_at is the
+    # fresh read/applicability check and is deliberately distinct.
+    receipt_times = {key: value[1] for key, value in sources.items()}
+    for table in ("reviews", "checks"):
+        for row in snapshot[table]:
+            key = (row["repository"], table)
+            valid, source_time = sources[key]
+            row_time = utc(row["observed_at"])
+            require(row_time <= receipt_times[key], f"{table} observation exceeds source receipt")
+            if at - row_time >= MAX_AGE:
+                valid = False
+                warnings.append(f"{row['repository']}:{table}:{row['id']}: stale record observation")
+            sources[key] = (valid, min(source_time, row_time))
     if at - observed >= MAX_AGE:
         warnings.append("stale snapshot")
     return index, sources, warnings
@@ -286,11 +312,19 @@ def evaluate(snapshot, at):
     opportunities = []
     for task in snapshot["tasks"]:
         repo, tid = task["repository"], task["id"]
-        prs = [p for p in snapshot["prs"] if p["task_id"] == tid and p["state"] == "open"]
+        task_prs = [p for p in snapshot["prs"] if p["task_id"] == tid]
+        prs = [p for p in task_prs if p["state"] == "open"]
         if task["status"] == "unknown":
             warnings.append(f"{tid}: unknown task state")
             continue
         if task["status"] in {"closed", "cancelled", "paused", "done-pending-verdict"}:
+            continue
+        terminal_prs = [p for p in task_prs if p["state"] in {"merged", "closed"} and p["head_sha"] == task["head_sha"]]
+        if terminal_prs and task["status"] != "merged":
+            warnings.append(f"{tid}: same-head terminal PR requires task reconciliation")
+            continue
+        if task["status"] == "merged" and prs:
+            warnings.append(f"{tid}: merged task conflicts with an open PR")
             continue
         if len(prs) > 1 or prs and prs[0]["head_sha"] != task["head_sha"]:
             warnings.append(f"{tid}: contradictory current task/PR heads")
@@ -310,13 +344,17 @@ def evaluate(snapshot, at):
             warnings.append(f"{tid}: contradictory same-head review verdicts")
             continue
         board = index["board"].get(tid)
-        if board and board["status"] in {"cancelled", "paused", "done-pending-verdict"}:
+        if board and (board["status"] in {"cancelled", "paused", "done-pending-verdict"} or
+                      board["status"] in {"closed", "merged"} and board["head_sha"] == task["head_sha"] and board["status"] != task["status"]):
             warnings.append(f"{tid}: board stop/terminal state requires reconciliation")
             continue
         if board and (board["status"] != task["status"] or board["head_sha"] != task["head_sha"]):
             result["reconciliations"].append({"task_id": tid, "head_sha": task["head_sha"], "reason": "exact source task/PR facts supersede stale board descriptions; holds unchanged"})
         needs = set(task["needs"])
-        if task["status"] in {"open", "in_progress", "rejected"} or rejected:
+        if task["status"] == "merged" and "implementation" in needs:
+            warnings.append(f"{tid}: merged task cannot restart implementation without reconciliation")
+            needs.remove("implementation")
+        if task["status"] != "merged" and (task["status"] in {"open", "in_progress", "rejected"} or rejected):
             needs.add("implementation")
         if task["status"] in {"in_review", "validated"} and not rejected:
             needs.add("merge" if accepted else "verification")
@@ -378,8 +416,17 @@ def evaluate(snapshot, at):
                 if req["runtime_confirmation_required"] and not ex["runtime_confirmed"]:
                     reasons.append("RUNTIME_UNCONFIRMED")
                     warnings.append(f"{tid}:{ex['id']}: runtime unconfirmed")
-                if any(req[k] is not None and (not ex["runtime_confirmed"] or req[k] != ex["observed_" + k]) for k in ("model", "effort")):
-                    reasons.append("REQUIRED_SETUP_UNVERIFIED_OR_MISMATCHED")
+                setup_required = any(req[k] is not None for k in ("model", "effort"))
+                # Confirmed runtime evidence wins over selected settings. When
+                # attestation is not required, a verified supported selection
+                # can establish admission readiness without inventing runtime ID.
+                prefix = "observed_" if ex["runtime_confirmed"] else "selected_"
+                setup_verified = ex["runtime_confirmed"] or (not req["runtime_confirmation_required"] and ex.get("selection_verified", False))
+                if setup_required and not setup_verified:
+                    reasons.append("INPUT_REQUIRED: setup selection/runtime evidence")
+                    warnings.append(f"{tid}:{ex['id']}: required setup readiness unknown")
+                elif setup_required and any(req[k] is not None and req[k] != ex.get(prefix + k) for k in ("model", "effort")):
+                    reasons.append("REQUIRED_SETUP_MISMATCHED")
             matches = [r for r in snapshot["requests"] if r["repository"] == repo and r["project"] in {project, "*"} and (r["task_id"] in {tid, "*"} or tid == "request:" + r["id"])]
             authorized = [r for r in matches if r["state"] == "active" and r["authority_verified"] and operation in r["operations"] and ("*" in r["executors"] or ex["id"] in r["executors"])]
             if not authorized:

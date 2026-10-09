@@ -958,6 +958,110 @@ class CoordinatorEnforcementTests(unittest.TestCase):
             s = copy.deepcopy(base); mutation(s)
             self.assertFalse(self.actions(s, "merge"))
 
+    def test_terminal_board_and_merged_pr_do_not_restart_completed_work(self):
+        for status in ("closed", "merged"):
+            s = coordinator_fixture(); s["board"][0]["status"] = status
+            result = self.evaluate(s)
+            self.assertFalse(result["actions"])
+            self.assertEqual(result["status"], "INPUT_REQUIRED")
+        s = coordinator_fixture()
+        s["prs"] = [{"id": COORDINATOR_REPO + "#1", "repository": COORDINATOR_REPO,
+            "task_id": "task-a", "head_sha": COORDINATOR_HEAD, "author_id": "author",
+            "state": "merged", "review_ids": [], "check_ids": []}]
+        result = self.evaluate(coordinator_seal(s))
+        self.assertFalse(result["actions"])
+        self.assertEqual(result["status"], "INPUT_REQUIRED")
+        s["tasks"][0]["status"] = "merged"
+        s["tasks"][0]["needs"] = ["implementation", "upload"]
+        result = self.evaluate(s)
+        self.assertEqual([a["operation"] for a in result["actions"]], ["upload"])
+        self.assertTrue(result["warnings"])
+        s = coordinator_add_review(coordinator_fixture(), True)
+        s["tasks"][0].update(status="merged", needs=["implementation"])
+        s["reviews"][0]["verdict"] = "fail"
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+        self.assertFalse(self.actions(s))
+
+    def test_terminal_conflict_does_not_suppress_other_verified_task(self):
+        s = coordinator_fixture(); second = copy.deepcopy(s["tasks"][0]); second["id"] = "task-b"
+        s["tasks"].append(second)
+        s["board"].append({k: second[k] for k in ("id", "repository", "head_sha", "status", "owner_id")})
+        s["branches"].append({**s["branches"][0], "id": "task-b-branch", "task_id": "task-b"})
+        s["board"][0]["status"] = "merged"
+        result = self.evaluate(coordinator_seal(s))
+        self.assertEqual([a["task_id"] for a in result["actions"]], ["task-b"])
+        self.assertTrue(result["warnings"])
+
+    def test_individual_read_freshness_is_separate_from_old_evidence_date(self):
+        base = coordinator_add_review(coordinator_fixture(), True)
+        for table in ("reviews", "checks"):
+            base[table][0]["performed_at"] = (COORDINATOR_NOW - timedelta(days=2)).isoformat()
+        original = copy.deepcopy(base)
+        self.assertEqual([a["operation"] for a in self.actions(base)], ["merge"])
+        self.assertEqual(base, original, "old performed_at must not be rewritten")
+        for table in ("reviews", "checks"):
+            for age in (timedelta(days=2), timedelta(minutes=15)):
+                s = copy.deepcopy(base)
+                # Keep this counterexample valid under the original schema too:
+                # it must fail for stale reads, not for an unknown optional field.
+                for kind in ("reviews", "checks"):
+                    s[kind][0].pop("performed_at")
+                s[table][0]["observed_at"] = (COORDINATOR_NOW - age).isoformat()
+                result = self.evaluate(s)
+                self.assertFalse(result["actions"])
+                self.assertEqual(result["status"], "INPUT_REQUIRED")
+            s = copy.deepcopy(base); s[table][0]["observed_at"] = (COORDINATOR_NOW - timedelta(minutes=5)).isoformat()
+            action = self.actions(s)[0]
+            self.assertEqual(action["expires_at"], (COORDINATOR_NOW + timedelta(minutes=10)).isoformat())
+            target = {k: action[k] for k in ("task_id", "operation", "executor_id", "owner_id", "head_sha")}
+            with coordinator_forbid_io():
+                self.assertEqual(coordinator.revalidate(s, action, target, COORDINATOR_NOW + timedelta(minutes=10))["status"], "NO_GO")
+        s = copy.deepcopy(base)
+        s["reviews"].append({**copy.deepcopy(s["reviews"][0]), "id": "review-2"})
+        s["prs"][0]["review_ids"].append("review-2")
+        s["reviews"][0]["observed_at"] = (COORDINATOR_NOW - timedelta(minutes=5)).isoformat()
+        self.assertEqual([a["operation"] for a in self.actions(coordinator_seal(s))], ["merge"])
+        s = copy.deepcopy(base); s["checks"][0]["performed_at"] = (COORDINATOR_NOW + timedelta(seconds=1)).isoformat()
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+
+    def test_stale_acceptance_read_keeps_unrelated_coding_available(self):
+        s = coordinator_add_review(coordinator_fixture(), True)
+        second = copy.deepcopy(s["tasks"][0]); second.update(id="task-b", status="open")
+        s["tasks"].append(second)
+        s["board"].append({k: second[k] for k in ("id", "repository", "head_sha", "status", "owner_id")})
+        s["branches"].append({**s["branches"][0], "id": "task-b-branch", "task_id": "task-b"})
+        s["reviews"][0]["observed_at"] = (COORDINATOR_NOW - timedelta(days=2)).isoformat()
+        result = self.evaluate(coordinator_seal(s))
+        self.assertEqual([(a["task_id"], a["operation"]) for a in result["actions"]], [("task-b", "implementation")])
+        self.assertTrue(result["warnings"])
+
+    def test_supported_native_selection_does_not_claim_runtime_attestation(self):
+        s = coordinator_fixture(); requirement = s["tasks"][0]["requirements"]["implementation"]
+        requirement.update(model="gpt-6-astra", effort="xhigh", runtime_confirmation_required=False)
+        ex = s["executors"][0]
+        ex.update(observed_model=None, observed_effort=None, runtime_confirmed=False,
+                  selected_model="gpt-6-astra", selected_effort="xhigh", selection_verified=True,
+                  selection_evidence="Synthetic current supported catalog plus admitted exact selection")
+        self.assertEqual([a["operation"] for a in self.actions(s)], ["implementation"])
+        self.assertFalse(ex["runtime_confirmed"])
+        self.assertIsNone(ex["observed_model"])
+        requirement["runtime_confirmation_required"] = True
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+        requirement["runtime_confirmation_required"] = False
+        for key in ("selected_model", "selected_effort", "selection_verified", "selection_evidence"):
+            ex.pop(key)
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+        ex.update(selected_model="gpt-6-astra", selected_effort="xhigh",
+                  selection_verified=False, selection_evidence="Requested only")
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+        ex.update(selection_verified=True, selection_evidence="Verified catalog/admission", selected_model="weaker-model")
+        self.assertFalse(self.actions(s))
+        ex.update(selected_model="gpt-6-astra", runtime_confirmed=True,
+                  observed_model="weaker-model", observed_effort="xhigh")
+        self.assertFalse(self.actions(s), "known runtime mismatch must not be hidden by selection")
+        ex.update(runtime_confirmed=False, observed_model=None, observed_effort=None, capabilities=[])
+        self.assertFalse(self.actions(s), "selection is no substitute for tools")
+
     def test_conflicting_same_head_reviews_require_reconciliation(self):
         s = coordinator_add_review(coordinator_fixture(), accepted=True)
         s["reviews"].append({**copy.deepcopy(s["reviews"][0]), "id": "review-2", "verdict": "fail"})
@@ -1120,6 +1224,12 @@ class CoordinatorEnforcementTests(unittest.TestCase):
                             getattr(watch, "cmd_" + command.replace("-", "_"))([])
                     self.assertEqual(exit_info.exception.code, 2)
                     self.assertEqual(json.loads(stdout.getvalue())["status"], "INPUT_REQUIRED")
+
+    def test_cli_malformed_options_are_structured_input_required(self):
+        for command in coordinator_cli.ALIASES:
+            with coordinator_forbid_io(), contextlib.redirect_stdout(io.StringIO()) as out:
+                self.assertEqual(coordinator_cli.run(command, ["--snapshot"], COORDINATOR_NOW), 2)
+                self.assertEqual(json.loads(out.getvalue())["status"], "INPUT_REQUIRED")
 
     def test_cli_rejects_malformed_duplicate_json_without_legacy_fallback(self):
         for data in ("{", '{"version":1,"version":1}', '{"version":NaN}'):

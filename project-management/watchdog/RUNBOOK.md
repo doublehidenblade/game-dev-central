@@ -115,8 +115,9 @@ IDs and item counts must match normalized records exactly. Board and task-file
 inventories must reconcile; every PR lists its exact `review_ids` and `check_ids`,
 which must match the review/check arrays. All related records must refer to the
 same task, repository and PR. Unknown/unmapped branches require reconciliation.
-The observation age limit is 15 minutes, exclusive; future or timezone-naive
-observations are invalid. No `complete=true`, caller-supplied candidate array,
+The observation age limit is 15 minutes, exclusive, including each review/check
+record's `observed_at`; a fresh aggregate receipt cannot refresh an old individual
+read. Future or timezone-naive observations are invalid. No `complete=true`, caller-supplied candidate array,
 or empty queue can override these checks.
 
 Record-specific fields (see fixture/schema for complete types):
@@ -136,9 +137,10 @@ Record-specific fields (see fixture/schema for complete types):
   unambiguous current PR and the exact task/PR head must agree
 - `branches`: `id`, `task_id` or null for unreconciled work, `head_sha`
 - `reviews`: `task_id`, `pr_id`, `head_sha`, `observed_at`, `reviewer_id`, `verdict`,
-  and a `criteria` map of criterion ID to `{result, evidence}`. A passing word
+  optional original `performed_at`, and a `criteria` map of criterion ID to `{result, evidence}`. A passing word
   without every criterion and a nonempty citation is not acceptance
-- `checks`: `task_id`, `pr_id`, `head_sha`, `observed_at`, `name`, `result`.
+- `checks`: `task_id`, `pr_id`, `head_sha`, `observed_at`, `name`, `result`,
+  and optional original `performed_at`.
   Every required check must pass at the exact current head for a merge suggestion
 - `requests`: `task_id` or `*`, `project` or `*`, bounded `operations`, `executors`,
   `kind` (`ask`, `explicit`, `standing`), `state`, `authority_verified`, `evidence`.
@@ -159,9 +161,64 @@ Record-specific fields (see fixture/schema for complete types):
   around a denied action. Operation-scoped publication holds stay separate
 - `executors`: `owner_id`, `kind` (`native`, `codex`, `claude`), `state`,
   `capabilities`, `observed_model`, `observed_effort`, `runtime_confirmed`,
-  `resume_task`. Requested settings do not attest the runtime. Unknown native
+  `resume_task`. An optional, complete selection record adds `selected_model`,
+  `selected_effort`, `selection_verified` and `selection_evidence`. This records
+  fresh supported catalog/admission evidence, not a model name merely requested
+  in a prompt. When `runtime_confirmation_required` is false, matching verified
+  selection plus required capabilities can establish readiness while
+  `runtime_confirmed: false` and null observed model/effort remain truthful. If
+  runtime attestation is required, selection cannot substitute; a known actual
+  runtime mismatch cannot be hidden by selected settings. Missing required setup
+  evidence yields `INPUT_REQUIRED`, not idle. Unknown native
   capacity is not available capacity; known authorized native capacity is not
   disabled just because Codex is unavailable. External agent contact is unsupported
+
+### Constructing a truthful snapshot with connected reads
+
+This change installs no collector. The coordinator constructs a new JSON object
+from its actual connected-source observations; it must run the plan/guard before
+its next dispatch or idle report. Passing synthetic fixtures proves tests only,
+not adoption of a live loop.
+
+1. Declare the relevant repository scope and read each current full head SHA.
+   Read the canonical rules, task/board records, registrations, queues and holds
+   at those pins. Enumerate source task IDs before selecting work. Do not omit
+   completed/blocked/owned records that are needed to explain known tasks.
+2. Use connected GitHub reads to enumerate branches and open PRs through the last
+   page, plus each known task-linked closed/merged PR needed for reconciliation.
+   Read candidate task files at exact branch/PR heads, PR authors/current heads,
+   complete review lists and required check results. Keep all returned task/PR/
+   review IDs in the receipt before normalizing candidates. Copy immutable full
+   SHAs rather than a title, short SHA or PR-body description.
+3. Read the ownership registry and currently available worker/session observations,
+   including native work, reserved owners and pending operations. An old empty
+   watchdog ledger is not evidence that outside workers are absent. Record
+   actual observed native capacity and tools. For a supported native selection,
+   copy its verified catalog/admission model and effort into the selection fields,
+   cite that observation, and leave runtime identity unconfirmed when unexposed.
+   Carry current authenticated asks/authorizations and all stops/denials into
+   their separate tables without broadening the authorized action or audience.
+4. Record the UTC read time and returned IDs/counts for each constituent source.
+   Build each repository/table receipt from those reads: `ok` and `exhausted`
+   only when every required constituent succeeded and pagination ended. If any
+   required part is unavailable, retain observed IDs and use `partial` or
+   `unreadable`; do not fill an empty successful receipt. Never use the test-only
+   `coordinator_seal` helper as proof of external completeness.
+5. For review/check evidence, preserve the source's original execution/submission
+   time in `performed_at` when known. Refresh `observed_at` only after freshly
+   retrieving the immutable result and checking its current PR/head applicability.
+   Old evidence does not require a rerun just because it is old; old observations
+   cannot authorize a merge. Do not rewrite an original performance time.
+6. Save this newly constructed object to an ordinary private input file, run the
+   supported command above, and resolve the reported missing inputs without
+   changing true facts to make it pass. Select one action, refresh observations,
+   then run the guard with the selected receipt and exact target. A receipt from
+   a different input, owner, head or expired read cannot be reused. Leave live
+   state/queues unchanged; any actual authorized assignment is a separate action.
+
+A scope-bounded `IDLE` result must be reported with its repository coverage and
+blockers. It is never a claim that all the user's projects, unknown external
+sessions or undeclared sources have no work.
 
 ### Gates, guarantees and limits
 
@@ -173,7 +230,9 @@ an implementation hold. Required acceptance evidence governs merge separately;
 unknown acceptance-only reads do not stop separately authorized coding/admission.
 
 Exact full-SHA task/PR/review/check facts reconcile stale ordinary board summaries.
-A reviewer must be independent of the task author, PR author and implementation
+Same-head closed/merged board or terminal PR facts require reconciliation
+before an open task can restart implementation; stale source text cannot reopen
+completed work. A reviewer must be independent of the task author, PR author and implementation
 owner. Failed/incomplete criteria, failed checks, self-review, old-head evidence,
 conflicting verdicts and missing inventory cannot produce merge acceptance.
 No reconciliation clears an explicit hold. Shuto stays frozen, NEON paused,
