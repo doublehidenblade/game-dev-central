@@ -63,6 +63,14 @@
    "merged_sha": "520abb8c",
    "merged_at": "2026-10-09T13:31:55.633652+00:00",
    "summary": "traffic sits on ground + collides (spawn root +1.0 -> +0.05)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-188",
+   "pr": 594,
+   "merged_sha": "e48d0b48",
+   "merged_at": "2026-10-09T13:34:48.024140+00:00",
+   "summary": "pedestrians walk Lower City sidewalks (city mode wiring)"
   }
  ]
 }
