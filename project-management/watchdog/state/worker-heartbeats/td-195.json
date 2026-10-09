@@ -1,6 +1,6 @@
 {
- "ts": "2026-10-09T07:25:00.771680+00:00",
+ "ts": "2026-10-09T07:26:43.507851+00:00",
  "task": "td-195",
- "step": "merged cop_car.gd parses OK (CharacterBody3D) against main GameConfig; tscn loads (layer 8/mask 9); squash-merging PR #433 now",
- "status": "working"
+ "step": "DONE: PR #433 rebased+merged (499b9ba5); task file done-pending-verdict (PR #580); board row done (gdc PR #389). Only Craig phone verdict outstanding.",
+ "status": "done"
 }

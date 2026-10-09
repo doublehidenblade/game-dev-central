@@ -1921,18 +1921,10 @@
   "2026-10-07T07:00Z deregistered td-203 (subagent): work merged: validator PASS, PR #459 squash-merged eda80ac; board PR #334 open for supervisor merge",
   "2026-10-08T07:43Z LIVENESS: td-192 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-192-20261008-074323.md).",
   "2026-10-09T05:43Z LIVENESS: td-191 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-191-20261009-054333.md).",
-  "2026-10-09T06:51Z deregistered td-192 (subagent): PR #505 merged 2026-10-09T06:23:35Z by cron; inspected 2026-10-09 (validator VALIDATED, board reconciled by Craig f35226b4, caption-correction docs PR #576 opened)"
+  "2026-10-09T06:51Z deregistered td-192 (subagent): PR #505 merged 2026-10-09T06:23:35Z by cron; inspected 2026-10-09 (validator VALIDATED, board reconciled by Craig f35226b4, caption-correction docs PR #576 opened)",
+  "2026-10-09T07:27Z deregistered td-195 (subagent): worker reported done"
  ],
  "workers": {
-  "td-195": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-195.md",
-   "dispatched_at": "2026-10-09T07:19:46.618110+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
   "td-191": {
    "kind": "subagent",
    "session": null,
