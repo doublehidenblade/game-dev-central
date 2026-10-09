@@ -1,334 +1,175 @@
 {
-  "review_type": "Independent documentation semantic/schema and publication-binding review",
-  "reviewed_at": "2026-10-09T22:20:34.312603+00:00",
-  "reviewer_id": "dot-td218-registration-reviewer",
-  "author_id": "dot-td218-registration-author",
-  "decision": "PASS",
-  "reviewed_source_heads": {
-    "doublehidenblade/tokyo-drift-3d": "482c714aecc8c620638768272048c29b678e4b69",
-    "doublehidenblade/game-dev-central": "d788e815cf00963a49394a0d5701a560b17d6da6"
-  },
-  "source_pull_request": {
-    "head_sha": "482c714aecc8c620638768272048c29b678e4b69",
-    "base_sha": "50616cb024f64af4b20be8e0e0ef7738b5c918e3",
-    "draft": true,
-    "state": "open",
-    "merged": false,
-    "changed_files": 5,
-    "additions": 1384,
-    "deletions": 0,
-    "url": "https://github.com/doublehidenblade/tokyo-drift-3d/pull/634"
-  },
-  "central_pull_request": {
-    "url": "https://github.com/doublehidenblade/game-dev-central/pull/454",
-    "head_sha": "d788e815cf00963a49394a0d5701a560b17d6da6",
-    "base_sha": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
-    "draft": true,
-    "state": "open",
-    "merged": false,
-    "changed_files": 3,
-    "additions": 389,
-    "deletions": 1
-  },
-  "scope": "R1/R2/R3 decisions for both documentation registration tasks, future P1-P5 plan structure, and exact publication byte binding only. No production behavior was executed or accepted.",
-  "not_a_policy_receipt": true,
-  "registrations": {
-    "td-218-production-registration-source": {
-      "R1": {
-        "decision": "PASS",
-        "reason": "All eight candidate files are documentation. Only the existing td-218 board row changes against the independently read canonical board blob; all other bytes are preserved after newline correction. Exact v49 and source blobs are specified. Sole future author is reserved; current owner remains null and runtime_allowlist is empty. No runtime admission or other-owner change is claimed.",
-        "citations": [
-          "https://github.com/doublehidenblade/game-dev-central/blob/d788e815cf00963a49394a0d5701a560b17d6da6/project-management/boards/tokyo-drift-3d.md#L241",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production.json (sections/fields: source_baseline, implementation_scope, constraints)",
-          "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/boards/tokyo-drift-3d.md"
-        ]
-      },
-      "R2": {
-        "decision": "PASS",
-        "reason": "Production mounting inside existing FuelService.setup is consistent with v49 LowerCity assembly. The plan reuses its wallet, real West Quay service bay and GigDispatch failure authority; distinguishes run-lived condition from gig BODY; quotes tow/repair/fuel; forbids free/debt rescue; and retains unaffordable-required-recovery game over. Missing qualified natural-damage integration is an explicit fail-closed later gate, with no synthetic impact acceptance. td216 freeze is correctly limited to its original cash/range substage and candidate; service-method handoff does not authorize frozen-region or shared-owner writes.",
-        "citations": [
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production.md (sections/fields: Concrete first stage, Service rules, Honest prerequisites and ownership)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production.json (sections/fields: pending_parent_integration, P1-P5)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/fuel_service.gd (blob c101fecf5c05687ff74c8ac179b24a2af643963d)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/fuel_hud.gd (blob f50b54a31b3a908aa58795c44e1fc275727968a8)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/fuel_station.gd (blob 54b698886355308e5dfafa37084ca0328562faaf)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/data/fuel/stations.json (blob 5fba19af5c2784e3b2c25452b36b2f0dcccd90d8)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/data/fuel/starter_coupe.tres (blob 3be6cb7b63ea980c4be52224bea4a2ec1ed8e513)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/50616cb024f64af4b20be8e0e0ef7738b5c918e3/godot/docs/tasks/td-216.md (blob 7b2d34c734985dc69440c91b3b2c24a95a5f2306)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/ba6b32f1b285e2559827b02cd80b167031412334/godot/docs/tasks/td-218.md (blob feb3cdb31ae338115a095cc0a75d83950f152ded)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/lower_city.gd (blob 513b559a98d8e957a19c1fc3b73192b5088e4d5e)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/lower_city.gd (blob 513b559a98d8e957a19c1fc3b73192b5088e4d5e)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/gig_dispatch.gd (blob e66b4656d38814b6bcc4fba971ac3cc034538ae6)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/gig_dispatch.gd (blob e66b4656d38814b6bcc4fba971ac3cc034538ae6)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/vehicle.gd (blob b43ec617db92c12f9e014e213b31cff12632c042)"
-        ]
-      },
-      "R3": {
-        "decision": "PASS",
-        "reason": "Both registration submissions have matching R1-R3 plans and the complete 14-rule inventory at independently observed current heads. Future P1-P5 plans have exact source/build/check/coverage/reviewer fields and required log artifacts. P4 now has nine explicit same-camera before/after instances, including actual West Quay fascia, with task/criterion-prefixed names. Protected read dependencies are separate from write scope. Setup/budgets/stops and null future acknowledgment accurately leave runtime admission pending. No fabricated execution, pixel review, human verdict or policy authority appears.",
-        "citations": [
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production/registration.json",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production/registration/submission.json",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production/implementation-plan-template.json",
-          "https://github.com/doublehidenblade/game-dev-central/blob/d788e815cf00963a49394a0d5701a560b17d6da6/project-management/tasks/td-218-paid-service-production-registration.json",
-          "https://github.com/doublehidenblade/game-dev-central/blob/d788e815cf00963a49394a0d5701a560b17d6da6/project-management/tasks/td-218-paid-service-production-registration/submission.json",
-          "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/watchdog/EVIDENCE_POLICY.md",
-          "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/rules/SYSTEM.md"
-        ]
-      }
+  "task_id": "td-218-production-registration-central",
+  "candidate_head": "d788e815cf00963a49394a0d5701a560b17d6da6",
+  "actor_id": "dot-td218-registration-reviewer",
+  "authority_digest": "a73ec0f9e365a57691bc7e13ed58e1c194e310831b44a3e474c3ebda63572260",
+  "evidence_digest": "18f0100fd409226530ed503ae405b7cead46ed9239bbe04960eee921da3a4571",
+  "performed_at": "2026-10-09T22:39:14.637366+00:00",
+  "criteria": {
+    "R1": {
+      "decision": "PASS",
+      "rationale": "PASS for documentation registration only. I independently inspected every cited document and their immutable published bytes. The source documents reserve one future dot author on exact v49 fa081b42197d50e6adaf202f899146fbffeab725, with bounded FuelService/condition/station/service-copy scope and explicit shared-file exclusions. The central board changes only td-218, retaining its existing dot/Muse ownership and all other row bytes; its link binds the exact reviewed source document head. Runtime allowlists remain empty, future owner remains unset, and implementation has not been admitted. Protected document bytes are unchanged across the submitted artifact descendants. This judgment does not grant runtime, merge, Actions or deployment permission.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "f018d0b11a4f9236f9b00a3263adce70a2883261"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "path": "project-management/tasks/td-218-paid-service-production-registration.json",
+          "blob": "b9f9edd412d9e3847f73cfa26e2b1ce3d94fcbf5"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production.json",
+          "blob": "cc4d02a5a6af5f6ad4a7d9f9e885f797f45f1aac"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production.md",
+          "blob": "4506c29f00741ab89c367aed705b5a569ff395a9"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production/implementation-plan-template.json",
+          "blob": "78bb3c15a6d7a44b763e18fc92e571ca24acc877"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production/registration.json",
+          "blob": "de9f339d14a6fea0bfbfa5963c8d8ee34225152f"
+        }
+      ],
+      "evidence_ids": [
+        "R1-document-1",
+        "R1-document-2"
+      ],
+      "finding_ids": []
     },
-    "td-218-production-registration-central": {
-      "R1": {
-        "decision": "PASS",
-        "reason": "All eight candidate files are documentation. Only the existing td-218 board row changes against the independently read canonical board blob; all other bytes are preserved after newline correction. Exact v49 and source blobs are specified. Sole future author is reserved; current owner remains null and runtime_allowlist is empty. No runtime admission or other-owner change is claimed.",
-        "citations": [
-          "https://github.com/doublehidenblade/game-dev-central/blob/d788e815cf00963a49394a0d5701a560b17d6da6/project-management/boards/tokyo-drift-3d.md#L241",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production.json (sections/fields: source_baseline, implementation_scope, constraints)",
-          "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/boards/tokyo-drift-3d.md"
-        ]
-      },
-      "R2": {
-        "decision": "PASS",
-        "reason": "Production mounting inside existing FuelService.setup is consistent with v49 LowerCity assembly. The plan reuses its wallet, real West Quay service bay and GigDispatch failure authority; distinguishes run-lived condition from gig BODY; quotes tow/repair/fuel; forbids free/debt rescue; and retains unaffordable-required-recovery game over. Missing qualified natural-damage integration is an explicit fail-closed later gate, with no synthetic impact acceptance. td216 freeze is correctly limited to its original cash/range substage and candidate; service-method handoff does not authorize frozen-region or shared-owner writes.",
-        "citations": [
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production.md (sections/fields: Concrete first stage, Service rules, Honest prerequisites and ownership)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production.json (sections/fields: pending_parent_integration, P1-P5)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/fuel_service.gd (blob c101fecf5c05687ff74c8ac179b24a2af643963d)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/fuel_hud.gd (blob f50b54a31b3a908aa58795c44e1fc275727968a8)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/fuel_station.gd (blob 54b698886355308e5dfafa37084ca0328562faaf)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/data/fuel/stations.json (blob 5fba19af5c2784e3b2c25452b36b2f0dcccd90d8)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/data/fuel/starter_coupe.tres (blob 3be6cb7b63ea980c4be52224bea4a2ec1ed8e513)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/50616cb024f64af4b20be8e0e0ef7738b5c918e3/godot/docs/tasks/td-216.md (blob 7b2d34c734985dc69440c91b3b2c24a95a5f2306)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/ba6b32f1b285e2559827b02cd80b167031412334/godot/docs/tasks/td-218.md (blob feb3cdb31ae338115a095cc0a75d83950f152ded)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/lower_city.gd (blob 513b559a98d8e957a19c1fc3b73192b5088e4d5e)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/lower_city.gd (blob 513b559a98d8e957a19c1fc3b73192b5088e4d5e)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/gig_dispatch.gd (blob e66b4656d38814b6bcc4fba971ac3cc034538ae6)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/lower_city/gig_dispatch.gd (blob e66b4656d38814b6bcc4fba971ac3cc034538ae6)",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/fa081b42197d50e6adaf202f899146fbffeab725/godot/scripts/vehicle.gd (blob b43ec617db92c12f9e014e213b31cff12632c042)"
-        ]
-      },
-      "R3": {
-        "decision": "PASS",
-        "reason": "Both registration submissions have matching R1-R3 plans and the complete 14-rule inventory at independently observed current heads. Future P1-P5 plans have exact source/build/check/coverage/reviewer fields and required log artifacts. P4 now has nine explicit same-camera before/after instances, including actual West Quay fascia, with task/criterion-prefixed names. Protected read dependencies are separate from write scope. Setup/budgets/stops and null future acknowledgment accurately leave runtime admission pending. No fabricated execution, pixel review, human verdict or policy authority appears.",
-        "citations": [
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production/registration.json",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production/registration/submission.json",
-          "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production/implementation-plan-template.json",
-          "https://github.com/doublehidenblade/game-dev-central/blob/d788e815cf00963a49394a0d5701a560b17d6da6/project-management/tasks/td-218-paid-service-production-registration.json",
-          "https://github.com/doublehidenblade/game-dev-central/blob/d788e815cf00963a49394a0d5701a560b17d6da6/project-management/tasks/td-218-paid-service-production-registration/submission.json",
-          "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/watchdog/EVIDENCE_POLICY.md",
-          "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/rules/SYSTEM.md"
-        ]
-      }
+    "R2": {
+      "decision": "PASS",
+      "rationale": "PASS for the proposed paid-service contract, not executed gameplay. I inspected the linked source stage and future plan against independently read pinned v49 FuelService, FuelHud, FuelStation, profile, LowerCity/GigDispatch/Vehicle interfaces, the corrected ba6b32f1 paid-recovery requirement, and td216 at main50616cb. The mount reuses the real existing service setup, wallet, West Quay bay and gig-failure authority; persistent condition is distinct from gig BODY. Itemized tow/repair/fuel payment, no free or debt rescue, required-unaffordable game over and drivable-zero-cash distinction are explicit. The td216 cash/range candidate stays frozen while the disjoint service-method handoff is bounded. Missing qualified natural-damage integration is an explicit fail-closed later gate; seeded condition is never actual-impact or full-parent PASS. No shared Vehicle, contact, GigDispatch or LowerCity write is authorized.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "f018d0b11a4f9236f9b00a3263adce70a2883261"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "path": "project-management/tasks/td-218-paid-service-production-registration.json",
+          "blob": "b9f9edd412d9e3847f73cfa26e2b1ce3d94fcbf5"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production.json",
+          "blob": "cc4d02a5a6af5f6ad4a7d9f9e885f797f45f1aac"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production.md",
+          "blob": "4506c29f00741ab89c367aed705b5a569ff395a9"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production/implementation-plan-template.json",
+          "blob": "78bb3c15a6d7a44b763e18fc92e571ca24acc877"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production/registration.json",
+          "blob": "de9f339d14a6fea0bfbfa5963c8d8ee34225152f"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "ba6b32f1b285e2559827b02cd80b167031412334",
+          "path": "godot/docs/tasks/td-218.md",
+          "blob": "feb3cdb31ae338115a095cc0a75d83950f152ded"
+        }
+      ],
+      "evidence_ids": [
+        "R2-document-1",
+        "R2-document-2"
+      ],
+      "finding_ids": []
+    },
+    "R3": {
+      "decision": "PASS",
+      "rationale": "PASS for current registration and future-plan completeness. I inspected all mapped artifacts, the full 14-rule inventory and the original documentation author's refreshed acknowledgment; the rule blobs match those independently read, and the current raw-object packet verifies their exact refs. R1-R3 submissions cover all canonical artifacts and instances. P1-P5 future plans retain their exact source/build/check/coverage/reviewer shape, five execution artifacts and nine matched before/after visual pairs, including real West Quay fascia; protected read dependencies remain separate from writes. Requested setup, actual-start budgets and stops are explicit. Future-author acknowledgment, runtime admission and every production behavior/visual/device result remain pending. Prior fascia coverage, image naming and extra-newline issues were corrected before these protected source heads; the supplied current finding set is empty. No framework or fabricated execution/visual evidence is introduced.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "f018d0b11a4f9236f9b00a3263adce70a2883261"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "path": "project-management/tasks/td-218-paid-service-production-registration.json",
+          "blob": "b9f9edd412d9e3847f73cfa26e2b1ce3d94fcbf5"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production.json",
+          "blob": "cc4d02a5a6af5f6ad4a7d9f9e885f797f45f1aac"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production.md",
+          "blob": "4506c29f00741ab89c367aed705b5a569ff395a9"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production/implementation-plan-template.json",
+          "blob": "78bb3c15a6d7a44b763e18fc92e571ca24acc877"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "482c714aecc8c620638768272048c29b678e4b69",
+          "path": "godot/docs/tasks/td-218-paid-service-production/registration.json",
+          "blob": "de9f339d14a6fea0bfbfa5963c8d8ee34225152f"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "7f993a0ee318d3dc287a9af31d8dd97ad9d53464",
+          "path": "project-management/rules/SYSTEM.md",
+          "blob": "08226c75366dfa25133fcd058477b4b854febaf2"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "7f993a0ee318d3dc287a9af31d8dd97ad9d53464",
+          "path": "project-management/rules/WORKER_SELECTION_POLICY.md",
+          "blob": "343d3e3f8db6976789d4a631ca38619b6c27dc0e"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "7f993a0ee318d3dc287a9af31d8dd97ad9d53464",
+          "path": "project-management/watchdog/EVIDENCE_POLICY.md",
+          "blob": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe"
+        }
+      ],
+      "evidence_ids": [
+        "R3-document-1",
+        "R3-document-2"
+      ],
+      "finding_ids": []
     }
-  },
-  "file_manifests": {
-    "doublehidenblade/tokyo-drift-3d": [
-      {
-        "path": "godot/docs/tasks/td-218-paid-service-production/implementation-plan-template.json",
-        "git_blob": "78bb3c15a6d7a44b763e18fc92e571ca24acc877",
-        "sha256": "f8010f8196410c55f5eab617d02652cf66955d494f505ec7009409af7e7e58cc",
-        "size": 17585,
-        "url": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production/implementation-plan-template.json"
-      },
-      {
-        "path": "godot/docs/tasks/td-218-paid-service-production/registration/submission.json",
-        "git_blob": "40fa220b2040e8785b329541333a6b0cdd37a6dd",
-        "sha256": "f4a781d4f3f3947dfb96afdb1eda139b0aec55e91b0cc8e08aa9cfbc0a34e502",
-        "size": 8872,
-        "url": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production/registration/submission.json"
-      },
-      {
-        "path": "godot/docs/tasks/td-218-paid-service-production/registration.json",
-        "git_blob": "de9f339d14a6fea0bfbfa5963c8d8ee34225152f",
-        "sha256": "01169cbfe1ba37919f954362162f7f3bd76cc7c662c59abbb4ee4fc9347e15a7",
-        "size": 8872,
-        "url": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production/registration.json"
-      },
-      {
-        "path": "godot/docs/tasks/td-218-paid-service-production.json",
-        "git_blob": "cc4d02a5a6af5f6ad4a7d9f9e885f797f45f1aac",
-        "sha256": "cf453c88c0eeea485a976c82c0c1a992a6a6ab93104e2c95e087edd1fcfc853a",
-        "size": 24589,
-        "url": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production.json"
-      },
-      {
-        "path": "godot/docs/tasks/td-218-paid-service-production.md",
-        "git_blob": "4506c29f00741ab89c367aed705b5a569ff395a9",
-        "sha256": "f11bb2ddbcedbcd490471b03805fde99c7d9057c3e71a03efbfd0c7f56916f63",
-        "size": 4634,
-        "url": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production.md"
-      }
-    ],
-    "doublehidenblade/game-dev-central": [
-      {
-        "path": "project-management/boards/tokyo-drift-3d.md",
-        "git_blob": "f018d0b11a4f9236f9b00a3263adce70a2883261",
-        "sha256": "1a72137d8f28ac474a8e6219e88eccf47035964b00a239dd5b49e6b095ccf5d0",
-        "size": 100452,
-        "url": "https://github.com/doublehidenblade/game-dev-central/blob/d788e815cf00963a49394a0d5701a560b17d6da6/project-management/boards/tokyo-drift-3d.md"
-      },
-      {
-        "path": "project-management/tasks/td-218-paid-service-production-registration.json",
-        "git_blob": "b9f9edd412d9e3847f73cfa26e2b1ce3d94fcbf5",
-        "sha256": "0fc8b32a1378c4608865ad3f8d23dbe637392c0d0060e2c25957d831356cd590",
-        "size": 8283,
-        "url": "https://github.com/doublehidenblade/game-dev-central/blob/d788e815cf00963a49394a0d5701a560b17d6da6/project-management/tasks/td-218-paid-service-production-registration.json"
-      },
-      {
-        "path": "project-management/tasks/td-218-paid-service-production-registration/submission.json",
-        "git_blob": "298c298f66e3d69c2c37f9a238a3db370da781ce",
-        "sha256": "a9bba084941dafc512a4f2ea13fd75dfcb27c7494eafb19eadd60c4bf749e1fe",
-        "size": 7580,
-        "url": "https://github.com/doublehidenblade/game-dev-central/blob/d788e815cf00963a49394a0d5701a560b17d6da6/project-management/tasks/td-218-paid-service-production-registration/submission.json"
-      }
-    ]
-  },
-  "publication_checks": {
-    "five_source_files_match_independently_reviewed_bytes": "PASS",
-    "source_pr_changed_paths_exactly_five_documentation_files": "PASS",
-    "three_central_files_match_independently_reviewed_bytes": "PASS",
-    "central_pr_changed_paths_exactly_three_documentation_files": "PASS",
-    "central_board_only_td218_row_changes": "PASS",
-    "all_other_board_bytes_match_canonical_blob": "18308fa7ee05b83acb679f404216985a48728f52",
-    "immutable_source_link": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/482c714aecc8c620638768272048c29b678e4b69/godot/docs/tasks/td-218-paid-service-production.json",
-    "both_prs_open_draft_unmerged": "PASS"
-  },
-  "resolved_findings": [
-    {
-      "id": "F1",
-      "finding": "West Quay fascia text change lacked a planned visual pair.",
-      "resolution": "P4 now names west-quay-fascia-approach with fixed-camera before/after artifacts and actual signage inspection."
-    },
-    {
-      "id": "F2",
-      "finding": "Planned P4 PNG basenames omitted required task/criterion identification.",
-      "resolution": "All eighteen planned PNGs use td-218-paid-service-production-P4- prefixes."
-    },
-    {
-      "id": "F3",
-      "finding": "Materialized baseline and candidate board had one extra final newline compared with canonical GitHub bytes.",
-      "resolution": "Candidate corrected; authenticated original board blob 18308fa7ee05b83acb679f404216985a48728f52 now differs only in the td-218 row."
-    }
-  ],
-  "unresolved_semantic_findings": [],
-  "future_plan_schema_summary": {
-    "P1": "PASS: plan structure only",
-    "P2": "PASS: plan structure only",
-    "P3": "PASS: plan structure only",
-    "P4": "PASS: plan structure only, nine matched before/after pairs planned",
-    "P5": "PASS: plan structure only",
-    "execution_artifacts_planned": 5,
-    "visual_images_planned": 18,
-    "execution_results": "UNRUN"
-  },
-  "rule_inventory": [
-    {
-      "id": "central:COORDINATOR.md",
-      "expected": "58786d160ad1bc509a7ee74df030988056389308",
-      "actual": "58786d160ad1bc509a7ee74df030988056389308",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/COORDINATOR.md"
-    },
-    {
-      "id": "central:knowledge/standing-rules.md",
-      "expected": "01b19a267622992cbe7713f856e2c2bcf87b1e50",
-      "actual": "01b19a267622992cbe7713f856e2c2bcf87b1e50",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/knowledge/standing-rules.md"
-    },
-    {
-      "id": "central:knowledge/workflow/game-dev-workflow.md",
-      "expected": "9d3b278c9b71e213d59874c5a56498630d14fc74",
-      "actual": "9d3b278c9b71e213d59874c5a56498630d14fc74",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/knowledge/workflow/game-dev-workflow.md"
-    },
-    {
-      "id": "central:knowledge/brief-snippet.md",
-      "expected": "54efe155ef96ac54e1d68008bd578d1a966e943e",
-      "actual": "54efe155ef96ac54e1d68008bd578d1a966e943e",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/knowledge/brief-snippet.md"
-    },
-    {
-      "id": "central:project-management/rules/SYSTEM.md",
-      "expected": "08226c75366dfa25133fcd058477b4b854febaf2",
-      "actual": "08226c75366dfa25133fcd058477b4b854febaf2",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/rules/SYSTEM.md"
-    },
-    {
-      "id": "central:project-management/rules/WORKER_BRIEF.md",
-      "expected": "95dc23587561489931e897f9a58c7be0c2202e7d",
-      "actual": "95dc23587561489931e897f9a58c7be0c2202e7d",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/rules/WORKER_BRIEF.md"
-    },
-    {
-      "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
-      "expected": "405469fad99355eb23b01551c92c0c74693e75fe",
-      "actual": "405469fad99355eb23b01551c92c0c74693e75fe",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/rules/VALIDATOR_BRIEF.md"
-    },
-    {
-      "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
-      "expected": "343d3e3f8db6976789d4a631ca38619b6c27dc0e",
-      "actual": "343d3e3f8db6976789d4a631ca38619b6c27dc0e",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/rules/WORKER_SELECTION_POLICY.md"
-    },
-    {
-      "id": "central:project-management/rules/DURABILITY.md",
-      "expected": "11d159e403d88c292a8051e3d7589b1ab9af72df",
-      "actual": "11d159e403d88c292a8051e3d7589b1ab9af72df",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/rules/DURABILITY.md"
-    },
-    {
-      "id": "central:project-management/watchdog/RUNBOOK.md",
-      "expected": "dcad0cad13d2d00fd589fe945fa64ba30d882601",
-      "actual": "dcad0cad13d2d00fd589fe945fa64ba30d882601",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/watchdog/RUNBOOK.md"
-    },
-    {
-      "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
-      "expected": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe",
-      "actual": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/watchdog/EVIDENCE_POLICY.md"
-    },
-    {
-      "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
-      "expected": "bc5f07fbd9d2a331b01d7ee4a8c142d399fcd4e1",
-      "actual": "bc5f07fbd9d2a331b01d7ee4a8c142d399fcd4e1",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/game-dev-central/blob/4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1/project-management/watchdog/releases/PUSH-PROCEDURE.md"
-    },
-    {
-      "id": "tokyo:AGENTS.md",
-      "expected": "0c13fa62327dd6532621a318e7a4920682b2809a",
-      "actual": "0c13fa62327dd6532621a318e7a4920682b2809a",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/50616cb024f64af4b20be8e0e0ef7738b5c918e3/AGENTS.md"
-    },
-    {
-      "id": "tokyo:README.md",
-      "expected": "f8ef49023683a156334878e3ccc7218ca7965285",
-      "actual": "f8ef49023683a156334878e3ccc7218ca7965285",
-      "isError": false,
-      "url": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/50616cb024f64af4b20be8e0e0ef7738b5c918e3/README.md"
-    }
-  ],
-  "limits_and_remaining_gates": [
-    "This artifact is an independent review, not a machine-policy authority packet, raw-Git-object proof packet, actor-attestation service, admission receipt or merge approval.",
-    "Actual policy/operation checks, owner/stop verification, future-author acknowledgment, integration branch designation and tool readiness remain required before production implementation.",
-    "Runtime allowlists remain empty and future owner unset in the reviewed records. No implementation author has been admitted by these documents.",
-    "All P1-P5 gameplay/visual/device acceptance remains unrun; future natural-damage binding and full td-218 acceptance remain open.",
-    "No game implementation, game execution, external-agent contact, Actions, merge or deployment was performed or authorized by this review.",
-    "This verdict binds the original reviewed heads and eight-file manifests above. Any later commit containing this review must preserve those reviewed bytes; changed scope or content requires re-review."
-  ],
-  "proposed_runtime_baseline": "fa081b42197d50e6adaf202f899146fbffeab725; distinct from the reviewed documentation heads"
+  }
 }
