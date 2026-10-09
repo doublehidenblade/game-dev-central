@@ -1,0 +1,34 @@
+PASS adopt-orphans
+PASS all-blocked
+PASS assign
+PASS audit-task
+PASS check-done
+PASS classify
+PASS classify-report
+PASS coordinator-plan
+PASS decide
+PASS dispatch-candidates
+PASS dispatch-eligible
+PASS dispatch-guard
+PASS entry-start
+PASS failover
+PASS failover-undo
+PASS gate
+PASS heartbeat
+PASS idle-defect-check
+PASS liveness
+PASS nudge
+PASS pending-validate
+PASS publish-verify
+PASS queue-action
+PASS rebrief
+PASS register-worker
+PASS resume
+PASS review-sweep
+PASS ship-verify
+PASS sibling-check
+PASS transitions
+PASS validate-task
+PASS validator-dispatched
+PASS source/state filesystem unchanged
+TOTAL 33 FAILURES 0 []
