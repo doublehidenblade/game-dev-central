@@ -643,6 +643,10 @@
   {
    "ts": "2026-10-06T16:55:00Z",
    "note": "watchdog FALSE-DEAD SUPPRESSION td-195 (judgment-only override, 2026-10-06 ~12:41 EDT run): worker proclaimed DEAD 16:13:34Z after 2 quiet cycles (no heartbeat file), replacement dispatch-subagent queued. Direct fresher evidence the script couldn't see: worker pushed commit 4a499b53 'td-195: cop cars collide with world and vehicles; Tripo police asset' to branch td-195-cop-collision at 16:17:34Z (4 min AFTER the DEAD verdict), open PR #433 updated 16:23Z. Dropped the queued dispatch-subagent entry (no duplicate worker spawned); re-registered the worker to repair the liveness signal. Watch: still no heartbeat file \u2014 if it stays silent with no commits for 2 more cycles, the DEAD route refires legitimately."
+  },
+  {
+   "note": "dispatch-subagent td-191 popped 2026-10-09T06:20Z: stale \u2014 consumed by the 01:47 EDT main-agent dispatch (worker registered 05:47:21Z, replacement completed 02:04 EDT with PR #410 in_review). Leaving it would risk a duplicate worker on a live task. Backup kept in pending_actions.json.bak",
+   "ts": "2026-10-09T06:20:00Z"
   }
  ],
  "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -731,7 +735,7 @@
   "neon-drift": {
    "gate_fired": true,
    "head_sha": "531d5ce",
-   "idle_min": 3804.6,
+   "idle_min": 13409.5,
    "last_activity_ts": "2026-09-29T22:45:48+00:00",
    "last_browser_check_ts": "2026-09-29T22:35:26.055165+00:00",
    "needs_browser": true,
@@ -752,33 +756,33 @@
   },
   "tokyo-drift-3d": {
    "gate_fired": false,
-   "head_sha": "e10a9c8",
-   "idle_min": 26.3,
-   "last_activity_ts": "2026-10-02T13:44:07+00:00",
+   "head_sha": "59d4626",
+   "idle_min": 1.3,
+   "last_activity_ts": "2026-10-09T06:14:00+00:00",
    "last_browser_check_ts": "2026-10-06T17:47:50.239833+00:00",
    "needs_browser": false,
-   "open_issues": 3,
+   "open_issues": 0,
    "open_pr_numbers": [
-    256,
-    253,
-    244,
-    243,
-    238,
-    229,
-    226,
-    220,
-    212,
-    209,
-    206,
-    205,
-    159,
-    158,
-    156,
-    134,
-    120,
-    78,
-    76,
-    68
+    572,
+    568,
+    566,
+    565,
+    564,
+    563,
+    562,
+    561,
+    560,
+    558,
+    557,
+    556,
+    555,
+    553,
+    551,
+    550,
+    549,
+    547,
+    546,
+    545
    ],
    "open_prs": 20
   },
@@ -1929,8 +1933,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-192.md",
    "dispatched_at": "2026-10-08T07:47:55.672899+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
+   "quiet_cycles": 0,
+   "last_verdict": "alive"
   },
   "td-191": {
    "kind": "subagent",
@@ -1939,7 +1943,7 @@
    "task_file": "godot/docs/tasks/td-191.md",
    "dispatched_at": "2026-10-09T05:47:21.274018+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
@@ -2165,12 +2169,12 @@
   "td-237": "blocked"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T05:44:01.982953+00:00",
+  "ts": "2026-10-09T06:13:38.883627+00:00",
   "checks": {
    "liveness": [
-    "DEAD td-191 (replacement queued; no heartbeat file)",
-    "ALIVE td-195 (no heartbeat file; task-file commit 58516c0 2026-10-06T23:15)",
-    "QUIET(1) td-192 (no heartbeat file)"
+    "ALIVE td-195 (no heartbeat file; task-file commit 9c96b92 2026-10-09T06:08)",
+    "ALIVE td-192 (no heartbeat file; task-file commit 9c96b92 2026-10-09T06:08)",
+    "ALIVE td-191 (no heartbeat file; task-file commit 9c96b92 2026-10-09T06:08)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2193,7 +2197,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T05:44:01.982953+00:00",
-   "liveness": "2026-10-09T05:43:46.593772+00:00",
+   "liveness": "2026-10-09T06:13:38.883627+00:00",
    "classification-health": "2026-10-09T05:43:55.404813+00:00",
    "transitions": "2026-10-09T05:43:54.179078+00:00",
    "conflicts": "2026-10-09T05:43:51.122259+00:00",
@@ -2250,6 +2254,11 @@
    "pr": 556,
    "head_sha": "5be88c28d6f44cc180a059cb7024adf689f5a787",
    "at": "2026-10-08T23:46:03.654910+00:00"
+  },
+  "td-192": {
+   "pr": 505,
+   "head_sha": "253e3deb6d22090977e43cb09aadcdd4724c745b",
+   "at": "2026-10-09T06:17:20.468122+00:00"
   }
  }
 }
