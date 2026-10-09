@@ -1,0 +1,13 @@
+{
+  "check_id": "retained-review",
+  "command": [
+    "python3",
+    "project-management/watchdog/test_coordinator_review.py"
+  ],
+  "exit_code": 0,
+  "output": "PASS verified native selection available without false runtime\nPASS required runtime attestation not substituted\nPASS selection rejects none\nPASS selection rejects unverified\nPASS selection rejects incomplete\nPASS selection rejects noevidence\nPASS selection rejects wrongmodel\nPASS selection rejects wrongeffort\nPASS selection rejects toolmissing\nPASS selection rejects actualmismatch\nPASS selection evidence change invalidates receipt\nPASS old immutable evidence freshly observed accepted\nPASS record expiry limits receipt reviews\nPASS record exact expiry NO_GO reviews\nPASS future individual observation rejects reviews\nPASS performed after read rejects reviews\nPASS record expiry limits receipt checks\nPASS record exact expiry NO_GO checks\nPASS future individual observation rejects checks\nPASS performed after read rejects checks\nPASS unmapped unrelated branch does not block exact-head read-only review\nPASS explicit post-merge exact-head verification remains actionable\nPASS terminal contradiction retains independent safe lane\nPASS merged task cannot request duplicate implementation\nPASS malformed parser JSON all-blocked\nPASS malformed parser JSON coordinator-plan\nPASS malformed parser JSON dispatch-candidates\nPASS malformed parser JSON dispatch-eligible\nPASS malformed parser JSON dispatch-guard\nPASS malformed parser JSON heartbeat\nPASS malformed parser JSON idle-defect-check\nPASS malformed parser JSON review-sweep\nTOTAL 32 FAILURES 0\n",
+  "source_head": "8667a3cd2fa74db9e054032c3fcf6416d26c3214",
+  "build": null,
+  "performed_at": "2026-10-09T20:09:31.671917+00:00",
+  "actor_id": "dot-native-scoped-admission-author"
+}

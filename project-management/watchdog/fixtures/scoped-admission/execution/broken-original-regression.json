@@ -1,0 +1,15 @@
+{
+  "check_id": "broken-original-regression",
+  "command": [
+    "python3",
+    "project-management/watchdog/fixtures/scoped-admission/prove_regression.py",
+    "--original",
+    ".private-scoped-control/original_coordinator.py"
+  ],
+  "exit_code": 0,
+  "output": "{\"original_blob\": \"1e87c500bd8c7890d59e2e83dc614c0d58bbb6b9\", \"original\": \"INPUT_REQUIRED\", \"repaired\": \"ACTION_REQUIRED\", \"global_coverage\": \"unknown\", \"result\": \"PASS\", \"live_authorization\": false}\n",
+  "source_head": "8667a3cd2fa74db9e054032c3fcf6416d26c3214",
+  "build": null,
+  "performed_at": "2026-10-09T20:09:31.439042+00:00",
+  "actor_id": "dot-native-scoped-admission-author"
+}
