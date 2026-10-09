@@ -79,6 +79,14 @@
    "merged_sha": "eaeb775e",
    "merged_at": "2026-10-09T13:58:30.481143+00:00",
    "summary": "wanted HUD + stars + clear, crime reporting fix, cop scaling"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-239",
+   "pr": 598,
+   "merged_sha": "c7fd96dc",
+   "merged_at": "2026-10-09T14:23:01.416892+00:00",
+   "summary": "bust uses measured player speed, not throttle intent"
   }
  ]
 }

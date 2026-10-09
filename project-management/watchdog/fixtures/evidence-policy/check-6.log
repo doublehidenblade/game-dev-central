@@ -1,0 +1,6 @@
+$ python3 test_coordinator_hold_invariance.py
+PASS ['verification', 'upload'] :: {"actions": [{"authorization_ids": ["approved-work"], "decision_id": "e893a463fbe49a58fdcaf8ec0ddd1f114cc15df7ecba72b405470d5688d00e18", "executor_id": "native", "expires_at": "2026-10-09T12:15:00+00:00", "head_sha": "1111111111111111111111111111111111111111", "input_digest": "c0140cdbeb7da37add90d53af6ee1a2fba671ae68d28e06770a9c4eeb5d8b8d7", "operation": "verification", "owner_id": "reviewer", "repository": "example/game", "task_id": "task-a"}], "blocked": [{"executor_id": "native", "head_sha": "1111111111111111111111111111111111111111", "operation": "upload", "owner_id": "reviewer", "reasons": ["ACCEPTANCE_RECONCILIATION_REQUIRED"], "repository": "example/game", "task_id": "task-a"}], "input_digest": "c0140cdbeb7da37add90d53af6ee1a2fba671ae68d28e06770a9c4eeb5d8b8d7", "reconciliations": [], "status": "ACTION_REQUIRED", "version": 1, "warnings": ["task-a: contradictory same-head review verdicts"]}
+PASS ['upload'] :: {"actions": [], "blocked": [], "input_digest": "ac3aebf3559258f7bd8ea454680867945043922a3fa7c5dd1e985e3a8b06e293", "reconciliations": [], "status": "INPUT_REQUIRED", "version": 1, "warnings": ["task-a: contradictory same-head review verdicts"]}
+TOTAL 2 FAILURES 0
+
+EXIT_CODE=0

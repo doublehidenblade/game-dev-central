@@ -1,15 +1,14 @@
-# Watchdog runbook — the ~15-minute loop
+# Watchdog runbook — scoped coordinator decisions
 
 Run from the repo root (`game-dev-central`). All paths below are repo-relative
-unless stated otherwise. This is the portable version of the loop; the
-deterministic decisions are all `watch.py` subcommands — obey their verdicts,
-never re-derive them from prose.
+unless stated otherwise. The supported coordinator route below is read-only;
+legacy automatic admission and queue delivery are retired.
 
 ## Current authorization boundary (2026-10-08 19:56 UTC)
 
 Before any push or merge, read the [canonical deployment authorization and budget policy](releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc). Deploy only on Craig's explicit request, including site/deployment-branch pushes that trigger Pages. The GitHub Actions budget is **$50/month**: a ceiling, not standing permission or verified current spend. Ordinary source pushes and independently accepted merges need no fresh go-ahead; inspect current push/PR/merge and publication triggers first and hold operations that would deploy or run unauthorized Actions. Do not assume all pushes are free.
 
-This boundary applies to SHIP, conflict-resolution pushes and state-push below. Required acceptance checks and independent verification remain mandatory for merges; no incomplete or failing work is accepted by this policy. Do not manually dispatch/rerun Actions or change billing/security. Keep merged-but-unpublished changes in pending.json. Shuto stays frozen; NEON stays paused/read-only. No scripted verdict or old instruction creates permission to deploy.
+This boundary applies to any externally performed merge, conflict-resolution push or state push. Required acceptance checks and independent verification remain mandatory for merges; no incomplete or failing work is accepted by this policy. Do not manually dispatch/rerun Actions or change billing/security. Keep merged-but-unpublished changes in pending.json. Shuto stays frozen; NEON stays paused/read-only. No scripted verdict or old instruction creates permission to deploy.
 
 [JUDGMENT-ONLY: authenticated request scope and current external trigger configuration require inspection; this documentation does not implement a new automatic watchdog gate.]
 
@@ -17,7 +16,7 @@ This boundary applies to SHIP, conflict-resolution pushes and state-push below. 
 
 | Task | Work | Status | Owner | Review | Updated (UTC) |
 |---|---|---|---|---|---|
-| ops-coordinator-enforcement-20261009 | Script scoped blockers, task rotation, executor capacity and truthful idle decisions | open — owner reserved; registration review pending; implementation not started | dot — coordinator enforcement; one native implementation author, separate independent reviewer | This draft's exact head; no acceptance verdict yet | 2026-10-09 12:44 |
+| ops-coordinator-enforcement-20261009 | Script scoped blockers, task rotation, executor capacity and truthful idle decisions | in_review — v5 correction candidate; independent acceptance pending | dot — coordinator enforcement; one native implementation author, separate independent reviewer | Registration merged as PR #393; PR #396 v1–v4 independently reviewed with changes required; corrected exact-head review pending | 2026-10-09 14:13 |
 
 Craig requested scripted enforcement and repository-owned reusable coordinator logic on 2026-10-09. This row registers that bounded central-repository work; it does not register a live implementation worker, accept code or change any existing game task's owner/status.
 
@@ -25,116 +24,329 @@ Craig requested scripted enforcement and repository-owned reusable coordinator l
 - **Acceptance:** blockers identify their task, operation and executor scope; upload or deployment holds do not silently block authorized implementation, admission or independent verification. Rotation considers those distinct next actions, while preserving explicit stops, denials, ownership and required capability. Native dot capacity is separate from Codex/Claude capacity. Implementation, upload, merge and deployment gates remain separate.
 - **Evidence and idle checks:** a complete, fresh source manifest and current exact-head evidence reconcile stale main/PR-body descriptions without overriding explicit holds. Missing, stale or contradictory required inputs fail closed. A shared decision result must reject idle when an authorized, ownership-safe next action and qualified available executor exist; missing inputs cannot return OK. Compatibility entrypoints must not bypass this result.
 - **Verification:** replay the overnight failure classes, including scoped publication holds, unavailable Codex with available native capacity, review/admission work, stale-head claims, stopped/owned lanes and malformed/incomplete snapshots. Prove the new entrypoint and integrated aliases do not write state, queues or ledgers, call external dispatch, or contact providers. Exercise old aliases without a verified snapshot and require an input error rather than stale-state approval. Independent exact-head review must cite these checks; documentation alone is not enforcement of any live coordinator.
-- **Recommended setup:** frontier native dot author, requested `gpt-6-astra/xhigh`, with Python and isolated fixtures; one initial attempt plus at most one evidence-based correction within two hours, with a separate frontier/xhigh review budget. Native catalog and repository tools are available; the actual implementation author is not started or attested. Verify the selected author and Python test setup before implementation. Wait for the required tier if unavailable; report scope/ownership conflicts, unsafe entrypoint effects or failed tests without weakening gates. Outcome pending.
+- **Recommended setup:** frontier native dot author, requested `gpt-6-astra/xhigh`, with Python and isolated fixtures; one initial attempt plus at most one evidence-based correction within two hours, with a separate frontier/xhigh review budget. Native catalog and repository tools are available; the registration originally preceded author startup and did not attest a runtime. Verify the selected author and Python test setup before implementation. Wait for the required tier if unavailable; report scope/ownership conflicts, unsafe entrypoint effects or failed tests without weakening gates. Outcome pending.
+- **Attempt amendment — 2026-10-09 13:28 UTC:** the initial candidate `b765a587cd78554d047e06b6bafee9de91c1be7e` and first correction `82a6df52855a3b3a07b9bdc177684214e2946ff0` are retained. [The coordinator's bounded amendment](https://github.com/doublehidenblade/game-dev-central/pull/396#issuecomment-6081855820) authorizes one additional correction for two reproduced read-only routing defects: unrelated unmapped branches blocking exact-head verification, and explicit post-merge verification losing its source. The outer deadline stays 2026-10-09 14:46:40 UTC. No broader retry, weaker acceptance, live operation or merge is authorized by this amendment; independent repaired-head review remains required.
+- **Bounded v4 correction — 2026-10-09 14:00 UTC:** v3 `b0b3c8a465c0cfd6b1b03fc87092094dbf29a457` is retained with its changes-required review. [The recorded amendment](https://github.com/doublehidenblade/game-dev-central/pull/396#issuecomment-6082442592) allows only the independently reproduced acceptance-isolation repair: conflicting same-head PASS/FAIL acceptance must retain a separately authorized, explicitly needed independent read-only verification path, while conflict warnings, acceptance/mutation blocks and all source/ownership/capability/stops remain. Both open and merged regression probes are retained. The original 14:46:40 UTC outer deadline and separate exact-head review remain; evidence-feedback framework work is outside this task.
+- **Bounded v5 correction — 2026-10-09 14:11 UTC:** v4 `bf4251a0c63464bf91457352e2bd3e504b5904c4` is retained. Independent review reproduced a remaining same-family defect: removing verification from a merged task's needs hid its known same-head conflicting acceptance and could recommend upload or false idle. The coordinator authorized a bounded correction to resolve known immutable source/acceptance independently of the requested operation list, within the original 14:46:40 UTC deadline. The unchanged independent 128-case needs matrix and two-case hold-invariance probe are retained; unrelated operation-specific source requirements are not broadened. Independent exact-head acceptance remains pending.
 - **Preflight:** central main `0b4f00e6c5fa810ad2e8e2a94758c9ba60e8a354`; canonical rules, board, registry, log and current state read; all 100 open PR changed-file lists and 322 branch names checked. No open PR changes `RUNBOOK.md`, `watch.py` or `test_rules.py`; PR143 touches `COORDINATOR.md`. The complete tree has no GitHub Actions workflow files. The legacy registry and empty worker ledger are not proof that outside sessions are idle; this reservation grants no game-task takeover.
-- **Boundaries:** this registration changes only this runbook. No legacy watcher execution, live queue/state/ledger writes, automatic dispatch, external-agent contact, Actions, deployment, provider/security workaround or stopped-operation retry. Existing td-200/216 upload denials and central PR374/376/368 plus Tokyo PR553 holds stay unchanged. Shuto stays frozen; NEON stays paused. The next step is independent review of this exact registration, then one scoped author under the existing request; no additional user-approval gate is introduced.
+- **Boundaries:** the original registration changed only this runbook; this candidate implements its bounded read-only enforcement scope. No legacy watcher execution, live queue/state/ledger writes, automatic dispatch, external-agent contact, Actions, deployment, provider/security workaround or stopped-operation retry. Existing td-200/216 upload denials and central PR374/376/368 plus Tokyo PR553 holds stay unchanged. Shuto stays frozen; NEON stays paused. Registration was independently reviewed and merged as PR #393. One scoped native author started 12:46:40 UTC with Python 3.12.14, reverified for the v5 correction; requested model/effort remains distinct from runtime attestation. This implementation now requires separate exact-head acceptance; no additional user-approval gate is introduced.
 
-## Loop wrapper (every run)
+## Supported coordinator route (2026-10-09)
 
-1. `python3 project-management/watchdog/watch.py state-pull` — sync live
-   state from main into your working copy. (First-ever run: the files may not
-   exist in the repo yet; your local state seeds them.)
-2. Run the loop below.
-3. `python3 project-management/watchdog/watch.py state-push "watchdog: sync state"`
-   — commit changed state/ledgers to main. Aborts loudly on a moved ref
-   (another writer); never force-push it.
+[SCRIPTED: watch.py coordinator-plan] The supported route is a read-only decision
+cycle over an explicit snapshot. It does **not** run the old watcher, write live
+state, claim ownership, create sessions, deliver queues, contact providers, merge,
+upload, trigger Actions, or deploy. A permitted action is a scoped recommendation
+for the authorized coordinator, not proof an action happened or new permission.
 
-**One scheduler at a time.** Two concurrent loops will conflict on
-`state-push`. If you are taking over from another scheduler, make sure it is
-stopped first.
+1. Read the current task sources, board, ownership registry, live worker/session
+   observations, pending queue, requests, holds, branches, PRs and review/check
+   evidence. Exhaust pagination. Include all known task/PR IDs, not a shortlist.
+   Reconcile identities and preserve unknowns rather than converting them to idle.
+2. Normalize those observations using the version-1 contract below. Keep live
+   snapshots private if their source data is private. Do not commit private
+   prompts, session URLs, tokens, or internal notes. Reusable code and synthetic
+   fixtures belong in this repository.
+3. Run `python3 project-management/watchdog/watch.py coordinator-plan --snapshot <snapshot.json>`.
+   `ACTION_REQUIRED` means at least one scoped next action exists; report/use an
+   authorized alternative instead of claiming global idle. `INPUT_REQUIRED`
+   means required observations are missing, contradictory or stale. `IDLE` means
+   no permitted action was found **within the declared, fully accounted scope**;
+   inspect `blocked` to see why, rather than assuming tasks are complete.
+4. The `actions` list contains alternatives, **not a concurrent dispatch batch**.
+   Select one, retain its complete JSON object, and refresh observations before
+   the action. Revalidate with:
 
-## Platform notes
+   `python3 project-management/watchdog/watch.py dispatch-guard --snapshot <fresh.json> --decision <selected-action.json> --task <id> --operation <operation> --executor <id> --owner <identity> --head <full-sha>`
 
-- The MAIN-AGENT HANDOFF DUTIES at the bottom were written for Muse (browser
-  tasks, subagents, the 15-min cron). On another platform, implement the
-  equivalent: something must (a) observe the Codex/Claude web sessions and
-  report classifications, and (b) deliver queued nudges/steers/dispatches.
-  The queue schema (`state/pending_actions.json`) and ledger commands are
-  platform-independent — only the delivery mechanism differs.
-- You need GitHub API access (repo scope). Set `WATCHDOG_GH_BIN` to a
-  `gh api`-compatible CLI if you are not on Muse.
+   Any input, owner, source, permission, hold, target or freshness change invalidates
+   the receipt. Re-plan after a changed observation or completed action. Revalidation
+   does not execute the action, reserve a worker, authorize an upload target, or
+   replace the existing confirmation, workflow-trigger and release checks.
+5. Report useful results and scoped blockers. Do not wait on one blocked task
+   while another authorized action exists. Admission of an unfiled ask and an
+   independent review are work too. Retain acceptance and publication holds.
 
----
-Every ~15 minutes, run Craig's coding-agent watchdog for Codex (Tokyo Drift 3D) and Claude Code (Tokyo Drift). Monitoring with conditional recovery. The run never modifies game code. It DOES merge parked PRs itself (ship = merge to main ONLY — live publish happens only when Craig asks, 2026-09-27): a finished session with an unmerged PR gets merged by the run once its build is clean — CI is after-the-fact verification, NOT a deploy gate (whoever gets to a parked PR first ships it — no steering the worker to ship). Never nudge a working session. Never create a duplicate live session. Full state machine: project-management/watchdog/STATE_MACHINE.md.
+### Entry points and exit codes
 
-NEON DRIFT FREEZE (Craig 2026-09-29 — SUPERSEDES all NEON instructions below): neon-drift repo is ARCHIVED (read-only); pseudo-3D paused indefinitely. All effort is Tokyo Drift 3D. Therefore: SKIP codex:neon-drift entirely (no decide/classify/dispatch/heartbeat line); NEVER dispatch p3d-* tasks or todoNNN READMEs; NEVER open PRs against doublehidenblade/neon-drift (writes will fail); IGNORE the NEON board in DISPATCH CHECK and JOBS; NEON browser-brief PART 1 env is dead — fresh classification covers Codex Tokyo + Claude Code only. Any "NEON DRIFT" mention below is struck through. Frozen demo stays live at https://doublehidenblade.github.io/neon-drift-web/ (do not touch).
+[SCRIPTED: watch.py idle-defect-check] These names all use the same evaluator and
+JSON contract: `coordinator-plan`, `dispatch-candidates`, `dispatch-eligible`,
+`dispatch-guard`, `idle-defect-check`, `all-blocked`, `review-sweep`, `heartbeat`.
+They require `--snapshot`; there is no fallback to legacy state. The idle check
+returns **3** when an action exists, never an `OK`/idle verdict. Missing input
+returns **2**, guard mismatch returns **3**, a valid plan/guard returns **0**.
+`ACTION_REQUIRED` may coexist with warnings about unrelated scope or missing
+acceptance-only evidence. Warnings always prevent a global `IDLE` conclusion.
 
-ARCHITECTURE (structural fix 2026-09-24): the browser-task dispatch BLOCKS the worker, so no timer, budget, or "do not wait" prose can ever fire. Therefore THIS JOB NEVER SPAWNS, STEERS, PEEKS, OR CLOSES BROWSER TASKS — not for classification, not for nudges, not for anything. If you are the worker reading this: do not touch the browser, ever. All browser work happens in the MAIN AGENT's turn on the handoff (see MAIN-AGENT HANDOFF DUTIES at the bottom — not for you). This run is pure shell + github API + heartbeat.
+The new route bypasses `_capture_verdicts`, which historically wrote live state
+in a `finally` block even for an idle check. Both CLI routing and imported
+`cmd_*` aliases use the safe adapter; regression tests exercise both.
 
-MAX-PARALLELIZATION (Craig 2026-09-23, standing rule): parallelize ALL open tasks as long as conflict risk is minimal. Multiple workers MAY be active on the same repo/game at once, each on a different task — no one-game-one-agent assumption, no hard cap. Agents self-resolve merge conflicts; any worker resuming a stale session syncs master first. Never two workers on the same task file.
+### Snapshot contract
 
-CONTEXT MIGRATION (Craig 2026-09-23): when a stalled/dead session is replaced by ANY route, the replacement must NOT redo finished work. Before spawning it: (1) read the old session's last messages/task activity for what it completed and where it stopped; (2) check its branch via the github skill for commits not yet on main. Fold both into the replacement's brief as "already done — do not redo; continue from X". If the old session is expected back soon (token refill, transient stall with known return) AND migration is expensive: do NOT replace it — set a runonce cron to re-check/wake it at the expected return time, and record the expectation in the session note.
+`coordinator.py:validate` is the strict executable schema. Unknown fields,
+malformed types, duplicate IDs/JSON keys, ambiguous repositories and abbreviated
+SHAs are rejected. [The synthetic fixture](fixtures/coordinator-snapshot.json)
+is a shape example, deliberately dated and **not authority or a live inventory**.
+Never refresh its timestamps to masquerade as a new observation. The fixture
+builders in `test_rules.py` are test-only, not a collector.
 
-BLOCKED-WORK DISCIPLINE (Craig 2026-09-23): when a worker's last message says it is blocked, READ that message first — never nudge blind. (1) Blocked on something only Craig can unblock (his API key, login, external quota/account): `watch.py block <session> <blocker-key> <reason>`, PARK it, and surface to Craig exactly once per blocker — `watch.py blocker-surfaced <session> <blocker-key>` prints SURFACE (first time) or SUPPRESSED; surface only on SURFACE. (2) Blocker is resolvable (missing env var, wrong branch, CI error with known fix): queue a steer via `watch.py queue-action` with the exact resolution. (3) Same block repeated with no new information: reconcile — real block or loop? Park it or convince it to resume with a concrete next step. Never nudge just to watch it no-op again.
+Top-level fields:
 
-STEP 0 — DETERMINISTIC CHECKS (Craig 2026-10-02: every check is a watch.py subcommand — obey verdicts, never re-derive them). Run in order with `python3 project-management/watchdog/watch.py`:
-1. `liveness` — BEFORE the decide pass. One verdict per registered worker: ALIVE / QUIET(n) / GRACE / STALE / DROPPED / DEAD — authoritative, never override with your own reading of the same data. Report every verdict line in the WORKERS section. On DEAD the script has already queued a `dispatch-subagent` entry for the main agent to deliver; DEAD printed but no such entry in pending_actions.json → say so loudly. Registration is the dispatch proof: dispatchers run `register-worker <task> <subagent|codex|claude> <session|-> <repo> <task-file>`; run `deregister-worker <task> <reason>` when its work is merged or handed off. Unregistered workers are invisible. ([JUDGMENT-ONLY] override, 2026-10-02: suppress a script-queued replacement ONLY on direct, fresher aliveness evidence the script can't see — then drop the queued entry, record why in state.json notes, and repair the signal. Never suppress on a re-reading of the script's own signals.)
-2. `conflicts` — duplicate task ownership. Exit 3 = CONFLICT: stop, surface, never dispatch over it.
-3. `transitions` — the SYSTEM.md board-watcher as code. FLIP lines: `in_review` → dispatch validator; `validated`/`rejected`/`blocked` → notify Craig.
-4. `classification-health` — prints STALE-RUNS=n for the DEGRADED WATCHDOG ALARM (main agent ANDs it with the in-flight browser check).
-5. `board-check tokyo-drift-3d` — board hygiene (>6-cell rows, unparseable rows, active workers with empty Owner).
+- `version`: integer `1`; `observed_at`: explicit UTC timestamp
+- `repositories`: map of each subject/source `owner/repo` to its observed full
+  lowercase 40-character head SHA
+- `sources`: one source receipt for each repository × table below
+- Twelve normalized record arrays: `policies`, `board`, `tasks`, `prs`,
+  `branches`, `reviews`, `checks`, `requests`, `owners`, `queue`, `blockers`,
+  `executors`. Every record has a unique table-local `id` and `repository`
 
-STANDING SCRIPTIFICATION RULE (Craig 2026-10-02): every future 'remember to' / lesson / rule / workflow addition must ship its deterministic checks as watch.py subcommands in the same change; prose-only rules are the exception, not the default. Tag new lessons [SCRIPTED: watch.py <command>] or [JUDGMENT-ONLY: why].
+Each source receipt contains `id`, `kind` (table name), `repository` (subject
+scope), `source_repository` (origin), `ref_sha` (origin repository pin),
+`observed_at`, `read_status` (`ok`, `partial`, `unreadable`), `pagination`
+(`pages_read`, `items_seen`, `exhausted`), and explicitly enumerated `ids`.
+Repository-level pins describe the observation context; task/branch/PR/review
+records additionally pin the actual candidate/evidence head. A source receipt
+aggregates **all** necessary reads for that kind: for example, ownership includes
+registry, sessions, reservations and known outside workers, not just one empty
+legacy ledger. `requests` includes current asks and authorized routine-work scope;
+`blockers` includes current stops, denials, release/packet holds and cancellations.
+If any constituent read fails or pagination is unfinished, mark the aggregate
+partial/unreadable. Do not assert an empty successful source when it was unread.
 
-STEP 1 — Decide and act on the LAST RECORDED state first (fast; no browser needed). For each session (codex:tokyo-drift-3d, claude-code:tokyo-drift-3d), run `watch.py decide <session>` — prints ACTION, never touches timestamps. Nudge/failover guards enforced in code. Queue via `watch.py queue-action '<json>'` (dedupes on type+session); never dispatch anything yourself.
-- NOTHING → do nothing.
-- NUDGE → if the last message reports a known blocker, `watch.py blocker-surfaced <session> <blocker-key>` first: SUPPRESSED → apply BLOCKED-WORK DISCIPLINE, do NOT nudge. Else queue `{"type":"nudge-codex"|"nudge-claude","session":<session>,"target_task_url":<from decide>}`.
-- RESUME → queue `{"type":"resume-codex"|"resume-claude","session":<session>,"target_workspace":<from decide>}`.
-- REBRIEF → queue `{"type":"steer-codex"|"steer-claude","session":<session>,"message":<rebried steer text>}`.
-- FAILOVER → read FAILOVER_TARGET + BRIEF from decide. Sibling target: `watch.py sibling-check <session>` first — STEER-BLOCKED (sibling WORKING) → route to a Muse subagent instead; STEER-OK → queue `{"type":"steer-codex"|"steer-claude","session":<sibling>,"message":<BRIEF>,"failover":true}`, then `watch.py failover <session>` (if the steer later can't be sent, `watch.py failover-undo <session>`). MUSE_SUBAGENT target (or sibling unavailable): spawn a Muse subagent per SYSTEM.md — brief links SYSTEM.md, names repo + task file, grants github skill, states transcript-is-noise / task-file+evidence-are-truth / never merge-publish; apply CONTEXT MIGRATION; then `watch.py failover <session>`. Notify Craig ONLY if the failover itself could not be executed.
-- REPORT_LOGIN → `watch.py loginfail <session>`.
-- SHIP → ship the parked PR yourself via the github skill (`bin/gh api`), no browser. (1) `watch.py ship-verify <session>` — NEVER merge on the SHIP label alone: merge only SHIP-VERIFIED; SHIP-BLOCKED (denylist, e.g. #253) never merges; SHIP-STALE = nothing parked. (2) `watch.py ci-report <owner>/<repo> <head-sha>` — CI is after-the-fact verification, NOT a deploy gate; merge once the build is clean. Failed/pending checks → pull failed steps + annotations (`bin/gh api GET /repos/<o>/<r>/check-runs/<id>/annotations`): real build failure → steer with the exact error NOW; infra noise (artifact-quota failures, all substantive steps green) → file rework per one-bug-one-task, merge anyway; conflicted branch → rebase via git-database API (blobs → tree on current main → commit → update branch ref), then merge. (3) Draft PR → mark ready via GraphQL: POST https://api.github.com/graphql {"query":"mutation { markPullRequestReadyForReview(input: {pullRequestId: \"<node_id>\"}) { pullRequest { isDraft } } }"} (REST ready_for_review 404s; PATCH {"draft":false} does NOT undraft). (4) Squash-merge: `bin/gh api PUT /repos/<o>/<r>/pulls/<N>/merge '{"merge_method":"squash"}'` (PUT, not POST). (5) No publish workflows, no live-site check — live only on Craig's ask. `watch.py record-pending <game> <task-id> <pr> <merge-sha> "<summary>"` (dedupes on pr). (6) `watch.py merged <session> cron`. Auth/permission error → do NOT retry-loop; surface failure + PR number in the final message, move on.
-- INSPECT_MERGED → `watch.py status` for merged_by; read the merged diff (PR from INSPECT_NOTE); `watch.py evidence-audit <task>`. Missing/invalid pairs → `watch.py session-alive <session>`: ALIVE → steer the worker (`{"type":"steer-codex"|"steer-claude","session":<session>,"message":"For task <id>, commit before/after pairs for EVERY visual criterion: <task-id>-<criterion-N>-before.png / -after.png, same camera angle, under the task's QA folder, and record the paths per criterion in the task file's evidence list. Missing valid pairs: <list>. Do not set in_review until every visual criterion has one."}`); GONE → spawn a Muse subagent per SYSTEM.md to SCAVENGE evidence only (never merges/publishes). Queue `{"type":"screenshots","session":<session>,"pr":<N>}` for inspected screenshots. Report to Craig: what changed, who shipped it (worker or cron — say plainly), remaining work, evidence recovery route, screenshots note. Then: gaps/regressions → new task(s) per one-bug-one-task; stalled post-merge work → queue a steer. `watch.py inspected <session>` (one report per shipped PR).
+IDs and item counts must match normalized records exactly. Board and task-file
+inventories must reconcile; every PR lists its exact `review_ids` and `check_ids`,
+which must match the review/check arrays. All related records must refer to the
+same task, repository and PR. Unknown/unmapped branches require reconciliation.
+The observation age limit is 15 minutes, exclusive, including each review/check
+record's `observed_at`; a fresh aggregate receipt cannot refresh an old individual
+read. Future or timezone-naive observations are invalid. No `complete=true`, caller-supplied candidate array,
+or empty queue can override these checks.
 
-DISPATCH CHECK (Craig 2026-09-24 — the watchdog dispatches, not just watches; verdict/CI never block implementation). After the decide pass, run the scripted shortlist — never grep the board by hand: `watch.py dispatch-eligible`, `watch.py dispatch-candidates` (applies the SKIP-DONE RULE, drops owned tasks and the dispatch denylist), `watch.py owners`. Priority: Tokyo by board order (NEON is archived). For a salvage-carrying task, `watch.py salvage <owner>/<repo> <task>` and fold the output into the brief as done-work-not-to-redo. Then queue via `watch.py queue-action '{"type":"dispatch-codex"|"dispatch-claude","session":<session>,"env":"tokyo-drift-3d","task":<task-id>,"task_file":<path>,"brief":<WORKER_BRIEF.md with [TASK_ID]/[TASK_FILE_PATH] filled plus context/salvage>}'` (dedupes; STEP 0 `conflicts` enforces it). Record the assignment in the session note.
+Record-specific fields (see fixture/schema for complete types):
 
-ALL-BLOCKED ESCALATION (Craig 2026-09-23, standing rule): if `watch.py all-blocked` prints ALL-BLOCKED True — every live session STALLED/DEAD/OUT_OF_TOKENS/LOGIN_BLOCKED, none WORKING, no viable sibling — do NOT grind through the nudge/cooldown ladder. Apply CONTEXT MIGRATION, then spawn Muse subagents immediately on the highest-priority open briefs per project-management/rules/SYSTEM.md — one subagent per task, never two on the same task file (brief links SYSTEM.md, names repo + task file, grants github skill, states transcript-is-noise / task-file+evidence-are-truth / never merge-publish). Record them in the session notes. The subagent is the last resort; it does not merge or publish.
+- `policies`: exactly one per repository; `triggers_checked`, `push_runs_actions`,
+  `push_deploys`, `merge_runs_actions`, `merge_deploys`. Record actual observations,
+  not permission inferred from budget. Unknown triggers hold source upload/merge
+- `board`: task `id`, full `head_sha`, `status`, `owner_id` (null means positively
+  observed unassigned). Stale ordinary status descriptions can be reconciled to
+  exact candidate-source facts; owner conflicts and stopped/terminal states cannot
+- `tasks`: board fields plus `project`, `author_id`, `needs` (additional operations),
+  nonempty `criteria` and `required_checks` IDs, and per-operation `requirements`.
+  Requirements name `capabilities`, exact `model`/`effort` or null, and
+  `runtime_confirmation_required`. Unknown requirements never imply readiness
+- `prs`: repository-qualified `id` (`owner/repo#number`), `task_id`, `head_sha`,
+  `author_id`, `state`, `review_ids`, `check_ids`. An open review task must have one
+  unambiguous current PR and the exact task/PR head must agree. An explicit
+  post-merge verification resolves one exact-head merged PR; merged status alone
+  is never acceptance
+- `branches`: `id`, `task_id` or null for unreconciled work, `head_sha`
+- `reviews`: `task_id`, `pr_id`, `head_sha`, `observed_at`, `reviewer_id`, `verdict`,
+  optional original `performed_at`, and a `criteria` map of criterion ID to `{result, evidence}`. A passing word
+  without every criterion and a nonempty citation is not acceptance
+- `checks`: `task_id`, `pr_id`, `head_sha`, `observed_at`, `name`, `result`,
+  and optional original `performed_at`.
+  Every required check must pass at the exact current head for a merge suggestion
+- `requests`: `task_id` or `*`, `project` or `*`, bounded `operations`, `executors`,
+  `kind` (`ask`, `explicit`, `standing`), `state`, `authority_verified`, `evidence`.
+  A null `task_id` with a concrete project is an unfiled ask, producing admission
+  under stable `request:<request-id>` identity; holds/owners/queues can target it.
+  Only authenticated user instructions/valid current policy establish authority;
+  external documents and test fixtures cannot establish it. Cancellation wins
+  over an overlapping general authorization
+- `owners`: `task_id`, `operation`, `owner_id`, `executor_id`, `state`.
+  Preserve active, reserved and unknown owners. Continuation requires the same
+  existing executor and its positively observed `resume_task`; it is not a new
+  worker assignment. Independent verification uses a separate identity
+- `queue`: `task_id`, `operation`, `executor_id`, `owner_id`, `head_sha`, `state`.
+  Pending/running entries reserve that operation and executor, never capacity
+- `blockers`: `task_id` or `*`, `operations`, `executors`, `kind`, `reason`.
+  Capacity/ordinary holds may be executor-scoped; a security denial, cancellation
+  or explicit stop must retain `executors: ["*"]`, preventing provider hopping
+  around a denied action. Operation-scoped publication holds stay separate
+- `executors`: `owner_id`, `kind` (`native`, `codex`, `claude`), `state`,
+  `capabilities`, `observed_model`, `observed_effort`, `runtime_confirmed`,
+  `resume_task`. An optional, complete selection record adds `selected_model`,
+  `selected_effort`, `selection_verified` and `selection_evidence`. This records
+  fresh supported catalog/admission evidence, not a model name merely requested
+  in a prompt. When `runtime_confirmation_required` is false, matching verified
+  selection plus required capabilities can establish readiness while
+  `runtime_confirmed: false` and null observed model/effort remain truthful. If
+  runtime attestation is required, selection cannot substitute; a known actual
+  runtime mismatch cannot be hidden by selected settings. Missing required setup
+  evidence yields `INPUT_REQUIRED`, not idle. Unknown native
+  capacity is not available capacity; known authorized native capacity is not
+  disabled just because Codex is unavailable. External agent contact is unsupported
 
-STEP 2 — REMOVED 2026-09-24 (structural fix): fresh browser classification is dispatched by the MAIN AGENT on the handoff turn (see MAIN-AGENT HANDOFF DUTIES), never by this job. There is no STEP 2 here.
+### Constructing a truthful snapshot with connected reads
 
-BUDGET CHECK (updated Craig 2026-10-08 19:56 UTC): the stated GitHub Actions ceiling is $50/month. On Muse, the existing read-only `python3 ~/workspace/github-billing/check_budget.py` may supply spend evidence; on platforms without billing access, report spend as unverified rather than inventing it. Alert on verified approaching/exceeded spend, including the observation time and actual configured limit if available. Do not change the ceiling or assert paid usage is stopped without evidence. Unused budget never authorizes Actions or deployment; the explicit-request rule above still applies. The script dedupes alerts per month.
+This change installs no collector. The coordinator constructs a new JSON object
+from its actual connected-source observations; it must run the plan/guard before
+its next dispatch or idle report. Passing synthetic fixtures proves tests only,
+not adoption of a live loop.
 
-STEP 3 — ALWAYS report, every run (Craig 2026-09-23: he wants a heartbeat, never silence). Terse, GROUPED, TRAFFIC-LIGHT: two sections, jobs then workers. Omit jobs with no change unless the list would be empty. `watch.py pending-report`: merged-but-not-live items get exactly one REPORT line, then only the COUNT line — never repeated open/assigned noise. After reporting an item, `watch.py pending-reported <pr>` to stamp it.
+1. Declare the relevant repository scope and read each current full head SHA.
+   Read the canonical rules, task/board records, registrations, queues and holds
+   at those pins. Enumerate source task IDs before selecting work. Do not omit
+   completed/blocked/owned records that are needed to explain known tasks.
+2. Use connected GitHub reads to enumerate branches and open PRs through the last
+   page, plus each known task-linked closed/merged PR needed for reconciliation.
+   Read candidate task files at exact branch/PR heads, PR authors/current heads,
+   complete review lists and required check results. Keep all returned task/PR/
+   review IDs in the receipt before normalizing candidates. Copy immutable full
+   SHAs rather than a title, short SHA or PR-body description.
+3. Read the ownership registry and currently available worker/session observations,
+   including native work, reserved owners and pending operations. An old empty
+   watchdog ledger is not evidence that outside workers are absent. Record
+   actual observed native capacity and tools. For a supported native selection,
+   copy its verified catalog/admission model and effort into the selection fields,
+   cite that observation, and leave runtime identity unconfirmed when unexposed.
+   Carry current authenticated asks/authorizations and all stops/denials into
+   their separate tables without broadening the authorized action or audience.
+4. Record the UTC read time and returned IDs/counts for each constituent source.
+   Build each repository/table receipt from those reads: `ok` and `exhausted`
+   only when every required constituent succeeded and pagination ended. If any
+   required part is unavailable, retain observed IDs and use `partial` or
+   `unreadable`; do not fill an empty successful receipt. Never use the test-only
+   `coordinator_seal` helper as proof of external completeness.
+5. For review/check evidence, preserve the source's original execution/submission
+   time in `performed_at` when known. Refresh `observed_at` only after freshly
+   retrieving the immutable result and checking its current PR/head applicability.
+   Old evidence does not require a rerun just because it is old; old observations
+   cannot authorize a merge. Do not rewrite an original performance time.
+6. Save this newly constructed object to an ordinary private input file, run the
+   supported command above, and resolve the reported missing inputs without
+   changing true facts to make it pass. Select one action, refresh observations,
+   then run the guard with the selected receipt and exact target. A receipt from
+   a different input, owner, head or expired read cannot be reused. Leave live
+   state/queues unchanged; any actual authorized assignment is a separate action.
 
-TASK NAMING (Craig 2026-09-25): name every job by a short plain-English defect name (from the task file's defect summary when none is established), reused across runs. PR numbers stay only as the PR link's label, never as the job headline.
+A scope-bounded `IDLE` result must be reported with its repository coverage and
+blockers. It is never a claim that all the user's projects, unknown external
+sessions or undeclared sources have no work.
 
-INSPECTION OUTCOMES (Craig 2026-09-25 — CLOSED SET, ENFORCED): every inspected task ends in EXACTLY ONE of these five states — never "open and idle", never "waiting for next cycle", never "queued/unassigned" without a reason. If a task cannot be placed, the run is broken: fire the degraded-watchdog alarm loudly.
-1. closed — defect fixed and verified (screenshot evidence inspected for visual tasks), OR superseded/duplicated with the reason on the board.
-2. open and assigned — a NAMED worker owns it now: a cloud session, a dispatched task, a live subagent, or the run's SHIP path (parked PR = assigned to SHIP; merged-not-live = in pending.json, published only on Craig's ask).
-3. open but no available worker — genuinely no capacity: every session blocked/dead/out-of-tokens/login-blocked AND no viable subagent route (ALL-BLOCKED ESCALATION must have fired first). Name what's missing and why. Token-refill wait is NOT outcome 3 — default is handoff to another worker (outcome 2); refill-wait with wake timer is the narrow exception (refill soon AND context too large to migrate, both in the session note).
-4. blocked on human — ONLY Craig can unblock (login, API key, purchase approval, physical action). Name the exact action. Park it; surface once per blocker.
-5. blocked on external — third-party/service outage nobody here can fix. Park with reason + re-check timer; re-probe, never nudge workers over it.
+### Gates, guarantees and limits
 
-FOLD-IN RULES (edge cases that map into the five): "stalled, nudge queued" / "steer queued" → 2 (the queued action IS the assignment). "finished, PR parked" → 2 (owned by the SHIP action). "merged, not yet live" → 2. "waiting on token refill" → 2 by default (outcome 3 with wake timer only as the narrow exception above). "dead, no recovery route" → 3 (ALL-BLOCKED ESCALATION must have fired first). "superseded by a kill order / duplicate" → 1 (closed, reason on the board).
+[SCRIPTED: watch.py coordinator-plan] Operations are distinct: `admission`,
+`implementation`, `verification`, `upload`, `merge`, `deploy`. Open engineering
+work, unfiled asks and review work are derived from accounted records, not a
+caller-supplied shortlist. A task's upload/deployment hold cannot silently become
+an implementation hold. Required acceptance evidence governs merge separately;
+unknown acceptance-only reads do not stop separately authorized coding/admission.
+Unrelated unmapped/unknown branches remain a coverage warning, but do not suppress
+independently verified read-only verification at an exact open/merged PR head.
+All mutation operations still require complete branch and ownership observations.
+Explicit `needs: ["verification"]` on a merged task can request post-merge review;
+it never restarts implementation, repeats the merge, or treats the merge as
+independent acceptance. Missing exact source/readiness facts return
+`INPUT_REQUIRED`, including when the rest of the inventory is complete.
 
-JOBS — open tasks with activity or needing eyes this run. Board table in doublehidenblade/game-dev-central (project-management/boards/tokyo-drift-3d.md — NEON archived) is the SOURCE OF TRUTH; fetch via the github skill. Cross-check session notes for owners. Every JOBS line carries its outcome number (outcome 1 never appears).
-- 🟢 2 — open and assigned — task, worker, and PR if any
-- 🟡 3 — open but no available worker — missing capacity and why handoff wasn't possible
-- 🔴 4 — blocked on human — the exact action Craig must take
-- 🔴 5 — blocked on external — the dependency and re-check plan
+Exact full-SHA task/PR/review/check facts reconcile stale ordinary board summaries.
+Same-head closed/merged board or terminal PR facts require reconciliation
+before an open task can restart implementation; stale source text cannot reopen
+completed work. A reviewer must be independent of the task author, PR author and implementation
+owner. Failed/incomplete criteria, failed checks, self-review, old-head evidence,
+conflicting verdicts and missing inventory cannot produce merge acceptance.
+Conflicting same-head PASS/FAIL verdicts remain an acceptance/mutation hold, but
+explicit `needs: ["verification"]` can preserve an independently authorized
+read-only review to resolve the dispute. That action must still pass every
+source, ownership, capability and stop gate; the conflict warning stays visible.
+Known exact-head merged source and its acceptance conflicts are reconciled even
+when no verification operation is requested. Removing a need cannot clear a hold
+or turn conflicting evidence into idle. Missing optional PR linkage does not
+create a blanket upload hold; each operation retains its own source requirements.
+No reconciliation clears an explicit hold. Shuto stays frozen, NEON paused,
+`td-054` no-redispatch and preservation PR `#253` never-merge remain enforced.
+Deployment is always directed to the separate explicitly requested release flow;
+this adapter cannot authorize or execute it. Actual uploads still require the
+approved payload/destination and existing transmission checks.
 
-WORKERS — one line per known agent: own subagents plus the cloud sessions (codex:tokyo-drift-3d, claude-code:tokyo-drift-3d).
-- 🟢 working — what task it's on
-- 🟡 idle / stalled — available, or queued for nudge this run. IDLE-WITH-ASSIGNABLE-WORK IS A RUN DEFECT: idle only when every open task is outcome 3/4/5. Verify with `watch.py idle-defect-check` (DEFECT <session> <task> exits 3 when an idle session has assignable work; else OK).
-- 🔴 out of tokens / dead / login-blocked — plus the recovery
+Each action binds task, operation, executor, owner, repository, full candidate
+SHA, authorizing record IDs, canonical input digest and expiry. A changed input
+invalidates a prior receipt, even if a human thinks the change is harmless.
+The guard is a recheck, not an atomic lock: external changes after checking still
+require normal ownership/target verification immediately before action.
 
-INLINE LINKS (Craig 2026-09-24): every JOBS line links its task file and PR; every WORKERS line links its live session. Generate URLs with `watch.py links <session>` and paste them verbatim — never guess a URL; link plainly if none is on record.
+The collector is a trust boundary. Schema/accounting validation cannot prove a
+caller disclosed every external conversation, supplied authentic evidence, or
+inspected a citation's contents. A review record is admitted only after its
+independent reviewer actually checks the evidence; this code checks the record's
+coverage and binding, not the screenshots themselves. The guarantee covers the
+supplied validated facts and declared source scope, not every external scheduler
+or browser agent. No live collector/dispatcher is installed by this change.
 
-VERDICT/CI FRAMING (Craig 2026-09-24): Craig's phone verdict is QA closure only — it NEVER blocks implementation, and CI is after-the-fact verification, never a deploy gate. Never report a job as "awaiting Craig's verdict" or "waiting on verification/CI": verdict-only work does not appear in JOBS; remaining implementation shows its inspection outcome (2/3/4/5). NOTIFY-worthy events first (nudge queued, resume queued, parked PR shipped, merged PR inspected and reported, login failure, subagent spawned, merge conflict self-resolved, dispatch queued), then the two grouped sections. This is the run's final message and it always goes out.
+### Retired routes
 
-DEGRADED WATCHDOG ALARM: STATE_AGE_MIN > ~45 min means no fresh classification yet — say so plainly (e.g. "classifications 90 min old, fresh check in flight"), not as failure. If classifications stay stale for 3+ consecutive runs AND no classification task is in flight, say so loudly: the main-agent dispatch path may be broken. A watchdog that can see but not act must say so loudly, never finish silently.
+[SCRIPTED: watch.py dispatch-guard] Historical admission producers and consumers
+now return `INPUT_REQUIRED / RETIRED_UNGUARDED_ROUTE` before any I/O, through both
+CLI and imported command functions: `gate`, `check-done`, `classify`, `decide`,
+`nudge`, `resume`, `rebrief`, `failover`, `failover-undo`, `register-worker`,
+`assign`, `liveness`, `queue-action`, `adopt-orphans`, `classify-report`,
+`sibling-check`, `entry-start`, `pending-validate`, `validator-dispatched`,
+`ship-verify`, `publish-verify`, `audit-task`, `validate-task`, `transitions`.
 
-MERGE CONFLICTS (Craig 2026-10-02, standing rule): merge conflicts are the agent's to resolve — rebase the worker's branch onto current main via the github skill git-database API (create blobs, build tree on main, commit, update the branch ref), resolve conflicts, and push. Never ask Craig; he never merges or pushes himself. Force-push only to the worker's own feature branch, never main.
+Do not deliver entries from the old queue or run the historical scheduler,
+`push_code.py`, or browser dispatch instructions. They are not converted into a
+new automatic dispatcher. Existing state/ledgers remain untouched. Other old
+read/ledger helpers and pure state-machine functions remain for historical
+compatibility, not as supported admission or acceptance APIs. This runbook's
+supported route supersedes the old merge-on-build, blanket all-blocked failover
+and unconditional browser-handoff procedure, preserved in
+[the prior runbook](https://github.com/doublehidenblade/game-dev-central/blob/3c1481b699098103ccc073c0c358a6d1beab3dbd/project-management/watchdog/RUNBOOK.md).
 
-NEVER-SHIP DENYLIST (Craig 2026-10-01): `NEVER_SHIP_PRS` lives in watch.py — `ship-verify` prints SHIP-BLOCKED for denylisted PRs (e.g. PR #253, the td-138 round-3 preservation branch) even when open. The cron merges only SHIP-VERIFIED PRs.
+### Offline verification
 
-MAIN-AGENT HANDOFF DUTIES (not for the cron worker — for the main agent turn that receives this run's handoff):
-1. Deliver or skip the heartbeat per the delivery rules (Craig wants it every run).
-2. Read project-management/watchdog/state/pending_actions.json. For each entry, delegate ONE browser task with browser-brief.md ACTION MODE for its type, passing the entry's fields (nudge/resume/steer-codex/claude: target_task_url / target_workspace / message):
-   - dispatch-codex: new Codex cloud task in the entry's env, title "<task> — <short defect>", brief VERBATIM in the composer.
-   - dispatch-claude: open the session URL, brief VERBATIM in the Prompt box; re-verify idle first (if WORKING, pop with NO_ACTION_WORKING + record why).
-   - screenshots: capture the PR's changed-area screenshots from the live -web site, eyeball before reporting.
-   - dispatch-subagent: spawn ONE Muse subagent, brief VERBATIM as first message (do not edit); then `watch.py register-worker <task> subagent - <repo> <task_file>`; pop the entry.
-   On ACTION_DONE / STEER_DONE: matching ledger command (nudge|resume|rebrief|failover <session>) + pop. On NO_ACTION_WORKING: `watch.py entry-attempt <type> <session>` (3 attempts → dropped + SURFACE → tell Craig). Before starting: `watch.py entry-start <type> <session>` (refuses concurrent same-session entries). `watch.py pending-validate` anytime.
-3. Fresh classification: check browser.list_tasks for an in-flight "READ-ONLY classification run" task. If none, spawn ONE browser task with instruction = "READ-ONLY classification run. ACTION MODE is NOT enabled." + full contents of project-management/watchdog/browser-brief.md PART 1 and PART 2 (skip neon-drift env — archived) + this TIME LIMIT block verbatim: "TIME LIMIT: you have 5 minutes total from the moment you start. Never spend more than ~90 seconds on any single page load — if a page is blank or still loading after that, reload once; if it still does not render, mark that environment/session PENDING and move on. At the 5-minute mark, STOP and report immediately: PARTIAL lines for every environment/session you classified, PENDING for the rest. A partial report on time beats a complete report late." The task must not type into any composer, must not attempt or wait on login pages or CAPTCHAs — report LOGIN_BLOCKED for that product and move on.
-4. When a classification report handoff arrives (its own turn): save the report lines to a file and run `watch.py classify-report <file>` — it parses the fixed-format CODEX/CLAUDE lines and runs check-done + classify per line (no manual transcription). Then end the turn quietly with no user-visible message for routine classifications.
+Run from the repository root:
+
+- `python3 project-management/watchdog/test_rules.py` — legacy pure regression
+  cases plus the coordinator suite (Pillow needed by legacy image tests)
+- `python3 -m unittest discover -s project-management/watchdog -p test_rules.py -v`
+  — coordinator suite only, standard library
+- `python3 project-management/watchdog/test_coordinator_review.py` — unchanged
+  32-assertion independent correction/adoption probes, including the two new
+  failure classes. Kept separately from the author's regression methods
+- `python3 project-management/watchdog/test_coordinator_acceptance_isolation.py`
+  — independent 14-case acceptance-versus-review matrix for open and merged PRs
+- `python3 project-management/watchdog/test_coordinator_final_guards.py`
+  — independent 15-case source, stop, ownership and operation-isolation probes
+- `python3 project-management/watchdog/test_coordinator_operation_needs.py`
+  — independent 128-case open/merged × all needs subsets × clean/conflicting
+  acceptance matrix
+- `python3 project-management/watchdog/test_coordinator_hold_invariance.py`
+  — independent two-case proof that removing verification cannot erase a hold
+
+The acceptance-isolation and final-guard probe sources were restored from their retained exact review text
+after the review workspace was replaced. Rerunning them against the retained v3
+head reproduced the original 2/14 and 1/15 failures before this correction; their
+restored source bytes are committed unchanged here. They are synthetic regression
+evidence, not a live coordinator inventory or independent acceptance of v5.
+
+The new suite denies filesystem access except supplied in-memory CLI reads,
+network, subprocesses, state/queue/ledger helpers and legacy verdict capture.
+It asserts no input mutation, tests actual CLI/imported aliases, and replays
+scoped holds, task rotation, ownership, admission/review, incomplete manifests,
+exact-head acceptance, denied routes, requested-versus-observed setup and replay
+invalidation. Test-only clocks/fixtures are never live dispatch evidence.
+
+## Evidence-feedback policy integration (2026-10-09)
+
+Read [EVIDENCE_POLICY.md](EVIDENCE_POLICY.md) before constructing an admission or
+completion packet. The coordinator independently supplies current authority,
+complete canonical rule inventory, task/source scope, ownership/stops and
+actor-observation receipts. Worker submissions do not establish authority.
+Raw Git commit/tree/blob objects prove immutable artifact membership.
+
+Use `watch.py brief-check --authority <file> --submission <file> --objects <file>`
+for admission and `watch.py acceptance-check` with the same arguments for
+completion. `evidence-check`, `evidence-checks` and `validator-check` use the
+same completion result; exit 2 is missing input, exit 3 is a denied/stopped gate.
+No positional/header-only or filename-only route grants acceptance.
+
+Include each task's `{authority, submission, objects}` packet in
+`snapshot.evidence_policy[task_id]` before coordinator implementation/upload or
+merge decisions. All PR396 source/permission/owner/stop/operation guards remain.
+Missing/conflicting completion evidence must not suppress independently
+permitted read-only verification; it still blocks acceptance/merge. An unfiled
+ask's admission action is registration only, not production implementation.
+No workflow dispatch, deployment, external contact or queue/ledger write follows
+from a policy result. Explicit human visual/device judgments stay separate.

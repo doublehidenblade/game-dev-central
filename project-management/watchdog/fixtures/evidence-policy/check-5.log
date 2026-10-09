@@ -1,0 +1,19 @@
+$ python3 test_coordinator_final_guards.py
+PASS merged PR independently corroborates source after branch deletion
+PASS merged review retains wronghead
+PASS merged review retains missingpr
+PASS merged review retains closedpr
+PASS merged review retains twoexactmerged
+PASS merged review retains selfreview
+PASS merged review retains ownerunknown
+PASS merged review retains prsreadfail
+PASS merged review retains stops
+PASS merged review retains denial
+PASS branch unmapped exception remains verification-only
+PASS branch partial exception remains verification-only
+PASS branch missing exception remains verification-only
+PASS postmerge no duplicate merge or coding
+PASS disputed postmerge acceptance permits fresh independent verification
+TOTAL 15 FAILURES 0 []
+
+EXIT_CODE=0

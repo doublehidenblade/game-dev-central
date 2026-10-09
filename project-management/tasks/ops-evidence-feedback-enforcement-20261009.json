@@ -3,7 +3,7 @@
   "title": "Enforce evidence feedback, admission and completion",
   "status": "in_progress",
   "owner": "dot native evidence-framework author (sole author; selected gpt-6-astra/xhigh)",
-  "phase": "Disjoint implementation admitted; PR396 integration hold remains; independent acceptance pending",
+  "phase": "Implementation and serialized entrypoint adoption in progress; independent final-head acceptance pending",
   "ask": {
     "author": "Craig",
     "date": "2026-10-09",
@@ -145,7 +145,11 @@
     "publication": "Complete main tree has no .github workflow files; repository has_pages=false. Source branch and draft PR only. Workflow collection endpoint unavailable through connector; no claim of inspecting external hooks.",
     "limits": "Historical registry and board do not prove hidden-session liveness. Recheck current main, open PRs, reservations, owner handoffs and actual selected executor before admission. No game-task takeover."
   },
-  "evidence": [],
+  "evidence": [
+    "project-management/watchdog/fixtures/evidence-policy/verification.json",
+    "project-management/watchdog/EVIDENCE_POLICY.md",
+    "project-management/watchdog/test_evidence_policy.py"
+  ],
   "work_log": [
     {
       "date": "2026-10-09",
@@ -154,6 +158,14 @@
     {
       "date": "2026-10-09",
       "entry": "2026-10-09T14:07:15Z: Actual disjoint implementation admission/start after independent registration acceptance (PR405 review5471139782; main2e07b0f5), verified native selected Astra/xhigh and Python tools. Refreshed all100 open PR changed-file lists (second page empty), board, workers, coordinator log, current state and queue; no disjoint owner reservation found. PR396 b0b3c8a4 and PR143 bfe26735 remain untouched until exact-region handoff. No .agents skills in complete repository tree. Scope-specific task record substitutes for live queue/heartbeat writes expressly prohibited by this task. Outer deadline16:07:15Z; one initial attempt plus one evidence-based correction, separate independent review reserved."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T14:18:38Z: PR396 independent acceptance review5471277399 and merge39aa747c7f1f35393a316faebd942386579ff913 confirmed. Coordinator handed off exact evidence-related watch.py routes, necessary additive coordinator/CLI callsites, evidence tests and minimal README/RUNBOOK usage. PR143 canonical visual-onboarding hunks stay reserved and unedited. Current implementation materializes the accepted39aa source; prior operation/owner/stop tests remain intact with a clearly isolated test-only policy boundary, while new end-to-end tests use real hash-verified Git proof objects without that mock."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "Initial implementation:48 evidence-policy/integration methods pass; inherited92 legacy assertions and37 coordinator unit methods pass; additional32+14+15+2+128 coordinator probes pass; compile checks pass. Tests use no live queue/state/API mutation and no Actions. Raw-object fixtures and actual command logs are committed under fixtures/evidence-policy. Independent acceptance has not been performed; real-input capture will bind this implementation after source publication."
     }
   ],
   "verdict": null,
@@ -161,11 +173,11 @@
   "implementation_deadline": "2026-10-09T16:07:15Z",
   "rule_acknowledgment": {
     "repository": "doublehidenblade/game-dev-central",
-    "commit": "2e07b0f5353c545892b64658d1f89452834a5be8",
+    "commit": "df37c2d68f5983a8ceff06d2e17800f5ea90c308",
     "rules": [
       {
         "path": "COORDINATOR.md",
-        "blob": "02f89018f3f8d3b8e3d6a0ec03802128529688b8"
+        "blob": "58786d160ad1bc509a7ee74df030988056389308"
       },
       {
         "path": "knowledge/standing-rules.md",
@@ -274,5 +286,216 @@
       "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
       "limitation": "Pending separate final-head acceptance"
     }
-  ]
+  ],
+  "evidence_rule_inventory": [
+    {
+      "id": "COORDINATOR.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "COORDINATOR.md"
+    },
+    {
+      "id": "knowledge/standing-rules.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/standing-rules.md"
+    },
+    {
+      "id": "project-management/rules/SYSTEM.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/SYSTEM.md"
+    },
+    {
+      "id": "project-management/rules/WORKER_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_BRIEF.md"
+    },
+    {
+      "id": "project-management/rules/VALIDATOR_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/VALIDATOR_BRIEF.md"
+    },
+    {
+      "id": "project-management/rules/WORKER_SELECTION_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_SELECTION_POLICY.md"
+    }
+  ],
+  "evidence_policy": {
+    "C1": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C1"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C2": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C2"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C3": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C3"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C4": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C4"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C5": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C5"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C6": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C6"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C7": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C7"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    }
+  }
 }
