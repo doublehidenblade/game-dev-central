@@ -1586,7 +1586,8 @@
   },
   "td-192": {
    "pr_merged": true,
-   "merged_by": "cron"
+   "merged_by": "cron",
+   "inspected_ts": "2026-10-09T06:51:06.954189+00:00"
   }
  },
  "td_038_confirmed_shipped": {
@@ -1919,7 +1920,8 @@
   "2026-10-06T16:41Z deregistered td-101 (subagent): work complete, PR #434 in_review",
   "2026-10-07T07:00Z deregistered td-203 (subagent): work merged: validator PASS, PR #459 squash-merged eda80ac; board PR #334 open for supervisor merge",
   "2026-10-08T07:43Z LIVENESS: td-192 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-192-20261008-074323.md).",
-  "2026-10-09T05:43Z LIVENESS: td-191 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-191-20261009-054333.md)."
+  "2026-10-09T05:43Z LIVENESS: td-191 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-191-20261009-054333.md).",
+  "2026-10-09T06:51Z deregistered td-192 (subagent): PR #505 merged 2026-10-09T06:23:35Z by cron; inspected 2026-10-09 (validator VALIDATED, board reconciled by Craig f35226b4, caption-correction docs PR #576 opened)"
  ],
  "workers": {
   "td-195": {
@@ -1928,15 +1930,6 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-195.md",
    "dispatched_at": "2026-10-06T16:58:09.953709+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-192": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-192.md",
-   "dispatched_at": "2026-10-08T07:47:55.672899+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
@@ -2173,11 +2166,11 @@
   "td-237": "blocked"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T06:13:38.883627+00:00",
+  "ts": "2026-10-09T06:44:13.685745+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-195 (no heartbeat file; task-file commit 9c96b92 2026-10-09T06:08)",
-    "ALIVE td-192 (no heartbeat file; task-file commit 9c96b92 2026-10-09T06:08)",
+    "ALIVE td-192 (no heartbeat file; task-file commit e3c03bf 2026-10-09T06:23)",
     "ALIVE td-191 (no heartbeat file; task-file commit 9c96b92 2026-10-09T06:08)"
    ],
    "transitions": [
@@ -2201,7 +2194,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T05:44:01.982953+00:00",
-   "liveness": "2026-10-09T06:13:38.883627+00:00",
+   "liveness": "2026-10-09T06:44:13.685745+00:00",
    "classification-health": "2026-10-09T05:43:55.404813+00:00",
    "transitions": "2026-10-09T05:43:54.179078+00:00",
    "conflicts": "2026-10-09T05:43:51.122259+00:00",
