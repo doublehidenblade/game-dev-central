@@ -1,0 +1,156 @@
+{
+  "id": "ops-evidence-feedback-enforcement-20261009",
+  "title": "Enforce evidence feedback, admission and completion",
+  "status": "open",
+  "owner": "dot — operational evidence framework; implementation author not dispatched",
+  "phase": "queued registration proposal; independent exact-head registration acceptance required before admission",
+  "ask": {
+    "author": "Craig",
+    "date": "2026-10-09",
+    "request": "Enforce, deterministic framework, persisted on GH",
+    "scope": "Register the deterministic evidence-feedback framework in GitHub. This change registers only; no implementation or merge."
+  },
+  "bug_shape": "Structured inspection failures can remain reports without coordinator reconciliation into an existing rule, a task-specific limitation, or a justified reusable guideline with a regression; later briefs and completion claims can therefore repeat the evidence failure.",
+  "reference_images": [],
+  "references": [
+    "COORDINATOR.md",
+    "knowledge/standing-rules.md",
+    "project-management/rules/SYSTEM.md",
+    "project-management/rules/WORKER_BRIEF.md",
+    "project-management/rules/VALIDATOR_BRIEF.md",
+    "project-management/rules/WORKER_SELECTION_POLICY.md",
+    "https://github.com/doublehidenblade/game-dev-central/pull/396",
+    "https://github.com/doublehidenblade/game-dev-central/pull/143"
+  ],
+  "ownership": {
+    "inspector": "Read-only: emit structured findings and citations. No inspector rule/task mutation, worker dispatch, merge, or automatic repair.",
+    "coordinator": "Owns explicit reconciliation decisions and admission against current authoritative rules. Preserve existing owner, stops and denials; findings cannot authorize new tasks or contact.",
+    "worker": "One admitted author for this operational task; cannot self-accept.",
+    "reviewer": "Separate independent reviewer judges exact implementation head and each criterion; human visual judgments remain explicit."
+  },
+  "implementation_scope": {
+    "disjoint_allowlist": [
+      "project-management/watchdog/evidence_policy.py",
+      "project-management/watchdog/test_evidence_policy.py",
+      "project-management/watchdog/fixtures/evidence-policy/",
+      "project-management/watchdog/EVIDENCE_POLICY.md",
+      "project-management/tasks/ops-evidence-feedback-enforcement-20261009.json"
+    ],
+    "integration_hold": [
+      "watch.py, coordinator.py, coordinator_cli.py, test_rules.py, RUNBOOK.md, README.md and COORDINATOR.md remain with PR396's current owner until exact-region handoff",
+      "Canonical SYSTEM.md, WORKER_BRIEF.md, VALIDATOR_BRIEF.md and COORDINATOR.md visual-onboarding hunks remain reserved by PR143; reconcile its current accepted content before any overlapping edit"
+    ],
+    "sequence": "After registration acceptance and fresh ownership/tool preflight, one author may implement disjoint pure module, isolated fixtures/tests and its own documentation. Do not block disjoint work on PR396. Integration into coordinator/watch entrypoints is serialized after the overlapping owner correction and exact-region handoff; no parallel replacement or bypass evaluator.",
+    "excluded": [
+      "game source and acceptance changes",
+      "existing board rows or ownership",
+      "live state/queues/ledgers and automated dispatch",
+      "Actions/workflows/deployment",
+      "external-agent contact",
+      "provider/access/security changes",
+      "blanket new guideline for each repeated failure"
+    ]
+  },
+  "contract": {
+    "finding": [
+      "stable finding ID and failure fingerprint",
+      "source repository, full observed head SHA and observation timestamp",
+      "task and criterion IDs",
+      "evidence locations and machine-readable failure code",
+      "coverage and source-read limitations"
+    ],
+    "reconciliation": [
+      "Coordinator records finding-to-decision links with rationale and provenance",
+      "Choose existing_rule with exact rule ID/revision; task_limitation with bounded scope and required evidence/action; or reusable_guideline with incident, generalization rationale, authoritative rule delta and executable regression",
+      "Duplicate findings reconcile idempotently; frequency alone does not justify a new guideline",
+      "Unresolved or contradictory findings cannot silently become satisfied; no auto-created game repair tasks"
+    ],
+    "admission": [
+      "Current authoritative rule manifest pinned by repository full commit and rule blob revisions",
+      "Worker brief acknowledges current applicable rule revisions",
+      "Every criterion has a concrete evidence plan: method, artifact path/type, source/build/variant binding where relevant, coverage and designated independent reviewer",
+      "Unknown current rules, stale acknowledgment or incomplete criterion plan denies admission with a scoped reason; authorized disjoint work is not suppressed by unrelated publication holds"
+    ],
+    "completion": [
+      "Fail closed for missing, stale, uncommitted, inaccessible, unbound or unmapped required evidence",
+      "Verify committed paths/blobs at exact immutable artifact/source refs; text claims or a file's mere existence are not proof",
+      "Evidence maps every criterion and all claimed defect instances; build-dependent evidence identifies exact source/build/variant",
+      "Independent verdict must name the full candidate head SHA, reviewer identity distinct from author, per-criterion decision and inspected citations; absent, stale, self-authored or partial verdict fails acceptance",
+      "Changed source/rules/evidence invalidates prior decision; preserve author/test/independent-review/human-visual gates as distinct states",
+      "Explicit human visual/device judgments cannot be inferred from numeric image differences, a script result, generic screenshots or green tests; pending human verdict remains pending and cannot become automatic completion",
+      "Distinguish reviewed implementation/source head from later evidence-only commit and artifact tree. Later evidence/verdict commits may bind the prior implementation head only after verifying the relevant source scope is unchanged; changed source invalidates affected evidence. Avoid a circular demand that a verdict cite the commit containing itself.",
+      "Retained historical evidence requires verified unchanged relevant source scope and applicable build/environment provenance; never accept old artifacts solely because filenames or metadata look correct."
+    ],
+    "applicability": [
+      "Define explicit criterion applicability with rationale and authority; missing parsed criteria or empty citation lists never vacuously PASS",
+      "Nonvisual criteria use appropriate logs/assertions/diffs rather than compulsory screenshots; visual criteria retain required matched per-instance before/after review and explicit human gates"
+    ]
+  },
+  "completion_criteria": [
+    {
+      "id": "C1",
+      "criterion": "Structured findings have deterministic, provenance-preserving coordinator reconciliation without inspector mutation or blanket guideline creation.",
+      "verification": "Fixtures cover existing-rule, task-limitation, reusable-guideline-plus-regression, duplicate replay, unresolved and conflicting finding cases; identical inputs yield identical decisions. Newly generalized rules must have a regression that fails on the recorded broken fixture."
+    },
+    {
+      "id": "C2",
+      "criterion": "Admission enforces current rule revision acknowledgment and a complete per-criterion evidence plan.",
+      "verification": "Positive control plus missing/stale rule pin, changed rule blob, missing criterion/method/artifact/source coverage and malformed plan cases; verify scoped rejection and preservation of unrelated permitted operations. Include zero parsed criteria, empty applicability/citations and unsupported not-applicable exclusions; each applicable criterion remains accounted for."
+    },
+    {
+      "id": "C3",
+      "criterion": "Completion fails closed on missing/stale/uncommitted/inaccessible/unmapped evidence and absent independent exact-head verdict.",
+      "verification": "Table-driven negatives for each class, changed full SHA, wrong build/variant, partial coverage, self-review, no citation, partial verdict and stale evidence; complete exact-head control passes only machine-checkable gates. Include evidence-only commits with proven unchanged source as a positive control, altered relevant source as a negative, and historical evidence with/without verified scope equivalence. Do not use filenames or metadata as automatic semantic PASS."
+    },
+    {
+      "id": "C4",
+      "criterion": "Human visual judgment and stopped ownership remain explicit gates.",
+      "verification": "Tests show missing/rejected/pending human verdict never becomes accepted from script/numeric/CI results; stopped tasks remain stopped, no redispatch or owner transfer follows from findings."
+    },
+    {
+      "id": "C5",
+      "criterion": "General framework, schema/examples and regression tests are committed in GitHub; evaluator is side-effect-free.",
+      "verification": "Run isolated tests locally with filesystem writes, external API, subprocess dispatch and queue/ledger mutation mocked to raise; commit exact commands/results and public-safe fixtures. No Actions execution."
+    },
+    {
+      "id": "C6",
+      "criterion": "After serialized owner handoff, applicable admission/completion routes consume the shared result without bypass.",
+      "verification": "Inspect exact post-PR396 integration diff and run route/alias negatives plus existing regression suite locally; do not claim enforcement of live external schedulers. Preserve PR143 visual-onboarding content and cite accepted rule revision. Specifically test evidence-check failure exit codes, brief-check semantic plan validation and validator-check rejecting zero citations/zero parsed criteria. Capture a read-only current real-input acceptance-check invocation with pinned source manifest and resulting decisions/limitations; standalone synthetic tests do not establish adoption. No external scheduler or inspector mutation."
+    },
+    {
+      "id": "C7",
+      "criterion": "Separate independent acceptance review cites exact final head and every criterion.",
+      "verification": "Reviewer opens original artifacts, reruns relevant local checks and records per-criterion PASS/FAIL with immutable citations. Implementation remains in_review until required acceptance; all human gates and verification limitations stay visible."
+    }
+  ],
+  "recommended_setup": {
+    "capability_tier": "frontier: coupled admission/completion policy and adversarial regression design",
+    "provider_preference": "provider-neutral; native dot path requested for this dot-owned task",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "xhigh",
+    "environment_and_tools": "Implementation executor not yet selected or verified. Require Python, isolated fixtures, GitHub read/write within scope and full local test capability before production work; connectors verified for registration.",
+    "availability_checked": "2026-10-09: native catalog advertises gpt-6-astra/xhigh; actual implementation runtime, quota and Python readiness unverified",
+    "fallback": "wait_for_required_tier",
+    "attempt_budget": "One initial attempt plus at most one evidence-based correction within two hours after actual implementation admission; stop after two identical failures",
+    "escalation_criteria": "Missing required tier/tools, ownership overlap, incompatible PR396 interface, untestable criterion, unsafe side effects or budget exhaustion: report to dot coordinator and narrow scope or wait",
+    "verification_budget": "Reserve separate frontier/xhigh reviewer and up to one hour for schema/reconciliation/admission/completion/side-effect/route regressions and exact-head review; preserve corrective-pass capacity",
+    "requested_versus_confirmed": "Requested Astra/xhigh; no implementation worker started or runtime attested",
+    "actual_outcome": "Registration proposed; implementation and acceptance pending; usage/cost unknown"
+  },
+  "preflight": {
+    "base_sha": "ce5d3413d14151d42af0476a5ddba7cadb9623e9",
+    "observed_utc": "2026-10-09T14:03:00Z",
+    "sources": "Canonical coordinator/rules/briefs, board, worker registry, coordinator log and current state/queue read. All 100 open PR changed-file lists and all 332 branch names inspected; no separate evidence-policy module/task reservation found.",
+    "overlap": "PR396 open head b0b3c8a465c0cfd6b1b03fc87092094dbf29a457 owns coordinator implementation; PR143 open head bfe26735ca13ae4c75b1d474ccb092c5943d7d30 owns visual onboarding. Registration does not modify those files.",
+    "publication": "Complete main tree has no .github workflow files; repository has_pages=false. Source branch and draft PR only. Workflow collection endpoint unavailable through connector; no claim of inspecting external hooks.",
+    "limits": "Historical registry and board do not prove hidden-session liveness. Recheck current main, open PRs, reservations, owner handoffs and actual selected executor before admission. No game-task takeover."
+  },
+  "evidence": [],
+  "work_log": [
+    {
+      "date": "2026-10-09",
+      "entry": "Registered bounded operational task and additive board row only; no implementation, tests, live ledger registration, dispatch, Actions, merge or deploy."
+    }
+  ],
+  "verdict": null
+}

@@ -344,3 +344,15 @@ Documentation-only registration proposal. Existing rows, statuses and owners are
 - Preserve Craig's td-185 economy/assembly; dot td-200/201 progression; Muse td-189/193/194 traffic; dot td-223 repair; td-229/230 traffic milestone; td-208/211/212 HUD/quality; td-232 payout; td-235/236/237 navigation; td-233/234 loading/packaging. Bugs, guidance, progression, city liveliness and potential day/night/weather remain separate lanes, not terminal scope expansion
 - Reservation preflight: source main `b871e7879ce44ff16433456df72b673ae116df2c`, central main `b450c6270b66d41c0c9cadcf142841f6bc01f042`, all 169 source / 100 central open PR changed-file lists, 519 source / 307 central branch names, canonical task tree, board/registry/rules and indexed code/issues checked; no existing td-238/cheat-terminal reservation found. Indexes can lag; this is not comprehensive external-session visibility or owner-ledger registration
 - Seven source workflows inspected: workflow_dispatch-only; central main has no workflow files. No implementation, dispatch, Actions, merge, deployment or external-agent contact. Shuto frozen; NEON paused. Draft registration is not main-branch acceptance or permission to start work
+
+
+## 2026-10-09 evidence-feedback enforcement registration
+
+| Task | Defect (Craig's wording) | Status | Owner | PR | Last update |
+|---|---|---|---|---|---|
+| ops-evidence-feedback-enforcement-20261009 | Enforce, deterministic framework, persisted on GH | open — queued registration; independent registration acceptance and fresh owner/tool preflight before dispatch; implementation not started | dot — evidence-framework coordination; sole implementation author pending | [canonical proposal](../tasks/ops-evidence-feedback-enforcement-20261009.json) | 2026-10-09 |
+
+- Operational framework in this central repository, not a new game repair lane. Coordinator reconciles read-only inspector findings into an existing rule, bounded task limitation, or justified reusable guideline plus regression; repeats alone do not create guidelines
+- After registration acceptance, disjoint evidence-policy module/tests may proceed under one author. PR396 retains watch.py/coordinator integration, shared tests and documentation until exact-region handoff; PR143 retains its visual-onboarding hunks. Integration is serialized, not a blanket block on disjoint work
+- Admission binds applicable current rules and criterion evidence plans; completion rejects invalid or unmapped evidence and missing independent source-head verdicts. Evidence-only commits must prove relevant source unchanged. Explicit human visual judgments remain required
+- This draft adds only the task and this row. No implementation, acceptance, live worker/queue/ledger registration, Actions, merge, deployment or external contact. Existing owners, upload denials, stopped lanes, frozen Shuto and paused NEON remain unchanged
