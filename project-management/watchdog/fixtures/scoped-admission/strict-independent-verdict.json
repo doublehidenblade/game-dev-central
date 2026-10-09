@@ -1,26 +1,26 @@
 {
   "task_id": "ops-scoped-coordinator-admission-20261009",
-  "candidate_head": "8667a3cd2fa74db9e054032c3fcf6416d26c3214",
+  "candidate_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
   "actor_id": "dot-native-scoped-admission-reviewer",
-  "authority_digest": "d4bf66df6cfcd2ee3c6bd59c2a98679f75ba4f44a26c851e9de32aba9284a7a2",
-  "evidence_digest": "e6922875e0af9aeb433e48d34676c852c3218aff768e3f7b10d3a50636aeb248",
-  "performed_at": "2026-10-09T20:16:53.232245+00:00",
+  "authority_digest": "fc1a1bec0d651dfb9fa95cdafc28a0cb278c8b249e9d1ac25c9034fb8c058df3",
+  "evidence_digest": "41801fcd08825e095cdddbc42c354d6c2b93a2f56363e7095860cdad67b10d14",
+  "performed_at": "2026-10-09T20:31:24.605346+00:00",
   "criteria": {
     "C1": {
       "decision": "PASS",
-      "rationale": "The real immutable PR430 documentary packet independently replays ACCEPTABLE and the scoped algorithm returns exactly one action while global coverage remains unknown. The same explicit scope is rejected by the pinned original evaluator. No historical repository-wide task normalization or invented gameplay check is needed for this bounded supported case.",
+      "rationale": "The real immutable PR430 documentary packet independently replays ACCEPTABLE and the corrected scoped algorithm returns one action with global coverage unknown. Canonical rule authority pins are no longer conflated with write/dependency/owner regions. Full-route positive controls permit a known unmerged rule-only proposal while all actual source, owner and stop obligations remain.",
       "citations": [
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
-          "blob": "fdc18b0b4111ec68553635bba4658733844c0bf5"
+          "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
-          "blob": "b60222a7844eb7c4f9b836b33f3f2e93b8477cda"
+          "blob": "0aee8d81d44d55a18a554a07a67002cbe66d0f39"
         }
       ],
       "evidence_ids": [
@@ -30,19 +30,19 @@
     },
     "C2": {
       "decision": "PASS",
-      "rationale": "Exact task, operation, executor, owner, candidate/base/rule/source and receipt bindings are verified. All82 independently authored positive/negative probes pass, including replay targets, expiry, malformed or changed records, missing evidence and publication controls. Unsupported canonical prerequisite graphs fail closed rather than claiming unimplemented transitive proof.",
+      "rationale": "Exact task, operation, executor, owner, candidate/base/rule/source and receipt bindings remain verified. All82 broad independent probes and13 targeted correction controls pass. Every canonical rule still requires current immutable membership and applicability; every actual candidate write and explicitly declared/canonical source dependency region remains protected. Unsupported prerequisite graphs fail closed.",
       "citations": [
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
-          "blob": "fdc18b0b4111ec68553635bba4658733844c0bf5"
+          "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/broken-original-regression.json",
-          "blob": "8f13a1ef2d8b2f2baec6975156e287d31c1a1158"
+          "blob": "9f43987df472ede3c4e34ae2f6d5351f8cd180a7"
         }
       ],
       "evidence_ids": [
@@ -52,13 +52,13 @@
     },
     "C3": {
       "decision": "PASS",
-      "rationale": "Inspected complete immutable Git tree diffs and parent-edge proofs. Exclusions require contained or region-equivalent source, never an unchecked unrelated flag. Tests preserve candidate/source dependency overlap, board row identity/non-row context/order, moves into empty semantic sections, regular-file mode and current-base drift.",
+      "rationale": "Verified immutable ancestry/tree-delta and region proofs, table context/order/mode, empty-section row movement and base drift. Independently rehashed all37 actual public Git control objects: centralPR143 changes only four rule documents; centralPR377 changes board non-row context; TokyoPR533 changes td-218 source bytes. The latter two remain blocked. These actual controls exercise source predicates, not complete live inventories or ancestry. Separate full-route synthetic controls preserve genuine competing rule writers and explicit rule dependencies.",
       "citations": [
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
-          "blob": "fdc18b0b4111ec68553635bba4658733844c0bf5"
+          "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
         }
       ],
       "evidence_ids": [
@@ -71,51 +71,51 @@
       "citations": [
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
-          "blob": "fdc18b0b4111ec68553635bba4658733844c0bf5"
+          "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
-          "blob": "5ebeb387a9b9cbafaed47794d6368dd58da227f6"
+          "blob": "e32f289ec96063c8dcdcc3bebe2e1d78f409d30d"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/legacy-regression.json",
-          "blob": "b9c91123bec1e76bad4c13bc5c21e957923344a7"
+          "blob": "e4678606e2737e24c189be35054aac33a108c21d"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-review.json",
-          "blob": "bd7ab92c71e23dc62eb49013328db4fb0843cef2"
+          "blob": "b0e2210af4f6c7befdfaacf243d8b90e8bd6abe0"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-acceptance_isolation.json",
-          "blob": "02691658043d5b66d42a799c94c44f15457e4b1f"
+          "blob": "7269b8ad802e152def8c9d83599d510cf2152dc0"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-final_guards.json",
-          "blob": "2608e7eb627b81fd9455487cf4d607eb5b1f5d20"
+          "blob": "369f7de378dfd37645972ce0e65241d6f4fae0de"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-operation_needs.json",
-          "blob": "3b018c535eeaa469c941b95070a56d3d35f27e25"
+          "blob": "5d947aafe552ba3bd17191880e0d54face52dcaf"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-hold_invariance.json",
-          "blob": "edc7cbd0c3fbccc1056e8fc36b491b7730231fdb"
+          "blob": "f7ad16297cafa240b6ee2da6f0d2355921d4ec18"
         }
       ],
       "evidence_ids": [
@@ -135,15 +135,15 @@
       "citations": [
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/evidence-policy-unit.json",
-          "blob": "55d758c2e0729df3cab771abc6c4b17636a29a1c"
+          "blob": "ac038ea2c25f6fb0bd2840314687b42c816d213e"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json",
-          "blob": "b60222a7844eb7c4f9b836b33f3f2e93b8477cda"
+          "blob": "0aee8d81d44d55a18a554a07a67002cbe66d0f39"
         }
       ],
       "evidence_ids": [
@@ -157,15 +157,15 @@
       "citations": [
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json",
-          "blob": "fdc18b0b4111ec68553635bba4658733844c0bf5"
+          "blob": "5c15fd1f124dcc920e3583e24856f88d8bb54f08"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "adbd8060f84c5284b3de3f30ee930e8af4737363",
+          "commit": "24edcd9e6801cf12f28e0aac3263b01e3b759452",
           "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json",
-          "blob": "5ebeb387a9b9cbafaed47794d6368dd58da227f6"
+          "blob": "e32f289ec96063c8dcdcc3bebe2e1d78f409d30d"
         }
       ],
       "evidence_ids": [
@@ -175,13 +175,13 @@
     },
     "C7": {
       "decision": "PASS",
-      "rationale": "A reviewer distinct from the implementation author independently fetched39 exact-head files, verified their Git blob hashes against the complete source tree, inspected original source/evidence, designed adversarial counterexamples, reran all relevant checks and recorded a decision for every unchanged registered criterion. No reviewer implementation edits, repository writes, merge, Actions or deployment were performed.",
+      "rationale": "A distinct independent reviewer freshly fetched41 corrected exact-head files, verified Git blob hashes against the complete tree, inspected the bounded correction and original evidence, reran all relevant suites, verified all37 public real-control objects, and issued new C1\u2013C7 decisions. The previous source PASS was not reused. No reviewer repository writes, merge, Actions or deployment occurred.",
       "citations": [
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "baa4cbdc41e92dc760b7a2b17cd44466e83656c9",
+          "commit": "31144fc5f2df1eaff7922cf25f307f2fb29b797d",
           "path": "project-management/watchdog/fixtures/scoped-admission/independent-verification.json",
-          "blob": "c54fa3bb83325d301c0184729c2f5fd4a9bb7575"
+          "blob": "b12fd9edad3bdd10469bac1c4f412bfb5bb499ef"
         }
       ],
       "evidence_ids": [
