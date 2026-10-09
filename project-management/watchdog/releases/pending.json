@@ -111,6 +111,14 @@
    "merged_sha": "b7bc375a",
    "merged_at": "2026-10-09T15:53:54.458607+00:00",
    "summary": "Tokyo Bay: front/rear wheels identical (coupe rear overlay repositioned)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-248",
+   "pr": 620,
+   "merged_sha": "cb3cf607f4c153d0898f74f6ef0922c8406270b1",
+   "merged_at": "2026-10-09T19:20:57.587815+00:00",
+   "summary": "td-248 street-level traffic lights (signals, ped crossings, car stop/go)"
   }
  ]
 }
