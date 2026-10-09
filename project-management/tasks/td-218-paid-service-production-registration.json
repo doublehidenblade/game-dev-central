@@ -1,0 +1,183 @@
+{
+  "id": "td-218-production-registration-central",
+  "parent_task": "td-218",
+  "title": "td-218 production service owner registration: central board",
+  "status": "in_review",
+  "owner": "dot-td218-registration-author",
+  "ask": {
+    "by": "dot coordinator",
+    "date": "2026-10-09",
+    "scope": "Prepare and publish minimal source/board draft registration for the existing real paid-repair implementation slice; no runtime before actual admission."
+  },
+  "bug_shape": "Existing repair task has no bounded production implementation registration.",
+  "reference_images": [],
+  "runtime_allowlist": [],
+  "completion_criteria": [
+    {
+      "id": "R1",
+      "criterion": "The proposed production stage has one future dot author and an exact v49/disjoint service boundary; no implementation, owner transfer or other task status changes.",
+      "verification": "Inspect all changed files, source pins and central row diff; all non-td218 board bytes unchanged. No production source changes."
+    },
+    {
+      "id": "R2",
+      "criterion": "Paid repair/tow/game-over behavior and missing natural-damage integration are explicit and correct; frozen td216 is interpreted at its actual substage boundary.",
+      "verification": "Read exact FuelService, FuelHud, FuelStation, corrected td218 requirement and td216 freeze; check one real provider/transaction, no free/debt recovery, and no synthetic damage PASS or missing shared-file permission."
+    },
+    {
+      "id": "R3",
+      "criterion": "Registration supplies complete current 14-rule inventory, owner/stops/setup/budgets, actual future criterion plans and honest pending admission without a new framework.",
+      "verification": "Validate JSON and evidence-policy/plan shape; compare canonical rule inventory and complete P1-P5 plans, source scope, checks, visual pairs and independent reviewer; budgets begin at actual implementation start."
+    }
+  ],
+  "evidence_rule_inventory": [
+    {
+      "id": "central:COORDINATOR.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "COORDINATOR.md"
+    },
+    {
+      "id": "central:knowledge/standing-rules.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/standing-rules.md"
+    },
+    {
+      "id": "central:knowledge/workflow/game-dev-workflow.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/workflow/game-dev-workflow.md"
+    },
+    {
+      "id": "central:knowledge/brief-snippet.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/brief-snippet.md"
+    },
+    {
+      "id": "central:project-management/rules/SYSTEM.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/SYSTEM.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_BRIEF.md"
+    },
+    {
+      "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/VALIDATOR_BRIEF.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_SELECTION_POLICY.md"
+    },
+    {
+      "id": "central:project-management/rules/DURABILITY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/DURABILITY.md"
+    },
+    {
+      "id": "central:project-management/watchdog/RUNBOOK.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/RUNBOOK.md"
+    },
+    {
+      "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/EVIDENCE_POLICY.md"
+    },
+    {
+      "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md"
+    },
+    {
+      "id": "tokyo:AGENTS.md",
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "path": "AGENTS.md"
+    },
+    {
+      "id": "tokyo:README.md",
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "path": "README.md"
+    }
+  ],
+  "evidence_policy": {
+    "R1": {
+      "applicability": "required",
+      "rationale": "Documentation registration only; no gameplay or visual result claimed.",
+      "rule_id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "instances": [
+        "td-218-production-registration-central-R1"
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/tasks/td-218-paid-service-production-registration.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    },
+    "R2": {
+      "applicability": "required",
+      "rationale": "Documentation registration only; no gameplay or visual result claimed.",
+      "rule_id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "instances": [
+        "td-218-production-registration-central-R2"
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/tasks/td-218-paid-service-production-registration.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    },
+    "R3": {
+      "applicability": "required",
+      "rationale": "Documentation registration only; no gameplay or visual result claimed.",
+      "rule_id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "instances": [
+        "td-218-production-registration-central-R3"
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/tasks/td-218-paid-service-production-registration.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    }
+  },
+  "evidence": [],
+  "work_log": [
+    {
+      "at": "2026-10-09T22:09:00Z",
+      "by": "dot-td218-registration-author",
+      "entry": "Registration documentation only; independent review pending. No worker start, runtime edits, builds or gameplay acceptance."
+    }
+  ],
+  "verdict": null,
+  "recommended_setup": {
+    "capability_tier": "frontier for coupled service economy, condition and transport",
+    "provider_preference": "native dot, existing td-206 service lane; Muse retains damage/vehicle",
+    "requested_model_and_effort": "gpt-6-astra/xhigh at actual admission; future worker not selected or started by this record",
+    "environment_and_required_tools": "GitHub authenticated connector, local text/JSON inspection; no Godot/build needed for documentation",
+    "availability_checked": "2026-10-09: GitHub source reads verified; actual implementation tool readiness not rechecked by documentation work",
+    "fallback": "wait_for_required_tier",
+    "attempt_budget": "One bounded registration pass plus one evidence-based correction; future implementation budget is not started",
+    "escalation_criteria": "Missing owner contract, shared-file change, failing correction, unsupported runtime, or exhausted ceiling",
+    "verification_budget": "Separate independent frontier reviewer, up to 1 hour; author cannot self-accept; browser/phone remain explicit gates",
+    "requested_versus_confirmed_setup": "Future recommendation only; no runtime identity or readiness attested",
+    "actual_outcome": "Documentation in_review, future production stage blocked until parent admission"
+  },
+  "documentation_allowlist": [
+    "project-management/boards/tokyo-drift-3d.md",
+    "project-management/tasks/td-218-paid-service-production-registration.json",
+    "project-management/tasks/td-218-paid-service-production-registration/submission.json",
+    "project-management/tasks/td-218-paid-service-production-registration/review.json"
+  ],
+  "constraints": [
+    "Only proposed td218 production stage and its existing board row; preserve all other rows, owners and stops.",
+    "No game source, runtime author, Actions, merge, deployment, external-agent contact or queue/ledger writes."
+  ]
+}

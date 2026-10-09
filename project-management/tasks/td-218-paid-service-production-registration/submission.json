@@ -1,0 +1,205 @@
+{
+  "acknowledgment": {
+    "task_id": "td-218-production-registration-central",
+    "author_id": "dot-td218-registration-author",
+    "rules": [
+      {
+        "id": "central:COORDINATOR.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "COORDINATOR.md",
+          "blob": "58786d160ad1bc509a7ee74df030988056389308"
+        }
+      },
+      {
+        "id": "central:knowledge/standing-rules.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "knowledge/standing-rules.md",
+          "blob": "01b19a267622992cbe7713f856e2c2bcf87b1e50"
+        }
+      },
+      {
+        "id": "central:knowledge/workflow/game-dev-workflow.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "knowledge/workflow/game-dev-workflow.md",
+          "blob": "9d3b278c9b71e213d59874c5a56498630d14fc74"
+        }
+      },
+      {
+        "id": "central:knowledge/brief-snippet.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "knowledge/brief-snippet.md",
+          "blob": "54efe155ef96ac54e1d68008bd578d1a966e943e"
+        }
+      },
+      {
+        "id": "central:project-management/rules/SYSTEM.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "project-management/rules/SYSTEM.md",
+          "blob": "08226c75366dfa25133fcd058477b4b854febaf2"
+        }
+      },
+      {
+        "id": "central:project-management/rules/WORKER_BRIEF.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "project-management/rules/WORKER_BRIEF.md",
+          "blob": "95dc23587561489931e897f9a58c7be0c2202e7d"
+        }
+      },
+      {
+        "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "project-management/rules/VALIDATOR_BRIEF.md",
+          "blob": "405469fad99355eb23b01551c92c0c74693e75fe"
+        }
+      },
+      {
+        "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "project-management/rules/WORKER_SELECTION_POLICY.md",
+          "blob": "343d3e3f8db6976789d4a631ca38619b6c27dc0e"
+        }
+      },
+      {
+        "id": "central:project-management/rules/DURABILITY.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "project-management/rules/DURABILITY.md",
+          "blob": "11d159e403d88c292a8051e3d7589b1ab9af72df"
+        }
+      },
+      {
+        "id": "central:project-management/watchdog/RUNBOOK.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "project-management/watchdog/RUNBOOK.md",
+          "blob": "dcad0cad13d2d00fd589fe945fa64ba30d882601"
+        }
+      },
+      {
+        "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "project-management/watchdog/EVIDENCE_POLICY.md",
+          "blob": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe"
+        }
+      },
+      {
+        "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
+        "ref": {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4ab7f777f4f8fe8e70f1ac99adc82e610bf779f1",
+          "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md",
+          "blob": "bc5f07fbd9d2a331b01d7ee4a8c142d399fcd4e1"
+        }
+      },
+      {
+        "id": "tokyo:AGENTS.md",
+        "ref": {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "50616cb024f64af4b20be8e0e0ef7738b5c918e3",
+          "path": "AGENTS.md",
+          "blob": "0c13fa62327dd6532621a318e7a4920682b2809a"
+        }
+      },
+      {
+        "id": "tokyo:README.md",
+        "ref": {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "50616cb024f64af4b20be8e0e0ef7738b5c918e3",
+          "path": "README.md",
+          "blob": "f8ef49023683a156334878e3ccc7218ca7965285"
+        }
+      }
+    ]
+  },
+  "plans": {
+    "R1": {
+      "method": "Inspect all changed files, source pins and central row diff; all non-td218 board bytes unchanged. No production source changes.",
+      "artifacts": [
+        {
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "type": "document"
+        },
+        {
+          "path": "project-management/tasks/td-218-paid-service-production-registration.json",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/tasks/td-218-paid-service-production-registration.json"
+      ],
+      "build": null,
+      "coverage": [
+        "td-218-production-registration-central-R1"
+      ],
+      "reviewer_id": "dot-td218-registration-reviewer"
+    },
+    "R2": {
+      "method": "Read exact FuelService, FuelHud, FuelStation, corrected td218 requirement and td216 freeze; check one real provider/transaction, no free/debt recovery, and no synthetic damage PASS or missing shared-file permission.",
+      "artifacts": [
+        {
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "type": "document"
+        },
+        {
+          "path": "project-management/tasks/td-218-paid-service-production-registration.json",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/tasks/td-218-paid-service-production-registration.json"
+      ],
+      "build": null,
+      "coverage": [
+        "td-218-production-registration-central-R2"
+      ],
+      "reviewer_id": "dot-td218-registration-reviewer"
+    },
+    "R3": {
+      "method": "Validate JSON and evidence-policy/plan shape; compare canonical rule inventory and complete P1-P5 plans, source scope, checks, visual pairs and independent reviewer; budgets begin at actual implementation start.",
+      "artifacts": [
+        {
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "type": "document"
+        },
+        {
+          "path": "project-management/tasks/td-218-paid-service-production-registration.json",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/tasks/td-218-paid-service-production-registration.json"
+      ],
+      "build": null,
+      "coverage": [
+        "td-218-production-registration-central-R3"
+      ],
+      "reviewer_id": "dot-td218-registration-reviewer"
+    }
+  },
+  "evidence": [],
+  "verdict": null,
+  "human_verdict": null
+}
