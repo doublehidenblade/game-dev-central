@@ -389,15 +389,30 @@ nothing was lost.
 
 Rules going forward:
 
-- A dispatch is not real until it is recorded: `watch.py register-worker`
-  must complete AND `state-push` must succeed. If the run times out before
-  the push, the next run must assume unknown dispatch state and check for
-  live branches (`branches?per_page=100` filtered by task prefix, plus
-  `pulls?head=`) BEFORE dispatching a replacement — never dispatch on
-  "no branch seen" alone when the previous run may have dispatched silently.
-- Liveness heartbeats are the second line of defense: a worker that never
-  heartbeats within 30 minutes of dispatch is presumed lost, but a worker
-  that IS heartbeating must never be duplicated — check
-  `state/worker-heartbeats/` before any re-dispatch.
+Rules going forward (reconciled 2026-10-09, dot game-dev-central#358):
+
+- A dispatch is not real until it is recorded as a *receipted* admission: the
+  authorized route is `watch.py coordinator-plan --snapshot <fresh.json>`
+  (see "Supported coordinator route" above), one selected action re-validated
+  with `watch.py dispatch-guard --snapshot <fresh.json> --decision <action>`,
+  and the decision + dispatch-guard receipt (task, operation, executor, owner,
+  full head SHA, UTC timestamps) appended to the coordinator log. The legacy
+  `register-worker` and `state-push` admission routes are RETIRED (see
+  "Retired routes" above) — do not require them, do not execute them, and do
+  not write RUNBOOK instructions that presume them. A dispatch recorded only
+  in a scheduler's local memory (or lost to a timeout) has no standing.
+- If a run times out before its dispatch receipt exists, the next run assumes
+  *unknown* dispatch state and checks actual live state BEFORE any
+  re-dispatch: live branches (exhaustive pagination, filtered by task prefix),
+  `pulls?head=<branch>`, recent task-file commits, and open PRs. Never
+  dispatch a replacement on "no branch seen" or "no record" alone when the
+  previous run may have dispatched silently. A dispatch receipt with a live
+  branch or open PR is proof of life; its absence is unknown, not idle.
+- Heartbeats are a second positive signal, never a death sentence: Craig's
+  liveness rule — absence of heartbeat is insufficient to duplicate; a worker
+  that IS heartbeating must never be duplicated. Only actual
+  session/branch/receipt checks decide lost vs. unknown; never duplicate on
+  heartbeat absence alone. (The 2026-10-09 wording "presumed lost after 30
+  minutes without heartbeat" is struck.)
 - When a duplicate mergeoverwrites a sibling's evidence, restore (never
   delete): keep both evidence sets, verify both, cite both.
