@@ -2079,6 +2079,15 @@
    "dispatched_at": "2026-10-09T16:25:30.906626+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
+  },
+  "td-217": {
+   "kind": "muse-subagent",
+   "session": "b4c71eb0-50e9-4723-bb42-bca7eb10a7c3",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-217.md",
+   "dispatched_at": "2026-10-09T22:18:39.271176+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -2307,7 +2316,7 @@
   "td-240": "merged",
   "td-241": "merged",
   "td-243": "in_progress",
-  "td-245": "validated",
+  "td-245": "validation-failed",
   "td-246": "validated",
   "td-247": "validated",
   "td-248": "validated",
@@ -2316,7 +2325,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T21:55:26.515933+00:00",
+  "ts": "2026-10-09T22:14:44.275255+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32; open PR #596 Inspector report: 2026-10-09 09:34 EDT)",
@@ -2330,12 +2339,12 @@
     "ALIVE td-243 (no heartbeat file; open PR #632 [Report-only] Inspector report 2026-10-09 17:34 EDT \u2014 do not; open PR #628 Inspector report: 2026-10-09 16:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
     "ALIVE td-248 (no heartbeat file; open PR #629 td-248: retract unsupported verdict criteria (docs-only); open PR #628 Inspector report: 2026-10-09 16:34 EDT (report-only, do n)",
-    "ALIVE td-245 (heartbeat stale (257min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:3)",
-    "ALIVE td-246 (heartbeat stale (287min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (327min); task-file commit 4d2c79d 2026-10-09T17:33)"
+    "ALIVE td-245 (heartbeat stale (279min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:3)",
+    "ALIVE td-246 (heartbeat stale (309min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (349min); task-file commit 4d2c79d 2026-10-09T17:33)"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-245: validated -> validation-failed [silent]"
    ],
    "classification-health": [
     "STALE-RUNS=158"
@@ -2355,10 +2364,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-09T21:51:57.919773+00:00",
+   "liveness": "2026-10-09T22:14:27.394563+00:00",
    "classification-health": "2026-10-09T21:19:26.425628+00:00",
-   "transitions": "2026-10-09T21:55:26.515933+00:00",
-   "conflicts": "2026-10-09T21:55:23.110683+00:00",
+   "transitions": "2026-10-09T22:14:44.275255+00:00",
+   "conflicts": "2026-10-09T22:14:37.844702+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
