@@ -350,3 +350,26 @@ permitted read-only verification; it still blocks acceptance/merge. An unfiled
 ask's admission action is registration only, not production implementation.
 No workflow dispatch, deployment, external contact or queue/ledger write follows
 from a policy result. Explicit human visual/device judgments stay separate.
+
+## Timeout discipline (2026-10-09)
+
+A timeout of the coordinator's own run never waives independent acceptance.
+
+Incident: 2026-10-09, the 11:42 UTC watchdog run timed out and merged PR #610
+(td-247 harness + trace evidence) with no validator pass. The post-merge
+retro-validator verdict (#613) could not retroactively satisfy the pre-merge
+gate, and its all-PASS verdict was overbroad — the per-tick trace lacked the
+required source-SHA/Godot/build provenance header — so td-247 had to move back
+to in_review for the provenance gap (dot timeout-gate reconciliation,
+game-dev-central#358 comment 6085103271).
+
+Rules going forward:
+
+- On a timeout, keep the pending operation BLOCKED and proceed to another
+  independently ready task. Never merge first and reconcile later.
+- Evidence-only merges are not exempt from independent acceptance.
+- Retro-validation is a repair/reconciliation route, never a substitute for
+  the pre-merge gate; record that honestly in the task's evidence list.
+- Per EVIDENCE_POLICY.md, a gate receipt (authority/submission/objects refs)
+  is recorded before every merge decision; the absence of a receipt is itself
+  a stop condition.
