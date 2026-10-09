@@ -1549,7 +1549,7 @@
    ],
    "last_task": null,
    "login_fail_notified_ts": "2026-10-09T07:21:57.556548+00:00",
-   "inspected_ts": "2026-10-04T14:12:56.398511+00:00",
+   "inspected_ts": "2026-10-09T07:24:54.945453+00:00",
    "finished_no_pr": true
   },
   "orphan-pr-292": {
