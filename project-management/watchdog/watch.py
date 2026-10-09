@@ -2140,7 +2140,15 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
             flips.append(m.groups())
     for task, old, new, action in flips:
         if action in ("notify-craig", "notify-or-iterate"):
-            alerts.append(f"! {task}: {old} → {new} — notify Craig")
+            r = defects.get(task.lower(), {})
+            low = ((r.get("status") or "") + " " + (r.get("defect") or "")).lower()
+            if action == "notify-craig" and new == "blocked" and \
+               "craig" not in low and "dot" in (r.get("owner") or "").lower():
+                # Dot-owned blocked flip: no action for Craig — dot's
+                # coordinator owns the unblock (CRAIG NEVER REVIEWS PRS).
+                alerts.append(f"! {task}: {old} → {new} — blocked in dot's lane, re-check next run")
+            else:
+                alerts.append(f"! {task}: {old} → {new} — notify Craig")
     # Queued actions this run.
     for e in actions:
         tgt = e.get("session") or e.get("task") or "?"
@@ -2174,6 +2182,10 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
             if any(k in low for k in _HB_HUMAN_KW):
                 oc = "🔴 BLOCKED — needs you"
             elif any(k in low for k in _HB_EXTERNAL_KW):
+                oc = "🔴 BLOCKED — external"
+            elif "dot" in (r.get("owner") or "").lower():
+                # Dot-owned lane: the unblock belongs to dot's coordinator,
+                # outside this system's reach — external with a re-check plan.
                 oc = "🔴 BLOCKED — external"
             else:
                 oc = "🔴 BLOCKED — unclear"
@@ -2239,6 +2251,8 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
                         oc = "🔴 BLOCKED — needs you"
                     elif any(k in low for k in _HB_EXTERNAL_KW):
                         oc = "🔴 BLOCKED — external"
+                    elif "dot" in (r.get("owner") or "").lower():
+                        oc = "🔴 BLOCKED — external"
                     else:
                         oc = "🔴 BLOCKED — unclear"
                 else:
@@ -2275,6 +2289,26 @@ def build_heartbeat(state, checks, actions, board_rows, pending, budget):
             if action != "NOTHING":
                 extra = f" → {action}"
         lines.append(f"{emoji} {name} — {cls} ({age}) — {task}{extra}")
+
+    # ---- WORKERS: Muse subagents (WORKERS COMPLETENESS RULE, Craig 2026-10-03)
+    # Registered workers from state['workers'] + this run's liveness verdicts.
+    _sub_emoji = {"ALIVE": "🟢", "QUIET": "🟡", "GRACE": "🟡",
+                  "STALE": "🟠", "DROPPED": "🔴", "DEAD": "🔴"}
+    _liv = [ln for ln in (checks.get("liveness") or []) if ln.strip()]
+    for _wtask, _w in sorted(state.get("workers", {}).items()):
+        _verdict_ln = next((ln for ln in _liv
+                            if ln.split(" ", 1)[0] in _sub_emoji
+                            and (" " + _wtask + " ") in (" " + ln + " ")), None)
+        _desc = next((r.get("defect", "") for r in board_rows
+                      if r.get("task", "").lower() == _wtask.lower()), "")
+        _desc = f" ({_desc[:80]})" if _desc else ""
+        if _verdict_ln:
+            _verdict = _verdict_ln.split(" ", 1)[0]
+            _detail = _verdict_ln.split(" ", 1)[1] if " " in _verdict_ln else ""
+            _detail = _detail.replace(_wtask, "", 1).strip(" ()")
+            lines.append(f"{_sub_emoji[_verdict]} subagent {_wtask}{_desc} — {_verdict.lower()}{', ' + _detail if _detail else ''}")
+        else:
+            lines.append(f"⚪ subagent {_wtask}{_desc} — registered, no liveness verdict this run")
 
     # ---- STATE ----
     lines.append("STATE")
