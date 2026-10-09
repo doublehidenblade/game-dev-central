@@ -47,6 +47,14 @@
    "merged_sha": "b6833045c63814190bce35d5341b87561ee6a63f",
    "merged_at": "2026-10-09T08:17:21.712347+00:00",
    "summary": "td-191 autoload ## comment fix (PR #410), merged by Craig 2026-10-09 07:23Z"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-196",
+   "pr": 592,
+   "merged_sha": "dbd5916c",
+   "merged_at": "2026-10-09T13:03:52.706305+00:00",
+   "summary": "arrest lands within seconds of the bump (speed-kill + dwell hysteresis)"
   }
  ]
 }
