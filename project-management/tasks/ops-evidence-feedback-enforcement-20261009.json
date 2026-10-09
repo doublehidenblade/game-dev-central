@@ -3,7 +3,7 @@
   "title": "Enforce evidence feedback, admission and completion",
   "status": "in_review",
   "owner": "dot native evidence-framework author (sole author; selected gpt-6-astra/xhigh)",
-  "phase": "Corrected implementation locally verified; frozen corrected-head review pending",
+  "phase": "Corrected source independently rechecked; frozen artifact-tip review pending; author has not accepted or merged",
   "ask": {
     "author": "Craig",
     "date": "2026-10-09",
@@ -135,7 +135,7 @@
     "escalation_criteria": "Missing required tier/tools, ownership overlap, incompatible PR396 interface, untestable criterion, unsafe side effects or budget exhaustion: report to dot coordinator and narrow scope or wait",
     "verification_budget": "Reserve separate frontier/xhigh reviewer and up to one hour for schema/reconciliation/admission/completion/side-effect/route regressions and exact-head review; preserve corrective-pass capacity",
     "requested_versus_confirmed": "Requested gpt-6-astra/xhigh; accepted parent spawn explicitly selected gpt-6-astra/xhigh. Selection verified by parent tool response; underlying runtime identity independently unconfirmed. No downgrade.",
-    "actual_outcome": "Implementation and local verification completed; independent exact-head C1-C7 acceptance pending; runtime identity and billed usage/cost remain unconfirmed"
+    "actual_outcome": "Corrected source b5e8dc601db5b40dd713981db7577022047699c0 independently rechecked with69 negative/reconciliation cases and12 correction controls; final evidence-only tip acceptance pending. Usage/cost unknown; underlying runtime identity independently unconfirmed."
   },
   "preflight": {
     "base_sha": "ce5d3413d14151d42af0476a5ddba7cadb9623e9",
@@ -153,7 +153,8 @@
     "project-management/watchdog/fixtures/evidence-policy/real-invocation.json",
     "project-management/watchdog/fixtures/evidence-policy/real-authority.json",
     "project-management/watchdog/fixtures/evidence-policy/real-submission.json",
-    "project-management/watchdog/fixtures/evidence-policy/real-objects.json"
+    "project-management/watchdog/fixtures/evidence-policy/real-objects.json",
+    "project-management/watchdog/fixtures/evidence-policy/real-invocation-initial.json"
   ],
   "work_log": [
     {
@@ -183,6 +184,10 @@
     {
       "date": "2026-10-09",
       "entry": "2026-10-09T15:08Z: Single correction verified:53 policy/integration methods pass, including current failed execution with/without finding and fresh review, explicit finding inspection, impossible-plan negatives and mixed visual/numeric positive. All92 legacy assertions,37 coordinator unit methods and32+14+15+2+128 retained probes pass; compile checks pass. PR396 RUNBOOK status reconciled to accepted review5471277399 and merge39aa747c at14:17:33Z; requested/native runtime distinction and live-collector limits retained. Corrected source remains subject to independent exact-head acceptance."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T15:12:37Z: Refreshed actual read-only route capture at corrected implementationb5e8dc601db5b40dd713981db7577022047699c0 and current authoritative main5a4cd025b879447eca032d81cb4464241f09537f.22 necessary raw Git objects rehashed, including exact commit-to-tree and path-to-blob links. Pending independent findings are retained with original committed counterexamples; no author-generated coordinator reconciliation. All four actual brief/acceptance/validator/evidence routes deny UNRESOLVED_FINDING with exit3. Independent corrected-source review reports69 negative/reconciliation cases plus12 correction controls pass, including four real CLI failure exits and permitted read-only verification. Final evidence-only artifact tip still awaits exact-head reviewer acceptance. No further implementation edits."
     }
   ],
   "verdict": null,

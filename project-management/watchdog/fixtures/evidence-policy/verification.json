@@ -86,5 +86,18 @@
       "sha256": "f4a3d1a7b95b5f9c6d5ed760ba86de6697a1c57d35cd6de0659211d5beff16f3"
     }
   ],
-  "scope": "Local author tests; independent corrected-head review pending. Prior operation-layer fixtures mock only the policy boundary; production proof tests are unmocked. No Actions or live mutation."
+  "scope": "Local author tests; independent corrected-head review pending. Prior operation-layer fixtures mock only the policy boundary; production proof tests are unmocked. No Actions or live mutation.",
+  "implementation_head": "b5e8dc601db5b40dd713981db7577022047699c0",
+  "source_blobs": {
+    "project-management/watchdog/EVIDENCE_POLICY.md": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe",
+    "project-management/watchdog/coordinator.py": "1e87c500bd8c7890d59e2e83dc614c0d58bbb6b9",
+    "project-management/watchdog/coordinator_cli.py": "16be941f65f6e546d330435975fb2124ef339c88",
+    "project-management/watchdog/evidence_policy.py": "afbcd927a16340da5c235ea4368857ab8edc6522",
+    "project-management/watchdog/fixtures/evidence-policy/guideline.json": "09232870df3dc88852ed415df5502b59ff4a2681",
+    "project-management/watchdog/fixtures/evidence-policy/positive.json": "a6c63c8fe027472db45f7c7ddb8d14f1631eafc0",
+    "project-management/watchdog/fixtures/evidence-policy/visual.json": "dc841a43cdf9ae2d67a942ce0ebc2a4a10bdf9f4",
+    "project-management/watchdog/test_evidence_policy.py": "5e6748c781b2bcc46308023e810c5a0f700da51b",
+    "project-management/watchdog/test_rules.py": "6910362ae0536450dc3ecfa4c5a63ec5c5f40fd0",
+    "project-management/watchdog/watch.py": "bbe5e646202468472b5a9f081252e53d03e10225"
+  }
 }
