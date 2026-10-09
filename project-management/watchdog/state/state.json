@@ -1924,7 +1924,11 @@
   "2026-10-09T06:51Z deregistered td-192 (subagent): PR #505 merged 2026-10-09T06:23:35Z by cron; inspected 2026-10-09 (validator VALIDATED, board reconciled by Craig f35226b4, caption-correction docs PR #576 opened)",
   "2026-10-09T07:27Z deregistered td-195 (subagent): worker reported done",
   "2026-10-09T08:17Z deregistered td-191 (subagent): PR #410 merged by Craig 2026-10-09 07:23Z \u2014 autoload ## comment fix delivered",
-  "2026-10-09T12:15Z MODEL-AWARE DISPATCH: cloud sessions LOGIN_BLOCKED; dispatch-candidates all owned/flagship-gated. waiting-for-flagship (no Muse dispatch, recorded for heartbeat): td-101 (vegetation kit, L), td-119 (Showa crossing rework / Muse coordinator owns, L), td-163 (utility pole kit, M), td-173 (JNR station kit, M). Owned-by-agent, never dispatched: td-185/td-186 (Craig Opus), td-187 (Craig parked), td-216/td-218 (dot), td-188/189/190/196/215/217/225/226/227 (existing Muse owners). No dispatch fired."
+  "2026-10-09T12:15Z MODEL-AWARE DISPATCH: cloud sessions LOGIN_BLOCKED; dispatch-candidates all owned/flagship-gated. waiting-for-flagship (no Muse dispatch, recorded for heartbeat): td-101 (vegetation kit, L), td-119 (Showa crossing rework / Muse coordinator owns, L), td-163 (utility pole kit, M), td-173 (JNR station kit, M). Owned-by-agent, never dispatched: td-185/td-186 (Craig Opus), td-187 (Craig parked), td-216/td-218 (dot), td-188/189/190/196/215/217/225/226/227 (existing Muse owners). No dispatch fired.",
+  {
+   "ts": "2026-10-09T13:15Z",
+   "note": "watchdog 09:12 EDT run: STEP0a liveness td-188/189/190 GRACE (dispatched 25min), td-196 ALIVE (commit dbd5916); conflicts OK; transitions td-196 in_progress->merged recorded; classifications 147 runs/67.4h stale (degraded, login wall). STEP0b review-sweep: no VALIDATOR-DUE. STEP0c inbox: dot notice coordinator-enforcement scope (comment 6081397570), no ack required, silent. STEP1: codex+claude decide=REPORT_LOGIN (notifies suppressed, 6h). dispatch-candidates: nothing unowned to dispatch. Orphan sweep: no ORPHAN-READY. td-196 evidence audit re-check: all pairs exist on main (1-bump/2-banner/3-banner-hold/4-released + criterion pairs); audit MISSING was local-path false negative; no steer. STEP2 model-aware: no dispatch (all owned/SKIP/flagship-gated)."
+  }
  ],
  "workers": {
   "td-188": {
@@ -1934,7 +1938,7 @@
    "task_file": "godot/docs/tasks/td-188.md",
    "dispatched_at": "2026-10-09T12:49:07.116025+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-189": {
    "kind": "subagent",
@@ -1943,7 +1947,7 @@
    "task_file": "godot/docs/tasks/td-189.md",
    "dispatched_at": "2026-10-09T12:49:09.962441+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-190": {
    "kind": "subagent",
@@ -1952,7 +1956,7 @@
    "task_file": "godot/docs/tasks/td-190.md",
    "dispatched_at": "2026-10-09T12:49:10.147656+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   },
   "td-196": {
    "kind": "subagent",
@@ -1961,7 +1965,7 @@
    "task_file": "godot/docs/tasks/td-196.md",
    "dispatched_at": "2026-10-09T12:49:10.300971+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
@@ -1969,7 +1973,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 146
+  "stale_runs": 147
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2148,7 +2152,7 @@
   "td-193": "validated",
   "td-194": "merged",
   "td-195": "in_review",
-  "td-196": "in_progress",
+  "td-196": "merged",
   "td-203": "merged",
   "td-204": "validated",
   "td-205": "merged",
@@ -2188,14 +2192,19 @@
   "td-238": "blocked"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T12:48:51.164115+00:00",
+  "ts": "2026-10-09T13:17:50.306856+00:00",
   "checks": {
-   "liveness": [],
+   "liveness": [
+    "GRACE td-188 (dispatched 25min ago; no heartbeat file; session 067047e7-881a-4ca1-83ae-644da1ae9b71 classification stale/missing)",
+    "GRACE td-189 (dispatched 25min ago; no heartbeat file; session 4bc3c45f-a2fd-4b1e-acf6-a3cf7077b284 classification stale/missing)",
+    "GRACE td-190 (dispatched 25min ago; no heartbeat file; session 521a38ed-583a-4f10-85ca-14c85d8aa881 classification stale/missing)",
+    "ALIVE td-196 (no heartbeat file; task-file commit dbd5916 2026-10-09T13:02)"
+   ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=146"
+    "STALE-RUNS=147"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2212,10 +2221,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-09T12:48:51.164115+00:00",
-   "classification-health": "2026-10-09T12:44:14.107383+00:00",
-   "transitions": "2026-10-09T11:43:48.811438+00:00",
-   "conflicts": "2026-10-09T11:43:45.334877+00:00",
+   "liveness": "2026-10-09T13:14:19.478394+00:00",
+   "classification-health": "2026-10-09T13:14:30.999658+00:00",
+   "transitions": "2026-10-09T13:17:50.306856+00:00",
+   "conflicts": "2026-10-09T13:14:22.826371+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
