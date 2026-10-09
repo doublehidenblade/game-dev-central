@@ -1922,19 +1922,10 @@
   "2026-10-08T07:43Z LIVENESS: td-192 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-192-20261008-074323.md).",
   "2026-10-09T05:43Z LIVENESS: td-191 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-191-20261009-054333.md).",
   "2026-10-09T06:51Z deregistered td-192 (subagent): PR #505 merged 2026-10-09T06:23:35Z by cron; inspected 2026-10-09 (validator VALIDATED, board reconciled by Craig f35226b4, caption-correction docs PR #576 opened)",
-  "2026-10-09T07:27Z deregistered td-195 (subagent): worker reported done"
+  "2026-10-09T07:27Z deregistered td-195 (subagent): worker reported done",
+  "2026-10-09T08:17Z deregistered td-191 (subagent): PR #410 merged by Craig 2026-10-09 07:23Z \u2014 autoload ## comment fix delivered"
  ],
- "workers": {
-  "td-191": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-191.md",
-   "dispatched_at": "2026-10-09T05:47:21.274018+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  }
- },
+ "workers": {},
  "dispatch_denylist": {
   "td-138": "Opus-owned per Craig 2026-10-05 (player Tripo car); Muse fleet does continuation from Opus notes only",
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
@@ -2158,7 +2149,7 @@
   "td-237": "blocked"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T07:49:07.479532+00:00",
+  "ts": "2026-10-09T08:16:32.487027+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-191 (no heartbeat file; task-file commit c6e86ff 2026-10-09T07:48; open PR #581 Inspector report: 2026-10-09 03:34 EDT (report-only, do not )"
@@ -2184,7 +2175,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T05:44:01.982953+00:00",
-   "liveness": "2026-10-09T07:49:07.479532+00:00",
+   "liveness": "2026-10-09T08:16:32.487027+00:00",
    "classification-health": "2026-10-09T05:43:55.404813+00:00",
    "transitions": "2026-10-09T05:43:54.179078+00:00",
    "conflicts": "2026-10-09T05:43:51.122259+00:00",

@@ -39,6 +39,14 @@
    "merged_sha": "e3c03bf97e7311d3d05862733ce5950ea7f4985f",
    "merged_at": "2026-10-09T06:24:24.348010+00:00",
    "summary": "td-192 cop-car separation steering + box-in stand-off ring"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-191",
+   "pr": 410,
+   "merged_sha": "b6833045c63814190bce35d5341b87561ee6a63f",
+   "merged_at": "2026-10-09T08:17:21.712347+00:00",
+   "summary": "td-191 autoload ## comment fix (PR #410), merged by Craig 2026-10-09 07:23Z"
   }
  ]
 }
