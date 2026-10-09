@@ -334,11 +334,13 @@ def evaluate(snapshot, at):
             warnings.append(f"{tid}: contradictory current task/PR heads")
             continue
         pr = prs[0] if prs else None
-        if task["status"] == "merged" and "verification" in task["needs"]:
+        # Resolve known immutable source/acceptance independently of requested
+        # work. Removing a verification need must not erase an existing hold.
+        if task["status"] == "merged":
             merged_sources = [p for p in task_prs if p["state"] == "merged" and p["head_sha"] == task["head_sha"]]
             if len(merged_sources) == 1:
                 pr = merged_sources[0]
-            else:
+            elif "verification" in task["needs"]:
                 warnings.append(f"{tid}: post-merge verification needs one exact merged PR source")
         observed_heads = {snapshot["repositories"][repo]} | {b["head_sha"] for b in snapshot["branches"] if b["task_id"] == tid}
         if pr:

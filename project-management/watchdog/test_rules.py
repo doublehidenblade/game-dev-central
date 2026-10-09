@@ -1096,6 +1096,17 @@ class CoordinatorEnforcementTests(unittest.TestCase):
                 if state == "in_review":
                     self.assertIn("implementation", blocked_ops)
 
+    def test_known_conflict_survives_removal_of_verification_need(self):
+        for state in ("in_review", "merged"):
+            for needs in ([], ["upload"], ["implementation", "upload", "merge", "deploy"]):
+                with self.subTest(state=state, needs=needs):
+                    s = self.disputed_review(state)
+                    s["tasks"][0]["needs"] = needs
+                    result = self.evaluate(s)
+                    self.assertFalse(result["actions"])
+                    self.assertEqual(result["status"], "INPUT_REQUIRED")
+                    self.assertTrue(any("contradictory same-head" in w for w in result["warnings"]))
+
     def test_disputed_review_retains_source_owner_capability_and_stop_gates(self):
         mutations = {
             "authorization": lambda s: s["requests"][0]["operations"].remove("verification"),
