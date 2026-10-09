@@ -1,0 +1,165 @@
+{
+  "id": "td-218-docs-admission-board",
+  "parent_task": "td-218",
+  "title": "td-218 documentation-only admission proof: game-dev-central",
+  "status": "in_review",
+  "owner": "/root/register_recovery_guidance_substage",
+  "ask": {
+    "by": "dot coordinator",
+    "date": "2026-10-09",
+    "scope": "Explicit bounded correction: add documentation-admission JSON and proof companions to existing PR616/430; original td-218 gameplay record and future work unchanged."
+  },
+  "bug_shape": "Documentation admission proposal lacks repository-bound canonical JSON and authenticated evidence-policy packet.",
+  "reference_images": [],
+  "runtime_allowlist": [],
+  "completion_criteria": [
+    {
+      "id": "C1",
+      "criterion": "The board change is restricted to the td-218 owner row and truthfully marks docs-only admission proposed, parent open, existing owners retained, no guidance/gameplay author started and empty runtime allowance.",
+      "verification": "Independently inspect the exact base-to-head board diff against 033deae0e984b78e8f304928a1f8ab0cb306e969, verify all other rows identical and inspect the linked source proposal."
+    },
+    {
+      "id": "C2",
+      "criterion": "The pure-JSON board companion covers only documentation admission and retains complete applicable rules, independent-review requirements and all parent task ownership/stops.",
+      "verification": "Inspect this canonical JSON and compare rule inventory and scope against independently read authoritative rules; verify no queue, runtime or gameplay task/status change."
+    }
+  ],
+  "evidence_rule_inventory": [
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:COORDINATOR.md",
+      "path": "COORDINATOR.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:knowledge/standing-rules.md",
+      "path": "knowledge/standing-rules.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:knowledge/workflow/game-dev-workflow.md",
+      "path": "knowledge/workflow/game-dev-workflow.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:knowledge/brief-snippet.md",
+      "path": "knowledge/brief-snippet.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:project-management/rules/SYSTEM.md",
+      "path": "project-management/rules/SYSTEM.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:project-management/rules/WORKER_BRIEF.md",
+      "path": "project-management/rules/WORKER_BRIEF.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+      "path": "project-management/rules/VALIDATOR_BRIEF.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+      "path": "project-management/rules/WORKER_SELECTION_POLICY.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:project-management/rules/DURABILITY.md",
+      "path": "project-management/rules/DURABILITY.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:project-management/watchdog/RUNBOOK.md",
+      "path": "project-management/watchdog/RUNBOOK.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "path": "project-management/watchdog/EVIDENCE_POLICY.md"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
+      "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md"
+    },
+    {
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "id": "tokyo:AGENTS.md",
+      "path": "AGENTS.md"
+    },
+    {
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "id": "tokyo:README.md",
+      "path": "README.md"
+    }
+  ],
+  "evidence_policy": {
+    "C1": {
+      "applicability": "required",
+      "rationale": "This criterion inspects delivered admission documentation only; it claims no execution, visual change or gameplay acceptance.",
+      "rule_id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "instances": [
+        "td-218-docs-admission-board-C1"
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/tasks/td-218-docs-admission.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    },
+    "C2": {
+      "applicability": "required",
+      "rationale": "This criterion inspects delivered admission documentation only; it claims no execution, visual change or gameplay acceptance.",
+      "rule_id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "instances": [
+        "td-218-docs-admission-board-C2"
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/tasks/td-218-docs-admission.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    }
+  },
+  "evidence": [],
+  "work_log": [
+    {
+      "at": "2026-10-09T17:14:00Z",
+      "by": "/root/register_recovery_guidance_substage",
+      "entry": "Added documentation-admission companion after independent first-pass review identified missing proof format. Parent gameplay record is unchanged; authority/review to be independently collected. No guidance matrix or executable tests authored."
+    }
+  ],
+  "verdict": null,
+  "recommended_setup": {
+    "capability_tier": "strong reasoning for source-contract admission documentation and policy scope",
+    "provider_preference": "existing native dot documentation route; no gameplay owner substitution",
+    "requested_model_and_effort": "inherited native selection; actual runtime identity unconfirmed",
+    "environment_and_required_tools": "authenticated GitHub read/write connector; JSON and text inspection only",
+    "availability_checked": "2026-10-09T17:13:59Z: repository connector reads succeeded; runtime identity unconfirmed",
+    "fallback": "wait_for_required_tier",
+    "attempt_budget": "one bounded documentation proof correction within 45 minutes; no gameplay or test implementation",
+    "escalation_criteria": "missing authoritative inventory, scope conflict, unavailable authenticated evidence, or exhausted bound",
+    "verification_budget": "separate independent exact-head documentation and evidence-policy review; no author self-acceptance",
+    "requested_versus_confirmed_setup": "native route active; no model runtime attestation",
+    "actual_outcome": "in_review; no policy or independent acceptance claimed"
+  },
+  "documentation_allowlist": [
+    "project-management/boards/tokyo-drift-3d.md",
+    "project-management/tasks/td-218-docs-admission.json",
+    "project-management/tasks/td-218-docs-admission/"
+  ],
+  "constraints": [
+    "Documentation substage only, not a new gameplay task, implementation author or registry admission.",
+    "Original td-218 JSON, completion criteria, open status, gameplay owner, runtime allowance and verdict remain unchanged.",
+    "Authority and attestations must be independently collected by coordinator/reviewer; author cannot create authentication or independent acceptance.",
+    "Preserve frozen td-216, all existing owners, Shuto freeze and NEON pause.",
+    "No Actions, deployment, merge, runtime edit, executable game test, actual guidance specification, issue comments, external-agent contact or queue/ledger mutation."
+  ]
+}
