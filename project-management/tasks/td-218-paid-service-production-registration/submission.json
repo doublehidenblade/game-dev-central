@@ -199,7 +199,116 @@
       "reviewer_id": "dot-td218-registration-reviewer"
     }
   },
-  "evidence": [],
+  "evidence": [
+    {
+      "id": "R1-document-1",
+      "criterion_id": "R1",
+      "instances": [
+        "td-218-production-registration-central-R1"
+      ],
+      "type": "document",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+        "path": "project-management/boards/tokyo-drift-3d.md",
+        "blob": "f018d0b11a4f9236f9b00a3263adce70a2883261"
+      },
+      "source_head": "d788e815cf00963a49394a0d5701a560b17d6da6",
+      "build": null,
+      "performed_at": "2026-10-09T22:19:49Z",
+      "check_id": null
+    },
+    {
+      "id": "R1-document-2",
+      "criterion_id": "R1",
+      "instances": [
+        "td-218-production-registration-central-R1"
+      ],
+      "type": "document",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+        "path": "project-management/tasks/td-218-paid-service-production-registration.json",
+        "blob": "b9f9edd412d9e3847f73cfa26e2b1ce3d94fcbf5"
+      },
+      "source_head": "d788e815cf00963a49394a0d5701a560b17d6da6",
+      "build": null,
+      "performed_at": "2026-10-09T22:19:49Z",
+      "check_id": null
+    },
+    {
+      "id": "R2-document-1",
+      "criterion_id": "R2",
+      "instances": [
+        "td-218-production-registration-central-R2"
+      ],
+      "type": "document",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+        "path": "project-management/boards/tokyo-drift-3d.md",
+        "blob": "f018d0b11a4f9236f9b00a3263adce70a2883261"
+      },
+      "source_head": "d788e815cf00963a49394a0d5701a560b17d6da6",
+      "build": null,
+      "performed_at": "2026-10-09T22:19:49Z",
+      "check_id": null
+    },
+    {
+      "id": "R2-document-2",
+      "criterion_id": "R2",
+      "instances": [
+        "td-218-production-registration-central-R2"
+      ],
+      "type": "document",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+        "path": "project-management/tasks/td-218-paid-service-production-registration.json",
+        "blob": "b9f9edd412d9e3847f73cfa26e2b1ce3d94fcbf5"
+      },
+      "source_head": "d788e815cf00963a49394a0d5701a560b17d6da6",
+      "build": null,
+      "performed_at": "2026-10-09T22:19:49Z",
+      "check_id": null
+    },
+    {
+      "id": "R3-document-1",
+      "criterion_id": "R3",
+      "instances": [
+        "td-218-production-registration-central-R3"
+      ],
+      "type": "document",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+        "path": "project-management/boards/tokyo-drift-3d.md",
+        "blob": "f018d0b11a4f9236f9b00a3263adce70a2883261"
+      },
+      "source_head": "d788e815cf00963a49394a0d5701a560b17d6da6",
+      "build": null,
+      "performed_at": "2026-10-09T22:19:49Z",
+      "check_id": null
+    },
+    {
+      "id": "R3-document-2",
+      "criterion_id": "R3",
+      "instances": [
+        "td-218-production-registration-central-R3"
+      ],
+      "type": "document",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+        "path": "project-management/tasks/td-218-paid-service-production-registration.json",
+        "blob": "b9f9edd412d9e3847f73cfa26e2b1ce3d94fcbf5"
+      },
+      "source_head": "d788e815cf00963a49394a0d5701a560b17d6da6",
+      "build": null,
+      "performed_at": "2026-10-09T22:19:49Z",
+      "check_id": null
+    }
+  ],
   "verdict": null,
   "human_verdict": null
 }
