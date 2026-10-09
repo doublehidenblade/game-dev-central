@@ -361,6 +361,7 @@ Documentation-only registration proposal. Existing rows, statuses and owners are
 | Task | Defect (Craig's wording) | Status | Owner | PR | Last update |
 |---|---|---|---|---|---|
 | ops-evidence-feedback-enforcement-20261009 | Enforce, deterministic framework, persisted on GH | open — queued registration; independent registration acceptance and fresh owner/tool preflight before dispatch; implementation not started | dot — evidence-framework coordination; sole implementation author pending | [canonical proposal](../tasks/ops-evidence-feedback-enforcement-20261009.json) | 2026-10-09 |
+| ops-scoped-coordinator-admission-20261009 | Isolated task-scoped coordinator admission repair | open — registration; implementation awaits independent registration acceptance | dot-native-scoped-admission-author; sole author reserved 2026-10-09 19:34 UTC | [canonical task](../tasks/ops-scoped-coordinator-admission-20261009.json) | 2026-10-09 |
 
 - Operational framework in this central repository, not a new game repair lane. Coordinator reconciles read-only inspector findings into an existing rule, bounded task limitation, or justified reusable guideline plus regression; repeats alone do not create guidelines
 - After registration acceptance, disjoint evidence-policy module/tests may proceed under one author. PR396 retains watch.py/coordinator integration, shared tests and documentation until exact-region handoff; PR143 retains its visual-onboarding hunks. Integration is serialized, not a blanket block on disjoint work
