@@ -1070,6 +1070,75 @@ class CoordinatorEnforcementTests(unittest.TestCase):
         self.assertFalse(result["actions"])
         self.assertEqual(result["status"], "INPUT_REQUIRED")
 
+    def disputed_review(self, state):
+        s = coordinator_add_review(coordinator_fixture(), accepted=True)
+        s["tasks"][0].update(status=state, needs=["verification", "implementation", "upload", "merge", "deploy"])
+        s["board"][0]["status"] = state
+        s["prs"][0]["state"] = "merged" if state == "merged" else "open"
+        s["reviews"].append({**copy.deepcopy(s["reviews"][0]), "id": "review-2",
+                              "reviewer_id": "another-independent-validator", "verdict": "fail"})
+        s["prs"][0]["review_ids"].append("review-2")
+        return coordinator_seal(s)
+
+    def test_disputed_acceptance_preserves_explicit_review_only(self):
+        for state in ("in_review", "merged"):
+            with self.subTest(state=state):
+                s = self.disputed_review(state)
+                result = self.evaluate(s)
+                self.assertEqual([a["operation"] for a in result["actions"]], ["verification"])
+                self.assertEqual(result["status"], "ACTION_REQUIRED")
+                self.assertTrue(any("contradictory same-head" in w for w in result["warnings"]))
+                self.assertFalse(coordinator.acceptance(s["tasks"][0], s["prs"][0], s)[0])
+                for blocked in result["blocked"]:
+                    self.assertIn("ACCEPTANCE_RECONCILIATION_REQUIRED", blocked["reasons"])
+                blocked_ops = {b["operation"] for b in result["blocked"]}
+                self.assertTrue({"upload", "merge", "deploy"} <= blocked_ops)
+                if state == "in_review":
+                    self.assertIn("implementation", blocked_ops)
+
+    def test_disputed_review_retains_source_owner_capability_and_stop_gates(self):
+        mutations = {
+            "authorization": lambda s: s["requests"][0]["operations"].remove("verification"),
+            "author": lambda s: s["executors"][0].update(owner_id="author"),
+            "capability": lambda s: s["executors"][0]["capabilities"].remove("verification"),
+            "ownership": lambda s: s["board"][0].update(owner_id="another-owner"),
+            "owner-read": lambda s: next(r for r in s["sources"] if r["kind"] == "owners").update(read_status="unreadable"),
+            "source-read": lambda s: next(r for r in s["sources"] if r["kind"] == "prs").update(read_status="unreadable"),
+            "stale-review": lambda s: s["reviews"][0].update(observed_at=(COORDINATOR_NOW - timedelta(minutes=16)).isoformat()),
+            "board-stop": lambda s: s["board"][0].update(status="paused"),
+            "cancelled": lambda s: s["requests"][0].update(state="cancelled"),
+        }
+        for state in ("in_review", "merged"):
+            for case, mutate in mutations.items():
+                with self.subTest(state=state, case=case):
+                    s = self.disputed_review(state); mutate(s)
+                    result = self.evaluate(s)
+                    self.assertFalse(result["actions"])
+                    self.assertEqual(result["status"], "INPUT_REQUIRED")
+            for kind in ("stop", "denial", "security"):
+                s = self.disputed_review(state)
+                s["blockers"] = [{"id": "review-hold", "repository": COORDINATOR_REPO,
+                    "task_id": "task-a", "operations": ["verification"], "executors": ["*"],
+                    "kind": kind, "reason": "Explicit read-only verification restriction"}]
+                self.assertFalse(self.actions(coordinator_seal(s)))
+
+    def test_disputed_review_is_scoped_and_receipts_still_revalidate(self):
+        for state in ("in_review", "merged"):
+            s = self.disputed_review(state)
+            second = copy.deepcopy(s["tasks"][0]); second.update(id="task-b", status="open", needs=[])
+            s["tasks"].append(second)
+            s["board"].append({k: second[k] for k in ("id", "repository", "head_sha", "status", "owner_id")})
+            s["branches"].append({**s["branches"][0], "id": "task-b-branch", "task_id": "task-b"})
+            result = self.evaluate(coordinator_seal(s))
+            self.assertEqual([(a["task_id"], a["operation"]) for a in result["actions"]],
+                             [("task-a", "verification"), ("task-b", "implementation")])
+            action = result["actions"][0]
+            target = {k: action[k] for k in ("task_id", "operation", "executor_id", "owner_id", "head_sha")}
+            with coordinator_forbid_io():
+                self.assertEqual(coordinator.revalidate(s, action, target, COORDINATOR_NOW)["status"], "GO")
+                s["reviews"][1]["criteria"]["criterion-1"]["evidence"] = "qa/changed-review.txt"
+                self.assertEqual(coordinator.revalidate(s, action, target, COORDINATOR_NOW)["status"], "NO_GO")
+
     def test_manifest_omissions_and_unreadability_never_claim_idle(self):
         mutations = [lambda s: s.pop("sources"), lambda s: s.update(sources=[]),
                      lambda s: s["sources"][2]["pagination"].update(exhausted=False),

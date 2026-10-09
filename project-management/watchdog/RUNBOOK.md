@@ -16,7 +16,7 @@ This boundary applies to any externally performed merge, conflict-resolution pus
 
 | Task | Work | Status | Owner | Review | Updated (UTC) |
 |---|---|---|---|---|---|
-| ops-coordinator-enforcement-20261009 | Script scoped blockers, task rotation, executor capacity and truthful idle decisions | in_review — implementation candidate; independent acceptance pending | dot — coordinator enforcement; one native implementation author, separate independent reviewer | Registration merged as PR #393; candidate exact-head review pending | 2026-10-09 13:32 |
+| ops-coordinator-enforcement-20261009 | Script scoped blockers, task rotation, executor capacity and truthful idle decisions | in_review — v4 correction candidate; independent acceptance pending | dot — coordinator enforcement; one native implementation author, separate independent reviewer | Registration merged as PR #393; PR #396 v1–v3 independently reviewed with changes required; corrected exact-head review pending | 2026-10-09 14:04 |
 
 Craig requested scripted enforcement and repository-owned reusable coordinator logic on 2026-10-09. This row registers that bounded central-repository work; it does not register a live implementation worker, accept code or change any existing game task's owner/status.
 
@@ -26,8 +26,9 @@ Craig requested scripted enforcement and repository-owned reusable coordinator l
 - **Verification:** replay the overnight failure classes, including scoped publication holds, unavailable Codex with available native capacity, review/admission work, stale-head claims, stopped/owned lanes and malformed/incomplete snapshots. Prove the new entrypoint and integrated aliases do not write state, queues or ledgers, call external dispatch, or contact providers. Exercise old aliases without a verified snapshot and require an input error rather than stale-state approval. Independent exact-head review must cite these checks; documentation alone is not enforcement of any live coordinator.
 - **Recommended setup:** frontier native dot author, requested `gpt-6-astra/xhigh`, with Python and isolated fixtures; one initial attempt plus at most one evidence-based correction within two hours, with a separate frontier/xhigh review budget. Native catalog and repository tools are available; the registration originally preceded author startup and did not attest a runtime. Verify the selected author and Python test setup before implementation. Wait for the required tier if unavailable; report scope/ownership conflicts, unsafe entrypoint effects or failed tests without weakening gates. Outcome pending.
 - **Attempt amendment — 2026-10-09 13:28 UTC:** the initial candidate `b765a587cd78554d047e06b6bafee9de91c1be7e` and first correction `82a6df52855a3b3a07b9bdc177684214e2946ff0` are retained. [The coordinator's bounded amendment](https://github.com/doublehidenblade/game-dev-central/pull/396#issuecomment-6081855820) authorizes one additional correction for two reproduced read-only routing defects: unrelated unmapped branches blocking exact-head verification, and explicit post-merge verification losing its source. The outer deadline stays 2026-10-09 14:46:40 UTC. No broader retry, weaker acceptance, live operation or merge is authorized by this amendment; independent repaired-head review remains required.
+- **Bounded v4 correction — 2026-10-09 14:00 UTC:** v3 `b0b3c8a465c0cfd6b1b03fc87092094dbf29a457` is retained with its changes-required review. [The recorded amendment](https://github.com/doublehidenblade/game-dev-central/pull/396#issuecomment-6082442592) allows only the independently reproduced acceptance-isolation repair: conflicting same-head PASS/FAIL acceptance must retain a separately authorized, explicitly needed independent read-only verification path, while conflict warnings, acceptance/mutation blocks and all source/ownership/capability/stops remain. Both open and merged regression probes are retained. The original 14:46:40 UTC outer deadline and separate exact-head review remain; evidence-feedback framework work is outside this task.
 - **Preflight:** central main `0b4f00e6c5fa810ad2e8e2a94758c9ba60e8a354`; canonical rules, board, registry, log and current state read; all 100 open PR changed-file lists and 322 branch names checked. No open PR changes `RUNBOOK.md`, `watch.py` or `test_rules.py`; PR143 touches `COORDINATOR.md`. The complete tree has no GitHub Actions workflow files. The legacy registry and empty worker ledger are not proof that outside sessions are idle; this reservation grants no game-task takeover.
-- **Boundaries:** the original registration changed only this runbook; this candidate implements its bounded read-only enforcement scope. No legacy watcher execution, live queue/state/ledger writes, automatic dispatch, external-agent contact, Actions, deployment, provider/security workaround or stopped-operation retry. Existing td-200/216 upload denials and central PR374/376/368 plus Tokyo PR553 holds stay unchanged. Shuto stays frozen; NEON stays paused. Registration was independently reviewed and merged as PR #393. One scoped native author started 12:46 UTC with Python 3.12.14; requested model/effort remains distinct from runtime attestation. This implementation now requires separate exact-head acceptance; no additional user-approval gate is introduced.
+- **Boundaries:** the original registration changed only this runbook; this candidate implements its bounded read-only enforcement scope. No legacy watcher execution, live queue/state/ledger writes, automatic dispatch, external-agent contact, Actions, deployment, provider/security workaround or stopped-operation retry. Existing td-200/216 upload denials and central PR374/376/368 plus Tokyo PR553 holds stay unchanged. Shuto stays frozen; NEON stays paused. Registration was independently reviewed and merged as PR #393. One scoped native author started 12:46:40 UTC with Python 3.12.14, reverified for the v4 correction; requested model/effort remains distinct from runtime attestation. This implementation now requires separate exact-head acceptance; no additional user-approval gate is introduced.
 
 ## Supported coordinator route (2026-10-09)
 
@@ -245,6 +246,10 @@ before an open task can restart implementation; stale source text cannot reopen
 completed work. A reviewer must be independent of the task author, PR author and implementation
 owner. Failed/incomplete criteria, failed checks, self-review, old-head evidence,
 conflicting verdicts and missing inventory cannot produce merge acceptance.
+Conflicting same-head PASS/FAIL verdicts remain an acceptance/mutation hold, but
+explicit `needs: ["verification"]` can preserve an independently authorized
+read-only review to resolve the dispute. That action must still pass every
+source, ownership, capability and stop gate; the conflict warning stays visible.
 No reconciliation clears an explicit hold. Shuto stays frozen, NEON paused,
 `td-054` no-redispatch and preservation PR `#253` never-merge remain enforced.
 Deployment is always directed to the separate explicitly requested release flow;
@@ -295,6 +300,16 @@ Run from the repository root:
 - `python3 project-management/watchdog/test_coordinator_review.py` — unchanged
   32-assertion independent correction/adoption probes, including the two new
   failure classes. Kept separately from the author's regression methods
+- `python3 project-management/watchdog/test_coordinator_acceptance_isolation.py`
+  — independent 14-case acceptance-versus-review matrix for open and merged PRs
+- `python3 project-management/watchdog/test_coordinator_final_guards.py`
+  — independent 15-case source, stop, ownership and operation-isolation probes
+
+The last two probe sources were restored from their retained exact review text
+after the review workspace was replaced. Rerunning them against the retained v3
+head reproduced the original 2/14 and 1/15 failures before this correction; their
+restored source bytes are committed unchanged here. They are synthetic regression
+evidence, not a live coordinator inventory or independent acceptance of v4.
 
 The new suite denies filesystem access except supplied in-memory CLI reads,
 network, subprocesses, state/queue/ledger helpers and legacy verdict capture.

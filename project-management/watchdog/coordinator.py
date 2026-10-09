@@ -313,6 +313,7 @@ def evaluate(snapshot, at):
         return result
     result["warnings"] = warnings
     opportunities = []
+    disputed_tasks = set()
     for task in snapshot["tasks"]:
         repo, tid = task["repository"], task["id"]
         task_prs = [p for p in snapshot["prs"] if p["task_id"] == tid]
@@ -351,7 +352,12 @@ def evaluate(snapshot, at):
         accepted, rejected, conflicting = acceptance(task, pr, snapshot) if pr else (False, False, False)
         if conflicting:
             warnings.append(f"{tid}: contradictory same-head review verdicts")
-            continue
+            disputed_tasks.add(tid)
+            # Conflicting acceptance blocks mutation, but an explicitly needed
+            # independent read-only review can resolve it. All ordinary source,
+            # ownership, authorization, capability and stop gates still apply.
+            if "verification" not in task["needs"]:
+                continue
         board = index["board"].get(tid)
         if board and (board["status"] in {"cancelled", "paused", "done-pending-verdict"} or
                       board["status"] in {"closed", "merged"} and board["head_sha"] == task["head_sha"] and board["status"] != task["status"]):
@@ -397,6 +403,8 @@ def evaluate(snapshot, at):
     for tid, repo, head, operation, task, pr, accepted in opportunities:
         for ex in [e for e in snapshot["executors"] if e["repository"] == repo]:
             reasons = []
+            if tid in disputed_tasks and operation != "verification":
+                reasons.append("ACCEPTANCE_RECONCILIATION_REQUIRED")
             # Complete safety/ownership scope is mandatory. Acceptance-only
             # unknowns do not block separately authorized implementation/admission.
             required_sources = SOURCES_FOR[operation]
