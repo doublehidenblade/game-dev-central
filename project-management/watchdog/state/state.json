@@ -1931,7 +1931,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 144
+  "stale_runs": 145
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2150,22 +2150,20 @@
   "td-238": "blocked"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T11:15:35.033607+00:00",
+  "ts": "2026-10-09T11:46:25.256829+00:00",
   "checks": {
    "liveness": [],
    "transitions": [
-    "FLIP td-191: open -> merged [silent]",
-    "FLIP td-192: open -> source [silent]",
-    "FLIP td-195: open -> in_review [wake-validator]"
+    "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=144"
+    "STALE-RUNS=145"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
    ],
    "board-check": [
-    "BOARD-OK tokyo-drift-3d (213 rows)"
+    "BOARD-OK tokyo-drift-3d (214 rows)"
    ],
    "all-blocked": [
     "ALL-BLOCKED False (codex:tokyo-drift-3d=FINISHED; claude-code:tokyo-drift-3d=FINISHED)"
@@ -2175,13 +2173,13 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-09T05:44:01.982953+00:00",
-   "liveness": "2026-10-09T11:15:35.033607+00:00",
-   "classification-health": "2026-10-09T10:44:08.439604+00:00",
-   "transitions": "2026-10-09T09:43:57.306348+00:00",
-   "conflicts": "2026-10-09T05:43:51.122259+00:00",
+   "board-check": "2026-10-09T11:43:54.333163+00:00",
+   "liveness": "2026-10-09T11:43:37.796331+00:00",
+   "classification-health": "2026-10-09T11:43:49.948051+00:00",
+   "transitions": "2026-10-09T11:43:48.811438+00:00",
+   "conflicts": "2026-10-09T11:43:45.334877+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
-   "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
+   "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
  },
  "validators_dispatched": {
