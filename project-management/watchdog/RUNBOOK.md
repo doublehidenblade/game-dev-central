@@ -373,3 +373,31 @@ Rules going forward:
 - Per EVIDENCE_POLICY.md, a gate receipt (authority/submission/objects refs)
   is recorded before every merge decision; the absence of a receipt is itself
   a stop condition.
+
+## Duplicate dispatch after timeout (2026-10-09)
+
+Incident: the 11:42 UTC watchdog run timed out before recording its td-246
+worker dispatch. The supervisor, seeing no branch and no record, dispatched a
+second td-246 worker. Both workers completed independently: PR #618
+(fix/td-246-bust-speed-production) and PR #619 (td-246-bust-evidence, merged
+17:15:03Z). The td-246 validator merged #618, which overwrote #619's
+`td246_bust_run.log` and task file; it repaired by restoring #619's log as
+`godot/qa/td-246/td246_bust_run_619.log`, independently verified both evidence
+sets (all criteria PASS under both), and cited both in the verdict
+(docs PR #621, 08b03939). No game code was ever at risk (both evidence-only);
+nothing was lost.
+
+Rules going forward:
+
+- A dispatch is not real until it is recorded: `watch.py register-worker`
+  must complete AND `state-push` must succeed. If the run times out before
+  the push, the next run must assume unknown dispatch state and check for
+  live branches (`branches?per_page=100` filtered by task prefix, plus
+  `pulls?head=`) BEFORE dispatching a replacement — never dispatch on
+  "no branch seen" alone when the previous run may have dispatched silently.
+- Liveness heartbeats are the second line of defense: a worker that never
+  heartbeats within 30 minutes of dispatch is presumed lost, but a worker
+  that IS heartbeating must never be duplicated — check
+  `state/worker-heartbeats/` before any re-dispatch.
+- When a duplicate mergeoverwrites a sibling's evidence, restore (never
+  delete): keep both evidence sets, verify both, cite both.
