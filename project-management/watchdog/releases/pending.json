@@ -119,6 +119,14 @@
    "merged_sha": "cb3cf607f4c153d0898f74f6ef0922c8406270b1",
    "merged_at": "2026-10-09T19:20:57.587815+00:00",
    "summary": "td-248 street-level traffic lights (signals, ped crossings, car stop/go)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-247",
+   "pr": 622,
+   "merged_sha": "4d2c79db475c42ee8f72e534d65d3c8dd107f56e",
+   "merged_at": "2026-10-09T19:32:27.813992+00:00",
+   "summary": "td-247 td-240 follow-up: commit actual harness + raw per-tick trace (byte-identical regeneration)"
   }
  ]
 }
