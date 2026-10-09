@@ -1,0 +1,156 @@
+{
+  "task_id": "td-218-docs-admission-board",
+  "candidate_head": "cd252d15a910065deb3c53129d9a6680feee94e2",
+  "actor_id": "/root/review_guidance_admission_proposals",
+  "authority_digest": "27c393bc0416daf8b792d182ecc3a42c366182c21675cbe36906334339e0f45f",
+  "evidence_digest": "6870cc40965553afe81d884dd5c3b8c6b0d9ffb0eaa9ae6406aee70eab315f09",
+  "performed_at": "2026-10-09T17:18:25.087853+00:00",
+  "criteria": {
+    "C1": {
+      "decision": "PASS",
+      "rationale": "PASS: Independently compared full board bytes against base033deae0e984b78e8f304928a1f8ab0cb306e969. Only td-218 row changes; all other rows, including frozen td-216 and existing owners, are byte-identical. td-218 remains open with existing dot recovery/Muse damage ownership, empty runtime allowance and repair/tow implementation not dispatched. In this guidance-proposal context no author started refers to the future guidance/gameplay author; the linked source explicitly names the separate admission-document author. Linked source proposal was inspected at immutable99f26d38b1ede662cb3dfa25971a883bd0e8926a and retains original gameplay JSON. Documentation admission is proposed, not gameplay accepted.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "cd252d15a910065deb3c53129d9a6680feee94e2",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "f7b7765cee8988c9469535fb83e2ddbd5ef32425"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "033deae0e984b78e8f304928a1f8ab0cb306e969",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "06a6d81a5c293f6763426b05c966486080c90cc3"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "99f26d38b1ede662cb3dfa25971a883bd0e8926a",
+          "path": "godot/docs/tasks/td-218.md",
+          "blob": "32ebda272717293896920c810dd86a06d5a7ef62"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "99f26d38b1ede662cb3dfa25971a883bd0e8926a",
+          "path": "godot/docs/tasks/td-218-docs-admission.json",
+          "blob": "2b496c2ac25bf9a03aef4480015acb1e1b45b85f"
+        }
+      ],
+      "evidence_ids": [
+        "td-218-docs-admission-board-C1-document"
+      ],
+      "finding_ids": []
+    },
+    "C2": {
+      "decision": "PASS",
+      "rationale": "PASS: Pure JSON defines only td-218-docs-admission-board with parent td-218 and documentation-scoped C1-C2. Its fourteen-entry rule inventory matches the independently read current rule files; all criteria are required, nonvisual build-null document inspections with no omitted executable requirements. No parent gameplay criterion is excluded, redefined or passed. Original parent owners/stops/runtime limits remain; no queue or ledger record is added. The candidate changes only the td-218 board row and this companion, and its descendant adds only author submission. Independent review/authority remain separate from the author. Current RUNBOOK explicitly requires a pre-merge gate receipt; this content verdict alone does not establish merge permission or coordinator eligibility.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "cd252d15a910065deb3c53129d9a6680feee94e2",
+          "path": "project-management/tasks/td-218-docs-admission.json",
+          "blob": "647018cf85e512012e8284c8eeccb6f0d12a9c6a"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "cd252d15a910065deb3c53129d9a6680feee94e2",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "f7b7765cee8988c9469535fb83e2ddbd5ef32425"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "99f26d38b1ede662cb3dfa25971a883bd0e8926a",
+          "path": "godot/docs/tasks/td-218.md",
+          "blob": "32ebda272717293896920c810dd86a06d5a7ef62"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "project-management/rules/DURABILITY.md",
+          "blob": "11d159e403d88c292a8051e3d7589b1ab9af72df"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "project-management/rules/WORKER_BRIEF.md",
+          "blob": "95dc23587561489931e897f9a58c7be0c2202e7d"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "knowledge/workflow/game-dev-workflow.md",
+          "blob": "9d3b278c9b71e213d59874c5a56498630d14fc74"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md",
+          "blob": "bc5f07fbd9d2a331b01d7ee4a8c142d399fcd4e1"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "project-management/rules/WORKER_SELECTION_POLICY.md",
+          "blob": "343d3e3f8db6976789d4a631ca38619b6c27dc0e"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "COORDINATOR.md",
+          "blob": "58786d160ad1bc509a7ee74df030988056389308"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "knowledge/standing-rules.md",
+          "blob": "01b19a267622992cbe7713f856e2c2bcf87b1e50"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "project-management/rules/SYSTEM.md",
+          "blob": "08226c75366dfa25133fcd058477b4b854febaf2"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "project-management/rules/VALIDATOR_BRIEF.md",
+          "blob": "405469fad99355eb23b01551c92c0c74693e75fe"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "project-management/watchdog/EVIDENCE_POLICY.md",
+          "blob": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "knowledge/brief-snippet.md",
+          "blob": "54efe155ef96ac54e1d68008bd578d1a966e943e"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "4436e6bb247a6939d244e96ddb6cf909da45146f",
+          "path": "project-management/watchdog/RUNBOOK.md",
+          "blob": "b4ea0683ea8fc8219828c7a78c6965af77a74348"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "d0c3a3ae310761a90755d13b9d0e9bb81adc56a8",
+          "path": "AGENTS.md",
+          "blob": "0c13fa62327dd6532621a318e7a4920682b2809a"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "d0c3a3ae310761a90755d13b9d0e9bb81adc56a8",
+          "path": "README.md",
+          "blob": "f8ef49023683a156334878e3ccc7218ca7965285"
+        }
+      ],
+      "evidence_ids": [
+        "td-218-docs-admission-board-C2-document"
+      ],
+      "finding_ids": []
+    }
+  }
+}
