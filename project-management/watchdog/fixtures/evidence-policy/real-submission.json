@@ -1,0 +1,217 @@
+{
+  "acknowledgment": {
+    "author_id": "dot native evidence-framework author (sole author; selected gpt-6-astra/xhigh)",
+    "rules": [
+      {
+        "id": "COORDINATOR.md",
+        "ref": {
+          "blob": "58786d160ad1bc509a7ee74df030988056389308",
+          "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+          "path": "COORDINATOR.md",
+          "repository": "doublehidenblade/game-dev-central"
+        }
+      },
+      {
+        "id": "knowledge/standing-rules.md",
+        "ref": {
+          "blob": "01b19a267622992cbe7713f856e2c2bcf87b1e50",
+          "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+          "path": "knowledge/standing-rules.md",
+          "repository": "doublehidenblade/game-dev-central"
+        }
+      },
+      {
+        "id": "project-management/rules/SYSTEM.md",
+        "ref": {
+          "blob": "08226c75366dfa25133fcd058477b4b854febaf2",
+          "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+          "path": "project-management/rules/SYSTEM.md",
+          "repository": "doublehidenblade/game-dev-central"
+        }
+      },
+      {
+        "id": "project-management/rules/WORKER_BRIEF.md",
+        "ref": {
+          "blob": "95dc23587561489931e897f9a58c7be0c2202e7d",
+          "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+          "path": "project-management/rules/WORKER_BRIEF.md",
+          "repository": "doublehidenblade/game-dev-central"
+        }
+      },
+      {
+        "id": "project-management/rules/VALIDATOR_BRIEF.md",
+        "ref": {
+          "blob": "405469fad99355eb23b01551c92c0c74693e75fe",
+          "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+          "path": "project-management/rules/VALIDATOR_BRIEF.md",
+          "repository": "doublehidenblade/game-dev-central"
+        }
+      },
+      {
+        "id": "project-management/rules/WORKER_SELECTION_POLICY.md",
+        "ref": {
+          "blob": "343d3e3f8db6976789d4a631ca38619b6c27dc0e",
+          "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+          "path": "project-management/rules/WORKER_SELECTION_POLICY.md",
+          "repository": "doublehidenblade/game-dev-central"
+        }
+      }
+    ],
+    "task_id": "ops-evidence-feedback-enforcement-20261009"
+  },
+  "evidence": [],
+  "plans": {
+    "C1": {
+      "artifacts": [
+        {
+          "check_id": "policy-regressions",
+          "path": "project-management/watchdog/fixtures/evidence-policy/check-1.log",
+          "type": "log"
+        }
+      ],
+      "build": null,
+      "coverage": [
+        "C1"
+      ],
+      "method": "Fixtures cover existing-rule, task-limitation, reusable-guideline-plus-regression, duplicate replay, unresolved and conflicting finding cases; identical inputs yield identical decisions. Newly generalized rules must have a regression that fails on the recorded broken fixture.",
+      "reviewer_id": "Independent evidence-policy reviewer; final verdict pending",
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/guideline.json"
+      ]
+    },
+    "C2": {
+      "artifacts": [
+        {
+          "check_id": "policy-regressions",
+          "path": "project-management/watchdog/fixtures/evidence-policy/check-1.log",
+          "type": "log"
+        }
+      ],
+      "build": null,
+      "coverage": [
+        "C2"
+      ],
+      "method": "Positive control plus missing/stale rule pin, changed rule blob, missing criterion/method/artifact/source coverage and malformed plan cases; verify scoped rejection and preservation of unrelated permitted operations. Include zero parsed criteria, empty applicability/citations and unsupported not-applicable exclusions; each applicable criterion remains accounted for.",
+      "reviewer_id": "Independent evidence-policy reviewer; final verdict pending",
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json"
+      ]
+    },
+    "C3": {
+      "artifacts": [
+        {
+          "check_id": "policy-regressions",
+          "path": "project-management/watchdog/fixtures/evidence-policy/check-1.log",
+          "type": "log"
+        }
+      ],
+      "build": null,
+      "coverage": [
+        "C3"
+      ],
+      "method": "Table-driven negatives for each class, changed full SHA, wrong build/variant, partial coverage, self-review, no citation, partial verdict and stale evidence; complete exact-head control passes only machine-checkable gates. Include evidence-only commits with proven unchanged source as a positive control, altered relevant source as a negative, and historical evidence with/without verified scope equivalence. Do not use filenames or metadata as automatic semantic PASS.",
+      "reviewer_id": "Independent evidence-policy reviewer; final verdict pending",
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json"
+      ]
+    },
+    "C4": {
+      "artifacts": [
+        {
+          "check_id": "policy-regressions",
+          "path": "project-management/watchdog/fixtures/evidence-policy/check-1.log",
+          "type": "log"
+        }
+      ],
+      "build": null,
+      "coverage": [
+        "C4"
+      ],
+      "method": "Tests show missing/rejected/pending human verdict never becomes accepted from script/numeric/CI results; stopped tasks remain stopped, no redispatch or owner transfer follows from findings.",
+      "reviewer_id": "Independent evidence-policy reviewer; final verdict pending",
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/visual.json"
+      ]
+    },
+    "C5": {
+      "artifacts": [
+        {
+          "check_id": "policy-regressions",
+          "path": "project-management/watchdog/fixtures/evidence-policy/check-1.log",
+          "type": "log"
+        }
+      ],
+      "build": null,
+      "coverage": [
+        "C5"
+      ],
+      "method": "Run isolated tests locally with filesystem writes, external API, subprocess dispatch and queue/ledger mutation mocked to raise; commit exact commands/results and public-safe fixtures. No Actions execution.",
+      "reviewer_id": "Independent evidence-policy reviewer; final verdict pending",
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/EVIDENCE_POLICY.md",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json",
+        "project-management/watchdog/fixtures/evidence-policy/visual.json",
+        "project-management/watchdog/fixtures/evidence-policy/guideline.json"
+      ]
+    },
+    "C6": {
+      "artifacts": [
+        {
+          "check_id": "policy-regressions",
+          "path": "project-management/watchdog/fixtures/evidence-policy/check-1.log",
+          "type": "log"
+        }
+      ],
+      "build": null,
+      "coverage": [
+        "C6"
+      ],
+      "method": "Inspect exact post-PR396 integration diff and run route/alias negatives plus existing regression suite locally; do not claim enforcement of live external schedulers. Preserve PR143 visual-onboarding content and cite accepted rule revision. Specifically test evidence-check failure exit codes, brief-check semantic plan validation and validator-check rejecting zero citations/zero parsed criteria. Capture a read-only current real-input acceptance-check invocation with pinned source manifest and resulting decisions/limitations; standalone synthetic tests do not establish adoption. No external scheduler or inspector mutation.",
+      "reviewer_id": "Independent evidence-policy reviewer; final verdict pending",
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/test_rules.py"
+      ]
+    },
+    "C7": {
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/evidence-policy/independent-review.json",
+          "type": "document"
+        }
+      ],
+      "build": null,
+      "coverage": [
+        "C7"
+      ],
+      "method": "Reviewer opens original artifacts, reruns relevant local checks and records per-criterion PASS/FAIL with immutable citations. Implementation remains in_review until required acceptance; all human gates and verification limitations stay visible.",
+      "reviewer_id": "Independent evidence-policy reviewer; final verdict pending",
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/EVIDENCE_POLICY.md",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json",
+        "project-management/watchdog/fixtures/evidence-policy/visual.json",
+        "project-management/watchdog/fixtures/evidence-policy/guideline.json"
+      ]
+    }
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "observed_at": "2026-10-09T15:12:37.685414+00:00",
+  "repository": "doublehidenblade/game-dev-central",
+  "implementation_head": "b5e8dc601db5b40dd713981db7577022047699c0",
+  "current_rules_head": "5a4cd025b879447eca032d81cb4464241f09537f",
+  "object_count": 22,
+  "objects_hash_verified": true,
+  "read_only_source_receipts": [
+    {
+      "kind": "commit",
+      "sha": "b5e8dc601db5b40dd713981db7577022047699c0",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/commits/b5e8dc601db5b40dd713981db7577022047699c0"
+    },
+    {
+      "kind": "commit",
+      "sha": "5a4cd025b879447eca032d81cb4464241f09537f",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/commits/5a4cd025b879447eca032d81cb4464241f09537f"
+    },
+    {
+      "kind": "tree",
+      "sha": "656bb063eaceb50bd29a7d99f45f573715036bbc",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/656bb063eaceb50bd29a7d99f45f573715036bbc"
+    },
+    {
+      "kind": "tree",
+      "sha": "50dbc278f763dce3a9aa68ca6c71d911e1839281",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/50dbc278f763dce3a9aa68ca6c71d911e1839281"
+    },
+    {
+      "kind": "tree",
+      "sha": "509479fde8287d60ba27eca8d82c51f31e2e2cfd",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/509479fde8287d60ba27eca8d82c51f31e2e2cfd"
+    },
+    {
+      "kind": "blob",
+      "sha": "df5e6c93edf95fde287bb93cdc5456b74fa2ff13",
+      "url": "https://github.com/doublehidenblade/game-dev-central/blob/b5e8dc601db5b40dd713981db7577022047699c0/project-management/tasks/ops-evidence-feedback-enforcement-20261009.json"
+    },
+    {
+      "kind": "tree",
+      "sha": "8f3520880819c4f1cd4c65d1884ecff181b0217f",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/8f3520880819c4f1cd4c65d1884ecff181b0217f"
+    },
+    {
+      "kind": "tree",
+      "sha": "2f0f1b76b6da19b3830ffd09d468bc338bede4bc",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/2f0f1b76b6da19b3830ffd09d468bc338bede4bc"
+    },
+    {
+      "kind": "tree",
+      "sha": "412e913f4fd8dbcb8259594b4653b0f224ea1e23",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/412e913f4fd8dbcb8259594b4653b0f224ea1e23"
+    },
+    {
+      "kind": "tree",
+      "sha": "d83a09a2847f03a483087fed6246386437f5e117",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/d83a09a2847f03a483087fed6246386437f5e117"
+    },
+    {
+      "kind": "blob",
+      "sha": "722ff1eceb29186e9ad74a217bce061c3908d56b",
+      "url": "https://github.com/doublehidenblade/game-dev-central/blob/b5e8dc601db5b40dd713981db7577022047699c0/project-management/watchdog/fixtures/evidence-policy/review-regressions/contradictory-current-failure.packet.json"
+    },
+    {
+      "kind": "blob",
+      "sha": "0ca707fea0b36f5996018b832a980a00144c10de",
+      "url": "https://github.com/doublehidenblade/game-dev-central/blob/b5e8dc601db5b40dd713981db7577022047699c0/project-management/watchdog/fixtures/evidence-policy/review-regressions/required-command-document-only-plan.packet.json"
+    },
+    {
+      "kind": "tree",
+      "sha": "d13504b7c50926145ae093beca68dda7913b917a",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/d13504b7c50926145ae093beca68dda7913b917a"
+    },
+    {
+      "kind": "blob",
+      "sha": "58786d160ad1bc509a7ee74df030988056389308",
+      "url": "https://github.com/doublehidenblade/game-dev-central/blob/5a4cd025b879447eca032d81cb4464241f09537f/COORDINATOR.md"
+    },
+    {
+      "kind": "tree",
+      "sha": "0ab501365d31c9c2e011f6e8a8c874dc29777e17",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/0ab501365d31c9c2e011f6e8a8c874dc29777e17"
+    },
+    {
+      "kind": "blob",
+      "sha": "01b19a267622992cbe7713f856e2c2bcf87b1e50",
+      "url": "https://github.com/doublehidenblade/game-dev-central/blob/5a4cd025b879447eca032d81cb4464241f09537f/knowledge/standing-rules.md"
+    },
+    {
+      "kind": "tree",
+      "sha": "10ee90f91f41366e52757ab8b6e9a8211f09571d",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/10ee90f91f41366e52757ab8b6e9a8211f09571d"
+    },
+    {
+      "kind": "tree",
+      "sha": "22636872871375e7ea5eda2050ced31c85772f5e",
+      "url": "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/22636872871375e7ea5eda2050ced31c85772f5e"
+    },
+    {
+      "kind": "blob",
+      "sha": "08226c75366dfa25133fcd058477b4b854febaf2",
+      "url": "https://github.com/doublehidenblade/game-dev-central/blob/5a4cd025b879447eca032d81cb4464241f09537f/project-management/rules/SYSTEM.md"
+    },
+    {
+      "kind": "blob",
+      "sha": "95dc23587561489931e897f9a58c7be0c2202e7d",
+      "url": "https://github.com/doublehidenblade/game-dev-central/blob/5a4cd025b879447eca032d81cb4464241f09537f/project-management/rules/WORKER_BRIEF.md"
+    },
+    {
+      "kind": "blob",
+      "sha": "405469fad99355eb23b01551c92c0c74693e75fe",
+      "url": "https://github.com/doublehidenblade/game-dev-central/blob/5a4cd025b879447eca032d81cb4464241f09537f/project-management/rules/VALIDATOR_BRIEF.md"
+    },
+    {
+      "kind": "blob",
+      "sha": "343d3e3f8db6976789d4a631ca38619b6c27dc0e",
+      "url": "https://github.com/doublehidenblade/game-dev-central/blob/5a4cd025b879447eca032d81cb4464241f09537f/project-management/rules/WORKER_SELECTION_POLICY.md"
+    }
+  ],
+  "limitations": [
+    "Current operational task only; no game-status/owner change or live scheduler enforcement",
+    "Author command logs exist but are not automatically converted to authenticated passing evidence",
+    "Independent exact-head C1-C7 acceptance is outstanding; no reviewer or human attestation fabricated",
+    "Fresh replay must refresh authority observations from authenticated sources, not merely edit timestamps"
+  ],
+  "expected_admission": "NO_GO/UNRESOLVED_FINDING",
+  "expected_completion": "NO_GO/UNRESOLVED_FINDING"
+}

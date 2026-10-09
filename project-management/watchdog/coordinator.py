@@ -6,6 +6,8 @@ The collector must supply fresh authenticated observations; see RUNBOOK.md.
 import hashlib
 import json
 import re
+
+import evidence_policy
 from datetime import datetime, timedelta, timezone
 
 VERSION = 1
@@ -90,8 +92,9 @@ def validate(snapshot, at):
     """
     require(isinstance(at, datetime) and at.tzinfo is not None and
             at.utcoffset() == timedelta(0), "evaluation clock must be UTC")
-    fields(snapshot, "version observed_at repositories sources " + " ".join(TABLES), "snapshot")
+    fields(snapshot, "version observed_at repositories sources " + " ".join(TABLES), "snapshot", optional="evidence_policy")
     require(type(snapshot["version"]) is int and snapshot["version"] == VERSION, "unsupported version")
+    require(isinstance(snapshot.get("evidence_policy", {}), dict), "evidence_policy must be a task map")
     observed = utc(snapshot["observed_at"])
     require(observed <= at, "snapshot is future-dated")
     require(isinstance(snapshot["repositories"], dict) and snapshot["repositories"], "repository scope required")
@@ -290,16 +293,58 @@ def validate(snapshot, at):
     return index, sources, warnings
 
 
-def acceptance(task, pr, snapshot):
+def _acceptance_observations(task, pr, snapshot):
     """Independent acceptance at the exact current source head, never a prefix."""
-    reviews = [r for r in snapshot["reviews"] if r["pr_id"] == pr["id"] and r["head_sha"] == pr["head_sha"]]
+    packet = snapshot.get("evidence_policy", {}).get(task["id"], {})
+    try:
+        source_head = packet.get("authority", {}).get("candidate", {}).get("implementation_head", pr["head_sha"])
+        sha(source_head)
+    except (AttributeError, InputError):
+        source_head = pr["head_sha"]
+    review_heads = {pr["head_sha"], source_head}
+    reviews = [r for r in snapshot["reviews"] if r["pr_id"] == pr["id"] and r["head_sha"] in review_heads]
     authors = {task["author_id"], pr["author_id"], task["owner_id"]} | {o["owner_id"] for o in snapshot["owners"] if o["task_id"] == task["id"] and o["operation"] == "implementation" and o["state"] != "released"}
     independent = [r for r in reviews if r["reviewer_id"] not in authors]
     failed = any(r["verdict"] == "fail" or any(c["result"] == "fail" for c in r["criteria"].values()) for r in independent)
+    pending = any(r["verdict"] == "pending" or any(c["result"] == "pending" for c in r["criteria"].values()) for r in independent)
     passed = any(r["verdict"] == "pass" and set(r["criteria"]) == set(task["criteria"]) and all(c["result"] == "pass" and c["evidence"].strip() for c in r["criteria"].values()) for r in independent)
-    checks = [c for c in snapshot["checks"] if c["pr_id"] == pr["id"] and c["head_sha"] == pr["head_sha"]]
+    checks = [c for c in snapshot["checks"] if c["pr_id"] == pr["id"] and c["head_sha"] in review_heads]
     checks_pass = all(any(c["name"] == name and c["result"] == "pass" for c in checks) and not any(c["name"] == name and c["result"] != "pass" for c in checks) for name in task["required_checks"])
-    return passed and not failed and checks_pass, failed, passed and failed
+    return passed and not failed and not pending and checks_pass, failed, passed and failed
+
+
+
+def _policy_gate(snapshot, task, operation, at):
+    """Authenticated collector packets only; no default legacy acceptance path."""
+    try:
+        packets = snapshot.get("evidence_policy", {})
+        require(isinstance(packets, dict), "evidence_policy must map task IDs to proof packets")
+        packet = packets.get(task["id"])
+        require(isinstance(packet, dict), "missing current evidence-policy packet")
+        fields(packet, "authority submission objects", "evidence-policy packet")
+        authority = packet["authority"]
+        require(isinstance(authority, dict), "evidence authority required")
+        candidate = authority.get("candidate", {})
+        require(candidate.get("repository") == task["repository"] and candidate.get("artifact_head") == task["head_sha"], "evidence artifact tip must match exact current task/PR head")
+        require(authority.get("principals", {}).get("author") == task["author_id"], "evidence author differs from current task")
+        require(task["owner_id"] is None or authority.get("owner_id") == task["owner_id"], "evidence owner differs from current task")
+        require(authority.get("status") == task["status"], "evidence stop/status observation differs from current task")
+        source_task = evidence_policy.GitObjects(packet["objects"]).json(authority["task_ref"])
+        require(source_task.get("id") == task["id"], "evidence task differs")
+        require({c["id"] for c in source_task.get("completion_criteria", [])} == set(task["criteria"]), "evidence narrows canonical criteria")
+        function = evidence_policy.evaluate_completion if operation == "completion" else evidence_policy.evaluate_admission
+        return function(authority, packet["submission"], packet["objects"], at)
+    except (InputError, evidence_policy.PolicyError, ValueError, TypeError, KeyError, AttributeError) as exc:
+        return {"status": "INPUT_REQUIRED", "issues": [{"code": "EVIDENCE_POLICY_REQUIRED", "detail": str(exc)}]}
+
+
+def acceptance(task, pr, snapshot, at=None):
+    """Public acceptance helper requires both legacy safety facts and full proof."""
+    passed, rejected, conflicting = _acceptance_observations(task, pr, snapshot)
+    if at is None:
+        return False, rejected, conflicting
+    proof = _policy_gate(snapshot, task, "completion", at)
+    return passed and proof["status"] == "ACCEPTABLE", rejected, conflicting
 
 
 def evaluate(snapshot, at):
@@ -351,7 +396,12 @@ def evaluate(snapshot, at):
         if task["status"] == "blocked" and (not task["needs"] or not any(b["task_id"] in {tid, "*"} and b["repository"] == repo for b in snapshot["blockers"])):
             warnings.append(f"{tid}: blocked task lacks operation accounting")
             continue
-        accepted, rejected, conflicting = acceptance(task, pr, snapshot) if pr else (False, False, False)
+        accepted, rejected, conflicting = _acceptance_observations(task, pr, snapshot) if pr else (False, False, False)
+        if accepted:
+            proof = _policy_gate(snapshot, task, "completion", at)
+            if proof["status"] != "ACCEPTABLE":
+                accepted = False
+                warnings.append(f"{tid}: evidence acceptance required: " + ",".join(i["code"] for i in proof.get("issues", [])))
         if conflicting:
             warnings.append(f"{tid}: contradictory same-head review verdicts")
             disputed_tasks.add(tid)
@@ -405,6 +455,13 @@ def evaluate(snapshot, at):
     for tid, repo, head, operation, task, pr, accepted in opportunities:
         for ex in [e for e in snapshot["executors"] if e["repository"] == repo]:
             reasons = []
+            # Filing an unfiled ask is reconciliation, not production admission.
+            # Existing read-only verification stays possible to repair evidence.
+            if task and operation in {"implementation", "upload", "merge"}:
+                gate = _policy_gate(snapshot, task, "completion" if operation == "merge" else "admission", at)
+                expected = "ACCEPTABLE" if operation == "merge" else "ADMISSIBLE"
+                if gate["status"] != expected:
+                    reasons.append("INPUT_REQUIRED: evidence policy " + ",".join(i["code"] for i in gate.get("issues", [])))
             if tid in disputed_tasks and operation != "verification":
                 reasons.append("ACCEPTANCE_RECONCILIATION_REQUIRED")
             # Complete safety/ownership scope is mandatory. Acceptance-only

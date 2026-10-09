@@ -16,7 +16,7 @@ This boundary applies to any externally performed merge, conflict-resolution pus
 
 | Task | Work | Status | Owner | Review | Updated (UTC) |
 |---|---|---|---|---|---|
-| ops-coordinator-enforcement-20261009 | Script scoped blockers, task rotation, executor capacity and truthful idle decisions | in_review — v5 correction candidate; independent acceptance pending | dot — coordinator enforcement; one native implementation author, separate independent reviewer | Registration merged as PR #393; PR #396 v1–v4 independently reviewed with changes required; corrected exact-head review pending | 2026-10-09 14:13 |
+| ops-coordinator-enforcement-20261009 | Script scoped blockers, task rotation, executor capacity and truthful idle decisions | accepted and merged — PR396 review5471277399; merge39aa747c7f1f35393a316faebd942386579ff913 | dot — coordinator enforcement; one native implementation author, separate independent reviewer | Registration PR393; final PR396 independently accepted and merged at2026-10-09T14:17:33Z; runtime attestation remains unconfirmed; no live collector installed | 2026-10-09 14:17 |
 
 Craig requested scripted enforcement and repository-owned reusable coordinator logic on 2026-10-09. This row registers that bounded central-repository work; it does not register a live implementation worker, accept code or change any existing game task's owner/status.
 
@@ -29,7 +29,7 @@ Craig requested scripted enforcement and repository-owned reusable coordinator l
 - **Bounded v4 correction — 2026-10-09 14:00 UTC:** v3 `b0b3c8a465c0cfd6b1b03fc87092094dbf29a457` is retained with its changes-required review. [The recorded amendment](https://github.com/doublehidenblade/game-dev-central/pull/396#issuecomment-6082442592) allows only the independently reproduced acceptance-isolation repair: conflicting same-head PASS/FAIL acceptance must retain a separately authorized, explicitly needed independent read-only verification path, while conflict warnings, acceptance/mutation blocks and all source/ownership/capability/stops remain. Both open and merged regression probes are retained. The original 14:46:40 UTC outer deadline and separate exact-head review remain; evidence-feedback framework work is outside this task.
 - **Bounded v5 correction — 2026-10-09 14:11 UTC:** v4 `bf4251a0c63464bf91457352e2bd3e504b5904c4` is retained. Independent review reproduced a remaining same-family defect: removing verification from a merged task's needs hid its known same-head conflicting acceptance and could recommend upload or false idle. The coordinator authorized a bounded correction to resolve known immutable source/acceptance independently of the requested operation list, within the original 14:46:40 UTC deadline. The unchanged independent 128-case needs matrix and two-case hold-invariance probe are retained; unrelated operation-specific source requirements are not broadened. Independent exact-head acceptance remains pending.
 - **Preflight:** central main `0b4f00e6c5fa810ad2e8e2a94758c9ba60e8a354`; canonical rules, board, registry, log and current state read; all 100 open PR changed-file lists and 322 branch names checked. No open PR changes `RUNBOOK.md`, `watch.py` or `test_rules.py`; PR143 touches `COORDINATOR.md`. The complete tree has no GitHub Actions workflow files. The legacy registry and empty worker ledger are not proof that outside sessions are idle; this reservation grants no game-task takeover.
-- **Boundaries:** the original registration changed only this runbook; this candidate implements its bounded read-only enforcement scope. No legacy watcher execution, live queue/state/ledger writes, automatic dispatch, external-agent contact, Actions, deployment, provider/security workaround or stopped-operation retry. Existing td-200/216 upload denials and central PR374/376/368 plus Tokyo PR553 holds stay unchanged. Shuto stays frozen; NEON stays paused. Registration was independently reviewed and merged as PR #393. One scoped native author started 12:46:40 UTC with Python 3.12.14, reverified for the v5 correction; requested model/effort remains distinct from runtime attestation. This implementation now requires separate exact-head acceptance; no additional user-approval gate is introduced.
+- **Boundaries:** the original registration changed only this runbook; this candidate implements its bounded read-only enforcement scope. No legacy watcher execution, live queue/state/ledger writes, automatic dispatch, external-agent contact, Actions, deployment, provider/security workaround or stopped-operation retry. Existing td-200/216 upload denials and central PR374/376/368 plus Tokyo PR553 holds stay unchanged. Shuto stays frozen; NEON stays paused. Registration was independently reviewed and merged as PR #393. One scoped native author started 12:46:40 UTC with Python 3.12.14, reverified for the v5 correction; requested model/effort remains distinct from runtime attestation. PR396 received independent exact-head acceptance in review5471277399 and merged as39aa747c7f1f35393a316faebd942386579ff913 at2026-10-09T14:17:33Z. Requested/native selection remains distinct from runtime attestation; no live collector or dispatcher is installed. Later evidence-policy changes require their own independent acceptance; no additional user-approval gate is introduced.
 
 ## Supported coordinator route (2026-10-09)
 
@@ -327,3 +327,26 @@ It asserts no input mutation, tests actual CLI/imported aliases, and replays
 scoped holds, task rotation, ownership, admission/review, incomplete manifests,
 exact-head acceptance, denied routes, requested-versus-observed setup and replay
 invalidation. Test-only clocks/fixtures are never live dispatch evidence.
+
+## Evidence-feedback policy integration (2026-10-09)
+
+Read [EVIDENCE_POLICY.md](EVIDENCE_POLICY.md) before constructing an admission or
+completion packet. The coordinator independently supplies current authority,
+complete canonical rule inventory, task/source scope, ownership/stops and
+actor-observation receipts. Worker submissions do not establish authority.
+Raw Git commit/tree/blob objects prove immutable artifact membership.
+
+Use `watch.py brief-check --authority <file> --submission <file> --objects <file>`
+for admission and `watch.py acceptance-check` with the same arguments for
+completion. `evidence-check`, `evidence-checks` and `validator-check` use the
+same completion result; exit 2 is missing input, exit 3 is a denied/stopped gate.
+No positional/header-only or filename-only route grants acceptance.
+
+Include each task's `{authority, submission, objects}` packet in
+`snapshot.evidence_policy[task_id]` before coordinator implementation/upload or
+merge decisions. All PR396 source/permission/owner/stop/operation guards remain.
+Missing/conflicting completion evidence must not suppress independently
+permitted read-only verification; it still blocks acceptance/merge. An unfiled
+ask's admission action is registration only, not production implementation.
+No workflow dispatch, deployment, external contact or queue/ledger write follows
+from a policy result. Explicit human visual/device judgments stay separate.

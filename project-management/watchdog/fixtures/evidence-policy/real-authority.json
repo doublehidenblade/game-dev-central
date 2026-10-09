@@ -1,0 +1,136 @@
+{
+  "attestations": [],
+  "candidate": {
+    "artifact_head": "b5e8dc601db5b40dd713981db7577022047699c0",
+    "implementation_head": "b5e8dc601db5b40dd713981db7577022047699c0",
+    "repository": "doublehidenblade/game-dev-central"
+  },
+  "decisions": [],
+  "exclusions": {},
+  "findings": [
+    {
+      "code": "REVIEW_RECHECK_PENDING_C1_C3",
+      "coverage": [
+        "C1"
+      ],
+      "criterion_id": "C1",
+      "evidence": [
+        {
+          "blob": "722ff1eceb29186e9ad74a217bce061c3908d56b",
+          "commit": "b5e8dc601db5b40dd713981db7577022047699c0",
+          "path": "project-management/watchdog/fixtures/evidence-policy/review-regressions/contradictory-current-failure.packet.json",
+          "repository": "doublehidenblade/game-dev-central"
+        }
+      ],
+      "fingerprint": "92881b19050cdd3f4d13dacb599633af91d1343b115dd2e0242ad6c3a1ca2319",
+      "head": "b5e8dc601db5b40dd713981db7577022047699c0",
+      "id": "independent-C1-recheck",
+      "limitations": [
+        "Original independent counterexample targets source6e7c4e91; retained unchanged here. Corrected source requires independent recheck; this is not a claim the old defect still reproduces."
+      ],
+      "observed_at": "2026-10-09T15:12:37.685414+00:00",
+      "repository": "doublehidenblade/game-dev-central",
+      "task_id": "ops-evidence-feedback-enforcement-20261009"
+    },
+    {
+      "code": "REVIEW_RECHECK_PENDING_C2",
+      "coverage": [
+        "C2"
+      ],
+      "criterion_id": "C2",
+      "evidence": [
+        {
+          "blob": "0ca707fea0b36f5996018b832a980a00144c10de",
+          "commit": "b5e8dc601db5b40dd713981db7577022047699c0",
+          "path": "project-management/watchdog/fixtures/evidence-policy/review-regressions/required-command-document-only-plan.packet.json",
+          "repository": "doublehidenblade/game-dev-central"
+        }
+      ],
+      "fingerprint": "d6beb474d9a16032d6ea78e6aeb58fbfae86ce3ad2c5a26a26644b71a660ae82",
+      "head": "b5e8dc601db5b40dd713981db7577022047699c0",
+      "id": "independent-C2-recheck",
+      "limitations": [
+        "Original independent counterexample targets source6e7c4e91; retained unchanged here. Corrected source requires independent recheck; this is not a claim the old defect still reproduces."
+      ],
+      "observed_at": "2026-10-09T15:12:37.685414+00:00",
+      "repository": "doublehidenblade/game-dev-central",
+      "task_id": "ops-evidence-feedback-enforcement-20261009"
+    }
+  ],
+  "observed_at": "2026-10-09T15:12:37.685414+00:00",
+  "owner_id": "dot native evidence-framework author (sole author; selected gpt-6-astra/xhigh)",
+  "principals": {
+    "author": "dot native evidence-framework author (sole author; selected gpt-6-astra/xhigh)",
+    "coordinator": "dot evidence-framework coordinator",
+    "human": null,
+    "reviewer": "Independent evidence-policy reviewer; final verdict pending"
+  },
+  "rule_heads": {
+    "doublehidenblade/game-dev-central": "5a4cd025b879447eca032d81cb4464241f09537f"
+  },
+  "rules": [
+    {
+      "id": "COORDINATOR.md",
+      "ref": {
+        "blob": "58786d160ad1bc509a7ee74df030988056389308",
+        "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+        "path": "COORDINATOR.md",
+        "repository": "doublehidenblade/game-dev-central"
+      }
+    },
+    {
+      "id": "knowledge/standing-rules.md",
+      "ref": {
+        "blob": "01b19a267622992cbe7713f856e2c2bcf87b1e50",
+        "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+        "path": "knowledge/standing-rules.md",
+        "repository": "doublehidenblade/game-dev-central"
+      }
+    },
+    {
+      "id": "project-management/rules/SYSTEM.md",
+      "ref": {
+        "blob": "08226c75366dfa25133fcd058477b4b854febaf2",
+        "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+        "path": "project-management/rules/SYSTEM.md",
+        "repository": "doublehidenblade/game-dev-central"
+      }
+    },
+    {
+      "id": "project-management/rules/WORKER_BRIEF.md",
+      "ref": {
+        "blob": "95dc23587561489931e897f9a58c7be0c2202e7d",
+        "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+        "path": "project-management/rules/WORKER_BRIEF.md",
+        "repository": "doublehidenblade/game-dev-central"
+      }
+    },
+    {
+      "id": "project-management/rules/VALIDATOR_BRIEF.md",
+      "ref": {
+        "blob": "405469fad99355eb23b01551c92c0c74693e75fe",
+        "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+        "path": "project-management/rules/VALIDATOR_BRIEF.md",
+        "repository": "doublehidenblade/game-dev-central"
+      }
+    },
+    {
+      "id": "project-management/rules/WORKER_SELECTION_POLICY.md",
+      "ref": {
+        "blob": "343d3e3f8db6976789d4a631ca38619b6c27dc0e",
+        "commit": "5a4cd025b879447eca032d81cb4464241f09537f",
+        "path": "project-management/rules/WORKER_SELECTION_POLICY.md",
+        "repository": "doublehidenblade/game-dev-central"
+      }
+    }
+  ],
+  "status": "in_review",
+  "stopped": false,
+  "task_ref": {
+    "blob": "df5e6c93edf95fde287bb93cdc5456b74fa2ff13",
+    "commit": "b5e8dc601db5b40dd713981db7577022047699c0",
+    "path": "project-management/tasks/ops-evidence-feedback-enforcement-20261009.json",
+    "repository": "doublehidenblade/game-dev-central"
+  },
+  "version": 1
+}

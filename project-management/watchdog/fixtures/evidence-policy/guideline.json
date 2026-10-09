@@ -1,0 +1,311 @@
+{
+  "authority": {
+    "attestations": [
+      {
+        "actor_id": "test-observer",
+        "kind": "execution",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "provenance": "Authenticated test collector record; synthetic fixture identity",
+        "ref": {
+          "blob": "c3ffd503f799903008b1eefd1ae63224f65ecbb2",
+          "commit": "520baeeac1e1d624136e4870dd605629a9de447a",
+          "path": "qa/test.json",
+          "repository": "example/evidence-policy"
+        }
+      },
+      {
+        "actor_id": "reviewer-B",
+        "kind": "review",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "provenance": "Authenticated test collector record; synthetic fixture identity",
+        "ref": {
+          "blob": "750de5815537e11d9a9902d8623d404c6dfa13a0",
+          "commit": "64960937737d23e6e6d6b1b6f3be47bb63b14b08",
+          "path": "qa/review-verdict.json",
+          "repository": "example/evidence-policy"
+        }
+      },
+      {
+        "actor_id": "regression-observer",
+        "kind": "execution",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "provenance": "Authenticated test collector record; synthetic fixture identity",
+        "ref": {
+          "blob": "8a8a79ae4fb9f90c606a666eeb5385f05b3e543a",
+          "commit": "10ec73dabe5fa4a60947c92b6ce8b523ae278b68",
+          "path": "regression-log.json",
+          "repository": "example/evidence-policy"
+        }
+      },
+      {
+        "actor_id": "coordinator-A",
+        "kind": "decision",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "provenance": "Authenticated test collector record; synthetic fixture identity",
+        "ref": {
+          "blob": "a48a11a043211ed3724681469b5d7197434bd0c1",
+          "commit": "1256664739547b7bb41f9a05497f00b4cacda16d",
+          "path": "decision.json",
+          "repository": "example/evidence-policy"
+        }
+      }
+    ],
+    "candidate": {
+      "artifact_head": "1256664739547b7bb41f9a05497f00b4cacda16d",
+      "implementation_head": "6b53a35a2faac7d54a499c887aa8e3fa46eaf429",
+      "repository": "example/evidence-policy"
+    },
+    "decisions": [
+      {
+        "blob": "a48a11a043211ed3724681469b5d7197434bd0c1",
+        "commit": "1256664739547b7bb41f9a05497f00b4cacda16d",
+        "path": "decision.json",
+        "repository": "example/evidence-policy"
+      }
+    ],
+    "exclusions": {},
+    "findings": [
+      {
+        "code": "MISSING_EVIDENCE",
+        "coverage": [
+          "instance-A"
+        ],
+        "criterion_id": "C1",
+        "evidence": [
+          {
+            "blob": "838236970289f96ec963f61a824c53339ae439cd",
+            "commit": "6b53a35a2faac7d54a499c887aa8e3fa46eaf429",
+            "path": "broken.json",
+            "repository": "example/evidence-policy"
+          }
+        ],
+        "fingerprint": "e8e3d52ce9e90257383ec2b9e12239dc273f7377e102c83a70fb385913d580a3",
+        "head": "6b53a35a2faac7d54a499c887aa8e3fa46eaf429",
+        "id": "F1",
+        "limitations": [],
+        "observed_at": "2026-10-09T14:00:00Z",
+        "repository": "example/evidence-policy",
+        "task_id": "ops-example"
+      }
+    ],
+    "observed_at": "2026-10-09T14:00:00Z",
+    "owner_id": "worker-A",
+    "principals": {
+      "author": "worker-A",
+      "coordinator": "coordinator-A",
+      "human": null,
+      "reviewer": "reviewer-B"
+    },
+    "rule_heads": {
+      "example/evidence-policy": "7c7b9d45d6bd39740d0b818fcc5ae84f74fc6418"
+    },
+    "rules": [
+      {
+        "id": "R1",
+        "ref": {
+          "blob": "1b2fffa2a86fa8e4486e7a6b06b02834f5d6466d",
+          "commit": "7c7b9d45d6bd39740d0b818fcc5ae84f74fc6418",
+          "path": "rules.md",
+          "repository": "example/evidence-policy"
+        }
+      }
+    ],
+    "status": "in_review",
+    "stopped": false,
+    "task_ref": {
+      "blob": "a142e4a3adaeb16147fc675dec2affec7085d5ef",
+      "commit": "6b53a35a2faac7d54a499c887aa8e3fa46eaf429",
+      "path": "task.json",
+      "repository": "example/evidence-policy"
+    },
+    "version": 1
+  },
+  "evaluated_at": "2026-10-09T14:00:00Z",
+  "objects": {
+    "example/evidence-policy": {
+      "10ec73dabe5fa4a60947c92b6ce8b523ae278b68": {
+        "base64": "dHJlZSA2NjA2YThmMmUwMzY2NjNlZjFmMjI4NmI1ZjRjZjU5ZTIyMzg5MmU1CnBhcmVudCAyNTU1OTk5ZDI5NzIxMDZkZDU4NGRkNTBkMjlmNWU0NjdmMGRlOWRmCmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg==",
+        "type": "commit"
+      },
+      "1256664739547b7bb41f9a05497f00b4cacda16d": {
+        "base64": "dHJlZSAzNzFlZDY4NzFhMmFlZDdlYzYyNDU3ZGRlZGE4ZjFiYTJlMzY1ZWM5CnBhcmVudCAxMGVjNzNkYWJlNWZhNGE2MDk0N2M5MmI2Y2U4YjUyM2FlMjc4YjY4CmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg==",
+        "type": "commit"
+      },
+      "188df3b2e39ffe160d3e0e7f5ede95dc46824a72": {
+        "base64": "MTAwNjQ0IHJldmlldy12ZXJkaWN0Lmpzb24AdQ3lgVU34R2amQLYYj1ATG36E6AxMDA2NDQgdGVzdC5qc29uAMP/1QP3mZAwCLHu/RrmMiT2Xsuy",
+        "type": "tree"
+      },
+      "1b2fffa2a86fa8e4486e7a6b06b02834f5d6466d": {
+        "base64": "IyBSMQpSZXF1aXJlIHNvdXJjZS1ib3VuZCBldmlkZW5jZSBiZWZvcmUgYWRtaXNzaW9uIGFuZCBjb21wbGV0aW9uOyBtaXNzaW5nIGV2aWRlbmNlIGZhaWxzLgo=",
+        "type": "blob"
+      },
+      "2555999d2972106dd584dd50d29f5e467f0de9df": {
+        "base64": "dHJlZSBmOTljOWQwMTVlOWFlZGEyYWJkMmM2Yzc1N2IzYTUwYjY1NTRhZjMwCnBhcmVudCA3YzdiOWQ0NWQ2YmQzOTc0MGQwYjgxOGZjYzVhZTg0Zjc0ZmM2NDE4CmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg==",
+        "type": "commit"
+      },
+      "365e05a35e551323fdb4364a413635bc0033532f": {
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNMTAwNjQ0IHJ1bGVzLm1kAFS9fReqWXOy+yRxpm+uXcqTZ99WNDAwMDAgc3JjAHs12zbKPnPnulxGfo3L1Mp+w4bDMTAwNjQ0IHRhc2suanNvbgChQuSjra6xYUf8Z13sKv/scIXV7w==",
+        "type": "tree"
+      },
+      "371ed6871a2aed7ec62457ddeda8f1ba2e365ec9": {
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNMTAwNjQ0IGRlY2lzaW9uLmpzb24ApIoRoEMhHtNyRoFGm11xl0NL0MExMDA2NDQgZGVsdGEuanNvbgBAKdiLQAjDu3xm8gljvuXuaJ45EDQwMDAwIHFhABiN87Ljn/4WDT4Of17eldxGgkpyMTAwNjQ0IHJlZ3Jlc3Npb24tbG9nLmpzb24Aiop5rk+5+QxgamZu61OF8Fs+VDoxMDA2NDQgcmVncmVzc2lvbi5weQC0SGu9qoEs0GFqozPld3bfj/0yODEwMDY0NCBydWxlcy5tZAAbL/+iqG+o5EhuemsGsCg09dZGbTQwMDAwIHNyYwB7Nds2yj5z57pcRn6Ny9TKfsOGwzEwMDY0NCB0YXNrLmpzb24AoULko62usWFH/Gdd7Cr/7HCF1e8=",
+        "type": "tree"
+      },
+      "4029d88b4008c3bb7c66f20963bee5ee689e3910": {
+        "base64": "eyJhZnRlciI6IHsiYmxvYiI6ICIxYjJmZmZhMmE4NmZhOGU0NDg2ZTdhNmIwNmIwMjgzNGY1ZDY0NjZkIiwgImNvbW1pdCI6ICI3YzdiOWQ0NWQ2YmQzOTc0MGQwYjgxOGZjYzVhZTg0Zjc0ZmM2NDE4IiwgInBhdGgiOiAicnVsZXMubWQiLCAicmVwb3NpdG9yeSI6ICJleGFtcGxlL2V2aWRlbmNlLXBvbGljeSJ9LCAiYmVmb3JlIjogeyJibG9iIjogIjU0YmQ3ZDE3YWE1OTczYjJmYjI0NzFhNjZmYWU1ZGNhOTM2N2RmNTYiLCAiY29tbWl0IjogIjZiNTNhMzVhMmZhYWM3ZDU0YTQ5OWM4ODdhYThlM2ZhNDZlYWY0MjkiLCAicGF0aCI6ICJydWxlcy5tZCIsICJyZXBvc2l0b3J5IjogImV4YW1wbGUvZXZpZGVuY2UtcG9saWN5In0sICJpbmNpZGVudCI6ICJNaXNzaW5nIGFydGlmYWN0IHdhcyBwcmV2aW91c2x5IGNsYWltZWQgY29tcGxldGUifQ==",
+        "type": "blob"
+      },
+      "47f7399c3c9e9d9392bd599b808894c8a95da27b": {
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNNDAwMDAgcWEAGI3zsuOf/hYNPg5/Xt6V3EaCSnIxMDA2NDQgcmVncmVzc2lvbi5weQC0SGu9qoEs0GFqozPld3bfj/0yODEwMDY0NCBydWxlcy5tZAAbL/+iqG+o5EhuemsGsCg09dZGbTQwMDAwIHNyYwB7Nds2yj5z57pcRn6Ny9TKfsOGwzEwMDY0NCB0YXNrLmpzb24AoULko62usWFH/Gdd7Cr/7HCF1e8=",
+        "type": "tree"
+      },
+      "520baeeac1e1d624136e4870dd605629a9de447a": {
+        "base64": "dHJlZSBjNDkwYTBhOTgwOGMxMjBkYTIzZDVlMDgyMzMzZmM2NGVjNTAyODA0CnBhcmVudCA2YjUzYTM1YTJmYWFjN2Q1NGE0OTljODg3YWE4ZTNmYTQ2ZWFmNDI5CmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg==",
+        "type": "commit"
+      },
+      "54bd7d17aa5973b2fb2471a66fae5dca9367df56": {
+        "base64": "IyBSMQpFdmVyeSBhcHBsaWNhYmxlIGNyaXRlcmlvbiBuZWVkcyBpbmRlcGVuZGVudCBpbnNwZWN0aW9uLgo=",
+        "type": "blob"
+      },
+      "58a1486ea634a2dd05faf2adb981f115f1f1135b": {
+        "base64": "MTAwNjQ0IHRlc3QuanNvbgDD/9UD95mQMAix7v0a5jIk9l7Lsg==",
+        "type": "tree"
+      },
+      "64960937737d23e6e6d6b1b6f3be47bb63b14b08": {
+        "base64": "dHJlZSBhMmFmZjg0ZTY2MGM0NWIxZGNjNDQzYjRmMWFkNDJhZDhlMTQxNzMwCnBhcmVudCA1MjBiYWVlYWMxZTFkNjI0MTM2ZTQ4NzBkZDYwNTYyOWE5ZGU0NDdhCmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg==",
+        "type": "commit"
+      },
+      "6606a8f2e036663ef1f2286b5f4cf59e223892e5": {
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNMTAwNjQ0IGRlbHRhLmpzb24AQCnYi0AIw7t8ZvIJY77l7mieORA0MDAwMCBxYQAYjfOy45/+Fg0+Dn9e3pXcRoJKcjEwMDY0NCByZWdyZXNzaW9uLWxvZy5qc29uAIqKea5PufkMYGpmbutThfBbPlQ6MTAwNjQ0IHJlZ3Jlc3Npb24ucHkAtEhrvaqBLNBhaqMz5Xd234/9MjgxMDA2NDQgcnVsZXMubWQAGy//oqhvqORIbnprBrAoNPXWRm00MDAwMCBzcmMAezXbNso+c+e6XEZ+jcvUyn7DhsMxMDA2NDQgdGFzay5qc29uAKFC5KOtrrFhR/xnXewq/+xwhdXv",
+        "type": "tree"
+      },
+      "6b53a35a2faac7d54a499c887aa8e3fa46eaf429": {
+        "base64": "dHJlZSAzNjVlMDVhMzVlNTUxMzIzZmRiNDM2NGE0MTM2MzViYzAwMzM1MzJmCmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg==",
+        "type": "commit"
+      },
+      "750de5815537e11d9a9902d8623d404c6dfa13a0": {
+        "base64": "eyJhY3Rvcl9pZCI6ICJyZXZpZXdlci1CIiwgImF1dGhvcml0eV9kaWdlc3QiOiAiZWUzMTNlYzUzZDlkNjRmNjRlMGYwYzMxZTg3M2IwMjA5MmViOWIyMWI0MjAwNjY5NTkzMzJhMDdjZDMxNDQ3ZCIsICJjYW5kaWRhdGVfaGVhZCI6ICI2YjUzYTM1YTJmYWFjN2Q1NGE0OTljODg3YWE4ZTNmYTQ2ZWFmNDI5IiwgImNyaXRlcmlhIjogeyJDMSI6IHsiY2l0YXRpb25zIjogW3siYmxvYiI6ICJjM2ZmZDUwM2Y3OTk5MDMwMDhiMWVlZmQxYWU2MzIyNGY2NWVjYmIyIiwgImNvbW1pdCI6ICI1MjBiYWVlYWMxZTFkNjI0MTM2ZTQ4NzBkZDYwNTYyOWE5ZGU0NDdhIiwgInBhdGgiOiAicWEvdGVzdC5qc29uIiwgInJlcG9zaXRvcnkiOiAiZXhhbXBsZS9ldmlkZW5jZS1wb2xpY3kifV0sICJkZWNpc2lvbiI6ICJQQVNTIiwgImV2aWRlbmNlX2lkcyI6IFsiRTAiXSwgInJhdGlvbmFsZSI6ICJPcmlnaW5hbCBldmlkZW5jZSBpbnNwZWN0ZWQgYW5kIG1hcHBlZCBpbnN0YW5jZSBjaGVja2VkIn19LCAiZXZpZGVuY2VfZGlnZXN0IjogImUzMGFhOGQ3ZTI2MjY2ZWQ4NjMzYjViNDQ2YjQ4MTU5NzQ4NTc3NjdkZmU3ZGJhYTNmNDY5MjBkOTI4OWEwZmEiLCAicGVyZm9ybWVkX2F0IjogIjIwMjYtMTAtMDlUMTQ6MDA6MDBaIiwgInRhc2tfaWQiOiAib3BzLWV4YW1wbGUifQ==",
+        "type": "blob"
+      },
+      "7b35db36ca3e73e7ba5c467e8dcbd4ca7ec386c3": {
+        "base64": "MTAwNjQ0IHNvdXJjZS5weQD4zDMu1ugvAnHbDjZ5HIXU1WEz8A==",
+        "type": "tree"
+      },
+      "7c7b9d45d6bd39740d0b818fcc5ae84f74fc6418": {
+        "base64": "dHJlZSA0N2Y3Mzk5YzNjOWU5ZDkzOTJiZDU5OWI4MDg4OTRjOGE5NWRhMjdiCnBhcmVudCA2NDk2MDkzNzczN2QyM2U2ZTZkNmIxYjZmM2JlNDdiYjYzYjE0YjA4CmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg==",
+        "type": "commit"
+      },
+      "838236970289f96ec963f61a824c53339ae439cd": {
+        "base64": "eyJjb2RlIjogIk1JU1NJTkdfRVZJREVOQ0UiLCAiZGVmZWN0IjogIm1pc3NpbmcgZXZpZGVuY2UifQ==",
+        "type": "blob"
+      },
+      "8a8a79ae4fb9f90c606a666eeb5385f05b3e543a": {
+        "base64": "eyJhY3Rvcl9pZCI6ICJyZWdyZXNzaW9uLW9ic2VydmVyIiwgImFzc2VydGlvbiI6IHsiYmxvYiI6ICJiNDQ4NmJiZGFhODEyY2QwNjE2YWEzMzNlNTc3NzZkZjhmZmQzMjM4IiwgImNvbW1pdCI6ICI3YzdiOWQ0NWQ2YmQzOTc0MGQwYjgxOGZjYzVhZTg0Zjc0ZmM2NDE4IiwgInBhdGgiOiAicmVncmVzc2lvbi5weSIsICJyZXBvc2l0b3J5IjogImV4YW1wbGUvZXZpZGVuY2UtcG9saWN5In0sICJicm9rZW5fZml4dHVyZSI6IHsiYmxvYiI6ICI4MzgyMzY5NzAyODlmOTZlYzk2M2Y2MWE4MjRjNTMzMzlhZTQzOWNkIiwgImNvbW1pdCI6ICI2YjUzYTM1YTJmYWFjN2Q1NGE0OTljODg3YWE4ZTNmYTQ2ZWFmNDI5IiwgInBhdGgiOiAiYnJva2VuLmpzb24iLCAicmVwb3NpdG9yeSI6ICJleGFtcGxlL2V2aWRlbmNlLXBvbGljeSJ9LCAiY29tbWFuZCI6IFsicHl0aG9uMyIsICJyZWdyZXNzaW9uLnB5IiwgImJyb2tlbi5qc29uIl0sICJleGl0X2NvZGUiOiAxLCAiZmFpbHVyZV9jb2RlIjogIk1JU1NJTkdfRVZJREVOQ0UiLCAib2JzZXJ2ZWRfb3V0cHV0IjogIkFzc2VydGlvbkVycm9yOiBNSVNTSU5HX0VWSURFTkNFIiwgInBlcmZvcm1lZF9hdCI6ICIyMDI2LTEwLTA5VDE0OjAwOjAwWiIsICJydWxlX2RlbHRhIjogeyJibG9iIjogIjQwMjlkODhiNDAwOGMzYmI3YzY2ZjIwOTYzYmVlNWVlNjg5ZTM5MTAiLCAiY29tbWl0IjogIjI1NTU5OTlkMjk3MjEwNmRkNTg0ZGQ1MGQyOWY1ZTQ2N2YwZGU5ZGYiLCAicGF0aCI6ICJkZWx0YS5qc29uIiwgInJlcG9zaXRvcnkiOiAiZXhhbXBsZS9ldmlkZW5jZS1wb2xpY3kifX0=",
+        "type": "blob"
+      },
+      "a142e4a3adaeb16147fc675dec2affec7085d5ef": {
+        "base64": "eyJjb21wbGV0aW9uX2NyaXRlcmlhIjogW3siY3JpdGVyaW9uIjogIkZpeCBldmVyeSBtYXBwZWQgaW5zdGFuY2UiLCAiaWQiOiAiQzEiLCAidmVyaWZpY2F0aW9uIjogIkluc3BlY3Qgb3JpZ2luYWwgZXhhY3QtaGVhZCBldmlkZW5jZSJ9XSwgImV2aWRlbmNlX3BvbGljeSI6IHsiQzEiOiB7ImFwcGxpY2FiaWxpdHkiOiAicmVxdWlyZWQiLCAiYnVpbGQiOiB7ImVudmlyb25tZW50IjogInB5dGhvbi0zLjEyIiwgImlkIjogInRlc3QtYnVpbGQiLCAidmFyaWFudCI6ICJ0ZXN0In0sICJjaGVja3MiOiBbeyJjb21tYW5kIjogWyJweXRob24zIiwgInRlc3Rfc291cmNlLnB5Il0sICJpZCI6ICJ1bml0In1dLCAiaW5zdGFuY2VzIjogWyJpbnN0YW5jZS1BIl0sICJyYXRpb25hbGUiOiAiQ2Fub25pY2FsIHRhc2sgcmVxdWlyZXMgdGhpcyBjcml0ZXJpb24iLCAicnVsZV9pZCI6ICJSMSIsICJzb3VyY2VfcGF0aHMiOiBbInNyYy9zb3VyY2UucHkiXSwgInZpc3VhbCI6IGZhbHNlfX0sICJldmlkZW5jZV9ydWxlX2ludmVudG9yeSI6IFt7ImlkIjogIlIxIiwgInBhdGgiOiAicnVsZXMubWQiLCAicmVwb3NpdG9yeSI6ICJleGFtcGxlL2V2aWRlbmNlLXBvbGljeSJ9XSwgImlkIjogIm9wcy1leGFtcGxlIn0=",
+        "type": "blob"
+      },
+      "a2aff84e660c45b1dcc443b4f1ad42ad8e141730": {
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNNDAwMDAgcWEAGI3zsuOf/hYNPg5/Xt6V3EaCSnIxMDA2NDQgcnVsZXMubWQAVL19F6pZc7L7JHGmb65dypNn31Y0MDAwMCBzcmMAezXbNso+c+e6XEZ+jcvUyn7DhsMxMDA2NDQgdGFzay5qc29uAKFC5KOtrrFhR/xnXewq/+xwhdXv",
+        "type": "tree"
+      },
+      "a48a11a043211ed3724681469b5d7197434bd0c1": {
+        "base64": "eyJhY3Rvcl9pZCI6ICJjb29yZGluYXRvci1BIiwgImNpdGF0aW9ucyI6IFt7ImJsb2IiOiAiODM4MjM2OTcwMjg5Zjk2ZWM5NjNmNjFhODI0YzUzMzM5YWU0MzljZCIsICJjb21taXQiOiAiNmI1M2EzNWEyZmFhYzdkNTRhNDk5Yzg4N2FhOGUzZmE0NmVhZjQyOSIsICJwYXRoIjogImJyb2tlbi5qc29uIiwgInJlcG9zaXRvcnkiOiAiZXhhbXBsZS9ldmlkZW5jZS1wb2xpY3kifV0sICJkZXRhaWwiOiB7ImNvbnRleHRzIjogWyJjb21wbGV0aW9uIiwgImFkbWlzc2lvbiJdLCAiZGVsdGFfcmVmIjogeyJibG9iIjogIjQwMjlkODhiNDAwOGMzYmI3YzY2ZjIwOTYzYmVlNWVlNjg5ZTM5MTAiLCAiY29tbWl0IjogIjI1NTU5OTlkMjk3MjEwNmRkNTg0ZGQ1MGQyOWY1ZTQ2N2YwZGU5ZGYiLCAicGF0aCI6ICJkZWx0YS5qc29uIiwgInJlcG9zaXRvcnkiOiAiZXhhbXBsZS9ldmlkZW5jZS1wb2xpY3kifSwgImluY2lkZW50IjogIk1pc3NpbmcgYXJ0aWZhY3Qgd2FzIHByZXZpb3VzbHkgY2xhaW1lZCBjb21wbGV0ZSIsICJpbnZhcmlhbnQiOiAiTWlzc2luZyBzb3VyY2UtYm91bmQgZXZpZGVuY2UgbXVzdCBmYWlsIGV2ZXJ5IGFkbWlzc2lvbiByb3V0ZSIsICJwcmV2aW91c19ydWxlIjogeyJibG9iIjogIjU0YmQ3ZDE3YWE1OTczYjJmYjI0NzFhNjZmYWU1ZGNhOTM2N2RmNTYiLCAiY29tbWl0IjogIjZiNTNhMzVhMmZhYWM3ZDU0YTQ5OWM4ODdhYThlM2ZhNDZlYWY0MjkiLCAicGF0aCI6ICJydWxlcy5tZCIsICJyZXBvc2l0b3J5IjogImV4YW1wbGUvZXZpZGVuY2UtcG9saWN5In0sICJyZWdyZXNzaW9uX3JlZiI6IHsiYmxvYiI6ICI4YThhNzlhZTRmYjlmOTBjNjA2YTY2NmVlYjUzODVmMDViM2U1NDNhIiwgImNvbW1pdCI6ICIxMGVjNzNkYWJlNWZhNGE2MDk0N2M5MmI2Y2U4YjUyM2FlMjc4YjY4IiwgInBhdGgiOiAicmVncmVzc2lvbi1sb2cuanNvbiIsICJyZXBvc2l0b3J5IjogImV4YW1wbGUvZXZpZGVuY2UtcG9saWN5In0sICJydWxlX2lkIjogIlIxIn0sICJmaW5kaW5nX2lkcyI6IFsiRjEiXSwgImZpbmdlcnByaW50cyI6IFsiZThlM2Q1MmNlOWU5MDI1NzM4M2VjMmI5ZTEyMjM5ZGMyNzNmNzM3N2UxMDJjODNhNzBmYjM4NTkxM2Q1ODBhMyJdLCAiaWQiOiAiRDEiLCAia2luZCI6ICJyZXVzYWJsZV9ndWlkZWxpbmUiLCAicmF0aW9uYWxlIjogIlRoZSByZWNvcmRlZCBmYWlsdXJlIGlzIGFscmVhZHkgY292ZXJlZCBieSB0aGUgY3VycmVudCBydWxlIn0=",
+        "type": "blob"
+      },
+      "b4486bbdaa812cd0616aa333e57776df8ffd3238": {
+        "base64": "ZGVmIGNoZWNrKHJlY29yZCk6CiAgICBhc3NlcnQgcmVjb3JkLmdldCgnZXZpZGVuY2UnKSwgJ01JU1NJTkdfRVZJREVOQ0UnCg==",
+        "type": "blob"
+      },
+      "c3ffd503f799903008b1eefd1ae63224f65ecbb2": {
+        "base64": "eyJhY3Rvcl9pZCI6ICJ0ZXN0LW9ic2VydmVyIiwgImJ1aWxkIjogeyJlbnZpcm9ubWVudCI6ICJweXRob24tMy4xMiIsICJpZCI6ICJ0ZXN0LWJ1aWxkIiwgInZhcmlhbnQiOiAidGVzdCJ9LCAiY2hlY2tfaWQiOiAidW5pdCIsICJjb21tYW5kIjogWyJweXRob24zIiwgInRlc3Rfc291cmNlLnB5Il0sICJleGl0X2NvZGUiOiAwLCAib3V0cHV0IjogIjEgdGVzdCBwYXNzZWQ7IGFzc2VydGVkIG1hcHBlZCBpbnN0YW5jZS1BIGludmFyaWFudCIsICJwZXJmb3JtZWRfYXQiOiAiMjAyNi0xMC0wOVQxNDowMDowMFoiLCAic291cmNlX2hlYWQiOiAiNmI1M2EzNWEyZmFhYzdkNTRhNDk5Yzg4N2FhOGUzZmE0NmVhZjQyOSJ9",
+        "type": "blob"
+      },
+      "c490a0a9808c120da23d5e082333fc64ec502804": {
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNNDAwMDAgcWEAWKFIbqY0ot0F+vKtuYHxFfHxE1sxMDA2NDQgcnVsZXMubWQAVL19F6pZc7L7JHGmb65dypNn31Y0MDAwMCBzcmMAezXbNso+c+e6XEZ+jcvUyn7DhsMxMDA2NDQgdGFzay5qc29uAKFC5KOtrrFhR/xnXewq/+xwhdXv",
+        "type": "tree"
+      },
+      "f8cc332ed6e82f0271db0e36791c85d4d56133f0": {
+        "base64": "YXNzZXJ0IFRydWUK",
+        "type": "blob"
+      },
+      "f99c9d015e9aeda2abd2c6c757b3a50b6554af30": {
+        "base64": "MTAwNjQ0IGJyb2tlbi5qc29uAIOCNpcCifluyWP2GoJMUzOa5DnNMTAwNjQ0IGRlbHRhLmpzb24AQCnYi0AIw7t8ZvIJY77l7mieORA0MDAwMCBxYQAYjfOy45/+Fg0+Dn9e3pXcRoJKcjEwMDY0NCByZWdyZXNzaW9uLnB5ALRIa72qgSzQYWqjM+V3dt+P/TI4MTAwNjQ0IHJ1bGVzLm1kABsv/6Kob6jkSG56awawKDT11kZtNDAwMDAgc3JjAHs12zbKPnPnulxGfo3L1Mp+w4bDMTAwNjQ0IHRhc2suanNvbgChQuSjra6xYUf8Z13sKv/scIXV7w==",
+        "type": "tree"
+      }
+    }
+  },
+  "submission": {
+    "acknowledgment": {
+      "author_id": "worker-A",
+      "rules": [
+        {
+          "id": "R1",
+          "ref": {
+            "blob": "1b2fffa2a86fa8e4486e7a6b06b02834f5d6466d",
+            "commit": "7c7b9d45d6bd39740d0b818fcc5ae84f74fc6418",
+            "path": "rules.md",
+            "repository": "example/evidence-policy"
+          }
+        }
+      ],
+      "task_id": "ops-example"
+    },
+    "evidence": [
+      {
+        "build": {
+          "environment": "python-3.12",
+          "id": "test-build",
+          "variant": "test"
+        },
+        "check_id": "unit",
+        "criterion_id": "C1",
+        "id": "E0",
+        "instances": [
+          "instance-A"
+        ],
+        "performed_at": "2026-10-09T14:00:00Z",
+        "ref": {
+          "blob": "c3ffd503f799903008b1eefd1ae63224f65ecbb2",
+          "commit": "520baeeac1e1d624136e4870dd605629a9de447a",
+          "path": "qa/test.json",
+          "repository": "example/evidence-policy"
+        },
+        "source_head": "6b53a35a2faac7d54a499c887aa8e3fa46eaf429",
+        "type": "log"
+      }
+    ],
+    "plans": {
+      "C1": {
+        "artifacts": [
+          {
+            "check_id": "unit",
+            "path": "qa/test.json",
+            "type": "log"
+          }
+        ],
+        "build": {
+          "environment": "python-3.12",
+          "id": "test-build",
+          "variant": "test"
+        },
+        "coverage": [
+          "instance-A"
+        ],
+        "method": "Run exact local assertion and inspect result",
+        "reviewer_id": "reviewer-B",
+        "source_paths": [
+          "src/source.py"
+        ]
+      }
+    },
+    "verdict": {
+      "blob": "750de5815537e11d9a9902d8623d404c6dfa13a0",
+      "commit": "64960937737d23e6e6d6b1b6f3be47bb63b14b08",
+      "path": "qa/review-verdict.json",
+      "repository": "example/evidence-policy"
+    }
+  }
+}

@@ -50,3 +50,16 @@ verified spend. Inspect workflow/publication triggers before ordinary source
 pushes and accepted merges. Shuto stays frozen; NEON stays paused/read-only.
 Read the [deployment policy](releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc)
 before any publication. This code installs no automatic collector or dispatcher.
+
+## Evidence-policy admission and completion
+
+[Evidence policy](EVIDENCE_POLICY.md) documents the shared, side-effect-free
+`brief-check`/`admission-check`, `evidence-check(s)`, `validator-check`,
+`acceptance-check` and `finding-check` routes. Supply explicit `--authority`,
+`--submission` and `--objects` JSON files; old positional/header-only claims
+fail closed. Completion failures now return a nonzero exit status.
+
+`coordinator-plan` and `dispatch-guard` require current source-bound proof packets
+for implementation/upload and merge, while preserving authorized independent
+read-only verification to repair missing/disputed acceptance. Task registration
+is not permission to implement. No scheduler or live state mutation is added.

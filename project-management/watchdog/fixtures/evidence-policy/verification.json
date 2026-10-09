@@ -1,0 +1,103 @@
+{
+  "observed_at": "2026-10-09T15:08:21.129380+00:00",
+  "python": "3.12.14",
+  "attempt": "single independent-review correction",
+  "tests": "53 policy/integration methods,92 legacy assertions,37 coordinator unit methods,32+14+15+2+128 probes",
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "-v",
+        "test_evidence_policy"
+      ],
+      "exit_code": 0,
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-1.log",
+      "sha256": "7bd5561a7444ca5c286f0ec2900306f95495be9b6da15d10535e6c99dc095ab5"
+    },
+    {
+      "command": [
+        "python3",
+        "test_rules.py"
+      ],
+      "exit_code": 0,
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-2.log",
+      "sha256": "ad9de4402f897cd84671852ac14ef60c3b8766259ff1c22d59d507732ccf7388"
+    },
+    {
+      "command": [
+        "python3",
+        "test_coordinator_review.py"
+      ],
+      "exit_code": 0,
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-3.log",
+      "sha256": "7c6ca633d5d565b36428bf940dbb6d4fe9dba2364eca4c03e0d24fe32da5a6bc"
+    },
+    {
+      "command": [
+        "python3",
+        "test_coordinator_acceptance_isolation.py"
+      ],
+      "exit_code": 0,
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-4.log",
+      "sha256": "ab19da30f34008fc738eeec182b291d73883da837c8ba09c79dbeac6dcaa2963"
+    },
+    {
+      "command": [
+        "python3",
+        "test_coordinator_final_guards.py"
+      ],
+      "exit_code": 0,
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-5.log",
+      "sha256": "e06dc0bd76040e844fcaa5b524756f8f5c3ec54b5a73ba9d5e77b537c857aafb"
+    },
+    {
+      "command": [
+        "python3",
+        "test_coordinator_hold_invariance.py"
+      ],
+      "exit_code": 0,
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-6.log",
+      "sha256": "fadf9550b7ee5b96649e2dd139e5b3eea4feba189bc53107ad19cbca5a63548f"
+    },
+    {
+      "command": [
+        "python3",
+        "test_coordinator_operation_needs.py"
+      ],
+      "exit_code": 0,
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-7.log",
+      "sha256": "41a372d7349357b00cd2e81b47b704306d44f17d6ef0535038a33b69b42ba2a1"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "py_compile",
+        "evidence_policy.py",
+        "coordinator.py",
+        "coordinator_cli.py",
+        "watch.py",
+        "test_evidence_policy.py"
+      ],
+      "exit_code": 0,
+      "log": "project-management/watchdog/fixtures/evidence-policy/check-8.log",
+      "sha256": "f4a3d1a7b95b5f9c6d5ed760ba86de6697a1c57d35cd6de0659211d5beff16f3"
+    }
+  ],
+  "scope": "Local author tests; independent corrected-head review pending. Prior operation-layer fixtures mock only the policy boundary; production proof tests are unmocked. No Actions or live mutation.",
+  "implementation_head": "b5e8dc601db5b40dd713981db7577022047699c0",
+  "source_blobs": {
+    "project-management/watchdog/EVIDENCE_POLICY.md": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe",
+    "project-management/watchdog/coordinator.py": "1e87c500bd8c7890d59e2e83dc614c0d58bbb6b9",
+    "project-management/watchdog/coordinator_cli.py": "16be941f65f6e546d330435975fb2124ef339c88",
+    "project-management/watchdog/evidence_policy.py": "afbcd927a16340da5c235ea4368857ab8edc6522",
+    "project-management/watchdog/fixtures/evidence-policy/guideline.json": "09232870df3dc88852ed415df5502b59ff4a2681",
+    "project-management/watchdog/fixtures/evidence-policy/positive.json": "a6c63c8fe027472db45f7c7ddb8d14f1631eafc0",
+    "project-management/watchdog/fixtures/evidence-policy/visual.json": "dc841a43cdf9ae2d67a942ce0ebc2a4a10bdf9f4",
+    "project-management/watchdog/test_evidence_policy.py": "5e6748c781b2bcc46308023e810c5a0f700da51b",
+    "project-management/watchdog/test_rules.py": "6910362ae0536450dc3ecfa4c5a63ec5c5f40fd0",
+    "project-management/watchdog/watch.py": "bbe5e646202468472b5a9f081252e53d03e10225"
+  }
+}

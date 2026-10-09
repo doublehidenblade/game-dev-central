@@ -839,12 +839,20 @@ def coordinator_add_review(snapshot, accepted=False):
 
 @contextlib.contextmanager
 def coordinator_forbid_io(reads=None):
-    """Allow only a supplied in-memory CLI input. Everything consequential raises."""
+    """Legacy operation-layer unit fixtures only; not production evidence proof.
+
+    The PR396 fixture has deliberately fake SHAs. Isolate the newly added proof
+    boundary here while preserving every original ownership/stop/operation
+    assertion. Unmocked end-to-end proof and route tests live in
+    test_evidence_policy.py; there is no production skip flag or test identity.
+    """
     def read_only(path, mode="r", *args, **kwargs):
         if mode == "r" and reads is not None and path in reads:
             return io.StringIO(reads[path])
         raise AssertionError("forbidden filesystem access")
     with contextlib.ExitStack() as stack:
+        stack.enter_context(mock.patch.object(coordinator, "_policy_gate", side_effect=lambda snapshot, task, operation, at:
+            {"status": "ACCEPTABLE" if operation == "completion" else "ADMISSIBLE", "issues": []}))
         stack.enter_context(mock.patch("builtins.open", side_effect=read_only))
         for path in ("socket.socket", "socket.create_connection", "subprocess.Popen", "subprocess.run",
                      "urllib.request.urlopen", "os.makedirs", "os.mkdir", "os.remove", "os.unlink",
@@ -1396,4 +1404,3 @@ if __name__ == "__main__":
     total = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9 + f10 + f11
     print(f"\n{total} failures" if total else "\nALL TESTS PASSED")
     sys.exit(1 if total else 0)
-

@@ -1,9 +1,9 @@
 {
   "id": "ops-evidence-feedback-enforcement-20261009",
   "title": "Enforce evidence feedback, admission and completion",
-  "status": "open",
-  "owner": "dot — operational evidence framework; implementation author not dispatched",
-  "phase": "queued registration proposal; independent exact-head registration acceptance required before admission",
+  "status": "in_review",
+  "owner": "dot native evidence-framework author (sole author; selected gpt-6-astra/xhigh)",
+  "phase": "Corrected source independently rechecked; frozen artifact-tip review pending; author has not accepted or merged",
   "ask": {
     "author": "Craig",
     "date": "2026-10-09",
@@ -128,14 +128,14 @@
     "provider_preference": "provider-neutral; native dot path requested for this dot-owned task",
     "requested_model": "gpt-6-astra",
     "requested_effort": "xhigh",
-    "environment_and_tools": "Implementation executor not yet selected or verified. Require Python, isolated fixtures, GitHub read/write within scope and full local test capability before production work; connectors verified for registration.",
-    "availability_checked": "2026-10-09: native catalog advertises gpt-6-astra/xhigh; actual implementation runtime, quota and Python readiness unverified",
+    "environment_and_tools": "Native dot cloud workspace; Python 3.12.14 and stdlib unittest verified 2026-10-09T14:05:49Z; GitHub connector read and Git-data publication available; authenticated git clone unavailable, so materialized connector blobs and connector commits will be byte-verified. No Actions.",
+    "availability_checked": "Parent accepted native spawn at 2026-10-09T14:05:37Z, explicit gpt-6-astra/xhigh selection. Python verified; worker running. No separate runtime identity attestation or usage/billing telemetry exposed.",
     "fallback": "wait_for_required_tier",
     "attempt_budget": "One initial attempt plus at most one evidence-based correction within two hours after actual implementation admission; stop after two identical failures",
     "escalation_criteria": "Missing required tier/tools, ownership overlap, incompatible PR396 interface, untestable criterion, unsafe side effects or budget exhaustion: report to dot coordinator and narrow scope or wait",
     "verification_budget": "Reserve separate frontier/xhigh reviewer and up to one hour for schema/reconciliation/admission/completion/side-effect/route regressions and exact-head review; preserve corrective-pass capacity",
-    "requested_versus_confirmed": "Requested Astra/xhigh; no implementation worker started or runtime attested",
-    "actual_outcome": "Registration proposed; implementation and acceptance pending; usage/cost unknown"
+    "requested_versus_confirmed": "Requested gpt-6-astra/xhigh; accepted parent spawn explicitly selected gpt-6-astra/xhigh. Selection verified by parent tool response; underlying runtime identity independently unconfirmed. No downgrade.",
+    "actual_outcome": "Corrected source b5e8dc601db5b40dd713981db7577022047699c0 independently rechecked with69 negative/reconciliation cases and12 correction controls; final evidence-only tip acceptance pending. Usage/cost unknown; underlying runtime identity independently unconfirmed."
   },
   "preflight": {
     "base_sha": "ce5d3413d14151d42af0476a5ddba7cadb9623e9",
@@ -145,12 +145,393 @@
     "publication": "Complete main tree has no .github workflow files; repository has_pages=false. Source branch and draft PR only. Workflow collection endpoint unavailable through connector; no claim of inspecting external hooks.",
     "limits": "Historical registry and board do not prove hidden-session liveness. Recheck current main, open PRs, reservations, owner handoffs and actual selected executor before admission. No game-task takeover."
   },
-  "evidence": [],
+  "evidence": [
+    "project-management/watchdog/fixtures/evidence-policy/verification.json",
+    "project-management/watchdog/EVIDENCE_POLICY.md",
+    "project-management/watchdog/test_evidence_policy.py",
+    "project-management/watchdog/fixtures/evidence-policy/real-source-manifest.json",
+    "project-management/watchdog/fixtures/evidence-policy/real-invocation.json",
+    "project-management/watchdog/fixtures/evidence-policy/real-authority.json",
+    "project-management/watchdog/fixtures/evidence-policy/real-submission.json",
+    "project-management/watchdog/fixtures/evidence-policy/real-objects.json",
+    "project-management/watchdog/fixtures/evidence-policy/real-invocation-initial.json"
+  ],
   "work_log": [
     {
       "date": "2026-10-09",
       "entry": "Registered bounded operational task and additive board row only; no implementation, tests, live ledger registration, dispatch, Actions, merge or deploy."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T14:07:15Z: Actual disjoint implementation admission/start after independent registration acceptance (PR405 review5471139782; main2e07b0f5), verified native selected Astra/xhigh and Python tools. Refreshed all100 open PR changed-file lists (second page empty), board, workers, coordinator log, current state and queue; no disjoint owner reservation found. PR396 b0b3c8a4 and PR143 bfe26735 remain untouched until exact-region handoff. No .agents skills in complete repository tree. Scope-specific task record substitutes for live queue/heartbeat writes expressly prohibited by this task. Outer deadline16:07:15Z; one initial attempt plus one evidence-based correction, separate independent review reserved."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T14:18:38Z: PR396 independent acceptance review5471277399 and merge39aa747c7f1f35393a316faebd942386579ff913 confirmed. Coordinator handed off exact evidence-related watch.py routes, necessary additive coordinator/CLI callsites, evidence tests and minimal README/RUNBOOK usage. PR143 canonical visual-onboarding hunks stay reserved and unedited. Current implementation materializes the accepted39aa source; prior operation/owner/stop tests remain intact with a clearly isolated test-only policy boundary, while new end-to-end tests use real hash-verified Git proof objects without that mock."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "Initial implementation:48 evidence-policy/integration methods pass; inherited92 legacy assertions and37 coordinator unit methods pass; additional32+14+15+2+128 coordinator probes pass; compile checks pass. Tests use no live queue/state/API mutation and no Actions. Raw-object fixtures and actual command logs are committed under fixtures/evidence-policy. Independent acceptance has not been performed; real-input capture will bind this implementation after source publication."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T14:38:02Z: Actual read-only current operational task capture at implementation6e7c4e91e481214c817eed64417a693f5943020d and authoritative maindf37c2d68f5983a8ceff06d2e17800f5ea90c308.34 raw Git commit/tree/blob objects rehashed and immutable path membership verified. brief-check returned ADMISSIBLE exit0; acceptance-check, validator-check and evidence-checks all returned NO_GO/MISSING_EVIDENCE exit3, truthfully retaining pending independent acceptance rather than laundering author test logs. Earlier REST commit reconstruction using UTC offsets failed closed; recovering the original normalized timezone was accepted only after exact full Git commit hash matched. No production bypass. Final source-scope blob manifest and all local command outputs recorded in verification.json. Subsequent commit contains only this task work-log/status/evidence metadata and capture/test artifacts; canonical criteria/policy/rule inventory and relevant source blobs stay unchanged."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T15:02Z: Recovered from a hung artifact-publication call after parent interruption; remote remained6e7c4e91 and no uncertain publication landed. One registered correction addresses both independent blockers: current authenticated failed required checks must block completion even if omitted from findings/evidence or mapped to an existing rule; admission must reject unsatisfiable command/visual plans while supporting mixed visual and numeric evidence. Original reviewer counterexamples retained under fixtures/evidence-policy/review-regressions. Deadline remains16:07:15Z; no additional attempt or scope expansion."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T15:08Z: Single correction verified:53 policy/integration methods pass, including current failed execution with/without finding and fresh review, explicit finding inspection, impossible-plan negatives and mixed visual/numeric positive. All92 legacy assertions,37 coordinator unit methods and32+14+15+2+128 retained probes pass; compile checks pass. PR396 RUNBOOK status reconciled to accepted review5471277399 and merge39aa747c at14:17:33Z; requested/native runtime distinction and live-collector limits retained. Corrected source remains subject to independent exact-head acceptance."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T15:12:37Z: Refreshed actual read-only route capture at corrected implementationb5e8dc601db5b40dd713981db7577022047699c0 and current authoritative main5a4cd025b879447eca032d81cb4464241f09537f.22 necessary raw Git objects rehashed, including exact commit-to-tree and path-to-blob links. Pending independent findings are retained with original committed counterexamples; no author-generated coordinator reconciliation. All four actual brief/acceptance/validator/evidence routes deny UNRESOLVED_FINDING with exit3. Independent corrected-source review reports69 negative/reconciliation cases plus12 correction controls pass, including four real CLI failure exits and permitted read-only verification. Final evidence-only artifact tip still awaits exact-head reviewer acceptance. No further implementation edits."
     }
   ],
-  "verdict": null
+  "verdict": null,
+  "implementation_started_at": "2026-10-09T14:07:15Z",
+  "implementation_deadline": "2026-10-09T16:07:15Z",
+  "rule_acknowledgment": {
+    "repository": "doublehidenblade/game-dev-central",
+    "commit": "465e4bc4852aee8cbc1d9a9230a6313b439a65c1",
+    "rules": [
+      {
+        "path": "COORDINATOR.md",
+        "blob": "58786d160ad1bc509a7ee74df030988056389308"
+      },
+      {
+        "path": "knowledge/standing-rules.md",
+        "blob": "01b19a267622992cbe7713f856e2c2bcf87b1e50"
+      },
+      {
+        "path": "project-management/rules/SYSTEM.md",
+        "blob": "08226c75366dfa25133fcd058477b4b854febaf2"
+      },
+      {
+        "path": "project-management/rules/WORKER_BRIEF.md",
+        "blob": "95dc23587561489931e897f9a58c7be0c2202e7d"
+      },
+      {
+        "path": "project-management/rules/VALIDATOR_BRIEF.md",
+        "blob": "405469fad99355eb23b01551c92c0c74693e75fe"
+      },
+      {
+        "path": "project-management/rules/WORKER_SELECTION_POLICY.md",
+        "blob": "343d3e3f8db6976789d4a631ca38619b6c27dc0e"
+      }
+    ]
+  },
+  "criterion_evidence_plan": [
+    {
+      "criterion_id": "C1",
+      "method": "Fixtures cover existing-rule, task-limitation, reusable-guideline-plus-regression, duplicate replay, unresolved and conflicting finding cases; identical inputs yield identical decisions. Newly generalized rules must have a regression that fails on the recorded broken fixture.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C1"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending implementation and tests"
+    },
+    {
+      "criterion_id": "C2",
+      "method": "Positive control plus missing/stale rule pin, changed rule blob, missing criterion/method/artifact/source coverage and malformed plan cases; verify scoped rejection and preservation of unrelated permitted operations. Include zero parsed criteria, empty applicability/citations and unsupported not-applicable exclusions; each applicable criterion remains accounted for.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C2"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending implementation and tests"
+    },
+    {
+      "criterion_id": "C3",
+      "method": "Table-driven negatives for each class, changed full SHA, wrong build/variant, partial coverage, self-review, no citation, partial verdict and stale evidence; complete exact-head control passes only machine-checkable gates. Include evidence-only commits with proven unchanged source as a positive control, altered relevant source as a negative, and historical evidence with/without verified scope equivalence. Do not use filenames or metadata as automatic semantic PASS.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C3"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending implementation and tests"
+    },
+    {
+      "criterion_id": "C4",
+      "method": "Tests show missing/rejected/pending human verdict never becomes accepted from script/numeric/CI results; stopped tasks remain stopped, no redispatch or owner transfer follows from findings.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C4"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending implementation and tests"
+    },
+    {
+      "criterion_id": "C5",
+      "method": "Run isolated tests locally with filesystem writes, external API, subprocess dispatch and queue/ledger mutation mocked to raise; commit exact commands/results and public-safe fixtures. No Actions execution.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C5"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending implementation and tests"
+    },
+    {
+      "criterion_id": "C6",
+      "method": "Inspect exact post-PR396 integration diff and run route/alias negatives plus existing regression suite locally; do not claim enforcement of live external schedulers. Preserve PR143 visual-onboarding content and cite accepted rule revision. Specifically test evidence-check failure exit codes, brief-check semantic plan validation and validator-check rejecting zero citations/zero parsed criteria. Capture a read-only current real-input acceptance-check invocation with pinned source manifest and resulting decisions/limitations; standalone synthetic tests do not establish adoption. No external scheduler or inspector mutation.",
+      "artifact_path": "project-management/watchdog/fixtures/evidence-policy/integration-verification.json",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C6"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Not started: exact-region PR396 handoff required"
+    },
+    {
+      "criterion_id": "C7",
+      "method": "Reviewer opens original artifacts, reruns relevant local checks and records per-criterion PASS/FAIL with immutable citations. Implementation remains in_review until required acceptance; all human gates and verification limitations stay visible.",
+      "artifact_path": "Independent exact-head PR review",
+      "artifact_type": "local test log and immutable source citations",
+      "source_binding": "Exact tested implementation SHA and blob hashes; evidence-only descendants require unchanged relevant source proof",
+      "coverage": [
+        "C7"
+      ],
+      "reviewer": "Separate frontier/xhigh independent reviewer; author cannot accept",
+      "limitation": "Pending separate final-head acceptance"
+    }
+  ],
+  "evidence_rule_inventory": [
+    {
+      "id": "COORDINATOR.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "COORDINATOR.md"
+    },
+    {
+      "id": "knowledge/standing-rules.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/standing-rules.md"
+    },
+    {
+      "id": "project-management/rules/SYSTEM.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/SYSTEM.md"
+    },
+    {
+      "id": "project-management/rules/WORKER_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_BRIEF.md"
+    },
+    {
+      "id": "project-management/rules/VALIDATOR_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/VALIDATOR_BRIEF.md"
+    },
+    {
+      "id": "project-management/rules/WORKER_SELECTION_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_SELECTION_POLICY.md"
+    }
+  ],
+  "evidence_policy": {
+    "C1": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C1"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/guideline.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C2": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C2"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C3": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C3"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C4": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C4"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/fixtures/evidence-policy/visual.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C5": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C5"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/EVIDENCE_POLICY.md",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json",
+        "project-management/watchdog/fixtures/evidence-policy/visual.json",
+        "project-management/watchdog/fixtures/evidence-policy/guideline.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C6": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C6"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/test_rules.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "policy-regressions",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "-v",
+            "test_evidence_policy"
+          ]
+        }
+      ]
+    },
+    "C7": {
+      "applicability": "required",
+      "rationale": "Explicit canonical completion criterion from Craig's registered operational task; no exclusion requested",
+      "rule_id": "project-management/rules/SYSTEM.md",
+      "instances": [
+        "C7"
+      ],
+      "source_paths": [
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/EVIDENCE_POLICY.md",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/fixtures/evidence-policy/positive.json",
+        "project-management/watchdog/fixtures/evidence-policy/visual.json",
+        "project-management/watchdog/fixtures/evidence-policy/guideline.json"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    }
+  }
 }
