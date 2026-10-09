@@ -1,10 +1,10 @@
 {
-  "observed_at": "2026-10-09T20:09:32.307737+00:00",
-  "implementation_head": "8667a3cd2fa74db9e054032c3fcf6416d26c3214",
+  "observed_at": "2026-10-09T20:26:55.490406+00:00",
+  "implementation_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
   "source_blob_manifest": {
     "project-management/watchdog/coordinator.py": "fe791a54a76eb793b97c44b9036b6f00170974b3",
-    "project-management/watchdog/scoped_admission.py": "c844b97458a427d25937ad31ded118945972fba6",
-    "project-management/watchdog/test_scoped_admission.py": "4cf6105a9c92c4aee9715f70c224eb7f48fa02e1",
+    "project-management/watchdog/scoped_admission.py": "1574376c3e8212cb0bb1d9f97ba1cf98b24c886b",
+    "project-management/watchdog/test_scoped_admission.py": "d608dd562ac150fb9da6184f4f678f10e6507722",
     "project-management/watchdog/coordinator_cli.py": "16be941f65f6e546d330435975fb2124ef339c88",
     "project-management/watchdog/watch.py": "bbe5e646202468472b5a9f081252e53d03e10225",
     "project-management/watchdog/evidence_policy.py": "afbcd927a16340da5c235ea4368857ab8edc6522",
@@ -15,80 +15,82 @@
     "project-management/watchdog/test_coordinator_final_guards.py": "704d5778d61417a977977abc80f879a35c737335",
     "project-management/watchdog/test_coordinator_operation_needs.py": "59a14e67bccaeb5ea5d451dfd6c1fefed8b6a4a9",
     "project-management/watchdog/test_coordinator_hold_invariance.py": "f130b99b7a9455d1a5b13a06f7dbe739b98e5a26",
-    "project-management/watchdog/RUNBOOK.md": "a004215e7270d87006d8b02ad3fa853822bd0f41",
+    "project-management/watchdog/RUNBOOK.md": "5b661ec6bd75305f73b583b243f686885cfbc624",
     "project-management/watchdog/README.md": "4a6b6b7705cc01aa103b2b7c748819a35821dd3d",
-    "project-management/tasks/ops-scoped-coordinator-admission-20261009.json": "4fec9f2fa7c7d8c963835aa4be0baf2cda467bd8",
+    "project-management/tasks/ops-scoped-coordinator-admission-20261009.json": "3a2383934fe5f1aca170573cca5f4aa0085c7e7f",
     "project-management/watchdog/fixtures/scoped-admission/prove_regression.py": "a8f8c7e1548816fa4262795bf17e16df5111c4fd",
     "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py": "a1afc5f80b781274343a82db6db9288d45d0e5cb",
-    "project-management/watchdog/fixtures/scoped-admission/README.md": "b2843a7c4e4fd7efe2d533e5f67e96a2b8a16f2e",
-    "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json": "ff7d48b96c84a7de670bbf7f72f3499f43b35ce0",
-    "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json": "cf2714cd51dedaef8839c2d49a1816cc62b937b1"
+    "project-management/watchdog/fixtures/scoped-admission/README.md": "eac80afcb1c66e09cad666aeb55c92a090e3a1a1",
+    "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json": "e34bebbe0c318c4e2d92336f53d48638680e6660",
+    "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json": "cf2714cd51dedaef8839c2d49a1816cc62b937b1",
+    "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json": "7e56001075dd0efdbf0ee093087c84df1d063c8d",
+    "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64": "e7c946fa272910b4d059850a7032051296dee2d6"
   },
   "checks": [
     {
       "check_id": "scoped-unit",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:29.334495+00:00",
+      "performed_at": "2026-10-09T20:26:52.289732+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/scoped-unit.json"
     },
     {
       "check_id": "original-coordinator-unit",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:29.806475+00:00",
+      "performed_at": "2026-10-09T20:26:52.857874+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/original-coordinator-unit.json"
     },
     {
       "check_id": "evidence-policy-unit",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:30.480353+00:00",
+      "performed_at": "2026-10-09T20:26:53.548580+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/evidence-policy-unit.json"
     },
     {
       "check_id": "legacy-regression",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:30.739989+00:00",
+      "performed_at": "2026-10-09T20:26:53.818211+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/legacy-regression.json"
     },
     {
       "check_id": "broken-original-regression",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:31.439042+00:00",
+      "performed_at": "2026-10-09T20:26:54.558020+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/broken-original-regression.json"
     },
     {
       "check_id": "real-docs-replay",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:31.547608+00:00",
+      "performed_at": "2026-10-09T20:26:54.673303+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/real-docs-replay.json"
     },
     {
       "check_id": "retained-review",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:31.671917+00:00",
+      "performed_at": "2026-10-09T20:26:54.791408+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-review.json"
     },
     {
       "check_id": "retained-acceptance_isolation",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:31.799151+00:00",
+      "performed_at": "2026-10-09T20:26:54.928184+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-acceptance_isolation.json"
     },
     {
       "check_id": "retained-final_guards",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:31.914930+00:00",
+      "performed_at": "2026-10-09T20:26:55.047946+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-final_guards.json"
     },
     {
       "check_id": "retained-operation_needs",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:32.029215+00:00",
+      "performed_at": "2026-10-09T20:26:55.175428+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-operation_needs.json"
     },
     {
       "check_id": "retained-hold_invariance",
       "exit_code": 0,
-      "performed_at": "2026-10-09T20:09:32.198673+00:00",
+      "performed_at": "2026-10-09T20:26:55.365438+00:00",
       "path": "project-management/watchdog/fixtures/scoped-admission/execution/retained-hold_invariance.json"
     }
   ],

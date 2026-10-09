@@ -8,8 +8,8 @@
   ],
   "exit_code": 0,
   "output": "{\"original_blob\": \"1e87c500bd8c7890d59e2e83dc614c0d58bbb6b9\", \"original\": \"INPUT_REQUIRED\", \"repaired\": \"ACTION_REQUIRED\", \"global_coverage\": \"unknown\", \"result\": \"PASS\", \"live_authorization\": false}\n",
-  "source_head": "8667a3cd2fa74db9e054032c3fcf6416d26c3214",
+  "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
   "build": null,
-  "performed_at": "2026-10-09T20:09:31.439042+00:00",
+  "performed_at": "2026-10-09T20:26:54.558020+00:00",
   "actor_id": "dot-native-scoped-admission-author"
 }

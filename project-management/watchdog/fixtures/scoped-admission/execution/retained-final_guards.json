@@ -6,8 +6,8 @@
   ],
   "exit_code": 0,
   "output": "PASS merged PR independently corroborates source after branch deletion\nPASS merged review retains wronghead\nPASS merged review retains missingpr\nPASS merged review retains closedpr\nPASS merged review retains twoexactmerged\nPASS merged review retains selfreview\nPASS merged review retains ownerunknown\nPASS merged review retains prsreadfail\nPASS merged review retains stops\nPASS merged review retains denial\nPASS branch unmapped exception remains verification-only\nPASS branch partial exception remains verification-only\nPASS branch missing exception remains verification-only\nPASS postmerge no duplicate merge or coding\nPASS disputed postmerge acceptance permits fresh independent verification\nTOTAL 15 FAILURES 0 []\n",
-  "source_head": "8667a3cd2fa74db9e054032c3fcf6416d26c3214",
+  "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
   "build": null,
-  "performed_at": "2026-10-09T20:09:31.914930+00:00",
+  "performed_at": "2026-10-09T20:26:55.047946+00:00",
   "actor_id": "dot-native-scoped-admission-author"
 }
