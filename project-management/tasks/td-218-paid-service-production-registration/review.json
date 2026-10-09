@@ -1,24 +1,24 @@
 {
   "task_id": "td-218-production-registration-central",
-  "candidate_head": "d788e815cf00963a49394a0d5701a560b17d6da6",
+  "candidate_head": "2c913caa4393d03f872225fa50b767e0124e08ba",
   "actor_id": "dot-td218-registration-reviewer",
-  "authority_digest": "a73ec0f9e365a57691bc7e13ed58e1c194e310831b44a3e474c3ebda63572260",
-  "evidence_digest": "18f0100fd409226530ed503ae405b7cead46ed9239bbe04960eee921da3a4571",
-  "performed_at": "2026-10-09T22:39:14.637366+00:00",
+  "authority_digest": "e3d8b6dbad956b232916864ad747dc15985a778a903001089f5570d945b17b7c",
+  "evidence_digest": "f8e09d4f1860e80f63cfc56e6b643ea82de470407ea836a8d5d949675cfd492a",
+  "performed_at": "2026-10-09T22:49:39.444081+00:00",
   "criteria": {
     "R1": {
       "decision": "PASS",
-      "rationale": "PASS for documentation registration only. I independently inspected every cited document and their immutable published bytes. The source documents reserve one future dot author on exact v49 fa081b42197d50e6adaf202f899146fbffeab725, with bounded FuelService/condition/station/service-copy scope and explicit shared-file exclusions. The central board changes only td-218, retaining its existing dot/Muse ownership and all other row bytes; its link binds the exact reviewed source document head. Runtime allowlists remain empty, future owner remains unset, and implementation has not been admitted. Protected document bytes are unchanged across the submitted artifact descendants. This judgment does not grant runtime, merge, Actions or deployment permission.",
+      "rationale": "PASS for the amended documentation registration only. I independently compared the authenticated board at 2c913caa4393d03f872225fa50b767e0124e08ba (blob 483799db93527b388f6bd1ecc98945a966ca8151) with the prior accepted board: exactly the td-218 owner cell on line 241 changes, by an appended serialized service-only handoff; every other cell and byte is unchanged. This matches the supplied coordinator grant: only FuelHud service-specific _refresh, _request, _quote and _game_over. The _layout cash/range/container logic, presentation-scale cache, docking, reservations, hit testing and frozen td216 bytes remain excluded; no td216 resume or uncertain-publication retry is authorized. Existing dot/Muse ownership and authoritative wallet/settlement ownership remain. The status cell still says no runtime author admitted. Source documentation scope and proposed sole future author are unchanged. Canonical registration task bytes remain identical; no implementation, external owner transfer, other-task status change or runtime admission is claimed.",
       "citations": [
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "commit": "2c913caa4393d03f872225fa50b767e0124e08ba",
           "path": "project-management/boards/tokyo-drift-3d.md",
-          "blob": "f018d0b11a4f9236f9b00a3263adce70a2883261"
+          "blob": "483799db93527b388f6bd1ecc98945a966ca8151"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "commit": "2c913caa4393d03f872225fa50b767e0124e08ba",
           "path": "project-management/tasks/td-218-paid-service-production-registration.json",
           "blob": "b9f9edd412d9e3847f73cfa26e2b1ce3d94fcbf5"
         },
@@ -45,6 +45,12 @@
           "commit": "482c714aecc8c620638768272048c29b678e4b69",
           "path": "godot/docs/tasks/td-218-paid-service-production/registration.json",
           "blob": "de9f339d14a6fea0bfbfa5963c8d8ee34225152f"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "16ea952acbda52549484cdac0eb64b388e0cf27e",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "f018d0b11a4f9236f9b00a3263adce70a2883261"
         }
       ],
       "evidence_ids": [
@@ -55,17 +61,17 @@
     },
     "R2": {
       "decision": "PASS",
-      "rationale": "PASS for the proposed paid-service contract, not executed gameplay. I inspected the linked source stage and future plan against independently read pinned v49 FuelService, FuelHud, FuelStation, profile, LowerCity/GigDispatch/Vehicle interfaces, the corrected ba6b32f1 paid-recovery requirement, and td216 at main50616cb. The mount reuses the real existing service setup, wallet, West Quay bay and gig-failure authority; persistent condition is distinct from gig BODY. Itemized tow/repair/fuel payment, no free or debt rescue, required-unaffordable game over and drivable-zero-cash distinction are explicit. The td216 cash/range candidate stays frozen while the disjoint service-method handoff is bounded. Missing qualified natural-damage integration is an explicit fail-closed later gate; seeded condition is never actual-impact or full-parent PASS. No shared Vehicle, contact, GigDispatch or LowerCity write is authorized.",
+      "rationale": "PASS for the proposed paid-service contract, not executed gameplay. I inspected the linked source stage and future plan against independently read pinned v49 FuelService, FuelHud, FuelStation, profile, LowerCity/GigDispatch/Vehicle interfaces, the corrected ba6b32f1 paid-recovery requirement, and td216 at main50616cb. The mount reuses the real existing service setup, wallet, West Quay bay and gig-failure authority; persistent condition is distinct from gig BODY. Itemized tow/repair/fuel payment, no free or debt rescue, required-unaffordable game over and drivable-zero-cash distinction are explicit. The td216 cash/range candidate stays frozen while the disjoint service-method handoff is bounded. Missing qualified natural-damage integration is an explicit fail-closed later gate; seeded condition is never actual-impact or full-parent PASS. No shared Vehicle, contact, GigDispatch or LowerCity write is authorized. The owner-cell amendment changes no recovery requirement, cost recommendation, provider boundary or pending natural-damage gate; it explicitly preserves Muse settlement authority and the existing wallet.",
       "citations": [
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "commit": "2c913caa4393d03f872225fa50b767e0124e08ba",
           "path": "project-management/boards/tokyo-drift-3d.md",
-          "blob": "f018d0b11a4f9236f9b00a3263adce70a2883261"
+          "blob": "483799db93527b388f6bd1ecc98945a966ca8151"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "commit": "2c913caa4393d03f872225fa50b767e0124e08ba",
           "path": "project-management/tasks/td-218-paid-service-production-registration.json",
           "blob": "b9f9edd412d9e3847f73cfa26e2b1ce3d94fcbf5"
         },
@@ -108,17 +114,17 @@
     },
     "R3": {
       "decision": "PASS",
-      "rationale": "PASS for current registration and future-plan completeness. I inspected all mapped artifacts, the full 14-rule inventory and the original documentation author's refreshed acknowledgment; the rule blobs match those independently read, and the current raw-object packet verifies their exact refs. R1-R3 submissions cover all canonical artifacts and instances. P1-P5 future plans retain their exact source/build/check/coverage/reviewer shape, five execution artifacts and nine matched before/after visual pairs, including real West Quay fascia; protected read dependencies remain separate from writes. Requested setup, actual-start budgets and stops are explicit. Future-author acknowledgment, runtime admission and every production behavior/visual/device result remain pending. Prior fascia coverage, image naming and extra-newline issues were corrected before these protected source heads; the supplied current finding set is empty. No framework or fabricated execution/visual evidence is introduced.",
+      "rationale": "PASS for current registration and future-plan completeness. I inspected all mapped artifacts, the full 14-rule inventory and the original documentation author's refreshed acknowledgment; the rule blobs match those independently read, and the current raw-object packet verifies their exact refs. R1-R3 submissions cover all canonical artifacts and instances. P1-P5 future plans retain their exact source/build/check/coverage/reviewer shape, five execution artifacts and nine matched before/after visual pairs, including real West Quay fascia; protected read dependencies remain separate from writes. Requested setup, actual-start budgets and stops are explicit. Future-author acknowledgment, runtime admission and every production behavior/visual/device result remain pending. Prior fascia coverage, image naming and extra-newline issues were corrected before these protected source heads; the supplied current finding set is empty. No framework or fabricated execution/visual evidence is introduced. The actual handoff is now explicit in the existing owner cell, with scope-expansion reporting, normal independent review and scoped guard retained. P4 uses its headless required command only for the numeric execution log; its method separately requires real HUD/fascia rendering, 18 PNGs forming nine matched pairs, independent pixel inspection and the human gate. It does not prescribe headless screenshot generation. The unchanged canonical task remains in_review because it is a protected source path: this review supplies an independent document verdict and does not silently perform the later canonical-status transition.",
       "citations": [
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "commit": "2c913caa4393d03f872225fa50b767e0124e08ba",
           "path": "project-management/boards/tokyo-drift-3d.md",
-          "blob": "f018d0b11a4f9236f9b00a3263adce70a2883261"
+          "blob": "483799db93527b388f6bd1ecc98945a966ca8151"
         },
         {
           "repository": "doublehidenblade/game-dev-central",
-          "commit": "d788e815cf00963a49394a0d5701a560b17d6da6",
+          "commit": "2c913caa4393d03f872225fa50b767e0124e08ba",
           "path": "project-management/tasks/td-218-paid-service-production-registration.json",
           "blob": "b9f9edd412d9e3847f73cfa26e2b1ce3d94fcbf5"
         },
