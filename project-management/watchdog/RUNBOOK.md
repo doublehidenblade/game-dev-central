@@ -453,7 +453,7 @@ installed. Craig's exception admitted only the isolated repair itself.
   scoped-v1 route. Source-file dependency/owner regions remain protected.
 - Source/dependency/owner-region closure is an authenticated collector and
   independent-review responsibility. The code proves candidate diff coverage,
-  named canonical source/rule paths and Git exclusions, and rejects declared
+  named canonical source paths, current rule pins and Git exclusions, and rejects declared
   prerequisite graphs it cannot prove;
   it cannot discover an undisclosed semantic dependency or external session.
   Unknown relevant scope, inability to perform the exact queries, or an
@@ -484,9 +484,12 @@ truthful global `sources`. Add one `scoped_source` with exactly:
 - `regions`: `{repository, path, row_keys}` objects. An empty `row_keys` means
   the entire exact file; a trailing slash means an entire directory. Nonempty
   row keys require an exact file. Include every candidate changed path, the
-  canonical task, every canonical evidence source path, current rules and all
-  additional relevant dependency/owner regions. Rules/tasks cannot use row
-  exclusion
+  canonical task, every canonical evidence source path and all additional
+  relevant dependency/owner regions. Canonical rules are independently verified
+  current-base authority pins, not automatic write/dependency/owner regions.
+  Include a rule path here if the candidate writes it or actually depends on
+  its file contents as source; every explicitly listed region stays protected.
+  Rules/tasks cannot use row exclusion
 - `candidate`: `pr_id`, `branch_id`, `fork_sha`, `base_chain`, `head_chain`.
   The chains go from current base and candidate head to the same proved
   ancestor. Every listed parent edge is verified from hash-checked raw commits
@@ -514,12 +517,17 @@ Inventory proof variants are deliberately not `unrelated: true`:
    not establish disjointness
 
 The candidate's protected source dependencies must also be unchanged between its
-fork and current base, or exactly equal its reviewed candidate. Current canonical
-rule files that the candidate does not edit are checked at their actual current
-base membership instead: the unchanged evidence-policy gate separately requires
-current acknowledgment and applicable independent evidence. A rule edit in the
-candidate does not receive this treatment. Full-file equivalence includes Git
-file mode, not just blob bytes.
+fork and current base, or exactly equal its reviewed candidate. Canonical rule
+pins outside those regions are checked at their actual current base membership;
+the unchanged evidence-policy gate requires current acknowledgment and applicable
+independent evidence. A merely proposed rule change on a different branch does
+not change the current authority. For example, PR143's four rule-document edits
+need not block a docs-only task that does not write or depend on those files as
+source. A candidate rule edit must be included as a protected region, and any
+explicit rule dependency receives the same overlap/divergence checks as other
+source. This does not exclude owners, queue reservations, wildcards or holds:
+the complete relevant region/identity queries and all receipts remain mandatory.
+Full-file equivalence includes Git file mode, not just blob bytes.
 
 ### Actual scoped collection receipts
 

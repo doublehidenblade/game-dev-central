@@ -93,7 +93,7 @@
     "escalation_criteria": "Owner overlap, proof unsoundness, unavailable tier/tools, untestable scope, unexpected Actions/deployment or exhausted bound: report and narrow or wait.",
     "verification_budget": "Separate frontier/high reviewer reserved; full existing coordinator/evidence regression suites plus adversarial scoped tests and current real-input reproduction; reserve correction time.",
     "requested_versus_confirmed": "Explicit selected Astra/high launch verified by parent; underlying runtime identity independently unconfirmed. No silent downgrade.",
-    "actual_outcome": "Preliminary local suites pass: 32 scoped methods, 37 existing coordinator methods, 53 evidence-policy methods and retained standalone probes. Historical real documentary replay is compatible; current stale acknowledgment still blocks. Exact published-source reruns and independent final verdict pending. Usage/billing and independent runtime identity unavailable."
+    "actual_outcome": "One evidence-based correction in progress: 39 scoped methods and 13 separate reviewer correction probes pass locally, including actual public PR143/PR377/Tokyo PR533 predicate controls. Historical real docs replay passes and stale acknowledgment still blocks. Corrected exact-source reruns and fresh independent acceptance pending. Usage/billing and independent runtime identity unavailable."
   },
   "preflight": {
     "base_sha": "a3660901f3696e3da718bba1d9f67c47e9f518aa",
@@ -132,6 +132,10 @@
     {
       "date": "2026-10-09",
       "entry": "2026-10-09T20:06:00Z: Initial isolated source implementation and adversarial tests prepared. Independent read-only probes exposed policy-cardinality, table-context/mode and declared-dependency closure risks during the initial attempt; those cases now fail closed and have regressions. Historical immutable PR430 documentary evidence passes a labeled synthetic surrounding-collection interoperability control, while later-rule stale acknowledgment remains NO_GO. Added explicit nonvisual policies for the original C1\u2013C7, with actual local command checks and a separate reviewer-authored C7 artifact. Source is not accepted; no merge or deployment."
+    },
+    {
+      "date": "2026-10-09",
+      "entry": "2026-10-09T20:22:56Z: Began the one parent-authorized evidence-based correction after actual PR143 exposed rule-authority-only false overlap. Current canonical rule pins remain independently verified; only actual canonical source/write/dependency/owner regions drive source conflicts. Every explicit region stays protected. Candidate rule edits, explicit rule dependencies, genuine board/task-file overlaps, current rule/ACK freshness, relevant owners/queues and wildcard stops retain fail-closed controls. Original C1\u2013C7 unchanged; two immutable public-Git predicate fixture files added to source binding. Old source review/acceptance is historical and does not accept this correction."
     }
   ],
   "verdict": null,
@@ -236,7 +240,9 @@
         "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
         "project-management/watchdog/fixtures/scoped-admission/README.md",
         "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
-        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
       ],
       "build": null,
       "visual": false,
@@ -298,7 +304,9 @@
         "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
         "project-management/watchdog/fixtures/scoped-admission/README.md",
         "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
-        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
       ],
       "build": null,
       "visual": false,
@@ -356,7 +364,9 @@
         "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
         "project-management/watchdog/fixtures/scoped-admission/README.md",
         "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
-        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
       ],
       "build": null,
       "visual": false,
@@ -405,7 +415,9 @@
         "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
         "project-management/watchdog/fixtures/scoped-admission/README.md",
         "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
-        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
       ],
       "build": null,
       "visual": false,
@@ -510,7 +522,9 @@
         "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
         "project-management/watchdog/fixtures/scoped-admission/README.md",
         "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
-        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
       ],
       "build": null,
       "visual": false,
@@ -572,7 +586,9 @@
         "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
         "project-management/watchdog/fixtures/scoped-admission/README.md",
         "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
-        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
       ],
       "build": null,
       "visual": false,
@@ -635,7 +651,9 @@
         "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
         "project-management/watchdog/fixtures/scoped-admission/README.md",
         "project-management/watchdog/fixtures/scoped-admission/synthetic-snapshot.json",
-        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json"
+        "project-management/watchdog/fixtures/scoped-admission/real-source-manifest.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-controls.json",
+        "project-management/watchdog/fixtures/scoped-admission/rule-proposal-objects.json.gz.b64"
       ],
       "build": null,
       "visual": false,

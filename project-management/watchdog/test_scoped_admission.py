@@ -4,6 +4,10 @@ All generated people, repositories and collection receipts here are SYNTHETIC.
 No fixture seal is evidence of a real external read or live permission.
 """
 import contextlib
+import base64
+import gzip
+import hashlib
+from pathlib import Path
 from copy import deepcopy
 from datetime import timedelta
 import io
@@ -42,17 +46,18 @@ def seal(snapshot):
     return snapshot
 
 
-def docs_case(task_transform=None):
+def docs_case(task_transform=None, rule_paths=("rules.md",), candidate_rule_edit=False):
     w = World()
     task_id = "ops-docs"
     task = {"id": task_id, "completion_criteria": [{"id": "C1", "criterion": "Document one scoped decision", "verification": "Inspect the exact document and board diff"}],
-            "evidence_rule_inventory": [{"id": "R1", "repository": REPO, "path": "rules.md"}],
+            "evidence_rule_inventory": [{"id": "R" + str(i + 1), "repository": REPO, "path": p} for i, p in enumerate(rule_paths)],
             "evidence_policy": {"C1": {"applicability": "required", "rationale": "Documentary criterion", "rule_id": "R1", "instances": ["doc-decision"],
                 "source_paths": ["doc.md", "board.md"], "build": None, "visual": False, "checks": []}}}
     if task_transform:
         task_transform(task)
     w.file("task.json", task)
-    w.file("rules.md", "# R1\nIndependent document review required.\n")
+    for path in rule_paths:
+        w.file(path, "# Rules\nIndependent document review required.\n")
     board = "# Board\n\n| Task | State |\n|---|---|\n| ops-docs | open |\n| unrelated | open |\n\nContext remains unchanged.\n"
     w.file("board.md", board)
     w.file("doc.md", "Before scoped decision\n")
@@ -60,9 +65,11 @@ def docs_case(task_transform=None):
     base_files = deepcopy(w.files)
     w.file("board.md", board.replace("ops-docs | open", "ops-docs | in_review"))
     w.file("doc.md", "After: scope and independent review are explicit.\n")
+    if candidate_rule_edit:
+        w.file(rule_paths[0], "# Candidate rule edit\nIndependent review still required.\n")
     source = w.commit(base)
     authority = {"version": 1, "observed_at": STAMP, "rule_heads": {REPO: base},
-        "rules": [{"id": "R1", "ref": w.ref(base, "rules.md")}], "task_ref": w.ref(source, "task.json"),
+        "rules": [{"id": "R" + str(i + 1), "ref": w.ref(base, p)} for i, p in enumerate(rule_paths)], "task_ref": w.ref(source, "task.json"),
         "candidate": {"repository": REPO, "implementation_head": source, "artifact_head": source},
         "principals": {"author": "worker-A", "coordinator": "coordinator-A", "reviewer": "reviewer-B", "human": None},
         "owner_id": "worker-A", "status": "in_review", "stopped": False, "exclusions": {}, "attestations": [], "findings": [], "decisions": []}
@@ -70,7 +77,7 @@ def docs_case(task_transform=None):
         "ref": w.ref(source, "doc.md"), "source_head": source, "build": None, "performed_at": STAMP, "check_id": None}
     submission = {"acknowledgment": {"task_id": task_id, "author_id": "worker-A", "rules": deepcopy(authority["rules"])},
         "plans": {"C1": {"method": "Inspect document and exact board-row diff", "artifacts": [{"path": "doc.md", "type": "document"}],
-            "source_paths": ["doc.md", "board.md"], "build": None, "coverage": ["doc-decision"], "reviewer_id": "reviewer-B"}}, "evidence": [item], "human_verdict": None}
+            "source_paths": deepcopy(task["evidence_policy"]["C1"]["source_paths"]), "build": None, "coverage": ["doc-decision"], "reviewer_id": "reviewer-B"}}, "evidence": [item], "human_verdict": None}
     verdict = {"task_id": task_id, "candidate_head": source, "actor_id": "reviewer-B",
         "authority_digest": ep.acceptance_binding(authority), "evidence_digest": ep.digest(submission["evidence"]), "performed_at": STAMP,
         "criteria": {"C1": {"decision": "PASS", "rationale": "Original documentary evidence inspected", "citations": [item["ref"]], "evidence_ids": [item["id"]]}}}
@@ -105,7 +112,7 @@ def docs_case(task_transform=None):
     snapshot["scoped_source"] = {"version": 1,
         "binding": {"task_id": task_id, "repository": REPO, "operation": "merge", "executor_id": "native", "owner_id": "coordinator-A", "head_sha": head},
         "base_heads": {REPO: base}, "task_ids": [task_id], "related_task_ids": [task_id],
-        "regions": [{"repository": REPO, "path": p, "row_keys": [task_id] if p == "board.md" else []} for p in ("doc.md", "board.md", "task.json", "rules.md", "qa/")],
+        "regions": [{"repository": REPO, "path": p, "row_keys": [task_id] if p == "board.md" else []} for p in ("doc.md", "board.md", "task.json", "qa/")],
         "candidate": {"pr_id": pr_id, "branch_id": branch_id, "fork_sha": base, "base_chain": [base], "head_chain": [head, source, base]},
         "inventory": {"branches": [
             {"id": REPO + ":refs/heads/main", "repository": REPO, "head_sha": base, "proof": {"kind": "base_ancestor", "chain": [base]}},
@@ -155,6 +162,104 @@ class ScopedAdmissionTests(unittest.TestCase):
         self.assertEqual(self.case["world"].objects, self.s["scoped_source"]["objects"])
         self.assert_allowed()
         self.assertEqual(self.s["tasks"][0]["required_checks"], ["evidence-policy:acceptance-check"])
+
+    # Real PR143 changes precisely these four canonical rule paths. The Git
+    # object graphs and ownership receipts below are synthetic controls, not
+    # current live inventory or proof that PR143's author released ownership.
+    RULE_PROPOSAL_PATHS = ("COORDINATOR.md", "project-management/rules/SYSTEM.md",
+                          "project-management/rules/VALIDATOR_BRIEF.md",
+                          "project-management/rules/WORKER_BRIEF.md")
+
+    def rule_proposal_case(self, **kwargs):
+        self.case = docs_case(rule_paths=self.RULE_PROPOSAL_PATHS, **kwargs)
+        self.s = self.case["snapshot"]
+        add_branch(self.case, {p: "# A separate proposed rule change\n" for p in self.RULE_PROPOSAL_PATHS},
+                   pr=True, name="pr143-shaped-proposal")
+
+    def test_pr143_shaped_read_only_authority_proposal_is_disjoint(self):
+        self.rule_proposal_case()
+        self.assert_allowed()
+        # Every rule remains an exact current-base membership and receipt pin.
+        packet = self.s["evidence_policy"]["ops-docs"]
+        self.assertEqual(len(packet["authority"]["rules"]), 4)
+        for rule in packet["authority"]["rules"]:
+            self.assertEqual(rule["ref"]["commit"], self.case["base"])
+
+    def test_rule_proposal_never_exempts_explicit_dependency_regions(self):
+        for path in self.RULE_PROPOSAL_PATHS:
+            with self.subTest(path=path):
+                self.rule_proposal_case()
+                self.s["scoped_source"]["regions"].append({"repository": REPO, "path": path, "row_keys": []})
+                seal(self.s)
+                self.assert_blocked()
+
+    def test_rule_source_dependency_cannot_be_omitted_or_declared_unrelated(self):
+        self.rule_proposal_case(task_transform=lambda t: t["evidence_policy"]["C1"]["source_paths"].append("COORDINATOR.md"))
+        self.assert_blocked()  # Canonical source dependency omitted from regions.
+        self.s["scoped_source"]["regions"].append({"repository": REPO, "path": "COORDINATOR.md", "row_keys": []})
+        seal(self.s)
+        self.assert_blocked()  # Now its actual competing source delta is visible.
+
+    def test_candidate_rule_write_requires_region_and_blocks_competing_writer(self):
+        self.case = docs_case(rule_paths=self.RULE_PROPOSAL_PATHS, candidate_rule_edit=True)
+        self.s = self.case["snapshot"]
+        self.assert_blocked()  # Computed candidate delta cannot hide a rule edit.
+        self.s["scoped_source"]["regions"].append({"repository": REPO, "path": "COORDINATOR.md", "row_keys": []})
+        seal(self.s)
+        self.assert_allowed()
+        add_branch(self.case, {"COORDINATOR.md": "# Competing rule edit\n"}, pr=True)
+        self.assert_blocked()
+
+    def test_read_only_rule_proposal_keeps_rule_freshness_and_membership_guards(self):
+        for mode in ("blob", "commit", "missing-object", "stale-ack", "stale-receipt"):
+            with self.subTest(mode=mode):
+                self.rule_proposal_case()
+                packet = self.s["evidence_policy"]["ops-docs"]
+                rule = packet["authority"]["rules"][0]["ref"]
+                if mode == "blob": rule["blob"] = "f" * 40
+                if mode == "commit": rule["commit"] = self.case["head"]
+                if mode == "missing-object": del self.s["scoped_source"]["objects"][REPO][rule["blob"]]
+                if mode == "stale-ack": packet["submission"]["acknowledgment"]["rules"][0]["ref"]["commit"] = self.case["head"]
+                if mode == "stale-receipt": self.s["scoped_source"]["receipts"][0]["observed_at"] = (NOW - timedelta(hours=1)).isoformat()
+                self.assert_blocked()
+
+    def test_rule_proposal_keeps_relevant_owner_queue_and_wildcard_stops(self):
+        for kind in ("owners", "queue", "blockers"):
+            with self.subTest(kind=kind):
+                self.rule_proposal_case()
+                if kind == "owners":
+                    self.s[kind].append({"id": "rule-owner", "repository": REPO, "task_id": "ops-docs", "operation": "merge", "owner_id": "another-worker", "executor_id": "native", "state": "unknown"})
+                elif kind == "queue":
+                    self.s[kind].append({"id": "rule-queue", "repository": REPO, "task_id": "ops-docs", "operation": "merge", "owner_id": "another-worker", "executor_id": "native", "head_sha": self.case["head"], "state": "pending"})
+                else:
+                    self.s[kind].append({"id": "rule-stop", "repository": REPO, "task_id": "*", "executors": ["*"], "kind": "stop", "reason": "SYNTHETIC global stop", "operations": ["merge"]})
+                seal(self.s)
+                self.assert_blocked()
+
+    def test_actual_public_rule_proposal_and_true_overlap_predicates(self):
+        root = Path(__file__).parent / "fixtures/scoped-admission"
+        manifest = json.loads((root / "rule-proposal-controls.json").read_text())
+        raw = gzip.decompress(base64.b64decode((root / "rule-proposal-objects.json.gz.b64").read_text()))
+        self.assertEqual(hashlib.sha256(raw).hexdigest(), manifest["uncompressed_sha256"])
+        store = ep.GitObjects(json.loads(raw))
+        for case in manifest["controls"]:
+            rr, fork, head, base = (case[k] for k in ("repository", "fork", "head", "base"))
+            if case["full_delta"]:
+                self.assertEqual(sorted(sa.changed_paths(store, rr, fork, head)), case["changed_paths"])
+            if case["pr"] == 143:
+                # These actual four changed rule paths are absent from this
+                # docs task's actual source/write regions. Their current-base
+                # authority pins remain verified by the full-route tests.
+                docs = [{"repository": rr, "path": "project-management/tasks/td-218-docs-admission/", "row_keys": []},
+                        {"repository": rr, "path": "project-management/boards/tokyo-drift-3d.md", "row_keys": ["td-218"]}]
+                self.assertFalse(any(sa.path_overlap(p, r) for p in case["changed_paths"] for r in docs))
+            for region, expected in zip(case["regions"], case["expected"]):
+                if "error" in expected:
+                    with self.assertRaisesRegex(sa.ScopeError, expected["error"]):
+                        sa.region_equal(store, rr, fork, head, region)
+                else:
+                    self.assertFalse(sa.region_equal(store, rr, fork, head, region))
+                    self.assertFalse(sa.region_equal(store, rr, base, head, region))
 
     def test_old_global_missing_coverage_stays_blocked(self):
         self.s.pop("scoped_source")
@@ -232,7 +337,7 @@ class ScopedAdmissionTests(unittest.TestCase):
                 self.assertFalse(co.evaluate(case["snapshot"], NOW)["actions"])
 
     def test_candidate_scope_cannot_omit_path_or_row(self):
-        for remove in ["doc.md", "task.json", "rules.md", "qa/"]:
+        for remove in ["doc.md", "task.json", "qa/"]:
             with self.subTest(remove=remove):
                 s = deepcopy(self.s)
                 s["scoped_source"]["regions"] = [r for r in s["scoped_source"]["regions"] if r["path"] != remove]

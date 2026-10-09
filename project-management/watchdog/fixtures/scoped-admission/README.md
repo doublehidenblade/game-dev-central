@@ -82,3 +82,22 @@ This is a regression control, not a request to weaken the original global gate.
 The existing evidence-policy evaluator, legacy tests and independent historical
 coordinator probes are unchanged. A separate reviewer must still accept the
 exact source head; author test logs are not acceptance.
+
+## Bounded read-only rule-pin correction
+
+The first reviewed source treated canonical rule pins as automatic conflict
+regions. Actual central PR143 exposed a false positive for docs-only readers.
+The correction separates current authority pins from actual source/write/owner
+regions. Every explicitly declared region remains protected, canonical evidence
+source paths remain mandatory, and computed candidate rule writes cannot be
+omitted. Current rule membership, author acknowledgment and independent review
+still bind the exact current base. No unrelated/read-only caller flag is used.
+
+`rule-proposal-controls.json` and its compressed Git proof retain actual public
+PR143/PR377/Tokyo PR533 objects. They exercise source-delta and region-equivalence
+primitives only, not full ancestry or live admission: PR143 changes four rule
+documents, PR377 changes shared board context, and Tokyo PR533 changes the actual
+td-218 task file. The latter two remain negative controls. Separate full-route
+synthetic tests cover PR143-shaped rule readers, candidate rule writers, explicit
+rule dependencies, changed pins/ACKs, owners, queues and wildcard stops. No
+private collector inventory or observations are published.

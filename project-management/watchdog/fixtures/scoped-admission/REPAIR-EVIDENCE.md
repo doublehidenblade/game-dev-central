@@ -5,3 +5,7 @@ The execution logs, independent-verification.json and strict-independent-verdict
 The synthetic snapshot and real PR430 replay remain historical algorithm controls. Their synthetic outer ownership/source receipts never authorize current docs merges, operations, or global IDLE. Current stale author acknowledgment remains a failing control. No private session/queue inputs are included here.
 
 Scoped operation admission additionally requires current, complete relevant source and ownership receipts, exact full-head bindings, successful required checks, and all unchanged stop, denial and deployment rules. Missing global coverage still prevents a global IDLE claim. This source change does not install a collector, live dispatcher, or private-copy synchronization.
+
+The initial 8667a3cd source and its acceptance packet are historical once the
+bounded read-only rule-pin correction begins. They do not accept that correction;
+the corrected exact source requires a fresh independent verdict and policy gate.

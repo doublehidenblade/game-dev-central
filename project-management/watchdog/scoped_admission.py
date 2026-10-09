@@ -241,27 +241,26 @@ def verify(snapshot, at, tables, sources_for):
         key = (region["repository"], region["path"])
         need(key not in seen, "duplicate protected path")
         seen.add(key)
-    # Include canonical task/evidence source and all current rules. A selected
-    # table row may narrow a source file only after candidate row-only proof.
+    # Include canonical task/evidence source. Current rules are authority
+    # version pins, not implicit write/dependency/owner regions. Explicitly
+    # declared regions are always protected, including any rule dependency.
+    # A selected table row needs complete candidate row-only proof.
     required = {(repo, authority["task_ref"]["path"])}
     for policy in canonical.get("evidence_policy", {}).values():
         required.update((repo, p) for p in policy["source_paths"])
-    required.update((r["ref"]["repository"], r["ref"]["path"]) for r in authority["rules"])
     for rr, path in required:
         need(any(r["repository"] == rr and (r["path"] == path or
                  r["path"].endswith("/") and path.startswith(r["path"])) for r in regions),
-             "scope omits canonical source/rule path: " + path)
+             "scope omits canonical source path: " + path)
     # Rules and the canonical task cannot be narrowed to selected table rows.
     fixed = {(repo, authority["task_ref"]["path"])} | {
         (r["ref"]["repository"], r["ref"]["path"]) for r in authority["rules"]}
-    rule_paths = set()
     for rule in authority["rules"]:
         ref = rule["ref"]
         need(ref["commit"] == scope["base_heads"][ref["repository"]] and
              blob(store, ref["repository"], ref["commit"], ref["path"]) == ref["blob"],
              "current rule membership differs from scoped base")
         evidence_store.citation(ref)
-        rule_paths.add((ref["repository"], ref["path"]))
     need(not any(r["row_keys"] and (r["repository"], r["path"]) in fixed for r in regions),
          "canonical rule/task cannot use row exclusion")
     candidate = scope["candidate"]
@@ -281,12 +280,8 @@ def verify(snapshot, at, tables, sources_for):
                  row_delta(store, repo, candidate["fork_sha"], binding["head_sha"], region["path"]) == set(region["row_keys"]),
                  "row scope must match the complete actual candidate row delta")
         if region["repository"] == repo:
-            # Rules are independently pinned to CURRENT base membership and the
-            # unchanged policy gate checks acknowledgment/review applicability.
-            # An old branch that does not edit a rule does not revert that rule
-            # on merge. Other source dependencies still require equivalence.
-            if (repo, region["path"]) in rule_paths and region["path"] not in delta:
-                continue
+            # Every declared region is an actual dependency/write/owner scope.
+            # Even a canonical rule path receives no overlap/divergence waiver.
             need(region_equal(store, repo, candidate["fork_sha"], scope["base_heads"][repo], region) or
                  region_equal(store, repo, binding["head_sha"], scope["base_heads"][repo], region),
                  "protected current-base dependency diverged from reviewed candidate: " + region["path"])
