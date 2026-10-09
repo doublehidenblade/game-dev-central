@@ -2316,7 +2316,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T18:16:25.836114+00:00",
+  "ts": "2026-10-09T18:44:42.041207+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32; open PR #596 Inspector report: 2026-10-09 09:34 EDT)",
@@ -2327,16 +2327,15 @@
     "ALIVE td-240 (no heartbeat file; task-file commit b3a194e 2026-10-09T16:06)",
     "ALIVE td-241 (no heartbeat file; task-file commit 50902c8 2026-10-09T15:18)",
     "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
-    "ALIVE td-243 (no heartbeat file; open PR #615 Inspector report: 2026-10-09 12:34 EDT (report-only, do not ; open PR #609 Inspector report: 2026-10-09 11:34 EDT (report-only, )",
+    "ALIVE td-243 (no heartbeat file; open PR #624 Inspector report: 2026-10-09 14:34 EDT (report-only, do not ; open PR #615 Inspector report: 2026-10-09 12:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
-    "ALIVE td-248 (no heartbeat file; open PR #623 Inspector report: 2026-10-09 13:34 EDT (report-only, do not ; open PR #620 td-248: street-level traffic lights (signals, ped cro)",
-    "ALIVE td-245 (heartbeat stale (40min); task-file commit 7c58925 2026-10-09T17:47; open PR #623 Inspector report: 2026-10-09 13:34 EDT (report-only, do not ; open PR #615 Insp)",
-    "ALIVE td-246 (heartbeat stale (70min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (111min); task-file commit 4d2c79d 2026-10-09T17:33)"
+    "ALIVE td-248 (no heartbeat file; open PR #624 Inspector report: 2026-10-09 14:34 EDT (report-only, do not ; open PR #623 Inspector report: 2026-10-09 13:34 EDT (report-only, )",
+    "ALIVE td-245 (heartbeat stale (69min); task-file commit 7c58925 2026-10-09T17:47; open PR #624 Inspector report: 2026-10-09 14:34 EDT (report-only, do not ; open PR #623 Insp)",
+    "ALIVE td-246 (heartbeat stale (99min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (140min); task-file commit 4d2c79d 2026-10-09T17:33)"
    ],
    "transitions": [
-    "FLIP td-245: in_review -> validated [notify-craig]",
-    "FLIP td-246: in_review -> validated [notify-craig]"
+    "NO-FLIPS"
    ],
    "classification-health": [
     "STALE-RUNS=153"
@@ -2356,10 +2355,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-09T18:15:38.463138+00:00",
+   "liveness": "2026-10-09T18:44:33.994968+00:00",
    "classification-health": "2026-10-09T18:16:25.836114+00:00",
-   "transitions": "2026-10-09T18:15:59.416787+00:00",
-   "conflicts": "2026-10-09T18:15:46.609742+00:00",
+   "transitions": "2026-10-09T18:44:42.041207+00:00",
+   "conflicts": "2026-10-09T18:44:38.704031+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
