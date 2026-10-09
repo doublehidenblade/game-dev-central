@@ -1939,6 +1939,18 @@
   {
    "ts": "2026-10-09T16:40Z",
    "note": "td-243 pre-acceptance: reconcile Lower City readiness dismissal vs persistent opaque RestartCover (dot source-only finding, inbox comment 6084600749; routed to td-243 Muse-lane owner, PR #606). Verify before acceptance; no Shuto runtime edits authorized in Muse lanes."
+  },
+  {
+   "ts": "2026-10-09T16:55Z",
+   "note": "MERGE-BLOCK: PR #612 (td-245 WantedHUD mount) must NOT merge until corrected independent acceptance (dot timeout-gate reconciliation, game-dev-central#358 comment 6085103271). Validator judging (1 PASS/3 FAIL recorded); merge only after validator acceptance lands."
+  },
+  {
+   "ts": "2026-10-09T16:55Z",
+   "note": "td-247 validated->in_review reconciled per dot comment 6085103271: central PR #431 (4436e6bb) + tokyo PR #617 (d0c3a3ae) merged. PR #610 merged w/o pre-merge gate (timeout fallout); retro-verdict #613 overbroad. Remaining: provenance header (source SHA/Godot version/stub road+lot geometry) on godot/qa/td-240/td240_trace.csv, then re-validate."
+  },
+  {
+   "ts": "2026-10-09T16:55Z",
+   "note": "evidence-policy adoption status: my merge path currently produces NO gate receipt (record-pending ledger has pr/merge-sha/summary only; no authority/submission/objects refs; legacy fenced-JSON tasks not strict-decoder-compatible). Reported to inbox as concrete incompatibility, not waived. RUNBOOK timeout discipline merged (central #431): no merge without a gate receipt going forward."
   }
  ],
  "workers": {
@@ -2460,6 +2472,11 @@
    "pr": 612,
    "head_sha": "0be051c1",
    "at": "2026-10-09T16:25:33.584413+00:00"
+  },
+  "td-246": {
+   "pr": 618,
+   "head_sha": "446ec7b6",
+   "at": "2026-10-09T17:14:02.991168+00:00"
   }
  }
 }

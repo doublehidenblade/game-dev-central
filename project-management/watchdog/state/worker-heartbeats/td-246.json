@@ -1,1 +1,1 @@
-{"status":"working","step":"run11 in progress: cop driving in (76m and closing), dwell hold phase logging per-tick; cop-assist fallback armed at 15s","task":"td-246","ts":"2026-10-09T16:42:00Z"}
+{"status":"working","step":"VM restarted mid-run; re-running harness in background (run12), monitoring committed per-tick log","task":"td-246","ts":"2026-10-09T17:05:00Z"}
