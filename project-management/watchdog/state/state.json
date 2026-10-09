@@ -1910,18 +1910,10 @@
   "2026-10-06T16:13Z LIVENESS: td-195 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-195-20261006-161334.md).",
   "2026-10-06T16:41Z deregistered td-101 (subagent): work complete, PR #434 in_review",
   "2026-10-07T07:00Z deregistered td-203 (subagent): work merged: validator PASS, PR #459 squash-merged eda80ac; board PR #334 open for supervisor merge",
-  "2026-10-08T07:43Z LIVENESS: td-192 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-192-20261008-074323.md)."
+  "2026-10-08T07:43Z LIVENESS: td-192 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-192-20261008-074323.md).",
+  "2026-10-09T05:43Z LIVENESS: td-191 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-191-20261009-054333.md)."
  ],
  "workers": {
-  "td-191": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-191.md",
-   "dispatched_at": "2026-10-06T04:47:44.760943+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
-  },
   "td-195": {
    "kind": "subagent",
    "session": null,
@@ -1937,8 +1929,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-192.md",
    "dispatched_at": "2026-10-08T07:47:55.672899+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   }
  },
  "dispatch_denylist": {
@@ -1946,7 +1938,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 141
+  "stale_runs": 142
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2164,18 +2156,18 @@
   "td-237": "blocked"
  },
  "run_verdicts": {
-  "ts": "2026-10-09T05:14:00.496416+00:00",
+  "ts": "2026-10-09T05:44:01.982953+00:00",
   "checks": {
    "liveness": [
-    "QUIET(1) td-191 (no heartbeat file)",
+    "DEAD td-191 (replacement queued; no heartbeat file)",
     "ALIVE td-195 (no heartbeat file; task-file commit 58516c0 2026-10-06T23:15)",
-    "ALIVE td-192 (no heartbeat file; open PR #507 Inspector report: 2026-10-08 04:34 EDT (report-only, do not )"
+    "QUIET(1) td-192 (no heartbeat file)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=141"
+    "STALE-RUNS=142"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2191,11 +2183,11 @@
    ]
   },
   "check_ts": {
-   "board-check": "2026-10-09T05:14:00.496416+00:00",
-   "liveness": "2026-10-09T05:13:41.183603+00:00",
-   "classification-health": "2026-10-09T05:13:53.413232+00:00",
-   "transitions": "2026-10-09T05:13:47.067128+00:00",
-   "conflicts": "2026-10-09T05:13:44.100470+00:00",
+   "board-check": "2026-10-09T05:44:01.982953+00:00",
+   "liveness": "2026-10-09T05:43:46.593772+00:00",
+   "classification-health": "2026-10-09T05:43:55.404813+00:00",
+   "transitions": "2026-10-09T05:43:54.179078+00:00",
+   "conflicts": "2026-10-09T05:43:51.122259+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-03T05:13:17.531450+00:00"
   }
