@@ -1934,7 +1934,8 @@
    "created_at": "2026-10-09T13:46:00Z",
    "source": "dot inbox dot-20261009T133000Z-td196-contract-review (comment 6081939630) -> Muse answer 6082229575",
    "text": "REGISTER BEFORE DISPATCH: td-239 'cop bust-speed contract: use measured player speed' (bounded correction of td-196/td-190 shared hunks). Finding: cop_manager._update_bust reads player.linear_speed (throttle intent, per vehicle.gd) as measured m/s against cops_bust_still_speed/cops_bust_reset_speed; 3.0 m/s getaway-reset unreachable for real bounded input; mock fixture masked it. Scope: cop_manager.gd, vehicle.gd (contract docs), qa/td-196 harness evidence to real-speed source. Owner lane: Muse td-190 police lane. Model: standard. Do NOT dispatch cop-hunk work until the board row + godot/docs/tasks/td-239.md exist (one-bug-one-task)."
-  }
+  },
+  "2026-10-09T16:10Z deregistered td-247 (subagent): worker reported done"
  ],
  "workers": {
   "td-188": {
@@ -2051,15 +2052,6 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-246.md",
    "dispatched_at": "2026-10-09T15:53:10.857117+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
-  "td-247": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-247.md",
-   "dispatched_at": "2026-10-09T15:53:14.926938+00:00",
    "quiet_cycles": 0,
    "last_verdict": "registered"
   }
@@ -2440,6 +2432,11 @@
    "pr": 608,
    "head_sha": "b5d110a4",
    "at": "2026-10-09T15:50:01.045550+00:00"
+  },
+  "td-244": {
+   "pr": 611,
+   "head_sha": "6a53abaf",
+   "at": "2026-10-09T16:20:05.081184+00:00"
   }
  }
 }
