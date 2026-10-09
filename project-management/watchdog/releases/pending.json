@@ -55,6 +55,14 @@
    "merged_sha": "dbd5916c",
    "merged_at": "2026-10-09T13:03:52.706305+00:00",
    "summary": "arrest lands within seconds of the bump (speed-kill + dwell hysteresis)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-189",
+   "pr": 593,
+   "merged_sha": "520abb8c",
+   "merged_at": "2026-10-09T13:31:55.633652+00:00",
+   "summary": "traffic sits on ground + collides (spawn root +1.0 -> +0.05)"
   }
  ]
 }
