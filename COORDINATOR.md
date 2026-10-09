@@ -32,3 +32,19 @@ This repo is the source of truth for Craig's game-dev agent team. If you are pic
 - **Never commit credentials, tokens, or secrets** to this repo or any game repo. This repo stays credential-free, always.
 - QA feedback to sessions goes as committed files under the game repo's `qa/<topic>/` with the exact repo-relative path — never as chat text alone.
 - Every release/PR report: inspected screenshots, what changed, who shipped it, remaining work, live link.
+
+
+## Scripted coordinator decisions
+
+[SCRIPTED: watch.py coordinator-plan] Before reporting idle or choosing a new
+assignment, follow the [current watchdog runbook](project-management/watchdog/RUNBOOK.md#supported-coordinator-route-2026-10-09)
+and run `python3 project-management/watchdog/watch.py coordinator-plan --snapshot <file>`.
+The read-only evaluator considers task × operation × executor scope, including
+admission and independent verification. Missing or incomplete observations never
+justify global idle, and a blocked publication or unavailable Codex route does
+not disable separately authorized native work. Preserve all current owners,
+stops and acceptance gates. Revalidate an exact action before using it.
+
+The historical automatic admission/queue-delivery commands are quarantined.
+Do not run the legacy loop or deliver its pending queue. This change installs no
+live collector or dispatcher and does not authorize Actions or deployments.

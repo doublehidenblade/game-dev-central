@@ -758,6 +758,381 @@ def test_part10():
     return fails
 
 
+
+# Public-safe replay fixtures and integration tests for the supported coordinator.
+import copy
+import contextlib
+import io
+import json
+import pathlib
+import socket
+import subprocess
+import unittest
+from unittest import mock
+import coordinator
+import coordinator_cli
+
+COORDINATOR_NOW = datetime(2026, 10, 9, 12, 0, tzinfo=timezone.utc)
+COORDINATOR_REPO = "example/game"
+COORDINATOR_HEAD = "1" * 40
+
+
+def coordinator_seal(snapshot):
+    """Synthetic source receipts for tests ONLY; not a production collector."""
+    snapshot["sources"] = []
+    for repo, head in snapshot["repositories"].items():
+        for table in coordinator.TABLES:
+            ids = [r["id"] for r in snapshot[table] if r["repository"] == repo]
+            snapshot["sources"].append({
+                "id": repo + ":" + table, "kind": table, "repository": repo,
+                "source_repository": repo, "ref_sha": head,
+                "observed_at": snapshot["observed_at"], "read_status": "ok",
+                "pagination": {"pages_read": 1, "items_seen": len(ids), "exhausted": True},
+                "ids": ids})
+    return snapshot
+
+
+def coordinator_fixture():
+    repo, head = COORDINATOR_REPO, COORDINATOR_HEAD
+    snapshot = {"version": 1, "observed_at": COORDINATOR_NOW.isoformat(),
+                "repositories": {repo: "0" * 40}, "sources": [],
+                **{kind: [] for kind in coordinator.TABLES}}
+    snapshot["policies"] = [{"id": "policy", "repository": repo, "triggers_checked": True,
+        "push_runs_actions": False, "push_deploys": False,
+        "merge_runs_actions": False, "merge_deploys": False}]
+    snapshot["tasks"] = [{"id": "task-a", "repository": repo, "head_sha": head,
+        "status": "open", "owner_id": None, "project": "sample", "author_id": "author",
+        "needs": [], "criteria": ["criterion-1"], "required_checks": ["unit"],
+        "requirements": {op: {"capabilities": [op], "model": "frontier-example",
+            "effort": "high", "runtime_confirmation_required": True}
+            for op in coordinator.OPERATIONS[1:]}}]
+    snapshot["board"] = [{k: snapshot["tasks"][0][k] for k in ("id", "repository", "head_sha", "status", "owner_id")}]
+    snapshot["branches"] = [{"id": "task-a-branch", "repository": repo, "task_id": "task-a", "head_sha": head}]
+    snapshot["requests"] = [{"id": "approved-work", "repository": repo, "task_id": "*", "project": "*",
+        "operations": list(coordinator.OPERATIONS), "executors": ["*"], "kind": "standing",
+        "state": "active", "authority_verified": True, "evidence": "Synthetic authorized source receipt"}]
+    snapshot["executors"] = [{"id": "native", "repository": repo, "owner_id": "reviewer",
+        "kind": "native", "state": "available", "capabilities": list(coordinator.OPERATIONS),
+        "observed_model": "frontier-example", "observed_effort": "high", "runtime_confirmed": True,
+        "resume_task": None}]
+    return coordinator_seal(snapshot)
+
+
+def coordinator_add_review(snapshot, accepted=False):
+    repo, head = COORDINATOR_REPO, COORDINATOR_HEAD
+    snapshot["tasks"][0]["status"] = "in_review"
+    pr = {"id": repo + "#1", "repository": repo, "task_id": "task-a", "head_sha": head,
+          "author_id": "author", "state": "open", "review_ids": [], "check_ids": []}
+    snapshot["prs"] = [pr]
+    if accepted:
+        pr["review_ids"] = ["review-1"]
+        pr["check_ids"] = ["check-1"]
+        snapshot["reviews"] = [{"id": "review-1", "repository": repo, "task_id": "task-a",
+            "pr_id": pr["id"], "head_sha": head, "observed_at": COORDINATOR_NOW.isoformat(),
+            "reviewer_id": "independent-validator", "verdict": "pass",
+            "criteria": {"criterion-1": {"result": "pass", "evidence": "qa/synthetic-unit-report.txt"}}}]
+        snapshot["checks"] = [{"id": "check-1", "repository": repo, "task_id": "task-a",
+            "pr_id": pr["id"], "head_sha": head, "observed_at": COORDINATOR_NOW.isoformat(),
+            "name": "unit", "result": "pass"}]
+    return coordinator_seal(snapshot)
+
+
+@contextlib.contextmanager
+def coordinator_forbid_io(reads=None):
+    """Allow only a supplied in-memory CLI input. Everything consequential raises."""
+    def read_only(path, mode="r", *args, **kwargs):
+        if mode == "r" and reads is not None and path in reads:
+            return io.StringIO(reads[path])
+        raise AssertionError("forbidden filesystem access")
+    with contextlib.ExitStack() as stack:
+        stack.enter_context(mock.patch("builtins.open", side_effect=read_only))
+        for path in ("socket.socket", "socket.create_connection", "subprocess.Popen", "subprocess.run",
+                     "urllib.request.urlopen", "os.makedirs", "os.mkdir", "os.remove", "os.unlink",
+                     "os.rename", "os.replace", "os.system", "pathlib.Path.write_text", "pathlib.Path.write_bytes"):
+            stack.enter_context(mock.patch(path, side_effect=AssertionError("forbidden external effect")))
+        for name in ("load_state", "save_state", "_load_pending_actions", "_save_pending_actions", "_gh", "_gh_api", "get", "_build_replacement_brief", "_capture_verdicts", "_record_verdict"):
+            stack.enter_context(mock.patch.object(watch, name, side_effect=AssertionError("forbidden legacy effect")))
+        yield
+
+
+class CoordinatorEnforcementTests(unittest.TestCase):
+    def evaluate(self, snapshot=None, at=COORDINATOR_NOW):
+        snapshot = snapshot if snapshot is not None else coordinator_fixture()
+        original = copy.deepcopy(snapshot)
+        with coordinator_forbid_io():
+            result = coordinator.evaluate(snapshot, at)
+        self.assertEqual(snapshot, original, "evaluation mutated its input")
+        return result
+
+    def actions(self, snapshot, operation=None):
+        return [a for a in self.evaluate(snapshot)["actions"] if operation is None or a["operation"] == operation]
+
+    def test_available_native_survives_codex_capacity_block(self):
+        s = coordinator_fixture()
+        codex = {**s["executors"][0], "id": "codex", "owner_id": "codex-owner", "kind": "codex", "state": "unavailable"}
+        s["executors"].insert(0, codex)
+        s["blockers"] = [{"id": "quota", "repository": COORDINATOR_REPO, "task_id": "*",
+            "operations": ["*"], "executors": ["codex"], "kind": "capacity", "reason": "quota exhausted"}]
+        result = self.evaluate(coordinator_seal(s))
+        self.assertEqual([a["executor_id"] for a in result["actions"]], ["native"])
+        self.assertEqual(result["status"], "ACTION_REQUIRED")
+
+    def test_scoped_publication_holds_do_not_block_code_or_second_task(self):
+        s = coordinator_fixture()
+        s["tasks"][0]["needs"] = ["upload", "deploy"]
+        second = copy.deepcopy(s["tasks"][0]); second["id"] = "task-b"
+        s["tasks"].append(second)
+        s["board"].append({k: second[k] for k in ("id", "repository", "head_sha", "status", "owner_id")})
+        s["branches"].append({**s["branches"][0], "id": "task-b-branch", "task_id": "task-b"})
+        s["blockers"] = [{"id": "hold-a", "repository": COORDINATOR_REPO, "task_id": "task-a",
+            "operations": ["*"], "executors": ["*"], "kind": "hold", "reason": "task hold"},
+            {"id": "upload-hold", "repository": COORDINATOR_REPO, "task_id": "task-b",
+            "operations": ["upload", "deploy"], "executors": ["*"], "kind": "hold", "reason": "publication hold"}]
+        self.assertEqual([(a["task_id"], a["operation"]) for a in self.actions(coordinator_seal(s))], [("task-b", "implementation")])
+
+    def test_unfiled_ask_is_admission_without_implementation_candidate(self):
+        s = coordinator_fixture()
+        s["tasks"].clear(); s["board"].clear(); s["branches"].clear()
+        s["requests"] = [{**s["requests"][0], "id": "unfiled-ask", "task_id": None,
+                           "kind": "ask", "project": "sample", "operations": ["admission"]}]
+        actions = self.actions(coordinator_seal(s))
+        self.assertEqual([(a["task_id"], a["operation"]) for a in actions], [("request:unfiled-ask", "admission")])
+
+    def test_unfiled_admission_holds_are_task_scoped(self):
+        s = coordinator_fixture()
+        s["tasks"].clear(); s["board"].clear(); s["branches"].clear()
+        template = {**s["requests"][0], "task_id": None, "kind": "ask",
+                    "project": "sample", "operations": ["admission"]}
+        s["requests"] = [{**template, "id": "ask-a"}, {**template, "id": "ask-b"}]
+        s["blockers"] = [{"id": "admission-hold", "repository": COORDINATOR_REPO,
+            "task_id": "request:ask-a", "operations": ["admission"], "executors": ["*"],
+            "kind": "hold", "reason": "admission dependency"}]
+        self.assertEqual([a["task_id"] for a in self.actions(coordinator_seal(s))], ["request:ask-b"])
+
+    def test_review_pending_and_stale_board_produce_exact_head_verification(self):
+        result = self.evaluate(coordinator_add_review(coordinator_fixture()))
+        self.assertEqual(result["actions"][0]["operation"], "verification")
+        self.assertEqual(result["actions"][0]["head_sha"], COORDINATOR_HEAD)
+        self.assertTrue(result["reconciliations"])
+
+    def test_implementation_owner_preserved_independent_review_available(self):
+        s = coordinator_add_review(coordinator_fixture())
+        s["tasks"][0]["owner_id"] = "author"; s["tasks"][0]["needs"] = ["implementation"]
+        s["board"][0]["owner_id"] = "author"
+        s["executors"].append({**s["executors"][0], "id": "author-executor", "owner_id": "author", "state": "busy"})
+        s["owners"] = [{"id": "owner", "repository": COORDINATOR_REPO, "task_id": "task-a",
+            "operation": "implementation", "owner_id": "author", "executor_id": "author-executor", "state": "active"}]
+        actions = self.actions(coordinator_seal(s))
+        self.assertEqual([(a["operation"], a["executor_id"]) for a in actions], [("verification", "native")])
+
+    def test_owned_continuation_requires_existing_exact_executor(self):
+        s = coordinator_fixture()
+        s["tasks"][0]["owner_id"] = s["board"][0]["owner_id"] = "reviewer"
+        s["owners"] = [{"id": "owner", "repository": COORDINATOR_REPO, "task_id": "task-a",
+            "operation": "implementation", "owner_id": "reviewer", "executor_id": "native", "state": "active"}]
+        self.assertFalse(self.actions(coordinator_seal(s)))
+        s["executors"][0]["resume_task"] = "task-a"
+        self.assertTrue(self.actions(s))
+
+    def test_native_unknown_or_requested_model_is_not_attestation(self):
+        for changes in ({"state": "unknown"}, {"runtime_confirmed": False},
+                        {"observed_model": "weaker-example"}, {"observed_effort": "low"},
+                        {"capabilities": []}):
+            with self.subTest(changes=changes):
+                s = coordinator_fixture(); s["executors"][0].update(changes)
+                self.assertFalse(self.actions(s))
+        s = coordinator_fixture(); s["executors"][0]["requested_model"] = "frontier-example"
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+
+    def test_acceptance_is_independent_complete_and_exact(self):
+        base = coordinator_add_review(coordinator_fixture(), accepted=True)
+        self.assertEqual([a["operation"] for a in self.actions(base)], ["merge"])
+        mutations = [lambda s: s["reviews"][0].update(head_sha="2"*40),
+                     lambda s: s["reviews"][0].update(reviewer_id="author"),
+                     lambda s: s["reviews"][0].update(criteria={}),
+                     lambda s: s["reviews"][0]["criteria"]["criterion-1"].update(evidence=""),
+                     lambda s: s["reviews"][0]["criteria"]["criterion-1"].update(result="fail"),
+                     lambda s: s["checks"][0].update(head_sha="2"*40),
+                     lambda s: s["checks"][0].update(result="fail")]
+        for mutation in mutations:
+            s = copy.deepcopy(base); mutation(s)
+            self.assertFalse(self.actions(s, "merge"))
+
+    def test_conflicting_same_head_reviews_require_reconciliation(self):
+        s = coordinator_add_review(coordinator_fixture(), accepted=True)
+        s["reviews"].append({**copy.deepcopy(s["reviews"][0]), "id": "review-2", "verdict": "fail"})
+        s["prs"][0]["review_ids"].append("review-2")
+        result = self.evaluate(coordinator_seal(s))
+        self.assertFalse(result["actions"])
+        self.assertEqual(result["status"], "INPUT_REQUIRED")
+
+    def test_manifest_omissions_and_unreadability_never_claim_idle(self):
+        mutations = [lambda s: s.pop("sources"), lambda s: s.update(sources=[]),
+                     lambda s: s["sources"][2]["pagination"].update(exhausted=False),
+                     lambda s: s["sources"][2].update(read_status="unreadable"),
+                     lambda s: s["sources"][2]["ids"].append("omitted-task"),
+                     lambda s: s.update(complete=True), lambda s: s.update(candidates=[]),
+                     lambda s: s["board"].clear()]
+        for mutation in mutations:
+            s = coordinator_fixture(); mutation(s)
+            result = self.evaluate(s)
+            self.assertEqual(result["status"], "INPUT_REQUIRED")
+            self.assertFalse(result["actions"])
+
+    def test_complete_empty_scope_is_no_work_only_with_all_receipts(self):
+        s = coordinator_fixture(); s["tasks"].clear(); s["board"].clear(); s["branches"].clear()
+        self.assertEqual(self.evaluate(coordinator_seal(s))["status"], "IDLE")
+        s["sources"].pop()
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+
+    def test_safe_action_coexists_with_unrelated_unknown_scope(self):
+        s = coordinator_fixture()
+        s["repositories"]["example/unobserved-game"] = "3" * 40
+        result = self.evaluate(s)
+        self.assertEqual(result["status"], "ACTION_REQUIRED")
+        self.assertEqual(len(result["actions"]), 1)
+        self.assertTrue(result["warnings"])
+
+    def test_unknown_acceptance_does_not_stop_separately_authorized_code(self):
+        s = coordinator_fixture()
+        next(src for src in s["sources"] if src["kind"] == "reviews")["read_status"] = "unreadable"
+        result = self.evaluate(s)
+        self.assertEqual(result["status"], "ACTION_REQUIRED")
+        self.assertEqual(result["actions"][0]["operation"], "implementation")
+        self.assertTrue(result["warnings"])
+        s = coordinator_add_review(s, True)
+        next(src for src in s["sources"] if src["kind"] == "reviews")["read_status"] = "unreadable"
+        self.assertFalse(self.actions(s, "merge"))
+
+    def test_bad_times_sha_repository_duplicate_and_review_omission(self):
+        mutations = [lambda s: s.update(observed_at="2026-10-09T12:00:00"),
+                     lambda s: s.update(observed_at="malformed"),
+                     lambda s: s.update(observed_at="2026-10-09T12:01:00Z"),
+                     lambda s: s["sources"][0].update(observed_at="2026-10-09T12:01:00Z"),
+                     lambda s: s["tasks"][0].update(head_sha="1"*7),
+                     lambda s: s["tasks"][0].update(repository="wrong/repository"),
+                     lambda s: s["sources"][0].update(ref_sha="2"*40),
+                     lambda s: s["tasks"].append(copy.deepcopy(s["tasks"][0])),
+                     lambda s: s["sources"].append(copy.deepcopy(s["sources"][0]))]
+        for mutation in mutations:
+            s = coordinator_fixture(); mutation(s)
+            self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+        self.assertEqual(self.evaluate(coordinator_fixture(), COORDINATOR_NOW + timedelta(minutes=16))["status"], "INPUT_REQUIRED")
+        s = coordinator_add_review(coordinator_fixture(), True); s["reviews"].clear()
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+        s = coordinator_add_review(coordinator_fixture(), True); s["reviews"][0]["pr_id"] = "example/elsewhere#1"
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+
+    def test_stops_denials_cancellation_and_frozen_projects_preserved(self):
+        for kind in ("hold", "stop", "cancelled", "denial", "security"):
+            s = coordinator_fixture()
+            s["blockers"] = [{"id": "stop", "repository": COORDINATOR_REPO, "task_id": "task-a",
+                "operations": ["implementation"], "executors": ["*"], "kind": kind, "reason": "explicit stop"}]
+            self.assertFalse(self.actions(coordinator_seal(s)))
+        s = coordinator_fixture(); s["requests"].append({**s["requests"][0], "id": "cancelled", "task_id": "task-a", "state": "cancelled"})
+        self.assertFalse(self.actions(coordinator_seal(s)))
+        for project in ("shuto", "neon-drift"):
+            s = coordinator_fixture(); s["tasks"][0]["project"] = project
+            self.assertFalse(self.actions(s))
+        s = coordinator_fixture(); s["tasks"][0]["status"] = "cancelled"
+        self.assertFalse(self.actions(s))
+
+    def test_frozen_unfiled_ask_and_board_stops_cannot_be_laundered(self):
+        s = coordinator_fixture()
+        s["tasks"].clear(); s["board"].clear(); s["branches"].clear()
+        s["requests"] = [{**s["requests"][0], "id": "ask", "task_id": None,
+                           "kind": "ask", "project": "shuto", "operations": ["admission"]}]
+        self.assertFalse(self.actions(coordinator_seal(s)))
+        for status in ("cancelled", "paused", "done-pending-verdict"):
+            s = coordinator_fixture(); s["board"][0]["status"] = status
+            result = self.evaluate(s)
+            self.assertFalse(result["actions"])
+            self.assertEqual(result["status"], "INPUT_REQUIRED")
+
+    def test_unknown_branch_and_ownership_conflicts_require_reconciliation(self):
+        s = coordinator_fixture(); s["branches"][0]["task_id"] = None
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+        s = coordinator_fixture(); s["board"][0]["owner_id"] = "unreconciled-owner"
+        self.assertFalse(self.actions(s))
+        s = coordinator_fixture(); s["tasks"][0]["status"] = "blocked"
+        s["tasks"][0]["needs"] = ["implementation"]
+        self.assertEqual(self.evaluate(s)["status"], "INPUT_REQUIRED")
+
+    def test_denial_cannot_be_narrowed_to_evade_on_another_executor(self):
+        s = coordinator_fixture()
+        s["blockers"] = [{"id": "denied", "repository": COORDINATOR_REPO, "task_id": "task-a",
+            "operations": ["implementation"], "executors": ["native"], "kind": "denial", "reason": "denied"}]
+        self.assertEqual(self.evaluate(coordinator_seal(s))["status"], "INPUT_REQUIRED")
+
+    def test_publication_triggers_and_deploy_never_granted_by_code_permission(self):
+        s = coordinator_fixture(); s["tasks"][0]["needs"] = ["upload", "deploy"]
+        s["policies"][0]["push_runs_actions"] = True
+        self.assertEqual([a["operation"] for a in self.actions(s)], ["implementation"])
+        s = coordinator_add_review(coordinator_fixture(), True); s["policies"][0]["merge_deploys"] = True
+        self.assertFalse(self.actions(s, "merge"))
+
+    def test_decision_replay_is_bound_to_target_owner_sha_inputs_and_freshness(self):
+        base = coordinator_fixture(); action = self.actions(base)[0]
+        target = {k: action[k] for k in ("task_id", "operation", "executor_id", "owner_id", "head_sha")}
+        with coordinator_forbid_io():
+            self.assertEqual(coordinator.revalidate(base, action, target, COORDINATOR_NOW)["status"], "GO")
+            self.assertEqual(coordinator.revalidate(base, action, {**target, "operation": "upload"}, COORDINATOR_NOW)["status"], "NO_GO")
+            self.assertEqual(coordinator.revalidate(base, action, target, COORDINATOR_NOW + timedelta(minutes=16))["status"], "NO_GO")
+        for mutate in (lambda s: s["executors"][0].update(owner_id="changed"),
+                       lambda s: s["tasks"][0].update(head_sha="2"*40),
+                       lambda s: s["requests"][0].update(state="cancelled"),
+                       lambda s: s["tasks"][0].update(owner_id="someone")):
+            s = copy.deepcopy(base); mutate(s)
+            with coordinator_forbid_io():
+                self.assertEqual(coordinator.revalidate(s, action, target, COORDINATOR_NOW)["status"], "NO_GO")
+
+    def test_all_cli_aliases_use_shared_evaluator_and_never_capture_state(self):
+        s = coordinator_fixture(); action = self.actions(s)[0]
+        reads = {"snapshot.json": json.dumps(s), "decision.json": json.dumps(action)}
+        for command in coordinator_cli.ALIASES:
+            args = ["--snapshot", "snapshot.json"]
+            if command == "dispatch-guard":
+                args += ["--decision", "decision.json", "--task", action["task_id"],
+                         "--operation", action["operation"], "--executor", action["executor_id"],
+                         "--owner", action["owner_id"], "--head", action["head_sha"]]
+            with self.subTest(command=command), coordinator_forbid_io(reads), \
+                    mock.patch.object(coordinator, "evaluate", wraps=coordinator.evaluate) as shared, \
+                    mock.patch.object(coordinator_cli, "datetime") as clock, \
+                    mock.patch.object(sys, "argv", ["watch.py", command] + args), \
+                    contextlib.redirect_stdout(io.StringIO()) as stdout:
+                clock.now.return_value = COORDINATOR_NOW
+                with self.assertRaises(SystemExit) as exit_info:
+                    watch.main()
+                self.assertEqual(exit_info.exception.code, 3 if command == "idle-defect-check" else 0)
+                self.assertTrue(shared.called, "alias bypassed shared evaluator")
+                self.assertIn(json.loads(stdout.getvalue())["status"], {"ACTION_REQUIRED", "GO"})
+
+    def test_aliases_without_snapshot_and_retired_routes_fail_closed(self):
+        for command in coordinator_cli.ALIASES | coordinator_cli.RETIRED:
+            for route in ("main", "callable"):
+                with self.subTest(command=command, route=route), coordinator_forbid_io(), \
+                        mock.patch.object(sys, "argv", ["watch.py", command]), \
+                        contextlib.redirect_stdout(io.StringIO()) as stdout:
+                    with self.assertRaises(SystemExit) as exit_info:
+                        if route == "main":
+                            watch.main()
+                        else:
+                            getattr(watch, "cmd_" + command.replace("-", "_"))([])
+                    self.assertEqual(exit_info.exception.code, 2)
+                    self.assertEqual(json.loads(stdout.getvalue())["status"], "INPUT_REQUIRED")
+
+    def test_cli_rejects_malformed_duplicate_json_without_legacy_fallback(self):
+        for data in ("{", '{"version":1,"version":1}', '{"version":NaN}'):
+            with coordinator_forbid_io({"bad.json": data}), contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(coordinator_cli.run("coordinator-plan", ["--snapshot", "bad.json"], COORDINATOR_NOW), 2)
+
+
+def test_part11():
+    suite = unittest.defaultTestLoader.loadTestsFromTestCase(CoordinatorEnforcementTests)
+    result = unittest.TextTestRunner(verbosity=2).run(suite)
+    return len(result.failures) + len(result.errors)
+
+
 if __name__ == "__main__":
     print("== Part 1: evidence -> classification ==")
     f1 = test_part1()
@@ -779,6 +1154,9 @@ if __name__ == "__main__":
     f9 = test_part9()
     print("== Part 10: EVIDENCE-VOID dark-void heuristic ==")
     f10 = test_part10()
-    total = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9 + f10
+    print("== Part 11: scoped coordinator enforcement and no-side-effect CLI ==")
+    f11 = test_part11()
+    total = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9 + f10 + f11
     print(f"\n{total} failures" if total else "\nALL TESTS PASSED")
     sys.exit(1 if total else 0)
+
