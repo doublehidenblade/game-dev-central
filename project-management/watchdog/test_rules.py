@@ -1168,6 +1168,53 @@ class CoordinatorEnforcementTests(unittest.TestCase):
             "operations": ["implementation"], "executors": ["native"], "kind": "denial", "reason": "denied"}]
         self.assertEqual(self.evaluate(coordinator_seal(s))["status"], "INPUT_REQUIRED")
 
+    def test_unknown_branches_do_not_block_exact_read_only_review(self):
+        s = coordinator_add_review(coordinator_fixture(), True)
+        s["tasks"][0]["needs"] = ["verification", "implementation", "upload", "merge"]
+        s["branches"].append({"id": "unmapped", "repository": COORDINATOR_REPO,
+                              "task_id": None, "head_sha": "e" * 40})
+        result = self.evaluate(coordinator_seal(s))
+        self.assertEqual([a["operation"] for a in result["actions"]], ["verification"])
+        self.assertTrue(result["warnings"])
+        for table in ("owners", "prs"):
+            bad = copy.deepcopy(s)
+            next(src for src in bad["sources"] if src["kind"] == table)["read_status"] = "unreadable"
+            self.assertFalse(self.actions(bad), "readonly exception must retain ownership/source gates")
+        s["blockers"] = [{"id": "review-stop", "repository": COORDINATOR_REPO,
+            "task_id": "task-a", "operations": ["verification"], "executors": ["*"],
+            "kind": "stop", "reason": "explicit verification stop"}]
+        self.assertFalse(self.actions(coordinator_seal(s)))
+
+    def test_post_merge_verification_resolves_source_without_reacceptance(self):
+        s = coordinator_add_review(coordinator_fixture())
+        s["tasks"][0].update(status="merged", needs=["verification", "implementation", "merge"])
+        s["board"][0]["status"] = "merged"; s["prs"][0]["state"] = "merged"
+        result = self.evaluate(coordinator_seal(s))
+        self.assertEqual([a["operation"] for a in result["actions"]], ["verification"])
+        self.assertEqual(result["actions"][0]["head_sha"], s["prs"][0]["head_sha"])
+        self.assertTrue(result["warnings"], "duplicate implementation remains rejected")
+        s["executors"][0]["owner_id"] = "author"
+        self.assertFalse(self.actions(s), "post-merge work still requires independence")
+
+    def test_missing_post_merge_source_never_returns_false_idle(self):
+        base = coordinator_add_review(coordinator_fixture())
+        base["tasks"][0].update(status="merged", needs=["verification"])
+        base["board"][0]["status"] = "merged"; base["prs"][0]["state"] = "merged"
+        for mutation in (lambda s: s["prs"][0].update(head_sha="e" * 40),
+                         lambda s: s["prs"][0].update(state="closed"),
+                         lambda s: s["prs"].clear()):
+            s = copy.deepcopy(base); mutation(s)
+            result = self.evaluate(coordinator_seal(s))
+            self.assertFalse(result["actions"])
+            self.assertEqual(result["status"], "INPUT_REQUIRED")
+        s = coordinator_fixture();s["tasks"][0]["needs"] = ["verification"]
+        s["blockers"] = [{"id": "code-hold", "repository": COORDINATOR_REPO,
+            "task_id": "task-a", "operations": ["implementation"], "executors": ["*"],
+            "kind": "hold", "reason": "hold code"}]
+        result = self.evaluate(coordinator_seal(s))
+        self.assertEqual(result["status"], "INPUT_REQUIRED")
+        self.assertTrue(any("exact review source" in warning for warning in result["warnings"]))
+
     def test_publication_triggers_and_deploy_never_granted_by_code_permission(self):
         s = coordinator_fixture(); s["tasks"][0]["needs"] = ["upload", "deploy"]
         s["policies"][0]["push_runs_actions"] = True

@@ -20,6 +20,9 @@ BASE_SOURCES = set(TABLES) - {"reviews", "checks"}
 SOURCES_FOR = {op: BASE_SOURCES | ({"reviews", "checks"} if op == "merge" else
                                   {"reviews"} if op == "verification" else set())
                for op in OPERATIONS}
+# Independently pinned read-only review does not mutate branch ownership or
+# source. Unreconciled branches remain warnings and still gate all mutations.
+SOURCES_FOR["verification"] = (BASE_SOURCES - {"branches"}) | {"reviews"}
 SHA = re.compile(r"[0-9a-f]{40}\Z")
 REPOSITORY = re.compile(r"[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+\Z")
 
@@ -330,6 +333,12 @@ def evaluate(snapshot, at):
             warnings.append(f"{tid}: contradictory current task/PR heads")
             continue
         pr = prs[0] if prs else None
+        if task["status"] == "merged" and "verification" in task["needs"]:
+            merged_sources = [p for p in task_prs if p["state"] == "merged" and p["head_sha"] == task["head_sha"]]
+            if len(merged_sources) == 1:
+                pr = merged_sources[0]
+            else:
+                warnings.append(f"{tid}: post-merge verification needs one exact merged PR source")
         observed_heads = {snapshot["repositories"][repo]} | {b["head_sha"] for b in snapshot["branches"] if b["task_id"] == tid}
         if pr:
             observed_heads.add(pr["head_sha"])
@@ -457,7 +466,7 @@ def evaluate(snapshot, at):
                 reasons.append("INDEPENDENT_REVIEW_REQUIRED")
             if operation == "verification" and pr is None:
                 reasons.append("INPUT_REQUIRED: exact review source")
-            if operation == "merge" and (not pr or not accepted):
+            if operation == "merge" and (not pr or pr["state"] != "open" or task["status"] == "merged" or not accepted):
                 reasons.append("EXACT_HEAD_ACCEPTANCE_REQUIRED")
             policy = next((p for p in snapshot["policies"] if p["repository"] == repo), None)
             if operation in {"upload", "merge"} and (not policy or not policy["triggers_checked"] or policy[("push" if operation == "upload" else "merge") + "_runs_actions"] or policy[("push" if operation == "upload" else "merge") + "_deploys"]):
@@ -469,6 +478,7 @@ def evaluate(snapshot, at):
             binding = {"task_id": tid, "repository": repo, "operation": operation,
                        "executor_id": ex["id"], "owner_id": ex["owner_id"], "head_sha": head}
             if reasons:
+                warnings.extend(f"{tid}:{operation}:{ex['id']}: {reason}" for reason in reasons if reason.startswith("INPUT_REQUIRED:"))
                 unresolved = {"OWNERSHIP_CONFLICT", "OWNERSHIP_RECONCILIATION_REQUIRED"}
                 if unresolved.intersection(reasons):
                     warnings.append(f"{tid}:{operation}:{ex['id']}: ownership reconciliation required")

@@ -16,7 +16,7 @@ This boundary applies to any externally performed merge, conflict-resolution pus
 
 | Task | Work | Status | Owner | Review | Updated (UTC) |
 |---|---|---|---|---|---|
-| ops-coordinator-enforcement-20261009 | Script scoped blockers, task rotation, executor capacity and truthful idle decisions | in_review — implementation candidate; independent acceptance pending | dot — coordinator enforcement; one native implementation author, separate independent reviewer | Registration merged as PR #393; candidate exact-head review pending | 2026-10-09 13:04 |
+| ops-coordinator-enforcement-20261009 | Script scoped blockers, task rotation, executor capacity and truthful idle decisions | in_review — implementation candidate; independent acceptance pending | dot — coordinator enforcement; one native implementation author, separate independent reviewer | Registration merged as PR #393; candidate exact-head review pending | 2026-10-09 13:32 |
 
 Craig requested scripted enforcement and repository-owned reusable coordinator logic on 2026-10-09. This row registers that bounded central-repository work; it does not register a live implementation worker, accept code or change any existing game task's owner/status.
 
@@ -25,6 +25,7 @@ Craig requested scripted enforcement and repository-owned reusable coordinator l
 - **Evidence and idle checks:** a complete, fresh source manifest and current exact-head evidence reconcile stale main/PR-body descriptions without overriding explicit holds. Missing, stale or contradictory required inputs fail closed. A shared decision result must reject idle when an authorized, ownership-safe next action and qualified available executor exist; missing inputs cannot return OK. Compatibility entrypoints must not bypass this result.
 - **Verification:** replay the overnight failure classes, including scoped publication holds, unavailable Codex with available native capacity, review/admission work, stale-head claims, stopped/owned lanes and malformed/incomplete snapshots. Prove the new entrypoint and integrated aliases do not write state, queues or ledgers, call external dispatch, or contact providers. Exercise old aliases without a verified snapshot and require an input error rather than stale-state approval. Independent exact-head review must cite these checks; documentation alone is not enforcement of any live coordinator.
 - **Recommended setup:** frontier native dot author, requested `gpt-6-astra/xhigh`, with Python and isolated fixtures; one initial attempt plus at most one evidence-based correction within two hours, with a separate frontier/xhigh review budget. Native catalog and repository tools are available; the registration originally preceded author startup and did not attest a runtime. Verify the selected author and Python test setup before implementation. Wait for the required tier if unavailable; report scope/ownership conflicts, unsafe entrypoint effects or failed tests without weakening gates. Outcome pending.
+- **Attempt amendment — 2026-10-09 13:28 UTC:** the initial candidate `b765a587cd78554d047e06b6bafee9de91c1be7e` and first correction `82a6df52855a3b3a07b9bdc177684214e2946ff0` are retained. [The coordinator's bounded amendment](https://github.com/doublehidenblade/game-dev-central/pull/396#issuecomment-6081855820) authorizes one additional correction for two reproduced read-only routing defects: unrelated unmapped branches blocking exact-head verification, and explicit post-merge verification losing its source. The outer deadline stays 2026-10-09 14:46:40 UTC. No broader retry, weaker acceptance, live operation or merge is authorized by this amendment; independent repaired-head review remains required.
 - **Preflight:** central main `0b4f00e6c5fa810ad2e8e2a94758c9ba60e8a354`; canonical rules, board, registry, log and current state read; all 100 open PR changed-file lists and 322 branch names checked. No open PR changes `RUNBOOK.md`, `watch.py` or `test_rules.py`; PR143 touches `COORDINATOR.md`. The complete tree has no GitHub Actions workflow files. The legacy registry and empty worker ledger are not proof that outside sessions are idle; this reservation grants no game-task takeover.
 - **Boundaries:** the original registration changed only this runbook; this candidate implements its bounded read-only enforcement scope. No legacy watcher execution, live queue/state/ledger writes, automatic dispatch, external-agent contact, Actions, deployment, provider/security workaround or stopped-operation retry. Existing td-200/216 upload denials and central PR374/376/368 plus Tokyo PR553 holds stay unchanged. Shuto stays frozen; NEON stays paused. Registration was independently reviewed and merged as PR #393. One scoped native author started 12:46 UTC with Python 3.12.14; requested model/effort remains distinct from runtime attestation. This implementation now requires separate exact-head acceptance; no additional user-approval gate is introduced.
 
@@ -134,7 +135,9 @@ Record-specific fields (see fixture/schema for complete types):
   `runtime_confirmation_required`. Unknown requirements never imply readiness
 - `prs`: repository-qualified `id` (`owner/repo#number`), `task_id`, `head_sha`,
   `author_id`, `state`, `review_ids`, `check_ids`. An open review task must have one
-  unambiguous current PR and the exact task/PR head must agree
+  unambiguous current PR and the exact task/PR head must agree. An explicit
+  post-merge verification resolves one exact-head merged PR; merged status alone
+  is never acceptance
 - `branches`: `id`, `task_id` or null for unreconciled work, `head_sha`
 - `reviews`: `task_id`, `pr_id`, `head_sha`, `observed_at`, `reviewer_id`, `verdict`,
   optional original `performed_at`, and a `criteria` map of criterion ID to `{result, evidence}`. A passing word
@@ -228,6 +231,13 @@ work, unfiled asks and review work are derived from accounted records, not a
 caller-supplied shortlist. A task's upload/deployment hold cannot silently become
 an implementation hold. Required acceptance evidence governs merge separately;
 unknown acceptance-only reads do not stop separately authorized coding/admission.
+Unrelated unmapped/unknown branches remain a coverage warning, but do not suppress
+independently verified read-only verification at an exact open/merged PR head.
+All mutation operations still require complete branch and ownership observations.
+Explicit `needs: ["verification"]` on a merged task can request post-merge review;
+it never restarts implementation, repeats the merge, or treats the merge as
+independent acceptance. Missing exact source/readiness facts return
+`INPUT_REQUIRED`, including when the rest of the inventory is complete.
 
 Exact full-SHA task/PR/review/check facts reconcile stale ordinary board summaries.
 Same-head closed/merged board or terminal PR facts require reconciliation
@@ -282,6 +292,9 @@ Run from the repository root:
   cases plus the coordinator suite (Pillow needed by legacy image tests)
 - `python3 -m unittest discover -s project-management/watchdog -p test_rules.py -v`
   — coordinator suite only, standard library
+- `python3 project-management/watchdog/test_coordinator_review.py` — unchanged
+  32-assertion independent correction/adoption probes, including the two new
+  failure classes. Kept separately from the author's regression methods
 
 The new suite denies filesystem access except supplied in-memory CLI reads,
 network, subprocesses, state/queue/ledger helpers and legacy verdict capture.
