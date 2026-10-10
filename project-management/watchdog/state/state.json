@@ -957,7 +957,7 @@
    ],
    "assignments": [],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-10T15:54:12.199849+00:00",
+   "login_fail_notified_ts": "2026-10-10T22:15:22.698128+00:00",
    "finished_no_pr": true,
    "out_of_tokens_since": "2026-10-05T20:34:50.864329+00:00",
    "failover_declined_note": "2026-10-05 03:20 EDT: OOT failover assessed and DECLINED (not executed). All 4 Claude sessions hit 100% usage (reset ~06:10 EDT); each stood down cleanly with 'nothing pending' (main-dev: td-126/PR#263 + td-127 merged; shuto-c1: PR#274 merged; texture-imagegen: 6 textures on branch; 4th 'New session': Tripo coupe work idle). No stranded priority work to hand over. Failover brief is 4 days stale (2026-10-01 curation, refs PR#249-era exclusions); dispatch-candidates shows ZERO unowned tasks (all owned/skipped). Steering Codex with the stale brief would manufacture duplicate work. last_failover_ts set to suppress re-fire for this episode; sessions resume on token reset ~06:10 EDT.",
@@ -1564,7 +1564,7 @@
     "https://chatgpt.com/remote/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-10T15:54:05.387592+00:00",
+   "login_fail_notified_ts": "2026-10-10T22:15:22.553395+00:00",
    "inspected_ts": "2026-10-09T07:24:54.945453+00:00",
    "finished_no_pr": true
   },
@@ -2143,7 +2143,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 204
+  "stale_runs": 205
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2373,7 +2373,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-10T21:44:27.539427+00:00",
+  "ts": "2026-10-10T22:14:34.635839+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2386,17 +2386,17 @@
     "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
     "ALIVE td-243 (no heartbeat file; open PR #665 Inspector report: 2026-10-10 17:34 EDT (report-only, do not ; open PR #664 Inspector report: 2026-10-10 16:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
-    "ALIVE td-245 (heartbeat stale (1689min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:)",
-    "ALIVE td-246 (heartbeat stale (1719min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (1759min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "ALIVE td-217 (heartbeat stale (1383min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))",
-    "STALE td-248 (no fresh observation; counter frozen; heartbeat stale (82min); session 07bf1209-ce3c-4e22-a591-1cee9253a714 classification stale/missing)"
+    "ALIVE td-245 (heartbeat stale (1719min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:)",
+    "ALIVE td-246 (heartbeat stale (1749min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (1789min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "ALIVE td-217 (heartbeat stale (1413min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))",
+    "STALE td-248 (no fresh observation; counter frozen; heartbeat stale (112min); session 07bf1209-ce3c-4e22-a591-1cee9253a714 classification stale/missing)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=204"
+    "STALE-RUNS=205"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2413,10 +2413,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-10T21:44:16.448928+00:00",
-   "classification-health": "2026-10-10T21:44:27.539427+00:00",
-   "transitions": "2026-10-10T21:44:24.918148+00:00",
-   "conflicts": "2026-10-10T21:44:22.344407+00:00",
+   "liveness": "2026-10-10T22:14:24.152875+00:00",
+   "classification-health": "2026-10-10T22:14:34.635839+00:00",
+   "transitions": "2026-10-10T22:14:28.978247+00:00",
+   "conflicts": "2026-10-10T22:14:26.563703+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
