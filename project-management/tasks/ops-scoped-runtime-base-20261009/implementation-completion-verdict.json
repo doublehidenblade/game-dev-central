@@ -1,0 +1,178 @@
+{
+  "task_id": "ops-scoped-runtime-base-20261009",
+  "candidate_head": "c202855604e4315fa28b5116a8763cd85594bc5d",
+  "actor_id": "dot-scoped-runtime-base-reviewer",
+  "authority_digest": "fe0921c686265956fdf99f4f5d9f69d0ac1e1ba530413a4b7a48d0deb8ab9227",
+  "evidence_digest": "a6c8ca3e6a46c0c4a8757b03c9cff2964889676121767c4e29fa4aad786a5f44",
+  "performed_at": "2026-10-10T05:55:28.842947+00:00",
+  "criteria": {
+    "C1": {
+      "decision": "PASS",
+      "rationale": "Strict scoped-v2 alone separates current canonical rule heads from the authenticated composition comparison head. Existing v1 and no-scope behavior is retained. In addition to the registered positive, the reviewer built truly divergent sibling rule/composition commits: v1 rejected inherited-runtime.txt outside the bounded delta; v2 admitted exactly one bounded action with global coverage unknown. Original and corrected v1 produced identical denial output.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C1-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C1-coordinator-unit.json",
+          "blob": "9408ce5fc12d566d5c363f04c285d8b7c595a5ce"
+        }
+      ],
+      "evidence_ids": [
+        "C1-scoped-unit",
+        "C1-coordinator-unit"
+      ]
+    },
+    "C2": {
+      "decision": "PASS",
+      "rationale": "Task and candidate runtime declarations, full target ref, raw target branch head, selected PR target, candidate ancestry and independent authenticated request designation are exact-bound. The implementation head must descend from the composition and cannot be the base itself. Missing/self/forged/stale designation, wrong executor/ref/target, retargeting, moved/deleted target, ancestry forgery and conflicting designation envelopes remain blocking.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C2-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        }
+      ],
+      "evidence_ids": [
+        "C2-scoped-unit"
+      ]
+    },
+    "C3": {
+      "decision": "PASS",
+      "rationale": "All candidate writes and dependency/whole-file proofs remain strict. Only v2 foreign row-region comparison can use an authenticated outside-scope assessment, and only after hash-proved regular equal-mode UTF-8 leaves with protected-identity absence. Exact full changed-span coverage, source/region/identity/owner closure, independent actor and every structurally matching decision are validated. The initial same-head ownership replay and envelope-filtering defects were independently reproduced, then fixed and re-tested on this exact source.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C3-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        }
+      ],
+      "evidence_ids": [
+        "C3-scoped-unit"
+      ]
+    },
+    "C4": {
+      "decision": "PASS",
+      "rationale": "Context exclusion never grants ownership or clears live restrictions. Current task/author, authenticated principals, owner reservations, queues, blockers, executor and raw PR authors are now part of the applicability binding. Registered and independent controls retain no-literal-ID task/dependency/shared-owner/global effects, active or unknown owners, queue reservations, wildcard stops, Shuto/NEON restrictions, setup requirements and publication/Actions/deployment holds.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-review.json",
+          "blob": "1905c1698d78005d10913d099352843b8ffb59c2"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-acceptance-isolation.json",
+          "blob": "652c5c4303442b0f26628825ab3901e84c149e26"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-final-guards.json",
+          "blob": "70d30a9db668626434f1749a1637269d7a5807b9"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-operation-needs.json",
+          "blob": "6f7822b8020b881bfce05eb42954fb344a449907"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-hold-invariance.json",
+          "blob": "837df5d2c1f378d7b93578e652e3d45034f19e22"
+        }
+      ],
+      "evidence_ids": [
+        "C4-scoped-unit",
+        "C4-retained-review",
+        "C4-retained-acceptance-isolation",
+        "C4-retained-final-guards",
+        "C4-retained-operation-needs",
+        "C4-retained-hold-invariance"
+      ]
+    },
+    "C5": {
+      "decision": "PASS",
+      "rationale": "evidence_policy.py, coordinator.py, coordinator_cli.py, watch.py and inherited tests are unchanged. All 53 evidence-policy methods pass independently, with explicit v2 controls retaining current ACK, exact check names and results, independent acceptance and missing-verdict rejection. Synthetic source proof remains distinct from actual task acceptance.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C5-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C5-evidence-policy-unit.json",
+          "blob": "5f9dc9dfb66e53cf19dfc4bdc23ea1e31b90fa15"
+        }
+      ],
+      "evidence_ids": [
+        "C5-scoped-unit",
+        "C5-evidence-policy-unit"
+      ]
+    },
+    "C6": {
+      "decision": "PASS",
+      "rationale": "The exact collection query includes composition, actual PR target and selected assessments. Raw inventories, records and receipts retain exhaustive IDs, fresh observations, pagination and digest checks. Full input/scope/decision digests and dispatch revalidation invalidate changes. Both v2 decision families inspect structural binding before validating outer labels; matching unknown or contradictory envelopes cannot hide. Actual supported CLI/imported aliases remain read-only and malformed v2 does not fall back.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C6-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C6-coordinator-unit.json",
+          "blob": "9408ce5fc12d566d5c363f04c285d8b7c595a5ce"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C6-legacy-regression.json",
+          "blob": "179334355040f4386ca8f087141124e2ccb65f5c"
+        }
+      ],
+      "evidence_ids": [
+        "C6-scoped-unit",
+        "C6-coordinator-unit",
+        "C6-legacy-regression"
+      ]
+    },
+    "C7": {
+      "decision": "PASS",
+      "rationale": "Independent reviewer inspected the bounded source diff, Git-object and semantic-applicability trust boundaries, inline synthetic builders/oracles, commands, all published execution artifacts and original/corrected replay. The reviewer independently re-ran all nine required commands, 66 extra negative mutations, both unchanged defect probes and a genuinely divergent-runtime control. Initial findings against 699e7dc7 are preserved as failures and explicitly resolved only at c2028556. Source and evidence trees were independently reconstructed and hashed; original PR449 source/evidence and all unrelated leaves remain preserved.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "a18ed898b2cd9415129ebf3fdbe3bbff537e8d8b",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/independent-verdict.json",
+          "blob": "efbe175647792edfcb01b6d87616bd37ce41f9b2"
+        }
+      ],
+      "evidence_ids": [
+        "C7-independent-report"
+      ]
+    }
+  }
+}
