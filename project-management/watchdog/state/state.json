@@ -2107,7 +2107,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 174
+  "stale_runs": 175
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2337,7 +2337,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-10T05:44:24.861005+00:00",
+  "ts": "2026-10-10T06:14:32.768227+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32; open PR #596 Inspector report: 2026-10-09 09:34 EDT)",
@@ -2351,16 +2351,16 @@
     "ALIVE td-243 (no heartbeat file; open PR #643 Inspector report: 2026-10-10 01:34 EDT (report-only, do not ; open PR #642 Inspector report: 2026-10-10 00:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
     "ALIVE td-248 (no heartbeat file; open PR #629 td-248: retract unsupported verdict criteria (retraction + b; open PR #628 Inspector report: 2026-10-09 16:34 EDT (report-only, )",
-    "ALIVE td-245 (heartbeat stale (729min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:3)",
-    "ALIVE td-246 (heartbeat stale (759min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (799min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "ALIVE td-217 (heartbeat stale (423min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
+    "ALIVE td-245 (heartbeat stale (759min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:3)",
+    "ALIVE td-246 (heartbeat stale (789min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (829min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "ALIVE td-217 (heartbeat stale (453min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=174"
+    "STALE-RUNS=175"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2377,10 +2377,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-10T05:44:18.153442+00:00",
-   "classification-health": "2026-10-10T05:44:24.861005+00:00",
-   "transitions": "2026-10-10T05:44:23.493690+00:00",
-   "conflicts": "2026-10-10T05:44:19.776047+00:00",
+   "liveness": "2026-10-10T06:14:21.616681+00:00",
+   "classification-health": "2026-10-10T06:14:32.768227+00:00",
+   "transitions": "2026-10-10T06:14:29.584506+00:00",
+   "conflicts": "2026-10-10T06:14:26.862198+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
