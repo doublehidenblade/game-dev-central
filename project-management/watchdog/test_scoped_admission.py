@@ -701,7 +701,7 @@ def runtime_context(case, transform=None):
             if item["head_sha"] != scope["inventory"]["branches"][-1]["head_sha"] or item["proof"]["kind"] != "disjoint": continue
             left, right = sa.leaf(store, REPO, case["base"], "board.md"), sa.leaf(store, REPO, item["head_sha"], "board.md")
             if not left or not right: continue
-            bound = sa.context_binding(scope, item, kind, region, case["base"], case["base"], left, right)
+            bound = sa.context_binding(scope, item, kind, region, case["base"], case["base"], left, right, s)
             spans = sa.context_spans(store.read(REPO, left[1], "blob").decode(), store.read(REPO, right[1], "blob").decode())
             record = {"kind": "foreign-row-context", "task_id": "ops-docs", "actor_id": "reviewer-B", "performed_at": STAMP,
                 "binding": deepcopy(bound), "spans": [{**x, "effects": {k: "outside_scope" for k in ("task", "dependency", "owner", "global_stop")},
@@ -768,6 +768,17 @@ class RuntimeCompositionTests(unittest.TestCase):
             with self.subTest(i=i):
                 self.setUp(); mutate(self.s); seal(self.s); self.blocked()
 
+    def test_composition_conflicts_cannot_hide_in_outer_envelope(self):
+        for field, value in (("task_id", "different-task"), ("kind", "runtime-composition-unknown")):
+            with self.subTest(field=field):
+                self.setUp(); self.allowed()
+                a = self.s["evidence_policy"]["ops-docs"]["authority"]
+                receipt = next(r for r in a["attestations"] if r.get("binding", {}).get("kind") == "runtime-composition")
+                record = ep.GitObjects(self.case["world"].objects).json(receipt["ref"])
+                record.update(decision="BLOCK"); record[field] = value
+                runtime_decision(self.case, record, "authority/composition-conflict.json")
+                runtime_review(self.case); seal(self.s); self.blocked()
+
     def test_foreign_historical_context_requires_real_independent_closure(self):
         runtime_foreign(self.case); self.blocked()
         runtime_context(self.case); self.allowed()
@@ -805,6 +816,17 @@ class RuntimeCompositionTests(unittest.TestCase):
                 d = ep.GitObjects(self.case["world"].objects).json(receipt["ref"])
                 d["decision"] = decision
                 runtime_decision(self.case, d, "authority/unselected.json")
+                runtime_review(self.case); seal(self.s); self.blocked()
+
+    def test_structurally_matching_conflicts_cannot_hide_in_outer_envelope(self):
+        for field, value in (("task_id", "different-task"), ("kind", "foreign-row-context-unknown")):
+            with self.subTest(field=field):
+                self.setUp(); runtime_foreign(self.case); runtime_context(self.case); self.allowed()
+                a = self.s["evidence_policy"]["ops-docs"]["authority"]
+                receipt = next(r for r in a["attestations"] if r.get("binding", {}).get("kind") == "foreign-row-context")
+                record = ep.GitObjects(self.case["world"].objects).json(receipt["ref"])
+                record.update(decision="BLOCK"); record[field] = value
+                runtime_decision(self.case, record, "authority/conflicting-envelope.json")
                 runtime_review(self.case); seal(self.s); self.blocked()
 
     def test_protected_literal_encoded_duplicate_and_ambiguous_id_never_excluded(self):
@@ -918,6 +940,32 @@ class RuntimeCompositionTests(unittest.TestCase):
                 if kind == "queue": self.s[kind] = [{"id": "queue", "repository": REPO, "task_id": "ops-docs", "operation": "merge", "owner_id": "other", "executor_id": "native", "head_sha": self.case["source"], "state": "pending"}]
                 if kind == "blockers": self.s[kind] = [{"id": "global", "repository": REPO, "task_id": "*", "operations": ["*"], "executors": ["*"], "kind": "stop", "reason": "SYNTHETIC global stop"}]
                 seal(self.s); self.blocked()
+
+    def test_independent_owner_transfer_probe_invalidates_context_assessment(self):
+        # Independent review's unchanged same-head author/owner transfer probe.
+        runtime_foreign(self.case, self.case["board"] + "\nWorker-C work is stopped across all tasks.\n")
+        runtime_context(self.case); self.allowed()
+        citations = deepcopy(self.s["scoped_source"]["context_assessments"])
+        packet = self.s["evidence_policy"]["ops-docs"]
+        self.s["tasks"][0].update(author_id="Worker-C", owner_id="Worker-C")
+        self.s["board"][0]["owner_id"] = "Worker-C"
+        packet["authority"]["principals"]["author"] = "Worker-C"
+        packet["authority"]["owner_id"] = "Worker-C"
+        packet["submission"]["acknowledgment"]["author_id"] = "Worker-C"
+        runtime_review(self.case); seal(self.s)
+        self.assertEqual(self.s["scoped_source"]["context_assessments"], citations)
+        self.assertIn("source/scope assessment changed", " ".join(self.blocked()["warnings"]))
+
+    def test_changed_owner_and_queue_closure_require_fresh_context_judgment(self):
+        for kind in ("owners", "queue"):
+            with self.subTest(kind=kind):
+                self.setUp(); runtime_foreign(self.case); runtime_context(self.case); self.allowed()
+                if kind == "owners":
+                    self.s[kind] = [{"id": "released", "repository": REPO, "task_id": "ops-docs", "operation": "implementation", "owner_id": "coordinator-A", "executor_id": "native", "state": "released"}]
+                else:
+                    self.s[kind] = [{"id": "reservation", "repository": REPO, "task_id": "ops-docs", "operation": "verification", "owner_id": "coordinator-A", "executor_id": "native", "head_sha": self.case["source"], "state": "pending"}]
+                runtime_review(self.case); seal(self.s)
+                self.assertIn("source/scope assessment changed", " ".join(self.blocked()["warnings"]))
 
     def test_v2_still_needs_current_ack_real_checks_and_independent_acceptance(self):
         for mode in ("ack", "missing-check", "failed-check", "invented-check", "self-review", "missing-verdict"):

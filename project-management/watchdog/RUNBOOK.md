@@ -708,6 +708,11 @@ has exactly `kind: foreign-row-context`, `task_id`, `actor_id`, `performed_at`,
   heads, composition, protected/related identities and regions, plus exact raw
   source kind/ID/repository/branch/head/fork/comparison-base/before-commit/path
   and both file modes/blobs. Branch and PR entries need their own assessments.
+  Its `owner_closure` also binds current normalized task author/owner, authenticated
+  authority owner/principals, relevant normalized tasks/board, every relevant
+  owner reservation, queue and blocker row, selected executor and raw PR authors.
+  A same-head owner transfer or changed reservation invalidates the judgment;
+  resealing collection receipts or rerunning review cannot refresh its meaning.
 - `spans` must cover every changed line span returned by `context_spans(...)`,
   with exact zero-based half-open line bounds and digests of both line lists.
   Each span adds a nonempty `rationale` and `effects` containing exactly `task`,
@@ -726,6 +731,8 @@ the author. A worker-supplied artifact or provenance string cannot authenticate
 itself. The collector must inspect all matching assessments, not select a
 convenient PASS: duplicates/conflicts, unselected current assessments, applicable
 or unknown effects fail closed. Every selected assessment must actually be used.
+Structural source identity is matched before outer kind/task labels; a conflicting
+or unknown envelope cannot hide a matching blocking assessment.
 Judgments cannot postdate their observations; observations expire after fifteen
 minutes. All new inputs and decision contents are bound by the ordinary input
 digest, scope digest and dispatch guard. The earliest observation limits expiry.
