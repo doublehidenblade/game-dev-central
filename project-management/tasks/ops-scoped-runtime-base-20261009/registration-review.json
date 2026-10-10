@@ -1,0 +1,951 @@
+{
+  "schema_version": 1,
+  "task_id": "ops-scoped-runtime-base-20261009",
+  "review_kind": "independent_registration_only",
+  "reviewed_at": "2026-10-09T23:09:08Z",
+  "reviewer": {
+    "role": "independent native registration reviewer",
+    "public_role": "dot-scoped-runtime-base-registration-reviewer",
+    "authored_registration": false,
+    "implementation_reviewer_identity_not_attested": true
+  },
+  "overall": "PASS_REGISTRATION_ONLY",
+  "source": {
+    "repository": "doublehidenblade/game-dev-central",
+    "pull_request": 455,
+    "url": "https://github.com/doublehidenblade/game-dev-central/pull/455",
+    "head": "596bef3baf2a3308d87f7b94526cc7d74932bcca",
+    "base": "2c3517c56b5408432141b13101771a51e066ff6d",
+    "draft": true,
+    "changed_files": [
+      "project-management/boards/tokyo-drift-3d.md",
+      "project-management/coordinator-log.md",
+      "project-management/workers.md",
+      "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+      "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+    ],
+    "file_blobs": [
+      {
+        "path": "project-management/boards/tokyo-drift-3d.md",
+        "mode": "100644",
+        "blob": "7430dfd0158698dfecf612116743285833902ec1"
+      },
+      {
+        "path": "project-management/coordinator-log.md",
+        "mode": "100644",
+        "blob": "6f68c2521a3c0ec4d40e9ccd74bc1c7a33d77f87"
+      },
+      {
+        "path": "project-management/workers.md",
+        "mode": "100644",
+        "blob": "80c1a6c744a05bd11974919db352f224ca196a42"
+      },
+      {
+        "path": "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+        "mode": "100644",
+        "blob": "c05b731314d35c1dc0d3ce403e12cea43e4ec954"
+      },
+      {
+        "path": "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md",
+        "mode": "100644",
+        "blob": "40c5dd61d5c84309025895e5ce6fe42b527769c3"
+      }
+    ]
+  },
+  "criteria": [
+    {
+      "id": "R1",
+      "verdict": "PASS",
+      "finding": "Task, board and registry name the same sole proposed author and remain blocked/reserved, not dispatched. Separate future reviewer and bounded serialized regions are recorded. Removing the one added board/registry row reproduces the entire original contents byte-for-byte; coordinator log preserves the original exact prefix. The remote tree changes only the five registration files, preserving PR449 source, task, accepted fixtures, owner row and budget.",
+      "citations": [
+        "https://github.com/doublehidenblade/game-dev-central/blob/596bef3baf2a3308d87f7b94526cc7d74932bcca/project-management/tasks/ops-scoped-runtime-base-20261009.json",
+        "https://github.com/doublehidenblade/game-dev-central/blob/596bef3baf2a3308d87f7b94526cc7d74932bcca/project-management/boards/tokyo-drift-3d.md#L364",
+        "https://github.com/doublehidenblade/game-dev-central/blob/596bef3baf2a3308d87f7b94526cc7d74932bcca/project-management/workers.md#L13",
+        "https://github.com/doublehidenblade/game-dev-central/blob/596bef3baf2a3308d87f7b94526cc7d74932bcca/project-management/coordinator-log.md#L55",
+        "https://github.com/doublehidenblade/game-dev-central/pull/449"
+      ]
+    },
+    {
+      "id": "R2",
+      "verdict": "PASS",
+      "finding": "Strict proposed v2 keeps current canonical rule authority separate from a bounded authenticated runtime composition. Exact task/candidate/artifact/target-ref/request binding, descendant proof, full source/dependency accounting, complete related ownership/queue/stop queries, freshness/digests, dispatch revalidation and malformed-input fail-closed behavior remain mandatory. C1-C7 and all seven plans are present. Each of the 15 per-criterion required check entries has its explicit matching assertion artifact; every plan matches canonical source paths/instance coverage and names a distinct future reviewer. C7 uses a review document, not a fabricated command. Evidence and verdict are empty/null, with all implementation checks explicitly unrun. New executable fixtures require exact source-manifest enumeration before edits/admission; no directory-only source binding is accepted.",
+      "citations": [
+        "https://github.com/doublehidenblade/game-dev-central/blob/596bef3baf2a3308d87f7b94526cc7d74932bcca/project-management/tasks/ops-scoped-runtime-base-20261009/registration.md#strict-proposed-contract",
+        "https://github.com/doublehidenblade/game-dev-central/blob/596bef3baf2a3308d87f7b94526cc7d74932bcca/project-management/tasks/ops-scoped-runtime-base-20261009/registration.md#mandatory-controls",
+        "https://github.com/doublehidenblade/game-dev-central/blob/596bef3baf2a3308d87f7b94526cc7d74932bcca/project-management/tasks/ops-scoped-runtime-base-20261009.json",
+        "https://github.com/doublehidenblade/game-dev-central/blob/2c3517c56b5408432141b13101771a51e066ff6d/project-management/watchdog/EVIDENCE_POLICY.md"
+      ]
+    },
+    {
+      "id": "R3",
+      "verdict": "PASS",
+      "finding": "Fetched exact remote draft head and full nontruncated base/head trees. Exactly five approved documentation/metadata files changed; no implementation, workflow, state or evidence result changed. Every remote file matches the reviewed local content except exactly one additional terminal LF in each local file; removing that byte produces its remote Git blob hash. Independently enumerated 105 open PRs, including this draft, and read all 104 other complete changed-file inventories: no overlap with scoped_admission.py, test_scoped_admission.py or RUNBOOK.md. Shared metadata proposals exist and remain untouched. Base tree has 390 entries; head tree has 393 entries, no GitHub workflows or deployment configuration, and repository has_pages is false. This is a docs-only preflight, not authentication of private runtime observations or external integrations.",
+      "citations": [
+        "https://github.com/doublehidenblade/game-dev-central/pull/455/files",
+        "https://github.com/doublehidenblade/game-dev-central/compare/2c3517c56b5408432141b13101771a51e066ff6d...596bef3baf2a3308d87f7b94526cc7d74932bcca",
+        "https://api.github.com/repos/doublehidenblade/game-dev-central/git/trees/596bef3baf2a3308d87f7b94526cc7d74932bcca?recursive=1",
+        "https://api.github.com/repos/doublehidenblade/game-dev-central/pulls?state=open&per_page=100&page=1",
+        "https://api.github.com/repos/doublehidenblade/game-dev-central/pulls?state=open&per_page=100&page=2"
+      ]
+    }
+  ],
+  "blocking_findings": [],
+  "nonblocking_notes": [
+    {
+      "id": "N1",
+      "description": "All five local review inputs have one more terminal LF than the published blobs. Independently reviewed exact remote content; no semantic difference or altered unrelated content. This review binds the remote blobs above, not unnormalized local hashes."
+    }
+  ],
+  "checks_performed": {
+    "canonical_system_read": true,
+    "evidence_policy_and_scoped_runbook_read": true,
+    "all_criteria_and_plans_inspected": true,
+    "remote_blob_identity_verified": true,
+    "all_other_base_blobs_and_modes_preserved": true,
+    "all_other_open_pr_file_lists_read": 104,
+    "core_overlap_count": 0,
+    "repository_tests_run": 0,
+    "implementation_commands_run": 0,
+    "private_session_or_queue_reads": 0,
+    "github_mutations_by_reviewer": 0
+  },
+  "remaining_gates": {
+    "implementation_criteria": {
+      "C1": "PENDING_NOT_RUN_OR_ACCEPTED",
+      "C2": "PENDING_NOT_RUN_OR_ACCEPTED",
+      "C3": "PENDING_NOT_RUN_OR_ACCEPTED",
+      "C4": "PENDING_NOT_RUN_OR_ACCEPTED",
+      "C5": "PENDING_NOT_RUN_OR_ACCEPTED",
+      "C6": "PENDING_NOT_RUN_OR_ACCEPTED",
+      "C7": "PENDING_NOT_RUN_OR_ACCEPTED"
+    },
+    "implementation_admitted": false,
+    "implementation_started": false,
+    "merge_authorized_by_this_review": false,
+    "runtime_authority_or_action_receipt": false,
+    "required_before_implementation": [
+      "Genuine current source/ownership/reservation/queue/stop observations and root scope checks",
+      "Actual future author model/tool selection and complete current-rule ACK",
+      "Final canonical exact source manifest",
+      "Evidence-policy ADMISSIBLE and supported coordinator-plan plus exact-target dispatch-guard"
+    ]
+  },
+  "limitations": [
+    "Registration review does not establish implementation correctness, future test results, gameplay acceptance, publication/deployment permission, a global PASS/IDLE, or a release of any prior owner.",
+    "No comprehensive private actor/session/queue/liveness inventory or external integration attestation was collected or claimed.",
+    "No scripts, repository tests, builds, admission/acceptance gates, Actions, merges, deployments, external-agent contact or implementation edits were performed by this reviewer."
+  ],
+  "policy_sources": [
+    "https://github.com/doublehidenblade/game-dev-central/blob/2c3517c56b5408432141b13101771a51e066ff6d/project-management/rules/SYSTEM.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/2c3517c56b5408432141b13101771a51e066ff6d/project-management/watchdog/EVIDENCE_POLICY.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/2c3517c56b5408432141b13101771a51e066ff6d/project-management/watchdog/RUNBOOK.md"
+  ],
+  "overlap_inventory": [
+    {
+      "pull_request": 454,
+      "head": "fbb5769c3090c756a445f2e43fbc8a2cf7499ef5",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/tasks/td-218-paid-service-production-registration.json",
+        "project-management/tasks/td-218-paid-service-production-registration/review.json",
+        "project-management/tasks/td-218-paid-service-production-registration/submission.json"
+      ]
+    },
+    {
+      "pull_request": 451,
+      "head": "59dbefd8b1d2c1873027a51d21025447d7d57258",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/coordinator-log.md",
+        "project-management/workers.md"
+      ]
+    },
+    {
+      "pull_request": 450,
+      "head": "17bf88d49d6ed748de163a98c7d42057ae79afec",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 438,
+      "head": "116f37d5c18a366db5e78da9955e6df5ec286e0f",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 430,
+      "head": "a615ad932dcf090322bcb79e7a6cd565c2646ba6",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/tasks/td-218-docs-admission.json",
+        "project-management/tasks/td-218-docs-admission/authority.json",
+        "project-management/tasks/td-218-docs-admission/completion-receipt.json",
+        "project-management/tasks/td-218-docs-admission/objects.json.gz",
+        "project-management/tasks/td-218-docs-admission/review.json",
+        "project-management/tasks/td-218-docs-admission/submission.json"
+      ]
+    },
+    {
+      "pull_request": 377,
+      "head": "fde2e63d49f885bca7033897483ad26a97981e5b",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 376,
+      "head": "cf7d59f0314cff877c02a36a4ebb0cb5a19fc8d5",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 374,
+      "head": "93645f303a9193344224cf69722a2d0251c4b2f7",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 368,
+      "head": "69e0c748a1107a1d8351b1908d62baab1659ad03",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 366,
+      "head": "e8209410f462aa51bb1303a417096caea38579c0",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 356,
+      "head": "891f6a958b6c2572755c2952f10c83934d58770a",
+      "files": [
+        "project-management/watchdog/releases/2026-10-08-personal-playtest-publication.md",
+        "project-management/watchdog/releases/baselines.json"
+      ]
+    },
+    {
+      "pull_request": 355,
+      "head": "efc1e3231badaab1589b44a8b8a0434e866d3433",
+      "files": [
+        "assets/mocks/garage-progression/README.md",
+        "assets/mocks/garage-progression/mini-truck-r4-study/R4_TASK_BRIEF_AMENDMENT.md",
+        "assets/mocks/garage-progression/mini-truck-r4-study/README.md",
+        "assets/mocks/garage-progression/mini-truck-r4-study/artifact-manifest.json",
+        "assets/mocks/garage-progression/mini-truck-r4-study/build_reference_pack.py",
+        "assets/mocks/garage-progression/mini-truck-r4-study/correction-record.json",
+        "assets/mocks/garage-progression/mini-truck-r4-study/interfaces.json",
+        "assets/mocks/garage-progression/mini-truck-r4-study/publication-clarification.json",
+        "assets/mocks/garage-progression/mini-truck-r4-study/reference-gap-and-revision.md",
+        "assets/mocks/garage-progression/mini-truck-r4-study/review/independent-r4-recheck.md",
+        "assets/mocks/garage-progression/mini-truck-r4-study/review/reviewed-artifact-manifest.json",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/01-shared-bed-sockets.png",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/01-shared-bed-sockets.svg",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/02-utility-rack.png",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/02-utility-rack.svg",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/03-padded-carrier.png",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/03-padded-carrier.svg",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/04-workshop-reservations.png",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/04-workshop-reservations.svg",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/05-shutter-threshold-states.png",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/05-shutter-threshold-states.svg",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/06-roll-up-retraction-section.png",
+        "assets/mocks/garage-progression/mini-truck-r4-study/sheets/06-roll-up-retraction-section.svg",
+        "assets/mocks/garage-progression/mini-truck-r4-study/validate_pack.py",
+        "assets/mocks/garage-progression/mini-truck-r4-study/validation.json",
+        "project-management/task-team-system/briefs/garage-progression-first-slice.md"
+      ]
+    },
+    {
+      "pull_request": 354,
+      "head": "2d0f4435092937395d1b7fce2854f9e09f297caa",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 353,
+      "head": "bc7ecfabec7644d88d42a8d3055e9e0f9d2daae9",
+      "files": [
+        "project-management/recovery/2026-10-08-release-resume.md"
+      ]
+    },
+    {
+      "pull_request": 351,
+      "head": "f49d39dbbf5bd080dc6e445fe3a2940c58b68dd7",
+      "files": [
+        "game-design/research/truck-customization-20261008/README.md",
+        "game-design/research/truck-customization-20261008/sequence.md",
+        "game-design/research/truck-customization-20261008/tasks/tc-mvp-01.json",
+        "game-design/research/truck-customization-20261008/tasks/tc-mvp-02.json",
+        "game-design/research/truck-customization-20261008/tasks/tc-mvp-03.json",
+        "game-design/research/truck-customization-20261008/tasks/tc-mvp-04.json"
+      ]
+    },
+    {
+      "pull_request": 350,
+      "head": "d0edf2b931d32f039a5e240a75f2b306c0286885",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/briefs/td-210-validator.md",
+        "project-management/briefs/td-210-worker.md",
+        "project-management/coordinator-log.md",
+        "project-management/workers.md"
+      ]
+    },
+    {
+      "pull_request": 349,
+      "head": "97131463a85a8a8ce340d4eec95067dec471b2be",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/briefs/td-209-validator.md",
+        "project-management/coordinator-log.md",
+        "project-management/workers.md"
+      ]
+    },
+    {
+      "pull_request": 348,
+      "head": "7bc66f4ff42fcc9b3d2e815dec471d1c90e716a1",
+      "files": [
+        "game-design/references/td-208-hud-20261007/01-quiet-drive.png",
+        "game-design/references/td-208-hud-20261007/04-pressure-states.png",
+        "game-design/references/td-208-hud-20261007/provenance.json",
+        "game-design/references/td-208-hud-20261007/user-police-symbol.png"
+      ]
+    },
+    {
+      "pull_request": 347,
+      "head": "81e3fc0493dcadeb8e8595f325641c4178e60e9d",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/coordinator-log.md",
+        "project-management/task-team-system/briefs/td-208-fuel-wanted-presentation.md"
+      ]
+    },
+    {
+      "pull_request": 342,
+      "head": "f0ea17c15b839946045e43e47d0eaf342a531c94",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 332,
+      "head": "0f5393673e1458bb2527fc24ad9b80f924d9153f",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 330,
+      "head": "66ecc636d2d64f807a2d4081a710fcc60182ac38",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/coordinator-log.md"
+      ]
+    },
+    {
+      "pull_request": 327,
+      "head": "2f138f5c2cfd703733b002008f1007fba0012694",
+      "files": [
+        "assets/mocks/garage-progression/README.md",
+        "assets/mocks/garage-progression/mini-truck-r3/README.md",
+        "assets/mocks/garage-progression/mini-truck-r3/asset-manifest.json",
+        "game-design/garage-progression.md",
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/coordinator-log.md",
+        "project-management/task-team-system/briefs/garage-progression-first-slice.md"
+      ]
+    },
+    {
+      "pull_request": 324,
+      "head": "f634a91b5481cf5898c626fcd10c1c2d13aa5050",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 323,
+      "head": "a2b222c90976758370191bf4092840717af272f8",
+      "files": [
+        "game-design/README.md",
+        "game-design/art-book/design-review.md",
+        "game-design/art-book/factions/chapter.md",
+        "game-design/art-book/fleet-gear/chapter.md",
+        "game-design/art-book/lower-city/chapter.md",
+        "game-design/art-book/world-lore/chapter.md",
+        "game-design/gig-city-retrofutur-identity.md",
+        "game-design/gig-city-world-bible.md",
+        "game-design/showa-dust-extrapolation.md",
+        "game-design/source-audit.json"
+      ]
+    },
+    {
+      "pull_request": 322,
+      "head": "dd92166f75962a04028b1b2097a57fb94a88db8f",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 321,
+      "head": "5ab966ef47b591cbee2d4f4c00b99234df7e2c6d",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 320,
+      "head": "8bdc6d5f6fd48e08f5686b0b2ad86407b7a92421",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 319,
+      "head": "1fc4d8e4bc82ad18eaa1e3c0b79bc012bab8a6bd",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 316,
+      "head": "35b3f43e738ad77c3c33f989c660f611cdad6232",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 311,
+      "head": "fd7d0f80c83d7e358e7004f57be12fcbbc5cf29c",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 305,
+      "head": "996d19b39690541c34291da38669f2033453902f",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 303,
+      "head": "86c0c92d300b5acda507ec5d17d2c115aed79771",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 302,
+      "head": "8ccc51cd41406ebfb8cbf151c8469b0c16440a57",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 299,
+      "head": "cc479bedae1efc850b2e35cf2e5ee81d68c172e9",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 289,
+      "head": "0505bcd29b6a3cde785dba3302ccdf227cd772c2",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 288,
+      "head": "2df329872ba0cc7e6809250f6579833070883cb0",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 285,
+      "head": "763459644247c03ce8a38a04cd06f2d37de36368",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 283,
+      "head": "cad16faf329d1560598c13f0682fabf229afc94a",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 282,
+      "head": "f298950ce96eb194015301ed50f9423119bbfcd9",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 281,
+      "head": "4843de32eb645ff506b522fae5bdd0a23253c182",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 271,
+      "head": "1d26c5f92259e94970a59c2814fa33c60afb7eb5",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 270,
+      "head": "5f64269b1bfd317b2360786641348560544573eb",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 268,
+      "head": "add9ab18678b0e26bca1cd29a6737d0308e38c35",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 267,
+      "head": "289cceaac9fe0ceb938a75808c29754a8964c486",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 256,
+      "head": "f5191965a2600aa64e789e03fa600fa10e1536f6",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 252,
+      "head": "210c51bb3329611137b617b0b733571d55bac8ae",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 242,
+      "head": "8bdfc6af2d34e2640f8a117d0da22e628552e813",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 241,
+      "head": "473cc8ebca89296961cc444360047f7fb08c5dca",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 240,
+      "head": "030b1bfe4af115c801da06a36c9a730209060b08",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 239,
+      "head": "25b5616b132f9c3fd2e5336e3db56a0959bdf3b7",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 238,
+      "head": "c388be49a970e6bfe63528e3e88fddb0e9314c91",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 237,
+      "head": "03e6d9302a23d82ffbb190243d3629ab2d973be4",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 236,
+      "head": "0596c3119b90e96d06b68b387b879a84ae0ae508",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 234,
+      "head": "4fa450ceb6c33b439517de32b7c0fb9621cc44a1",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 222,
+      "head": "fd9e685072b00f7f4b2adef8e8a0185bb4c54182",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 221,
+      "head": "0ac3a5ab16cf17b3553e831df6a183418a6a055f",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 200,
+      "head": "f87881e4a53d286b950c65238416f2d13bf872d5",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 198,
+      "head": "89fe3c25e27620fd79ddae1d46942f9bb45fa825",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 185,
+      "head": "267cb111a8b4c052bf467134b23b81abd61f4290",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 184,
+      "head": "265f99301e4bee78392ec9a123948a127737e777",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 183,
+      "head": "313911e1a4a993a6986c5c99308efac4755f1104",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 182,
+      "head": "716ad27b2e2a899e6b979f25ac8ed52e04e989c6",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 181,
+      "head": "0064ab7f291e3eb8d31bd9f9f359f45863788150",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 180,
+      "head": "8e73a58ccdd643ba90eea5b2b3ad745c0fd326f1",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 179,
+      "head": "038224f5a51cd55336bc12e74cccccf318754706",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 178,
+      "head": "02eb535409b9033fcabd2ccc9360860ee746816c",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 177,
+      "head": "1072cb24032601a72d6ca73bf916eaa76f4a8603",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 161,
+      "head": "64e0a008faa8cadaf8b4b71fc1fbc8799b76cdd4",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 160,
+      "head": "bf8e9f6ab4b514f990eedb6fdffee83fe9111be1",
+      "files": [
+        "project-management/boards/neon-drift.md"
+      ]
+    },
+    {
+      "pull_request": 149,
+      "head": "02ee7ce70f46407a113a166eb6afbc000669b8e5",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 146,
+      "head": "17c1c016b46fb7b33a262c94723660daf3bbc398",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 144,
+      "head": "b76af571ac1b1ee598f7b3dded5ae361ef890528",
+      "files": [
+        "project-management/boards/neon-drift.md",
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/coordinator-log.md"
+      ]
+    },
+    {
+      "pull_request": 143,
+      "head": "bfe26735ca13ae4c75b1d474ccb092c5943d7d30",
+      "files": [
+        "COORDINATOR.md",
+        "project-management/rules/SYSTEM.md",
+        "project-management/rules/VALIDATOR_BRIEF.md",
+        "project-management/rules/WORKER_BRIEF.md"
+      ]
+    },
+    {
+      "pull_request": 142,
+      "head": "59e6df52e19ed5f033b96bafd3225d046882b312",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/coordinator-log.md"
+      ]
+    },
+    {
+      "pull_request": 140,
+      "head": "5ca9831288fa7ef8f4a5c204f9f72e2357ab6aef",
+      "files": [
+        "project-management/boards/neon-drift.md"
+      ]
+    },
+    {
+      "pull_request": 131,
+      "head": "4c621b6c347d135e3d047e69ae1f36f758e58f76",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 124,
+      "head": "f92762adb602bb53f6991e2e62c730b421913efa",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 123,
+      "head": "ca14642553594347853bf46a47ad2f060dc81b5a",
+      "files": [
+        "project-management/boards/neon-drift.md"
+      ]
+    },
+    {
+      "pull_request": 121,
+      "head": "2a6fa06edc893c04b36d650a06c8fb13617b62b1",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 120,
+      "head": "3d4449bb31be8a7df3ccfc00793604c84e4bf8b4",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 119,
+      "head": "2391ccccb3a1522c84e6dcd15731a9988f17dad1",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 118,
+      "head": "4a4f4ba85e8e1f493edfea5322754cab927a2795",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 117,
+      "head": "fd4e92cfd1c9a581dde7ec04b0054e7ba0b0fa52",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 116,
+      "head": "e02e4218fb62f6867de22258e1a688f64ffe5f6f",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 114,
+      "head": "329ffe1d38b9b2db078bef1440cb14b016e48985",
+      "files": [
+        "project-management/boards/neon-drift.md"
+      ]
+    },
+    {
+      "pull_request": 108,
+      "head": "be5b0a744fe25b56d4400c4ac04c489e2691ce5b",
+      "files": [
+        "project-management/boards/neon-drift.md"
+      ]
+    },
+    {
+      "pull_request": 102,
+      "head": "9a5906ff56ff4ac0c0494cac5352e892420565a9",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 95,
+      "head": "0055180ed3f3225328da487597500bab96e954ad",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 90,
+      "head": "3e858d6d8cbfe04a4d85c1195bd92da3d1d28db4",
+      "files": [
+        "project-management/boards/neon-drift.md",
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 88,
+      "head": "748a44742d34cb34a301168454a6186e117451fa",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 78,
+      "head": "b960ebfd56feac51404182c36d42e54d48235640",
+      "files": [
+        "project-management/boards/neon-drift.md"
+      ]
+    },
+    {
+      "pull_request": 77,
+      "head": "0c82d004ada27874e95c871cc50b58eb6649c668",
+      "files": [
+        "project-management/boards/neon-drift.md"
+      ]
+    },
+    {
+      "pull_request": 62,
+      "head": "0ffe38b144e2f31c2ee5bb47cdb8e3831ff7e25d",
+      "files": [
+        "project-management/boards/neon-drift.md",
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 60,
+      "head": "6ee9c5f276dcd0f2bad347d0644f71fb0c30e7e6",
+      "files": [
+        "project-management/boards/neon-drift.md"
+      ]
+    },
+    {
+      "pull_request": 31,
+      "head": "bbe1437ff93bf7fc7af23880fa286b7a6941e41a",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 26,
+      "head": "a5d25c00aa89a63e8743f62caf95d1f2df13cb32",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 13,
+      "head": "35265b7a237c63069e5ef4aa24b7beb5f1533ed4",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 12,
+      "head": "598b95679aa353164f94fb43c27d818bd4275ed1",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 11,
+      "head": "d8ce670a7ee019a2d25700ad88002cda4425aabe",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 10,
+      "head": "c3a4461a50d4afa149e004f7b548b6e57a76438f",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 9,
+      "head": "bf76dcd5d231553eea883059475144c22d5f125a",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 7,
+      "head": "4968c2958be6adf488ed57840019d66f9251d232",
+      "files": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ]
+    },
+    {
+      "pull_request": 1,
+      "head": "e9ed7a209a463f13463a4a1859ee722b95631465",
+      "files": [
+        "project-management/backup-coordinator.md"
+      ]
+    }
+  ]
+}

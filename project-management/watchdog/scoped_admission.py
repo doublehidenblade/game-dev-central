@@ -6,7 +6,11 @@ region/identity queries against every ownership, queue and stop source. A scope
 receipt is never a claim of repository-wide liveness or permission to act.
 """
 from datetime import timedelta
+import difflib
+import html
 import re
+import unicodedata
+from urllib.parse import unquote
 
 import evidence_policy as ep
 
@@ -161,12 +165,17 @@ def region_equal(store, repo, before, after, region):
 
 def query(scope):
     """Exact query each collector must actually perform, not a task-name prefix."""
-    return {"binding": scope["binding"], "base_heads": scope["base_heads"],
+    result = {"binding": scope["binding"], "base_heads": scope["base_heads"],
             "regions": scope["regions"], "task_ids": scope["related_task_ids"],
             "dependency_task_ids": scope["task_ids"],
             "include_global_and_wildcard_holds": True,
             "include_any_owner_touching_regions": True,
             "include_all_target_owner_and_executor_reservations": True}
+    if scope.get("version") == 2:
+        result.update(composition=scope["composition"], candidate_target=scope["candidate"]["target"],
+                      context_assessments=scope["context_assessments"],
+                      include_complete_foreign_context_and_applicability=True)
+    return result
 
 
 def inventory_digest(snapshot, tables):
@@ -182,11 +191,193 @@ def inventory_digest(snapshot, tables):
                        for r in scope["receipts"]]})
 
 
+def decision_records(authority, store):
+    """Inspect ALL authenticated decisions, never just a selected PASS citation.
+
+    The collector authenticates the actor; the independent actor judges meaning.
+    Neither a worker artifact nor a provenance string establishes that boundary.
+    """
+    result = []
+    for receipt in authority["attestations"]:
+        if receipt["kind"] != "decision":
+            continue
+        record = store.json(receipt["ref"])
+        need(isinstance(record, dict), "decision artifact must be structured")
+        result.append((receipt, record))
+    return result
+
+
+def independent_decision(receipt, record, authority, at):
+    fields(receipt, "kind ref actor_id observed_at provenance binding", "v2 decision receipt")
+    actor = record["actor_id"]
+    principals = authority["principals"]
+    need(actor in {principals["coordinator"], principals["reviewer"]} and
+         actor != principals["author"] and receipt["actor_id"] == actor,
+         "v2 decision requires the authenticated independent coordinator/reviewer")
+    need(receipt["binding"] == {"kind": record["kind"], "digest": ep.digest(record)},
+         "v2 authenticated decision binding changed")
+    need(isinstance(receipt["provenance"], str) and receipt["provenance"].strip(),
+         "v2 authenticated collection provenance required")
+    observed = ep.utc(receipt["observed_at"])
+    need(timedelta(0) <= at - observed < timedelta(minutes=15), "stale/future v2 decision observation")
+    need(ep.utc(record["performed_at"]) <= observed, "v2 judgment postdates observation")
+    need(isinstance(record["rationale"], str) and record["rationale"].strip(), "v2 decision rationale required")
+    return observed
+
+
+def composition_base(snapshot, scope, canonical, authority, store, evidence_store, at):
+    """A current-rule pin is never a runtime-composition designation."""
+    composition = scope["composition"]
+    fields(composition, "repository target_ref head_sha request_id designation_ref", "composition")
+    binding, candidate = scope["binding"], scope["candidate"]
+    repo = binding["repository"]
+    need(composition["repository"] == repo, "composition repository differs")
+    ref = composition["target_ref"]
+    need(isinstance(ref, str) and re.fullmatch(r"refs/heads/[A-Za-z0-9_.\-/]+", ref) and
+         not any(x in ref for x in ("..", "//", "/.", ".lock")) and not ref.endswith(("/", ".")),
+         "composition needs an exact supported branch ref")
+    ep.full_sha(composition["head_sha"])
+    descriptor = {k: composition[k] for k in ("repository", "target_ref", "head_sha", "request_id")}
+    need(canonical.get("runtime_composition") == descriptor, "canonical composition designation missing/different")
+    task_path = authority["task_ref"]["path"]
+    artifact = dict(repository=repo, commit=binding["head_sha"], path=task_path,
+                    blob=store.blob_at(repo, binding["head_sha"], task_path))
+    need(store.json(artifact).get("runtime_composition") == descriptor,
+         "candidate task changed composition designation")
+    target = candidate["target"]
+    fields(target, "repository ref head_sha", "selected PR target")
+    need(target == {"repository": repo, "ref": ref, "head_sha": composition["head_sha"]},
+         "selected PR target differs from designated composition")
+    target_id = repo + ":" + ref
+    need(target_id != candidate["branch_id"], "candidate branch cannot designate itself as target")
+    targets = [b for b in scope["inventory"]["branches"] if b["id"] == target_id]
+    need(len(targets) == 1 and targets[0]["repository"] == repo and
+         targets[0]["head_sha"] == composition["head_sha"], "composition target moved/deleted/substituted")
+    requests = [r for r in snapshot["requests"] if r["id"] == composition["request_id"]]
+    need(len(requests) == 1, "composition authorization request missing")
+    request = requests[0]
+    need(request["repository"] == repo and request["task_id"] == binding["task_id"] and
+         request["state"] == "active" and request["authority_verified"] is True and
+         binding["operation"] in request["operations"] and binding["executor_id"] in request["executors"],
+         "composition needs exact authenticated task/operation/executor authorization")
+    need(candidate["fork_sha"] == composition["head_sha"] and
+         composition["head_sha"] not in {binding["head_sha"], authority["candidate"]["implementation_head"]} and
+         authority["candidate"]["implementation_head"] in candidate["head_chain"],
+         "composition must precede actual implementation; candidate-as-base unsupported")
+    selected = evidence_store.json(composition["designation_ref"])
+    candidates = decision_records(authority, evidence_store)
+    matching = [(r, d) for r, d in candidates if d.get("binding", {}).get("head_sha") == binding["head_sha"]]
+    need(len(matching) == 1 and matching[0][0]["ref"] == composition["designation_ref"] and
+         matching[0][1] == selected, "missing/duplicate/conflicting composition designation")
+    receipt, record = matching[0]
+    fields(record, "kind task_id actor_id performed_at binding composition candidate request_digest decision rationale", "composition decision")
+    need(record["kind"] == "runtime-composition" and record["task_id"] == binding["task_id"] and
+         record["binding"] == binding and record["composition"] == descriptor and
+         record["candidate"] == {k: candidate[k] for k in ("pr_id", "branch_id", "target")} and
+         record["request_digest"] == ep.digest(request) and record["decision"] == "DESIGNATED",
+         "composition decision does not authorize this exact source/action")
+    observed = independent_decision(receipt, record, authority, at)
+    return {**scope["base_heads"], repo: composition["head_sha"]}, [observed]
+
+
+def context_spans(before, after):
+    """Cover every changed line span, not a cherry-picked non-row subset."""
+    aa, bb = before.splitlines(keepends=True), after.splitlines(keepends=True)
+    result = []
+    for tag, a0, a1, b0, b1 in difflib.SequenceMatcher(None, aa, bb, autojunk=False).get_opcodes():
+        if tag != "equal":
+            result.append({"before_start": a0, "before_end": a1, "after_start": b0, "after_end": b1,
+                           "before_digest": ep.digest(aa[a0:a1]), "after_digest": ep.digest(bb[b0:b1])})
+    return result
+
+
+def context_binding(scope, item, kind, region, comparison_base, before, before_entry, after_entry, snapshot):
+    task = next(t for t in snapshot["tasks"] if t["id"] == scope["binding"]["task_id"])
+    authority = snapshot["evidence_policy"][task["id"]]["authority"]
+    return {"action": scope["binding"], "base_heads": scope["base_heads"],
+            "composition": scope["composition"], "task_ids": scope["task_ids"],
+            "related_task_ids": scope["related_task_ids"], "regions": scope["regions"],
+            "owner_closure": {"author_id": task["author_id"], "task_owner_id": task["owner_id"],
+                "authority_owner_id": authority["owner_id"], "principals": authority["principals"],
+                "tasks": snapshot["tasks"], "board": snapshot["board"],
+                "reservations": snapshot["owners"], "queue": snapshot["queue"],
+                "blockers": snapshot["blockers"],
+                "executor": next(e for e in snapshot["executors"] if e["id"] == scope["binding"]["executor_id"]),
+                "pr_authors": [{k: p[k] for k in ("id", "repository", "branch_id", "head_sha", "author_id")}
+                               for p in scope["inventory"]["prs"]]},
+            "source": {"kind": kind, "id": item["id"], "repository": item["repository"],
+                       "branch_id": item.get("branch_id"), "head_sha": item["head_sha"],
+                       "fork_sha": item["proof"]["fork_sha"], "comparison_base": comparison_base,
+                       "before_sha": before, "path": region["path"],
+                       "before": {"mode": before_entry[0].decode(), "blob": before_entry[1]},
+                       "after": {"mode": after_entry[0].decode(), "blob": after_entry[1]}}}
+
+
+def foreign_row_absence(scope, item, kind, region, comparison_base, before, store,
+                        authority, evidence_store, at, used_assessments, decision_times, snapshot):
+    """Source-only fallback. Meaning/closure must be judged independently.
+
+    This is never used for candidate writes, dependency checks or whole files.
+    A literal absence cannot prove that global stops or ownership are unrelated.
+    """
+    repo, head, path = item["repository"], item["head_sha"], region["path"]
+    left, right = leaf(store, repo, before, path), leaf(store, repo, head, path)
+    need(left and right and left[0] == right[0], "foreign row proof cannot create/delete/change mode")
+    aa, bb = store.read(repo, left[1], "blob"), store.read(repo, right[1], "blob")
+    texts = [aa.decode("utf-8"), bb.decode("utf-8")]
+    for text in texts:
+        normalized = unicodedata.normalize("NFKC", html.unescape(unquote(text)))
+        normalized = re.sub(r"\\u([0-9a-fA-F]{4})", lambda m: chr(int(m[1], 16)), normalized)
+        normalized = re.sub(r"\\(.)", r"\1", normalized)
+        for key in region["row_keys"]:
+            need(key not in text and key not in normalized and key not in re.sub(r"\s+", "", normalized),
+                 "foreign context contains protected or encoded/ambiguous identity")
+    bound = context_binding(scope, item, kind, region, comparison_base, before, left, right, snapshot)
+    # Structural source identity decides applicability before outer kind/task
+    # discriminators: a contradictory envelope cannot hide a blocking record.
+    records = decision_records(authority, evidence_store)
+    # Match the source identity BEFORE validating the rest of its binding, so
+    # changing a scope field cannot hide an inconvenient current assessment.
+    identity = {k: bound["source"][k] for k in ("kind", "id", "repository", "head_sha", "path")}
+    matches = [(r, d) for r, d in records if isinstance(d.get("binding"), dict) and
+               isinstance(d["binding"].get("source"), dict) and
+               all(d["binding"]["source"].get(k) == v for k, v in identity.items())]
+    need(len(matches) == 1, "missing/duplicate/conflicting foreign context assessment")
+    receipt, record = matches[0]
+    fields(record, "kind task_id actor_id performed_at binding spans identity decision rationale", "foreign context assessment")
+    need(record["kind"] == "foreign-row-context" and record["task_id"] == scope["binding"]["task_id"],
+         "foreign context assessment envelope conflicts with its source/scope")
+    need(record["binding"] == bound and receipt["ref"] in scope["context_assessments"],
+         "foreign context source/scope assessment changed or unselected")
+    observed = independent_decision(receipt, record, authority, at)
+    need(record["decision"] == "OUTSIDE_SCOPE", "applicable/BLOCK/unknown foreign context")
+    fields(record["identity"], "classification rationale", "context identity assessment")
+    need(record["identity"]["classification"] == "unambiguous_foreign" and
+         isinstance(record["identity"]["rationale"], str) and record["identity"]["rationale"].strip(),
+         "ambiguous/unclassified foreign identity")
+    spans = context_spans(*texts)
+    need(isinstance(record["spans"], list) and len(record["spans"]) == len(spans) and spans,
+         "foreign context coverage incomplete")
+    for actual, expected in zip(record["spans"], spans):
+        fields(actual, "before_start before_end after_start after_end before_digest after_digest effects rationale", "context span")
+        need({k: actual[k] for k in expected} == expected, "foreign context span changed/omitted")
+        fields(actual["effects"], "task dependency owner global_stop", "context applicability closure")
+        need(all(v == "outside_scope" for v in actual["effects"].values()) and
+             isinstance(actual["rationale"], str) and actual["rationale"].strip(),
+             "applicable/unknown task/dependency/owner/global context effect")
+    key = ep.ref_key(receipt["ref"])
+    used_assessments.add(key)
+    decision_times.append(observed)
+    return True
+
+
 def verify(snapshot, at, tables, sources_for):
     """Return an exact-action receipt or fail the entire scoped request closed."""
     scope = snapshot["scoped_source"]
-    fields(scope, "version binding base_heads task_ids related_task_ids regions candidate inventory receipts objects", "scoped source")
-    need(type(scope["version"]) is int and scope["version"] == 1, "unsupported scoped version")
+    version = scope.get("version") if isinstance(scope, dict) else None
+    need(type(version) is int and version in (1, 2), "unsupported scoped version")
+    fields(scope, "version binding base_heads task_ids related_task_ids regions candidate inventory receipts objects" +
+           (" composition context_assessments" if version == 2 else ""), "scoped source")
     binding = scope["binding"]
     fields(binding, "task_id repository operation executor_id owner_id head_sha", "scoped binding")
     need(binding["operation"] in {"implementation", "verification", "upload", "merge"},
@@ -264,14 +455,20 @@ def verify(snapshot, at, tables, sources_for):
     need(not any(r["row_keys"] and (r["repository"], r["path"]) in fixed for r in regions),
          "canonical rule/task cannot use row exclusion")
     candidate = scope["candidate"]
-    fields(candidate, "pr_id branch_id fork_sha base_chain head_chain", "candidate proof")
+    fields(candidate, "pr_id branch_id fork_sha base_chain head_chain" + (" target" if version == 2 else ""), "candidate proof")
+    comparison_heads, decision_times, used_assessments = scope["base_heads"], [], set()
+    if version == 2:
+        need(isinstance(scope["context_assessments"], list), "context assessments must be citations")
+        keys = [ep.ref_key(ref) for ref in scope["context_assessments"]]
+        need(len(keys) == len(set(keys)), "duplicate selected context assessment")
+        comparison_heads, decision_times = composition_base(snapshot, scope, canonical, authority, store, evidence_store, at)
     current_prs = [p for p in snapshot["prs"] if p["task_id"] == task["id"] and p["state"] == "open"]
     need(len(current_prs) == 1 and current_prs[0]["id"] == candidate["pr_id"] and
          current_prs[0]["head_sha"] == binding["head_sha"], "candidate must be the one normalized current task PR")
     need(any(b["id"] == candidate["branch_id"] and b["repository"] == repo and
              b["task_id"] == task["id"] and b["head_sha"] == binding["head_sha"] for b in snapshot["branches"]),
          "candidate branch must retain normalized task ownership")
-    chain(store, repo, candidate["base_chain"], scope["base_heads"][repo], candidate["fork_sha"])
+    chain(store, repo, candidate["base_chain"], comparison_heads[repo], candidate["fork_sha"])
     chain(store, repo, candidate["head_chain"], binding["head_sha"], candidate["fork_sha"])
     delta = changed_paths(store, repo, candidate["fork_sha"], binding["head_sha"])
     for region in regions:
@@ -282,8 +479,8 @@ def verify(snapshot, at, tables, sources_for):
         if region["repository"] == repo:
             # Every declared region is an actual dependency/write/owner scope.
             # Even a canonical rule path receives no overlap/divergence waiver.
-            need(region_equal(store, repo, candidate["fork_sha"], scope["base_heads"][repo], region) or
-                 region_equal(store, repo, binding["head_sha"], scope["base_heads"][repo], region),
+            need(region_equal(store, repo, candidate["fork_sha"], comparison_heads[repo], region) or
+                 region_equal(store, repo, binding["head_sha"], comparison_heads[repo], region),
                  "protected current-base dependency diverged from reviewed candidate: " + region["path"])
     for path in delta:
         protected = [r for r in regions if r["repository"] == repo and path_overlap(path, r)]
@@ -300,7 +497,9 @@ def verify(snapshot, at, tables, sources_for):
         need(isinstance(entries, list), "raw inventory must be a list")
         ids = set()
         for item in entries:
-            fields(item, "id repository head_sha proof" + (" branch_id author_id" if kind == "prs" else ""), "raw " + kind)
+            selected = item.get("id") == candidate["pr_id" if kind == "prs" else "branch_id"] and item.get("repository") == repo
+            fields(item, "id repository head_sha proof" + (" branch_id author_id" if kind == "prs" else "") +
+                   (" target" if version == 2 and kind == "prs" and selected else ""), "raw " + kind)
             need(isinstance(item["id"], str) and item["id"] and item["id"] not in ids, "duplicate raw source ID")
             ids.add(item["id"])
             rr, head = item["repository"], item["head_sha"]
@@ -315,11 +514,13 @@ def verify(snapshot, at, tables, sources_for):
                 need(proof["kind"] == "candidate" and head == binding["head_sha"], "selected source head differs")
                 if kind == "prs":
                     need(item["branch_id"] == candidate["branch_id"], "candidate PR branch differs")
+                    if version == 2:
+                        need(item["target"] == candidate["target"], "actual selected PR target changed")
                 accounted.append(item["id"])
                 continue
             if proof["kind"] == "base_ancestor":
                 fields(proof, "kind chain", "contained source proof")
-                chain(store, rr, proof["chain"], scope["base_heads"][rr], head)
+                chain(store, rr, proof["chain"], comparison_heads[rr], head)
                 accounted.append(item["id"])
                 continue
             if proof["kind"] == "candidate_ancestor" and kind == "branches" and rr == repo:
@@ -329,7 +530,7 @@ def verify(snapshot, at, tables, sources_for):
                 continue
             fields(proof, "kind fork_sha base_chain head_chain", "disjoint proof")
             need(proof["kind"] == "disjoint", "unknown source exclusion proof")
-            chain(store, rr, proof["base_chain"], scope["base_heads"][rr], proof["fork_sha"])
+            chain(store, rr, proof["base_chain"], comparison_heads[rr], proof["fork_sha"])
             chain(store, rr, proof["head_chain"], head, proof["fork_sha"])
             changes = changed_paths(store, rr, proof["fork_sha"], head)
             for region in (r for r in regions if r["repository"] == rr):
@@ -337,8 +538,17 @@ def verify(snapshot, at, tables, sources_for):
                     continue
                 # Prove the region unchanged on this branch, or prove its full
                 # relevant result already present at the current base (squash).
-                if not (region_equal(store, rr, proof["fork_sha"], head, region) or
-                        region_equal(store, rr, scope["base_heads"][rr], head, region)):
+                try:
+                    equal = (region_equal(store, rr, proof["fork_sha"], head, region) or
+                             region_equal(store, rr, comparison_heads[rr], head, region))
+                except ScopeError:
+                    if version != 2 or not region["row_keys"]:
+                        raise
+                    equal = False
+                if not equal and version == 2 and region["row_keys"]:
+                    equal = foreign_row_absence(scope, item, kind, region, comparison_heads[rr],
+                        proof["fork_sha"], store, authority, evidence_store, at, used_assessments, decision_times, snapshot)
+                if not equal:
                     overlaps.append(item["id"] + ":" + region["path"])
             accounted.append(item["id"])
         selected_id = candidate["pr_id" if kind == "prs" else "branch_id"]
@@ -358,6 +568,19 @@ def verify(snapshot, at, tables, sources_for):
         need(any(b["id"] == pr["branch_id"] and b["repository"] == pr["repository"] and
                  b["head_sha"] == pr["head_sha"] for b in scope["inventory"]["branches"]),
              "raw PR branch missing or changed")
+    if version == 2:
+        need(used_assessments == {ep.ref_key(ref) for ref in scope["context_assessments"]},
+             "unused/replayed context assessment cannot establish applicability")
+        # An unselected current assessment cannot disappear because another
+        # proof (including strict row equality or ancestry) was chosen instead.
+        for receipt, record in decision_records(authority, evidence_store):
+            source = record.get("binding", {}).get("source", {})
+            matching = any(source.get("kind") == kind and
+                all(source.get(k) == item[k] for k in ("id", "repository", "head_sha")) and
+                any(r["repository"] == item["repository"] and r["path"] == source.get("path") and r["row_keys"] for r in regions)
+                for kind in ("branches", "prs") for item in scope["inventory"][kind])
+            need(not matching or ep.ref_key(receipt["ref"]) in used_assessments,
+                 "unselected matching context assessment must not be bypassed")
     source_digest = inventory_digest(snapshot, tables)
     query_digest = ep.digest(query(scope))
     need(isinstance(scope["receipts"], list), "scoped source receipts required")
@@ -417,4 +640,4 @@ def verify(snapshot, at, tables, sources_for):
             raise ScopeError("relevant dependency hold retained: " + row["id"])
     return {"binding": binding, "inventory_digest": source_digest,
             "scope_digest": ep.digest(scope), "accounted_source_ids": sorted(accounted),
-            "expires_at": min(times[rr, kind] for rr in scope["base_heads"] for kind in required) + timedelta(minutes=15)}
+            "expires_at": min([times[rr, kind] for rr in scope["base_heads"] for kind in required] + decision_times) + timedelta(minutes=15)}

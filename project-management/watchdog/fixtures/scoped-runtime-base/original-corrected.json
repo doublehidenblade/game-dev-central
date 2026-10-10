@@ -1,0 +1,114 @@
+[
+  {
+    "label": "original-v1",
+    "source_head": "6d904f12b2b2aa87e257deb11bd98344c4c1a731",
+    "command": [
+      "python3",
+      "-c",
+      "import sys; from datetime import datetime,timezone; sys.path.insert(0,'project-management/watchdog'); import coordinator_cli; sys.exit(coordinator_cli.run('coordinator-plan',['--snapshot',sys.argv[1]],datetime(2026,10,9,14,0,tzinfo=timezone.utc)))",
+      "/tmp/scoped-runtime-base-replay-20261010/historical-v1.json"
+    ],
+    "exit_code": 2,
+    "output": {
+      "actions": [],
+      "blocked": [],
+      "reconciliations": [],
+      "status": "INPUT_REQUIRED",
+      "version": 1,
+      "warnings": [
+        "unsupported board row identity"
+      ]
+    },
+    "performed_at": "2026-10-10T05:48:30.477542+00:00",
+    "scope": "SYNTHETIC offline replay, frozen fixture time; no live admission or dispatch"
+  },
+  {
+    "label": "corrected-v1",
+    "source_head": "c202855604e4315fa28b5116a8763cd85594bc5d",
+    "command": [
+      "python3",
+      "-c",
+      "import sys; from datetime import datetime,timezone; sys.path.insert(0,'project-management/watchdog'); import coordinator_cli; sys.exit(coordinator_cli.run('coordinator-plan',['--snapshot',sys.argv[1]],datetime(2026,10,9,14,0,tzinfo=timezone.utc)))",
+      "/tmp/scoped-runtime-base-replay-20261010/historical-v1.json"
+    ],
+    "exit_code": 2,
+    "output": {
+      "actions": [],
+      "blocked": [],
+      "reconciliations": [],
+      "status": "INPUT_REQUIRED",
+      "version": 1,
+      "warnings": [
+        "unsupported board row identity"
+      ]
+    },
+    "performed_at": "2026-10-10T05:48:30.529962+00:00",
+    "scope": "SYNTHETIC offline replay, frozen fixture time; no live admission or dispatch"
+  },
+  {
+    "label": "corrected-v2",
+    "source_head": "c202855604e4315fa28b5116a8763cd85594bc5d",
+    "command": [
+      "python3",
+      "-c",
+      "import sys; from datetime import datetime,timezone; sys.path.insert(0,'project-management/watchdog'); import coordinator_cli; sys.exit(coordinator_cli.run('coordinator-plan',['--snapshot',sys.argv[1]],datetime(2026,10,9,14,0,tzinfo=timezone.utc)))",
+      "/tmp/scoped-runtime-base-replay-20261010/historical-v2.json"
+    ],
+    "exit_code": 0,
+    "output": {
+      "actions": [
+        {
+          "authorization_ids": [
+            "authorized-source"
+          ],
+          "decision_id": "13ed5c07b25f1e70b1e1e0e94f78737f79d4a20fc2a4c602a6196a262a19008d",
+          "executor_id": "native",
+          "expires_at": "2026-10-09T14:15:00+00:00",
+          "head_sha": "0bc2196b6cb4bdae3d65b346dfcb8bdaa14935db",
+          "input_digest": "321eaa9243f6647ea54b40a311fbf627b564293472a2ea570c5fa551c8a46ae3",
+          "operation": "merge",
+          "owner_id": "coordinator-A",
+          "repository": "example/evidence-policy",
+          "source_inventory_digest": "8a3b3caf4e3d1916c1aa10b1ee5666b524eeb0a1ae7dc04511babd2e0ae5bae4",
+          "source_scope_digest": "d528c87ce006c95928f8bcdc079a3f9d466b855d8ac215a727c55364cd890b0d",
+          "task_id": "ops-docs"
+        }
+      ],
+      "blocked": [],
+      "input_digest": "321eaa9243f6647ea54b40a311fbf627b564293472a2ea570c5fa551c8a46ae3",
+      "reconciliations": [],
+      "source_scope": {
+        "binding": {
+          "executor_id": "native",
+          "head_sha": "0bc2196b6cb4bdae3d65b346dfcb8bdaa14935db",
+          "operation": "merge",
+          "owner_id": "coordinator-A",
+          "repository": "example/evidence-policy",
+          "task_id": "ops-docs"
+        },
+        "global_coverage": "unknown",
+        "inventory_digest": "8a3b3caf4e3d1916c1aa10b1ee5666b524eeb0a1ae7dc04511babd2e0ae5bae4",
+        "scope_digest": "d528c87ce006c95928f8bcdc079a3f9d466b855d8ac215a727c55364cd890b0d"
+      },
+      "status": "ACTION_REQUIRED",
+      "version": 1,
+      "warnings": [
+        "example/evidence-policy:blockers: missing source manifest",
+        "example/evidence-policy:board: missing source manifest",
+        "example/evidence-policy:branches: missing source manifest",
+        "example/evidence-policy:checks: missing source manifest",
+        "example/evidence-policy:executors: missing source manifest",
+        "example/evidence-policy:owners: missing source manifest",
+        "example/evidence-policy:policies: missing source manifest",
+        "example/evidence-policy:prs: missing source manifest",
+        "example/evidence-policy:queue: missing source manifest",
+        "example/evidence-policy:requests: missing source manifest",
+        "example/evidence-policy:reviews: missing source manifest",
+        "example/evidence-policy:tasks: missing source manifest",
+        "scoped source coverage only; global inventory/liveness remains unknown"
+      ]
+    },
+    "performed_at": "2026-10-10T05:48:30.590402+00:00",
+    "scope": "SYNTHETIC offline replay, frozen fixture time; no live admission or dispatch"
+  }
+]

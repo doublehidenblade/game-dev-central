@@ -1,0 +1,711 @@
+{
+  "task_id": "ops-scoped-runtime-base-20261009",
+  "reviewer_id": "dot-scoped-runtime-base-reviewer",
+  "reviewed_at": "2026-10-10T05:53:02.642345+00:00",
+  "implementation_head": "c202855604e4315fa28b5116a8763cd85594bc5d",
+  "reviewed_evidence_head": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+  "registration_head": "6d904f12b2b2aa87e257deb11bd98344c4c1a731",
+  "decision": "PASS",
+  "criteria": {
+    "C1": {
+      "decision": "PASS",
+      "criterion": "Represent a separately authenticated runtime composition without altering current canonical rule authority or existing scoped-v1 behavior.",
+      "rationale": "Strict scoped-v2 alone separates current canonical rule heads from the authenticated composition comparison head. Existing v1 and no-scope behavior is retained. In addition to the registered positive, the reviewer built truly divergent sibling rule/composition commits: v1 rejected inherited-runtime.txt outside the bounded delta; v2 admitted exactly one bounded action with global coverage unknown. Original and corrected v1 produced identical denial output.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L165-L178"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L228-L280"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L373-L481"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/test_scoped_admission.py",
+          "blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/test_scoped_admission.py#L734-L739"
+        }
+      ],
+      "reviewed_execution_artifacts": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C1-coordinator-unit.json",
+          "blob": "9408ce5fc12d566d5c363f04c285d8b7c595a5ce"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C1-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        }
+      ],
+      "required_checks": [
+        "scoped-unit",
+        "coordinator-unit"
+      ]
+    },
+    "C2": {
+      "decision": "PASS",
+      "criterion": "Bind the designated composition to the canonical task, actual target branch/ref and selected PR base, candidate branch/head, and authenticated task/operation/executor authorization.",
+      "rationale": "Task and candidate runtime declarations, full target ref, raw target branch head, selected PR target, candidate ancestry and independent authenticated request designation are exact-bound. The implementation head must descend from the composition and cannot be the base itself. Missing/self/forged/stale designation, wrong executor/ref/target, retargeting, moved/deleted target, ancestry forgery and conflicting designation envelopes remain blocking.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L228-L280"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L458-L470"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L495-L519"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/test_scoped_admission.py",
+          "blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/test_scoped_admission.py#L740-L782"
+        }
+      ],
+      "reviewed_execution_artifacts": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C2-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        }
+      ],
+      "required_checks": [
+        "scoped-unit"
+      ]
+    },
+    "C3": {
+      "decision": "PASS",
+      "criterion": "Apply the authenticated comparison base consistently while preserving complete raw source accounting and every candidate/dependency/owner region; add only authenticated v2 foreign historical-board relevance proof.",
+      "rationale": "All candidate writes and dependency/whole-file proofs remain strict. Only v2 foreign row-region comparison can use an authenticated outside-scope assessment, and only after hash-proved regular equal-mode UTF-8 leaves with protected-identity absence. Exact full changed-span coverage, source/region/identity/owner closure, independent actor and every structurally matching decision are validated. The initial same-head ownership replay and envelope-filtering defects were independently reproduced, then fixed and re-tested on this exact source.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L283-L371"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L473-L591"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/test_scoped_admission.py",
+          "blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/test_scoped_admission.py#L784-L905"
+        }
+      ],
+      "reviewed_execution_artifacts": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C3-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        }
+      ],
+      "required_checks": [
+        "scoped-unit"
+      ]
+    },
+    "C4": {
+      "decision": "PASS",
+      "criterion": "Keep relevant owners, reservations, queues, holds, stops, setup requirements and operation-specific publication restrictions binding, including foreign-board context effects without a literal task ID.",
+      "rationale": "Context exclusion never grants ownership or clears live restrictions. Current task/author, authenticated principals, owner reservations, queues, blockers, executor and raw PR authors are now part of the applicability binding. Registered and independent controls retain no-literal-ID task/dependency/shared-owner/global effects, active or unknown owners, queue reservations, wildcard stops, Shuto/NEON restrictions, setup requirements and publication/Actions/deployment holds.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L294-L313"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L629-L643"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/test_scoped_admission.py",
+          "blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/test_scoped_admission.py#L789-L798"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/test_scoped_admission.py",
+          "blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/test_scoped_admission.py#L907-L971"
+        }
+      ],
+      "reviewed_execution_artifacts": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-acceptance-isolation.json",
+          "blob": "652c5c4303442b0f26628825ab3901e84c149e26"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-final-guards.json",
+          "blob": "70d30a9db668626434f1749a1637269d7a5807b9"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-hold-invariance.json",
+          "blob": "837df5d2c1f378d7b93578e652e3d45034f19e22"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-operation-needs.json",
+          "blob": "6f7822b8020b881bfce05eb42954fb344a449907"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-review.json",
+          "blob": "1905c1698d78005d10913d099352843b8ffb59c2"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        }
+      ],
+      "required_checks": [
+        "scoped-unit",
+        "retained-review",
+        "retained-acceptance-isolation",
+        "retained-final-guards",
+        "retained-operation-needs",
+        "retained-hold-invariance"
+      ]
+    },
+    "C5": {
+      "decision": "PASS",
+      "criterion": "Preserve current evidence-policy admission and acceptance, exact criterion/check plans and independent source-head verification.",
+      "rationale": "evidence_policy.py, coordinator.py, coordinator_cli.py, watch.py and inherited tests are unchanged. All 53 evidence-policy methods pass independently, with explicit v2 controls retaining current ACK, exact check names and results, independent acceptance and missing-verdict rejection. Synthetic source proof remains distinct from actual task acceptance.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/test_scoped_admission.py",
+          "blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/test_scoped_admission.py#L970-L981"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/evidence_policy.py",
+          "blob": "afbcd927a16340da5c235ea4368857ab8edc6522",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/evidence_policy.py#L216-L327"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/evidence_policy.py",
+          "blob": "afbcd927a16340da5c235ea4368857ab8edc6522",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/evidence_policy.py#L528-L715"
+        }
+      ],
+      "reviewed_execution_artifacts": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C5-evidence-policy-unit.json",
+          "blob": "5f9dc9dfb66e53cf19dfc4bdc23ea1e31b90fa15"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C5-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        }
+      ],
+      "required_checks": [
+        "scoped-unit",
+        "evidence-policy-unit"
+      ]
+    },
+    "C6": {
+      "decision": "PASS",
+      "criterion": "All supported routes bind the full v2 scope and context-applicability evidence and invalidate stale decisions without side effects, legacy fallback or global completeness claims.",
+      "rationale": "The exact collection query includes composition, actual PR target and selected assessments. Raw inventories, records and receipts retain exhaustive IDs, fresh observations, pagination and digest checks. Full input/scope/decision digests and dispatch revalidation invalidate changes. Both v2 decision families inspect structural binding before validating outer labels; matching unknown or contradictory envelopes cannot hide. Actual supported CLI/imported aliases remain read-only and malformed v2 does not fall back.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L165-L190"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L194-L225"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L570-L643"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/test_scoped_admission.py",
+          "blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/test_scoped_admission.py#L982-L1023"
+        }
+      ],
+      "reviewed_execution_artifacts": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C6-coordinator-unit.json",
+          "blob": "9408ce5fc12d566d5c363f04c285d8b7c595a5ce"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C6-legacy-regression.json",
+          "blob": "179334355040f4386ca8f087141124e2ccb65f5c"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "48adfa4b8bec48db004555a9943e2f9db2a062a0",
+          "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C6-scoped-unit.json",
+          "blob": "015cbc4201b424e02df763fbd5d80febe59092db"
+        }
+      ],
+      "required_checks": [
+        "scoped-unit",
+        "coordinator-unit",
+        "legacy-regression"
+      ]
+    },
+    "C7": {
+      "decision": "PASS",
+      "criterion": "An independent reviewer accepts every criterion against the exact new implementation source and retained original regression behavior, including the bounded historical-board correction.",
+      "rationale": "Independent reviewer inspected the bounded source diff, Git-object and semantic-applicability trust boundaries, inline synthetic builders/oracles, commands, all published execution artifacts and original/corrected replay. The reviewer independently re-ran all nine required commands, 66 extra negative mutations, both unchanged defect probes and a genuinely divergent-runtime control. Initial findings against 699e7dc7 are preserved as failures and explicitly resolved only at c2028556. Source and evidence trees were independently reconstructed and hashed; original PR449 source/evidence and all unrelated leaves remain preserved.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/RUNBOOK.md",
+          "blob": "405f4bee9c9aa4d027e3f42a821dfe4a3853bc26",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/RUNBOOK.md#L663-L749"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/test_scoped_admission.py",
+          "blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/test_scoped_admission.py#L591-L1026"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "c202855604e4315fa28b5116a8763cd85594bc5d",
+          "path": "project-management/watchdog/scoped_admission.py",
+          "blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+          "url": "https://github.com/doublehidenblade/game-dev-central/blob/c202855604e4315fa28b5116a8763cd85594bc5d/project-management/watchdog/scoped_admission.py#L1-L643"
+        }
+      ],
+      "reviewed_execution_artifacts": [],
+      "required_checks": []
+    }
+  },
+  "changed_source_blobs": [
+    {
+      "path": "project-management/watchdog/scoped_admission.py",
+      "git_blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+      "sha256": "95ec2727d4f0f4d949a7af4419c87be8e92233a29caa0c779e57644951e51e3d"
+    },
+    {
+      "path": "project-management/watchdog/test_scoped_admission.py",
+      "git_blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+      "sha256": "82a6be96c9226a5b3b48c13dc56c0f8f0f1612e2f46e38434cd07a2abe8872d4"
+    },
+    {
+      "path": "project-management/watchdog/RUNBOOK.md",
+      "git_blob": "405f4bee9c9aa4d027e3f42a821dfe4a3853bc26",
+      "sha256": "bba94dbc1da73076c55f7bd3487cb24ed4099fece44e7eac65dafa76f5fa6fb6"
+    }
+  ],
+  "complete_registered_source_manifest": [
+    {
+      "path": "project-management/watchdog/evidence_policy.py",
+      "git_blob": "afbcd927a16340da5c235ea4368857ab8edc6522",
+      "sha256": "f304736daea6051f0af44343cfc48d7407ce4a4f63aab4fa060aa287bad14cff"
+    },
+    {
+      "path": "project-management/watchdog/watch.py",
+      "git_blob": "bbe5e646202468472b5a9f081252e53d03e10225",
+      "sha256": "6e22eb3056d43156e5b9f7951b7b9f15a08b568678060bc69af214a402050e36"
+    },
+    {
+      "path": "project-management/watchdog/scoped_admission.py",
+      "git_blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+      "sha256": "95ec2727d4f0f4d949a7af4419c87be8e92233a29caa0c779e57644951e51e3d"
+    },
+    {
+      "path": "project-management/watchdog/test_coordinator_final_guards.py",
+      "git_blob": "704d5778d61417a977977abc80f879a35c737335",
+      "sha256": "cfdc25bf053782a3dbb39ce1713cbd0435130f920fb81d7852075da148b9a799"
+    },
+    {
+      "path": "project-management/watchdog/test_scoped_admission.py",
+      "git_blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+      "sha256": "82a6be96c9226a5b3b48c13dc56c0f8f0f1612e2f46e38434cd07a2abe8872d4"
+    },
+    {
+      "path": "project-management/watchdog/coordinator.py",
+      "git_blob": "fe791a54a76eb793b97c44b9036b6f00170974b3",
+      "sha256": "f6c9a97b77006c1e47baf2cff46b33c359c371a4cac3fac31336dcb8fb8da9bf"
+    },
+    {
+      "path": "project-management/watchdog/coordinator_cli.py",
+      "git_blob": "16be941f65f6e546d330435975fb2124ef339c88",
+      "sha256": "2def62e99e6e298a238e74f7683e1d2604e4b784f620f15cc19db1b1dedd84ee"
+    },
+    {
+      "path": "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+      "git_blob": "a0fef47a343ed81fcf83969fdeec60104faf602c",
+      "sha256": "851b13017d237bc35f083765982c2ea5ffb73ce81b2cabffab3b1899f4213e0d"
+    },
+    {
+      "path": "project-management/watchdog/test_coordinator_hold_invariance.py",
+      "git_blob": "f130b99b7a9455d1a5b13a06f7dbe739b98e5a26",
+      "sha256": "19649f12af545d1165963887cdb9157432279bd02d3d61b3bcc58bfb0cca87ed"
+    },
+    {
+      "path": "project-management/watchdog/test_coordinator_operation_needs.py",
+      "git_blob": "59a14e67bccaeb5ea5d451dfd6c1fefed8b6a4a9",
+      "sha256": "6636a27766116797650ea7c86cbd915a9b374176fb84b9d9d39edd2d91f646f2"
+    },
+    {
+      "path": "project-management/watchdog/RUNBOOK.md",
+      "git_blob": "405f4bee9c9aa4d027e3f42a821dfe4a3853bc26",
+      "sha256": "bba94dbc1da73076c55f7bd3487cb24ed4099fece44e7eac65dafa76f5fa6fb6"
+    },
+    {
+      "path": "project-management/watchdog/test_evidence_policy.py",
+      "git_blob": "5e6748c781b2bcc46308023e810c5a0f700da51b",
+      "sha256": "a4be8a5ab23b84720bf84607854a4fd116fe301b9eb22fe4d3b03f9d178410f4"
+    },
+    {
+      "path": "project-management/watchdog/test_rules.py",
+      "git_blob": "6910362ae0536450dc3ecfa4c5a63ec5c5f40fd0",
+      "sha256": "4101c350349a3b100554e95bb39850af644aef8d5a61e09897774c8fa0f784a7"
+    },
+    {
+      "path": "project-management/watchdog/test_coordinator_review.py",
+      "git_blob": "e1ac1ef9ab24f297baaba6cc590d4bf5181ae603",
+      "sha256": "c38d303e0115e09a102591db237840ece65c09c02eba216013d918d965ef9c0b"
+    },
+    {
+      "path": "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+      "git_blob": "fd65ae14f65cb00e7bb48070443b0f0146006603",
+      "sha256": "e5b3de29dc3e08c232f829452363556726b9b2ff6abff335698a023e8d292bd9"
+    },
+    {
+      "path": "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md",
+      "git_blob": "ee9aabe5bcf7a4945d48994bb8fe50f0f4fe7e6b",
+      "sha256": "f16e74b94247513ec51b685ad0bb3791994d484b1550a118d6c3f3bcbde9c901"
+    }
+  ],
+  "independent_command_runs": {
+    "scoped-unit": {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_scoped_admission.py",
+        "-v"
+      ],
+      "started_at": "2026-10-10T05:47:15.090381+00:00",
+      "finished_at": "2026-10-10T05:47:16.261441+00:00",
+      "exit_code": 0,
+      "log_sha256": "176e97fec4235d7e55b486dc91963b978a4c277007471e33d04da073eaa69e37",
+      "last_lines": [
+        "test_unrequested_actions_or_triggered_publication_remain_blocked (test_scoped_admission.ScopedAdmissionTests.test_unrequested_actions_or_triggered_publication_remain_blocked) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 62 tests in 1.010s",
+        "",
+        "OK"
+      ]
+    },
+    "coordinator-unit": {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_rules.py",
+        "-v"
+      ],
+      "started_at": "2026-10-10T05:47:16.261520+00:00",
+      "finished_at": "2026-10-10T05:47:16.859711+00:00",
+      "exit_code": 0,
+      "log_sha256": "be549c2adfc164133a544f24468a0d77bc06cac48b25ac94bd7d5eac9616bf16",
+      "last_lines": [
+        "test_unknown_branches_do_not_block_exact_read_only_review (test_rules.CoordinatorEnforcementTests.test_unknown_branches_do_not_block_exact_read_only_review) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 37 tests in 0.494s",
+        "",
+        "OK"
+      ]
+    },
+    "retained-review": {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_review.py"
+      ],
+      "started_at": "2026-10-10T05:47:16.859753+00:00",
+      "finished_at": "2026-10-10T05:47:16.972752+00:00",
+      "exit_code": 0,
+      "log_sha256": "f2dd2e78edf00adca0632cd3f3b47c1276f07a1eb472655b80e8c4c66b6d2d3b",
+      "last_lines": [
+        "PASS malformed parser JSON dispatch-eligible",
+        "PASS malformed parser JSON dispatch-guard",
+        "PASS malformed parser JSON heartbeat",
+        "PASS malformed parser JSON idle-defect-check",
+        "PASS malformed parser JSON review-sweep",
+        "TOTAL 32 FAILURES 0"
+      ]
+    },
+    "retained-acceptance-isolation": {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+      ],
+      "started_at": "2026-10-10T05:47:16.972782+00:00",
+      "finished_at": "2026-10-10T05:47:17.080837+00:00",
+      "exit_code": 0,
+      "log_sha256": "b813e59218ba56c5b21acfca7a706f4cc43174d39c9dc0fb5e06da37fdef7eac",
+      "last_lines": [
+        "PASS merged:partial_criteria",
+        "PASS merged:self_review",
+        "PASS merged:failed_check",
+        "PASS merged:old_head_review",
+        "PASS merged:no_reviews",
+        "TOTAL 14 FAILURES 0"
+      ]
+    },
+    "retained-final-guards": {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_final_guards.py"
+      ],
+      "started_at": "2026-10-10T05:47:17.080866+00:00",
+      "finished_at": "2026-10-10T05:47:17.189321+00:00",
+      "exit_code": 0,
+      "log_sha256": "02526da2bd46e229c7b1164eed117fe87b92e4200f34c4f2334e81c7d9e8bb46",
+      "last_lines": [
+        "PASS branch unmapped exception remains verification-only",
+        "PASS branch partial exception remains verification-only",
+        "PASS branch missing exception remains verification-only",
+        "PASS postmerge no duplicate merge or coding",
+        "PASS disputed postmerge acceptance permits fresh independent verification",
+        "TOTAL 15 FAILURES 0 []"
+      ]
+    },
+    "retained-operation-needs": {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_operation_needs.py"
+      ],
+      "started_at": "2026-10-10T05:47:17.189351+00:00",
+      "finished_at": "2026-10-10T05:47:17.349385+00:00",
+      "exit_code": 0,
+      "log_sha256": "66a2d6f0f8d99302adce1c243f6be9e086dd0d00f6c65cfcd3f2a16c5e62f688",
+      "last_lines": [
+        "PASS merged conflict=True needs=['implementation', 'verification', 'merge', 'deploy']",
+        "PASS merged conflict=True needs=['implementation', 'verification', 'upload']",
+        "PASS merged conflict=True needs=['implementation', 'verification', 'upload', 'deploy']",
+        "PASS merged conflict=True needs=['implementation', 'verification', 'upload', 'merge']",
+        "PASS merged conflict=True needs=['implementation', 'verification', 'upload', 'merge', 'deploy']",
+        "TOTAL 128 FAILURES 0"
+      ]
+    },
+    "retained-hold-invariance": {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_hold_invariance.py"
+      ],
+      "started_at": "2026-10-10T05:47:17.349440+00:00",
+      "finished_at": "2026-10-10T05:47:17.451147+00:00",
+      "exit_code": 0,
+      "log_sha256": "adc083070ad416e24c77c23620b0542131aaef37c7b0d32fe158369125e618f5",
+      "last_lines": [
+        "PASS ['verification', 'upload'] :: {\"actions\": [{\"authorization_ids\": [\"approved-work\"], \"decision_id\": \"e893a463fbe49a58fdcaf8ec0ddd1f114cc15df7ecba72b405470d5688d00e18\", \"executor_id\": \"native\", \"expires_at\": \"2026-10-09T12:15:00+00:00\", \"head_sha\": \"1111111111111111111111111111111111111111\", \"input_digest\": \"c0140cdbeb7da37add90d53af6ee1a2fba671ae68d28e06770a9c4eeb5d8b8d7\", \"operation\": \"verification\", \"owner_id\": \"reviewer\", \"repository\": \"example/game\", \"task_id\": \"task-a\"}], \"blocked\": [{\"executor_id\": \"native\", \"head_sha\": \"1111111111111111111111111111111111111111\", \"operation\": \"upload\", \"owner_id\": \"reviewer\", \"reasons\": [\"ACCEPTANCE_RECONCILIATION_REQUIRED\"], \"repository\": \"example/game\", \"task_id\": \"task-a\"}], \"input_digest\": \"c0140cdbeb7da37add90d53af6ee1a2fba671ae68d28e06770a9c4eeb5d8b8d7\", \"reconciliations\": [], \"status\": \"ACTION_REQUIRED\", \"version\": 1, \"warnings\": [\"task-a: contradictory same-head review verdicts\"]}",
+        "PASS ['upload'] :: {\"actions\": [], \"blocked\": [], \"input_digest\": \"ac3aebf3559258f7bd8ea454680867945043922a3fa7c5dd1e985e3a8b06e293\", \"reconciliations\": [], \"status\": \"INPUT_REQUIRED\", \"version\": 1, \"warnings\": [\"task-a: contradictory same-head review verdicts\"]}",
+        "TOTAL 2 FAILURES 0"
+      ]
+    },
+    "evidence-policy-unit": {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_evidence_policy.py",
+        "-v"
+      ],
+      "started_at": "2026-10-10T05:47:17.451181+00:00",
+      "finished_at": "2026-10-10T05:47:17.705941+00:00",
+      "exit_code": 0,
+      "log_sha256": "71efc4326d01f549b592a4260d808a3384f5ca26dc00765011a21ad813c04732",
+      "last_lines": [
+        "test_wrong_build_variant_environment (test_evidence_policy.EvidencePolicyTests.test_wrong_build_variant_environment) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 53 tests in 0.156s",
+        "",
+        "OK"
+      ]
+    },
+    "legacy-regression": {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_rules.py"
+      ],
+      "started_at": "2026-10-10T05:47:17.705988+00:00",
+      "finished_at": "2026-10-10T05:47:18.348765+00:00",
+      "exit_code": 0,
+      "log_sha256": "e34cf0b6f4295968fb4dcc580744b55fef83f43a3a498dc0882fe861293d09aa",
+      "last_lines": [
+        "test_unknown_branches_do_not_block_exact_read_only_review (__main__.CoordinatorEnforcementTests.test_unknown_branches_do_not_block_exact_read_only_review) ... ok",
+        "",
+        "----------------------------------------------------------------------",
+        "Ran 37 tests in 0.488s",
+        "",
+        "OK"
+      ]
+    }
+  },
+  "retained_original_scoped_methods": 39,
+  "additional_independent_controls": {
+    "negative_mutations": 66,
+    "negative_mutations_passed": 66,
+    "unchanged_owner_transfer_probe": "Failed initial 699e7dc7; passed corrected c2028556",
+    "unchanged_context_envelope_probe": "Both wrong-task and unknown-kind cases failed initial 699e7dc7; passed corrected c2028556",
+    "composition_envelope_controls": "Wrong-task and unknown-kind BLOCK designations now fail closed",
+    "true_divergence": {
+      "method": "Synthetic rule and composition siblings share a common ancestor; runtime adds inherited-runtime.txt outside task write regions; candidate changes only task/doc/board from its designated runtime base. V1 uses valid common-ancestor chains and rejects that inherited delta; v2 uses the authenticated exact composition and admits one scoped action.",
+      "original_v1": "INPUT_REQUIRED: candidate delta outside protected regions: inherited-runtime.txt",
+      "corrected_v1": "Identical output to original v1",
+      "corrected_v2": "ACTION_REQUIRED; one action; global coverage unknown"
+    },
+    "historical_board": {
+      "original_v1": "INPUT_REQUIRED: unsupported board row identity",
+      "corrected_v1": "Identical output to original v1",
+      "corrected_v2": "ACTION_REQUIRED; one action; global coverage unknown"
+    }
+  },
+  "findings_resolved": [
+    {
+      "id": "IR1",
+      "affected_criteria": [
+        "C3",
+        "C4",
+        "C6"
+      ],
+      "initial_source": "699e7dc78a8deba2f2376f31f5a41afa165037ed",
+      "failure": "Same-head task-author/owner transfer could reuse a previously outside-scope context judgment after semantic ownership relevance changed.",
+      "correction": "Assessment binding now includes current normalized and authenticated author/owner/identity, reservations, queues, blockers, executor and PR-author closure.",
+      "verified_source": "c202855604e4315fa28b5116a8763cd85594bc5d"
+    },
+    {
+      "id": "IR2",
+      "affected_criteria": [
+        "C2",
+        "C3",
+        "C6"
+      ],
+      "initial_source": "699e7dc78a8deba2f2376f31f5a41afa165037ed",
+      "failure": "Outer kind/task discriminators could hide an unselected BLOCK judgment for structurally identical source/action.",
+      "correction": "Both v2 decision families collect decision records before structural matching and strict envelope validation.",
+      "verified_source": "c202855604e4315fa28b5116a8763cd85594bc5d"
+    }
+  ],
+  "provenance_checks": {
+    "source_delta": "Exactly scoped_admission.py, test_scoped_admission.py and the scoped RUNBOOK section changed; all other source leaves/modes preserved",
+    "source_tree": "0d68c87c61abdbf3d5285786ea8b238adfb24eab",
+    "source_tree_entries": 399,
+    "source_trees_rehashed": 59,
+    "local_source_blobs_verified": 51,
+    "evidence_tree": "18a914e8c45346f175cd560c8569cc2e5311b2de",
+    "evidence_tree_entries": 420,
+    "evidence_trees_rehashed": 61,
+    "new_evidence_artifacts_verified": 19,
+    "published_execution_artifacts_verified": 15
+  },
+  "limits": [
+    "This is independent implementation acceptance evidence, not a live dispatch, merge, global coverage or downstream td218 admission receipt.",
+    "Authenticated collectors remain responsible for genuine fresh exhaustive external observations, actor identity and complete applicable context. Semantic applicability requires an actual independent judgment; the evaluator does not infer meaning with NLP.",
+    "No Actions, merge, deployment, source-history rewrite, ownership takeover, live queue change or external-agent contact was performed by this reviewer.",
+    "Original execution times and failing first-source findings are retained; they are not relabeled as corrected-source success.",
+    "This C7 document is separate from the eventual evidence-policy completion verdict to avoid a self-referential evidence digest."
+  ]
+}

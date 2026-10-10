@@ -588,5 +588,439 @@ class ScopedAdmissionTests(unittest.TestCase):
         self.assertIn("current-base dependency", " ".join(self.assert_blocked()["warnings"]))
 
 
+def runtime_decision(case, record, path, replace_kind=None):
+    """SYNTHETIC independent-collector artifact, never a live receipt builder."""
+    w, s = case["world"], case["snapshot"]
+    a = s["evidence_policy"]["ops-docs"]["authority"]
+    saved = deepcopy(w.files)
+    w.files = deepcopy(case["source_files"])
+    w.file(path, record)
+    commit = w.commit(case["source"])
+    ref = w.ref(commit, path)
+    w.files = saved
+    if replace_kind:
+        a["attestations"] = [r for r in a["attestations"] if r.get("binding", {}).get("kind") != replace_kind]
+    a["attestations"].append({"kind": "decision", "ref": ref, "actor_id": record["actor_id"],
+        "observed_at": STAMP, "provenance": "SYNTHETIC independent context/source inspection",
+        "binding": {"kind": record["kind"], "digest": ep.digest(record)}})
+    return ref
+
+
+def runtime_designation(case):
+    s = case["snapshot"]; scope = s["scoped_source"]; c = scope["composition"]
+    record = {"kind": "runtime-composition", "task_id": "ops-docs", "actor_id": "coordinator-A",
+        "performed_at": STAMP, "binding": deepcopy(scope["binding"]),
+        "composition": {k: c[k] for k in ("repository", "target_ref", "head_sha", "request_id")},
+        "candidate": {k: deepcopy(scope["candidate"][k]) for k in ("pr_id", "branch_id", "target")},
+        "request_digest": ep.digest(s["requests"][0]), "decision": "DESIGNATED",
+        "rationale": "SYNTHETIC independently designated fixed runtime for this exact operation"}
+    c["designation_ref"] = runtime_decision(case, record, "authority/composition.json", "runtime-composition")
+
+
+def runtime_review(case):
+    w, s = case["world"], case["snapshot"]
+    packet = s["evidence_policy"]["ops-docs"]; a, submission = packet["authority"], packet["submission"]
+    item = submission["evidence"][0]
+    record = {"task_id": "ops-docs", "candidate_head": case["source"], "actor_id": "reviewer-B",
+        "authority_digest": ep.acceptance_binding(a), "evidence_digest": ep.digest(submission["evidence"]),
+        "performed_at": STAMP, "criteria": {"C1": {"decision": "PASS", "rationale": "SYNTHETIC original evidence inspected",
+        "citations": [item["ref"]], "evidence_ids": [item["id"]]}}}
+    saved = deepcopy(w.files); w.files = deepcopy(case["source_files"])
+    w.file("authority/review.json", record); commit = w.commit(case["source"])
+    submission["verdict"] = w.ref(commit, "authority/review.json"); w.files = saved
+    a["attestations"] = [r for r in a["attestations"] if r["kind"] != "review"]
+    a["attestations"].append({"kind": "review", "ref": submission["verdict"], "actor_id": "reviewer-B",
+        "observed_at": STAMP, "provenance": "SYNTHETIC authenticated independent completion inspection"})
+
+
+def runtime_case():
+    case = docs_case(); w, s = case["world"], case["snapshot"]
+    board = "# Board\n\n| Task | State |\n|---|---|\n| unrelated | open |\n\nContext remains unchanged.\n"
+    w.files = deepcopy(case["base_files"]); w.file("board.md", board)
+    composition = w.commit(); base_files = deepcopy(w.files)
+    w.file("rules.md", "# Current rules\nIndependent inspection remains mandatory.\n")
+    w.file("other-main.txt", "Unrelated current-main work\n"); rules_head = w.commit(composition)
+    w.files = deepcopy(base_files)
+    task = ep.GitObjects(w.objects).json(w.ref(composition, "task.json"))
+    descriptor = {"repository": REPO, "target_ref": "refs/heads/runtime", "head_sha": composition,
+                  "request_id": "authorized-source"}
+    task["runtime_composition"] = descriptor
+    w.file("task.json", task); w.file("doc.md", "After: independently reviewed bounded runtime repair.\n")
+    w.file("board.md", board.replace("| unrelated | open |\n", "| unrelated | open |\n| ops-docs | in_review |\n"))
+    source = w.commit(composition)
+    case.update(base=composition, source=source, head=source, base_files=base_files, source_files=deepcopy(w.files), board=board)
+    packet = s["evidence_policy"]["ops-docs"]; a, submission = packet["authority"], packet["submission"]
+    a.update(rule_heads={REPO: rules_head}, rules=[{"id": "R1", "ref": w.ref(rules_head, "rules.md")}],
+             task_ref=w.ref(source, "task.json"), candidate={"repository": REPO, "implementation_head": source, "artifact_head": source}, attestations=[])
+    submission["acknowledgment"]["rules"] = deepcopy(a["rules"])
+    submission["evidence"][0].update(ref=w.ref(source, "doc.md"), source_head=source)
+    s["repositories"] = {REPO: rules_head}
+    for table in ("tasks", "board", "prs", "branches", "checks", "reviews"):
+        for row in s[table]: row["head_sha"] = source
+    s["requests"][0]["executors"] = ["native"]
+    scope = s["scoped_source"]
+    scope.update(version=2, base_heads={REPO: rules_head}, composition={**descriptor, "designation_ref": None}, context_assessments=[])
+    scope["binding"]["head_sha"] = source
+    target = {"repository": REPO, "ref": descriptor["target_ref"], "head_sha": composition}
+    scope["candidate"].update(fork_sha=composition, base_chain=[composition], head_chain=[source, composition], target=target)
+    scope["inventory"]["branches"] = [
+        {"id": REPO + ":refs/heads/main", "repository": REPO, "head_sha": rules_head,
+         "proof": {"kind": "disjoint", "fork_sha": composition, "base_chain": [composition], "head_chain": [rules_head, composition]}},
+        {"id": REPO + ":refs/heads/runtime", "repository": REPO, "head_sha": composition,
+         "proof": {"kind": "base_ancestor", "chain": [composition]}},
+        {"id": scope["candidate"]["branch_id"], "repository": REPO, "head_sha": source, "proof": {"kind": "candidate"}}]
+    scope["inventory"]["prs"][0].update(head_sha=source, target=deepcopy(target))
+    runtime_designation(case); runtime_review(case); seal(s)
+    return case
+
+
+def runtime_foreign(case, board=None, pr=True):
+    w, s = case["world"], case["snapshot"]
+    w.files = deepcopy(case["base_files"])
+    w.file("board.md", board or case["board"].replace("# Board", "# Historical layout\nArchived prose")
+           .replace("| unrelated | open |", "| **old row** | open |"))
+    head = w.commit(case["base"])
+    branch_id = REPO + ":refs/heads/foreign"
+    proof = {"kind": "disjoint", "fork_sha": case["base"], "base_chain": [case["base"]], "head_chain": [head, case["base"]]}
+    s["scoped_source"]["inventory"]["branches"].append({"id": branch_id, "repository": REPO, "head_sha": head, "proof": proof})
+    if pr:
+        s["scoped_source"]["inventory"]["prs"].append({"id": REPO + "#2", "repository": REPO,
+            "head_sha": head, "branch_id": branch_id, "author_id": "foreign-worker", "proof": deepcopy(proof)})
+    seal(s)
+    return head
+
+
+def runtime_context(case, transform=None):
+    s = case["snapshot"]; scope = s["scoped_source"]; w = case["world"]
+    region = next(r for r in scope["regions"] if r["path"] == "board.md")
+    store = ep.GitObjects(w.objects); refs = []
+    a = s["evidence_policy"]["ops-docs"]["authority"]
+    a["attestations"] = [r for r in a["attestations"] if r.get("binding", {}).get("kind") != "foreign-row-context"]
+    for kind in ("branches", "prs"):
+        for item in scope["inventory"][kind]:
+            if item["head_sha"] != scope["inventory"]["branches"][-1]["head_sha"] or item["proof"]["kind"] != "disjoint": continue
+            left, right = sa.leaf(store, REPO, case["base"], "board.md"), sa.leaf(store, REPO, item["head_sha"], "board.md")
+            if not left or not right: continue
+            bound = sa.context_binding(scope, item, kind, region, case["base"], case["base"], left, right, s)
+            spans = sa.context_spans(store.read(REPO, left[1], "blob").decode(), store.read(REPO, right[1], "blob").decode())
+            record = {"kind": "foreign-row-context", "task_id": "ops-docs", "actor_id": "reviewer-B", "performed_at": STAMP,
+                "binding": deepcopy(bound), "spans": [{**x, "effects": {k: "outside_scope" for k in ("task", "dependency", "owner", "global_stop")},
+                "rationale": "SYNTHETIC full changed span inspected: unrelated archived layout only"} for x in spans],
+                "identity": {"classification": "unambiguous_foreign", "rationale": "SYNTHETIC all raw identities inspected, none can denote the protected task"},
+                "decision": "OUTSIDE_SCOPE", "rationale": "SYNTHETIC independent full source/context and global-owner closure judgment"}
+            if transform: transform(record)
+            refs.append(runtime_decision(case, record, "authority/context-" + kind + ".json"))
+    scope["context_assessments"] = refs
+    runtime_review(case); seal(s)
+
+
+class RuntimeCompositionTests(unittest.TestCase):
+    def setUp(self):
+        self.case = runtime_case(); self.s = self.case["snapshot"]
+
+    def allowed(self):
+        result = co.evaluate(self.s, NOW)
+        self.assertEqual(result["status"], "ACTION_REQUIRED", result)
+        self.assertEqual(len(result["actions"]), 1, result)
+        self.assertEqual(result["source_scope"]["global_coverage"], "unknown")
+        return result["actions"][0]
+
+    def blocked(self):
+        result = co.evaluate(self.s, NOW)
+        self.assertFalse(result["actions"], result)
+        self.assertNotEqual(result["status"], "IDLE", result)
+        return result
+
+    def test_current_rules_and_runtime_heads_remain_distinct_positive(self):
+        self.assertNotEqual(self.s["repositories"][REPO], self.case["base"])
+        self.allowed()
+        a = self.s["evidence_policy"]["ops-docs"]["authority"]
+        self.assertEqual(a["rule_heads"], self.s["repositories"])
+
+    def test_missing_forged_stale_or_self_composition_designation(self):
+        for mode in ("missing", "unattested", "self", "stale", "bad-binding", "BLOCK", "duplicate"):
+            with self.subTest(mode=mode):
+                self.setUp(); a = self.s["evidence_policy"]["ops-docs"]["authority"]
+                r = next(x for x in a["attestations"] if x["kind"] == "decision")
+                if mode == "missing": self.s["scoped_source"]["composition"]["designation_ref"] = None
+                if mode == "unattested": a["attestations"].remove(r)
+                if mode == "self": r["actor_id"] = "worker-A"
+                if mode == "stale": r["observed_at"] = (NOW - timedelta(minutes=15)).isoformat()
+                if mode == "bad-binding": r["binding"]["digest"] = "invented"
+                if mode == "duplicate": a["attestations"].append(deepcopy(r))
+                if mode == "BLOCK":
+                    d = ep.GitObjects(self.case["world"].objects).json(r["ref"]); d["decision"] = "BLOCK"
+                    runtime_decision(self.case, d, "authority/blocked.json", "runtime-composition")
+                seal(self.s); self.blocked()
+
+    def test_exact_task_request_executor_target_ref_and_ancestry_binding(self):
+        mutations = [lambda s: s["requests"][0].update(task_id="*"),
+            lambda s: s["requests"][0].update(executors=["*"]),
+            lambda s: s["requests"][0].update(authority_verified=False),
+            lambda s: s["requests"][0].update(state="cancelled"),
+            lambda s: s["scoped_source"]["candidate"]["target"].update(ref="refs/heads/same-sha-wrong-ref"),
+            lambda s: s["scoped_source"]["inventory"]["prs"][0]["target"].update(ref="refs/heads/retargeted"),
+            lambda s: s["scoped_source"]["inventory"]["branches"].pop(1),
+            lambda s: s["scoped_source"]["inventory"]["branches"][1].update(head_sha=self.case["source"]),
+            lambda s: s["scoped_source"]["candidate"].update(head_chain=[self.case["source"], s["repositories"][REPO], self.case["base"]]),
+            lambda s: s["scoped_source"]["composition"].update(head_sha=self.case["source"])]
+        for i, mutate in enumerate(mutations):
+            with self.subTest(i=i):
+                self.setUp(); mutate(self.s); seal(self.s); self.blocked()
+
+    def test_composition_conflicts_cannot_hide_in_outer_envelope(self):
+        for field, value in (("task_id", "different-task"), ("kind", "runtime-composition-unknown")):
+            with self.subTest(field=field):
+                self.setUp(); self.allowed()
+                a = self.s["evidence_policy"]["ops-docs"]["authority"]
+                receipt = next(r for r in a["attestations"] if r.get("binding", {}).get("kind") == "runtime-composition")
+                record = ep.GitObjects(self.case["world"].objects).json(receipt["ref"])
+                record.update(decision="BLOCK"); record[field] = value
+                runtime_decision(self.case, record, "authority/composition-conflict.json")
+                runtime_review(self.case); seal(self.s); self.blocked()
+
+    def test_foreign_historical_context_requires_real_independent_closure(self):
+        runtime_foreign(self.case); self.blocked()
+        runtime_context(self.case); self.allowed()
+
+    def test_no_literal_id_global_owner_or_dependency_effect_blocks(self):
+        for effect in ("global_stop", "owner", "dependency", "task"):
+            with self.subTest(effect=effect):
+                self.setUp()
+                runtime_foreign(self.case, self.case["board"] + "All native implementation is stopped; shared owner reserved.\n")
+                runtime_context(self.case, lambda d: d["spans"][0]["effects"].update({effect: "applicable"}))
+                self.blocked()
+
+    def test_incomplete_ambiguous_stale_forged_and_worker_context_assessments(self):
+        mutations = [lambda d: d.update(spans=[]), lambda d: d.update(decision="BLOCK"),
+            lambda d: d.update(decision="unknown"), lambda d: d.update(actor_id="worker-A"),
+            lambda d: d["identity"].update(classification="ambiguous"),
+            lambda d: d["spans"][0].update(before_digest="forged"),
+            lambda d: d["spans"][0]["effects"].update(global_stop="unknown"),
+            lambda d: d["binding"]["source"].update(comparison_base="f" * 40),
+            lambda d: d["binding"].update(related_task_ids=[])]
+        for i, mutate in enumerate(mutations):
+            with self.subTest(i=i):
+                self.setUp(); runtime_foreign(self.case); runtime_context(self.case, mutate); self.blocked()
+        self.setUp(); runtime_foreign(self.case); runtime_context(self.case)
+        a = self.s["evidence_policy"]["ops-docs"]["authority"]
+        next(r for r in a["attestations"] if r.get("binding", {}).get("kind") == "foreign-row-context")["observed_at"] = (NOW - timedelta(minutes=15)).isoformat()
+        self.blocked()
+
+    def test_duplicate_or_unselected_conflicting_context_never_cherry_picked(self):
+        for decision in ("OUTSIDE_SCOPE", "BLOCK", "unknown"):
+            with self.subTest(decision=decision):
+                self.setUp(); runtime_foreign(self.case); runtime_context(self.case)
+                a = self.s["evidence_policy"]["ops-docs"]["authority"]
+                receipt = next(r for r in a["attestations"] if r.get("binding", {}).get("kind") == "foreign-row-context")
+                d = ep.GitObjects(self.case["world"].objects).json(receipt["ref"])
+                d["decision"] = decision
+                runtime_decision(self.case, d, "authority/unselected.json")
+                runtime_review(self.case); seal(self.s); self.blocked()
+
+    def test_structurally_matching_conflicts_cannot_hide_in_outer_envelope(self):
+        for field, value in (("task_id", "different-task"), ("kind", "foreign-row-context-unknown")):
+            with self.subTest(field=field):
+                self.setUp(); runtime_foreign(self.case); runtime_context(self.case); self.allowed()
+                a = self.s["evidence_policy"]["ops-docs"]["authority"]
+                receipt = next(r for r in a["attestations"] if r.get("binding", {}).get("kind") == "foreign-row-context")
+                record = ep.GitObjects(self.case["world"].objects).json(receipt["ref"])
+                record.update(decision="BLOCK"); record[field] = value
+                runtime_decision(self.case, record, "authority/conflicting-envelope.json")
+                runtime_review(self.case); seal(self.s); self.blocked()
+
+    def test_protected_literal_encoded_duplicate_and_ambiguous_id_never_excluded(self):
+        for text in ("ops-docs", "ops&#45;docs", "ops%2Ddocs", "ops\\-docs", "ops\\u002ddocs",
+                     "| ops-docs | open |\n| ops-docs | duplicate |"):
+            with self.subTest(text=text):
+                self.setUp(); runtime_foreign(self.case, self.case["board"] + text + "\n")
+                runtime_context(self.case); self.blocked()
+
+    def test_context_source_mode_missing_object_and_whole_file_conflicts_remain(self):
+        self.setUp(); runtime_foreign(self.case); runtime_context(self.case)
+        scope = self.s["scoped_source"]; region = next(r for r in scope["regions"] if r["path"] == "board.md")
+        region["row_keys"] = []; seal(self.s); self.blocked()
+        self.setUp(); head = runtime_foreign(self.case); runtime_context(self.case)
+        oid = sa.blob(ep.GitObjects(self.case["world"].objects), REPO, head, "board.md")
+        del self.case["world"].objects[REPO][oid]; self.blocked()
+
+    def test_foreign_file_deletion_type_mode_and_invalid_utf8_fail_closed(self):
+        for mode in ("delete", "100755", "120000", "40000", "utf8"):
+            with self.subTest(mode=mode):
+                self.setUp(); old = runtime_foreign(self.case, pr=False)
+                w = self.case["world"]; store = ep.GitObjects(w.objects)
+                if mode in ("delete", "utf8"):
+                    if mode == "delete": del w.files["board.md"]
+                    else: w.file("board.md", b"\xff invalid UTF-8\n")
+                    head = w.commit(self.case["base"])
+                else:
+                    tree, _ = store.commit(REPO, old)
+                    raw = store.read(REPO, tree, "tree").replace(b"100644 board.md\0", mode.encode() + b" board.md\0")
+                    new_tree = w.object("tree", raw)
+                    head = w.object("commit", store.read(REPO, old, "commit").replace(tree.encode(), new_tree.encode(), 1))
+                item = self.s["scoped_source"]["inventory"]["branches"][-1]
+                item["head_sha"] = head; item["proof"]["head_chain"] = [head, self.case["base"]]
+                seal(self.s); result = self.blocked()
+                expected = {"delete": "create/delete", "100755": "mode", "120000": "regular file",
+                            "40000": "regular file", "utf8": "utf-8"}[mode]
+                self.assertIn(expected, " ".join(result["warnings"]).lower())
+
+    def test_unselected_context_cannot_hide_behind_strict_equal_row_proof(self):
+        runtime_foreign(self.case, self.case["board"].replace("unrelated | open", "unrelated | closed"))
+        self.allowed()  # Existing exact row-only proof needs no semantic fallback.
+        runtime_context(self.case, lambda d: d.update(decision="BLOCK"))
+        self.s["scoped_source"]["context_assessments"] = []
+        runtime_review(self.case); seal(self.s); self.blocked()
+
+    def test_actual_main_and_sibling_whole_file_conflicts_are_not_excluded(self):
+        for source in ("main", "sibling"):
+            with self.subTest(source=source):
+                self.setUp(); w = self.case["world"]; scope = self.s["scoped_source"]
+                w.files = deepcopy(self.case["base_files"])
+                w.file("doc.md", "Conflicting actual protected source\n")
+                if source == "main":
+                    old = self.s["repositories"][REPO]
+                    w.file("rules.md", ep.GitObjects(w.objects).read(REPO, sa.blob(ep.GitObjects(w.objects), REPO, old, "rules.md"), "blob"))
+                    head = w.commit(self.case["base"])
+                    self.s["repositories"][REPO] = head; scope["base_heads"][REPO] = head
+                    a = self.s["evidence_policy"]["ops-docs"]["authority"]
+                    a["rule_heads"][REPO] = head; a["rules"][0]["ref"] = w.ref(head, "rules.md")
+                    self.s["evidence_policy"]["ops-docs"]["submission"]["acknowledgment"]["rules"] = deepcopy(a["rules"])
+                    item = scope["inventory"]["branches"][0]
+                    item["head_sha"] = head; item["proof"]["head_chain"] = [head, self.case["base"]]
+                else:
+                    add_branch(self.case, {"doc.md": "Conflicting actual protected source\n"}, pr=True)
+                runtime_review(self.case); seal(self.s)
+                self.assertIn("overlapping", " ".join(self.blocked()["warnings"]))
+
+    def test_candidate_context_remains_strict_with_v2_foreign_fallback_enabled(self):
+        w = self.case["world"]; w.files = deepcopy(self.case["source_files"])
+        w.file("board.md", self.case["board"].replace("# Board", "# Changed candidate context")
+               .replace("| unrelated | open |", "| unrelated | open |\n| ops-docs | in_review |"))
+        head = w.commit(self.case["base"]); self.case.update(source=head, head=head, source_files=deepcopy(w.files))
+        packet = self.s["evidence_policy"]["ops-docs"]; a = packet["authority"]
+        a.update(task_ref=w.ref(head, "task.json"), candidate={"repository": REPO, "implementation_head": head, "artifact_head": head})
+        packet["submission"]["evidence"][0].update(ref=w.ref(head, "doc.md"), source_head=head)
+        for table in ("tasks", "board", "branches", "prs", "checks", "reviews"):
+            for row in self.s[table]: row["head_sha"] = head
+        scope = self.s["scoped_source"]; scope["binding"]["head_sha"] = head
+        scope["candidate"]["head_chain"] = [head, self.case["base"]]
+        scope["inventory"]["branches"][-1]["head_sha"] = head; scope["inventory"]["prs"][0]["head_sha"] = head
+        runtime_designation(self.case); runtime_review(self.case); seal(self.s)
+        self.assertIn("non-row context changed", " ".join(self.blocked()["warnings"]))
+
+    def test_each_v2_operation_keeps_setup_independence_and_publication_gates(self):
+        for operation in ("implementation", "verification", "upload", "merge"):
+            with self.subTest(operation=operation):
+                self.setUp(); scope = self.s["scoped_source"]
+                scope["binding"]["operation"] = operation
+                self.s["tasks"][0]["needs"] = [operation]
+                if operation == "implementation":
+                    self.s["tasks"][0]["status"] = "open"; self.s["board"][0]["status"] = "open"
+                    self.s["executors"][0]["resume_task"] = "ops-docs"
+                    self.s["executors"][0]["owner_id"] = "worker-A"; scope["binding"]["owner_id"] = "worker-A"
+                    self.s["evidence_policy"]["ops-docs"]["authority"]["status"] = "open"
+                runtime_designation(self.case); runtime_review(self.case); seal(self.s); self.allowed()
+                self.s["tasks"][0]["requirements"][operation]["runtime_confirmation_required"] = True
+                seal(self.s); self.blocked()
+                self.s["tasks"][0]["requirements"][operation]["runtime_confirmation_required"] = False
+                if operation in ("merge", "upload"):
+                    self.s["policies"][0][("merge" if operation == "merge" else "push") + "_runs_actions"] = True
+                elif operation == "verification":
+                    self.s["tasks"][0]["author_id"] = "coordinator-A"
+                else:
+                    self.s["tasks"][0]["project"] = "shuto"
+                seal(self.s); self.blocked()
+
+    def test_context_exclusion_never_releases_owner_queue_or_global_stop(self):
+        for kind in ("owners", "queue", "blockers"):
+            with self.subTest(kind=kind):
+                self.setUp(); runtime_foreign(self.case); runtime_context(self.case)
+                if kind == "owners": self.s[kind] = [{"id": "owner", "repository": REPO, "task_id": "ops-docs", "operation": "merge", "owner_id": "other", "executor_id": "native", "state": "unknown"}]
+                if kind == "queue": self.s[kind] = [{"id": "queue", "repository": REPO, "task_id": "ops-docs", "operation": "merge", "owner_id": "other", "executor_id": "native", "head_sha": self.case["source"], "state": "pending"}]
+                if kind == "blockers": self.s[kind] = [{"id": "global", "repository": REPO, "task_id": "*", "operations": ["*"], "executors": ["*"], "kind": "stop", "reason": "SYNTHETIC global stop"}]
+                seal(self.s); self.blocked()
+
+    def test_independent_owner_transfer_probe_invalidates_context_assessment(self):
+        # Independent review's unchanged same-head author/owner transfer probe.
+        runtime_foreign(self.case, self.case["board"] + "\nWorker-C work is stopped across all tasks.\n")
+        runtime_context(self.case); self.allowed()
+        citations = deepcopy(self.s["scoped_source"]["context_assessments"])
+        packet = self.s["evidence_policy"]["ops-docs"]
+        self.s["tasks"][0].update(author_id="Worker-C", owner_id="Worker-C")
+        self.s["board"][0]["owner_id"] = "Worker-C"
+        packet["authority"]["principals"]["author"] = "Worker-C"
+        packet["authority"]["owner_id"] = "Worker-C"
+        packet["submission"]["acknowledgment"]["author_id"] = "Worker-C"
+        runtime_review(self.case); seal(self.s)
+        self.assertEqual(self.s["scoped_source"]["context_assessments"], citations)
+        self.assertIn("source/scope assessment changed", " ".join(self.blocked()["warnings"]))
+
+    def test_changed_owner_and_queue_closure_require_fresh_context_judgment(self):
+        for kind in ("owners", "queue"):
+            with self.subTest(kind=kind):
+                self.setUp(); runtime_foreign(self.case); runtime_context(self.case); self.allowed()
+                if kind == "owners":
+                    self.s[kind] = [{"id": "released", "repository": REPO, "task_id": "ops-docs", "operation": "implementation", "owner_id": "coordinator-A", "executor_id": "native", "state": "released"}]
+                else:
+                    self.s[kind] = [{"id": "reservation", "repository": REPO, "task_id": "ops-docs", "operation": "verification", "owner_id": "coordinator-A", "executor_id": "native", "head_sha": self.case["source"], "state": "pending"}]
+                runtime_review(self.case); seal(self.s)
+                self.assertIn("source/scope assessment changed", " ".join(self.blocked()["warnings"]))
+
+    def test_v2_still_needs_current_ack_real_checks_and_independent_acceptance(self):
+        for mode in ("ack", "missing-check", "failed-check", "invented-check", "self-review", "missing-verdict"):
+            with self.subTest(mode=mode):
+                self.setUp(); packet = self.s["evidence_policy"]["ops-docs"]
+                if mode == "ack": packet["submission"]["acknowledgment"]["rules"][0]["ref"]["commit"] = self.case["base"]
+                if mode == "missing-check": self.s["checks"] = []; self.s["prs"][0]["check_ids"] = []
+                if mode == "failed-check": self.s["checks"][0]["result"] = "fail"
+                if mode == "invented-check": self.s["checks"][0]["name"] = "invented"
+                if mode == "self-review": self.s["reviews"][0]["reviewer_id"] = "worker-A"
+                if mode == "missing-verdict": packet["submission"]["verdict"] = None
+                seal(self.s); self.blocked()
+
+    def test_guard_binds_every_new_source_context_and_time_input(self):
+        runtime_foreign(self.case); runtime_context(self.case); action = self.allowed()
+        target = {k: action[k] for k in ("task_id", "operation", "executor_id", "owner_id", "head_sha")}
+        self.assertEqual(co.revalidate(self.s, action, target, NOW)["status"], "GO")
+        for mutate in (lambda s: s["scoped_source"]["candidate"]["target"].update(ref="refs/heads/new"),
+                       lambda s: s["scoped_source"]["context_assessments"].clear(),
+                       lambda s: s["requests"][0].update(evidence="changed request"),
+                       lambda s: s["scoped_source"]["related_task_ids"].append("other")):
+            s = deepcopy(self.s); mutate(s); seal(s)
+            self.assertNotEqual(co.revalidate(s, action, target, NOW)["status"], "GO")
+        self.assertNotEqual(co.revalidate(self.s, action, target, NOW + timedelta(minutes=15))["status"], "GO")
+
+    def test_v2_actual_supported_cli_and_imported_aliases_no_io(self):
+        runtime_foreign(self.case); runtime_context(self.case); action = self.allowed()
+        args = ["--snapshot", "snapshot.json"]
+        guard = args + ["--decision", "decision.json", "--task", "ops-docs", "--operation", "merge", "--executor", "native", "--owner", "coordinator-A", "--head", self.case["source"]]
+        original = deepcopy(self.s)
+        def load(path): return deepcopy(action if path == "decision.json" else self.s)
+        with patch.object(cli, "_load", side_effect=load), patch.object(cli, "datetime") as clock, \
+             patch("builtins.open", side_effect=AssertionError("unexpected file access")), \
+             patch.object(socket, "socket", side_effect=AssertionError("network forbidden")), \
+             patch.object(subprocess, "run", side_effect=AssertionError("dispatch forbidden")):
+            clock.now.return_value = NOW
+            for alias in cli.ALIASES:
+                for imported in (False, True):
+                    with self.subTest(alias=alias, imported=imported), contextlib.redirect_stdout(io.StringIO()) as out:
+                        try:
+                            argv = guard if alias == "dispatch-guard" else args
+                            code = (getattr(watch, "cmd_" + alias.replace("-", "_"))(argv) or 0) if imported else cli.run(alias, argv, NOW)
+                        except SystemExit as stop: code = stop.code
+                        self.assertEqual(json.loads(out.getvalue())["status"], "GO" if alias == "dispatch-guard" else "ACTION_REQUIRED")
+                        self.assertEqual(code, 3 if alias == "idle-defect-check" else 0)
+        self.assertEqual(self.s, original)
+
+    def test_malformed_v2_never_falls_back_and_v1_no_scope_remain_strict(self):
+        self.s["scoped_source"]["composition"]["extra"] = True; self.blocked()
+        s = docs_case()["snapshot"]
+        s["scoped_source"]["version"] = 2
+        self.assertFalse(co.evaluate(s, NOW)["actions"])
+        s.pop("scoped_source")
+        self.assertFalse(co.evaluate(s, NOW)["actions"])
+
+
 if __name__ == "__main__":
     unittest.main()
