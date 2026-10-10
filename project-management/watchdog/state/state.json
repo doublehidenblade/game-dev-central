@@ -1991,6 +1991,9 @@
   "watchdog 2026-10-10 14:12 EDT run: cloud sessions both REPORT_LOGIN (96.6h, notify suppressed 2.4h ago \u2014 standing). review-sweep: no VALIDATOR-DUE (14 rows OK). inbox: no new dot comments since 6099481959 (checkpoint current); silent. dispatch-candidates: only td-249 unowned, HELD per task-file Priority-LOW do-not-auto-dispatch (re-verified live on tokyo-drift-3d main); flagship-waiting: none >48h; all others owned. adopt-orphans: no ORPHAN-READY; 69 HELD (hourly inspector report-only PRs, left alone), ORPHAN-UNKNOWN #636/#629/#606/#596/#576/#489/#658/#657 left alone per body. liveness: 15 workers ALIVE, no DEAD. conflicts OK, transitions NO-FLIPS. classifications stale 197 runs (degraded watchdog, standing; only Craig manual sign-in restores cloud). Self-correction: probe of validator-dispatched with fake SHA reverted (td-243 entry removed from ledger); lesson: never probe mutating watch.py commands with fake data.",
   {
    "note": "watchdog 2026-10-10 14:42 EDT run: STEP 0a liveness 15 ALIVE (td-188/189/190/196/217/239-248; td-217 held per Craig strong-high/max conflict, td-195 cop-float FAIL no-redispatch), conflicts OK, transitions NO-FLIPS, cloud sessions LOGIN_BLOCKED ~97h (loginfail SUPPRESSED, notified 2.9h ago). STEP 0b review-sweep: no VALIDATOR-DUE (td-212/213/223/224 validators already dispatched). Orphan sweep: HELD + DRAFT + 8 UNKNOWN, zero ORPHAN-READY \u2014 nothing shipped. STEP 0c inbox: no new dot comments since 6099481959 (16:06:16Z pr461-verified); silent, checkpoint advanced. STEP 1/2: only unowned candidate td-249 (standard/M) \u2014 NOT dispatched per task-file Priority: LOW backlog, do-not-auto-dispatch (unchanged). flagship-waiting: none parked >48h."
+  },
+  {
+   "note": "watchdog 2026-10-10 15:48 EDT run: STEP 0a liveness 15 ALIVE (td-188/189/190/196/217/239-247; td-248 QUIET(1) registered; td-217 held per Craig strong-high/max conflict), conflicts OK, transitions NO-FLIPS, classification-health STALE-RUNS=200 (cloud sessions LOGIN_BLOCKED ~98h, loginfail SUPPRESSED, notified 3.9h ago \u2014 degraded watchdog, standing). STEP 0b review-sweep: no VALIDATOR-DUE (td-212/213/223/224 validators already dispatched). STEP 0c inbox: no new dot comments since 6099481959 (16:06:16Z pr461-verified); silent. STEP 1 decide: both sessions REPORT_LOGIN. STEP 2: only unowned candidate td-249 (standard/M) \u2014 NOT dispatched per task-file Priority: LOW backlog, do-not-auto-dispatch (unchanged). flagship-waiting: none >48h. Orphan sweep: 70 HELD + 22 DRAFT + 8 UNKNOWN, zero ORPHAN-READY \u2014 nothing shipped. 16 merged-not-live PRs pending publish (Craig word only)."
   }
  ],
  "workers": {
@@ -2090,8 +2093,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-248.md",
    "dispatched_at": "2026-10-09T20:50:32.341174+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   },
   "td-245": {
    "kind": "muse-subagent",
@@ -2135,7 +2138,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 198
+  "stale_runs": 200
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2365,7 +2368,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-10T19:16:05.860004+00:00",
+  "ts": "2026-10-10T19:44:48.414184+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2376,19 +2379,19 @@
     "ALIVE td-240 (no heartbeat file; task-file commit b3a194e 2026-10-09T16:06)",
     "ALIVE td-241 (no heartbeat file; task-file commit 50902c8 2026-10-09T15:18)",
     "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
-    "ALIVE td-243 (no heartbeat file; open PR #662 Inspector report: 2026-10-10 14:34 EDT (report-only, do not ; open PR #661 Inspector report: 2026-10-10 13:34 EDT (report-only, )",
+    "ALIVE td-243 (no heartbeat file; open PR #663 Inspector report: 2026-10-10 15:34 EDT (report-only, do not ; open PR #662 Inspector report: 2026-10-10 14:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
-    "ALIVE td-248 (no heartbeat file; open PR #629 td-248: retract unsupported verdict criteria (retraction + b)",
-    "ALIVE td-245 (heartbeat stale (1540min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:)",
-    "ALIVE td-246 (heartbeat stale (1570min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (1610min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "ALIVE td-217 (heartbeat stale (1234min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
+    "QUIET(1) td-248 (no heartbeat file)",
+    "ALIVE td-245 (heartbeat stale (1569min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:)",
+    "ALIVE td-246 (heartbeat stale (1599min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (1639min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "ALIVE td-217 (heartbeat stale (1263min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=198"
+    "STALE-RUNS=200"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2405,10 +2408,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-10T19:15:42.530189+00:00",
-   "classification-health": "2026-10-10T19:16:05.860004+00:00",
-   "transitions": "2026-10-10T19:16:03.003338+00:00",
-   "conflicts": "2026-10-10T19:15:58.243406+00:00",
+   "liveness": "2026-10-10T19:44:24.738659+00:00",
+   "classification-health": "2026-10-10T19:44:48.414184+00:00",
+   "transitions": "2026-10-10T19:44:35.213117+00:00",
+   "conflicts": "2026-10-10T19:44:30.337431+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
