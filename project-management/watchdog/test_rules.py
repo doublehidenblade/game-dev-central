@@ -1378,6 +1378,121 @@ def test_part11():
     return len(result.failures) + len(result.errors)
 
 
+
+def test_part12():
+    """flagship-waiting timestamp handling (2026-10-10 independent review of
+    PR461, residual P2 defects): unknown waiting-since age must not establish
+    the 48h threshold (no parked=999h false positive), and naive timestamps
+    must be normalized to UTC consistently instead of crashing on
+    aware-minus-naive subtraction. Exercises the REAL
+    watch.cmd_flagship_waiting with stubbed board/task-file/state."""
+    import io
+    from contextlib import redirect_stdout
+    from datetime import datetime, timezone, timedelta
+    fails = 0
+
+    def check(name, cond):
+        nonlocal fails
+        print(("PASS " if cond else "FAIL ") + name)
+        if not cond:
+            fails += 1
+
+    TASK_FILE = "## Dispatch recommendation\nRecommended model: flagship\nEffort: L\n"
+
+    def run(rows, task_files, notes):
+        def fake_board(game):
+            return rows
+
+        def fake_task_file(repo_full, path):
+            task = path.rsplit("/", 1)[-1].replace(".md", "")
+            return task_files.get(task, "")
+
+        def fake_state():
+            return {"workers": {}, "sessions": {}, "notes": notes}
+
+        old = (watch._board_rows, watch._task_file_text, watch.load_state)
+        watch._board_rows = fake_board
+        watch._task_file_text = fake_task_file
+        watch.load_state = fake_state
+        try:
+            buf = io.StringIO()
+            with redirect_stdout(buf):
+                watch.cmd_flagship_waiting(["tokyo-drift-3d"])
+            return buf.getvalue()
+        finally:
+            (watch._board_rows, watch._task_file_text,
+             watch.load_state) = old
+
+    def row(task, last_update):
+        return {"task": task, "defect": "x", "status": "open — placeholder",
+                "prefix": "open", "owner": "\u2014", "pr": "",
+                "last_update": last_update}
+
+    now = datetime.now(timezone.utc)
+    naive_10h = (now - timedelta(hours=10)).replace(tzinfo=None).isoformat()
+    aware_50h = (now - timedelta(hours=50)).isoformat()
+    naive_50h = (now - timedelta(hours=50)).replace(tzinfo=None).isoformat()
+    aware_10h = (now - timedelta(hours=10)).isoformat()
+
+    flagship = {"td-991": TASK_FILE, "td-992": TASK_FILE, "td-993": TASK_FILE,
+                "td-994": TASK_FILE, "td-995": TASK_FILE, "td-996": TASK_FILE,
+                "td-997": TASK_FILE}
+
+    # P2 #1: unknown age (empty / em-dash / invalid Last update, no state
+    # note) must not establish the 48h threshold.
+    for tid, lu in (("td-991", ""), ("td-992", "\u2014"),
+                    ("td-993", "not-a-date")):
+        try:
+            out = run([row(tid, lu)], flagship, {})
+            crashed = False
+        except Exception as e:  # noqa: BLE001
+            out, crashed = "", True
+            print(f"  exception: {e!r}")
+        check(f"P2#1 {tid} no crash", not crashed)
+        check(f"P2#1 {tid} no FLAGSHIP-WAITING verdict",
+              f"FLAGSHIP-WAITING {tid}" not in out)
+        check(f"P2#1 {tid} no parked=999h", "parked=999h" not in out)
+        check(f"P2#1 {tid} reported as unknown-age",
+              f"FLAGSHIP-UNKNOWN-AGE {tid}" in out)
+
+    # P2 #2: naive state-note timestamp must not crash (normalized to UTC).
+    try:
+        out = run([row("td-994", "")],
+                  flagship,
+                  {"td-994 waiting-for-flagship":
+                   {"ts": naive_10h, "note": "waiting-for-flagship"}})
+        crashed = False
+    except Exception as e:  # noqa: BLE001
+        out, crashed = "", True
+        print(f"  exception: {e!r}")
+    check("P2#2 naive state-note ts no crash", not crashed)
+    check("P2#2 10h-old naive note not parked",
+          "FLAGSHIP-WAITING td-994" not in out)
+
+    # Naive board last-update normalized to UTC: 50h-old naive date parks.
+    try:
+        out = run([row("td-995", naive_50h)], flagship, {})
+        crashed = False
+    except Exception as e:  # noqa: BLE001
+        out, crashed = "", True
+        print(f"  exception: {e!r}")
+    check("naive board last_update no crash", not crashed)
+    check("naive 50h-old board date parks",
+          "FLAGSHIP-WAITING td-995 parked=50h" in out)
+
+    # Positive control: aware 50h-old last-update parks with real hours.
+    out = run([row("td-996", aware_50h)], flagship, {})
+    check("aware 50h-old last-update parks",
+          "FLAGSHIP-WAITING td-996 parked=50h" in out)
+
+    # Recency control: aware 10h-old last-update is not parked.
+    out = run([row("td-997", aware_10h)], flagship, {})
+    check("aware 10h-old last-update not parked",
+          "FLAGSHIP-WAITING td-997" not in out)
+
+    return fails
+
+
 if __name__ == "__main__":
     print("== Part 1: evidence -> classification ==")
     f1 = test_part1()
@@ -1401,6 +1516,8 @@ if __name__ == "__main__":
     f10 = test_part10()
     print("== Part 11: scoped coordinator enforcement and no-side-effect CLI ==")
     f11 = test_part11()
-    total = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9 + f10 + f11
+    print("== Part 12: flagship-waiting timestamp handling (real watch.cmd_flagship_waiting) ==")
+    f12 = test_part12()
+    total = f1 + f2 + f3 + f4 + f5 + f6 + f7 + f8 + f9 + f10 + f11 + f12
     print(f"\n{total} failures" if total else "\nALL TESTS PASSED")
     sys.exit(1 if total else 0)
