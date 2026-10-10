@@ -832,3 +832,85 @@ Additional local commands (no GitHub Actions):
   `test_rules.py`, and all five standalone independent probe scripts above
 - See `fixtures/scoped-admission/README.md` for immutable real-source provenance,
   local-input replay and the recorded failing-original/positive controls
+
+## Additive td-236 and td-237 components (2026-10-10)
+
+Craig prioritizes bounded gameplay workers before new retry/resource enforcement.
+This is a source-only **conditional admission proposal**, not runtime activation
+or full-task acceptance. One central author owns these board/runbook amendments;
+the two source-document authors do not write shared central files.
+
+| Task | Sole component author | Distinct reviewer | Exact Tokyo source-admission PR/head |
+|---|---|---|---|
+| td-237 | dot-td237-itinerary-author | dot-td237-itinerary-reviewer | Pending coordinator relay; no acceptance inferred |
+| td-236 | dot-td236-briefing-author | dot-td236-briefing-reviewer | Pending coordinator relay; no acceptance inferred |
+
+**Allowlist, new files only.** td-237:
+`godot/scripts/lower_city/navigation_itinerary.gd`,
+`godot/scripts/lower_city/navigation_route_adapter.gd`,
+`godot/scripts/lower_city/mission_navigation_adapter.gd`, matching `.gd.uid`
+files only if generated, and `godot/qa/td-237/itinerary/**`.
+td-236: `godot/scripts/lower_city/gig_briefing_view.gd`, its generated
+`.gd.uid`, and `godot/qa/td-236/briefing/**`.
+
+**Activation and precedence.** Each component activates separately only after
+the coordinator records its exact source amendment PR/head, independent exact-head
+acceptance and required merges of that canonical Tokyo amendment and this central
+admission, and fresh owner/source/tier/tool preflight. Missing/changed pins,
+denials or unresolved overlap hold that component. Once those gates pass, this
+grant supersedes inherited no-author/documentation-only clauses for that additive
+allowlist only; unchanged scope needs no repeat registration. Source-document
+authors already working are not evidence of runtime activation. Full-task status
+stays blocked; td-236 criteria 1–8 and td-237 criteria 1–10 remain unchanged.
+
+**Runtime pin.** Use Tokyo PR545 `e8bdfc0ff742d7b3cd4a86a213c3369d555e7027`
+for read-only contract fixtures (verified head of an open PR, not a merged/live
+build). Re-hash CityData `55dcf8012fdbd317b74bd27a0d3c84d80296b61d`,
+CityRouter `815b6c88d71dc26afdd1b76db1258c4eab983ff2` and
+GigDispatch `e66b4656d38814b6bcc4fba971ac3cc034538ae6` before tests.
+Source publication adds only allowed files to the admitted source-doc base;
+do not replace main or merge historical runtime ancestry into main.
+
+**Boundaries.** No existing runtime file edits, production mount, autoload,
+scene or project-setting changes. MapSheet/minimap/PaperMap/gig_menu, td-235's
+target region, td-232/PR550 payout, PR549 fit, td-215 status, td-200/201 inventory,
+mission/fuel/damage providers and Craig's td-185 assembly authority stay with
+their owners. Production wiring requires exact owner handoff and separate
+integration admission. Preserve all old mission-cue files/evidence and its
+publication hold; no retry of denied cue/td-231 publication or alternative route
+to change the denied automation. Shuto frozen; NEON paused.
+
+**Component acceptance, independent exact head.** td-237 proves one revisioned
+itinerary, real directed route/layer geometry, immutable mission-stop order,
+stale-revision Apply/Cancel, once-only custom arrival, duplicate/stale mission
+events and zero mission/economy writes. td-236 proves authoritative offer/value
+fidelity, explicit accept intent, stale/expired selection rejection, truthful
+unavailable data and single-itinerary revision consumption; selection/preview
+never accepts a gig. Its fixture may use a documented snapshot while the accepted
+td-237 interface is pending; that is not production interoperation. No invented
+history, inventory, condition, repair destinations or route segments.
+For each: diff/UID checks restrict changes to the allowlist, raw failures and
+broken-case controls are retained, and a separate reviewer verifies source and
+claimed evidence. Native rendered briefing pixels require actual inspection;
+full-scene/browser/CSS-DPR/phone gates stay open. Author stops at source/evidence
+PR and never self-accepts or merges.
+
+**Setup.** Preserve requested frontier `gpt-6-astra/xhigh` author/reviewer settings;
+requested is not runtime attestation. Coordinator verifies exact-source fixtures,
+Godot 4.7.2 and required renderer/pixel tools before implementation; readiness is
+not established by this document. Wait for required tier/tools; no downgrade.
+Each activated component retains one initial attempt plus at most one
+evidence-based correction within two hours, reserving independent review time.
+Stop on permission/auth denial, overlap, excluded-file need or exhausted bound.
+
+**Documentation preflight.** Central `daf20aa79ce7ceb61440b96870752f60b79108f5` has no
+`.github` workflow files. Both PR545 and Tokyo main
+`f671c0745bae514d5003d090b1f536f2515854a2` lack the proposed new paths.
+Current board/task/old worker registry and all open-PR metadata pages were read
+(central 102, Tokyo 219); targeted searches found no competing named component
+registration. This is not complete branch-region or live-session clearance;
+stale registry/quiet GitHub cannot establish idle ownership. The coordinator
+retains fresh scoped owner/guard checks before dispatch, and rechecks actual
+workflow/publication triggers before writes. No executable changes, Actions,
+merge, deployment, external-agent contact, credential/security change or
+retry/resource-enforcement work is authorized by this documentation.
