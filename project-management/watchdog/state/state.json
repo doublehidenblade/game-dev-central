@@ -1986,7 +1986,8 @@
    "ts": "2026-10-10T13:22:00Z",
    "text": "watchdog 2026-10-10 09:20 EDT run: cloud sessions both REPORT_LOGIN (91.5h, notify suppressed ~3.5h ago \u2014 standing). review-sweep: no VALIDATOR-DUE (14 rows OK). inbox: 1 new dot status comment (6097521912, td-231 author activated 12:09Z, PR650+PR457 merged after independent doc review, no ack required); no Muse reservation conflict; silent, checkpoint advanced. dispatch-candidates: only td-249 unowned, HELD per task-file Priority-LOW do-not-auto-dispatch (re-verified live on main); td-163/td-173 flagship waiting, all others owned. adopt-orphans: no ORPHAN-READY; ORPHAN-UNKNOWN #636/#629/#606/#596/#576/#489 left to live workers/board flips. liveness: 15 workers ALIVE, no DEAD. conflicts OK, transitions NO-FLIPS. classifications stale 188 runs (degraded watchdog, standing; only Craig's manual sign-in restores cloud sessions)."
   },
-  "2026-10-10T15:04Z deregistered td-163 (muse-subagent): work complete \u2014 kit already merged via PR #331; no rework done"
+  "2026-10-10T15:04Z deregistered td-163 (muse-subagent): work complete \u2014 kit already merged via PR #331; no rework done",
+  "2026-10-10T15:06Z deregistered td-173 (muse-subagent): work complete \u2014 kit already merged via PR #338; docs gaps closed in PR #658, left for validator"
  ],
  "workers": {
   "td-188": {
@@ -2123,15 +2124,6 @@
    "dispatched_at": "2026-10-09T22:18:39.271176+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-173": {
-   "kind": "muse-subagent",
-   "session": "d5470066-03f3-46e6-b91e-f6817dbe7e17",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-173.md",
-   "dispatched_at": "2026-10-10T14:50:30.874662+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -2546,6 +2538,11 @@
    "pr": 331,
    "head_sha": "37e6f1fe298ed3760ef3fbfbd047c9c2afa62068",
    "at": "2026-10-10T15:04:36.770599+00:00"
+  },
+  "td-173": {
+   "pr": 658,
+   "head_sha": "ea9d9078affa35fe6b6444280b5936e2bd542c02",
+   "at": "2026-10-10T15:06:24.177873+00:00"
   }
  }
 }
