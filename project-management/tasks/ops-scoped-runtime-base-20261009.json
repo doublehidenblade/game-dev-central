@@ -1,11 +1,18 @@
 {
   "id": "ops-scoped-runtime-base-20261009",
   "title": "Separate scoped runtime composition from governing rules",
-  "status": "blocked",
+  "status": "open",
   "owner": "dot-scoped-runtime-base-author",
-  "phase": "Owner-marked registration proposal only; implementation not admitted or started",
-  "registration_state": "Awaiting independent exact-head registration review and root guard",
-  "runtime_allowlist": [],
+  "phase": "Ready for unchanged-current-v1 admission evaluation; implementation not admitted or started",
+  "registration_state": "Owner adoption prepared after independent source-preservation review; final current evidence-policy and coordinator-plan/dispatch-guard receipts remain required",
+  "runtime_allowlist": [
+    "project-management/watchdog/scoped_admission.py",
+    "project-management/watchdog/test_scoped_admission.py",
+    "project-management/watchdog/RUNBOOK.md",
+    "project-management/watchdog/fixtures/scoped-runtime-base/",
+    "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+    "project-management/tasks/ops-scoped-runtime-base-20261009/"
+  ],
   "ask": {
     "by": "Craig; registration prepared by dot coordinator",
     "date": "2026-10-09",
@@ -25,7 +32,10 @@
     "separate_proposed_reviewer": "dot-scoped-runtime-base-reviewer",
     "handoff": "Root serialized scoped_admission.py, test_scoped_admission.py and only scoped RUNBOOK sections for this new repair, subject to current scope/stop checks. Original PR449 and its task, author record, accepted evidence and budget remain unchanged. No other owner's path is transferred.",
     "public_reservation_only": true,
-    "implementation_started_at": null
+    "implementation_started_at": null,
+    "designated_author": "dot-scoped-runtime-base-author",
+    "designation_date": "2026-10-10",
+    "designation_scope": "Existing sole author adopted by root for only the exact reviewed runtime_allowlist, conditional on genuine unchanged-v1 admission and dispatch-guard. Reserved, not dispatched; no implementation started. Other owners and all exclusions remain unchanged."
   },
   "implementation_scope": {
     "proposed_allowlist": [
@@ -852,7 +862,30 @@
     {
       "date": "2026-10-09",
       "entry": "Prepared one bounded owner-registration proposal after read-only source diagnosis. Existing v1 correction PR449 remains preserved. No implementation, tests, gate execution, Actions, merge, deployment or external contact."
+    },
+    {
+      "date": "2026-10-10",
+      "entry": "Prepared the root-designated existing sole author and exact six-path runtime boundary after independent preservation review of source reconciliation and optional-metadata withdrawal. Status is open/ready for guard, not admitted or dispatched. Canonical C1–C7 criteria, evidence policy, rule inventory, plans, exclusions and budgets remain unchanged; all implementation checks are unrun. No code or other owner changes."
     }
   ],
-  "verdict": null
+  "verdict": null,
+  "admission_preparation": {
+    "state": "ready_for_guard_not_dispatched",
+    "source_reconciliation_head": "f39e937baaf1553fb6757e4f4a06b1541fdc5cc6",
+    "sole_author": "dot-scoped-runtime-base-author",
+    "independent_implementation_reviewer": "dot-scoped-runtime-base-reviewer",
+    "reviewer_state": "Role reserved only; no implementation reviewer started or acceptance claimed",
+    "selected_model": "gpt-6-astra",
+    "selected_effort": "xhigh",
+    "runtime_confirmed": false,
+    "execution_started_at": null,
+    "root_designation": "2026-10-10: root adopted the existing sole author and unchanged six-path boundary for this existing operational repair; final source/owner/stop/evidence plan and guard remain mandatory",
+    "retained_stops": [
+      "No implementation before genuine unchanged-v1 admission and exact dispatch guard",
+      "No Actions, deployment, source-history rewrite, access/security changes, other-owner takeover or game source edits",
+      "Shuto frozen; NEON paused; parked td-238 unchanged"
+    ],
+    "historical_review_binding": "Original registration and readiness verdicts retain their original exact source bindings; neither is extended to this owner-adoption amendment",
+    "dispatch_log": "Actual decision and dispatch-guard receipt must be appended to the coordinator log at actual dispatch, without reusing the withdrawn proposal-only tail"
+  }
 }
