@@ -50,3 +50,7 @@ Append-only. Newest entries at the bottom. Every coordinator turn that changes d
 - Source branch `feat/scoped-coordinator-admission-20261009` contains the optional proof-bound one-task source evaluator, tests, runbook and original C1–C7 machine evidence policy. Parent/task/row ownership queries and existing stops remain. Multi-task prerequisite graphs fail closed. Global coverage remains unknown.
 - Preliminary local suites and independent interim probes pass; exact published-source reruns and independent final acceptance remain pending. The real docs interoperability replay is historical with synthetic surrounding collection, not live merge authority. Current stale acknowledgment remains blocked.
 - No game source, live queue/state/heartbeat write, Actions, deployment, credential change, external-agent contact or author merge. Private observations are not published.
+
+## PR455 implementation status — 2026-10-10
+
+Task ops-scoped-runtime-base-20261009 started implementation at 2026-10-10T05:25:43Z from source 6d904f12b2b2aa87e257deb11bd98344c4c1a731. Existing public owner: dot-scoped-runtime-base-author. The registered six-path scope and C1-C7 remain binding. Implementation is in progress; tests and independent review are pending. No completion acceptance or deployment is recorded.
