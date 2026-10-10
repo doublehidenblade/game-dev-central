@@ -109,6 +109,24 @@ acting; do not use stale prose to override a newer hold or an existing owner.
 | 41 | Low | [td-249](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-249.md) | Implementation needed; explicitly low | Later replace pedestrian pop-in/out with door entry/exit using actual door data and documented fallback. |
 | 42 | Low | [td-202](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-202.md) | Validation only; later | Run independent full garage first-slice integration after usable implementation exists; do not make this a new feature job. |
 
+### Serialize overlapping file areas (Craig 2026-10-10)
+
+The td-204 → td-205 → td-207 revert/redo (three PRs, net zero) happened because
+parallel workers rewrote the same UI files without coordination. Prevention:
+
+- **One worker per file area at a time.** Before dispatching, check live workers'
+  registered file areas (worker heartbeats + task files). If a candidate task
+  touches files another live worker is actively modifying, hold the dispatch
+  until that worker merges or goes idle. File areas: HUD/UI scripts, scene
+  files (.tscn), autoloads, vehicle physics, pedestrian systems.
+- **Worker-side check-main-first is mandatory** (WORKER_BRIEF.md rule 13):
+  every worker reads the current main state of shared files before writing.
+  Silently reverting merged work is banned.
+- **Briefs name the conflict explicitly.** When dispatching onto files another
+  worker recently touched, the brief's "already on main" section must describe
+  what is there and how to build on it, not overwrite it.
+
+
 ### What should move next, and what is genuinely blocked
 
 - First implementation candidates are damage scaling/contact deduplication
