@@ -2131,7 +2131,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 192
+  "stale_runs": 193
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2361,7 +2361,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-10T15:44:41.298477+00:00",
+  "ts": "2026-10-10T16:15:15.811858+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2375,16 +2375,16 @@
     "ALIVE td-243 (no heartbeat file; open PR #656 Inspector report: 2026-10-10 10:34 EDT (report-only, do not ; open PR #653 Inspector report: 2026-10-10 09:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
     "ALIVE td-248 (no heartbeat file; open PR #629 td-248: retract unsupported verdict criteria (retraction + b; open PR #628 Inspector report: 2026-10-09 16:34 EDT (report-only, )",
-    "ALIVE td-245 (heartbeat stale (1329min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:)",
-    "ALIVE td-246 (heartbeat stale (1359min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (1399min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "ALIVE td-217 (heartbeat stale (1023min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
+    "ALIVE td-245 (heartbeat stale (1359min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:)",
+    "ALIVE td-246 (heartbeat stale (1389min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (1429min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "ALIVE td-217 (heartbeat stale (1053min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=192"
+    "STALE-RUNS=193"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2401,10 +2401,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-10T15:44:19.022592+00:00",
-   "classification-health": "2026-10-10T15:44:41.298477+00:00",
-   "transitions": "2026-10-10T15:44:33.570206+00:00",
-   "conflicts": "2026-10-10T15:44:30.621243+00:00",
+   "liveness": "2026-10-10T16:14:29.623165+00:00",
+   "classification-health": "2026-10-10T16:15:15.811858+00:00",
+   "transitions": "2026-10-10T16:15:08.738883+00:00",
+   "conflicts": "2026-10-10T16:14:57.706651+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
@@ -2541,8 +2541,8 @@
   },
   "td-173": {
    "pr": 658,
-   "head_sha": "ea9d9078affa35fe6b6444280b5936e2bd542c02",
-   "at": "2026-10-10T15:06:24.177873+00:00"
+   "head_sha": "e2041411",
+   "at": "2026-10-10T16:17:41.621723+00:00"
   }
  }
 }
