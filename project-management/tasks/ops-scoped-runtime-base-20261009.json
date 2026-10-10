@@ -1,0 +1,920 @@
+{
+  "id": "ops-scoped-runtime-base-20261009",
+  "title": "Separate scoped runtime composition from governing rules and bound historical board relevance",
+  "status": "open",
+  "owner": "dot-scoped-runtime-base-author",
+  "phase": "Bounded user-approved exception preparation; independently checked task-scoped source/ownership handoff required; implementation not started",
+  "registration_state": "Same-PR scope amendment under Craig explicit 2026-10-10 approval; awaiting fresh independent amendment/source/ownership signoff and actual-author adoption",
+  "runtime_allowlist": [
+    "project-management/watchdog/scoped_admission.py",
+    "project-management/watchdog/test_scoped_admission.py",
+    "project-management/watchdog/RUNBOOK.md",
+    "project-management/watchdog/fixtures/scoped-runtime-base/",
+    "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+    "project-management/tasks/ops-scoped-runtime-base-20261009/"
+  ],
+  "ask": {
+    "by": "Craig; registration prepared by dot coordinator",
+    "date": "2026-10-09",
+    "scope": "Existing approved Lower City v49 work exposed a coordinator representation defect. Routine bounded coordinator repair and documentation/PR lifecycle are authorized; root authorized this registration only and serialized the specified central paths. No new gameplay task or global historical cleanup. Craig explicitly approved the bounded PR455 admission exception on 2026-10-10 at 05:14:07 UTC, including correction of overbroad historical-board blocking, while preserving tests, independent review, merge gates and deployment restrictions."
+  },
+  "bug_shape": "scoped_admission.py binds base_heads to current snapshot repositories and evidence rule_heads, then uses the same heads for runtime candidate ancestry and source comparison. A v49-based bounded candidate therefore exposes inherited unrelated source; replacing rule authority or weakening overlap guards would be incorrect. The same gate also parses all historical non-row board context before excluding unrelated task rows, so unrelated historical context/malformed row shapes can block this new task. Correct only authenticated v2 foreign-source relevance; keep candidate/dependency writes and existing v1/no-scope behavior strict.",
+  "reference_images": [],
+  "references": [
+    "https://github.com/doublehidenblade/game-dev-central/pull/449",
+    "https://github.com/doublehidenblade/game-dev-central/pull/447",
+    "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md",
+    "project-management/watchdog/RUNBOOK.md",
+    "project-management/watchdog/EVIDENCE_POLICY.md"
+  ],
+  "ownership": {
+    "sole_proposed_author": "dot-scoped-runtime-base-author",
+    "separate_proposed_reviewer": "dot-scoped-runtime-base-reviewer",
+    "handoff": "Root serialized scoped_admission.py, test_scoped_admission.py and only scoped RUNBOOK sections for this new repair, subject to current scope/stop checks. Original PR449 and its task, author record, accepted evidence and budget remain unchanged. No other owner's path is transferred.",
+    "public_reservation_only": true,
+    "implementation_started_at": null,
+    "designated_author": "dot-scoped-runtime-base-author",
+    "designation_date": "2026-10-10",
+    "designation_scope": "Existing sole author remains reserved for the unchanged six-path runtime_allowlist. Craig approved a one-task exception to the self-blocking admission prerequisite, conditional on fresh independently verified task-scoped source/ownership/stop checks and current evidence-policy admission. No implementation starts until exact-head root handoff; no owner transfer."
+  },
+  "implementation_scope": {
+    "proposed_allowlist": [
+      "project-management/watchdog/scoped_admission.py",
+      "project-management/watchdog/test_scoped_admission.py",
+      "project-management/watchdog/RUNBOOK.md",
+      "project-management/watchdog/fixtures/scoped-runtime-base/",
+      "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+      "project-management/tasks/ops-scoped-runtime-base-20261009/"
+    ],
+    "runbook_boundary": "Scoped contract, collection, limitations and reproduction sections only; preserve unrelated runbook text.",
+    "registration_scope": [
+      "One new owner-marked operational board row",
+      "One new public-role registry reservation",
+      "Append-only coordinator log entry",
+      "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+      "project-management/tasks/ops-scoped-runtime-base-20261009/"
+    ],
+    "excluded": [
+      "coordinator.py, coordinator_cli.py, watch.py, evidence_policy.py and inherited tests unless separately respecified before edits",
+      "Old scoped-admission accepted fixtures, task and source evidence",
+      "General canonical rule edits, historical task/Inspector normalization",
+      "All game source, runtime, workflows, deployment, live state/queue/ledger/heartbeat changes",
+      "Actions, merges in this registration, deployments, credentials/security/access changes, external-agent contact",
+      "Other owner rows, source-history rewrite or restarting stopped workers"
+    ],
+    "source_binding_extension": "Before adding executable fixture/helper source, enumerate its exact paths in every relevant canonical policy/plan source_paths and freeze that source manifest for independent review; no directory-only evidence binding."
+  },
+  "completion_criteria": [
+    {
+      "id": "C1",
+      "criterion": "Represent a separately authenticated runtime composition without altering current canonical rule authority or existing scoped-v1 behavior.",
+      "verification": "Exact-object positive controls use different rule/composition heads and a bounded descendant candidate; v1 and no-scope controls retain their prior outcomes."
+    },
+    {
+      "id": "C2",
+      "criterion": "Bind the designated composition to the canonical task, actual target branch/ref and selected PR base, candidate branch/head, and authenticated task/operation/executor authorization.",
+      "verification": "Reject absent/forged designation, task/artifact mismatch, ref substitution at the same SHA, PR retargeting, moved/deleted target, forged ancestry and candidate-as-base laundering."
+    },
+    {
+      "id": "C3",
+      "criterion": "Apply the authenticated comparison base consistently while preserving complete raw source accounting and every candidate/dependency/owner region; add only authenticated v2 foreign historical-board relevance proof.",
+      "verification": "Retain genuine main/sibling whole-file conflicts, out-of-region deltas, candidate/dependency mode/row/context changes, omitted canonical paths and unsupported prerequisites. For foreign row regions only, test exact regular same-mode hash-proved UTF-8 leaves, protected-ID absence anywhere in both blobs, and independently authenticated exact-source/scope context-applicability proof. Every changed context effect must be accounted outside the task/dependency/owner/stop closure; absent, forged, ambiguous, incomplete or applicable/global context blocks. Old unrelated malformed board source may pass only with this complete proof; candidate parsing remains strict. Validate all matching authenticated assessments; reject duplicate/conflicting assessments and any unselected applicable, BLOCK or unknown assessment for the same source/scope instead of choosing a convenient exclusion."
+    },
+    {
+      "id": "C4",
+      "criterion": "Keep relevant owners, reservations, queues, holds, stops, setup requirements and operation-specific publication restrictions binding, including foreign-board context effects without a literal task ID.",
+      "verification": "Exercise active/unknown owners and queues even on contained or context-excluded source, wildcard/cross-executor denials, frozen Shuto/paused NEON, Actions/publication holds, unsupported deployment and independent verification isolation. A no-literal-ID global stop or shared-owner/dependency change must block historical-row exclusion; generic completeness, row absence, age or merged status cannot substitute for explicit authenticated applicability assessment."
+    },
+    {
+      "id": "C5",
+      "criterion": "Preserve current evidence-policy admission and acceptance, exact criterion/check plans and independent source-head verification.",
+      "verification": "Unchanged evidence-policy tests plus scoped controls reject stale ACK/rule membership, missing/failed/invented checks, self-review, incomplete or conflicting verdicts; documentation review never becomes gameplay or implementation acceptance."
+    },
+    {
+      "id": "C6",
+      "criterion": "All supported routes bind the full v2 scope and context-applicability evidence and invalidate stale decisions without side effects, legacy fallback or global completeness claims.",
+      "verification": "Actual supported CLI/imported-alias controls bind composition, target ref, requests, receipts, full inventory and each context assessment to exact repository/ref/PR/head/fork/base/path/blob/mode, protected-related identity/region closure, reviewed context effects and authenticated collector. Changed/expired/missing/replayed or self-asserted inputs fail dispatch-guard. Run inherited coordinator/legacy probes. Malformed v2 never falls back; existing v1/no-scope behavior remains unchanged. Validate all matching authenticated assessments; reject duplicate/conflicting assessments and any unselected applicable, BLOCK or unknown assessment for the same source/scope instead of choosing a convenient exclusion."
+    },
+    {
+      "id": "C7",
+      "criterion": "An independent reviewer accepts every criterion against the exact new implementation source and retained original regression behavior, including the bounded historical-board correction.",
+      "verification": "Separate frontier reviewer inspects bounded diff, strict proof schema, source/context applicability trust boundary, test oracles, reproduction, raw source proof and all command outputs; reruns relevant checks and issues per-criterion cited verdict. Show original-broken to corrected v2 positive controls and retained negatives, including no-ID global/owner effects, malformed identity ambiguity and actual candidate context changes. Preserve PR449 evidence/source and all v1/no-scope outcomes; author cannot self-accept."
+    }
+  ],
+  "recommended_setup": {
+    "capability_tier": "frontier; high-risk ownership, source-proof and authorization invariants",
+    "provider_preference": "Provider-neutral; native dot suitable if actual required tools/setup are verified",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "xhigh",
+    "environment_and_tools": "Connector source reads and complete current tree inspection verified for this registration. Future production executor, Python and local regression dependencies must be checked before implementation; no Godot/game build is needed.",
+    "availability_checked": "2026-10-09 23:03 UTC: native frontier launch option listed and parent reports capacity; no implementation author launch/selection/runtime attestation is claimed.",
+    "fallback": "wait_for_required_tier",
+    "attempt_budget": "Proposed ceiling: one initial implementation and at most one evidence-based correction within two hours from actual admitted start; no clock started by registration. Stop after two identical failures.",
+    "escalation_criteria": "Unknown owner/stop, unexpected source overlap, unsupported proof/composition, missing tools/tier, scope expansion, failed independent checks or exhausted ceiling: stop and report.",
+    "verification_budget": "Separate frontier xhigh reviewer; reserve up to one hour for exact-source independent review and relevant reruns outside the author's two-hour ceiling. No billing/usage amount is known.",
+    "requested_versus_confirmed": "Model/effort requested only for future author; actual supported selection and tool readiness remain required. Runtime identity unconfirmed; no downgrade.",
+    "actual_outcome": "Registration preparation only; all C1-C7 implementation tests and verdict pending."
+  },
+  "preflight": {
+    "canonical_base": "2c3517c56b5408432141b13101771a51e066ff6d",
+    "observed_utc": "2026-10-09T23:03:50Z",
+    "public_source_coverage": "Current main complete nontruncated tree inspected. At 22:58-23:00 UTC all 104 open central PR changed-file inventories were inspected; none touched the proposed core code/test/RUNBOOK paths. Shared board/registry/log proposals remain and must be preserved/rechecked at publication.",
+    "publication": "Complete 390-entry central tree has no .github workflows or deployment configuration; has_pages=false. No external integration attestation is claimed. Publish only ordinary docs source branch/draft PR.",
+    "limits": "No comprehensive private owner/session/queue/liveness receipt or current actionable coordinator decision is claimed. Root must collect genuine current observations before runtime admission."
+  },
+  "evidence_rule_inventory": [
+    {
+      "id": "central:COORDINATOR.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "COORDINATOR.md"
+    },
+    {
+      "id": "central:knowledge/standing-rules.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/standing-rules.md"
+    },
+    {
+      "id": "central:project-management/rules/SYSTEM.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/SYSTEM.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_BRIEF.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_SELECTION_POLICY.md"
+    },
+    {
+      "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/EVIDENCE_POLICY.md"
+    },
+    {
+      "id": "central:project-management/watchdog/RUNBOOK.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/RUNBOOK.md"
+    },
+    {
+      "id": "central:project-management/rules/DURABILITY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/DURABILITY.md"
+    },
+    {
+      "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/VALIDATOR_BRIEF.md"
+    },
+    {
+      "id": "central:knowledge/workflow/game-dev-workflow.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/workflow/game-dev-workflow.md"
+    },
+    {
+      "id": "central:knowledge/brief-snippet.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/brief-snippet.md"
+    },
+    {
+      "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md"
+    },
+    {
+      "id": "tokyo:AGENTS.md",
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "path": "AGENTS.md"
+    },
+    {
+      "id": "tokyo:README.md",
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "path": "README.md"
+    }
+  ],
+  "evidence_policy": {
+    "C1": {
+      "applicability": "required",
+      "rationale": "Nonvisual coordinator-only proof and ownership behavior; no game, renderer, device or deployment result is claimed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C1-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+        "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "coordinator-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_rules.py",
+            "-v"
+          ]
+        }
+      ]
+    },
+    "C2": {
+      "applicability": "required",
+      "rationale": "Nonvisual coordinator-only proof and ownership behavior; no game, renderer, device or deployment result is claimed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C2-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+        "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        }
+      ]
+    },
+    "C3": {
+      "applicability": "required",
+      "rationale": "Nonvisual coordinator-only proof and ownership behavior; no game, renderer, device or deployment result is claimed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C3-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+        "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        }
+      ]
+    },
+    "C4": {
+      "applicability": "required",
+      "rationale": "Nonvisual coordinator-only proof and ownership behavior; no game, renderer, device or deployment result is claimed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C4-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+        "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "retained-review",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_review.py"
+          ]
+        },
+        {
+          "id": "retained-acceptance-isolation",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+          ]
+        },
+        {
+          "id": "retained-final-guards",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_final_guards.py"
+          ]
+        },
+        {
+          "id": "retained-operation-needs",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_operation_needs.py"
+          ]
+        },
+        {
+          "id": "retained-hold-invariance",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_hold_invariance.py"
+          ]
+        }
+      ]
+    },
+    "C5": {
+      "applicability": "required",
+      "rationale": "Nonvisual coordinator-only proof and ownership behavior; no game, renderer, device or deployment result is claimed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C5-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+        "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "evidence-policy-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_evidence_policy.py",
+            "-v"
+          ]
+        }
+      ]
+    },
+    "C6": {
+      "applicability": "required",
+      "rationale": "Nonvisual coordinator-only proof and ownership behavior; no game, renderer, device or deployment result is claimed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C6-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+        "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "scoped-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "coordinator-unit",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_rules.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "legacy-regression",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_rules.py"
+          ]
+        }
+      ]
+    },
+    "C7": {
+      "applicability": "required",
+      "rationale": "Nonvisual coordinator-only proof and ownership behavior; no game, renderer, device or deployment result is claimed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "C7-registered-scope"
+      ],
+      "source_paths": [
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py",
+        "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+        "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    }
+  },
+  "future_submission_template": {
+    "executable": false,
+    "description": "Plans only, amended under Craig approved bounded PR455 exception. Actual author must genuinely acknowledge current rules and adopt these amended C1-C7 plans. No implementation evidence or acceptance exists; historical submission/review files retain old source bindings.",
+    "acknowledgment": null,
+    "plans": {
+      "C1": {
+        "method": "Exact-object positive controls use different rule/composition heads and a bounded descendant candidate; v1 and no-scope controls retain their prior outcomes.",
+        "artifacts": [
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C1-scoped-unit.json",
+            "type": "assertion",
+            "check_id": "scoped-unit"
+          },
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C1-coordinator-unit.json",
+            "type": "assertion",
+            "check_id": "coordinator-unit"
+          }
+        ],
+        "source_paths": [
+          "project-management/watchdog/scoped_admission.py",
+          "project-management/watchdog/test_scoped_admission.py",
+          "project-management/watchdog/RUNBOOK.md",
+          "project-management/watchdog/coordinator.py",
+          "project-management/watchdog/coordinator_cli.py",
+          "project-management/watchdog/watch.py",
+          "project-management/watchdog/evidence_policy.py",
+          "project-management/watchdog/test_rules.py",
+          "project-management/watchdog/test_evidence_policy.py",
+          "project-management/watchdog/test_coordinator_review.py",
+          "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+          "project-management/watchdog/test_coordinator_final_guards.py",
+          "project-management/watchdog/test_coordinator_operation_needs.py",
+          "project-management/watchdog/test_coordinator_hold_invariance.py",
+          "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+          "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+        ],
+        "build": null,
+        "coverage": [
+          "C1-registered-scope"
+        ],
+        "reviewer_id": "dot-scoped-runtime-base-reviewer"
+      },
+      "C2": {
+        "method": "Reject absent/forged designation, task/artifact mismatch, ref substitution at the same SHA, PR retargeting, moved/deleted target, forged ancestry and candidate-as-base laundering.",
+        "artifacts": [
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C2-scoped-unit.json",
+            "type": "assertion",
+            "check_id": "scoped-unit"
+          }
+        ],
+        "source_paths": [
+          "project-management/watchdog/scoped_admission.py",
+          "project-management/watchdog/test_scoped_admission.py",
+          "project-management/watchdog/RUNBOOK.md",
+          "project-management/watchdog/coordinator.py",
+          "project-management/watchdog/coordinator_cli.py",
+          "project-management/watchdog/watch.py",
+          "project-management/watchdog/evidence_policy.py",
+          "project-management/watchdog/test_rules.py",
+          "project-management/watchdog/test_evidence_policy.py",
+          "project-management/watchdog/test_coordinator_review.py",
+          "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+          "project-management/watchdog/test_coordinator_final_guards.py",
+          "project-management/watchdog/test_coordinator_operation_needs.py",
+          "project-management/watchdog/test_coordinator_hold_invariance.py",
+          "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+          "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+        ],
+        "build": null,
+        "coverage": [
+          "C2-registered-scope"
+        ],
+        "reviewer_id": "dot-scoped-runtime-base-reviewer"
+      },
+      "C3": {
+        "method": "Retain genuine main/sibling whole-file conflicts, out-of-region deltas, candidate/dependency mode/row/context changes, omitted canonical paths and unsupported prerequisites. For foreign row regions only, test exact regular same-mode hash-proved UTF-8 leaves, protected-ID absence anywhere in both blobs, and independently authenticated exact-source/scope context-applicability proof. Every changed context effect must be accounted outside the task/dependency/owner/stop closure; absent, forged, ambiguous, incomplete or applicable/global context blocks. Old unrelated malformed board source may pass only with this complete proof; candidate parsing remains strict. Validate all matching authenticated assessments; reject duplicate/conflicting assessments and any unselected applicable, BLOCK or unknown assessment for the same source/scope instead of choosing a convenient exclusion.",
+        "artifacts": [
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C3-scoped-unit.json",
+            "type": "assertion",
+            "check_id": "scoped-unit"
+          }
+        ],
+        "source_paths": [
+          "project-management/watchdog/scoped_admission.py",
+          "project-management/watchdog/test_scoped_admission.py",
+          "project-management/watchdog/RUNBOOK.md",
+          "project-management/watchdog/coordinator.py",
+          "project-management/watchdog/coordinator_cli.py",
+          "project-management/watchdog/watch.py",
+          "project-management/watchdog/evidence_policy.py",
+          "project-management/watchdog/test_rules.py",
+          "project-management/watchdog/test_evidence_policy.py",
+          "project-management/watchdog/test_coordinator_review.py",
+          "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+          "project-management/watchdog/test_coordinator_final_guards.py",
+          "project-management/watchdog/test_coordinator_operation_needs.py",
+          "project-management/watchdog/test_coordinator_hold_invariance.py",
+          "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+          "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+        ],
+        "build": null,
+        "coverage": [
+          "C3-registered-scope"
+        ],
+        "reviewer_id": "dot-scoped-runtime-base-reviewer"
+      },
+      "C4": {
+        "method": "Exercise active/unknown owners and queues even on contained or context-excluded source, wildcard/cross-executor denials, frozen Shuto/paused NEON, Actions/publication holds, unsupported deployment and independent verification isolation. A no-literal-ID global stop or shared-owner/dependency change must block historical-row exclusion; generic completeness, row absence, age or merged status cannot substitute for explicit authenticated applicability assessment.",
+        "artifacts": [
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-scoped-unit.json",
+            "type": "assertion",
+            "check_id": "scoped-unit"
+          },
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-review.json",
+            "type": "assertion",
+            "check_id": "retained-review"
+          },
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-acceptance-isolation.json",
+            "type": "assertion",
+            "check_id": "retained-acceptance-isolation"
+          },
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-final-guards.json",
+            "type": "assertion",
+            "check_id": "retained-final-guards"
+          },
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-operation-needs.json",
+            "type": "assertion",
+            "check_id": "retained-operation-needs"
+          },
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C4-retained-hold-invariance.json",
+            "type": "assertion",
+            "check_id": "retained-hold-invariance"
+          }
+        ],
+        "source_paths": [
+          "project-management/watchdog/scoped_admission.py",
+          "project-management/watchdog/test_scoped_admission.py",
+          "project-management/watchdog/RUNBOOK.md",
+          "project-management/watchdog/coordinator.py",
+          "project-management/watchdog/coordinator_cli.py",
+          "project-management/watchdog/watch.py",
+          "project-management/watchdog/evidence_policy.py",
+          "project-management/watchdog/test_rules.py",
+          "project-management/watchdog/test_evidence_policy.py",
+          "project-management/watchdog/test_coordinator_review.py",
+          "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+          "project-management/watchdog/test_coordinator_final_guards.py",
+          "project-management/watchdog/test_coordinator_operation_needs.py",
+          "project-management/watchdog/test_coordinator_hold_invariance.py",
+          "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+          "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+        ],
+        "build": null,
+        "coverage": [
+          "C4-registered-scope"
+        ],
+        "reviewer_id": "dot-scoped-runtime-base-reviewer"
+      },
+      "C5": {
+        "method": "Unchanged evidence-policy tests plus scoped controls reject stale ACK/rule membership, missing/failed/invented checks, self-review, incomplete or conflicting verdicts; documentation review never becomes gameplay or implementation acceptance.",
+        "artifacts": [
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C5-scoped-unit.json",
+            "type": "assertion",
+            "check_id": "scoped-unit"
+          },
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C5-evidence-policy-unit.json",
+            "type": "assertion",
+            "check_id": "evidence-policy-unit"
+          }
+        ],
+        "source_paths": [
+          "project-management/watchdog/scoped_admission.py",
+          "project-management/watchdog/test_scoped_admission.py",
+          "project-management/watchdog/RUNBOOK.md",
+          "project-management/watchdog/coordinator.py",
+          "project-management/watchdog/coordinator_cli.py",
+          "project-management/watchdog/watch.py",
+          "project-management/watchdog/evidence_policy.py",
+          "project-management/watchdog/test_rules.py",
+          "project-management/watchdog/test_evidence_policy.py",
+          "project-management/watchdog/test_coordinator_review.py",
+          "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+          "project-management/watchdog/test_coordinator_final_guards.py",
+          "project-management/watchdog/test_coordinator_operation_needs.py",
+          "project-management/watchdog/test_coordinator_hold_invariance.py",
+          "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+          "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+        ],
+        "build": null,
+        "coverage": [
+          "C5-registered-scope"
+        ],
+        "reviewer_id": "dot-scoped-runtime-base-reviewer"
+      },
+      "C6": {
+        "method": "Actual supported CLI/imported-alias controls bind composition, target ref, requests, receipts, full inventory and each context assessment to exact repository/ref/PR/head/fork/base/path/blob/mode, protected-related identity/region closure, reviewed context effects and authenticated collector. Changed/expired/missing/replayed or self-asserted inputs fail dispatch-guard. Run inherited coordinator/legacy probes. Malformed v2 never falls back; existing v1/no-scope behavior remains unchanged. Validate all matching authenticated assessments; reject duplicate/conflicting assessments and any unselected applicable, BLOCK or unknown assessment for the same source/scope instead of choosing a convenient exclusion.",
+        "artifacts": [
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C6-scoped-unit.json",
+            "type": "assertion",
+            "check_id": "scoped-unit"
+          },
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C6-coordinator-unit.json",
+            "type": "assertion",
+            "check_id": "coordinator-unit"
+          },
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/execution/C6-legacy-regression.json",
+            "type": "assertion",
+            "check_id": "legacy-regression"
+          }
+        ],
+        "source_paths": [
+          "project-management/watchdog/scoped_admission.py",
+          "project-management/watchdog/test_scoped_admission.py",
+          "project-management/watchdog/RUNBOOK.md",
+          "project-management/watchdog/coordinator.py",
+          "project-management/watchdog/coordinator_cli.py",
+          "project-management/watchdog/watch.py",
+          "project-management/watchdog/evidence_policy.py",
+          "project-management/watchdog/test_rules.py",
+          "project-management/watchdog/test_evidence_policy.py",
+          "project-management/watchdog/test_coordinator_review.py",
+          "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+          "project-management/watchdog/test_coordinator_final_guards.py",
+          "project-management/watchdog/test_coordinator_operation_needs.py",
+          "project-management/watchdog/test_coordinator_hold_invariance.py",
+          "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+          "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+        ],
+        "build": null,
+        "coverage": [
+          "C6-registered-scope"
+        ],
+        "reviewer_id": "dot-scoped-runtime-base-reviewer"
+      },
+      "C7": {
+        "method": "Separate frontier reviewer inspects bounded diff, strict proof schema, source/context applicability trust boundary, test oracles, reproduction, raw source proof and all command outputs; reruns relevant checks and issues per-criterion cited verdict. Show original-broken to corrected v2 positive controls and retained negatives, including no-ID global/owner effects, malformed identity ambiguity and actual candidate context changes. Preserve PR449 evidence/source and all v1/no-scope outcomes; author cannot self-accept.",
+        "artifacts": [
+          {
+            "path": "project-management/watchdog/fixtures/scoped-runtime-base/independent-verdict.json",
+            "type": "document"
+          }
+        ],
+        "source_paths": [
+          "project-management/watchdog/scoped_admission.py",
+          "project-management/watchdog/test_scoped_admission.py",
+          "project-management/watchdog/RUNBOOK.md",
+          "project-management/watchdog/coordinator.py",
+          "project-management/watchdog/coordinator_cli.py",
+          "project-management/watchdog/watch.py",
+          "project-management/watchdog/evidence_policy.py",
+          "project-management/watchdog/test_rules.py",
+          "project-management/watchdog/test_evidence_policy.py",
+          "project-management/watchdog/test_coordinator_review.py",
+          "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+          "project-management/watchdog/test_coordinator_final_guards.py",
+          "project-management/watchdog/test_coordinator_operation_needs.py",
+          "project-management/watchdog/test_coordinator_hold_invariance.py",
+          "project-management/tasks/ops-scoped-runtime-base-20261009.json",
+          "project-management/tasks/ops-scoped-runtime-base-20261009/registration.md"
+        ],
+        "build": null,
+        "coverage": [
+          "C7-registered-scope"
+        ],
+        "reviewer_id": "dot-scoped-runtime-base-reviewer"
+      }
+    },
+    "evidence": [],
+    "verdict": null
+  },
+  "evidence": [],
+  "work_log": [
+    {
+      "date": "2026-10-09",
+      "entry": "Prepared one bounded owner-registration proposal after read-only source diagnosis. Existing v1 correction PR449 remains preserved. No implementation, tests, gate execution, Actions, merge, deployment or external contact."
+    },
+    {
+      "date": "2026-10-10",
+      "entry": "Prepared the root-designated existing sole author and exact six-path runtime boundary after independent preservation review of source reconciliation and optional-metadata withdrawal. Status is open/ready for guard, not admitted or dispatched. Canonical C1–C7 criteria, evidence policy, rule inventory, plans, exclusions and budgets remain unchanged; all implementation checks are unrun. No code or other owner changes."
+    },
+    {
+      "date": "2026-10-10",
+      "entry": "Prepared same-PR bounded amendment under Craig explicit 05:14:07 UTC approval. Existing author and six paths retained; C3/C4/C6/C7 and their plan methods now require authenticated v2 historical-board applicability proof, with strict v1/candidate/dependency/whole-file behavior. Current-task exception substitutes independently verified source/ownership checks only for the broken bootstrap prerequisite. Implementation not started; all C1-C7 evidence remains unrun; historical review/submission artifacts retain exact old bindings."
+    }
+  ],
+  "verdict": null,
+  "admission_preparation": {
+    "state": "exception_amendment_reserved_not_dispatched",
+    "source_reconciliation_head": "f39e937baaf1553fb6757e4f4a06b1541fdc5cc6",
+    "sole_author": "dot-scoped-runtime-base-author",
+    "independent_implementation_reviewer": "dot-scoped-runtime-base-reviewer",
+    "reviewer_state": "Role reserved only; no implementation reviewer started or acceptance claimed",
+    "selected_model": "gpt-6-astra",
+    "selected_effort": "xhigh",
+    "runtime_confirmed": false,
+    "execution_started_at": null,
+    "root_designation": "2026-10-10: existing sole author and unchanged six-path boundary retained. Craig explicitly approved this one repair using independently verified task-scoped ownership/source checks, including bounded overbroad-history correction; exact-source independent signoff and current evidence-policy admission precede actual dispatch.",
+    "retained_stops": [
+      "No implementation before fresh independent task-scoped source/ownership/stop signoff, genuine current-rule author ACK/plan adoption, current evidence-policy admission and exact-head root exception handoff",
+      "No Actions, deployment, source-history rewrite, access/security changes, other-owner takeover or game source edits",
+      "Shuto frozen; NEON paused; parked td-238 unchanged"
+    ],
+    "historical_review_binding": "Original registration and readiness verdicts retain their original exact source bindings; neither is extended to this owner-adoption amendment",
+    "dispatch_log": "At actual dispatch record the exact task/PR/head/author/operation, explicit user exception, independent source/ownership checks, remaining preserved guards and actual clock start in the coordinator log; do not claim the blocked unchanged-v1 source guard passed."
+  },
+  "admission_exception": {
+    "authorization": "Craig explicitly approved at 2026-10-10T05:14:07Z the request to complete PR455 using independently verified task-scoped ownership and source checks, including correcting overbroad blocking; required tests, independent review, merge gates and deployment restrictions remain in force.",
+    "task_id": "ops-scoped-runtime-base-20261009",
+    "pr": 455,
+    "operation": "implementation of this bounded repair only",
+    "sole_author": "dot-scoped-runtime-base-author",
+    "replaced_prerequisite": "Only the self-blocking unchanged-current-v1 source-admission prerequisite and its propagated plan/guard denial for this exact approved repair; use fresh independently verified task-scoped source/ownership/stop checks and exact-head root handoff instead.",
+    "preserved_prerequisites": [
+      "Current canonical rule authority and genuine current-rule author acknowledgment",
+      "Unchanged evidence-policy admission and exact criterion/check/source plans",
+      "Real relevant source overlaps, all current owner/reservation/queue/stop/denial/setup restrictions",
+      "All required implementation tests, separate independent exact-source review and evidence-gated merge",
+      "No Actions, game deployment, source-history rewrite, credentials/security/access changes, new paid services, external-agent contact or other-owner takeover"
+    ],
+    "limits": "One-task bootstrap authority, not a reusable policy bypass or implementation/acceptance verdict. No generic allow flag, history cleanup or source-authority relabel. Any new relevant overlap, owner/stop ambiguity, scope expansion or unsupported proof stops dependent work.",
+    "historical_board_repair": {
+      "version": "strict scoped-v2 opt-in only",
+      "placement": "Foreign branch/open-PR disjoint row-region comparison only; candidate writes, dependency comparison, whole-file regions and v1/no-scope routes remain strict",
+      "mechanical_prerequisites": "Exact raw Git object/leaf proof; existing regular same-mode before/after leaves; verified UTF-8 blobs; every protected row ID absent as literal bytes anywhere in both blobs",
+      "applicability_prerequisite": "Independent authenticated exact-source-and-scope assessment explicitly accounts for every changed non-row/context effect outside protected/related task, dependency, owner and stop closure. Bind exact repository/ref/PR/head/fork/base/path/blob/mode, protected-related IDs/regions, reviewed context effects, current collector identity and freshness into receipt/query/inventory/decision/guard. Global/wildcard, applicable, unknown, ambiguous, unclassified or worker-only assessments fail closed; generic complete=true or unrelated=true is insufficient. If honestly representing/verifying this assessment is unsupported, retain strict comparison. Validate all matching authenticated assessments; reject duplicate/conflicting assessments and any unselected applicable, BLOCK or unknown assessment for the same source/scope instead of choosing a convenient exclusion.",
+      "non_guarantee": "This correction does not clear genuine whole-file conflicts or guarantee another task is admitted. Source exclusion never releases an owner or stop.",
+      "authenticated_channel": "Use the unchanged evidence-policy authority.attestations decision-artifact channel with immutable Git citation, authenticated coordinator/designated independent reviewer actor distinct from implementation author, fresh observation/provenance and exact binding. No evidence_policy.py modification, new authentication Boolean or worker self-attestation.",
+      "executable_fixture_source": "All new executable test fixtures/builders/oracles are inline in the already-bound project-management/watchdog/test_scoped_admission.py. No new executable source paths are authorized; stop and amend all applicable canonical policy/plan source_paths before adding any."
+    }
+  }
+}

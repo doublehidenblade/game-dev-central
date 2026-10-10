@@ -31,6 +31,102 @@
    "merged_sha": "fb6f3c0ddcbb998460723fa3f954a9bf758df159",
    "merged_at": "2026-10-07T11:31:02.320288+00:00",
    "summary": "td-207 restore minimap + drive-HUD health meters (regression from #460)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-192",
+   "pr": 505,
+   "merged_sha": "e3c03bf97e7311d3d05862733ce5950ea7f4985f",
+   "merged_at": "2026-10-09T06:24:24.348010+00:00",
+   "summary": "td-192 cop-car separation steering + box-in stand-off ring"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-191",
+   "pr": 410,
+   "merged_sha": "b6833045c63814190bce35d5341b87561ee6a63f",
+   "merged_at": "2026-10-09T08:17:21.712347+00:00",
+   "summary": "td-191 autoload ## comment fix (PR #410), merged by Craig 2026-10-09 07:23Z"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-196",
+   "pr": 592,
+   "merged_sha": "dbd5916c",
+   "merged_at": "2026-10-09T13:03:52.706305+00:00",
+   "summary": "arrest lands within seconds of the bump (speed-kill + dwell hysteresis)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-189",
+   "pr": 593,
+   "merged_sha": "520abb8c",
+   "merged_at": "2026-10-09T13:31:55.633652+00:00",
+   "summary": "traffic sits on ground + collides (spawn root +1.0 -> +0.05)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-188",
+   "pr": 594,
+   "merged_sha": "e48d0b48",
+   "merged_at": "2026-10-09T13:34:48.024140+00:00",
+   "summary": "pedestrians walk Lower City sidewalks (city mode wiring)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-190",
+   "pr": 595,
+   "merged_sha": "eaeb775e",
+   "merged_at": "2026-10-09T13:58:30.481143+00:00",
+   "summary": "wanted HUD + stars + clear, crime reporting fix, cop scaling"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-239",
+   "pr": 598,
+   "merged_sha": "c7fd96dc",
+   "merged_at": "2026-10-09T14:23:01.416892+00:00",
+   "summary": "bust uses measured player speed, not throttle intent"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-240",
+   "pr": 600,
+   "merged_sha": "8771174322e5d5f1a6a25518a272ab9cf1afdce2",
+   "merged_at": "2026-10-09T14:53:36.437251+00:00",
+   "summary": "pedestrian lot-escape clamp: no cross-road teleports"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-241",
+   "pr": 603,
+   "merged_sha": "",
+   "merged_at": "2026-10-09T15:31:27.915445+00:00",
+   "summary": "td-189 evidence hardening"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-242",
+   "pr": 608,
+   "merged_sha": "b7bc375a",
+   "merged_at": "2026-10-09T15:53:54.458607+00:00",
+   "summary": "Tokyo Bay: front/rear wheels identical (coupe rear overlay repositioned)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-248",
+   "pr": 620,
+   "merged_sha": "cb3cf607f4c153d0898f74f6ef0922c8406270b1",
+   "merged_at": "2026-10-09T19:20:57.587815+00:00",
+   "summary": "td-248 street-level traffic lights (signals, ped crossings, car stop/go)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-247",
+   "pr": 622,
+   "merged_sha": "4d2c79db475c42ee8f72e534d65d3c8dd107f56e",
+   "merged_at": "2026-10-09T19:32:27.813992+00:00",
+   "summary": "td-247 td-240 follow-up: commit actual harness + raw per-tick trace (byte-identical regeneration)"
   }
  ]
 }

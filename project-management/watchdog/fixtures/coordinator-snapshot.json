@@ -1,0 +1,339 @@
+{
+  "version": 1,
+  "observed_at": "2026-10-09T12:00:00+00:00",
+  "repositories": {
+    "example/game": "0000000000000000000000000000000000000000"
+  },
+  "sources": [
+    {
+      "id": "example/game:policies",
+      "kind": "policies",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 1,
+        "exhausted": true
+      },
+      "ids": [
+        "policy"
+      ]
+    },
+    {
+      "id": "example/game:board",
+      "kind": "board",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 1,
+        "exhausted": true
+      },
+      "ids": [
+        "task-a"
+      ]
+    },
+    {
+      "id": "example/game:tasks",
+      "kind": "tasks",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 1,
+        "exhausted": true
+      },
+      "ids": [
+        "task-a"
+      ]
+    },
+    {
+      "id": "example/game:prs",
+      "kind": "prs",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 0,
+        "exhausted": true
+      },
+      "ids": []
+    },
+    {
+      "id": "example/game:branches",
+      "kind": "branches",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 1,
+        "exhausted": true
+      },
+      "ids": [
+        "task-a-branch"
+      ]
+    },
+    {
+      "id": "example/game:reviews",
+      "kind": "reviews",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 0,
+        "exhausted": true
+      },
+      "ids": []
+    },
+    {
+      "id": "example/game:checks",
+      "kind": "checks",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 0,
+        "exhausted": true
+      },
+      "ids": []
+    },
+    {
+      "id": "example/game:requests",
+      "kind": "requests",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 1,
+        "exhausted": true
+      },
+      "ids": [
+        "approved-work"
+      ]
+    },
+    {
+      "id": "example/game:owners",
+      "kind": "owners",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 0,
+        "exhausted": true
+      },
+      "ids": []
+    },
+    {
+      "id": "example/game:queue",
+      "kind": "queue",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 0,
+        "exhausted": true
+      },
+      "ids": []
+    },
+    {
+      "id": "example/game:blockers",
+      "kind": "blockers",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 0,
+        "exhausted": true
+      },
+      "ids": []
+    },
+    {
+      "id": "example/game:executors",
+      "kind": "executors",
+      "repository": "example/game",
+      "source_repository": "example/game",
+      "ref_sha": "0000000000000000000000000000000000000000",
+      "observed_at": "2026-10-09T12:00:00+00:00",
+      "read_status": "ok",
+      "pagination": {
+        "pages_read": 1,
+        "items_seen": 1,
+        "exhausted": true
+      },
+      "ids": [
+        "native"
+      ]
+    }
+  ],
+  "policies": [
+    {
+      "id": "policy",
+      "repository": "example/game",
+      "triggers_checked": true,
+      "push_runs_actions": false,
+      "push_deploys": false,
+      "merge_runs_actions": false,
+      "merge_deploys": false
+    }
+  ],
+  "board": [
+    {
+      "id": "task-a",
+      "repository": "example/game",
+      "head_sha": "1111111111111111111111111111111111111111",
+      "status": "open",
+      "owner_id": null
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-a",
+      "repository": "example/game",
+      "head_sha": "1111111111111111111111111111111111111111",
+      "status": "open",
+      "owner_id": null,
+      "project": "sample",
+      "author_id": "author",
+      "needs": [],
+      "criteria": [
+        "criterion-1"
+      ],
+      "required_checks": [
+        "unit"
+      ],
+      "requirements": {
+        "implementation": {
+          "capabilities": [
+            "implementation"
+          ],
+          "model": "frontier-example",
+          "effort": "high",
+          "runtime_confirmation_required": true
+        },
+        "verification": {
+          "capabilities": [
+            "verification"
+          ],
+          "model": "frontier-example",
+          "effort": "high",
+          "runtime_confirmation_required": true
+        },
+        "upload": {
+          "capabilities": [
+            "upload"
+          ],
+          "model": "frontier-example",
+          "effort": "high",
+          "runtime_confirmation_required": true
+        },
+        "merge": {
+          "capabilities": [
+            "merge"
+          ],
+          "model": "frontier-example",
+          "effort": "high",
+          "runtime_confirmation_required": true
+        },
+        "deploy": {
+          "capabilities": [
+            "deploy"
+          ],
+          "model": "frontier-example",
+          "effort": "high",
+          "runtime_confirmation_required": true
+        }
+      }
+    }
+  ],
+  "prs": [],
+  "branches": [
+    {
+      "id": "task-a-branch",
+      "repository": "example/game",
+      "task_id": "task-a",
+      "head_sha": "1111111111111111111111111111111111111111"
+    }
+  ],
+  "reviews": [],
+  "checks": [],
+  "requests": [
+    {
+      "id": "approved-work",
+      "repository": "example/game",
+      "task_id": "*",
+      "project": "*",
+      "operations": [
+        "admission",
+        "implementation",
+        "verification",
+        "upload",
+        "merge",
+        "deploy"
+      ],
+      "executors": [
+        "*"
+      ],
+      "kind": "standing",
+      "state": "active",
+      "authority_verified": true,
+      "evidence": "Synthetic authorized source receipt"
+    }
+  ],
+  "owners": [],
+  "queue": [],
+  "blockers": [],
+  "executors": [
+    {
+      "id": "native",
+      "repository": "example/game",
+      "owner_id": "reviewer",
+      "kind": "native",
+      "state": "available",
+      "capabilities": [
+        "admission",
+        "implementation",
+        "verification",
+        "upload",
+        "merge",
+        "deploy"
+      ],
+      "observed_model": "frontier-example",
+      "observed_effort": "high",
+      "runtime_confirmed": true,
+      "resume_task": null
+    }
+  ]
+}

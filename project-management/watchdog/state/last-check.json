@@ -1,5 +1,5 @@
 {
- "ts": "2026-10-02T14:10:24.745582+00:00",
+ "ts": "2026-10-09T08:45:44.367057+00:00",
  "repos": {
   "neon-drift": {
    "open_work": true,
@@ -8,7 +8,7 @@
    "sess_open": false,
    "sess_working_stale": false,
    "last_activity": "2026-09-29T22:45:48+00:00",
-   "idle_min": 3804.6,
+   "idle_min": 13559.9,
    "gate_fired": true,
    "browser_cooldown_ok": true,
    "needs_browser": true
@@ -16,15 +16,14 @@
   "tokyo-drift-3d": {
    "open_work": true,
    "open_prs": 20,
-   "open_issues": 3,
+   "open_issues": 0,
    "sess_open": false,
    "sess_working_stale": false,
-   "last_activity": "2026-10-02T13:44:07+00:00",
-   "idle_min": 26.3,
+   "last_activity": "2026-10-09T08:41:30+00:00",
+   "idle_min": 4.2,
    "gate_fired": false,
-   "browser_cooldown_ok": false,
+   "browser_cooldown_ok": true,
    "needs_browser": false
   }
- },
- "cloud_sync_test": "2026-10-02T15:35Z"
+ }
 }

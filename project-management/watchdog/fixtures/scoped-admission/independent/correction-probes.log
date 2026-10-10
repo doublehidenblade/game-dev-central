@@ -1,0 +1,14 @@
+PASS rule-only current authority need not be write region
+PASS known rule-only proposal does not block immutable current rule reader
+PASS explicit rule dependency region still blocks proposal
+PASS mixed rule and actual write proposal still blocks
+PASS real-shaped PR377 non-row board context still blocks
+PASS real-shaped PR533 same task-file writer still blocks
+PASS read-only canonical rule still requires exact current blob
+PASS changed author rule acknowledgment still blocks
+PASS rule-only proposal cannot hide relevant unknown owner
+PASS rule-only proposal cannot hide wildcard denial
+PASS candidate rule writer positive control before competing proposal
+PASS candidate rule writer keeps genuine rule overlap hold
+PASS candidate rule write cannot omit its protected path
+TOTAL 13 FAILURES 0 []

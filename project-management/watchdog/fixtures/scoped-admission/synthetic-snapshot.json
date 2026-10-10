@@ -1,0 +1,775 @@
+{
+  "version": 1,
+  "observed_at": "2026-10-09T14:00:00Z",
+  "repositories": {
+    "example/evidence-policy": "8f0a98369f67c97729248049e554780d867e50e2"
+  },
+  "sources": [],
+  "policies": [
+    {
+      "id": "policy",
+      "repository": "example/evidence-policy",
+      "triggers_checked": true,
+      "push_runs_actions": false,
+      "push_deploys": false,
+      "merge_runs_actions": false,
+      "merge_deploys": false
+    }
+  ],
+  "board": [
+    {
+      "id": "ops-docs",
+      "repository": "example/evidence-policy",
+      "head_sha": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0",
+      "status": "in_review",
+      "owner_id": "worker-A"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "ops-docs",
+      "repository": "example/evidence-policy",
+      "head_sha": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0",
+      "status": "in_review",
+      "owner_id": "worker-A",
+      "author_id": "worker-A",
+      "project": "docs",
+      "needs": [],
+      "criteria": [
+        "C1"
+      ],
+      "required_checks": [
+        "evidence-policy:acceptance-check"
+      ],
+      "requirements": {
+        "implementation": {
+          "capabilities": [
+            "implementation"
+          ],
+          "model": null,
+          "effort": null,
+          "runtime_confirmation_required": false
+        },
+        "verification": {
+          "capabilities": [
+            "verification"
+          ],
+          "model": null,
+          "effort": null,
+          "runtime_confirmation_required": false
+        },
+        "upload": {
+          "capabilities": [
+            "upload"
+          ],
+          "model": null,
+          "effort": null,
+          "runtime_confirmation_required": false
+        },
+        "merge": {
+          "capabilities": [
+            "merge"
+          ],
+          "model": null,
+          "effort": null,
+          "runtime_confirmation_required": false
+        },
+        "deploy": {
+          "capabilities": [
+            "deploy"
+          ],
+          "model": null,
+          "effort": null,
+          "runtime_confirmation_required": false
+        }
+      }
+    }
+  ],
+  "prs": [
+    {
+      "id": "example/evidence-policy#1",
+      "repository": "example/evidence-policy",
+      "task_id": "ops-docs",
+      "head_sha": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0",
+      "author_id": "worker-A",
+      "state": "open",
+      "review_ids": [
+        "review"
+      ],
+      "check_ids": [
+        "check"
+      ]
+    }
+  ],
+  "branches": [
+    {
+      "id": "example/evidence-policy:refs/heads/docs",
+      "repository": "example/evidence-policy",
+      "task_id": "ops-docs",
+      "head_sha": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "review",
+      "repository": "example/evidence-policy",
+      "task_id": "ops-docs",
+      "pr_id": "example/evidence-policy#1",
+      "head_sha": "79672cab690858689cc1650bf36cd71dc3f7db8a",
+      "observed_at": "2026-10-09T14:00:00Z",
+      "performed_at": "2026-10-09T14:00:00Z",
+      "reviewer_id": "reviewer-B",
+      "verdict": "pass",
+      "criteria": {
+        "C1": {
+          "result": "pass",
+          "evidence": "qa/review.json"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check",
+      "repository": "example/evidence-policy",
+      "task_id": "ops-docs",
+      "pr_id": "example/evidence-policy#1",
+      "head_sha": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0",
+      "observed_at": "2026-10-09T14:00:00Z",
+      "performed_at": "2026-10-09T14:00:00Z",
+      "name": "evidence-policy:acceptance-check",
+      "result": "pass"
+    }
+  ],
+  "requests": [
+    {
+      "id": "authorized-source",
+      "repository": "example/evidence-policy",
+      "task_id": "ops-docs",
+      "project": "docs",
+      "operations": [
+        "admission",
+        "implementation",
+        "verification",
+        "upload",
+        "merge",
+        "deploy"
+      ],
+      "executors": [
+        "*"
+      ],
+      "kind": "standing",
+      "state": "active",
+      "authority_verified": true,
+      "evidence": "SYNTHETIC user authorization fixture"
+    }
+  ],
+  "owners": [],
+  "queue": [],
+  "blockers": [],
+  "executors": [
+    {
+      "id": "native",
+      "repository": "example/evidence-policy",
+      "owner_id": "coordinator-A",
+      "kind": "native",
+      "state": "available",
+      "capabilities": [
+        "admission",
+        "implementation",
+        "verification",
+        "upload",
+        "merge",
+        "deploy"
+      ],
+      "observed_model": null,
+      "observed_effort": null,
+      "runtime_confirmed": false,
+      "resume_task": null
+    }
+  ],
+  "evidence_policy": {
+    "ops-docs": {
+      "authority": {
+        "version": 1,
+        "observed_at": "2026-10-09T14:00:00Z",
+        "rule_heads": {
+          "example/evidence-policy": "8f0a98369f67c97729248049e554780d867e50e2"
+        },
+        "rules": [
+          {
+            "id": "R1",
+            "ref": {
+              "repository": "example/evidence-policy",
+              "commit": "8f0a98369f67c97729248049e554780d867e50e2",
+              "path": "rules.md",
+              "blob": "1e7451c1954811a9ff52de8d4dc892e39989725d"
+            }
+          }
+        ],
+        "task_ref": {
+          "repository": "example/evidence-policy",
+          "commit": "79672cab690858689cc1650bf36cd71dc3f7db8a",
+          "path": "task.json",
+          "blob": "c7d8fc8f5864efa4516abc2ce44b4551d4faba22"
+        },
+        "candidate": {
+          "repository": "example/evidence-policy",
+          "implementation_head": "79672cab690858689cc1650bf36cd71dc3f7db8a",
+          "artifact_head": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0"
+        },
+        "principals": {
+          "author": "worker-A",
+          "coordinator": "coordinator-A",
+          "reviewer": "reviewer-B",
+          "human": null
+        },
+        "owner_id": "worker-A",
+        "status": "in_review",
+        "stopped": false,
+        "exclusions": {},
+        "attestations": [
+          {
+            "kind": "review",
+            "ref": {
+              "repository": "example/evidence-policy",
+              "commit": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0",
+              "path": "qa/review.json",
+              "blob": "04b6054eaaccc8b062898cc6c2f7a3e6a357061f"
+            },
+            "actor_id": "reviewer-B",
+            "observed_at": "2026-10-09T14:00:00Z",
+            "provenance": "SYNTHETIC authenticated fixture review; not external acceptance"
+          }
+        ],
+        "findings": [],
+        "decisions": []
+      },
+      "submission": {
+        "acknowledgment": {
+          "task_id": "ops-docs",
+          "author_id": "worker-A",
+          "rules": [
+            {
+              "id": "R1",
+              "ref": {
+                "repository": "example/evidence-policy",
+                "commit": "8f0a98369f67c97729248049e554780d867e50e2",
+                "path": "rules.md",
+                "blob": "1e7451c1954811a9ff52de8d4dc892e39989725d"
+              }
+            }
+          ]
+        },
+        "plans": {
+          "C1": {
+            "method": "Inspect document and exact board-row diff",
+            "artifacts": [
+              {
+                "path": "doc.md",
+                "type": "document"
+              }
+            ],
+            "source_paths": [
+              "doc.md",
+              "board.md"
+            ],
+            "build": null,
+            "coverage": [
+              "doc-decision"
+            ],
+            "reviewer_id": "reviewer-B"
+          }
+        },
+        "evidence": [
+          {
+            "id": "document-proof",
+            "criterion_id": "C1",
+            "instances": [
+              "doc-decision"
+            ],
+            "type": "document",
+            "ref": {
+              "repository": "example/evidence-policy",
+              "commit": "79672cab690858689cc1650bf36cd71dc3f7db8a",
+              "path": "doc.md",
+              "blob": "4d16ea55864393bfc3733a6c9d567a6eacd0b1bc"
+            },
+            "source_head": "79672cab690858689cc1650bf36cd71dc3f7db8a",
+            "build": null,
+            "performed_at": "2026-10-09T14:00:00Z",
+            "check_id": null
+          }
+        ],
+        "human_verdict": null,
+        "verdict": {
+          "repository": "example/evidence-policy",
+          "commit": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0",
+          "path": "qa/review.json",
+          "blob": "04b6054eaaccc8b062898cc6c2f7a3e6a357061f"
+        }
+      },
+      "objects": {
+        "example/evidence-policy": {
+          "c7d8fc8f5864efa4516abc2ce44b4551d4faba22": {
+            "type": "blob",
+            "base64": "eyJjb21wbGV0aW9uX2NyaXRlcmlhIjogW3siY3JpdGVyaW9uIjogIkRvY3VtZW50IG9uZSBzY29wZWQgZGVjaXNpb24iLCAiaWQiOiAiQzEiLCAidmVyaWZpY2F0aW9uIjogIkluc3BlY3QgdGhlIGV4YWN0IGRvY3VtZW50IGFuZCBib2FyZCBkaWZmIn1dLCAiZXZpZGVuY2VfcG9saWN5IjogeyJDMSI6IHsiYXBwbGljYWJpbGl0eSI6ICJyZXF1aXJlZCIsICJidWlsZCI6IG51bGwsICJjaGVja3MiOiBbXSwgImluc3RhbmNlcyI6IFsiZG9jLWRlY2lzaW9uIl0sICJyYXRpb25hbGUiOiAiRG9jdW1lbnRhcnkgY3JpdGVyaW9uIiwgInJ1bGVfaWQiOiAiUjEiLCAic291cmNlX3BhdGhzIjogWyJkb2MubWQiLCAiYm9hcmQubWQiXSwgInZpc3VhbCI6IGZhbHNlfX0sICJldmlkZW5jZV9ydWxlX2ludmVudG9yeSI6IFt7ImlkIjogIlIxIiwgInBhdGgiOiAicnVsZXMubWQiLCAicmVwb3NpdG9yeSI6ICJleGFtcGxlL2V2aWRlbmNlLXBvbGljeSJ9XSwgImlkIjogIm9wcy1kb2NzIn0="
+          },
+          "1e7451c1954811a9ff52de8d4dc892e39989725d": {
+            "type": "blob",
+            "base64": "IyBSdWxlcwpJbmRlcGVuZGVudCBkb2N1bWVudCByZXZpZXcgcmVxdWlyZWQuCg=="
+          },
+          "4f0085039f60ce037a823ff06e682a2e795c598b": {
+            "type": "blob",
+            "base64": "IyBCb2FyZAoKfCBUYXNrIHwgU3RhdGUgfAp8LS0tfC0tLXwKfCBvcHMtZG9jcyB8IG9wZW4gfAp8IHVucmVsYXRlZCB8IG9wZW4gfAoKQ29udGV4dCByZW1haW5zIHVuY2hhbmdlZC4K"
+          },
+          "6bd5e665f74c28bdd358552999cb82b78083054c": {
+            "type": "blob",
+            "base64": "QmVmb3JlIHNjb3BlZCBkZWNpc2lvbgo="
+          },
+          "7eee9021d9f0dac54a490caf4fdc1a0eb83b6055": {
+            "type": "tree",
+            "base64": "MTAwNjQ0IGJvYXJkLm1kAE8AhQOfYM4DeoI/8G5oKi55XFmLMTAwNjQ0IGRvYy5tZABr1eZl90wovdNYVSmZy4K3gIMFTDEwMDY0NCBydWxlcy5tZAAedFHBlUgRqf9S3o1NyJLjmYlyXTEwMDY0NCB0YXNrLmpzb24Ax9j8j1hk76RRarws5EtFUdT6uiI="
+          },
+          "8f0a98369f67c97729248049e554780d867e50e2": {
+            "type": "commit",
+            "base64": "dHJlZSA3ZWVlOTAyMWQ5ZjBkYWM1NGE0OTBjYWY0ZmRjMWEwZWI4M2I2MDU1CmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg=="
+          },
+          "ac66292d45330ac4902ba4bd74be35a6ffca639e": {
+            "type": "blob",
+            "base64": "IyBCb2FyZAoKfCBUYXNrIHwgU3RhdGUgfAp8LS0tfC0tLXwKfCBvcHMtZG9jcyB8IGluX3JldmlldyB8CnwgdW5yZWxhdGVkIHwgb3BlbiB8CgpDb250ZXh0IHJlbWFpbnMgdW5jaGFuZ2VkLgo="
+          },
+          "4d16ea55864393bfc3733a6c9d567a6eacd0b1bc": {
+            "type": "blob",
+            "base64": "QWZ0ZXI6IHNjb3BlIGFuZCBpbmRlcGVuZGVudCByZXZpZXcgYXJlIGV4cGxpY2l0Lgo="
+          },
+          "ad87e390ced5d9e63a1cd13282caae0c0aa6820f": {
+            "type": "tree",
+            "base64": "MTAwNjQ0IGJvYXJkLm1kAKxmKS1FMwrEkCukvXS+Nab/ymOeMTAwNjQ0IGRvYy5tZABNFupVhkOTv8NzOmydVnpurNCxvDEwMDY0NCBydWxlcy5tZAAedFHBlUgRqf9S3o1NyJLjmYlyXTEwMDY0NCB0YXNrLmpzb24Ax9j8j1hk76RRarws5EtFUdT6uiI="
+          },
+          "79672cab690858689cc1650bf36cd71dc3f7db8a": {
+            "type": "commit",
+            "base64": "dHJlZSBhZDg3ZTM5MGNlZDVkOWU2M2ExY2QxMzI4MmNhYWUwYzBhYTY4MjBmCnBhcmVudCA4ZjBhOTgzNjlmNjdjOTc3MjkyNDgwNDllNTU0NzgwZDg2N2U1MGUyCmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg=="
+          },
+          "04b6054eaaccc8b062898cc6c2f7a3e6a357061f": {
+            "type": "blob",
+            "base64": "eyJhY3Rvcl9pZCI6ICJyZXZpZXdlci1CIiwgImF1dGhvcml0eV9kaWdlc3QiOiAiYTZhYTM0NTcwMGU2MGI4YmQ3NzJlM2Q4MzI0MGMyODUzMmNjNTAzYzdkYzliODZkZGY1ZDgwMzcyZWY4NWEwMCIsICJjYW5kaWRhdGVfaGVhZCI6ICI3OTY3MmNhYjY5MDg1ODY4OWNjMTY1MGJmMzZjZDcxZGMzZjdkYjhhIiwgImNyaXRlcmlhIjogeyJDMSI6IHsiY2l0YXRpb25zIjogW3siYmxvYiI6ICI0ZDE2ZWE1NTg2NDM5M2JmYzM3MzNhNmM5ZDU2N2E2ZWFjZDBiMWJjIiwgImNvbW1pdCI6ICI3OTY3MmNhYjY5MDg1ODY4OWNjMTY1MGJmMzZjZDcxZGMzZjdkYjhhIiwgInBhdGgiOiAiZG9jLm1kIiwgInJlcG9zaXRvcnkiOiAiZXhhbXBsZS9ldmlkZW5jZS1wb2xpY3kifV0sICJkZWNpc2lvbiI6ICJQQVNTIiwgImV2aWRlbmNlX2lkcyI6IFsiZG9jdW1lbnQtcHJvb2YiXSwgInJhdGlvbmFsZSI6ICJPcmlnaW5hbCBkb2N1bWVudGFyeSBldmlkZW5jZSBpbnNwZWN0ZWQifX0sICJldmlkZW5jZV9kaWdlc3QiOiAiZmUyZDEzODQ1ZWM5NjZmMTNlNGU5NzkwYjMxMDI4NmRmOTE4N2I1NTMwOGE3YzU2MWIwMjYyMDAwNjljOTRiMSIsICJwZXJmb3JtZWRfYXQiOiAiMjAyNi0xMC0wOVQxNDowMDowMFoiLCAidGFza19pZCI6ICJvcHMtZG9jcyJ9"
+          },
+          "5f724e8a990e514db802b8f13b05a5db1b9c5368": {
+            "type": "tree",
+            "base64": "MTAwNjQ0IHJldmlldy5qc29uAAS2BU6qzMiwYomMxsL3o+ajVwYf"
+          },
+          "6679360d30ddbfeaa2b42cdfae121711c3c2b8cf": {
+            "type": "tree",
+            "base64": "MTAwNjQ0IGJvYXJkLm1kAKxmKS1FMwrEkCukvXS+Nab/ymOeMTAwNjQ0IGRvYy5tZABNFupVhkOTv8NzOmydVnpurNCxvDQwMDAwIHFhAF9yToqZDlFNuAK48TsFpdsbnFNoMTAwNjQ0IHJ1bGVzLm1kAB50UcGVSBGp/1LejU3IkuOZiXJdMTAwNjQ0IHRhc2suanNvbgDH2PyPWGTvpFFqvCzkS0VR1Pq6Ig=="
+          },
+          "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0": {
+            "type": "commit",
+            "base64": "dHJlZSA2Njc5MzYwZDMwZGRiZmVhYTJiNDJjZGZhZTEyMTcxMWMzYzJiOGNmCnBhcmVudCA3OTY3MmNhYjY5MDg1ODY4OWNjMTY1MGJmMzZjZDcxZGMzZjdkYjhhCmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg=="
+          }
+        }
+      }
+    }
+  },
+  "scoped_source": {
+    "version": 1,
+    "binding": {
+      "task_id": "ops-docs",
+      "repository": "example/evidence-policy",
+      "operation": "merge",
+      "executor_id": "native",
+      "owner_id": "coordinator-A",
+      "head_sha": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0"
+    },
+    "base_heads": {
+      "example/evidence-policy": "8f0a98369f67c97729248049e554780d867e50e2"
+    },
+    "task_ids": [
+      "ops-docs"
+    ],
+    "related_task_ids": [
+      "ops-docs"
+    ],
+    "regions": [
+      {
+        "repository": "example/evidence-policy",
+        "path": "doc.md",
+        "row_keys": []
+      },
+      {
+        "repository": "example/evidence-policy",
+        "path": "board.md",
+        "row_keys": [
+          "ops-docs"
+        ]
+      },
+      {
+        "repository": "example/evidence-policy",
+        "path": "task.json",
+        "row_keys": []
+      },
+      {
+        "repository": "example/evidence-policy",
+        "path": "qa/",
+        "row_keys": []
+      }
+    ],
+    "candidate": {
+      "pr_id": "example/evidence-policy#1",
+      "branch_id": "example/evidence-policy:refs/heads/docs",
+      "fork_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+      "base_chain": [
+        "8f0a98369f67c97729248049e554780d867e50e2"
+      ],
+      "head_chain": [
+        "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0",
+        "79672cab690858689cc1650bf36cd71dc3f7db8a",
+        "8f0a98369f67c97729248049e554780d867e50e2"
+      ]
+    },
+    "inventory": {
+      "branches": [
+        {
+          "id": "example/evidence-policy:refs/heads/main",
+          "repository": "example/evidence-policy",
+          "head_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+          "proof": {
+            "kind": "base_ancestor",
+            "chain": [
+              "8f0a98369f67c97729248049e554780d867e50e2"
+            ]
+          }
+        },
+        {
+          "id": "example/evidence-policy:refs/heads/docs",
+          "repository": "example/evidence-policy",
+          "head_sha": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0",
+          "proof": {
+            "kind": "candidate"
+          }
+        }
+      ],
+      "prs": [
+        {
+          "id": "example/evidence-policy#1",
+          "repository": "example/evidence-policy",
+          "head_sha": "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0",
+          "branch_id": "example/evidence-policy:refs/heads/docs",
+          "author_id": "worker-A",
+          "proof": {
+            "kind": "candidate"
+          }
+        }
+      ]
+    },
+    "receipts": [
+      {
+        "id": "example/evidence-policy:policies",
+        "kind": "policies",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [
+          "policy"
+        ],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 1,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "d569b18f6585dcb902766f44eb6e361f46af00ba633949c51314b6fca9e7201b",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:board",
+        "kind": "board",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [
+          "ops-docs"
+        ],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 1,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "f4ecf540140a87f17361ee52dd8155b7986369282e9540a2c924a81324a914b8",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:tasks",
+        "kind": "tasks",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [
+          "ops-docs"
+        ],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 1,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "7968177daefca5f53f80bc8200515e9d0e0bb498321074240fe96e1424d64ff0",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:prs",
+        "kind": "prs",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [
+          "example/evidence-policy#1"
+        ],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 1,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "d534e67c86e33f6dc146dd6e3ba65e705d9225bf61cde2e32cda78b9808ad066",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:branches",
+        "kind": "branches",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [
+          "example/evidence-policy:refs/heads/main",
+          "example/evidence-policy:refs/heads/docs"
+        ],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 2,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "208846807e025fefdcb670b5b4e25b5ff6eef568e451028eb3ba30aa32613954",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:reviews",
+        "kind": "reviews",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [
+          "review"
+        ],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 1,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "069cd0286e77d010adca7dff1bb779b158360c79cfc78ba2baf1f35c9ee350cb",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:checks",
+        "kind": "checks",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [
+          "check"
+        ],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 1,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "48d6a696a750d1e3f1fbe649080516eaecd53ec7c6120903d6608fea28e23a1e",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:requests",
+        "kind": "requests",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [
+          "authorized-source"
+        ],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 1,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "7ac47d986186645f50af394b4a385132bc025b187b9976915f1dbff65dfdd191",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:owners",
+        "kind": "owners",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 0,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:queue",
+        "kind": "queue",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 0,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:blockers",
+        "kind": "blockers",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 0,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      },
+      {
+        "id": "example/evidence-policy:executors",
+        "kind": "executors",
+        "repository": "example/evidence-policy",
+        "source_repository": "example/evidence-policy",
+        "ref_sha": "8f0a98369f67c97729248049e554780d867e50e2",
+        "observed_at": "2026-10-09T14:00:00Z",
+        "read_status": "ok",
+        "ids": [
+          "native"
+        ],
+        "pagination": {
+          "pages_read": 1,
+          "items_seen": 1,
+          "exhausted": true
+        },
+        "query_digest": "9815ed5308a1f61e64ff32b7519a6d64300933d817494a07c1a53d81c884d1bc",
+        "inventory_digest": "33983ae90261786610bb4e76db5a59781d4facf34d0866c2e417e606eb4886b4",
+        "records_digest": "a4572bac94e8d15f3d96f94f298924c6c8f725b955c2628c3b1982374149b08b",
+        "provenance": "SYNTHETIC fixture: all named scoped sources observed; never live authority"
+      }
+    ],
+    "objects": {
+      "example/evidence-policy": {
+        "c7d8fc8f5864efa4516abc2ce44b4551d4faba22": {
+          "type": "blob",
+          "base64": "eyJjb21wbGV0aW9uX2NyaXRlcmlhIjogW3siY3JpdGVyaW9uIjogIkRvY3VtZW50IG9uZSBzY29wZWQgZGVjaXNpb24iLCAiaWQiOiAiQzEiLCAidmVyaWZpY2F0aW9uIjogIkluc3BlY3QgdGhlIGV4YWN0IGRvY3VtZW50IGFuZCBib2FyZCBkaWZmIn1dLCAiZXZpZGVuY2VfcG9saWN5IjogeyJDMSI6IHsiYXBwbGljYWJpbGl0eSI6ICJyZXF1aXJlZCIsICJidWlsZCI6IG51bGwsICJjaGVja3MiOiBbXSwgImluc3RhbmNlcyI6IFsiZG9jLWRlY2lzaW9uIl0sICJyYXRpb25hbGUiOiAiRG9jdW1lbnRhcnkgY3JpdGVyaW9uIiwgInJ1bGVfaWQiOiAiUjEiLCAic291cmNlX3BhdGhzIjogWyJkb2MubWQiLCAiYm9hcmQubWQiXSwgInZpc3VhbCI6IGZhbHNlfX0sICJldmlkZW5jZV9ydWxlX2ludmVudG9yeSI6IFt7ImlkIjogIlIxIiwgInBhdGgiOiAicnVsZXMubWQiLCAicmVwb3NpdG9yeSI6ICJleGFtcGxlL2V2aWRlbmNlLXBvbGljeSJ9XSwgImlkIjogIm9wcy1kb2NzIn0="
+        },
+        "1e7451c1954811a9ff52de8d4dc892e39989725d": {
+          "type": "blob",
+          "base64": "IyBSdWxlcwpJbmRlcGVuZGVudCBkb2N1bWVudCByZXZpZXcgcmVxdWlyZWQuCg=="
+        },
+        "4f0085039f60ce037a823ff06e682a2e795c598b": {
+          "type": "blob",
+          "base64": "IyBCb2FyZAoKfCBUYXNrIHwgU3RhdGUgfAp8LS0tfC0tLXwKfCBvcHMtZG9jcyB8IG9wZW4gfAp8IHVucmVsYXRlZCB8IG9wZW4gfAoKQ29udGV4dCByZW1haW5zIHVuY2hhbmdlZC4K"
+        },
+        "6bd5e665f74c28bdd358552999cb82b78083054c": {
+          "type": "blob",
+          "base64": "QmVmb3JlIHNjb3BlZCBkZWNpc2lvbgo="
+        },
+        "7eee9021d9f0dac54a490caf4fdc1a0eb83b6055": {
+          "type": "tree",
+          "base64": "MTAwNjQ0IGJvYXJkLm1kAE8AhQOfYM4DeoI/8G5oKi55XFmLMTAwNjQ0IGRvYy5tZABr1eZl90wovdNYVSmZy4K3gIMFTDEwMDY0NCBydWxlcy5tZAAedFHBlUgRqf9S3o1NyJLjmYlyXTEwMDY0NCB0YXNrLmpzb24Ax9j8j1hk76RRarws5EtFUdT6uiI="
+        },
+        "8f0a98369f67c97729248049e554780d867e50e2": {
+          "type": "commit",
+          "base64": "dHJlZSA3ZWVlOTAyMWQ5ZjBkYWM1NGE0OTBjYWY0ZmRjMWEwZWI4M2I2MDU1CmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg=="
+        },
+        "ac66292d45330ac4902ba4bd74be35a6ffca639e": {
+          "type": "blob",
+          "base64": "IyBCb2FyZAoKfCBUYXNrIHwgU3RhdGUgfAp8LS0tfC0tLXwKfCBvcHMtZG9jcyB8IGluX3JldmlldyB8CnwgdW5yZWxhdGVkIHwgb3BlbiB8CgpDb250ZXh0IHJlbWFpbnMgdW5jaGFuZ2VkLgo="
+        },
+        "4d16ea55864393bfc3733a6c9d567a6eacd0b1bc": {
+          "type": "blob",
+          "base64": "QWZ0ZXI6IHNjb3BlIGFuZCBpbmRlcGVuZGVudCByZXZpZXcgYXJlIGV4cGxpY2l0Lgo="
+        },
+        "ad87e390ced5d9e63a1cd13282caae0c0aa6820f": {
+          "type": "tree",
+          "base64": "MTAwNjQ0IGJvYXJkLm1kAKxmKS1FMwrEkCukvXS+Nab/ymOeMTAwNjQ0IGRvYy5tZABNFupVhkOTv8NzOmydVnpurNCxvDEwMDY0NCBydWxlcy5tZAAedFHBlUgRqf9S3o1NyJLjmYlyXTEwMDY0NCB0YXNrLmpzb24Ax9j8j1hk76RRarws5EtFUdT6uiI="
+        },
+        "79672cab690858689cc1650bf36cd71dc3f7db8a": {
+          "type": "commit",
+          "base64": "dHJlZSBhZDg3ZTM5MGNlZDVkOWU2M2ExY2QxMzI4MmNhYWUwYzBhYTY4MjBmCnBhcmVudCA4ZjBhOTgzNjlmNjdjOTc3MjkyNDgwNDllNTU0NzgwZDg2N2U1MGUyCmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg=="
+        },
+        "04b6054eaaccc8b062898cc6c2f7a3e6a357061f": {
+          "type": "blob",
+          "base64": "eyJhY3Rvcl9pZCI6ICJyZXZpZXdlci1CIiwgImF1dGhvcml0eV9kaWdlc3QiOiAiYTZhYTM0NTcwMGU2MGI4YmQ3NzJlM2Q4MzI0MGMyODUzMmNjNTAzYzdkYzliODZkZGY1ZDgwMzcyZWY4NWEwMCIsICJjYW5kaWRhdGVfaGVhZCI6ICI3OTY3MmNhYjY5MDg1ODY4OWNjMTY1MGJmMzZjZDcxZGMzZjdkYjhhIiwgImNyaXRlcmlhIjogeyJDMSI6IHsiY2l0YXRpb25zIjogW3siYmxvYiI6ICI0ZDE2ZWE1NTg2NDM5M2JmYzM3MzNhNmM5ZDU2N2E2ZWFjZDBiMWJjIiwgImNvbW1pdCI6ICI3OTY3MmNhYjY5MDg1ODY4OWNjMTY1MGJmMzZjZDcxZGMzZjdkYjhhIiwgInBhdGgiOiAiZG9jLm1kIiwgInJlcG9zaXRvcnkiOiAiZXhhbXBsZS9ldmlkZW5jZS1wb2xpY3kifV0sICJkZWNpc2lvbiI6ICJQQVNTIiwgImV2aWRlbmNlX2lkcyI6IFsiZG9jdW1lbnQtcHJvb2YiXSwgInJhdGlvbmFsZSI6ICJPcmlnaW5hbCBkb2N1bWVudGFyeSBldmlkZW5jZSBpbnNwZWN0ZWQifX0sICJldmlkZW5jZV9kaWdlc3QiOiAiZmUyZDEzODQ1ZWM5NjZmMTNlNGU5NzkwYjMxMDI4NmRmOTE4N2I1NTMwOGE3YzU2MWIwMjYyMDAwNjljOTRiMSIsICJwZXJmb3JtZWRfYXQiOiAiMjAyNi0xMC0wOVQxNDowMDowMFoiLCAidGFza19pZCI6ICJvcHMtZG9jcyJ9"
+        },
+        "5f724e8a990e514db802b8f13b05a5db1b9c5368": {
+          "type": "tree",
+          "base64": "MTAwNjQ0IHJldmlldy5qc29uAAS2BU6qzMiwYomMxsL3o+ajVwYf"
+        },
+        "6679360d30ddbfeaa2b42cdfae121711c3c2b8cf": {
+          "type": "tree",
+          "base64": "MTAwNjQ0IGJvYXJkLm1kAKxmKS1FMwrEkCukvXS+Nab/ymOeMTAwNjQ0IGRvYy5tZABNFupVhkOTv8NzOmydVnpurNCxvDQwMDAwIHFhAF9yToqZDlFNuAK48TsFpdsbnFNoMTAwNjQ0IHJ1bGVzLm1kAB50UcGVSBGp/1LejU3IkuOZiXJdMTAwNjQ0IHRhc2suanNvbgDH2PyPWGTvpFFqvCzkS0VR1Pq6Ig=="
+        },
+        "76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0": {
+          "type": "commit",
+          "base64": "dHJlZSA2Njc5MzYwZDMwZGRiZmVhYTJiNDJjZGZhZTEyMTcxMWMzYzJiOGNmCnBhcmVudCA3OTY3MmNhYjY5MDg1ODY4OWNjMTY1MGJmMzZjZDcxZGMzZjdkYjhhCmF1dGhvciBGaXh0dXJlIDxmaXh0dXJlQGV4YW1wbGUuaW52YWxpZD4gMTc5MTU1NDQwMCArMDAwMApjb21taXR0ZXIgRml4dHVyZSA8Zml4dHVyZUBleGFtcGxlLmludmFsaWQ+IDE3OTE1NTQ0MDAgKzAwMDAKCk9mZmxpbmUgdGVzdCBmaXh0dXJlCg=="
+        }
+      }
+    }
+  }
+}

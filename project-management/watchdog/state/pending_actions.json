@@ -1,5 +1,11 @@
 {
- "actions": [],
+ "actions": [
+  {
+   "type": "note",
+   "text": "2026-10-09T21:25Z watchdog run: td-249 CANDIDATE but annotation says DO NOT auto-dispatch (LOW backlog) \u2014 no dispatch. td-245 re-validator subagent dispatched on dot 21:00Z findings (6-point checklist vs PR #627/td-245.md); matched-frame fix preserved, readiness-gated production-arc evidence + matched_run.log required. Coordinator bundle adopted: 7 files synced from game-dev-central main @0920f219 (central PR #449); RUNBOOK/README pre-adoption backups in hidden_files/runbook-backup-20261009/; watch.py untouched.",
+   "queued_at": "2026-10-09T21:30:25.937454+00:00"
+  }
+ ],
  "notes": [
   "steer-codex codex:tokyo-drift-3d popped 2026-09-28T00:51:50Z: STEER_DONE via browser task (td-100 modeling continuation; session was idle post-provisioning checkpoint, new run started on the steered instruction). Do NOT re-steer while the session is working.",
   "dispatch-p3d-069 popped: dispatched directly by main agent via browser task in the 16:0x turn (pickup verification pending); entry removed to prevent duplicate dispatch",
@@ -310,7 +316,9 @@
   "td-188 dispatch-subagent (validator brief) popped 2026-10-06T03:2xZ: validator subagent spawned with brief verbatim and registered as td-188-validator.",
   "td-189-validator + td-190-validator popped 2026-10-06T03:4xZ: both validator subagents spawned with briefs verbatim and registered.",
   "watchdog FALSE-DEAD SUPPRESSION td-195 (judgment-only override, 2026-10-06 ~12:41 EDT run): worker proclaimed DEAD 16:13:34Z after 2 quiet cycles (no heartbeat file), replacement dispatch-subagent queued. Direct fresher evidence the script couldn't see: worker pushed commit 4a499b53 'td-195: cop cars collide with world and vehicles; Tripo police asset' to branch td-195-cop-collision at 16:17:34Z (4 min AFTER the DEAD verdict), open PR #433 updated 16:23Z. Dropped the queued dispatch-subagent entry (no duplicate worker spawned); re-registered the worker to repair the liveness signal. Watch: still no heartbeat file \u2014 if it stays silent with no commits for 2 more cycles, the DEAD route refires legitimately. [td-195 queued dispatch-subagent entry dropped by cron worker]",
-  "dispatch-subagent td-192 popped 2026-10-08T07:48Z: replacement Muse subagent spawned by main agent (fresh start; dead worker's branch already on main, no unique commits). Do NOT re-dispatch td-192."
+  "dispatch-subagent td-192 popped 2026-10-08T07:48Z: replacement Muse subagent spawned by main agent (fresh start; dead worker's branch already on main, no unique commits). Do NOT re-dispatch td-192.",
+  "td-195 replacement dispatched 2026-10-09T07:2xZ by cron (Muse subagent, standard/M, brief state/liveness-briefs/td-195-20261009-071500.md; continues PR433 head 4a499b53). dispatch-subagent action marked executed \u2014 main agent must not duplicate.",
+  "screenshots td-192 PR #505 popped 2026-10-09T10:45Z: main-agent capture job completed \u2014 3 screenshots at ~/workspace/agent-watch/hidden_files/screenshots/td-192/ (td192-inspect-01/02/03.png) from main 3295d3a461, 3-cop pursuit staged via cops_max_active[3]=3 override, subagent verdict PASS vs three-cop criterion (min cop-cop 8.9-9.3m, box-in distributed on ring). Filed to Craig in chat."
  ],
  "dropped": [
   {
@@ -373,6 +381,21 @@
    "session": "codex:tokyo-drift-3d",
    "reason": "DROPPED 2026-09-28T00:0xZ by main agent: duplicate of the EXISTING td-100 worker (task_e_6ab9a3b814b8832e8f06c48c89ca605c). Read-only classification 2026-09-27 23:58Z confirmed the existing worker is NOT blocked: the 23:39Z steer produced a completed 4m53s run that provisioned Blender 4.0.2 via apt, recorded the art-direction note, and pushed commit ba4adde on feat/td-100-blender-vehicles. Task intentionally left open for the modeling/evidence phase. Dispatching a second worker would duplicate live work. Do NOT re-queue td-100 unless the existing session goes stale/blocked.",
    "dropped_at": "2026-09-28T00:05Z"
+  },
+  {
+   "dropped_at": "2026-10-09T08:45:42.024718+00:00",
+   "action": {
+    "type": "dispatch-subagent",
+    "task": "td-195",
+    "task_file": "godot/docs/tasks/td-195.md",
+    "repo": "doublehidenblade/tokyo-drift-3d",
+    "brief_file": "/home/hatch/workspace/agent-watch/state/liveness-briefs/td-195-20261009-061847.md",
+    "queued_at": "2026-10-09T06:18:47.722048+00:00",
+    "reason": "DEAD-equivalent: 61h since only heartbeat (predates registration; no branch/PR/task-file commits); liveness false-ALIVE on mass-annotation commit 9c96b92 (unrelated docs commit). Manual DEAD declaration per evidence.",
+    "executed": "2026-10-09T07:2xZ",
+    "executed_by": "cron worker: spawned Muse subagent directly (corrected brief with PR433 context migration: branch td-195-cop-collision @ 4a499b53); do NOT re-dispatch via main-agent handoff"
+   },
+   "reason": "Stale vs 2026-10-09 events: executed ~07:20Z (replacement shipped Tokyo PR #433, merged 07:25:08Z); 04:34 EDT inspector retracted the done-claim (verdict FAIL on completion: no 3-min pursuit evidence, cop floats ~5.4m over trench roads) with explicit no worker spawn (watchdog no-redispatch); defect brief PR #585 + report PR #586 opened instead; 07:48Z inbox answer preserved owners + no-redispatch stops; dot 08:30Z update requires explicit bounded repair/evidence plans by the existing owner before any stopped lane resumes. A fresh replacement now would duplicate/contradict the stopped-lane agreement."
   }
  ],
  "history": [

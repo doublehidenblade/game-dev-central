@@ -1,0 +1,124 @@
+{
+  "task_id": "ops-lower-city-priority-ranking-20261009",
+  "candidate_head": "2233f59c30c5542a049bdd321b63a5326208ab00",
+  "actor_id": "dot-priority-docs-reviewer",
+  "authority_digest": "26b1b517aaa02353d45c2edd9e3ee7cfed6b56b2293b5d3c0e152b7762eefc61",
+  "evidence_digest": "4314849591d77b418e56d22903f5e421c6f1532258e8e5c16088a4a327e544d2",
+  "performed_at": "2026-10-09T21:41:25.584228+00:00",
+  "criteria": {
+    "C1": {
+      "decision": "PASS",
+      "rationale": "PASS for the nonvisual documentation criterion. I independently inspected the complete insertion and all 42 ranked task records, verified their source-manifest Git blob identities after removing only the extraction-added newline, and compared the retained task ordering and implementation-state distinctions. The actual document has 42 unique linked task IDs in the requested order and 19 High, 13 Medium and 10 Low entries; existing branch/merged code is not represented as 42 absent implementations. I inspected the committed C1 execution record and checker, independently reran the exact command on bytes matching implementation head 2233f59c30c5542a049bdd321b63a5326208ab00, and observed PASS with its altered-priority negative control rejected. This is documentation fidelity, not gameplay acceptance.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "68a81b240643e64a341d4d0cce1c165adc5b8c18",
+          "path": "project-management/watchdog/fixtures/implementation-priorities/execution-C1.json",
+          "blob": "3b68a17c0ece943297a7f2c175958ce855379a57"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2233f59c30c5542a049bdd321b63a5326208ab00",
+          "path": "project-management/watchdog/RUNBOOK.md",
+          "blob": "dcad0cad13d2d00fd589fe945fa64ba30d882601"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2233f59c30c5542a049bdd321b63a5326208ab00",
+          "path": "project-management/watchdog/fixtures/implementation-priorities/check_docs.py",
+          "blob": "dbf136dcddf0189a55dedff28ef21d83426d0190"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2233f59c30c5542a049bdd321b63a5326208ab00",
+          "path": "project-management/tasks/ops-lower-city-priority-ranking-20261009.json",
+          "blob": "eaa62a4158b03511ad2b7a8a8f01764d4b7f12f0"
+        }
+      ],
+      "evidence_ids": [
+        "priority-evidence-C1"
+      ],
+      "finding_ids": []
+    },
+    "C2": {
+      "decision": "PASS",
+      "rationale": "PASS for the nonvisual documentation criterion. Every added paragraph and row preserves canonical game ownership/status and existing author/coordination boundaries. td-233 remains explicitly stopped pending Craig resumption; td-238 terminal/parser remains Low/Parked; Shuto remains frozen and NEON paused. Evidence-only follow-up stays Low while the documented td-195 and td-248 implementation defects retain their implementation priority. td-218 preserves current criteria pending reconciliation of agent-authored zero-cash wording with Craig game-over direction and grants no free/debt recovery. Explicitly requested personal playtests may proceed with failed/unrun checks disclosed, while current deployment/Actions authority is absent and independent source-merge acceptance stays required. I inspected the bound C2 execution record and independently reran its exact command; PASS and rejected terminal-unparking negative control were observed. No gameplay acceptance, owner transfer, dispatch, deployment or final merge-guard clearance follows.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "68a81b240643e64a341d4d0cce1c165adc5b8c18",
+          "path": "project-management/watchdog/fixtures/implementation-priorities/execution-C2.json",
+          "blob": "5b91d48b0c6fee48a61a9ae6896258a009a60a7d"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2233f59c30c5542a049bdd321b63a5326208ab00",
+          "path": "project-management/watchdog/RUNBOOK.md",
+          "blob": "dcad0cad13d2d00fd589fe945fa64ba30d882601"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2233f59c30c5542a049bdd321b63a5326208ab00",
+          "path": "project-management/watchdog/fixtures/implementation-priorities/check_docs.py",
+          "blob": "dbf136dcddf0189a55dedff28ef21d83426d0190"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2233f59c30c5542a049bdd321b63a5326208ab00",
+          "path": "project-management/tasks/ops-lower-city-priority-ranking-20261009.json",
+          "blob": "eaa62a4158b03511ad2b7a8a8f01764d4b7f12f0"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2c6d298b4bb5a815cf241551ba172ba8b6f047c6",
+          "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md",
+          "blob": "bc5f07fbd9d2a331b01d7ee4a8c142d399fcd4e1"
+        }
+      ],
+      "evidence_ids": [
+        "priority-evidence-C2"
+      ],
+      "finding_ids": []
+    },
+    "C3": {
+      "decision": "PASS",
+      "rationale": "PASS for the nonvisual documentation criterion. Removing only the added 131-line section reconstructs the original RUNBOOK Git blob 5b661ec6bd75305f73b583b243f686885cfbc624 exactly, including original trailing bytes. I independently inspected the complete GitHub PR452 changed-file list at artifact head 68a81b240643e64a341d4d0cce1c165adc5b8c18: six files, consisting only of RUNBOOK, the bounded canonical documentation task, the read-only check source and three actual execution records. Every local file hash matches its committed blob; artifact head is a direct child of the implementation head, with RUNBOOK/check/task bytes unchanged. Relative link targets exist in the baseline and the addition contains no private workspace or session links. I inspected the bound C3 record and independently reran its exact command; PASS and rejected unrelated-byte-change negative control were observed. The companion files provide bounded documentation proof, not a coordinator framework, game change or permission bypass; final scoped merge gate remains separate.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "68a81b240643e64a341d4d0cce1c165adc5b8c18",
+          "path": "project-management/watchdog/fixtures/implementation-priorities/execution-C3.json",
+          "blob": "f3d354f061ae7a527975a6547d2d992810670e90"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2233f59c30c5542a049bdd321b63a5326208ab00",
+          "path": "project-management/watchdog/RUNBOOK.md",
+          "blob": "dcad0cad13d2d00fd589fe945fa64ba30d882601"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2233f59c30c5542a049bdd321b63a5326208ab00",
+          "path": "project-management/watchdog/fixtures/implementation-priorities/check_docs.py",
+          "blob": "dbf136dcddf0189a55dedff28ef21d83426d0190"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2233f59c30c5542a049bdd321b63a5326208ab00",
+          "path": "project-management/tasks/ops-lower-city-priority-ranking-20261009.json",
+          "blob": "eaa62a4158b03511ad2b7a8a8f01764d4b7f12f0"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "2c6d298b4bb5a815cf241551ba172ba8b6f047c6",
+          "path": "project-management/watchdog/RUNBOOK.md",
+          "blob": "5b661ec6bd75305f73b583b243f686885cfbc624"
+        }
+      ],
+      "evidence_ids": [
+        "priority-evidence-C3"
+      ],
+      "finding_ids": []
+    }
+  }
+}

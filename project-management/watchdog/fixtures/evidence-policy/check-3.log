@@ -1,0 +1,36 @@
+$ python3 test_coordinator_review.py
+PASS verified native selection available without false runtime
+PASS required runtime attestation not substituted
+PASS selection rejects none
+PASS selection rejects unverified
+PASS selection rejects incomplete
+PASS selection rejects noevidence
+PASS selection rejects wrongmodel
+PASS selection rejects wrongeffort
+PASS selection rejects toolmissing
+PASS selection rejects actualmismatch
+PASS selection evidence change invalidates receipt
+PASS old immutable evidence freshly observed accepted
+PASS record expiry limits receipt reviews
+PASS record exact expiry NO_GO reviews
+PASS future individual observation rejects reviews
+PASS performed after read rejects reviews
+PASS record expiry limits receipt checks
+PASS record exact expiry NO_GO checks
+PASS future individual observation rejects checks
+PASS performed after read rejects checks
+PASS unmapped unrelated branch does not block exact-head read-only review
+PASS explicit post-merge exact-head verification remains actionable
+PASS terminal contradiction retains independent safe lane
+PASS merged task cannot request duplicate implementation
+PASS malformed parser JSON all-blocked
+PASS malformed parser JSON coordinator-plan
+PASS malformed parser JSON dispatch-candidates
+PASS malformed parser JSON dispatch-eligible
+PASS malformed parser JSON dispatch-guard
+PASS malformed parser JSON heartbeat
+PASS malformed parser JSON idle-defect-check
+PASS malformed parser JSON review-sweep
+TOTAL 32 FAILURES 0
+
+EXIT_CODE=0

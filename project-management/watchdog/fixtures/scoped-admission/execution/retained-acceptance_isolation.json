@@ -1,0 +1,13 @@
+{
+  "check_id": "retained-acceptance_isolation",
+  "command": [
+    "python3",
+    "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+  ],
+  "exit_code": 0,
+  "output": "PASS in_review:pass_plus_fail\nPASS in_review:empty_criteria\nPASS in_review:partial_criteria\nPASS in_review:self_review\nPASS in_review:failed_check\nPASS in_review:old_head_review\nPASS in_review:no_reviews\nPASS merged:pass_plus_fail\nPASS merged:empty_criteria\nPASS merged:partial_criteria\nPASS merged:self_review\nPASS merged:failed_check\nPASS merged:old_head_review\nPASS merged:no_reviews\nTOTAL 14 FAILURES 0\n",
+  "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+  "build": null,
+  "performed_at": "2026-10-09T20:26:54.928184+00:00",
+  "actor_id": "dot-native-scoped-admission-author"
+}

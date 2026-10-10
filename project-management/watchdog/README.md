@@ -1,85 +1,78 @@
-# Watchdog — coding-agent session monitor
+# Watchdog — scoped coordinator decisions
 
-Craig's watchdog keeps the coding sessions (Codex + Claude Code, Tokyo Drift 3D)
-moving when open work stalls, without spamming him or the sessions. It merges
-parked PRs itself (ship = merge to main ONLY; live publish happens only when
-Craig asks), dispatches workers to open tasks, and reports a terse heartbeat.
+The supported coordinator route is a read-only evaluator over fresh, explicitly
+accounted source observations. It identifies authorized next actions and scoped
+blockers without writing live state, creating sessions, contacting agents or
+triggering Actions/deployments.
 
-**Everything here is cloud-synced by design** (Craig 2026-10-02, standing rule):
-nothing about operating this watchdog may live only on one machine or inside
-one agent platform. Scripts, docs, live state, and ledgers all live in this
-repo. If you have this link, you can resume.
+Start with [RUNBOOK.md](RUNBOOK.md#supported-coordinator-route-2026-10-09).
+The historical automatic loop and queue-delivery paths are quarantined. Do not
+run `push_code.py` or use old browser handoff instructions as a bypass.
 
-## Layout
+## Files
 
-Read the [existing deployment runbook](releases/PUSH-PROCEDURE.md) before any Tokyo publication. Its 2026-10-08 section supersedes the historical Tokyo dispatch route and warns about legacy cleanup deleting immutable releases.
+- `coordinator.py`: pure validation, task × operation × executor decisions, and
+  exact-input receipt revalidation
+- `coordinator_cli.py`: explicit JSON-input adapter; stdout only
+- `watch.py`: supported aliases route through the shared evaluator before the
+  legacy state-writing capture wrapper; retired admission callables fail closed
+- `test_rules.py`: synthetic fixtures, no-side-effect integration tests, and
+  existing pure state-machine/image regressions
+- `fixtures/coordinator-snapshot.json`: dated synthetic shape example, never
+  authorization or evidence of live capacity
+- `state/` and `releases/`: existing ledgers, unchanged by this decision path
+- `STATE_MACHINE.md` and `browser-brief.md`: historical behavior, superseded for
+  admission/dispatch by the current runbook
 
-```
-project-management/watchdog/
-  README.md            this file
-  RUNBOOK.md           the ~15-minute loop (what to do, in order)
-  STATE_MACHINE.md     session-state → action mapping (full spec)
-  browser-brief.md     how to classify live session state (for whoever can
-                       observe the Codex/Claude web sessions)
-  watch.py             all deterministic logic as subcommands — the loop
-                       obeys its verdicts, never re-derives them from prose
-  test_rules.py        offline tests for the state machine
-  state/               LIVE state, synced every loop (see below)
-    state.json             session notes, worker registry, ledgers
-    pending_actions.json   queue of browser/steer/dispatch actions
-    worker-heartbeats/     worker liveness heartbeats
-    liveness-briefs/       replacement briefs for dead workers
-    last-check.json        last run watermark
-    imagegen_replacement.json
-  releases/
-    pending.json         merged-but-NOT-live ledger (Craig's next push)
-    baselines.json       last-live SHAs per game
-    PUSH-PROCEDURE.md    how a live publish runs (only on Craig's ask)
-project-management/rules/
-  SYSTEM.md, WORKER_BRIEF.md, VALIDATOR_BRIEF.md, VISUAL_BRIEF_TEMPLATE.md
-project-management/boards/tokyo-drift-3d.md   the board (source of truth)
-```
+## Commands
 
-## Resume from this link (fresh agent takeover)
+`python3 project-management/watchdog/watch.py coordinator-plan --snapshot <file>`
 
-1. Clone this repo. `cd` to the repo root.
-2. You need GitHub API access with repo scope on `game-dev-central` and
-   `doublehidenblade/tokyo-drift-3d` (read the board, task files, PRs; merge
-   parked PRs; commit state). `watch.py` shells to a `gh api`-compatible CLI:
-   set `WATCHDOG_GH_BIN` to yours (default: the Muse github skill path).
-   Never commit credentials — they stay in your platform's secure storage.
-3. Read the [deployment authorization and $50/month budget policy](releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc) before any write. Deploy only on Craig's explicit request, including site/deployment-branch pushes triggering Pages. Inspect workflow/publication triggers before ordinary source pushes or accepted merges; hold an operation that would deploy or run unauthorized Actions. The ceiling is not permission or verified spend; Shuto is frozen and NEON paused/read-only.
-4. `python3 project-management/watchdog/watch.py state-pull` — sync live
-   state from main into your working copy.
-5. Read `RUNBOOK.md` and run the loop about every 15 minutes:
-   `state-pull` → loop → `state-push "watchdog: sync state"`.
-6. **One scheduler at a time.** If a previous scheduler is still running,
-   coordinate before starting yours — two writers will conflict on
-   `state-push` (it aborts loudly rather than clobber, but you must resolve it).
+`python3 project-management/watchdog/watch.py idle-defect-check --snapshot <file>`
 
-## What the loop does (short version)
+Construct fresh inputs from the [connected-source checklist](RUNBOOK.md#constructing-a-truthful-snapshot-with-connected-reads); the synthetic fixture is not live adoption proof.
 
-- STEP 0: scripted checks — `liveness` (dead-worker verdicts are code, not
-  judgment), `conflicts`, `transitions`, `classification-health`, `board-check`.
-- STEP 1: `decide` per session on the last recorded state; queue nudges,
-  resumes, rebriefs, failovers, SHIP (merge parked PRs), INSPECT_MERGED.
-- DISPATCH CHECK: scripted shortlist of board tasks → queue dispatches.
-- STEP 3: always report — terse, grouped, traffic-light (jobs then workers).
-- The full procedure, including the Muse-runtime browser handoff duties, is
-  in RUNBOOK.md. The deterministic parts are all `watch.py` subcommands.
+The plan returns `ACTION_REQUIRED`, `INPUT_REQUIRED`, or scope-bounded `IDLE`.
+Permitted alternatives may coexist with warnings; warnings prevent global idle.
+Each alternative is bound to its task, operation, executor, owner, full source
+SHA, complete input digest and freshness. The runbook documents revalidation.
 
-## Conventions that matter
+`python3 project-management/watchdog/test_rules.py` runs the full offline suite.
+The coordinator-only standard-library suite is:
+`python3 -m unittest discover -s project-management/watchdog -p test_rules.py -v`.
 
-- The board table is the source of truth for task status; workers touch only
-  their own row, via PR.
-- `done-pending-verdict` is terminal: implementation verified on main, ONLY
-  Craig's phone verdict outstanding. Never re-dispatched, never reopened.
-- Live publish happens ONLY on Craig's explicit ask. Merges to main continue
-  after required acceptance checks and independent verification, with trigger
-  inspection as described above. No fresh go-ahead is needed for ordinary
-  source pushes or accepted merges; do not assume every push is free.
-- Task naming: short plain-English defect names, never "td-012"/"PR #12".
-- Standing rule: every new lesson/rule/workflow ships its deterministic
-  checks as `watch.py` subcommands in the same change; prose-only rules are
-  the exception. Tag lessons `[SCRIPTED: watch.py <command>]` or
-  `[JUDGMENT-ONLY: why]`.
+## Boundaries
+
+Actual actions retain existing authorization, ownership and independent
+acceptance requirements. Deploy only on Craig's explicit request, including
+publication-branch pushes. The $50/month Actions ceiling is not permission or
+verified spend. Inspect workflow/publication triggers before ordinary source
+pushes and accepted merges. Shuto stays frozen; NEON stays paused/read-only.
+Read the [deployment policy](releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc)
+before any publication. This code installs no automatic collector or dispatcher.
+
+## Evidence-policy admission and completion
+
+[Evidence policy](EVIDENCE_POLICY.md) documents the shared, side-effect-free
+`brief-check`/`admission-check`, `evidence-check(s)`, `validator-check`,
+`acceptance-check` and `finding-check` routes. Supply explicit `--authority`,
+`--submission` and `--objects` JSON files; old positional/header-only claims
+fail closed. Completion failures now return a nonzero exit status.
+
+`coordinator-plan` and `dispatch-guard` require current source-bound proof packets
+for implementation/upload and merge, while preserving authorized independent
+read-only verification to repair missing/disputed acceptance. Task registration
+is not permission to implement. No scheduler or live state mutation is added.
+
+
+### Isolated task-scoped source coverage
+
+The optional `scoped_source` input adds proof-bound source coverage for one
+filed-task operation through the existing plan/guard evaluator. It does not
+install a collector, dispatch work or grant new permission. Complete raw branch
+and open-PR inventories plus fresh relevant owner/queue/stop queries are still
+required; old task records outside proved scope need not be normalized. Global
+coverage remains unknown. See [the scoped runbook](RUNBOOK.md#task-scoped-source-coverage-isolated-repair-2026-10-09)
+for the exact schema, limitations, module bundle and offline tests. Acceptance,
+current rules, genuine required checks, independent review and all existing
+stops/deployment rules remain unchanged.

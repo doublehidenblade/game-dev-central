@@ -1,0 +1,150 @@
+$ python3 test_rules.py
+== Part 1: evidence -> classification ==
+PASS evidence->WORKING: got WORKING  {'product': 'codex', 'working_banner': True, 'thinking': True, 'cancel_button': True, 'live_log': True}
+PASS evidence->WORKING: got WORKING  {'product': 'claude-code', 'running': True, 'streaming': True, 'stop_button': True}
+PASS evidence->DEAD: got DEAD  {'product': 'codex', 'final_status': 'Failed', 'retry_button': True}
+PASS evidence->FINISHED: got FINISHED  {'product': 'codex', 'final_status': 'Merged', 'retry_button': True}
+PASS evidence->OUT_OF_TOKENS: got OUT_OF_TOKENS  {'product': 'codex', 'usage_limit_banner': True}
+PASS evidence->OUT_OF_TOKENS: got OUT_OF_TOKENS  {'product': 'claude-code', 'session_exists': True, 'usage_pct': 100, 'prompt_idle': True}
+PASS evidence->STALLED: got STALLED  {'product': 'codex', 'task_unfinished': True, 'live_log': False, 'composer_idle': True}
+PASS evidence->STALLED: got STALLED  {'product': 'claude-code', 'session_exists': True, 'streaming': False, 'prompt_idle': True}
+PASS evidence->LOGIN_BLOCKED: got LOGIN_BLOCKED  {'product': 'codex', 'login_wall': True}
+PASS evidence->LOGIN_BLOCKED: got LOGIN_BLOCKED  {'product': 'claude-code', 'login_wall': True}
+== Part 2: classification -> action (real watch.decide_action) ==
+PASS codex:neon-drift WORKING->NOTHING: got NOTHING (session actively working — never nudge a working session)
+PASS codex:neon-drift OUT_OF_TOKENS->FAILOVER: got FAILOVER (token/usage limit reached — hand priority work to another agent (Craig 2026-09-23))
+PASS claude-code:tokyo-drift-3d WORKING->NOTHING: got NOTHING (session actively working — never nudge a working session)
+PASS claude-code:tokyo-drift-3d OUT_OF_TOKENS->FAILOVER: got FAILOVER (token/usage limit reached — hand priority work to another agent (Craig 2026-09-23))
+PASS codex:neon-drift STALLED->NUDGE: got NUDGE (session stalled with open work and no recent nudge)
+PASS claude-code:tokyo-drift-3d STALLED->NUDGE: got NUDGE (session stalled with open work and no recent nudge)
+PASS codex:neon-drift DEAD->RESUME: got RESUME (session dead/ended while open work exists — resume in workspace)
+PASS claude-code:tokyo-drift-3d DEAD->RESUME: got RESUME (session dead/ended while open work exists — resume in workspace)
+PASS codex:neon-drift LOGIN_BLOCKED->REPORT_LOGIN: got REPORT_LOGIN (browser hit login wall/CAPTCHA — needs manual login)
+PASS cooldown (nudged 10m ago, STALLED)->NOTHING: got NOTHING (already nudged 10m ago (< 45m cooldown))
+PASS cooldown expired (nudged 60m ago, STALLED)->NUDGE: got NUDGE (session stalled with open work and no recent nudge)
+PASS failover cooldown (fired 10m ago, OUT_OF_TOKENS)->NOTHING: got NOTHING (failover already fired 10m ago (< 180m cooldown))
+PASS failover cooldown expired (fired 200m ago)->FAILOVER: got FAILOVER (token/usage limit reached — hand priority work to another agent (Craig 2026-09-23))
+PASS already failed over this episode->NOTHING: got NOTHING (already failed over for this out-of-tokens episode)
+PASS new episode after old failover->FAILOVER: got FAILOVER (token/usage limit reached — hand priority work to another agent (Craig 2026-09-23))
+PASS stalled+nudged this episode, cooldown over->REBRIEF: got REBRIEF (still stalled after a continue nudge — re-brief to the next open priority task; blocked task stays open (Craig 2026-09-23))
+PASS rebrief cooldown (rebriefed 10m ago)->NOTHING: got NOTHING (already re-briefed 10m ago (< 45m cooldown))
+PASS already rebriefed this episode->NOTHING: got NOTHING (already re-briefed this stall episode — awaiting fresh classification)
+PASS nudge was previous episode->NUDGE: got NUDGE (session stalled with open work and no recent nudge)
+PASS finished->SHIP: got SHIP (finished with an unmerged PR — ship the parked PR now: merge to main ONLY (mark ready if draft, squash-merge; CI is after-the-fact verification, not a merge gate), record the merge in project-management/watchdog/releases/pending.json — live publish happens ONLY when Craig asks, never dispatch publish-web, never verify the live site)
+PASS finished+pr_merged->INSPECT_MERGED: got INSPECT_MERGED (PR merged — inspect the diff, report to Craig, file new tasks or re-open gaps as needed)
+PASS finished+inspected_ts->NOTHING: got NOTHING (merged work already inspected and reported (inspected_ts set))
+PASS finished+legacy ship ledger keys->SHIP: got SHIP (finished with an unmerged PR — ship the parked PR now: merge to main ONLY (mark ready if draft, squash-merge; CI is after-the-fact verification, not a merge gate), record the merge in project-management/watchdog/releases/pending.json — live publish happens ONLY when Craig asks, never dispatch publish-web, never verify the live site)
+== Part 3: hard task-outcome validator (real watch.validate_task_outcome) ==
+PASS p3d-096 -> outcome 1 (closed)
+PASS td-058 -> outcome 2 (open and assigned)
+PASS td-x -> outcome 3 (open but no available worker)
+PASS p3d-092 -> outcome 2 (open and assigned)
+PASS p3d-095 -> outcome 3 (open but no available worker)
+PASS p3d-088 -> outcome 3 (open but no available worker)
+PASS td-y -> outcome 4 (blocked on human)
+PASS td-z -> outcome 5 (blocked on external)
+PASS td-both -> ALARM raised
+PASS td-framing -> ALARM raised
+PASS td-framing -> ALARM raised
+PASS td-framing -> ALARM raised
+PASS td-framing -> ALARM raised
+PASS td-framing -> ALARM raised
+PASS td-framing -> ALARM raised
+== Part 4: scripted heartbeat (real watch.build_heartbeat) ==
+== Part 5: verdict freshness (real watch._hb_verdicts) ==
+== Part 6: adopt-orphans verdicts (real watch._orphan_verdict) ==
+PASS validated + DO NOT MERGE title -> ORPHAN-READY
+PASS stale-title flag noted
+PASS validated, clean title -> ORPHAN-READY
+PASS no stale-title flag when title clean
+PASS unvalidated DO NOT MERGE -> ORPHAN-HELD
+PASS denylisted PR -> ORPHAN-BLOCKED even if validated
+PASS draft -> ORPHAN-DRAFT even if validated
+PASS no board row -> ORPHAN-UNKNOWN
+PASS in_progress -> ORPHAN-UNKNOWN
+PASS lowercase do not merge -> ORPHAN-HELD
+== Part 7: DNM title strip (real watch._strip_dnm_prefix) ==
+PASS em-dash variant stripped
+PASS colon variant stripped
+PASS bracket variant stripped
+PASS lowercase stripped
+PASS bare DNM -> empty string
+PASS clean title untouched
+PASS DNM mid-title untouched
+PASS missing space variant untouched
+== Part 8: scriptification audit (real watch._audit_lesson_sections) ==
+PASS pre-rule untagged lesson grandfathered
+PASS valid SCRIPTED tag passes
+PASS missing tag -> SCRIPTIFICATION-MISSING
+PASS bad subcommand -> SCRIPTIFICATION-BADCMD
+PASS placeholder <cmd> skipped, real tag passes
+PASS empty why -> SCRIPTIFICATION-NOWHY
+PASS JUDGMENT-ONLY with why passes
+PASS tag in section body counts
+PASS missing anchor -> SCRIPTIFICATION-NOANCHOR
+== Part 9: evidence cheat-checks (duplicates, pairs, tiny) ==
+PASS same bytes two names -> one dup group
+PASS no dups -> empty
+PASS same path twice -> not flagged
+PASS after without before -> flagged
+PASS complete pairs -> clean
+PASS case-insensitive stems
+PASS 399px max dim -> tiny
+PASS 400px max dim -> ok
+PASS large -> ok
+== Part 10: EVIDENCE-VOID dark-void heuristic ==
+PASS void backdrop -> darkfrac ~1.0
+PASS void backdrop -> suspect
+PASS night street -> darkfrac ~0.65
+PASS night street -> not suspect
+PASS 0.80 -> suspect
+PASS 0.79 -> not suspect
+PASS None -> not suspect
+PASS bad bytes -> None
+== Part 11: scoped coordinator enforcement and no-side-effect CLI ==
+
+ALL TESTS PASSED
+test_acceptance_is_independent_complete_and_exact (__main__.CoordinatorEnforcementTests.test_acceptance_is_independent_complete_and_exact) ... ok
+test_aliases_without_snapshot_and_retired_routes_fail_closed (__main__.CoordinatorEnforcementTests.test_aliases_without_snapshot_and_retired_routes_fail_closed) ... ok
+test_all_cli_aliases_use_shared_evaluator_and_never_capture_state (__main__.CoordinatorEnforcementTests.test_all_cli_aliases_use_shared_evaluator_and_never_capture_state) ... ok
+test_available_native_survives_codex_capacity_block (__main__.CoordinatorEnforcementTests.test_available_native_survives_codex_capacity_block) ... ok
+test_bad_times_sha_repository_duplicate_and_review_omission (__main__.CoordinatorEnforcementTests.test_bad_times_sha_repository_duplicate_and_review_omission) ... ok
+test_cli_malformed_options_are_structured_input_required (__main__.CoordinatorEnforcementTests.test_cli_malformed_options_are_structured_input_required) ... ok
+test_cli_rejects_malformed_duplicate_json_without_legacy_fallback (__main__.CoordinatorEnforcementTests.test_cli_rejects_malformed_duplicate_json_without_legacy_fallback) ... ok
+test_complete_empty_scope_is_no_work_only_with_all_receipts (__main__.CoordinatorEnforcementTests.test_complete_empty_scope_is_no_work_only_with_all_receipts) ... ok
+test_conflicting_same_head_reviews_require_reconciliation (__main__.CoordinatorEnforcementTests.test_conflicting_same_head_reviews_require_reconciliation) ... ok
+test_decision_replay_is_bound_to_target_owner_sha_inputs_and_freshness (__main__.CoordinatorEnforcementTests.test_decision_replay_is_bound_to_target_owner_sha_inputs_and_freshness) ... ok
+test_denial_cannot_be_narrowed_to_evade_on_another_executor (__main__.CoordinatorEnforcementTests.test_denial_cannot_be_narrowed_to_evade_on_another_executor) ... ok
+test_disputed_acceptance_preserves_explicit_review_only (__main__.CoordinatorEnforcementTests.test_disputed_acceptance_preserves_explicit_review_only) ... ok
+test_disputed_review_is_scoped_and_receipts_still_revalidate (__main__.CoordinatorEnforcementTests.test_disputed_review_is_scoped_and_receipts_still_revalidate) ... ok
+test_disputed_review_retains_source_owner_capability_and_stop_gates (__main__.CoordinatorEnforcementTests.test_disputed_review_retains_source_owner_capability_and_stop_gates) ... ok
+test_frozen_unfiled_ask_and_board_stops_cannot_be_laundered (__main__.CoordinatorEnforcementTests.test_frozen_unfiled_ask_and_board_stops_cannot_be_laundered) ... ok
+test_implementation_owner_preserved_independent_review_available (__main__.CoordinatorEnforcementTests.test_implementation_owner_preserved_independent_review_available) ... ok
+test_individual_read_freshness_is_separate_from_old_evidence_date (__main__.CoordinatorEnforcementTests.test_individual_read_freshness_is_separate_from_old_evidence_date) ... ok
+test_known_conflict_survives_removal_of_verification_need (__main__.CoordinatorEnforcementTests.test_known_conflict_survives_removal_of_verification_need) ... ok
+test_manifest_omissions_and_unreadability_never_claim_idle (__main__.CoordinatorEnforcementTests.test_manifest_omissions_and_unreadability_never_claim_idle) ... ok
+test_missing_post_merge_source_never_returns_false_idle (__main__.CoordinatorEnforcementTests.test_missing_post_merge_source_never_returns_false_idle) ... ok
+test_native_unknown_or_requested_model_is_not_attestation (__main__.CoordinatorEnforcementTests.test_native_unknown_or_requested_model_is_not_attestation) ... ok
+test_owned_continuation_requires_existing_exact_executor (__main__.CoordinatorEnforcementTests.test_owned_continuation_requires_existing_exact_executor) ... ok
+test_post_merge_verification_resolves_source_without_reacceptance (__main__.CoordinatorEnforcementTests.test_post_merge_verification_resolves_source_without_reacceptance) ... ok
+test_publication_triggers_and_deploy_never_granted_by_code_permission (__main__.CoordinatorEnforcementTests.test_publication_triggers_and_deploy_never_granted_by_code_permission) ... ok
+test_review_pending_and_stale_board_produce_exact_head_verification (__main__.CoordinatorEnforcementTests.test_review_pending_and_stale_board_produce_exact_head_verification) ... ok
+test_safe_action_coexists_with_unrelated_unknown_scope (__main__.CoordinatorEnforcementTests.test_safe_action_coexists_with_unrelated_unknown_scope) ... ok
+test_scoped_publication_holds_do_not_block_code_or_second_task (__main__.CoordinatorEnforcementTests.test_scoped_publication_holds_do_not_block_code_or_second_task) ... ok
+test_stale_acceptance_read_keeps_unrelated_coding_available (__main__.CoordinatorEnforcementTests.test_stale_acceptance_read_keeps_unrelated_coding_available) ... ok
+test_stops_denials_cancellation_and_frozen_projects_preserved (__main__.CoordinatorEnforcementTests.test_stops_denials_cancellation_and_frozen_projects_preserved) ... ok
+test_supported_native_selection_does_not_claim_runtime_attestation (__main__.CoordinatorEnforcementTests.test_supported_native_selection_does_not_claim_runtime_attestation) ... ok
+test_terminal_board_and_merged_pr_do_not_restart_completed_work (__main__.CoordinatorEnforcementTests.test_terminal_board_and_merged_pr_do_not_restart_completed_work) ... ok
+test_terminal_conflict_does_not_suppress_other_verified_task (__main__.CoordinatorEnforcementTests.test_terminal_conflict_does_not_suppress_other_verified_task) ... ok
+test_unfiled_admission_holds_are_task_scoped (__main__.CoordinatorEnforcementTests.test_unfiled_admission_holds_are_task_scoped) ... ok
+test_unfiled_ask_is_admission_without_implementation_candidate (__main__.CoordinatorEnforcementTests.test_unfiled_ask_is_admission_without_implementation_candidate) ... ok
+test_unknown_acceptance_does_not_stop_separately_authorized_code (__main__.CoordinatorEnforcementTests.test_unknown_acceptance_does_not_stop_separately_authorized_code) ... ok
+test_unknown_branch_and_ownership_conflicts_require_reconciliation (__main__.CoordinatorEnforcementTests.test_unknown_branch_and_ownership_conflicts_require_reconciliation) ... ok
+test_unknown_branches_do_not_block_exact_read_only_review (__main__.CoordinatorEnforcementTests.test_unknown_branches_do_not_block_exact_read_only_review) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 0.571s
+
+OK
+
+EXIT_CODE=0

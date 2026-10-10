@@ -1,0 +1,19 @@
+{
+  "check_id": "real-docs-replay",
+  "command": [
+    "python3",
+    "project-management/watchdog/fixtures/scoped-admission/replay_real_docs.py",
+    "--snapshot",
+    ".private-scoped-control/snapshot.json",
+    "--negative-authority",
+    ".private-scoped-control/negative-authority.json",
+    "--negative-objects",
+    ".private-scoped-control/negative-objects.json"
+  ],
+  "exit_code": 0,
+  "output": "{\n  \"control\": \"real immutable documentation packet with synthetic surrounding scoped collection\",\n  \"historical_evidence_policy\": \"ACCEPTABLE\",\n  \"historical_scoped_algorithm\": \"ACTION_REQUIRED\",\n  \"global_coverage\": \"unknown\",\n  \"current_rule_negative\": \"NO_GO\",\n  \"negative_codes\": [\n    \"STALE_ACKNOWLEDGMENT\"\n  ],\n  \"snapshot_sha256\": \"ece498361280d5330e70012c231a1eb69927a458fa1e0fc188c87e5d31c3cf95\",\n  \"authority_sha256\": \"a0f80b4a4c373603699651a6171d1f99e217cf2e48777f378ce56f9b3310e35f\",\n  \"submission_sha256\": \"28710c7b3904b894a3a9739f5f874ff949c23f7ae53be6abb379aeebe883cc24\",\n  \"limitations\": [\n    \"Historical replay is not current eligibility\",\n    \"Collection/ownership/queue/executor receipts are synthetic test controls\",\n    \"No private source observations are published\",\n    \"No game, gameplay, visual, runtime, Actions or deployment check is inferred\"\n  ]\n}\n",
+  "source_head": "747692a0021a6c3d1272ea14d8d714f144efd8cc",
+  "build": null,
+  "performed_at": "2026-10-09T20:26:54.673303+00:00",
+  "actor_id": "dot-native-scoped-admission-author"
+}

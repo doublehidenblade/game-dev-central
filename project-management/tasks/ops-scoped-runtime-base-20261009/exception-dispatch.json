@@ -1,0 +1,12 @@
+{
+  "task_id": "ops-scoped-runtime-base-20261009",
+  "public_owner": "dot-scoped-runtime-base-author",
+  "status": "implementation_in_progress",
+  "started_at": "2026-10-10T05:25:43Z",
+  "starting_source": "6d904f12b2b2aa87e257deb11bd98344c4c1a731",
+  "scope": "Registered six-path scope and C1-C7 unchanged",
+  "tests": "pending",
+  "independent_review": "pending",
+  "completion_acceptance": false,
+  "deployment": false
+}
