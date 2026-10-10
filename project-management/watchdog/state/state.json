@@ -2341,7 +2341,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-10T08:44:38.593762+00:00",
+  "ts": "2026-10-10T09:14:25.495477+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32; open PR #596 Inspector report: 2026-10-09 09:34 EDT)",
@@ -2355,10 +2355,10 @@
     "ALIVE td-243 (no heartbeat file; open PR #647 [Report-only] Inspector report 2026-10-10 04:34 EDT \u2014 do not; open PR #645 Inspector report 2026-10-10 03:34 EDT (report-only, d)",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
     "ALIVE td-248 (no heartbeat file; open PR #629 td-248: retract unsupported verdict criteria (retraction + b; open PR #628 Inspector report: 2026-10-09 16:34 EDT (report-only, )",
-    "ALIVE td-245 (heartbeat stale (909min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:3)",
-    "ALIVE td-246 (heartbeat stale (939min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (979min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "ALIVE td-217 (heartbeat stale (603min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
+    "ALIVE td-245 (heartbeat stale (939min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:3)",
+    "ALIVE td-246 (heartbeat stale (969min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (1009min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "ALIVE td-217 (heartbeat stale (633min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2381,10 +2381,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-10T08:44:23.897423+00:00",
+   "liveness": "2026-10-10T09:14:20.216313+00:00",
    "classification-health": "2026-10-10T08:44:38.593762+00:00",
-   "transitions": "2026-10-10T08:44:33.136379+00:00",
-   "conflicts": "2026-10-10T08:44:30.538305+00:00",
+   "transitions": "2026-10-10T09:14:25.495477+00:00",
+   "conflicts": "2026-10-10T09:14:22.835129+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
