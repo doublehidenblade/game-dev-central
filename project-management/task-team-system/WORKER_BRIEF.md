@@ -3,28 +3,6 @@
 Paste this into the spawn message, filling in the bracketed fields.
 The SYSTEM.md link is MANDATORY — it is how the worker learns the system.
 
-## Recommended setup (MANDATORY per task and brief)
-
-Read [WORKER_SELECTION_POLICY.md](https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/WORKER_SELECTION_POLICY.md).
-Copy this completed block into the task record as `recommended_setup` (or the
-equivalent Markdown section). It is a recommendation and preflight check, not
-permission to replace an active owner or change dispatch automatically.
-
-- Capability tier and reason: [frontier / balanced / efficient; coupling, risk, ambiguity]
-- Provider preference: [provider-neutral, or provider + concrete task/tool reason]
-- Requested model and effort: [exact available model ID; supported effort/thinking setting]
-- Environment and required tools: [verified executor, repo, Blender/Godot/browser/pixel inspection as needed]
-- Availability checked: [UTC time + account/catalog source; available / unverified / quota-blocked]
-- Fallback: [wait_for_required_tier OR bounded_attempt_then_escalate; allowed alternative]
-- Attempt budget: [one initial attempt + at most one evidence-based correction; time/usage ceiling]
-- Escalation criteria: [failed checks, structural mismatch, missing tools, quota ceiling; named stronger setup]
-- Verification budget: [named local checks, evidence coverage, independent reviewer setup, reserved time/usage]
-- Requested versus confirmed setup: [request; observed model/effort + evidence, or unconfirmed]
-- Actual outcome: [accepted/rejected/pending; total usage/cost when known; review/rework time]
-
-Do not silently downgrade, infer runtime identity from the requested setting,
-or treat extra reasoning as a replacement for tools and verification.
-
 ---
 
 You are a WORKER in the task-team system.
@@ -77,7 +55,7 @@ You are a WORKER in the task-team system.
    phone — if the images don't render inline there, the evidence doesn't exist.
 
 6b. HEARTBEAT (Craig 2026-10-02 — MANDATORY): every ~10 minutes, write
-   `~/workspace/agent-watch/hidden_files/worker-heartbeats/[TASK_ID].json`
+   `~/workspace/agent-watch/state/worker-heartbeats/[TASK_ID].json`
    with `{"ts": "<UTC ISO>", "task": "[TASK_ID]", "step": "<what you are
    doing right now>", "status": "working"}`. The watchdog proclaims a
    worker DEAD after 2 consecutive cycles (~30 min) with neither a
@@ -145,7 +123,25 @@ You are a WORKER in the task-team system.
 
 Non-obvious constraints for this task: [ANYTHING THE TASK FILE DOESN'T SAY]
 
-12. PEDESTRIAN / CHARACTER SOURCING (Craig 2026-10-06 — STANDING): Mixamo does
+12. REAL-SCENE VERIFICATION ONLY (Craig 2026-10-10 — STANDING, HARD RULE): Verify
+    in the REAL game scene named in your task file: [EXACT SCENE FILE PATH, e.g.
+    godot/scenes/lower_city/main.tscn]. NEVER verify in a void/test/placeholder
+    scene you created for the purpose — evidence captured in a scene that is not
+    the production assembly is AUTO-REJECTED, no matter how clean it looks.
+    If your task file does not name the production scene, STOP and ask in the
+    work log before building any test scene. The Oct 6 reuse-first rule is not
+    guidance; it is acceptance criteria.
+
+13. CHECK MAIN BEFORE YOU WRITE (Craig 2026-10-10 — STANDING, HARD RULE): Before
+    touching any shared file (UI scripts, scene files, autoloads, HUD layouts),
+    read its CURRENT state on main via the github skill. Your brief's "already
+    on main" section lists what is there now — if another worker's merged PR
+    already modified the area you are about to rewrite, DO NOT overwrite it:
+    rebase your approach onto their work and say so in the work log. Silently
+    reverting merged work is the revert/redo pattern Craig banned on 2026-10-10.
+    When in doubt, ask in the work log before deleting anything another PR added.
+
+14. PEDESTRIAN / CHARACTER SOURCING (Craig 2026-10-06 — STANDING): Mixamo does
     NOT support API keys — never ask Craig for one. If an Adobe login is needed
     to pull Mixamo characters/animations, sign in with Craig's default Gmail
     (craigpdy@gmail.com) via the browser (Google sign-in default); never ask
