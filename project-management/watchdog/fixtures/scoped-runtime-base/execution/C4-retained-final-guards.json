@@ -1,0 +1,13 @@
+{
+  "check_id": "retained-final-guards",
+  "command": [
+    "python3",
+    "project-management/watchdog/test_coordinator_final_guards.py"
+  ],
+  "exit_code": 0,
+  "output": "PASS merged PR independently corroborates source after branch deletion\nPASS merged review retains wronghead\nPASS merged review retains missingpr\nPASS merged review retains closedpr\nPASS merged review retains twoexactmerged\nPASS merged review retains selfreview\nPASS merged review retains ownerunknown\nPASS merged review retains prsreadfail\nPASS merged review retains stops\nPASS merged review retains denial\nPASS branch unmapped exception remains verification-only\nPASS branch partial exception remains verification-only\nPASS branch missing exception remains verification-only\nPASS postmerge no duplicate merge or coding\nPASS disputed postmerge acceptance permits fresh independent verification\nTOTAL 15 FAILURES 0 []\n",
+  "source_head": "c202855604e4315fa28b5116a8763cd85594bc5d",
+  "build": null,
+  "performed_at": "2026-10-10T05:48:32.750467+00:00",
+  "actor_id": "dot-scoped-runtime-base-author"
+}
