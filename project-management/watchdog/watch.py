@@ -2380,6 +2380,7 @@ def cmd_flagship_waiting(args):
               if sst.get("last_task")}
     now = datetime.now(timezone.utc)
     waiting = []
+    unknown = []
     for r in rows:
         task = r["task"]
         if r["prefix"] not in ("open", "in_progress"):
@@ -2415,19 +2416,31 @@ def cmd_flagship_waiting(args):
             lu = r.get("last_update", "")
             try:
                 note_ts = parse_ts(lu)
-                if note_ts is not None and note_ts.tzinfo is None:
-                    note_ts = note_ts.replace(tzinfo=timezone.utc)
             except Exception:
                 note_ts = None
-        hours = (now - note_ts).total_seconds() / 3600 if note_ts else 999
+        if note_ts is None:
+            # Unknown age must not establish the 48h threshold (2026-10-10:
+            # empty/em-dash/invalid Last update used to become parked=999h).
+            # Skip the waiting verdict; report it separately so it cannot
+            # read as a parked flagship task.
+            unknown.append((task, r["status"][:60]))
+            continue
+        if note_ts.tzinfo is None:
+            # Naive timestamps (board dates, state-note wall-clock) are
+            # interpreted as UTC consistently — never crash on
+            # aware-minus-naive subtraction (2026-10-10 TypeError).
+            note_ts = note_ts.replace(tzinfo=timezone.utc)
+        hours = (now - note_ts).total_seconds() / 3600
         if hours >= 48:
             waiting.append((task, hours, r["status"][:60]))
     if not waiting:
         print("FLAGSHIP-WAITING-NONE: no flagship task parked >48h")
-        return
-    for task, hours, status in sorted(waiting, key=lambda x: -x[1]):
-        print(f"FLAGSHIP-WAITING {task} parked={hours:.0f}h :: {status}")
-    print(f"FLAGSHIP-WAITING-DONE {len(waiting)} tasks parked >48h")
+    else:
+        for task, hours, status in sorted(waiting, key=lambda x: -x[1]):
+            print(f"FLAGSHIP-WAITING {task} parked={hours:.0f}h :: {status}")
+        print(f"FLAGSHIP-WAITING-DONE {len(waiting)} tasks parked >48h")
+    for task, status in unknown:
+        print(f"FLAGSHIP-UNKNOWN-AGE {task} :: no usable waiting-since timestamp")
 
 
 # ---------------------------------------------------------------------------
