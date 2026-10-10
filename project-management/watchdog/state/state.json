@@ -659,6 +659,10 @@
     {
       "ts": "2026-10-10T13:45:00Z",
       "note": "td-249 parked: unowned open, model=standard, but task file (Craig 2026-10-09) marks it LOW backlog, do not auto-dispatch until higher-priority work clears. Left parked."
+    },
+    {
+      "ts": "2026-10-10T14:39:28Z",
+      "note": "watchdog 2026-10-10T14:3xZ run: STEP 0a liveness 15 ALIVE (td-188/189/190/196/217/239-248; td-217 held per Craig strong-high/max conflict, td-195 cop-float FAIL no-redispatch), conflicts OK, transitions NO-FLIPS, cloud sessions LOGIN_BLOCKED ~92h (loginfail SUPPRESSED, notified 4.5h ago). STEP 0b review-sweep: no VALIDATOR-DUE (td-212/213/223/224 validators already dispatched). Orphan sweep: 70 ORPHAN-HELD (inspector report-only, by design) + 24 ORPHAN-DRAFT + 6 ORPHAN-UNKNOWN, zero ORPHAN-READY \u2014 nothing shipped. STEP 0c inbox: dot defect dot-20261010T140000Z-watchpy-regression (PR460 removed coordinator_cli routing). Owner identified: doublehidenblade (Craig, committed as Dingyu Peng, self-merged 13:52Z per his 2026-10-10 systemic-fixes demand). Repair PR #461 opened (head 8ca5f4430040cd2b5d19ce2b1794f06c2cec248e), coordinator routing + pinned evidence routes restored, flagship-waiting preserved + P2 fixed; HELD for independent review, reply posted in #358 (comment 6098630983). No legacy admission/queue/ship paths executed during reconciliation. STEP 1/2: only unowned candidate td-249 (standard/M) \u2014 NOT dispatched per task file 'Priority: LOW \u2014 backlog, do not auto-dispatch'. flagship-waiting: NONE parked >48h."
     }
   ],
   "classification_spawned_at": "2026-09-28T00:18:30+00:00",
@@ -2355,24 +2359,24 @@
     "td-249": "open"
   },
   "run_verdicts": {
-    "ts": "2026-10-10T13:44:48.497894+00:00",
+    "ts": "2026-10-10T14:14:33.421521+00:00",
     "checks": {
       "liveness": [
         "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
         "ALIVE td-189 (no heartbeat file; task-file commit 520abb8 2026-10-09T13:29)",
-        "ALIVE td-190 (no heartbeat file; task-file commit eaeb775 2026-10-09T13:52; open PR #615 Inspector report: 2026-10-09 12:34 EDT (report-only, do not ; open PR #602 Inspector )",
+        "ALIVE td-190 (no heartbeat file; task-file commit eaeb775 2026-10-09T13:52; open PR #615 Inspector report: 2026-10-09 12:34 EDT (report-only, do not )",
         "ALIVE td-196 (no heartbeat file; task-file commit dbd5916 2026-10-09T13:02)",
-        "ALIVE td-239 (no heartbeat file; task-file commit c7fd96d 2026-10-09T14:21; open PR #602 Inspector report: 2026-10-09 10:34 EDT (report-only, do not )",
+        "ALIVE td-239 (no heartbeat file; task-file commit c7fd96d 2026-10-09T14:21)",
         "ALIVE td-240 (no heartbeat file; task-file commit b3a194e 2026-10-09T16:06)",
         "ALIVE td-241 (no heartbeat file; task-file commit 50902c8 2026-10-09T15:18)",
         "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
         "ALIVE td-243 (no heartbeat file; open PR #653 Inspector report: 2026-10-10 09:34 EDT (report-only, do not ; open PR #652 Inspector report 2026-10-10 08:34 EDT (report-only, d)",
         "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
         "ALIVE td-248 (no heartbeat file; open PR #629 td-248: retract unsupported verdict criteria (retraction + b; open PR #628 Inspector report: 2026-10-09 16:34 EDT (report-only, )",
-        "ALIVE td-245 (heartbeat stale (1209min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:)",
-        "ALIVE td-246 (heartbeat stale (1239min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-        "ALIVE td-247 (heartbeat stale (1279min); task-file commit 4d2c79d 2026-10-09T17:33)",
-        "ALIVE td-217 (heartbeat stale (903min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
+        "ALIVE td-245 (heartbeat stale (1239min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:)",
+        "ALIVE td-246 (heartbeat stale (1269min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+        "ALIVE td-247 (heartbeat stale (1309min); task-file commit 4d2c79d 2026-10-09T17:33)",
+        "ALIVE td-217 (heartbeat stale (933min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
       ],
       "transitions": [
         "NO-FLIPS"
@@ -2395,10 +2399,10 @@
     },
     "check_ts": {
       "board-check": "2026-10-09T11:43:54.333163+00:00",
-      "liveness": "2026-10-10T13:44:24.075652+00:00",
+      "liveness": "2026-10-10T14:14:25.653273+00:00",
       "classification-health": "2026-10-10T13:44:48.497894+00:00",
-      "transitions": "2026-10-10T13:44:39.497837+00:00",
-      "conflicts": "2026-10-10T13:44:33.064745+00:00",
+      "transitions": "2026-10-10T14:14:33.421521+00:00",
+      "conflicts": "2026-10-10T14:14:28.587594+00:00",
       "all-blocked": "2026-10-04T20:29:38.387112+00:00",
       "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
     }
