@@ -1987,7 +1987,8 @@
    "text": "watchdog 2026-10-10 09:20 EDT run: cloud sessions both REPORT_LOGIN (91.5h, notify suppressed ~3.5h ago \u2014 standing). review-sweep: no VALIDATOR-DUE (14 rows OK). inbox: 1 new dot status comment (6097521912, td-231 author activated 12:09Z, PR650+PR457 merged after independent doc review, no ack required); no Muse reservation conflict; silent, checkpoint advanced. dispatch-candidates: only td-249 unowned, HELD per task-file Priority-LOW do-not-auto-dispatch (re-verified live on main); td-163/td-173 flagship waiting, all others owned. adopt-orphans: no ORPHAN-READY; ORPHAN-UNKNOWN #636/#629/#606/#596/#576/#489 left to live workers/board flips. liveness: 15 workers ALIVE, no DEAD. conflicts OK, transitions NO-FLIPS. classifications stale 188 runs (degraded watchdog, standing; only Craig's manual sign-in restores cloud sessions)."
   },
   "2026-10-10T15:04Z deregistered td-163 (muse-subagent): work complete \u2014 kit already merged via PR #331; no rework done",
-  "2026-10-10T15:06Z deregistered td-173 (muse-subagent): work complete \u2014 kit already merged via PR #338; docs gaps closed in PR #658, left for validator"
+  "2026-10-10T15:06Z deregistered td-173 (muse-subagent): work complete \u2014 kit already merged via PR #338; docs gaps closed in PR #658, left for validator",
+  "watchdog 2026-10-10 14:12 EDT run: cloud sessions both REPORT_LOGIN (96.6h, notify suppressed 2.4h ago \u2014 standing). review-sweep: no VALIDATOR-DUE (14 rows OK). inbox: no new dot comments since 6099481959 (checkpoint current); silent. dispatch-candidates: only td-249 unowned, HELD per task-file Priority-LOW do-not-auto-dispatch (re-verified live on tokyo-drift-3d main); flagship-waiting: none >48h; all others owned. adopt-orphans: no ORPHAN-READY; 69 HELD (hourly inspector report-only PRs, left alone), ORPHAN-UNKNOWN #636/#629/#606/#596/#576/#489/#658/#657 left alone per body. liveness: 15 workers ALIVE, no DEAD. conflicts OK, transitions NO-FLIPS. classifications stale 197 runs (degraded watchdog, standing; only Craig manual sign-in restores cloud). Self-correction: probe of validator-dispatched with fake SHA reverted (td-243 entry removed from ledger); lesson: never probe mutating watch.py commands with fake data."
  ],
  "workers": {
   "td-188": {
@@ -2131,7 +2132,7 @@
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only"
  },
  "classification_health": {
-  "stale_runs": 196
+  "stale_runs": 197
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2361,7 +2362,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-10T17:46:17.883691+00:00",
+  "ts": "2026-10-10T18:15:15.547676+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2375,16 +2376,16 @@
     "ALIVE td-243 (no heartbeat file; open PR #661 Inspector report: 2026-10-10 13:34 EDT (report-only, do not ; open PR #660 Inspector report: 2026-10-10 12:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
     "ALIVE td-248 (no heartbeat file; open PR #629 td-248: retract unsupported verdict criteria (retraction + b; open PR #628 Inspector report: 2026-10-09 16:34 EDT (report-only, )",
-    "ALIVE td-245 (heartbeat stale (1450min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:)",
-    "ALIVE td-246 (heartbeat stale (1480min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (1520min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "ALIVE td-217 (heartbeat stale (1144min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
+    "ALIVE td-245 (heartbeat stale (1480min); open PR #633 [validator] td-245: C2 recapture REJECTED \u2014 6/6 peer finding; open PR #632 [Report-only] Inspector report 2026-10-09 17:)",
+    "ALIVE td-246 (heartbeat stale (1510min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (1550min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "ALIVE td-217 (heartbeat stale (1173min); open PR #636 td-217: severity-scaled damage model (43/43 tests PASS))"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=196"
+    "STALE-RUNS=197"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2401,10 +2402,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-10T17:45:41.560141+00:00",
-   "classification-health": "2026-10-10T17:46:17.883691+00:00",
-   "transitions": "2026-10-10T17:45:57.677495+00:00",
-   "conflicts": "2026-10-10T17:45:52.937219+00:00",
+   "liveness": "2026-10-10T18:15:00.785586+00:00",
+   "classification-health": "2026-10-10T18:15:15.547676+00:00",
+   "transitions": "2026-10-10T18:15:12.659367+00:00",
+   "conflicts": "2026-10-10T18:15:08.601487+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
@@ -2498,11 +2499,6 @@
    "pr": 603,
    "head_sha": "66e05d8b",
    "at": "2026-10-09T15:10:01.282585+00:00"
-  },
-  "td-243": {
-   "pr": 606,
-   "head_sha": "6bf2e184",
-   "at": "2026-10-09T15:39:12.690190+00:00"
   },
   "td-242": {
    "pr": 608,
