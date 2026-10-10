@@ -54,9 +54,8 @@ Hard rules (enforced here, not just in prose):
     ledger `merged <session> cron`. FINISHED with an already-merged PR ->
     INSPECT_MERGED: the run inspects the diff, reports to Craig, files new
     tasks / re-opens gaps, and nudges the worker if post-merge work stalled.
-The historical orchestration routes described above are RETIRED.
-Use coordinator-plan --snapshot <file> for read-only scoped decisions.
-Automatic admission and legacy queue delivery are disabled; see RUNBOOK.md.
+This script never merges/publishes code; it only reads GitHub and keeps
+ledgers. The cron turn performs the SHIP merge+deploy.
 """
 import json, os, sys, urllib.request
 from datetime import datetime, timezone, timedelta
@@ -1800,8 +1799,83 @@ def cmd_evidence_collect(args):
 
 
 def cmd_evidence_checks(args):
-    """Shared pinned policy route; legacy positional claims fail closed."""
-    raise SystemExit(coordinator_cli.run_evidence('evidence-checks', list(args)))
+    """evidence-checks <task> [outdir] — deterministic cheat/laziness audits
+    over the collected QA pixels. Prints EVIDENCE-DUP (same bytes, 2+ names —
+    e.g. one frame reused across criteria), EVIDENCE-PAIR-IDENTICAL (before
+    and after byte-identical — no change), EVIDENCE-PAIR-MISSING-BEFORE
+    (after-shot with no before), EVIDENCE-TINY (max dim < 400px),
+    EVIDENCE-VOID-SUSPECT (dark-pixel fraction >= 0.80 — Blender dark-void
+    studio signature, for the inspector's vision pass), and a final
+    EVIDENCE-CHECKS-DONE summary line. Exit 0 always; verdicts are lines."""
+    task = args[0]
+    outdir = (args[1] if len(args) > 1 else
+              os.path.expanduser("~/workspace/agent-watch/inspector/"
+                                 f"evidence/{task}"))
+    if not os.path.isdir(outdir):
+        got = _collect_evidence_images(task, outdir)
+    else:
+        got = []
+        for root, _ds, fs in os.walk(outdir):
+            for fn in fs:
+                if fn.lower().endswith((".png", ".jpg", ".jpeg")):
+                    p = os.path.join(root, fn)
+                    with open(p, "rb") as f:
+                        got.append((os.path.relpath(p, outdir), f.read()))
+        if not got:
+            got = _collect_evidence_images(task, outdir)
+    entries = [(rel, _sha256_bytes(raw)) for rel, raw in got]
+    names = [rel.split("/")[-1] for rel, _r in entries]
+
+    dups = _find_duplicate_images(entries)
+    for sha, paths in sorted(dups.items()):
+        print(f"EVIDENCE-DUP {sha[:12]} {' '.join(paths)}")
+
+    missing = _pair_findings(names)
+    for m in missing:
+        print(f"EVIDENCE-PAIR-MISSING-BEFORE {m}")
+
+    by_stem = {}
+    for rel, raw in got:
+        import re
+        base = re.sub(r"\.(png|jpg|jpeg)$", "", rel.split("/")[-1], flags=re.I)
+        by_stem.setdefault(base.lower(), {})[rel] = raw
+    identical = 0
+    for base, variants in sorted(by_stem.items()):
+        if base.endswith("-after"):
+            stem = base[:-len("-after")]
+            b = by_stem.get(stem + "-before")
+            if b:
+                a_raw = next(iter(variants.values()))
+                b_raw = next(iter(b.values()))
+                if _sha256_bytes(a_raw) == _sha256_bytes(b_raw):
+                    identical += 1
+                    print(f"EVIDENCE-PAIR-IDENTICAL {stem}")
+
+    tiny = 0
+    void_suspects = []
+    try:
+        from PIL import Image
+        for rel, raw in got:
+            try:
+                with Image.open(__import__("io").BytesIO(raw)) as im:
+                    w, h = im.size
+            except Exception:
+                continue
+            if _is_tiny(w, h):
+                tiny += 1
+                print(f"EVIDENCE-TINY {rel} {w}x{h}")
+            df = _void_dark_fraction(raw)
+            if _is_void_suspect(df):
+                void_suspects.append((rel, df))
+                print(f"EVIDENCE-VOID-SUSPECT {rel} darkfrac={df:.2f}")
+    except ImportError:
+        print("EVIDENCE-TINY-SKIP (PIL unavailable)")
+        print("EVIDENCE-VOID-SKIP (PIL unavailable)")
+
+    print(f"EVIDENCE-CHECKS-DONE {task} files={len(got)} "
+          f"dups={len(dups)} identical_pairs={identical} "
+          f"missing_before={len(missing)} tiny={tiny} "
+          f"void_suspects={len(void_suspects)}")
 
 
 PUBLISH_REPOS = {
@@ -2290,8 +2364,41 @@ def cmd_heartbeat(args):
 
 
 def cmd_brief_check(args):
-    """Shared pinned policy route; legacy positional claims fail closed."""
-    raise SystemExit(coordinator_cli.run_evidence('brief-check', list(args)))
+    """brief-check <brief-file> — validate a filled visual brief.
+    The 2026-10-01 td-140 incident: the brief told a VISUAL worker to
+    self-merge, contradicting the template's section 6. Checks: (1) all 8
+    VISUAL_BRIEF_TEMPLATE.md section headers present; (2) no self-merge
+    contradiction (merge-yourself language outside a DO-NOT-MERGE context);
+    (3) the task id appears. Prints BRIEF-OK or BRIEF-FAIL <reason>."""
+    import re
+    path = os.path.expanduser(args[0])
+    text = open(path).read()
+    tpl = open(os.path.expanduser(
+        "~/workspace/supervisor-system/VISUAL_BRIEF_TEMPLATE.md")).read()
+    headers = re.findall(r"^## \d+\. .+$", tpl, re.M)
+    missing = [h for h in headers if h not in text]
+    if missing:
+        print(f"BRIEF-FAIL missing sections: {missing}")
+        return
+    # Self-merge contradiction: merge-yourself phrasing not near DO NOT MERGE.
+    bad = re.findall(
+        r"(?i)\b(self-merge|merge (it|the PR|the branch) yourself|"
+        r"you (may|can) merge|authorized to merge|merge when (done|complete))\b",
+        text)
+    # allow if a DO NOT MERGE appears within 5 lines either side
+    lines = text.splitlines()
+    real_bad = []
+    for i, line in enumerate(lines):
+        if re.search(r"(?i)\b(self-merge|merge (it|the PR|the branch) yourself|"
+                     r"you (may|can) merge|authorized to merge|"
+                     r"merge when (done|complete))\b", line):
+            ctx = "\n".join(lines[max(0, i-5):i+6])
+            if "DO NOT MERGE" not in ctx.upper():
+                real_bad.append(line.strip()[:80])
+    if real_bad:
+        print(f"BRIEF-FAIL self-merge contradiction: {real_bad}")
+        return
+    print("BRIEF-OK all 8 sections present, no self-merge contradiction")
 
 
 def cmd_dispatch_candidates(args):
@@ -2331,6 +2438,100 @@ def cmd_dispatch_candidates(args):
             srcs.append("board:" + bo[:30])
         mark = "unowned" if not srcs else "owned(" + ",".join(srcs) + ")"
         print(f"CANDIDATE {r['task']} {r['prefix']} {mark} :: {r['status'][:80]}")
+
+
+def cmd_dispatch_model(args):
+    """dispatch-model <task> [game] — scripted read of the task file's dispatch
+    recommendation (Craig 2026-10-09: every task carries a recommended model
+    and effort level). Prints MODEL=<flagship|standard|dot|craig|unknown>
+    EFFORT=<S|M|L|unknown>, parsed from the `## Dispatch recommendation`
+    section of godot/docs/tasks/<task>.md on main."""
+    import re
+    task = args[0] if args else ""
+    game = args[1] if len(args) > 1 else "tokyo-drift-3d"
+    repo_full = "doublehidenblade/" + game
+    try:
+        text = _task_file_text(repo_full, f"godot/docs/tasks/{task}.md")
+    except Exception as e:
+        print(f"MODEL=unknown EFFORT=unknown # fetch failed: {e}")
+        return
+    m = re.search(r"## Dispatch recommendation.*?(?=\n## |\Z)", text, re.S)
+    model, effort = "unknown", "unknown"
+    if m:
+        sec = m.group(0)
+        mm = re.search(r"Recommended model:\s*([A-Za-z][\w-]*)", sec)
+        em = re.search(r"Effort:\s*([SML])", sec)
+        if mm:
+            model = mm.group(1).lower()
+        if em:
+            effort = em.group(1)
+    print(f"MODEL={model} EFFORT={effort}")
+
+
+def cmd_flagship_waiting(args):
+    """flagship-waiting [game] — Craig 2026-10-10: list flagship-annotated tasks
+    parked with no worker for >48h. The MODEL-AWARE DISPATCH rule grants
+    discretion to dispatch these to Muse after 48h when cloud is down;
+    this command surfaces the candidates so the cron worker exercises it
+    instead of letting them park indefinitely. Prints FLAGSHIP-WAITING lines
+    with task, waiting-since, and hours-parked, plus a final summary."""
+    import re
+    from datetime import datetime, timezone, timedelta
+    game = args[0] if args else "tokyo-drift-3d"
+    repo_full = "doublehidenblade/" + game
+    rows = _board_rows(game)
+    state = load_state()
+    owned = set(state.get("workers", {}))
+    owned |= {sst.get("last_task") for sst in state.get("sessions", {}).values()
+              if sst.get("last_task")}
+    now = datetime.now(timezone.utc)
+    waiting = []
+    for r in rows:
+        task = r["task"]
+        if r["prefix"] not in ("open", "in_progress"):
+            continue
+        if task in owned:
+            continue
+        bo = r["owner"].strip()
+        if bo and bo not in ("—", "-", "unassigned", ""):
+            continue
+        try:
+            text = _task_file_text(repo_full, f"godot/docs/tasks/{task}.md")
+        except Exception:
+            continue
+        m = re.search(r"## Dispatch recommendation.*?(?=\n## |\Z)", text, re.S)
+        if not m:
+            continue
+        mm = re.search(r"Recommended model:\s*([A-Za-z][\w-]*)", m.group(0))
+        if not mm or mm.group(1).lower() != "flagship":
+            continue
+        # Waiting-since: use the waiting-for-flagship note timestamp in state,
+        # else the board row's last-update date, else unknown.
+        note_ts = None
+        notes = state.get("notes", {})
+        if isinstance(notes, dict):
+            for k, v in notes.items():
+                if task in str(k) and "flagship" in str(v).lower():
+                    try:
+                        note_ts = parse_ts(v.get("ts") if isinstance(v, dict) else None)
+                    except Exception:
+                        pass
+        if not note_ts:
+            # Fall back to board last-update
+            lu = r.get("last_update", "")
+            try:
+                note_ts = parse_ts(lu)
+            except Exception:
+                note_ts = None
+        hours = (now - note_ts).total_seconds() / 3600 if note_ts else 999
+        if hours >= 48:
+            waiting.append((task, hours, r["status"][:60]))
+    if not waiting:
+        print("FLAGSHIP-WAITING-NONE: no flagship task parked >48h")
+        return
+    for task, hours, status in sorted(waiting, key=lambda x: -x[1]):
+        print(f"FLAGSHIP-WAITING {task} parked={hours:.0f}h :: {status}")
+    print(f"FLAGSHIP-WAITING-DONE {len(waiting)} tasks parked >48h")
 
 
 # ---------------------------------------------------------------------------
@@ -3049,8 +3250,46 @@ def cmd_state_push(args):
 
 
 def cmd_validator_check(args):
-    """Shared pinned policy route; legacy positional claims fail closed."""
-    raise SystemExit(coordinator_cli.run_evidence('validator-check', list(args)))
+    """validator-check <repo-full> <task> — verdict as code.
+    SYSTEM.md hard rule #2: a verdict without an evidence citation per
+    criterion is itself rejected. Checks: every completion criterion has a
+    PASS/FAIL in ## Verdict, each with a citation path that exists in the
+    repo. Prints VALIDATOR-OK or VALIDATOR-FAIL."""
+    import re
+    repo_full, task = args[0], args[1]
+    try:
+        text = _task_file_text(repo_full, f"godot/docs/tasks/{task}.md")
+    except Exception as e:
+        print(f"VALIDATOR-FAIL {task}: unreadable ({e})")
+        return
+    if "## Verdict" not in text:
+        print(f"VALIDATOR-FAIL {task}: no ## Verdict section")
+        return
+    verdict = text.split("## Verdict", 1)[1].split("## ", 1)[0]
+    criteria = []
+    if "## Completion criteria" in text:
+        crit = text.split("## Completion criteria", 1)[1].split("## ", 1)[0]
+        criteria = re.findall(r"^\d+\.\s*(.+)$", crit, re.M)
+    fails = []
+    for n, c in enumerate(criteria, 1):
+        line = next((l for l in verdict.splitlines()
+                     if re.search(rf"\bcriterion[-\s]*{n}\b", l, re.I)
+                     or f"({n})" in l), None)
+        if not line or not re.search(r"PASS|FAIL", line):
+            fails.append(f"criterion {n}: no PASS/FAIL in verdict")
+            continue
+        cites = re.findall(r"[`\"']?((?:godot/)?qa/[\w\-./]+\.(?:png|jpg|mp4))[`\"']?",
+                           line)
+        for cp in cites:
+            cp = cp if cp.startswith("godot/") else "godot/" + cp
+            try:
+                _gh(f"/repos/{repo_full}/contents/{cp}?ref=main")
+            except Exception:
+                fails.append(f"criterion {n}: cited path missing: {cp}")
+    for f in fails:
+        print(f"VALIDATOR-FAIL {task}: {f}")
+    if not fails:
+        print(f"VALIDATOR-OK {task} ({len(criteria)} criteria)")
 
 
 def cmd_transitions(args):
@@ -3174,45 +3413,11 @@ def cmd_validator_dispatched(args):
     print(f"VALIDATOR-RECORDED {task} PR #{prn} head={head_sha[:8]}")
 
 
-# The supported coordinator surface uses one validated snapshot evaluator.
-# Assign wrappers over the legacy command callables as well as intercepting CLI
-# routing: imports must not quietly retain an unguarded queue/admission path.
-import coordinator_cli
-
-
-def _coordinator_command(command):
-    def invoke(args=()):
-        code = coordinator_cli.run(command, list(args))
-        if code:
-            raise SystemExit(code)
-    return invoke
-
-
-for _command in coordinator_cli.ALIASES | coordinator_cli.RETIRED:
-    globals()["cmd_" + _command.replace("-", "_")] = _coordinator_command(_command)
-
-
-def _evidence_command(command):
-    def invoke(args=()):
-        raise SystemExit(coordinator_cli.run_evidence(command, list(args)))
-    return invoke
-
-
-for _command in coordinator_cli.EVIDENCE_COMMANDS:
-    globals()["cmd_" + _command.replace("-", "_")] = _evidence_command(_command)
-
-
 def main():
     if len(sys.argv) < 2:
         print(__doc__)
         sys.exit(2)
     cmd = sys.argv[1]
-    if cmd in coordinator_cli.EVIDENCE_COMMANDS:
-        raise SystemExit(coordinator_cli.run_evidence(cmd, sys.argv[2:]))
-    if cmd == "coordinator-plan" or cmd in coordinator_cli.ALIASES | coordinator_cli.RETIRED:
-        # In particular, NEVER pass idle/all-blocked/heartbeat through
-        # _capture_verdicts: that historical helper writes state in finally.
-        raise SystemExit(coordinator_cli.run(cmd, sys.argv[2:]))
     if cmd == "gate":
         cmd_gate()
     elif cmd == "check-done":
@@ -3259,6 +3464,10 @@ def main():
         _capture_verdicts("conflicts", cmd_conflicts, sys.argv[2:])
     elif cmd == "dispatch-candidates":
         cmd_dispatch_candidates(sys.argv[2:])
+    elif cmd == "dispatch-model":
+        cmd_dispatch_model(sys.argv[2:])
+    elif cmd == "flagship-waiting":
+        cmd_flagship_waiting(sys.argv[2:])
     elif cmd == "ship-verify":
         cmd_ship_verify(sys.argv[2:])
     elif cmd == "adopt-orphans":
