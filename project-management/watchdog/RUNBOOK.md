@@ -660,7 +660,85 @@ source. This does not exclude owners, queue reservations, wildcards or holds:
 the complete relevant region/identity queries and all receipts remain mandatory.
 Full-file equivalence includes Git file mode, not just blob bytes.
 
-### Actual scoped collection receipts
+### Opt-in v2 runtime composition and foreign historical context
+
+Version 1 and snapshots without `scoped_source` keep their existing behavior.
+Version 2 keeps the same operation limits, complete raw inventory, protected
+regions, strict candidate diff and evidence/ownership/publication gates. It adds
+exactly `composition` and `context_assessments` to the scoped object, and `target`
+to `candidate` and the selected raw PR. It does not install a collector or grant
+permission to act from a fixture or a successful unit test.
+
+- `base_heads`, snapshot repositories, rule membership and the genuine ACK
+  remain pinned to current canonical rule heads. They never become the runtime
+  target. `composition` contains `repository`, `target_ref` (full `refs/heads/...`),
+  `head_sha`, `request_id`, `designation_ref`. The canonical task and its candidate
+  artifact must both contain an identical `runtime_composition` object with the
+  first four fields. This is an explicit per-task opt-in, not an inferred base.
+- The actual selected PR `target` is `{repository, ref, head_sha}`. Collect its
+  real current base ref and branch head, including an exact raw branch entry
+  identified as `repository:refs/heads/...`. A same-SHA different ref, retarget,
+  moved/deleted target or candidate-as-target is rejected. The candidate fork
+  must equal the composition head and its verified parent chain must include
+  the implementation head. For this repository only, all source comparison and
+  containment proofs use the designated composition; current main is still
+  included in the complete inventory and genuine protected conflicts block.
+- The named request must independently authorize this exact task, operation
+  and executor. A wildcard executor alone is insufficient. `designation_ref`
+  cites a raw Git JSON decision with exactly `kind: runtime-composition`,
+  `task_id`, `actor_id`, `performed_at`, `binding` (the exact scoped action),
+  `composition` (the task's four-field descriptor), `candidate` (PR ID, branch
+  ID and target), `request_digest`, `decision: DESIGNATED`, and `rationale`.
+  Exactly one matching designation is accepted.
+
+Foreign **row-region** source only may additionally use a context assessment
+when the strict row parser cannot prove disjointness. Candidate/dependency row
+parsing, whole-file conflicts, modes, absent objects and unsupported prerequisite
+graphs receive no relaxation. Both foreign fork/head leaves must be regular,
+same-mode, hash-proved UTF-8 files with no protected row identity anywhere in
+either blob, including recognized encoded/ambiguous forms. Literal ID absence
+alone never proves that a paragraph is unrelated: a global stop or shared-owner
+change can apply without naming the task.
+
+`context_assessments` is a unique list of exact Git citations. Each assessment
+has exactly `kind: foreign-row-context`, `task_id`, `actor_id`, `performed_at`,
+`binding`, `spans`, `identity`, `decision: OUTSIDE_SCOPE`, and `rationale`:
+
+- `binding` is the complete `context_binding(...)` value: action, current rule
+  heads, composition, protected/related identities and regions, plus exact raw
+  source kind/ID/repository/branch/head/fork/comparison-base/before-commit/path
+  and both file modes/blobs. Branch and PR entries need their own assessments.
+- `spans` must cover every changed line span returned by `context_spans(...)`,
+  with exact zero-based half-open line bounds and digests of both line lists.
+  Each span adds a nonempty `rationale` and `effects` containing exactly `task`,
+  `dependency`, `owner`, `global_stop`, all explicitly `outside_scope`.
+- `identity` contains `classification: unambiguous_foreign` and a nonempty
+  rationale. An independent person/agent must actually inspect all changed
+  context and its applicability/closure. The code validates the authenticated
+  judgment's source, coverage and schema; it does not infer semantics with NLP.
+  Unknown or ambiguous context must be reported as such and remains blocked.
+
+Both decision kinds use the existing authenticated `authority.attestations`
+channel: `kind: decision`, exact `ref`, `actor_id`, `observed_at`, nonempty
+`provenance`, and `binding: {kind: <decision kind>, digest: <ep.digest(record)>}`.
+The actor must be the authenticated coordinator or independent reviewer, never
+the author. A worker-supplied artifact or provenance string cannot authenticate
+itself. The collector must inspect all matching assessments, not select a
+convenient PASS: duplicates/conflicts, unselected current assessments, applicable
+or unknown effects fail closed. Every selected assessment must actually be used.
+Judgments cannot postdate their observations; observations expire after fifteen
+minutes. All new inputs and decision contents are bound by the ordinary input
+digest, scope digest and dispatch guard. The earliest observation limits expiry.
+Independent review artifacts may live on a separate proof commit; do not put an
+artifact-tip-bound designation inside that same tip and invent a circular hash.
+
+The scoped query includes composition, actual PR target, assessment citations and
+`include_complete_foreign_context_and_applicability: true`. Current complete
+owner/queue/global-wildcard-stop queries remain required even for contained or
+context-excluded source. See the inline `RuntimeCompositionTests` fixtures and
+`fixtures/scoped-runtime-base/README.md` for offline reproduction and limits.
+
+### Actual scoped collection receipts (both versions)
 
 For each required table in every declared repository, provide one receipt with:
 `id`, `kind`, `repository`, `source_repository`, `ref_sha`, `observed_at`,
