@@ -1,5 +1,11 @@
 # Watchdog — scoped coordinator decisions
 
+Use the [bounded execution policy](../dispatch/EXECUTION_POLICY.md),
+[coordinator prompt](../prompts/COORDINATOR_PROMPT.md) and [watchdog prompt](../prompts/WATCHDOG_PROMPT.md)
+for implementation coordination. `dispatch_loop.py` persists attempts/session/first-write
+receipts and returns an authorized-tool handoff or exact candidate escalation; it
+never launches workers. Offline tests: `python3 -m unittest discover -s project-management/watchdog -p test_dispatch_loop.py -v`.
+
 The supported coordinator route is a read-only evaluator over fresh, explicitly
 accounted source observations. It identifies authorized next actions and scoped
 blockers without writing live state, creating sessions, contacting agents or

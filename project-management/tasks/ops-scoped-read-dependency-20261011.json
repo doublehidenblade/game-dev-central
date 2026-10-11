@@ -1,0 +1,74 @@
+{
+  "id": "ops-scoped-read-dependency-20261011",
+  "title": "Separate pinned evidence reads from exclusive writable regions in scoped admission",
+  "status": "blocked",
+  "owner": null,
+  "ask": {
+    "by": "Craig",
+    "date": "2026-10-11",
+    "request": "Inspect scoped_admission.py C1 read-versus-exclusive-write coupling; implement narrowly or file a precise bounded blocking repair without reviving ops-stuck-resource."
+  },
+  "bug_shape": "Canonical evidence_policy C1 source_paths are imported into protected regions. A required read of the entire board is then treated as an exclusive dependency/write region against every foreign PR; unchanged candidate boards cannot be narrowed to a row delta.",
+  "reference_images": [],
+  "source_receipts": [
+    "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/watchdog/scoped_admission.py",
+    "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/tasks/ops-stuck-resource-20261011.json",
+    "https://github.com/doublehidenblade/game-dev-central/pull/450",
+    "https://github.com/doublehidenblade/game-dev-central/pull/467"
+  ],
+  "precise_mechanism": [
+    "verify(): required includes every canonical evidence_policy source_paths entry (lines 436-446 in pinned source), so C1's board read must be a protected region.",
+    "Row scoping requires region.path in the candidate delta and exact row_delta (lines 474-478); a candidate that only reads the board cannot narrow it to its row.",
+    "Foreign branch/PR changed_paths are compared against every declared region; divergent whole-board results accumulate overlaps (lines 533-552), rejected at line 622.",
+    "PR450@17bf88d49d6ed748de163a98c7d42057ae79afec is still open and changes td-248's board row. Preserve that foreign row, ownership and acceptance correction.",
+    "Task/evidence-policy source bindings are legitimate read pins; they are not inherently an exclusive write grant. Real source dependencies and owner/queue/stop conflicts must remain protected."
+  ],
+  "scope": {
+    "proposal_only": true,
+    "write_allowlist": [
+      "project-management/watchdog/scoped_admission.py",
+      "project-management/watchdog/test_scoped_admission.py",
+      "project-management/watchdog/RUNBOOK.md"
+    ],
+    "requires": "Independently accepted narrow contract and current ownership handoff before implementation; this filing activates no author.",
+    "excluded": "No mutation of ops-stuck-resource task/board/history; no broad documentation waiver; no removal of source pinning, all-PR inventories, real write overlap, semantic dependencies, ownership, queues, stops or acceptance gates."
+  },
+  "completion_criteria": [
+    {
+      "id": "C1",
+      "criterion": "Introduce an explicit pinned-read role distinct from exclusive write/owner dependencies.",
+      "verification": "Authenticate canonical read bytes at the selected base; do not silently recategorize existing regions. Independent reviewer confirms any canonical source classified read-only has no semantic write dependency."
+    },
+    {
+      "id": "C2",
+      "criterion": "Read-only board consumption may coexist with a disjoint foreign row edit, while genuine conflicts still fail.",
+      "verification": "Offline real-Git fixture: unchanged candidate board read plus PR450-shaped foreign row passes only with explicit read classification; actual write/write, relevant owner/queue/stop, stale read pin, candidate row narrowing, changed rules and semantic dependency divergence fail."
+    },
+    {
+      "id": "C3",
+      "criterion": "Governance and parked budgets remain unchanged.",
+      "verification": "Retain scoped/evidence/coordinator tests and every preexisting assertion; no guard PASS or retry is granted to ops-stuck-resource by this proposal. Independently review exact source before adoption."
+    }
+  ],
+  "recommended_setup": {
+    "capability_tier": "frontier for authenticated source/ownership invariants",
+    "provider_preference": "Existing authorized coordinator route; no provider change",
+    "requested_model_and_effort": "Not selected; no author dispatched",
+    "environment_and_tools": "Offline Python standard-library tests with content-addressed Git fixtures",
+    "availability_checked": "Not applicable to proposal; no execution admission claimed",
+    "fallback": "wait_for_required_tier and current owner handoff",
+    "attempt_budget": "If separately activated: one coherent implementation plus one evidence-based correction; no inherited budget reset",
+    "verification_budget": "Independent exact-head source/criteria review and retained regression suites required",
+    "escalation_criteria": "Ambiguous dependency semantics or active owner conflict; park only this repair",
+    "requested_versus_confirmed": "No model/runtime claimed",
+    "actual_outcome": "Precisely filed blocking proposal; no evaluator changes or activation"
+  },
+  "evidence": [],
+  "work_log": [
+    {
+      "date": "2026-10-11",
+      "entry": "Read pinned evaluator and C1 source bindings; preserved actual protected-board failure. This proposal is separate from the implemented receipt loop and is not its prerequisite."
+    }
+  ],
+  "verdict": null
+}

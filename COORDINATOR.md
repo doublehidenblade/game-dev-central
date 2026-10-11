@@ -1,5 +1,11 @@
 # Taking over coordination? Read this first.
 
+> 2026-10-11 execution update: use the [coordinator prompt](project-management/prompts/COORDINATOR_PROMPT.md)
+> and [bounded execution policy](project-management/dispatch/EXECUTION_POLICY.md).
+> The planner below remains a read-only guard; it does not prove dispatch.
+> Candidate-scoped reconciliation supersedes any inherited fleet-wide prerequisite.
+> Existing owner, stop, communication, inspector and acceptance rules remain binding.
+
 This repo is the source of truth for Craig's game-dev agent team. If you are picking up the coordinator role (Muse, GPT, Claude — any agent), everything you need is here. Do not rely on any single agent's memory; this repo is the handoff plane.
 
 ## Where things live

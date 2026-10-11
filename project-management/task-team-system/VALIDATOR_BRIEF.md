@@ -1,5 +1,10 @@
 # VALIDATOR_BRIEF.md — template for spawning a validator subagent
 
+> **Historical copy, superseded 2026-10-11:** use [canonical VALIDATOR_BRIEF](../rules/VALIDATOR_BRIEF.md),
+> [EXECUTION_POLICY](../dispatch/EXECUTION_POLICY.md) and
+> [current deployment authorization](../watchdog/releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc).
+> Validation never grants automatic publication or a new author retry.
+
 Paste this into the spawn message, filling in the bracketed fields.
 The SYSTEM.md link is MANDATORY — it is how the validator learns the system.
 

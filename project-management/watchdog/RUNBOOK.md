@@ -1,5 +1,12 @@
 # Watchdog runbook — scoped coordinator decisions
 
+> 2026-10-11: the [execution policy](../dispatch/EXECUTION_POLICY.md) and
+> [watchdog prompt](../prompts/WATCHDOG_PROMPT.md) add the bounded persistent
+> [dispatch handoff](dispatch_loop.py). The plan/guard APIs below remain read-only
+> and unchanged. Candidate-scoped coverage supersedes any inherited requirement
+> for unrelated global reconciliation. Legacy publication/queue delivery remain
+> retired; these files do not edit a saved automation.
+
 Run from the repo root (`game-dev-central`). All paths below are repo-relative
 unless stated otherwise. The supported coordinator route below is read-only;
 legacy automatic admission and queue delivery are retired.

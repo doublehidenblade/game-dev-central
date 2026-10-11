@@ -1,5 +1,13 @@
 # Agent session watchdog — state machine
 
+> **Superseded operational instructions, 2026-10-11.** Preserve this history; do
+> not execute its automatic SHIP/failover/browser-queue/publication instructions.
+> Replacement: [WATCHDOG_PROMPT](../prompts/WATCHDOG_PROMPT.md),
+> [EXECUTION_POLICY](../dispatch/EXECUTION_POLICY.md),
+> [supported guard](RUNBOOK.md#supported-coordinator-route-2026-10-09) and
+> [Craig-request-only deployment](releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc).
+> No owner, stop, inspector, communication or acceptance rule is relaxed.
+
 ## ARCHITECTURE (2026-09-24 — structural fix after seven consecutive 1200s cron timeouts)
 The cron worker NEVER touches the browser: the browser-task dispatch blocked the worker, so no instruction-based cutoff could ever fire. Split design:
 - **Cron worker** (`agent-session-watch`): pure shell + GitHub API. Runs `watch.py decide` per session, ships parked PRs itself, spawns Muse subagents for failover/all-blocked, queues browser-needing actions (nudge/resume/steer/screenshots) into `hidden_files/pending_actions.json`, and always emits the STEP 3 heartbeat. Never spawns browser tasks.

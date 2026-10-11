@@ -1,0 +1,276 @@
+PASS in_review:pass_plus_fail
+PASS in_review:empty_criteria
+PASS in_review:partial_criteria
+PASS in_review:self_review
+PASS in_review:failed_check
+PASS in_review:old_head_review
+PASS in_review:no_reviews
+PASS merged:pass_plus_fail
+PASS merged:empty_criteria
+PASS merged:partial_criteria
+PASS merged:self_review
+PASS merged:failed_check
+PASS merged:old_head_review
+PASS merged:no_reviews
+TOTAL 14 FAILURES 0
+PASS merged PR independently corroborates source after branch deletion
+PASS merged review retains wronghead
+PASS merged review retains missingpr
+PASS merged review retains closedpr
+PASS merged review retains twoexactmerged
+PASS merged review retains selfreview
+PASS merged review retains ownerunknown
+PASS merged review retains prsreadfail
+PASS merged review retains stops
+PASS merged review retains denial
+PASS branch unmapped exception remains verification-only
+PASS branch partial exception remains verification-only
+PASS branch missing exception remains verification-only
+PASS postmerge no duplicate merge or coding
+PASS disputed postmerge acceptance permits fresh independent verification
+TOTAL 15 FAILURES 0 []
+PASS ['verification', 'upload'] :: {"actions": [{"authorization_ids": ["approved-work"], "decision_id": "e893a463fbe49a58fdcaf8ec0ddd1f114cc15df7ecba72b405470d5688d00e18", "executor_id": "native", "expires_at": "2026-10-09T12:15:00+00:00", "head_sha": "1111111111111111111111111111111111111111", "input_digest": "c0140cdbeb7da37add90d53af6ee1a2fba671ae68d28e06770a9c4eeb5d8b8d7", "operation": "verification", "owner_id": "reviewer", "repository": "example/game", "task_id": "task-a"}], "blocked": [{"executor_id": "native", "head_sha": "1111111111111111111111111111111111111111", "operation": "upload", "owner_id": "reviewer", "reasons": ["ACCEPTANCE_RECONCILIATION_REQUIRED"], "repository": "example/game", "task_id": "task-a"}], "input_digest": "c0140cdbeb7da37add90d53af6ee1a2fba671ae68d28e06770a9c4eeb5d8b8d7", "reconciliations": [], "status": "ACTION_REQUIRED", "version": 1, "warnings": ["task-a: contradictory same-head review verdicts"]}
+PASS ['upload'] :: {"actions": [], "blocked": [], "input_digest": "ac3aebf3559258f7bd8ea454680867945043922a3fa7c5dd1e985e3a8b06e293", "reconciliations": [], "status": "INPUT_REQUIRED", "version": 1, "warnings": ["task-a: contradictory same-head review verdicts"]}
+TOTAL 2 FAILURES 0
+PASS in_review conflict=False needs=[]
+PASS in_review conflict=False needs=['deploy']
+PASS in_review conflict=False needs=['merge']
+PASS in_review conflict=False needs=['merge', 'deploy']
+PASS in_review conflict=False needs=['upload']
+PASS in_review conflict=False needs=['upload', 'deploy']
+PASS in_review conflict=False needs=['upload', 'merge']
+PASS in_review conflict=False needs=['upload', 'merge', 'deploy']
+PASS in_review conflict=False needs=['verification']
+PASS in_review conflict=False needs=['verification', 'deploy']
+PASS in_review conflict=False needs=['verification', 'merge']
+PASS in_review conflict=False needs=['verification', 'merge', 'deploy']
+PASS in_review conflict=False needs=['verification', 'upload']
+PASS in_review conflict=False needs=['verification', 'upload', 'deploy']
+PASS in_review conflict=False needs=['verification', 'upload', 'merge']
+PASS in_review conflict=False needs=['verification', 'upload', 'merge', 'deploy']
+PASS in_review conflict=False needs=['implementation']
+PASS in_review conflict=False needs=['implementation', 'deploy']
+PASS in_review conflict=False needs=['implementation', 'merge']
+PASS in_review conflict=False needs=['implementation', 'merge', 'deploy']
+PASS in_review conflict=False needs=['implementation', 'upload']
+PASS in_review conflict=False needs=['implementation', 'upload', 'deploy']
+PASS in_review conflict=False needs=['implementation', 'upload', 'merge']
+PASS in_review conflict=False needs=['implementation', 'upload', 'merge', 'deploy']
+PASS in_review conflict=False needs=['implementation', 'verification']
+PASS in_review conflict=False needs=['implementation', 'verification', 'deploy']
+PASS in_review conflict=False needs=['implementation', 'verification', 'merge']
+PASS in_review conflict=False needs=['implementation', 'verification', 'merge', 'deploy']
+PASS in_review conflict=False needs=['implementation', 'verification', 'upload']
+PASS in_review conflict=False needs=['implementation', 'verification', 'upload', 'deploy']
+PASS in_review conflict=False needs=['implementation', 'verification', 'upload', 'merge']
+PASS in_review conflict=False needs=['implementation', 'verification', 'upload', 'merge', 'deploy']
+PASS in_review conflict=True needs=[]
+PASS in_review conflict=True needs=['deploy']
+PASS in_review conflict=True needs=['merge']
+PASS in_review conflict=True needs=['merge', 'deploy']
+PASS in_review conflict=True needs=['upload']
+PASS in_review conflict=True needs=['upload', 'deploy']
+PASS in_review conflict=True needs=['upload', 'merge']
+PASS in_review conflict=True needs=['upload', 'merge', 'deploy']
+PASS in_review conflict=True needs=['verification']
+PASS in_review conflict=True needs=['verification', 'deploy']
+PASS in_review conflict=True needs=['verification', 'merge']
+PASS in_review conflict=True needs=['verification', 'merge', 'deploy']
+PASS in_review conflict=True needs=['verification', 'upload']
+PASS in_review conflict=True needs=['verification', 'upload', 'deploy']
+PASS in_review conflict=True needs=['verification', 'upload', 'merge']
+PASS in_review conflict=True needs=['verification', 'upload', 'merge', 'deploy']
+PASS in_review conflict=True needs=['implementation']
+PASS in_review conflict=True needs=['implementation', 'deploy']
+PASS in_review conflict=True needs=['implementation', 'merge']
+PASS in_review conflict=True needs=['implementation', 'merge', 'deploy']
+PASS in_review conflict=True needs=['implementation', 'upload']
+PASS in_review conflict=True needs=['implementation', 'upload', 'deploy']
+PASS in_review conflict=True needs=['implementation', 'upload', 'merge']
+PASS in_review conflict=True needs=['implementation', 'upload', 'merge', 'deploy']
+PASS in_review conflict=True needs=['implementation', 'verification']
+PASS in_review conflict=True needs=['implementation', 'verification', 'deploy']
+PASS in_review conflict=True needs=['implementation', 'verification', 'merge']
+PASS in_review conflict=True needs=['implementation', 'verification', 'merge', 'deploy']
+PASS in_review conflict=True needs=['implementation', 'verification', 'upload']
+PASS in_review conflict=True needs=['implementation', 'verification', 'upload', 'deploy']
+PASS in_review conflict=True needs=['implementation', 'verification', 'upload', 'merge']
+PASS in_review conflict=True needs=['implementation', 'verification', 'upload', 'merge', 'deploy']
+PASS merged conflict=False needs=[]
+PASS merged conflict=False needs=['deploy']
+PASS merged conflict=False needs=['merge']
+PASS merged conflict=False needs=['merge', 'deploy']
+PASS merged conflict=False needs=['upload']
+PASS merged conflict=False needs=['upload', 'deploy']
+PASS merged conflict=False needs=['upload', 'merge']
+PASS merged conflict=False needs=['upload', 'merge', 'deploy']
+PASS merged conflict=False needs=['verification']
+PASS merged conflict=False needs=['verification', 'deploy']
+PASS merged conflict=False needs=['verification', 'merge']
+PASS merged conflict=False needs=['verification', 'merge', 'deploy']
+PASS merged conflict=False needs=['verification', 'upload']
+PASS merged conflict=False needs=['verification', 'upload', 'deploy']
+PASS merged conflict=False needs=['verification', 'upload', 'merge']
+PASS merged conflict=False needs=['verification', 'upload', 'merge', 'deploy']
+PASS merged conflict=False needs=['implementation']
+PASS merged conflict=False needs=['implementation', 'deploy']
+PASS merged conflict=False needs=['implementation', 'merge']
+PASS merged conflict=False needs=['implementation', 'merge', 'deploy']
+PASS merged conflict=False needs=['implementation', 'upload']
+PASS merged conflict=False needs=['implementation', 'upload', 'deploy']
+PASS merged conflict=False needs=['implementation', 'upload', 'merge']
+PASS merged conflict=False needs=['implementation', 'upload', 'merge', 'deploy']
+PASS merged conflict=False needs=['implementation', 'verification']EEEEE.
+PASS merged conflict=False needs=['implementation', 'verification', 'deploy']
+PASS merged conflict=False needs=['implementation', 'verification', 'merge']
+PASS merged conflict=False needs=['implementation', 'verification', 'merge', 'deploy']
+PASS merged conflict=False needs=['implementation', 'verification', 'upload']
+PASS merged conflict=False needs=['implementation', 'verification', 'upload', 'deploy']
+PASS merged conflict=False needs=['implementation', 'verification', 'upload', 'merge']
+PASS merged conflict=False needs=['implementation', 'verification', 'upload', 'merge', 'deploy']
+PASS merged conflict=True needs=[]
+PASS merged conflict=True needs=['deploy']
+PASS merged conflict=True needs=['merge']
+PASS merged conflict=True needs=['merge', 'deploy']
+PASS merged conflict=True needs=['upload']
+PASS merged conflict=True needs=['upload', 'deploy']
+PASS merged conflict=True needs=['upload', 'merge']
+PASS merged conflict=True needs=['upload', 'merge', 'deploy']
+PASS merged conflict=True needs=['verification']
+PASS merged conflict=True needs=['verification', 'deploy']
+PASS merged conflict=True needs=['verification', 'merge']
+PASS merged conflict=True needs=['verification', 'merge', 'deploy']
+PASS merged conflict=True needs=['verification', 'upload']
+PASS merged conflict=True needs=['verification', 'upload', 'deploy']
+PASS merged conflict=True needs=['verification', 'upload', 'merge']
+PASS merged conflict=True needs=['verification', 'upload', 'merge', 'deploy']
+PASS merged conflict=True needs=['implementation']
+PASS merged conflict=True needs=['implementation', 'deploy']
+PASS merged conflict=True needs=['implementation', 'merge']
+PASS merged conflict=True needs=['implementation', 'merge', 'deploy']
+PASS merged conflict=True needs=['implementation', 'upload']
+PASS merged conflict=True needs=['implementation', 'upload', 'deploy']
+PASS merged conflict=True needs=['implementation', 'upload', 'merge']
+PASS merged conflict=True needs=['implementation', 'upload', 'merge', 'deploy']
+PASS merged conflict=True needs=['implementation', 'verification']
+PASS merged conflict=True needs=['implementation', 'verification', 'deploy']
+PASS merged conflict=True needs=['implementation', 'verification', 'merge']
+PASS merged conflict=True needs=['implementation', 'verification', 'merge', 'deploy']
+PASS merged conflict=True needs=['implementation', 'verification', 'upload']
+PASS merged conflict=True needs=['implementation', 'verification', 'upload', 'deploy']
+PASS merged conflict=True needs=['implementation', 'verification', 'upload', 'merge']
+PASS merged conflict=True needs=['implementation', 'verification', 'upload', 'merge', 'deploy']
+TOTAL 128 FAILURES 0
+PASS verified native selection available without false runtime
+PASS required runtime attestation not substituted
+PASS selection rejects none
+PASS selection rejects unverified
+PASS selection rejects incomplete
+PASS selection rejects noevidence
+PASS selection rejects wrongmodel
+PASS selection rejects wrongeffort
+PASS selection rejects toolmissing
+PASS selection rejects actualmismatch
+PASS selection evidence change invalidates receipt
+PASS old immutable evidence freshly observed accepted
+PASS record expiry limits receipt reviews
+PASS record exact expiry NO_GO reviews
+PASS future individual observation rejects reviews
+PASS performed after read rejects reviews
+PASS record expiry limits receipt checks
+PASS record exact expiry NO_GO checks
+PASS future individual observation rejects checks
+PASS performed after read rejects checks
+PASS unmapped unrelated branch does not block exact-head read-only review
+PASS explicit post-merge exact-head verification remains actionable
+PASS terminal contradiction retains independent safe lane
+PASS merged task cannot request duplicate implementation
+PASS malformed parser JSON all-blocked
+PASS malformed parser JSON coordinator-plan
+PASS malformed parser JSON dispatch-candidates
+PASS malformed parser JSON dispatch-eligible
+PASS malformed parser JSON dispatch-guard
+PASS malformed parser JSON heartbeat
+PASS malformed parser JSON idle-defect-check
+PASS malformed parser JSON review-sweep
+TOTAL 32 FAILURES 0
+......................................................................................................................................................................
+======================================================================
+ERROR: test_coordinator_acceptance_isolation (unittest.loader._FailedTest.test_coordinator_acceptance_isolation)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_coordinator_acceptance_isolation
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_coordinator_acceptance_isolation.py", line 21, in <module>
+    sys.exit(not all(results))
+SystemExit: False
+
+
+======================================================================
+ERROR: test_coordinator_final_guards (unittest.loader._FailedTest.test_coordinator_final_guards)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_coordinator_final_guards
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_coordinator_final_guards.py", line 42, in <module>
+    sys.exit(bool(failed))
+SystemExit: False
+
+
+======================================================================
+ERROR: test_coordinator_hold_invariance (unittest.loader._FailedTest.test_coordinator_hold_invariance)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_coordinator_hold_invariance
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_coordinator_hold_invariance.py", line 14, in <module>
+    sys.exit(bool(failures))
+SystemExit: False
+
+
+======================================================================
+ERROR: test_coordinator_operation_needs (unittest.loader._FailedTest.test_coordinator_operation_needs)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_coordinator_operation_needs
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_coordinator_operation_needs.py", line 25, in <module>
+    sys.exit(bool(failed))
+SystemExit: False
+
+
+======================================================================
+ERROR: test_coordinator_review (unittest.loader._FailedTest.test_coordinator_review)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_coordinator_review
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_coordinator_review.py", line 59, in <module>
+    sys.exit(not all(checks))
+SystemExit: False
+
+
+----------------------------------------------------------------------
+Ran 172 tests in 1.783s
+
+FAILED (errors=5)

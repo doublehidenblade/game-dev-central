@@ -1,0 +1,75 @@
+{
+  "id": "ops-dispatch-handoff-20261011",
+  "title": "Require bounded coordinator dispatch attempts and first-write receipts",
+  "status": "in_review",
+  "owner": "Codex delegated mechanism author; parent owns independent review and rollout",
+  "ask": {
+    "by": "Craig",
+    "date": "2026-10-11",
+    "request": "Repair watchdog failure to dispatch implementation using a bounded ready queue, persistent attempts and actual session/first-write receipts. New mechanism repair, not parked retry/resource restart."
+  },
+  "bug_shape": "Read-only coordinator-plan can recommend implementation without reserving an attempt or proving a worker wrote code; repeated checks can therefore replace execution.",
+  "reference_images": [],
+  "scope": {
+    "write_allowlist": [
+      "project-management/watchdog/dispatch_loop.py",
+      "project-management/watchdog/test_dispatch_loop.py",
+      "project-management/dispatch/",
+      "project-management/prompts/",
+      "project-management/tasks/ops-dispatch-handoff-20261011.json",
+      "project-management/tasks/ops-scoped-read-dependency-20261011.json"
+    ],
+    "documentation_only": "Dated supersession links in existing coordinator/runbook/legacy copies; exact missing audit original and manifest recovery.",
+    "excluded": "No gameplay edits, foreign board/registry/legacy queue/inspector edits, resource sampling, parked-task resurrection, automatic launch, acceptance weakening, Actions/deployment/paid services/credentials/merges/deletion/contact."
+  },
+  "completion_criteria": [
+    {
+      "id": "C1",
+      "criterion": "Exact stop/source reconciliation precedes bounded Lower City selection.",
+      "verification": "Real scoped/evidence-guard offline tests for stops, denials, owners, reservations, frozen projects, unknown history and queue limits."
+    },
+    {
+      "id": "C2",
+      "criterion": "Attempts and session/first-write receipts persist without false implementation or duplicate launch.",
+      "verification": "Hash-verified changed Git artifact test, launch-only state test, timeout/unknown liveness/rotation tests and independent-process CAS race."
+    },
+    {
+      "id": "C3",
+      "criterion": "One initial plus one evidence-based correction cap retains historical attempts.",
+      "verification": "Persist/reload and exhausted/unknown-history tests; original source receipts and nulls retained, no reset command."
+    },
+    {
+      "id": "C4",
+      "criterion": "Empty queue emits precise candidate escalation and current prompts target actual code.",
+      "verification": "Execute CLI on honestly empty checked-in queue; inspect exact candidate blockers and policy/prompt links; preserve legacy safety."
+    },
+    {
+      "id": "C5",
+      "criterion": "No existing safety/acceptance regression or unauthorized rollout.",
+      "verification": "Run existing deterministic offline suites; inspect diff and triggers, open draft PR. Independent parent review and one-game-task rollout remain pending."
+    }
+  ],
+  "recommended_setup": {
+    "capability_tier": "frontier for persistent admission/ownership invariants",
+    "provider_preference": "Existing delegated Game-development executor; no new provider or service",
+    "requested_model_and_effort": "Inherited selected execution; runtime model/effort not independently attested",
+    "environment_and_tools": "Game-development /workspace/.setup/activate.sh; Python standard library, Git and read-only GitHub observations",
+    "availability_checked": "2026-10-11: actual shell, Python, local locking/fsync and GitHub reads succeeded",
+    "fallback": "bounded_attempt_then_escalate; no alternate provider or lower-tier production substitute",
+    "attempt_budget": "One coherent implementation and one evidence-based correction; no further loop. Parent reserves independent review before adoption.",
+    "verification_budget": "Focused offline suite, retained regression suites, source/trigger inspection; parent independent acceptance and first one-game-task rollout",
+    "escalation_criteria": "Failed safety gate, unknown owner/stop, third attempt or missing authoritative backend; retain evidence and report",
+    "requested_versus_confirmed": "Selected runtime available; provider/model identity unconfirmed",
+    "actual_outcome": "Implementation and corrected local tests produced; independent review pending"
+  },
+  "evidence": [
+    "project-management/dispatch/IMPLEMENTATION_EVIDENCE.md"
+  ],
+  "work_log": [
+    {
+      "date": "2026-10-11",
+      "entry": "Recovered missing audit original with supplied size/SHA-256/Git hash; authored dispatch_loop.py before any gameplay claim. Initial focused suite: 12 passed, one test NameError. Single correction repaired import and added launch-only/session persistence and executor reservation coverage. No gameplay task launched."
+    }
+  ],
+  "verdict": null
+}

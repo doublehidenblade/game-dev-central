@@ -1,5 +1,10 @@
 # Browser brief — coding-agent session watchdog
 
+> **Historical handoff, superseded 2026-10-11.** Do not enable the ACTION MODE or
+> access-grant instructions below. Use [WATCHDOG_PROMPT](../prompts/WATCHDOG_PROMPT.md)
+> and [EXECUTION_POLICY](../dispatch/EXECUTION_POLICY.md). Read-only inspection,
+> communication and authentication stops remain unchanged.
+
 You are checking the health of Craig's two AI coding sessions. This is READ-ONLY
 classification unless the "ACTION MODE" section at the bottom is explicitly enabled
 by the run that hands you this brief. The browser task itself never merges

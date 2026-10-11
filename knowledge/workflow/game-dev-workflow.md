@@ -1,5 +1,10 @@
 # Game-dev workflow (centralized source of truth)
 
+> 2026-10-11: historical publish-after-merge wording is superseded by
+> [explicit-request deployment](../../project-management/watchdog/releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc).
+> Use [EXECUTION_POLICY](../../project-management/dispatch/EXECUTION_POLICY.md)
+> for candidate-scoped dispatch, retained budgets and actual first-write receipts.
+
 > Created: 2026-09-22 by coordinator agent
 > Extracted from `doublehidenblade/neon-drift` and `doublehidenblade/tokyo-drift-3d`
 > (read-only API extraction 2026-09-22). Game-specific details stay in the game
