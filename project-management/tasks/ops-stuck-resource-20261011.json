@@ -1,0 +1,140 @@
+{
+  "id": "ops-stuck-resource-20261011",
+  "title": "Persist stuck attempts, bound retries and admit work using actual executor resources",
+  "status": "open",
+  "phase": "Owner registration and bounded executable-proof plan; implementation not started",
+  "owner": "dot-stuck-resource-author",
+  "independent_reviewer": "dot-stuck-resource-reviewer (separate role; coordinator assigns and verifies before acceptance)",
+  "ask": {
+    "by": "Craig, relayed by the authorized coordinator",
+    "date": "2026-10-11",
+    "request": "Persist stuck status/count/reason for every canonical task row; park the task/operation after two recoverable failures, stop immediately on auth/permission denial, and select other eligible work. Add resource-aware admission and safe churn-stopping/cleanup support."
+  },
+  "bug_shape": "Supported coordinator plan/guard routes lack a generalized durable attempt counter and an atomic pre-dispatch reservation. Session/SHA changes can lose retry history; available executor labels are not measurements. Legacy state/queue paths must remain retired.",
+  "reference_images": [],
+  "implementation_scope": {
+    "registration_only": [
+      "This task JSON",
+      "One additive operational row in project-management/boards/tokyo-drift-3d.md",
+      "One public-role reservation in project-management/workers.md"
+    ],
+    "new_files": [
+      "project-management/watchdog/attempt_ledger.py",
+      "project-management/watchdog/resource_admission.py",
+      "project-management/watchdog/test_attempt_ledger.py",
+      "project-management/watchdog/test_resource_admission.py",
+      "project-management/watchdog/test_operational_admission.py",
+      "project-management/watchdog/fixtures/operational-admission/"
+    ],
+    "integration_regions": [
+      "coordinator.py validate/evaluate/revalidate",
+      "coordinator_cli.py supported run/dispatch-guard routes",
+      "scoped_admission.py query/inventory_digest/verify",
+      "watch.py supported CLI/imported-alias interception only",
+      "RUNBOOK.md and README.md new operational contract/usage sections",
+      "test_rules.py and test_scoped_admission.py fixture builders only if required for new ledger/resource inputs; retain existing behavioral assertions and independent probes"
+    ],
+    "canonical_row_projection": "After acceptance of the implementation, expose stuck_status, stuck_count, stuck_reason and ledger revision for every task row in both canonical central boards and central operational registrations. Missing history is unknown/null, never fabricated zero. Preserve all existing task status, owner, evidence, ordering and pause/freeze text; an operational metadata projection does not reactivate a task.",
+    "limits": "Registration is not implementation admission. Fresh source-bound admission and exact-region ownership reconciliation precede shared-file edits. Freeze exact fixture/helper paths and criterion source/check bindings before executable review. Existing evidence_policy.py and retained independent regression source/evidence remain unchanged; fixture migration cannot remove or weaken existing assertions.",
+    "excluded": [
+      "Game source or denied gameplay reads/auth retries",
+      "Legacy state/, queue, heartbeat or release-ledger writes",
+      "Automation edits or another route to a denied automation",
+      "Actions, deployment, merge, credential/security/billing changes",
+      "External-agent contact or game-task ownership/status changes",
+      "Daemon installation, process signals, arbitrary deletion or source-history rewrite"
+    ]
+  },
+  "plan": [
+    "Build and test a separate project-scoped append-only attempt ledger with reserve/result/reset events, unique attempt IDs and immutable history. Use canonical repository/task/operation/normalized failure-family/target identities; session, model/provider, source SHA, aliases and timestamps cannot reset counts. Also cap the aggregate unresolved operation/target episode so relabelling a failure cannot buy a third attempt.",
+    "Integrate ledger freshness/revision and actual-executor resource evidence into the existing plan/guard and scoped proofs. Keep planning read-only. Add an explicit ledger-reservation command which revalidates the decision under a compare-and-swap lock, appends and durably flushes one reservation before any caller dispatch; it does not itself dispatch. Lost result/uncertain dispatch stays parked until reconciled.",
+    "Provide a read-only Linux resource sampler and deterministic admission decisions using executor identity, cgroup limits/usage, CPU quota/usage deltas, disk headroom and declared task/review budgets. Produce reviewable canonical-row metadata and stop/cleanup recommendations; perform no process killing or deletion."
+  ],
+  "ledger_contract": {
+    "state": "A new authoritative private project ledger, never the retired state/queue. Require a durable location and backend identity shared by participating sessions; a disposable workspace copy is not cross-session authority.",
+    "bound": "One initial recoverable failure plus one evidence-based correction; the second parks that operation/target, with no third. First auth/permission/explicit-stop denial parks immediately across executors/providers. Missing/stale/corrupt ledger or pending/uncertain reservation fails closed for the affected action; unrelated fully evidenced eligible work remains selectable.",
+    "concurrency": "Bind decisions to ledger/backend revision; only one compare-and-swap reservation wins. Local locking proves one-host/shared-file atomicity only. No distributed guarantee or automatic live adoption is claimed.",
+    "reset": "Append a substantive, evidenced resolution/reset event without erasing lifetime history. Success polls, new sessions, provider/model changes, renames, source changes and timeouts are not resets. Technical work cannot reset an auth/permission denial or explicit stop.",
+    "projection": "Each canonical row has persisted stuck status, observed failure count or null, sanitized reason and ledger revision. Preserve operation-specific records and lifetime history behind the row; denial and unknown states cannot become clear through a missing projection."
+  },
+  "completion_criteria": [
+    {
+      "id": "C1",
+      "criterion": "Durable retry identity and complete canonical-row coverage.",
+      "verification": "Run test_attempt_ledger.py against restart/cross-session, alias/rename/provider/SHA changes, duplicate result IDs and full real-board-format inventories. Every task row projects status/count/reason/revision; malformed or missing history stays unknown. Compare all pre-existing owner/status/evidence cells byte-for-byte."
+    },
+    {
+      "id": "C2",
+      "criterion": "Two recoverable failures park; first denial stops; another independently eligible action remains available.",
+      "verification": "Actual CLI negative controls cover first failure, one changed correction, second failure and rejected third reservation; family relabelling, unknown result, protected denial/reset, task-specific scope and unrelated eligible selection. Retain the failing-original control."
+    },
+    {
+      "id": "C3",
+      "criterion": "One durable reservation wins and stale decisions cannot dispatch.",
+      "verification": "Use concurrent independent processes on a private scratch ledger, CAS revision races, duplicate IDs, interrupted/torn write and restart/reconciliation controls. Missing or uncertain reservations never permit replacement dispatch. Exercise reserve/result/reset commands, not compilation only."
+    },
+    {
+      "id": "C4",
+      "criterion": "All supported aliases and scoped proofs enforce the same ledger/resource gates without weakening existing ownership/evidence rules.",
+      "verification": "Run test_operational_admission.py plus reviewed existing coordinator/scoped/evidence/hold-isolation suites with network and mutation routes mocked/disabled. Cover CLI and imported aliases, omitted/stale inputs and retired register-worker/queue-action; prove no legacy state mutation and no alternate automation path."
+    },
+    {
+      "id": "C5",
+      "criterion": "Resource admission measures the actual executor and stops resource churn without inventing capacity.",
+      "verification": "Run test_resource_admission.py with quota-vs-host, missing/stale/wrong-executor, low-memory/disk, exhausted budget, counter reset/restart and mixed eligible-work controls; record a read-only sample from the selected executor. Unknown native/cloud/model quota remains unknown; no container-to-native capacity inference."
+    },
+    {
+      "id": "C6",
+      "criterion": "Safe stopping/cleanup guidance and an independent exact-head result.",
+      "verification": "Tests require sustained repeated-operation/no-progress plus budget/resource evidence before recommending a stop; quiet heartbeat alone and Muse/foreign ownership cannot qualify. Preserve source, evidence and dirty work. Collector/proof contains no kill/unlink/cleanup execution. Separate reviewer inspects actual commands, negative controls, source diff and limits before acceptance."
+    }
+  ],
+  "recommended_setup": {
+    "capability_tier": "frontier: persistent admission, concurrency and ownership invariants",
+    "provider_preference": "Selected Game-development environment for central-only work; no rerouting of denied gameplay operations",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "max",
+    "environment_and_tools": "Python 3.12.14 and central GitHub connector reads verified; standard-library implementation/tests in private scratch fixtures. No installation or gameplay engine required.",
+    "availability_checked": "2026-10-11: task catalog lists Astra/max; this author's selected/serving runtime identity and independent reviewer capacity are unconfirmed.",
+    "fallback": "wait_for_required_tier",
+    "attempt_budget": "After actual implementation activation: one initial attempt plus at most one evidence-based correction within two hours, reserving a separate independent review. Same recoverable failure twice parks; auth/permission denial stops immediately without another route.",
+    "escalation_criteria": "Unresolved existing owner, missing required setup or durable backend, denied access, unsafe write scope, repeated failure or exhausted bound: park the dependent action and report another independently eligible action.",
+    "verification_budget": "Reserve 45 minutes inside the two-hour implementation bound for tests/correction and up to one separate hour for independent frontier/max review; do not weaken gates to meet the clock.",
+    "requested_versus_confirmed": "Astra/max is requested/catalog-supported, not serving-model attestation. Python and this executor's readable metrics are verified.",
+    "actual_outcome": "Registration only; executable proof, runtime adoption and independent acceptance pending. Model usage/billing unavailable."
+  },
+  "preflight": {
+    "central_base": "1893bae0f63410885792894a057c8b8a128019ab",
+    "ownership": "Read both canonical boards, worker registry and existing operational tasks. Preserve dot-native-scoped-admission-author, dot-scoped-runtime-base-author and prior coordinator/evidence owners; stale registrations do not establish idle ownership. Coordinator must reconcile the exact shared regions before implementation.",
+    "repository_inventory": "392 branch names and all 102 open PR changed-file lists inspected; no proposed watchdog-module/RUNBOOK overlap. Three PRs edit other workers.md rows, which this append-only reservation preserves. No complete outside-session liveness claim.",
+    "triggers": "Complete central tree has no .github workflows; repository has_pages=false. Canonical deployment policy reviewed; no concrete docs-branch deployment trigger observed. Recheck the publication target before each write. No denied administrative endpoint was retried.",
+    "resource_observation": {
+      "scope": "This selected executor/container only",
+      "cpu_affinity_count": 5,
+      "cpu_quota_cores": 4,
+      "memory_limit_bytes": 17179869184,
+      "memory_current_bytes": 77996032,
+      "workspace_free_bytes": 32033316864,
+      "pressure_metrics": "not exposed",
+      "native_vm_or_other_workers": "unobserved; this sample cannot establish their capacity"
+    },
+    "implementation_limit": "No live collector/dispatcher is installed. The first proof uses only private temporary ledgers and mocked external/mutation routes; authoritative live storage/identity and actual coordinator adoption remain separate explicit prerequisites.",
+    "legacy_runtime_limit": "Main advanced during registration with changes only to legacy state/state.json and pending_actions.json, including a quiet-heartbeat replacement record. Preserve those bytes. Repository source changes in supported routes do not prove that an outside legacy scheduler uses them; installation/adoption or changes to a denied automation are not authorized here."
+  },
+  "evidence": [],
+  "work_log": [
+    {
+      "at": "2026-10-11T00:23:04Z",
+      "by": "dot-stuck-resource-author",
+      "entry": "Read current central rules/board/owners, supported and retired routes, scoped proof hooks and trigger policy; checked own central access and bounded local resource signals. Prepared this minimal registration. No gameplay denied-read retry, executable edit, dispatch, process stop or cleanup performed."
+    }
+  ],
+  "verdict": null,
+  "stuck": {
+    "status": "pending_admission",
+    "count": null,
+    "count_scope": "Authoritative attempt ledger not yet established; missing history is not zero",
+    "reason": "Implementation has not started; normal admission and ownership reconciliation pending",
+    "ledger_revision": null
+  }
+}

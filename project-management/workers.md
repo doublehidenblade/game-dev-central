@@ -11,6 +11,7 @@ Seeded from the agent watchdog state 2026-09-24 00:20 UTC. Entries marked `unver
 | claude-code:tokyo-drift-3d | Claude Code | unverified — was td-010 C1 signs/PBR (PR #38); something merged by cron | WORKING (streaming tool calls) | 2026-09-24 00:00 |
 | claude-code:tokyo-drift-3d-textures | Claude Code | imagegen 6 PNGs — STALLED: GEMINI_API_KEY not set, 0/6 done; duplicate-session alert (2 extra live sessions + error-state setup session) | STALLED | 2026-09-23 23:05 |
 | dot-native-scoped-admission-author | Native dot | ops-scoped-coordinator-admission-20261009 — coordinator-only scoped admission | IN REVIEW; source prepared, exact-head checks and independent acceptance pending; no author merge | 2026-10-09 20:06 |
+| dot-stuck-resource-author | Selected Game-development executor; runtime model unconfirmed | ops-stuck-resource-20261011 — central attempt ledger/resource admission | RESERVED — registration only; sole designated author, executable work not started; existing shared owners retained | 2026-10-11 00:23 |
 
 | codex:td109-sedan | Codex subagent | td-109 — reference-grounded four-door sedan | UNVERIFIED after Muse handoff — branch feat/td-109-dr30-sedan observed, PR not found; session not visible | 2026-09-28 22:04 |
 | codex:td110-wedge | Codex subagent | td-110 — reference-grounded orange wedge (`taxi.glb`) | UNVERIFIED after Muse handoff — branch feat/td-109-dr30-sedan observed, PR not found; session not visible | 2026-09-28 22:04 |
