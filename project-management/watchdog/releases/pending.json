@@ -8,7 +8,10 @@
    "pr": 675,
    "merged_sha": "5854bf0c8beca919a5f913f7e8c084e7ddfb595f",
    "merged_at": "2026-10-11T12:54:56.522460+00:00",
-   "summary": "td-250 traffic-light poles moved to sidewalk corners + pole collision, validated by watchdog validator, squash-merged by validator"
+   "summary": "td-250 traffic-light poles moved to sidewalk corners (PR #675, squash-merged 5854bf0). Pole-collision criterion 2 UNPROVEN per watchdog state \u2014 entry HELD, not release acceptance; rework owned by td-250 lane",
+   "status": "HELD",
+   "hold_reason": "validator-merge 5854bf0 reconciled: pole-collision criterion 2 (production harness) UNPROVEN \u2014 verdict-text-only merge touched only td-250.md (+8/-2), no code/QA blob. Rework open, owned by td-250 lane. NOT release acceptance; publish-verify must refuse until criterion 2 proven.",
+   "held_at": "2026-10-11T14:22:53.790531+00:00"
   }
  ]
 }
