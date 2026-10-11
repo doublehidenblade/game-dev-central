@@ -1,0 +1,195 @@
+{
+  "observed_at": "2026-10-11T23:09:31.396983+00:00",
+  "offline": true,
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_registration_admission.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "tests-00.log",
+      "sha256": "68d912d50ba100c058dc80dcccd79d634fe95d014e59a81fb624b9838d810e6e",
+      "summary": [
+        "Ran 18 tests in 0.233s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_dispatch_loop.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "tests-01.log",
+      "sha256": "cfdb9a7ceba866205e2ce18896ecbeeded33faa0480953e77530c96dc5bfa2c6",
+      "summary": [
+        "Ran 24 tests in 0.369s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_rules.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "tests-02.log",
+      "sha256": "6f3e6a5af7945fab26603a24b4efde4d039b7dce48f9cb10f73bff19cda9feb0",
+      "summary": [
+        "Ran 37 tests in 0.495s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_evidence_policy.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "tests-03.log",
+      "sha256": "28ea4912c16cc61cf6589c64c66596632136ef0559c3d21ee45104a0abe19a1b",
+      "summary": [
+        "Ran 53 tests in 0.215s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_scoped_admission.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "tests-04.log",
+      "sha256": "f1f28bf409ecb0f812664b4c6606a5c273e69637e56e678ffbda6319f3861528",
+      "summary": [
+        "Ran 62 tests in 1.075s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+      ],
+      "exit_code": 0,
+      "log": "tests-05.log",
+      "sha256": "b813e59218ba56c5b21acfca7a706f4cc43174d39c9dc0fb5e06da37fdef7eac",
+      "summary": [
+        "TOTAL 14 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "project-management/watchdog/test_coordinator_final_guards.py"
+      ],
+      "exit_code": 0,
+      "log": "tests-06.log",
+      "sha256": "02526da2bd46e229c7b1164eed117fe87b92e4200f34c4f2334e81c7d9e8bb46",
+      "summary": [
+        "TOTAL 15 FAILURES 0 []"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "project-management/watchdog/test_coordinator_hold_invariance.py"
+      ],
+      "exit_code": 0,
+      "log": "tests-07.log",
+      "sha256": "adc083070ad416e24c77c23620b0542131aaef37c7b0d32fe158369125e618f5",
+      "summary": [
+        "TOTAL 2 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "project-management/watchdog/test_coordinator_operation_needs.py"
+      ],
+      "exit_code": 0,
+      "log": "tests-08.log",
+      "sha256": "66a2d6f0f8d99302adce1c243f6be9e086dd0d00f6c65cfcd3f2a16c5e62f688",
+      "summary": [
+        "TOTAL 128 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "project-management/watchdog/test_coordinator_review.py"
+      ],
+      "exit_code": 0,
+      "log": "tests-09.log",
+      "sha256": "f2dd2e78edf00adca0632cd3f3b47c1276f07a1eb472655b80e8c4c66b6d2d3b",
+      "summary": [
+        "TOTAL 32 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-B",
+        "project-management/watchdog/test_rules.py"
+      ],
+      "exit_code": 0,
+      "log": "tests-10.log",
+      "sha256": "052d0b7019e88cd0441241420c1affa48a9e145a71736d27d55f9e2170d5435b",
+      "summary": [
+        "Ran 37 tests in 0.541s",
+        "OK"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "coordinator.py": "1874772d07ece60d75a14ad4e5b06e6ff3541fee13b4c23c4b2eba07ae2bf219",
+    "registration_admission.py": "c82749f4f3185641bc78b8e86a5438ff6b970b4cc46ba94fd6e7015b01ccf535",
+    "test_registration_admission.py": "2f7e9805f0aff7ed1e4e5672c55ed6ecbebbab4b381f145ccbc07f597f51b0b7"
+  }
+}

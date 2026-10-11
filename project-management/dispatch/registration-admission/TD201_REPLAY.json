@@ -1,0 +1,72 @@
+{
+  "archive_sha256": "35b6a2bde4d1506c0b4de7779d34bb7932959f858a21f326610e9d2f943dff87",
+  "candidate": "4c5381ab698a15ebbd947906843ffd311055d87f",
+  "immutable_candidate_scope": "PASS",
+  "historical_rows": 659,
+  "historical_task_mapping_required": false,
+  "write_paths": [
+    "godot/docs/tasks/td-201-admission/coordinator-decision-20261011.json",
+    "godot/docs/tasks/td-201-admission/correction-A1-check.json",
+    "godot/docs/tasks/td-201-admission/correction-A2-check.json",
+    "godot/docs/tasks/td-201-admission/correction-A3-check.json",
+    "godot/docs/tasks/td-201-admission/correction-A4-check.json",
+    "godot/docs/tasks/td-201-admission/independent-document-verdict-20261011.json",
+    "godot/docs/tasks/td-201-admission/source-document-check.json",
+    "godot/docs/tasks/td-201-project-card-fixture.json",
+    "godot/docs/tasks/td-201-source-document-admission.json",
+    "godot/docs/tasks/td-201.md"
+  ],
+  "preserved_parent": {
+    "id": "td-201",
+    "owner": "dot",
+    "status": "blocked",
+    "dependencies": [
+      "td-200"
+    ],
+    "assigned_worker": null
+  },
+  "protected_task_ids": [
+    "request:td201-subordinate-document-registration-20261011",
+    "td-197",
+    "td-198",
+    "td-199",
+    "td-200",
+    "td-201",
+    "td-201-project-card-fixture",
+    "td-201-source-document-admission"
+  ],
+  "future_and_document_region_count": 339,
+  "canonical_disjoint_changes": [
+    "godot/docs/tasks/td-229.md"
+  ],
+  "pr455_document_regions": "COMPATIBLE at recorded approval, with pending session receipts retained",
+  "pr455_approval_observed_at": "2026-10-11T23:05:41.185445+00:00",
+  "pr455_pending_sessions": [
+    "cloud:01a1148d-8b5e-7262-bfd2-4b7d6cf1601e"
+  ],
+  "documentary_authority_unchanged": true,
+  "documentary_authority_result": "INPUT_REQUIRED",
+  "documentary_issues": [
+    {
+      "code": "STALE_READ",
+      "detail": "authority/receipt collection must be current"
+    }
+  ],
+  "real_guard_status": "INPUT_REQUIRED",
+  "real_guard_warnings": [
+    "authenticated scoped collection: unexpected or missing fields"
+  ],
+  "live_admission_claimed": false,
+  "preserved_known_overlap": {
+    "pr": 455,
+    "repository": "doublehidenblade/tokyo-drift-3d",
+    "head": "b570ac3e590739782c463a3a620670122a8d5b95",
+    "relation": "Existing task-family amendment includes td-201.md. Frozen task proposal explicitly preserves corrected mini-truck and paint-shop direction, excludes those previews/service gameplay, and calls for reconciliation with PR455 without importing stopped family work wholesale."
+  },
+  "remaining_inputs": [
+    "fresh authenticated candidate-scope catalog/observations, including PR455 and exact named historical session",
+    "current source-trigger, stop, owner, queue and session receipts",
+    "current finite registration allocation (not a new source-correction/runtime allocation)",
+    "fresh authentic documentary authority and review applicability"
+  ]
+}
