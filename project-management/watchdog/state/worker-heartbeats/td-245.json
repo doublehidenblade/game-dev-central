@@ -1,1 +1,1 @@
-{"status":"in-progress","step":"harness parse-fix pushed (301ce00); editor import building class cache in bg; then AFTER run, then BEFORE run (main lower_city.tscn ready), commit PNGs/log/CSV, task-file evidence, main.tscn spot-check","task":"td-245","ts":"2026-10-09T17:35:00Z"}
+{"ts": "2026-10-11T01:49:00.029895+00:00", "task": "td-245", "step": "read SYSTEM.md + task file + PR #633 verdict; verifying rejection defect list on main", "status": "working"}
