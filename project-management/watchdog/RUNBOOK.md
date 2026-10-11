@@ -842,7 +842,7 @@ the two source-document authors do not write shared central files.
 
 | Task | Sole component author | Distinct reviewer | Exact Tokyo source-admission PR/head |
 |---|---|---|---|
-| td-237 | dot-td237-itinerary-author | dot-td237-itinerary-reviewer | Pending coordinator relay; no acceptance inferred |
+| td-237 | dot-td237-itinerary-author | dot-td237-itinerary-reviewer | [PR668](https://github.com/doublehidenblade/tokyo-drift-3d/pull/668), exact head `b1a594f6b6904f0cd75f45a6542b29192d670689`; independent admission acceptance pending |
 | td-236 | dot-td236-briefing-author | dot-td236-briefing-reviewer | Pending coordinator relay; no acceptance inferred |
 
 **Allowlist, new files only.** td-237:
@@ -895,10 +895,18 @@ claimed evidence. Native rendered briefing pixels require actual inspection;
 full-scene/browser/CSS-DPR/phone gates stay open. Author stops at source/evidence
 PR and never self-accepts or merges.
 
-**Setup.** Preserve requested frontier `gpt-6-astra/xhigh` author/reviewer settings;
-requested is not runtime attestation. Coordinator verifies exact-source fixtures,
-Godot 4.7.2 and required renderer/pixel tools before implementation; readiness is
-not established by this document. Wait for required tier/tools; no downgrade.
+**Setup.** Preserve requested frontier `gpt-6-astra/max` author/reviewer settings;
+requested is not runtime attestation. Coordinator verifies exact-source fixtures
+and the explicitly pinned, checksum-verified Godot 4.7.2 before execution.
+For td-237, headless nonvisual itinerary work may start without Xvfb after all
+other activation gates pass; it requires the verified Godot 4.7.2, not native
+renderer readiness. Rendered evidence remains unrun, and any later rendered
+claim requires renderer readiness and independent pixel inspection.
+For td-236, visual acceptance requires renderer and pixel-inspection readiness
+and actual inspected rendered evidence; source or headless checks cannot satisfy
+that gate. Full-scene/browser/CSS-DPR/phone acceptance remains open.
+Wait for the required tier and tools needed by the next action; no downgrade.
+This document establishes neither runtime setup attestation nor visual acceptance.
 Each activated component retains one initial attempt plus at most one
 evidence-based correction within two hours, reserving independent review time.
 Stop on permission/auth denial, overlap, excluded-file need or exhausted bound.
