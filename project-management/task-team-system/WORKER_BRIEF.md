@@ -1,5 +1,9 @@
 # WORKER_BRIEF.md — template for spawning a worker subagent
 
+> **Historical copy, superseded 2026-10-11:** use [canonical WORKER_BRIEF](../rules/WORKER_BRIEF.md)
+> and [COORDINATOR_PROMPT](../prompts/COORDINATOR_PROMPT.md). Retained publication
+> language does not authorize automatic merge/deploy or bypass current gates.
+
 Paste this into the spawn message, filling in the bracketed fields.
 The SYSTEM.md link is MANDATORY — it is how the worker learns the system.
 

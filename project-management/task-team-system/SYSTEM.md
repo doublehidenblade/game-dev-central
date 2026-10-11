@@ -1,5 +1,9 @@
 # Task-Team System (supervisor / worker / validator)
 
+> **Historical copy, superseded 2026-10-11:** use [canonical SYSTEM](../rules/SYSTEM.md)
+> and [EXECUTION_POLICY](../dispatch/EXECUTION_POLICY.md). This retained copy is not
+> an alternate dispatch/publication route. Owner, stop and acceptance gates remain.
+
 Read this file FIRST. It is the canonical description of how task teams work.
 It lives on disk because no agent's context can be trusted to remember it:
 the main agent's context accumulates many unrelated tasks (meals, travel,

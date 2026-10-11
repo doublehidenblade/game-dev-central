@@ -1,0 +1,164 @@
+{
+  "focused_tests": {
+    "command": [
+      "python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "project-management/watchdog",
+      "-p",
+      "test_dispatch_loop.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "tests": 15,
+    "log": "evidence/dispatch-tests.log"
+  },
+  "initial_attempt": {
+    "tests": 13,
+    "passed": 12,
+    "errors": 1,
+    "reason": "Test missing evidence_policy import (NameError); retained, then corrected once.",
+    "log": "evidence/initial-tests.log"
+  },
+  "harness_limit": {
+    "command": "python3 -m unittest discover -s project-management/watchdog -p test_*.py",
+    "exit_code": 1,
+    "reason": "Five legacy standalone test scripts call sys.exit(False) on import; unittest discovery reports successful exits as import errors. Each was then run in its supported standalone mode; no assertions changed.",
+    "log": "evidence/discovery-harness-limitation.log"
+  },
+  "regressions": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_rules.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/regression-0.log",
+      "sha256": "b013fac692b4a375fc833c9e77b330495dc58ff1b17202152ba2faea5d0b48b3",
+      "summary": [
+        "Ran 37 tests in 0.485s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_evidence_policy.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/regression-1.log",
+      "sha256": "5f6f4ebf806d8f38c1e59cf448c72ceab392a360a62dd6ab42dfe02231342b89",
+      "summary": [
+        "Ran 53 tests in 0.163s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_scoped_admission.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/regression-2.log",
+      "sha256": "d14f75f7a57f6e7938a1beede9a67021f2c464f55c3e8c8fcf13e2900d5614d9",
+      "summary": [
+        "Ran 62 tests in 1.074s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/regression-3.log",
+      "sha256": "b813e59218ba56c5b21acfca7a706f4cc43174d39c9dc0fb5e06da37fdef7eac",
+      "summary": [
+        "TOTAL 14 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_final_guards.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/regression-4.log",
+      "sha256": "02526da2bd46e229c7b1164eed117fe87b92e4200f34c4f2334e81c7d9e8bb46",
+      "summary": [
+        "TOTAL 15 FAILURES 0 []"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_hold_invariance.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/regression-5.log",
+      "sha256": "adc083070ad416e24c77c23620b0542131aaef37c7b0d32fe158369125e618f5",
+      "summary": [
+        "TOTAL 2 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_operation_needs.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/regression-6.log",
+      "sha256": "66a2d6f0f8d99302adce1c243f6be9e086dd0d00f6c65cfcd3f2a16c5e62f688",
+      "summary": [
+        "TOTAL 128 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_review.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/regression-7.log",
+      "sha256": "f2dd2e78edf00adca0632cd3f3b47c1276f07a1eb472655b80e8c4c66b6d2d3b",
+      "summary": [
+        "TOTAL 32 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_rules.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/regression-8.log",
+      "sha256": "43cbe8ee858adfa9989559fb39ce430bed036fc57d577e20f986ecd3579c4ee5",
+      "summary": [
+        "Ran 37 tests in 0.535s",
+        "OK",
+        "ALL TESTS PASSED"
+      ]
+    }
+  ]
+}

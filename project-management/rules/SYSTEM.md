@@ -1,5 +1,10 @@
 # Task-Team System (supervisor / worker / validator)
 
+> 2026-10-11: [EXECUTION_POLICY](../dispatch/EXECUTION_POLICY.md) implements bounded
+> selection and persistent attempts/first-write receipts around the existing guard.
+> One initial attempt plus at most one evidence-based correction, including prior
+> attempts. Role/evidence rules and stops below remain; admission is not implementation.
+
 Read this file FIRST. It is the canonical description of how task teams work.
 It lives on disk because no agent's context can be trusted to remember it:
 the main agent's context accumulates many unrelated tasks (meals, travel,

@@ -1,0 +1,104 @@
+{
+  "candidates": [
+    {
+      "reasons": [
+        "R4 authoring/publication explicitly stopped in central PR374; existing-truck reuse and garage ownership need owner-approved scope. No new author admitted; historical attempt count and current session liveness unknown."
+      ],
+      "receipts": [
+        "https://github.com/doublehidenblade/game-dev-central/pull/374",
+        "https://github.com/doublehidenblade/game-dev-central/blob/93645f303a9193344224cf69722a2d0251c4b2f7/project-management/boards/tokyo-drift-3d.md",
+        "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/audits/2026-10-11-stall/td197-stall-audit-evidence-20261011/provenance/pr374-stop-evidence.md"
+      ],
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "task_id": "td-197"
+    },
+    {
+      "reasons": [
+        "Corrected driving implementation failed independent partial-throttle/uphill review; prior draft-PR publication denial remains. Historical attempts are not fully reconciled; no new implementation or publication retry."
+      ],
+      "receipts": [
+        "https://github.com/doublehidenblade/tokyo-drift-3d/blob/29e3e5a1938c704c986e1baeba6f01edaaf236dd/godot/qa/td-231/UPHILL_FIX.md",
+        "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/audits/2026-10-11-stall/Game-coordination-stall-audit.md#2-driving-reviewer-independent-fail-no-code-writes",
+        "https://github.com/doublehidenblade/tokyo-drift-3d/blob/b617aa71cc411b55191f0edec4310b515deb4569/godot/docs/tasks/td-231.md"
+      ],
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "task_id": "td-231"
+    },
+    {
+      "reasons": [
+        "Main/board admission descriptions do not establish current implementation history, exact owner/session handback, or remaining attempts; minimap component work is recorded in the audit. Preserve existing dot map owner and acceptance gaps; no inferred fresh zero-attempt task."
+      ],
+      "receipts": [
+        "https://github.com/doublehidenblade/tokyo-drift-3d/blob/b617aa71cc411b55191f0edec4310b515deb4569/godot/docs/tasks/td-235.md",
+        "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/boards/tokyo-drift-3d.md",
+        "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/audits/2026-10-11-stall/Game-coordination-stall-audit.md"
+      ],
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "task_id": "td-235"
+    },
+    {
+      "reasons": [
+        "Briefing runtime admission remains conditional; reported authenticated GitHub 401 stop is preserved. Current accepted scope, session liveness and historical attempt count are unverified. Existing UI/navigation and Craig assembly owners remain."
+      ],
+      "receipts": [
+        "https://github.com/doublehidenblade/tokyo-drift-3d/blob/b617aa71cc411b55191f0edec4310b515deb4569/godot/docs/tasks/td-236.md",
+        "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/boards/tokyo-drift-3d.md",
+        "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/audits/2026-10-11-stall/Game-coordination-stall-audit.md#4-briefing-author-local-admission-documents-only-authentication-failure"
+      ],
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "task_id": "td-236"
+    },
+    {
+      "reasons": [
+        "PR676 parked after independent CHANGES REQUIRED: replacement-draft Apply/Cancel races and first-pose routing failure. Initial implementation plus one correction used; zero corrections remain. Original criteria 1-10 still open."
+      ],
+      "receipts": [
+        "https://github.com/doublehidenblade/tokyo-drift-3d/pull/676",
+        "https://github.com/doublehidenblade/tokyo-drift-3d/blob/78f9e75ad97b678187dd4838ed3977935e169517/godot/docs/tasks/td-237.md",
+        "https://github.com/doublehidenblade/tokyo-drift-3d/pull/676#issuecomment-6104236185",
+        "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/boards/tokyo-drift-3d.md"
+      ],
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "task_id": "td-237"
+    },
+    {
+      "reasons": [
+        "Terminal component PR684 at 709ea8711799cd44a87db643eef7409ac16f8e44 remains unaccepted: T3 focus restoration fails two independent cases, formal evidence-policy inputs unavailable. One initial implementation and sole correction used; no retry. Full C1-C6 integration not accepted."
+      ],
+      "receipts": [
+        "https://github.com/doublehidenblade/tokyo-drift-3d/pull/684",
+        "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/audits/2026-10-11-stall/td238-terminal-independent-review-audit/td238-review-evidence/REVIEW.md"
+      ],
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "task_id": "td-238"
+    },
+    {
+      "reasons": [
+        "Source main is blocked/queued. New QA-only reservation PR698 at 25aaa1c04084bf3763f26863e961de6a99fb94c2 is an open proposal, not accepted game implementation admission. Exact owner handoffs, remaining budget and renderer/QA scope still required."
+      ],
+      "receipts": [
+        "https://github.com/doublehidenblade/tokyo-drift-3d/pull/698",
+        "https://github.com/doublehidenblade/tokyo-drift-3d/blob/b617aa71cc411b55191f0edec4310b515deb4569/godot/docs/tasks/td-229.md",
+        "https://github.com/doublehidenblade/game-dev-central/pull/470"
+      ],
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "task_id": "td-229"
+    },
+    {
+      "reasons": [
+        "Production paid-repair scope PR634 at 65bf4e7d07fd4ff132b1759af1e0756f62199729 and requirement correction PR631 at ba6b32f1b285e2559827b02cd80b167031412334 remain open. Repair-service/persistent-condition providers and existing-owner contracts unresolved; no inferred admission, history or free/debt recovery."
+      ],
+      "receipts": [
+        "https://github.com/doublehidenblade/tokyo-drift-3d/pull/634",
+        "https://github.com/doublehidenblade/tokyo-drift-3d/pull/631",
+        "https://github.com/doublehidenblade/game-dev-central/blob/19617c6afd961fdcc3142a00613b30a8d470787e/project-management/watchdog/RUNBOOK.md#ranked-snapshot-19-high-13-medium-10-low"
+      ],
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "task_id": "td-218"
+    }
+  ],
+  "next": "Resolve only the named blocker with its owner; do not report steady IDLE.",
+  "reservations": [],
+  "revision": 0,
+  "status": "ESCALATION_REQUIRED"
+}

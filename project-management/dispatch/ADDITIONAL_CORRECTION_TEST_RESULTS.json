@@ -1,0 +1,182 @@
+{
+  "reviewed_head": "8d070716403355be388d404163c43b024184f3ad",
+  "allocation": "One owner-directed additional bounded correction; original initial/correction retained",
+  "runs": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_dispatch_loop.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "log": "evidence/additional-correction-tests.log",
+      "sha256": "460555c968e13012e0d0185cd1d4fbd303e051b71cd19cb2b5d470ae0c821b0c",
+      "summary": [
+        "Ran 24 tests in 0.366s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_rules.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/additional-regression-0.log",
+      "sha256": "8508ffea51c5521a55a280c5101225a31993403069626add9b5d9a1df67d4de7",
+      "summary": [
+        "Ran 37 tests in 0.513s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_evidence_policy.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/additional-regression-1.log",
+      "sha256": "b35d0632ab88718b1c5a71590592629f5e620adc355b75a39ede89abbfa841cb",
+      "summary": [
+        "Ran 53 tests in 0.159s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "project-management/watchdog",
+        "-p",
+        "test_scoped_admission.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/additional-regression-2.log",
+      "sha256": "5f159c6389aa9ff3587b496566883032cb343db2e1998f2c0523329371817c61",
+      "summary": [
+        "Ran 62 tests in 1.000s",
+        "OK"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/additional-regression-3.log",
+      "sha256": "b813e59218ba56c5b21acfca7a706f4cc43174d39c9dc0fb5e06da37fdef7eac",
+      "summary": [
+        "TOTAL 14 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_final_guards.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/additional-regression-4.log",
+      "sha256": "02526da2bd46e229c7b1164eed117fe87b92e4200f34c4f2334e81c7d9e8bb46",
+      "summary": [
+        "TOTAL 15 FAILURES 0 []"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_hold_invariance.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/additional-regression-5.log",
+      "sha256": "adc083070ad416e24c77c23620b0542131aaef37c7b0d32fe158369125e618f5",
+      "summary": [
+        "TOTAL 2 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_operation_needs.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/additional-regression-6.log",
+      "sha256": "66a2d6f0f8d99302adce1c243f6be9e086dd0d00f6c65cfcd3f2a16c5e62f688",
+      "summary": [
+        "TOTAL 128 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_coordinator_review.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/additional-regression-7.log",
+      "sha256": "f2dd2e78edf00adca0632cd3f3b47c1276f07a1eb472655b80e8c4c66b6d2d3b",
+      "summary": [
+        "TOTAL 32 FAILURES 0"
+      ]
+    },
+    {
+      "command": [
+        "python3",
+        "project-management/watchdog/test_rules.py"
+      ],
+      "exit_code": 0,
+      "log": "evidence/additional-regression-8.log",
+      "sha256": "81067083d5fb9701fe24e0069db8e530cbc438594955e669c4a871d055043e79",
+      "summary": [
+        "Ran 37 tests in 0.495s",
+        "OK",
+        "ALL TESTS PASSED"
+      ]
+    }
+  ],
+  "source_sha256": {
+    "project-management/watchdog/dispatch_loop.py": "f7d8c73c50a6f3519f1c9e2e7311c80b439b9c08632fec5a16effa27126050c3",
+    "project-management/watchdog/test_dispatch_loop.py": "85f7835dd16ba4c2c9e1cfc6e7b8ed3ed020d41ad6f17010c4b299a74af9986d"
+  },
+  "reviewed_head_reproduction": {
+    "head": "8d070716403355be388d404163c43b024184f3ad",
+    "method": "Execute immutable git-show module in isolated Python module, then run the current negative regressions against it; no tracked source changes",
+    "tests": [
+      "test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts",
+      "test_legacy_unbound_foreign_feature_reservation_cannot_record_receipt",
+      "test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation"
+    ],
+    "expected_failures": 2,
+    "expected_errors": 1,
+    "log": "evidence/reviewed-head-reproductions.log",
+    "sha256": "ee7cb337afa68452e4ef6e398b3829a5ad784c328460da550a26520ddacecf34"
+  },
+  "empty_queue_cli": {
+    "exit_code": 2,
+    "status": "ESCALATION_REQUIRED",
+    "candidates": 8,
+    "ledger_unchanged": true,
+    "output": "EMPTY_QUEUE_RESULT.json",
+    "sha256": "c683395b1208c66fc1ef24f20d7530b2886b381d57e4cb9794d82b56ebe69169"
+  }
+}

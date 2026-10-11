@@ -1,0 +1,151 @@
+test_actual_session_and_changed_git_artifact_required (test_dispatch_loop.DispatchTests.test_actual_session_and_changed_git_artifact_required) ... ok
+test_authorized_scope_still_blocks_foreign_feature_overlap (test_dispatch_loop.DispatchTests.test_authorized_scope_still_blocks_foreign_feature_overlap) ... ok
+test_compare_and_swap_persistence_race_allows_only_one_handoff (test_dispatch_loop.DispatchTests.test_compare_and_swap_persistence_race_allows_only_one_handoff) ... ok
+test_discovery_requires_authenticated_exact_original_launch_binding (test_dispatch_loop.DispatchTests.test_discovery_requires_authenticated_exact_original_launch_binding) ... ok
+test_empty_queue_has_exact_candidate_escalation (test_dispatch_loop.DispatchTests.test_empty_queue_has_exact_candidate_escalation) ... ok
+test_frozen_projects_and_unknown_history (test_dispatch_loop.DispatchTests.test_frozen_projects_and_unknown_history) ... ok
+test_guarded_selection_and_no_duplicate_across_restart (test_dispatch_loop.DispatchTests.test_guarded_selection_and_no_duplicate_across_restart) ... ok
+test_initial_plus_one_correction_cap_survives_changed_executor_and_head (test_dispatch_loop.DispatchTests.test_initial_plus_one_correction_cap_survives_changed_executor_and_head) ... ok
+test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation (test_dispatch_loop.DispatchTests.test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation) ... ERROR
+test_late_session_record_and_ended_discovery_never_reset_budget_or_stops (test_dispatch_loop.DispatchTests.test_late_session_record_and_ended_discovery_never_reset_budget_or_stops) ... 
+  test_late_session_record_and_ended_discovery_never_reset_budget_or_stops (test_dispatch_loop.DispatchTests.test_late_session_record_and_ended_discovery_never_reset_budget_or_stops) (route='record') ... ERROR
+  test_late_session_record_and_ended_discovery_never_reset_budget_or_stops (test_dispatch_loop.DispatchTests.test_late_session_record_and_ended_discovery_never_reset_budget_or_stops) (route='cycle-ended') ... ERROR
+test_launch_without_write_is_not_implementation_and_preserves_session (test_dispatch_loop.DispatchTests.test_launch_without_write_is_not_implementation_and_preserves_session) ... ok
+test_missing_receipt_never_becomes_success_from_late_artifact (test_dispatch_loop.DispatchTests.test_missing_receipt_never_becomes_success_from_late_artifact) ... ok
+test_missing_receipt_rotates_after_confirmed_nonlaunch (test_dispatch_loop.DispatchTests.test_missing_receipt_rotates_after_confirmed_nonlaunch) ... ok
+test_old_or_self_declared_acceptance_cannot_validate_new_code (test_dispatch_loop.DispatchTests.test_old_or_self_declared_acceptance_cannot_validate_new_code) ... ok
+test_queue_limits_and_expired_or_changed_reconciliation (test_dispatch_loop.DispatchTests.test_queue_limits_and_expired_or_changed_reconciliation) ... ok
+test_real_guard_stops_denials_owners_queue_and_acceptance_stay_binding (test_dispatch_loop.DispatchTests.test_real_guard_stops_denials_owners_queue_and_acceptance_stay_binding) ... ok
+test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts (test_dispatch_loop.DispatchTests.test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts) ... FAIL
+test_same_executor_cannot_take_unrelated_replacement_until_reconciled (test_dispatch_loop.DispatchTests.test_same_executor_cannot_take_unrelated_replacement_until_reconciled) ... ok
+test_stop_before_selection_is_retained_when_omitted_later (test_dispatch_loop.DispatchTests.test_stop_before_selection_is_retained_when_omitted_later) ... ok
+test_unknown_liveness_is_failure_but_cannot_replace_session (test_dispatch_loop.DispatchTests.test_unknown_liveness_is_failure_but_cannot_replace_session) ... ok
+test_write_receipt_rechecks_bound_scope_and_queue_cannot_widen_reservation (test_dispatch_loop.DispatchTests.test_write_receipt_rechecks_bound_scope_and_queue_cannot_widen_reservation) ... FAIL
+test_write_scope_requires_both_canonical_permission_and_full_checked_region (test_dispatch_loop.DispatchTests.test_write_scope_requires_both_canonical_permission_and_full_checked_region) ... 
+  test_write_scope_requires_both_canonical_permission_and_full_checked_region (test_dispatch_loop.DispatchTests.test_write_scope_requires_both_canonical_permission_and_full_checked_region) (allowlist=('doc.md',), regions=('src/',)) ... FAIL
+  test_write_scope_requires_both_canonical_permission_and_full_checked_region (test_dispatch_loop.DispatchTests.test_write_scope_requires_both_canonical_permission_and_full_checked_region) (allowlist=('src/',), regions=()) ... FAIL
+  test_write_scope_requires_both_canonical_permission_and_full_checked_region (test_dispatch_loop.DispatchTests.test_write_scope_requires_both_canonical_permission_and_full_checked_region) (allowlist=('src/feature.gd',), regions=('src/',)) ... FAIL
+test_write_scope_requires_both_canonical_permission_and_full_checked_region (test_dispatch_loop.DispatchTests.test_write_scope_requires_both_canonical_permission_and_full_checked_region) ... FAIL
+
+======================================================================
+ERROR: test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation (test_dispatch_loop.DispatchTests.test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 243, in test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation
+    result = self.cycle(at, observed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 101, in cycle
+    return loop.cycle(self.q, self.l, self.packets, observations or {}, at)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/dispatch_loop.py", line 151, in cycle
+    reconcile_attempts(ledger, observations, at)
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/dispatch_loop.py", line 108, in reconcile_attempts
+    need(observation["session_id"] == session_id, "liveness session mismatch")
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/dispatch_loop.py", line 29, in need
+    raise ValueError(reason)
+ValueError: liveness session mismatch
+
+======================================================================
+ERROR: test_late_session_record_and_ended_discovery_never_reset_budget_or_stops (test_dispatch_loop.DispatchTests.test_late_session_record_and_ended_discovery_never_reset_budget_or_stops) (route='record')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 279, in test_late_session_record_and_ended_discovery_never_reset_budget_or_stops
+    result = loop.record(ledger, dict(kind="session", attempt_id=first["attempt_id"],
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/dispatch_loop.py", line 216, in record
+    need(not any(e["kind"] == "hold" and e["key"] == attempt["key"] for e in ledger["events"]),
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/dispatch_loop.py", line 29, in need
+    raise ValueError(reason)
+ValueError: retained stop; recording cannot restart this attempt
+
+======================================================================
+ERROR: test_late_session_record_and_ended_discovery_never_reset_budget_or_stops (test_dispatch_loop.DispatchTests.test_late_session_record_and_ended_discovery_never_reset_budget_or_stops) (route='cycle-ended')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 287, in test_late_session_record_and_ended_discovery_never_reset_budget_or_stops
+    result = loop.cycle(self.q, ledger, self.packets, observed, at)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/dispatch_loop.py", line 151, in cycle
+    reconcile_attempts(ledger, observations, at)
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/dispatch_loop.py", line 108, in reconcile_attempts
+    need(observation["session_id"] == session_id, "liveness session mismatch")
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/dispatch_loop.py", line 29, in need
+    raise ValueError(reason)
+ValueError: liveness session mismatch
+
+======================================================================
+FAIL: test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts (test_dispatch_loop.DispatchTests.test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 119, in test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts
+    self.assertEqual(r["status"], "ESCALATION_REQUIRED", r)
+AssertionError: 'DISPATCH_REQUIRED' != 'ESCALATION_REQUIRED'
+- DISPATCH_REQUIRED
++ ESCALATION_REQUIRED
+ : {'status': 'DISPATCH_REQUIRED', 'attempt': {'revision': 1, 'kind': 'reserve', 'key': 'example/evidence-policy:ops-docs', 'attempt_id': 'example/evidence-policy:ops-docs:1', 'state': 'admitted', 'at': '2026-10-09T14:00:00+00:00', 'decision': {'task_id': 'ops-docs', 'repository': 'example/evidence-policy', 'operation': 'implementation', 'executor_id': 'native', 'owner_id': 'worker-A', 'head_sha': '76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0', 'input_digest': 'a829601dba36a2fedd2bb40a54f1abdfe679598ed532078f1f10271e97d21e13', 'expires_at': '2026-10-09T14:15:00+00:00', 'authorization_ids': ['authorized-source'], 'source_scope_digest': '40d1675172d94ee3748300e053299c239c05af9a67bf25713dbebda83349b0f1', 'source_inventory_digest': '59303b0a6ea28f5431791b1f6b3f2218fc05ac67bfcc5193cb719641fb22c854', 'decision_id': '641e08c86020b62269e9d30c32537507906441dd2dd9bb300e5cb60c1a1b307b'}, 'reconciliation': {'input_digest': 'a829601dba36a2fedd2bb40a54f1abdfe679598ed532078f1f10271e97d21e13', 'observed_at': '2026-10-09T14:00:00+00:00', 'evidence': 'SYNTHETIC collector result', 'board': 'exact board commit/blob/row', 'open_prs': 'complete exact PR-head inventory', 'user_stops': 'explicit user-stop read', 'sessions': 'authorized tool session inventory', 'liveness': 'clear', 'stops': []}, 'write_paths': ['src/'], 'correction': None, 'receipt_due': '2026-10-09T14:10:00+00:00'}, 'escalations': [], 'next': 'Persist the journal; revalidate exact decision immediately before authorized coordinator launch. Admission is not implementation.'}
+
+======================================================================
+FAIL: test_write_receipt_rechecks_bound_scope_and_queue_cannot_widen_reservation (test_dispatch_loop.DispatchTests.test_write_receipt_rechecks_bound_scope_and_queue_cannot_widen_reservation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 153, in test_write_receipt_rechecks_bound_scope_and_queue_cannot_widen_reservation
+    self.assertEqual(loop.attempts(self.l)[0]["write_paths"], ["src/feature.gd"])
+AssertionError: Lists differ: ['src/feature.gd', 'foreign/'] != ['src/feature.gd']
+
+First list contains 1 additional elements.
+First extra element 1:
+'foreign/'
+
+- ['src/feature.gd', 'foreign/']
+?                  ------------
+
++ ['src/feature.gd']
+
+======================================================================
+FAIL: test_write_scope_requires_both_canonical_permission_and_full_checked_region (test_dispatch_loop.DispatchTests.test_write_scope_requires_both_canonical_permission_and_full_checked_region) (allowlist=('doc.md',), regions=('src/',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 136, in test_write_scope_requires_both_canonical_permission_and_full_checked_region
+    self.assertEqual(r["status"], "ESCALATION_REQUIRED", r)
+AssertionError: 'DISPATCH_REQUIRED' != 'ESCALATION_REQUIRED'
+- DISPATCH_REQUIRED
++ ESCALATION_REQUIRED
+ : {'status': 'DISPATCH_REQUIRED', 'attempt': {'revision': 1, 'kind': 'reserve', 'key': 'example/evidence-policy:ops-docs', 'attempt_id': 'example/evidence-policy:ops-docs:1', 'state': 'admitted', 'at': '2026-10-09T14:00:00+00:00', 'decision': {'task_id': 'ops-docs', 'repository': 'example/evidence-policy', 'operation': 'implementation', 'executor_id': 'native', 'owner_id': 'worker-A', 'head_sha': '389336b1c2d4eff66c13634a7efd17013999e0ef', 'input_digest': '78ecde6187a3352df648e48f2c0089318a19dfa4a81b010fd0f7e0ac63341405', 'expires_at': '2026-10-09T14:15:00+00:00', 'authorization_ids': ['authorized-source'], 'source_scope_digest': '7939b6a1f39faa457c7100437d4f08dc09e66368cf066a427a55afa4c7c939d3', 'source_inventory_digest': '6df632934430c189d3bbfcc10f65624712237ed839818b5a5fbdb93de5104610', 'decision_id': '12b5728fad307e055e9e2588ccea45d43dc1c0f7045b80d268723107b61d8f00'}, 'reconciliation': {'input_digest': '78ecde6187a3352df648e48f2c0089318a19dfa4a81b010fd0f7e0ac63341405', 'observed_at': '2026-10-09T14:00:00+00:00', 'evidence': 'SYNTHETIC collector result', 'board': 'exact board commit/blob/row', 'open_prs': 'complete exact PR-head inventory', 'user_stops': 'explicit user-stop read', 'sessions': 'authorized tool session inventory', 'liveness': 'clear', 'stops': []}, 'write_paths': ['src/'], 'correction': None, 'receipt_due': '2026-10-09T14:10:00+00:00'}, 'escalations': [], 'next': 'Persist the journal; revalidate exact decision immediately before authorized coordinator launch. Admission is not implementation.'}
+
+======================================================================
+FAIL: test_write_scope_requires_both_canonical_permission_and_full_checked_region (test_dispatch_loop.DispatchTests.test_write_scope_requires_both_canonical_permission_and_full_checked_region) (allowlist=('src/',), regions=())
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 136, in test_write_scope_requires_both_canonical_permission_and_full_checked_region
+    self.assertEqual(r["status"], "ESCALATION_REQUIRED", r)
+AssertionError: 'DISPATCH_REQUIRED' != 'ESCALATION_REQUIRED'
+- DISPATCH_REQUIRED
++ ESCALATION_REQUIRED
+ : {'status': 'DISPATCH_REQUIRED', 'attempt': {'revision': 1, 'kind': 'reserve', 'key': 'example/evidence-policy:ops-docs', 'attempt_id': 'example/evidence-policy:ops-docs:1', 'state': 'admitted', 'at': '2026-10-09T14:00:00+00:00', 'decision': {'task_id': 'ops-docs', 'repository': 'example/evidence-policy', 'operation': 'implementation', 'executor_id': 'native', 'owner_id': 'worker-A', 'head_sha': 'cadf74bc482a293deb9f58ba37a03be65730ea6a', 'input_digest': '327aae39d98fbcf10085c5b47c3ce41a3b32ca8310b174c4a0929f47ebab319f', 'expires_at': '2026-10-09T14:15:00+00:00', 'authorization_ids': ['authorized-source'], 'source_scope_digest': '1e7fd0ef2ff305ad6d86d42590293de3a1f413ea8fccf6b60b1bbaa34e1428f7', 'source_inventory_digest': '8e3e446c015a563847a46cb1901ff2df8d7dc0b8b418b4e4f3d9f3219028be92', 'decision_id': 'f4863e0597674183c97bed36d338e2c4f985b5c3c60643fbd151fcaffab98b3c'}, 'reconciliation': {'input_digest': '327aae39d98fbcf10085c5b47c3ce41a3b32ca8310b174c4a0929f47ebab319f', 'observed_at': '2026-10-09T14:00:00+00:00', 'evidence': 'SYNTHETIC collector result', 'board': 'exact board commit/blob/row', 'open_prs': 'complete exact PR-head inventory', 'user_stops': 'explicit user-stop read', 'sessions': 'authorized tool session inventory', 'liveness': 'clear', 'stops': []}, 'write_paths': ['src/'], 'correction': None, 'receipt_due': '2026-10-09T14:10:00+00:00'}, 'escalations': [], 'next': 'Persist the journal; revalidate exact decision immediately before authorized coordinator launch. Admission is not implementation.'}
+
+======================================================================
+FAIL: test_write_scope_requires_both_canonical_permission_and_full_checked_region (test_dispatch_loop.DispatchTests.test_write_scope_requires_both_canonical_permission_and_full_checked_region) (allowlist=('src/feature.gd',), regions=('src/',))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 136, in test_write_scope_requires_both_canonical_permission_and_full_checked_region
+    self.assertEqual(r["status"], "ESCALATION_REQUIRED", r)
+AssertionError: 'DISPATCH_REQUIRED' != 'ESCALATION_REQUIRED'
+- DISPATCH_REQUIRED
++ ESCALATION_REQUIRED
+ : {'status': 'DISPATCH_REQUIRED', 'attempt': {'revision': 1, 'kind': 'reserve', 'key': 'example/evidence-policy:ops-docs', 'attempt_id': 'example/evidence-policy:ops-docs:1', 'state': 'admitted', 'at': '2026-10-09T14:00:00+00:00', 'decision': {'task_id': 'ops-docs', 'repository': 'example/evidence-policy', 'operation': 'implementation', 'executor_id': 'native', 'owner_id': 'worker-A', 'head_sha': 'dff3af01498c5bdc79135574ffee3607eaeec4b0', 'input_digest': 'dcb8e98089fb345db2e50545de18b41c9f0a75f08f2e781cc03e3017f9280fdf', 'expires_at': '2026-10-09T14:15:00+00:00', 'authorization_ids': ['authorized-source'], 'source_scope_digest': 'c0646cbbbaeae121b4864ff5a4ce43e0263de7c96582ef650f6227bf82452cb0', 'source_inventory_digest': 'd5104a61e4ce088dd1318ab2e0e24402dbdb9a9fff5b2c13ba3d27b13fcd6600', 'decision_id': '635183f4142d9a4c812b28ff86b3fd0aaefd8b351d28b6a8ab83df318955750c'}, 'reconciliation': {'input_digest': 'dcb8e98089fb345db2e50545de18b41c9f0a75f08f2e781cc03e3017f9280fdf', 'observed_at': '2026-10-09T14:00:00+00:00', 'evidence': 'SYNTHETIC collector result', 'board': 'exact board commit/blob/row', 'open_prs': 'complete exact PR-head inventory', 'user_stops': 'explicit user-stop read', 'sessions': 'authorized tool session inventory', 'liveness': 'clear', 'stops': []}, 'write_paths': ['src/'], 'correction': None, 'receipt_due': '2026-10-09T14:10:00+00:00'}, 'escalations': [], 'next': 'Persist the journal; revalidate exact decision immediately before authorized coordinator launch. Admission is not implementation.'}
+
+======================================================================
+FAIL: test_write_scope_requires_both_canonical_permission_and_full_checked_region (test_dispatch_loop.DispatchTests.test_write_scope_requires_both_canonical_permission_and_full_checked_region)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 139, in test_write_scope_requires_both_canonical_permission_and_full_checked_region
+    self.assertEqual(loop.cycle(queue_for(c), ledger_for(c), {loop.key(c): p}, {}, NOW)["status"], "ESCALATION_REQUIRED")
+AssertionError: 'DISPATCH_REQUIRED' != 'ESCALATION_REQUIRED'
+- DISPATCH_REQUIRED
++ ESCALATION_REQUIRED
+
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.353s
+
+FAILED (failures=6, errors=3)

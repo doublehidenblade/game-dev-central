@@ -1,0 +1,15 @@
+PASS in_review:pass_plus_fail
+PASS in_review:empty_criteria
+PASS in_review:partial_criteria
+PASS in_review:self_review
+PASS in_review:failed_check
+PASS in_review:old_head_review
+PASS in_review:no_reviews
+PASS merged:pass_plus_fail
+PASS merged:empty_criteria
+PASS merged:partial_criteria
+PASS merged:self_review
+PASS merged:failed_check
+PASS merged:old_head_review
+PASS merged:no_reviews
+TOTAL 14 FAILURES 0

@@ -355,6 +355,12 @@
       "path": "worker-status-registration-cbf9393-private-audit/project-management/tasks/ops-worker-status-contract-20261011/registration-proof.json",
       "bytes": 9639,
       "sha256": "64497b39c999bfcd7ebac02663fe5077e603a357538eb79c0ead99cea7299c9c"
+    },
+    {
+      "path": "td197-stall-audit-evidence-20261011/provenance/r4-interfaces.json",
+      "bytes": 12042,
+      "sha256": "c2c28368b09e9e79ead0f84ff8ccd778eff1d67fb7507aca7eb2492191ecba82",
+      "recovery": "Original supplied garage archive; independently provided byte count, Git blob and SHA-256 matched on 2026-10-11."
     }
   ]
 }

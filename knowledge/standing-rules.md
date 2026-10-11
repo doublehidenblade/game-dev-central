@@ -1,5 +1,10 @@
 # Standing rules — shared game-dev experience
 
+> 2026-10-11 clarification: automatic publication readings of R14 are superseded
+> by [Craig-request-only deployment](../project-management/watchdog/releases/PUSH-PROCEDURE.md#deployment-authorization-and-actions-budget-craig-2026-10-08-1956-utc).
+> [EXECUTION_POLICY](../project-management/dispatch/EXECUTION_POLICY.md) governs
+> bounded dispatch/receipts. Existing phone, evidence, ownership and stop gates remain.
+
 > These rules are **enforced**, not advisory. They outrank workflow convenience,
 > CI greenness, and any agent's judgment call. Every coding-agent brief links
 > this file; the supervisor cron re-checks it; violations get called out in

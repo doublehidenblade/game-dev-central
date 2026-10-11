@@ -1,0 +1,20 @@
+test_actual_session_and_changed_git_artifact_required (test_dispatch_loop.DispatchTests.test_actual_session_and_changed_git_artifact_required) ... ok
+test_compare_and_swap_persistence_race_allows_only_one_handoff (test_dispatch_loop.DispatchTests.test_compare_and_swap_persistence_race_allows_only_one_handoff) ... ok
+test_empty_queue_has_exact_candidate_escalation (test_dispatch_loop.DispatchTests.test_empty_queue_has_exact_candidate_escalation) ... ok
+test_frozen_projects_and_unknown_history (test_dispatch_loop.DispatchTests.test_frozen_projects_and_unknown_history) ... ok
+test_guarded_selection_and_no_duplicate_across_restart (test_dispatch_loop.DispatchTests.test_guarded_selection_and_no_duplicate_across_restart) ... ok
+test_initial_plus_one_correction_cap_survives_changed_executor_and_head (test_dispatch_loop.DispatchTests.test_initial_plus_one_correction_cap_survives_changed_executor_and_head) ... ok
+test_launch_without_write_is_not_implementation_and_preserves_session (test_dispatch_loop.DispatchTests.test_launch_without_write_is_not_implementation_and_preserves_session) ... ok
+test_missing_receipt_never_becomes_success_from_late_artifact (test_dispatch_loop.DispatchTests.test_missing_receipt_never_becomes_success_from_late_artifact) ... ok
+test_missing_receipt_rotates_after_confirmed_nonlaunch (test_dispatch_loop.DispatchTests.test_missing_receipt_rotates_after_confirmed_nonlaunch) ... ok
+test_old_or_self_declared_acceptance_cannot_validate_new_code (test_dispatch_loop.DispatchTests.test_old_or_self_declared_acceptance_cannot_validate_new_code) ... ok
+test_queue_limits_and_expired_or_changed_reconciliation (test_dispatch_loop.DispatchTests.test_queue_limits_and_expired_or_changed_reconciliation) ... ok
+test_real_guard_stops_denials_owners_queue_and_acceptance_stay_binding (test_dispatch_loop.DispatchTests.test_real_guard_stops_denials_owners_queue_and_acceptance_stay_binding) ... ok
+test_same_executor_cannot_take_unrelated_replacement_until_reconciled (test_dispatch_loop.DispatchTests.test_same_executor_cannot_take_unrelated_replacement_until_reconciled) ... ok
+test_stop_before_selection_is_retained_when_omitted_later (test_dispatch_loop.DispatchTests.test_stop_before_selection_is_retained_when_omitted_later) ... ok
+test_unknown_liveness_is_failure_but_cannot_replace_session (test_dispatch_loop.DispatchTests.test_unknown_liveness_is_failure_but_cannot_replace_session) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.175s
+
+OK

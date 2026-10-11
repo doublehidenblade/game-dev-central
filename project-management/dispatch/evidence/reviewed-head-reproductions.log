@@ -1,0 +1,43 @@
+test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts (test_dispatch_loop.DispatchTests.test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts) ... FAIL
+test_legacy_unbound_foreign_feature_reservation_cannot_record_receipt (test_dispatch_loop.DispatchTests.test_legacy_unbound_foreign_feature_reservation_cannot_record_receipt) ... FAIL
+test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation (test_dispatch_loop.DispatchTests.test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation) ... ERROR
+
+======================================================================
+ERROR: test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation (test_dispatch_loop.DispatchTests.test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 250, in test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation
+    result = self.cycle(at, observed)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 102, in cycle
+    return loop.cycle(self.q, self.l, self.packets, observations or {}, at)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "dispatch_loop.py@8d070716", line 151, in cycle
+  File "dispatch_loop.py@8d070716", line 108, in reconcile_attempts
+  File "dispatch_loop.py@8d070716", line 29, in need
+ValueError: liveness session mismatch
+
+======================================================================
+FAIL: test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts (test_dispatch_loop.DispatchTests.test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 120, in test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts
+    self.assertEqual(r["status"], "ESCALATION_REQUIRED", r)
+AssertionError: 'DISPATCH_REQUIRED' != 'ESCALATION_REQUIRED'
+- DISPATCH_REQUIRED
++ ESCALATION_REQUIRED
+ : {'status': 'DISPATCH_REQUIRED', 'attempt': {'revision': 1, 'kind': 'reserve', 'key': 'example/evidence-policy:ops-docs', 'attempt_id': 'example/evidence-policy:ops-docs:1', 'state': 'admitted', 'at': '2026-10-09T14:00:00+00:00', 'decision': {'task_id': 'ops-docs', 'repository': 'example/evidence-policy', 'operation': 'implementation', 'executor_id': 'native', 'owner_id': 'worker-A', 'head_sha': '76e5d70a27d59efd57d99c16fda4d3edd9e5c6c0', 'input_digest': 'a829601dba36a2fedd2bb40a54f1abdfe679598ed532078f1f10271e97d21e13', 'expires_at': '2026-10-09T14:15:00+00:00', 'authorization_ids': ['authorized-source'], 'source_scope_digest': '40d1675172d94ee3748300e053299c239c05af9a67bf25713dbebda83349b0f1', 'source_inventory_digest': '59303b0a6ea28f5431791b1f6b3f2218fc05ac67bfcc5193cb719641fb22c854', 'decision_id': '641e08c86020b62269e9d30c32537507906441dd2dd9bb300e5cb60c1a1b307b'}, 'reconciliation': {'input_digest': 'a829601dba36a2fedd2bb40a54f1abdfe679598ed532078f1f10271e97d21e13', 'observed_at': '2026-10-09T14:00:00+00:00', 'evidence': 'SYNTHETIC collector result', 'board': 'exact board commit/blob/row', 'open_prs': 'complete exact PR-head inventory', 'user_stops': 'explicit user-stop read', 'sessions': 'authorized tool session inventory', 'liveness': 'clear', 'stops': []}, 'write_paths': ['src/'], 'correction': None, 'receipt_due': '2026-10-09T14:10:00+00:00'}, 'escalations': [], 'next': 'Persist the journal; revalidate exact decision immediately before authorized coordinator launch. Admission is not implementation.'}
+
+======================================================================
+FAIL: test_legacy_unbound_foreign_feature_reservation_cannot_record_receipt (test_dispatch_loop.DispatchTests.test_legacy_unbound_foreign_feature_reservation_cannot_record_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/game-dev-dispatch-repair/project-management/watchdog/test_dispatch_loop.py", line 132, in test_legacy_unbound_foreign_feature_reservation_cannot_record_receipt
+    with self.assertRaises((ValueError, KeyError)):
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'KeyError'>) not raised
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.036s
+
+FAILED (failures=2, errors=1)
