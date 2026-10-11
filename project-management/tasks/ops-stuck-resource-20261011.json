@@ -1,8 +1,8 @@
 {
   "id": "ops-stuck-resource-20261011",
   "title": "Persist stuck attempts, bound retries and admit work using actual executor resources",
-  "status": "open",
-  "phase": "Final bounded registration correction in review; independent exact-plan collection gate required before conditional Phase A activation; no executable work started",
+  "status": "blocked",
+  "phase": "Phase A parked on the current supported guard's protected-board overlap; no activation or implementation; Phase B and live adoption remain held",
   "owner": "dot-stuck-resource-author",
   "independent_reviewer": "dot-stuck-resource-reviewer — proposed separate role; actual independent principal and evidence are authenticated at admission",
   "ask": {
@@ -165,14 +165,24 @@
       "at": "2026-10-11T01:11:13Z",
       "by": "dot-stuck-resource-author",
       "entry": "Prepared the second and final PR466 registration correction for the independently reproduced canonical-plan omission finding. Declared a separately verified exact-plan collection prerequisite covering canonical, candidate-task and actual submitted plans, all nine non-check entries, strict input binding and fail-closed recollection. Included a local stdlib comparison/control recipe. The shared validator does not enforce this equality. Phase A/B, C1-C6, policies/plans, artifacts and implementation budget remain unchanged. No actual acknowledgment/authority/receipt, independent acceptance, executable implementation or denied-read retry. Local validation passed: embedded comparator 2 positive/55 negative controls, including all nine non-check entries; actual CLI 2 positive/10 negative checks with exit 0/1/2 and input hashes verified. Exact Phase A/B, C1-C6, policy/plan and write-scope preservation plus JSON/whitespace checks passed. These are comparison controls only, not engine admission or independent acceptance."
+    },
+    {
+      "at": "2026-10-11T01:34:44Z",
+      "by": "dot-stuck-resource-author",
+      "entry": "Same-task Phase A continuation after independently accepted PR466 source 82dddad2e1a1575db4d1abb815483015c84c5dff and merge 4a1320380c310fb92993b3bf760acb546cc3ab29. This task-record-only checkpoint supplies the open candidate PR/branch/head required for genuine supported scoped collection; it does not restart registration or alter the accepted grant. Fresh main e9766161c55c936e7e3ed663c0a74dd4b0a34013 changes only legacy state since the registration merge; current rule/task blobs are unchanged, the complete tree has no GitHub workflows and Pages is disabled. Independent authority/exact-plan equality receipt and fresh supported guard remain pending. Activation time and implementation deadline are unset; no executable implementation has started. Existing owner/status, C1-C6, evidence policies/plans, exact Phase A write scope, Phase B/live-adoption holds and implementation budget are preserved."
+    },
+    {
+      "at": "2026-10-11T01:48:01Z",
+      "by": "dot-stuck-resource-author",
+      "entry": "Coordinator-directed parking after the independent collector verified PR467 and the refreshed submission equality/ACK but identified the actual guard blocker. Phase A is parked before activation: canonical C1 includes the whole project-management/boards/tokyo-drift-3d.md source. PR467 does not change that board, so scoped_admission.py lines 475-478 prohibit narrowing it to row keys. Still-open divergent PR450 at 17bf88d49d6ed748de163a98c7d42057ae79afec changes the protected board; lines 548-552 and 622 retain the source overlap. No supported guard PASS exists. Preserve the foreign PR/row and the existing evaluator/criteria; no further retry loop. Source: project-management/watchdog/scoped_admission.py at e9766161c55c936e7e3ed663c0a74dd4b0a34013; conflicting PR https://github.com/doublehidenblade/game-dev-central/pull/450. This is task metadata only. Owner, C1-C6, plans/policies, Phase A scope, Phase B/live holds and the registered budget remain unchanged. T0/deadline remain unset; no implementation attempt began and unknown historical count/ledger revision remain null. No evaluator edit, criterion relaxation, PR450 closure, new registration, source acceptance, Actions, merge, deployment or further retry is authorized by this record."
     }
   ],
   "verdict": null,
   "stuck": {
-    "status": "pending_admission",
+    "status": "blocked",
     "count": null,
     "count_scope": "Authoritative attempt ledger not yet established; missing history is not zero",
-    "reason": "Registration amendment awaits independent acceptance/merge and actual Phase A admission/setup; Phase B handoff and live backend are separate holds",
+    "reason": "Phase A is parked before activation: canonical C1 includes the whole project-management/boards/tokyo-drift-3d.md source. PR467 does not change that board, so scoped_admission.py lines 475-478 prohibit narrowing it to row keys. Still-open divergent PR450 at 17bf88d49d6ed748de163a98c7d42057ae79afec changes the protected board; lines 548-552 and 622 retain the source overlap. No supported guard PASS exists. Preserve the foreign PR/row and the existing evaluator/criteria; no further retry loop.",
     "ledger_revision": null
   },
   "evidence_rule_inventory": [
