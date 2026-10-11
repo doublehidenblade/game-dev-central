@@ -2150,6 +2150,15 @@
    "dispatched_at": "2026-10-11T03:18:40.830553+00:00",
    "quiet_cycles": 0,
    "last_verdict": "stale"
+  },
+  "td-251": {
+   "kind": "muse-subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-251.md",
+   "dispatched_at": "2026-10-11T05:20:55.424074+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
