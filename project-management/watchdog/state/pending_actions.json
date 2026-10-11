@@ -9,6 +9,11 @@
    "type": "screenshots",
    "session": "td-250",
    "pr": 675
+  },
+  {
+   "type": "note",
+   "text": "2026-10-11 21:28Z watchdog run: td-250 merge-gap owner lane steer needed. Existing Muse td-250 subagent must rewrite the Criterion-2 caption in open PR #694 (branch docs/td-250-evidence-pairs, HEAD e9bc07bce1, last push 14:59Z; instruction delivered via inbox reply 6111093453 at 16:21Z, NO new push since \u2014 5h). The \"pre-contact before\" label for td-250-collision-test.png is unsupported: original td250_evidence.gd captured the collision frame only after a 6s drive (lines 345-371; run.log: touched_pole=true passed_through=true final_along=6.48 pre-capture). Rewrite captions with true frame provenance (incl. the re-shot td-250-collision-contact.png t=0.550s contact pose). PR #694 must NOT merge until corrected (per state note 174). Steer the EXISTING worker \u2014 no duplicate dispatch. td250_merge_gap stays open-rework/criterion2 UNPROVEN.",
+   "queued_at": "2026-10-11T21:21:35.408355+00:00"
   }
  ],
  "notes": [
