@@ -1,1 +1,14 @@
-{"cleared_at":"2026-10-11T00:09:22Z","cleared_note":"v47 live 2026-10-10: all 16 merged fixes published (PRs #459, #461, #460, #472, #505, #410, #592, #593, #594, #595, #598, #600, #603, #608, #620, #622); nothing merged-not-live remains. Mirror reconciled 2026-10-11T06:25Z against ~/workspace/game-releases/pending.json and live deployment.json.","pending":[]}
+{
+ "cleared_at": "2026-10-11T00:09:22Z",
+ "cleared_note": "v47 live 2026-10-10: all 16 merged fixes published (PRs #459, #461, #460, #472, #505, #410, #592, #593, #594, #595, #598, #600, #603, #608, #620, #622); nothing merged-not-live remains. Mirror reconciled 2026-10-11T06:25Z against ~/workspace/game-releases/pending.json and live deployment.json.",
+ "pending": [
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-250",
+   "pr": 675,
+   "merged_sha": "5854bf0c8beca919a5f913f7e8c084e7ddfb595f",
+   "merged_at": "2026-10-11T12:54:56.522460+00:00",
+   "summary": "td-250 traffic-light poles moved to sidewalk corners + pole collision, validated by watchdog validator, squash-merged by validator"
+  }
+ ]
+}
