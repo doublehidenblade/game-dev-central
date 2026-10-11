@@ -11,7 +11,15 @@
   "source_sha": "b0a91ea66438be7dc4885c7fab8607d2e84e2222",
   "published_at": "2026-10-02T19:03:12.109322+00:00",
   "version": "v34",
-  "note": "Craig 2026-10-02 force publish (publish-game run 37051037780, success): PR #270 traffic fleet (12 Blender-cleaned cars), #272 NITRO tap guard, #273 UI rework 80s-anime theme, #274 Shuto salvage, traffic texture optimization (2048->512px ORM MIME fix)"
+  "note": "Craig 2026-10-02 force publish (publish-game run 37051037780, success): PR #270 traffic fleet (12 Blender-cleaned cars), #272 NITRO tap guard, #273 UI rework 80s-anime theme, #274 Shuto salvage, traffic texture optimization (2048->512px ORM MIME fix)",
+  "personal_playtest": {
+   "version": "playtest-20261008-1a5d967",
+   "source_sha": "1a5d967ca81d285aecf07be830811aff4fbef48f",
+   "base_web_sha": "271ede178f1aa4d072cf988c1d2ba43d18911efd",
+   "shuto_web_sha": "991decf0f94c7bc4e5619d637f4ffba157da2641",
+   "record": "project-management/watchdog/releases/2026-10-08-personal-playtest-publication.md",
+   "note": "Personal preview published 2026-10-08; base 30-file exact HTTP 200 readback, Shuto selector/HTML/manifest exact HTTP 200 only. Not source-main acceptance, full gameplay/visual QA, or Craig's phone verdict. Historical normal-release fields and pending entries preserved."
+  }
  },
  "tokyo-drift-3d": {
   "version": "v29",
