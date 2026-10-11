@@ -1,0 +1,152 @@
+{
+  "task_id": "td-238-board-document-admission",
+  "candidate_head": "d1aaf836c37f51449cc5f538ea27f941e55f80c6",
+  "actor_id": "dot-td238-terminal-documents-reviewer",
+  "authority_digest": "f681c68b49cdb57603b0d3caa416baa6147c6fa5cae534dfa91ef43fb3fe573e",
+  "evidence_digest": "9752c0a65c4a7f8c969913fb4799dc30ab2f5bb831a75ad3061178d3797f37ba",
+  "performed_at": "2026-10-11T07:04:36Z",
+  "criteria": {
+    "A1": {
+      "decision": "PASS",
+      "rationale": "The reviewed board anchor changes exactly the existing td-238 row; all other board bytes are unchanged. Its full tree matches the earlier independently accepted board proposal, and the retained superseded board head is a genuine direct parent. Later changes are restricted to authorized documentation binding, recorded diff check, reconciliation and verdict metadata. I inspected the exact successful pinned diff-check record, all mapped evidence and the original protected-source finding; the coordinator's narrow ancestry resolution is supported. Current unrelated main-state changes must be preserved on any canonical merge.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "d1aaf836c37f51449cc5f538ea27f941e55f80c6",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "a6e207e477e02dfb15494e65227f8a74b3c1bb03"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "05e60c2dd3e0801d233f366027edc9a2bc23bf1b",
+          "path": "project-management/tasks/td-238-admission/board-diff-check.json",
+          "blob": "139f607ccf94fd5caec207c6553af02311cc7d2c"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "59dbefd8b1d2c1873027a51d21025447d7d57258",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "6bfa6e08eb9203f116c798f4f30c17f6bce28b32"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "943411db850ce52261cdd749c022d92517e08049",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "1f1b87404debb5fb5838a49fc117410857ce1ed8"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "9b48292ef7c102489b7f5270561d43a00ff12d89",
+          "path": "project-management/tasks/td-238-admission/board-document-reconciliation.json",
+          "blob": "e4e4e7aa5a2f635b2d4bf9a2dc06eb49f9331887"
+        }
+      ],
+      "evidence_ids": [
+        "board-A1-1",
+        "board-A1-2"
+      ],
+      "finding_ids": [
+        "td238-board-docs-protected-divergence-20261011"
+      ]
+    },
+    "A2": {
+      "decision": "PASS",
+      "rationale": "The existing row reserves one proposed component author and a distinct reviewer for the directly inspected source contract. It preserves economy, traffic, save, input, scene and network ownership, creates no additional gameplay row and activates no runtime author. The linked source contract provides concrete nine-path scope and unavailable adapters.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "d1aaf836c37f51449cc5f538ea27f941e55f80c6",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "a6e207e477e02dfb15494e65227f8a74b3c1bb03"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "e21cfb4ec888d2005802b6e5d821cf2318002395",
+          "path": "godot/docs/tasks/td-238.md",
+          "blob": "903d01f74db685608ee9ee341f70fcaed89be45e"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "e21cfb4ec888d2005802b6e5d821cf2318002395",
+          "path": "godot/docs/tasks/td-238-terminal-component.json",
+          "blob": "cdd985ed3db707f328f2202391dea84f5ee6c9cb"
+        }
+      ],
+      "evidence_ids": [
+        "board-A2-1"
+      ],
+      "finding_ids": []
+    },
+    "A3": {
+      "decision": "PASS",
+      "rationale": "The row links the exact inspected source contract and A1-A4/T1-T5 plans, retains blocked status and explicitly rejects full-task or playable-integration acceptance. I independently inspected the source plans, native image-pair requirements and unchanged-source negative controls. No plan is treated as performed runtime, browser or phone evidence.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "d1aaf836c37f51449cc5f538ea27f941e55f80c6",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "a6e207e477e02dfb15494e65227f8a74b3c1bb03"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "e21cfb4ec888d2005802b6e5d821cf2318002395",
+          "path": "godot/docs/tasks/td-238.md",
+          "blob": "903d01f74db685608ee9ee341f70fcaed89be45e"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "e21cfb4ec888d2005802b6e5d821cf2318002395",
+          "path": "godot/docs/tasks/td-238-terminal-component.json",
+          "blob": "cdd985ed3db707f328f2202391dea84f5ee6c9cb"
+        }
+      ],
+      "evidence_ids": [
+        "board-A3-1"
+      ],
+      "finding_ids": []
+    },
+    "A4": {
+      "decision": "PASS",
+      "rationale": "The board pins the previously accepted source revision whose full tree equals the reconciled source anchor, retains the prior overlap history and requires genuine supported admission and explicit activation. The separately inspected local A1-A4 JSON binding supplies the documentation-only policy, complete rules, exact check identity and local evidence map. I inspected the original Markdown-input finding and its actual JSON resolution. Neither that resolution nor this document verdict satisfies runtime T1-T5 or full parent criteria.",
+      "citations": [
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "d1aaf836c37f51449cc5f538ea27f941e55f80c6",
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "blob": "a6e207e477e02dfb15494e65227f8a74b3c1bb03"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "3888df39c40ad7643a6b339146007d895e7b04bf",
+          "path": "project-management/tasks/td-238-board-document-admission.json",
+          "blob": "9fe2a75d6f47b0f3c84b36e6c3a309f0aaef10e5"
+        },
+        {
+          "repository": "doublehidenblade/game-dev-central",
+          "commit": "9b48292ef7c102489b7f5270561d43a00ff12d89",
+          "path": "project-management/tasks/td-238-admission/board-document-reconciliation.json",
+          "blob": "e4e4e7aa5a2f635b2d4bf9a2dc06eb49f9331887"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "e21cfb4ec888d2005802b6e5d821cf2318002395",
+          "path": "godot/docs/tasks/td-238.md",
+          "blob": "903d01f74db685608ee9ee341f70fcaed89be45e"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "e21cfb4ec888d2005802b6e5d821cf2318002395",
+          "path": "godot/docs/tasks/td-238-terminal-component.json",
+          "blob": "cdd985ed3db707f328f2202391dea84f5ee6c9cb"
+        }
+      ],
+      "evidence_ids": [
+        "board-A4-1",
+        "board-A4-2"
+      ],
+      "finding_ids": [
+        "td238-board-docs-non-json-input-20261011"
+      ]
+    }
+  }
+}
