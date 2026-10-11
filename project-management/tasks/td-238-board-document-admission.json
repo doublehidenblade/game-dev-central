@@ -1,0 +1,309 @@
+{
+  "id": "td-238-board-document-admission",
+  "title": "td-238 board documentation admission binding (A1-A4 only)",
+  "parent_task": "td-238",
+  "kind": "documentation_acceptance_binding",
+  "runtime_component": "td-238-terminal-component",
+  "status": "in_review",
+  "owner": null,
+  "assigned_worker": null,
+  "runtime_allowlist": [],
+  "documentation_author_id": "dot-td238-terminal-component-author",
+  "designated_document_reviewer_id": "dot-td238-terminal-documents-reviewer",
+  "ask": {
+    "by": "Craig",
+    "date": "2026-10-11",
+    "scope": "Correct the current td-238 document admission packet using the existing policy schema; encode the already reviewed A1-A4 without changing their substance, runtime T1-T5, full-task C1-C6 or existing ownership. This is not a new implementation task."
+  },
+  "bug_shape": "The accepted A1-A4 checklist is Markdown, while the existing evidence policy requires a committed JSON task and a structured independent verdict for each candidate repository.",
+  "reference_images": [],
+  "depends_on": [],
+  "dependencies": [],
+  "dependency_rationale": "This document acceptance binding reviews the named document revisions only. It does not assert completion of any parent/runtime prerequisite or confer runtime assignment or activation.",
+  "reviewed_implementation_head": "d1aaf836c37f51449cc5f538ea27f941e55f80c6",
+  "paired_reviewed_heads": {
+    "doublehidenblade/tokyo-drift-3d": "e21cfb4ec888d2005802b6e5d821cf2318002395",
+    "doublehidenblade/game-dev-central": "d1aaf836c37f51449cc5f538ea27f941e55f80c6"
+  },
+  "scope_amendment": {
+    "purpose": "Parent-authorized documentation acceptance metadata only. New metadata/evidence/verdict commits advance artifact_head; they do not retain full-tree identity with the earlier anchor.",
+    "permitted_new_paths": [
+      "project-management/tasks/td-238-board-document-admission.json",
+      "project-management/tasks/td-238-admission/board-diff-check.json",
+      "project-management/tasks/td-238-admission/board-document-verdict.json",
+      "project-management/tasks/td-238-admission/board-document-reconciliation.json"
+    ],
+    "frozen_reviewed_local_paths": [
+      "project-management/boards/tokyo-drift-3d.md"
+    ],
+    "frozen_existing_criteria": "Exact original parent JSON/C1-C6/dependencies, runtime companion T1-T5 and the existing board row remain unchanged.",
+    "canonical_landing": "Any later parent-authorized canonical landing must retain the real reconciled ancestry and preserve current main state/release updates. This record authorizes no merge.",
+    "retry_budget": "One bounded correction of this documentation-packet schema gap. If the same gate fails again for this cause, park with the actual retry count; do not expand machinery. Runtime implementation budget remains unused and unchanged."
+  },
+  "completion_criteria": [
+    {
+      "id": "A1",
+      "criterion": "Diff is this additive task section, its subordinate JSON admission companion and the matching existing board row only; original task JSON/C1–C6/dependencies and all other owners/rows remain unchanged.",
+      "verification": "Independently inspect the exact local base-to-reviewed-head diff, original parent/board bytes, genuine raw two-parent ancestry and real successful diff-check record. Inspect only the expressly authorized acceptance-metadata delta afterward; preserve all original criteria, ownership and current main state on any later canonical merge."
+    },
+    {
+      "id": "A2",
+      "criterion": "Real UI/parser deliverable, exact new-file scope, stable commands, bounds, unavailable adapters and excluded integration are concrete; no implicit shared-file handoff.",
+      "verification": "Inspect the unchanged local reviewed documents and the exact counterpart citations for the nine-path unmounted UI/parser contract, stable commands, bounds, unavailable owner adapters and unchanged ownership. This is document inspection, not runtime execution."
+    },
+    {
+      "id": "A3",
+      "criterion": "T1–T5, unchanged-source negative controls and native pixel/keyboard evidence are meaningful; partial component results cannot satisfy full-task or browser/phone acceptance.",
+      "verification": "Inspect all unchanged T1-T5 plans, four native visual instances/eight planned images and unchanged-source negative controls through the exact reviewed source citations. Confirm full C1-C6, native/browser/phone acceptance and game integration are still pending."
+    },
+    {
+      "id": "A4",
+      "criterion": "The JSON companion supplies the existing policy/guard schema's component criteria, rule inventory, source/check-ID maps and evidence plans; exact proposal heads, earlier parked overlaps, genuine parent-held admission prerequisites and activation gate are explicit; no claim of guard PASS, runtime start, merge or self-acceptance.",
+      "verification": "Inspect the unchanged component schema and board binding plus this subordinate A1-A4 JSON policy, its exact complete inherited 14-rule inventory, mapped local documentary evidence and real A1 check. Verify genuine parent authority, current ACK/raw objects and distinct reviewer binding are still required; no worker-authored verdict or guard PASS."
+    }
+  ],
+  "evidence_rule_inventory": [
+    {
+      "id": "central:COORDINATOR.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "COORDINATOR.md"
+    },
+    {
+      "id": "central:knowledge/standing-rules.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/standing-rules.md"
+    },
+    {
+      "id": "central:project-management/rules/SYSTEM.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/SYSTEM.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_BRIEF.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_SELECTION_POLICY.md"
+    },
+    {
+      "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/EVIDENCE_POLICY.md"
+    },
+    {
+      "id": "central:project-management/watchdog/RUNBOOK.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/RUNBOOK.md"
+    },
+    {
+      "id": "central:project-management/rules/DURABILITY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/DURABILITY.md"
+    },
+    {
+      "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/VALIDATOR_BRIEF.md"
+    },
+    {
+      "id": "central:knowledge/workflow/game-dev-workflow.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/workflow/game-dev-workflow.md"
+    },
+    {
+      "id": "central:knowledge/brief-snippet.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/brief-snippet.md"
+    },
+    {
+      "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md"
+    },
+    {
+      "id": "tokyo:AGENTS.md",
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "path": "AGENTS.md"
+    },
+    {
+      "id": "tokyo:README.md",
+      "repository": "doublehidenblade/tokyo-drift-3d",
+      "path": "README.md"
+    }
+  ],
+  "evidence_policy": {
+    "A1": {
+      "applicability": "required",
+      "rationale": "Documentation acceptance only; every existing A1 requirement remains required. No runtime T1-T5 or parent C1-C6 criterion is substituted, excluded or completed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "A1-documents"
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "td238-board-documents-diff-check",
+          "command": [
+            "python3",
+            "-c",
+            "import subprocess, sys\ncommand = ['git', 'diff', '--check', '943411db850ce52261cdd749c022d92517e08049', 'd1aaf836c37f51449cc5f538ea27f941e55f80c6']\nresult = subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\nif result.stdout:\n    sys.stdout.write(result.stdout)\nprint(\"git diff --check completed with exit code %d\" % result.returncode)\nsys.exit(result.returncode)\n"
+          ]
+        }
+      ]
+    },
+    "A2": {
+      "applicability": "required",
+      "rationale": "Documentation acceptance only; every existing A2 requirement remains required. No runtime T1-T5 or parent C1-C6 criterion is substituted, excluded or completed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "A2-documents"
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    },
+    "A3": {
+      "applicability": "required",
+      "rationale": "Documentation acceptance only; every existing A3 requirement remains required. No runtime T1-T5 or parent C1-C6 criterion is substituted, excluded or completed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "A3-documents"
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    },
+    "A4": {
+      "applicability": "required",
+      "rationale": "Documentation acceptance only; every existing A4 requirement remains required. No runtime T1-T5 or parent C1-C6 criterion is substituted, excluded or completed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "A4-documents"
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    }
+  },
+  "admission_submission_plans": {
+    "A1": {
+      "method": "Independently inspect the exact local base-to-reviewed-head diff, original parent/board bytes, genuine raw two-parent ancestry and real successful diff-check record. Inspect only the expressly authorized acceptance-metadata delta afterward; preserve all original criteria, ownership and current main state on any later canonical merge.",
+      "artifacts": [
+        {
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "type": "document"
+        },
+        {
+          "path": "project-management/tasks/td-238-admission/board-diff-check.json",
+          "type": "assertion",
+          "check_id": "td238-board-documents-diff-check"
+        }
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ],
+      "build": null,
+      "coverage": [
+        "A1-documents"
+      ],
+      "reviewer_id": "dot-td238-terminal-documents-reviewer"
+    },
+    "A2": {
+      "method": "Inspect the unchanged local reviewed documents and the exact counterpart citations for the nine-path unmounted UI/parser contract, stable commands, bounds, unavailable owner adapters and unchanged ownership. This is document inspection, not runtime execution.",
+      "artifacts": [
+        {
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ],
+      "build": null,
+      "coverage": [
+        "A2-documents"
+      ],
+      "reviewer_id": "dot-td238-terminal-documents-reviewer"
+    },
+    "A3": {
+      "method": "Inspect all unchanged T1-T5 plans, four native visual instances/eight planned images and unchanged-source negative controls through the exact reviewed source citations. Confirm full C1-C6, native/browser/phone acceptance and game integration are still pending.",
+      "artifacts": [
+        {
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ],
+      "build": null,
+      "coverage": [
+        "A3-documents"
+      ],
+      "reviewer_id": "dot-td238-terminal-documents-reviewer"
+    },
+    "A4": {
+      "method": "Inspect the unchanged component schema and board binding plus this subordinate A1-A4 JSON policy, its exact complete inherited 14-rule inventory, mapped local documentary evidence and real A1 check. Verify genuine parent authority, current ACK/raw objects and distinct reviewer binding are still required; no worker-authored verdict or guard PASS.",
+      "artifacts": [
+        {
+          "path": "project-management/boards/tokyo-drift-3d.md",
+          "type": "document"
+        },
+        {
+          "path": "project-management/tasks/td-238-board-document-admission.json",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/boards/tokyo-drift-3d.md"
+      ],
+      "build": null,
+      "coverage": [
+        "A4-documents"
+      ],
+      "reviewer_id": "dot-td238-terminal-documents-reviewer"
+    }
+  },
+  "planned_independent_verdict_path": "project-management/tasks/td-238-admission/board-document-verdict.json",
+  "evidence": [
+    "project-management/boards/tokyo-drift-3d.md",
+    "project-management/tasks/td-238-admission/board-diff-check.json"
+  ],
+  "verdict": null,
+  "recommended_setup": {
+    "capability_tier": "Frontier document/schema review in the existing selected workspace",
+    "provider_preference": "Existing author and existing independent parent-side documentation reviewer; no additional dispatch",
+    "requested_model_effort": "Astra/max requested, not serving-model attestation",
+    "environment_tools": "Existing Git, Python and unchanged current watch.py module bundle; no runtime game tooling needed for A1-A4",
+    "availability_checked": "Existing author environment executed the actual pinned diff check; parent authenticates its existing reviewer observations",
+    "fallback": "wait_for_required_tier",
+    "attempt_budget": "One bounded documentation metadata correction; no reset of runtime budget",
+    "escalation_criteria": "Repeated same schema failure, missing authentic authority/verdict, or scope/ownership expansion parks the dependent operation",
+    "verification_budget": "Independent inspection of both exact document anchors and every permitted metadata/evidence delta, followed by the genuine policy receipt",
+    "requested_versus_confirmed": "Astra/max requested; actual serving model unconfirmed; no runtime author activated",
+    "actual_outcome": "Prepared documentation binding and real A1 execution record; independent verdict and supported receipt pending"
+  },
+  "work_log": [
+    {
+      "at": "2026-10-11T06:27:00.784736+00:00",
+      "by": "dot-td238-terminal-component-author",
+      "entry": "Encoded the unchanged A1-A4 meanings and exact inherited rule inventory. Recorded the actual pinned Git whitespace-check execution. Existing reviewed documents are unchanged; no runtime source, acceptance verdict, authority fabrication, merge, Actions or deployment."
+    }
+  ]
+}

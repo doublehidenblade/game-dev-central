@@ -1,0 +1,14 @@
+{
+  "check_id": "td238-board-documents-diff-check",
+  "command": [
+    "python3",
+    "-c",
+    "import subprocess, sys\ncommand = ['git', 'diff', '--check', '943411db850ce52261cdd749c022d92517e08049', 'd1aaf836c37f51449cc5f538ea27f941e55f80c6']\nresult = subprocess.run(command, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\nif result.stdout:\n    sys.stdout.write(result.stdout)\nprint(\"git diff --check completed with exit code %d\" % result.returncode)\nsys.exit(result.returncode)\n"
+  ],
+  "exit_code": 0,
+  "output": "git diff --check completed with exit code 0\n",
+  "source_head": "d1aaf836c37f51449cc5f538ea27f941e55f80c6",
+  "build": null,
+  "performed_at": "2026-10-11T06:27:00.784736+00:00",
+  "actor_id": "dot-td238-terminal-component-author"
+}

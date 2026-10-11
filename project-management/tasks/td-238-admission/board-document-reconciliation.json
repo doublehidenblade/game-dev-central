@@ -1,0 +1,55 @@
+{
+  "id": "td238-board-docs-existing-rule-reconciliation-20261011",
+  "actor_id": "dot",
+  "finding_ids": [
+    "td238-board-docs-non-json-input-20261011",
+    "td238-board-docs-protected-divergence-20261011"
+  ],
+  "fingerprints": [
+    "3bfaeadebb6fa3198bc21c824bb904e6069e44ddb3ff2365d140e9a9db312b04",
+    "70947f759ab972f2535ff1eff58d34be2b9e3ee6aa86cd1ff43a69c8b936c5e0"
+  ],
+  "kind": "existing_rule",
+  "rationale": "Apply the existing documentation evidence and scoped ancestry rules to these two newly recorded findings only. The cited repository-local A1-A4 JSON task corrects the specific non-JSON documentation binding gap while preserving all original A1-A4 meanings, runtime T1-T5 and parent C1-C6. The retained superseded board head 59dbefd8b1d2c1873027a51d21025447d7d57258 is a real direct parent of d1aaf836c37f51449cc5f538ea27f941e55f80c6, whose full tree was independently verified identical to the previously accepted proposal; the old branch reference remains preserved. This resolves only those specific input-format and protected-source-divergence causes. It does not claim a passed final independent verdict, acceptance/merge receipt, current complete source/owner/session coverage, canonical landing, runtime admission, runtime activation or gameplay completion. All original observation limits remain recorded.",
+  "citations": [
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "commit": "d1aaf836c37f51449cc5f538ea27f941e55f80c6",
+      "path": "project-management/boards/tokyo-drift-3d.md",
+      "blob": "a6e207e477e02dfb15494e65227f8a74b3c1bb03"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "commit": "59dbefd8b1d2c1873027a51d21025447d7d57258",
+      "path": "project-management/boards/tokyo-drift-3d.md",
+      "blob": "6bfa6e08eb9203f116c798f4f30c17f6bce28b32"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "commit": "05e60c2dd3e0801d233f366027edc9a2bc23bf1b",
+      "path": "project-management/tasks/td-238-board-document-admission.json",
+      "blob": "3232771e1769aa229a8e044fb247c827a976cd84"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "commit": "5c8be5bc95f3eb53e6c672155d5db7fb7ec267cc",
+      "path": "project-management/watchdog/RUNBOOK.md",
+      "blob": "e90c226df5d17f39fd6f878dbb61c68f754982e8"
+    },
+    {
+      "repository": "doublehidenblade/game-dev-central",
+      "commit": "5c8be5bc95f3eb53e6c672155d5db7fb7ec267cc",
+      "path": "project-management/watchdog/EVIDENCE_POLICY.md",
+      "blob": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe"
+    }
+  ],
+  "detail": {
+    "rule_id": "central:project-management/watchdog/RUNBOOK.md",
+    "rule_ref": {
+      "repository": "doublehidenblade/game-dev-central",
+      "commit": "5c8be5bc95f3eb53e6c672155d5db7fb7ec267cc",
+      "path": "project-management/watchdog/RUNBOOK.md",
+      "blob": "e90c226df5d17f39fd6f878dbb61c68f754982e8"
+    }
+  }
+}
