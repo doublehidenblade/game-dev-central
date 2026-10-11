@@ -842,8 +842,13 @@ the two source-document authors do not write shared central files.
 
 | Task | Sole component author | Distinct reviewer | Exact Tokyo source-admission PR/head |
 |---|---|---|---|
-| td-237 | dot-td237-itinerary-author | dot-td237-itinerary-reviewer | [PR668](https://github.com/doublehidenblade/tokyo-drift-3d/pull/668), exact head `b1a594f6b6904f0cd75f45a6542b29192d670689`; independent admission acceptance pending |
+| td-237 | dot-td237-itinerary-author | dot-td237-itinerary-reviewer | [PR668](https://github.com/doublehidenblade/tokyo-drift-3d/pull/668), exact head `dd05978c0ded69f2e473f8bf1f030aae892374c0`; independent admission acceptance pending |
 | td-236 | dot-td236-briefing-author | dot-td236-briefing-reviewer | Pending coordinator relay; no acceptance inferred |
+
+The separate standalone mission-cue reservations remain
+`dot-td237-mission-cue-author` and `dot-td237-mission-cue-reviewer`.
+Those roles retain their existing publication hold; the itinerary proposal
+neither transfers their ownership nor activates or retries the cue lane.
 
 **Allowlist, new files only.** td-237:
 `godot/scripts/lower_city/navigation_itinerary.gd`,
