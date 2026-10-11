@@ -1,0 +1,364 @@
+{
+  "schema": "garage-mvp-reference-proposal/2",
+  "status": "corrected_local_proposal_pending_independent_recheck_and_publication",
+  "authored_date": "2026-10-08",
+  "option": "A - compact truck and shared floor-mounted fittings",
+  "unit": "metre",
+  "categories": {
+    "M": "measured current-game evidence only",
+    "D": "chosen unaccepted design target",
+    "U": "unknown; null must not be interpreted as zero"
+  },
+  "source_authority": {
+    "corrected_task_sha": "b570ac3e590739782c463a3a620670122a8d5b95",
+    "central_brief_sha": "2f138f5c2cfd703733b002008f1007fba0012694",
+    "customization_sequence_sha": "f49d39dbbf5bd080dc6e445fe3a2940c58b68dd7",
+    "measured_game_sha": "9e5b23663642762d993ce9c7f3a49755d65394b6",
+    "measurement_manifest_sha256": "7bd29394844dc5cc6a9a87aadc4ee3b4fed22975962f07cc9fa3d12bd1cceb28",
+    "mandatory_r3_gate_superseded": false,
+    "required_pngs_recovered": false,
+    "runtime_edits": false
+  },
+  "measured_context": {
+    "category": "M",
+    "current_vehicle": "tokyo_tripo_coupe, not future mini-truck",
+    "current_plan_union_WL": [
+      2.0,
+      4.5
+    ],
+    "current_visual_WHL": [
+      1.777251,
+      1.5357,
+      4.499745
+    ],
+    "current_low_speed_measured_pose_sweep_diameter": 10.147658468,
+    "scope": "one settled visual pose and flat-slab steady-state manual-yaw reference-rectangle sweep, not global minimum turn or street maneuver",
+    "lot_4472_depth_frontage": [
+      16.0,
+      13.65
+    ],
+    "road_width": 5.0,
+    "existing_frontage_strip": 1.0,
+    "nominal_ring_soffit_height_above_floor": 4.3,
+    "facade_collision_exists": true
+  },
+  "truck_design": {
+    "category": "D",
+    "frame": "design ground datum at plan center of body; +X vehicle left, +Y up, +Z forward. Not the existing runtime root.",
+    "body_WHL": [
+      1.5,
+      1.85,
+      3.4
+    ],
+    "mirror_width_budget": 1.72,
+    "body_plan_min_xz": [
+      -0.75,
+      -1.7
+    ],
+    "body_plan_max_xz": [
+      0.75,
+      1.7
+    ],
+    "bed_clear_WL": [
+      1.3,
+      1.7
+    ],
+    "bed_floor_height": 0.72,
+    "bed_origin_in_design_frame_xyz": [
+      0,
+      0.72,
+      -0.75
+    ],
+    "bed_front_z": 0.1,
+    "bed_rear_z": -1.6,
+    "cab_rear_z": 0.2,
+    "cab_to_bed_gap": 0.1,
+    "full_vehicle_fitting_cargo_clearance_budget_WHL": [
+      2.0,
+      2.2,
+      4.5
+    ],
+    "tailgate_keep_clear_box_min_xyz": [
+      -0.75,
+      0.25,
+      -2.05
+    ],
+    "tailgate_keep_clear_box_max_xyz": [
+      0.75,
+      1.15,
+      -1.6
+    ],
+    "cab_no_build_box_min_xyz": [
+      -0.75,
+      0,
+      0.2
+    ],
+    "cab_no_build_box_max_xyz": [
+      0.75,
+      1.85,
+      1.7
+    ],
+    "comment": "Keep-clear boxes are design reservations, not measured swept volumes. Wheel, lamp and mirror specific no-build geometry remains U. Do not use this datum as the runtime adapter transform."
+  },
+  "shared_floor_sockets": {
+    "category": "D",
+    "datum": "bed floor center; y=0 is the top bed-floor mounting plane",
+    "coordinates_bed_local_xyz": {
+      "bed_A": [
+        0.5,
+        0,
+        0.675
+      ],
+      "bed_B": [
+        -0.5,
+        0,
+        0.675
+      ],
+      "bed_C": [
+        0.5,
+        0,
+        -0.675
+      ],
+      "bed_D": [
+        -0.5,
+        0,
+        -0.675
+      ]
+    },
+    "naming": {
+      "bed_A": "front-left",
+      "bed_B": "front-right",
+      "bed_C": "rear-left",
+      "bed_D": "rear-right"
+    },
+    "socket_plane_normal_xyz": [
+      0,
+      1,
+      0
+    ],
+    "footplate_WL_allowance": [
+      0.1,
+      0.1
+    ],
+    "support": "bed floor only; never drop-side rail tops",
+    "fastener_pattern": null,
+    "bracket_geometry": null,
+    "runtime_transform": null,
+    "game_asset_clearance_rule": {
+      "category": "D",
+      "minimum_visible_gap_to_bed_geometry": 0.02,
+      "nominal_gross_module_edge_gap": 0.05,
+      "mount_detail_rule": "All module brackets and footplates remain within the declared 1.20 x 1.60 m module envelope; adjacent bed trim may use at most 0.03 m of each nominal 0.05 m gap. Reject visible/collision interpenetration.",
+      "certification": "Game-asset fit rule only; not a manufacturing tolerance or real-world structural certification."
+    }
+  },
+  "rack_design": {
+    "category": "D",
+    "overall_WHL_bed_local": [
+      1.2,
+      1.2,
+      1.6
+    ],
+    "nominal_member_size": 0.04,
+    "top_above_design_ground": 1.92,
+    "sockets": [
+      "bed_A",
+      "bed_B",
+      "bed_C",
+      "bed_D"
+    ],
+    "features": [
+      "two open hoops",
+      "shared floor feet",
+      "no over-cab arms",
+      "readable open bed",
+      "broad flat paint"
+    ],
+    "payload_mass_kg": null,
+    "module_mass_kg": null,
+    "capacity_modifier": null,
+    "loaded_collision_envelope": null
+  },
+  "padded_design": {
+    "category": "D",
+    "overall_WHL_bed_local": [
+      1.2,
+      0.45,
+      1.6
+    ],
+    "combined_perimeter_allowance_including_frame_pad": 0.06,
+    "combined_base_allowance_including_frame_pad": 0.06,
+    "clear_inside_WDL": [
+      1.08,
+      0.39,
+      1.48
+    ],
+    "top_above_design_ground": 1.17,
+    "sockets": [
+      "bed_A",
+      "bed_B",
+      "bed_C",
+      "bed_D"
+    ],
+    "features": [
+      "low olive canvas pads",
+      "simple steel cassette",
+      "broad seams and straps"
+    ],
+    "rear_access_detail": null,
+    "module_mass_kg": null,
+    "cargo_capacity": null,
+    "protection_modifier": null,
+    "loaded_collision_envelope": null
+  },
+  "workshop_design": {
+    "category": "D",
+    "provenance": "Room, opening, park and facility-zone reservations retained from measured-foundation fit-study, not actual existing geometry. Bench height and shelf asset dimensions newly proposed.",
+    "frame": "room u deeper/east, v north/frontage, height up; origin at clear-room southwest. Site mapping is conditional: plan x=379.75+u, y=667.715+v.",
+    "room_depth_frontage": [
+      10,
+      12
+    ],
+    "room_height": null,
+    "park_zone_min_uv": [
+      1.0,
+      4.4
+    ],
+    "park_zone_size_depth_frontage": [
+      6.5,
+      3.2
+    ],
+    "bench_zone_min_uv": [
+      0.5,
+      0.5
+    ],
+    "bench_zone_size_depth_frontage": [
+      3.0,
+      0.8
+    ],
+    "bench_height": 0.9,
+    "supplies_zone_min_uv": [
+      7.5,
+      0.5
+    ],
+    "supplies_zone_size_depth_frontage": [
+      2,
+      2
+    ],
+    "shelf_asset_WDH": [
+      1.6,
+      0.6,
+      1.9
+    ],
+    "requested_initial_shelf_units": 12,
+    "actual_pack_dimensions": null,
+    "proven_shelf_capacity": null,
+    "stored_module_zone_min_uv": [
+      7.5,
+      9.5
+    ],
+    "stored_module_zone_size_depth_frontage": [
+      2,
+      2
+    ],
+    "rig_zone_min_uv": [
+      0.5,
+      10
+    ],
+    "rig_zone_size_depth_frontage": [
+      3,
+      1.5
+    ],
+    "rig_equipment": null,
+    "module_handling_envelope": null,
+    "service_camera": null,
+    "swap_presentation_target": "D: fixed-slot swap while safely parked, using a simple presentation cut; no physical hoist/removal path or on-foot crafting is required for this MVP proposal. Mounted/stored geometry and authoritative ownership must agree."
+  },
+  "shutter_design": {
+    "category": "D",
+    "opening_WH": [
+      4.2,
+      3.2
+    ],
+    "slab_depth_allowance": 0.22,
+    "motion": "stylized roll-up curtain; flexible/slatted curtain retracts into fixed overhead casing; not a rigid vertically translated full-height leaf",
+    "gross_square_entry_side_margin_against_design_budget": 1.1,
+    "gross_height_margin_against_design_budget": 1.0,
+    "closing_safety_margin": 0.2,
+    "mechanism_headroom": 0.45,
+    "current_runtime_state_machine": null,
+    "requirements": [
+      "full actual union inside plus selected margin",
+      "obstruction-safe stop or reopen",
+      "authoritative sight recheck before shelter",
+      "physical collision and occlusion agree",
+      "UI close never opens door",
+      "retain live jobs/timers and enforcement",
+      "continuous/crossing guard for fast drive-past"
+    ],
+    "selected_clearance_rule": "D: complete actual vehicle/fitting/load union at least 0.20 m behind inner face d=+0.11, so its nearest point is d>=+0.31. The roll-up casing spans h=3.20..3.65 within 0.45 m headroom. Its 0.50 m depth is separate from the 0.22 m curtain collision allowance. Nominal 4.30 m source soffit leaves 0.65 m above casing, before actual roof/lights. No rigid 3.20 m leaf is lifted to 6.40 m.",
+    "casing": {
+      "category": "D",
+      "width": 4.4,
+      "depth": 0.5,
+      "height": 0.45,
+      "section_frame": "d positive inside; d=0 curtain center plane; h above floor",
+      "min_dh": [
+        -0.15,
+        3.2
+      ],
+      "max_dh": [
+        0.35,
+        3.65
+      ]
+    },
+    "retracted_curtain_volume": {
+      "category": "D",
+      "shape": "simplified roll cylinder, axis across opening",
+      "diameter": 0.4,
+      "axis_width": 4.2,
+      "section_center_dh": [
+        0.1,
+        3.425
+      ],
+      "motion_representation": "Stylized roll/casing display; no slat mechanics or rigid-leaf translation required"
+    },
+    "curtain_collision_rule": "D: closed/closing free curtain occupies only the unrolled region within d=-0.11..+0.11 and opening width 4.20. When fully open, no curtain collision or sight-occluder remains below h=3.20. Static casing/retracted-roll collision stays above opening; close collision and occlusion must match visual lower edge. Runtime state/obstruction behavior is not implemented.",
+    "full_inside_guard_plane_d": 0.31
+  },
+  "gate_effect": "None yet. Proposed R4 authority permits only a newly admitted isolated nonshipping common-blockout study AFTER independent recheck and explicit GitHub amendment publication. It does not recover r3, resume old td-198, accept common geometry, complete full td-197, or permit actual-world/runtime integration.",
+  "revision": "R4 proposed replacement reference authority; not enacted",
+  "stage_prerequisites": {
+    "isolated_common_blockout_study": [
+      "Independent recheck of corrected R4 padded extent and roll-up section",
+      "Explicit coordinated R4 task/reference/brief amendment published and verified on GitHub before admission",
+      "Coordinator reconciles an exclusive isolated study owner and supported toolchain without resuming old paused td-198",
+      "Use selected corrected concept-v2 pixels and R4 chosen dimensions, preserve M/D/U and scope"
+    ],
+    "common_blockout_acceptance_outputs": [
+      "Measured primitive source and shared bed-floor sockets; root/axis/wheel/collider mapping reported",
+      "Coarse wheel/window/lamp/cab/tailgate keep-clear volumes and measured module bounds",
+      "Same-camera same-scale rear-left base/rack/padded captures plus bed orthographics",
+      "Simple rear-access choice and material-zone intent",
+      "Separate bench/shelf primitive views; actual pack-size proxies and counted 12-unit packing",
+      "Explicit owned/equipped/stored state matrix including both-owned-neither-equipped",
+      "Roll-up open/closed/intermediate geometry and retracted casing demonstrated in isolated scene",
+      "Independent exact-source geometry and view review"
+    ],
+    "later_actual_world_integration": [
+      "Owner-approved source/file boundary and selected real frontage",
+      "True driving entry/exit and loaded transient turn envelopes",
+      "Collision/occlusion/obstruction and authoritative police state integration",
+      "Save/inventory/gig capability authority, phone/controller/reload acceptance",
+      "Remaining full td-197 layout/UX/mock gate and dependent task gates"
+    ],
+    "not_required_before_primitive_study": [
+      "Recovery of old r3 pixels after explicit replacement amendment is enacted",
+      "Three later paint-treatment sheets or final textures",
+      "Detailed hardware engineering or real fabrication certification",
+      "Physical removal/hoist animation",
+      "Balanced capability modifiers or accepted future-truck handling",
+      "Physical-phone acceptance"
+    ]
+  }
+}
