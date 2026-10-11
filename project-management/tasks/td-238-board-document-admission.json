@@ -30,7 +30,8 @@
     "permitted_new_paths": [
       "project-management/tasks/td-238-board-document-admission.json",
       "project-management/tasks/td-238-admission/board-diff-check.json",
-      "project-management/tasks/td-238-admission/board-document-verdict.json"
+      "project-management/tasks/td-238-admission/board-document-verdict.json",
+      "project-management/tasks/td-238-admission/board-document-reconciliation.json"
     ],
     "frozen_reviewed_local_paths": [
       "project-management/boards/tokyo-drift-3d.md"
