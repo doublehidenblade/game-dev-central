@@ -1,614 +1,615 @@
 {
-  "actions": [
-    {
-      "type": "note",
-      "text": "2026-10-09T21:25Z watchdog run: td-249 CANDIDATE but annotation says DO NOT auto-dispatch (LOW backlog) \u2014 no dispatch. td-245 re-validator subagent dispatched on dot 21:00Z findings (6-point checklist vs PR #627/td-245.md); matched-frame fix preserved, readiness-gated production-arc evidence + matched_run.log required. Coordinator bundle adopted: 7 files synced from game-dev-central main @0920f219 (central PR #449); RUNBOOK/README pre-adoption backups in hidden_files/runbook-backup-20261009/; watch.py untouched.",
-      "queued_at": "2026-10-09T21:30:25.937454+00:00"
-    }
-  ],
-  "notes": [
-    "steer-codex codex:tokyo-drift-3d popped 2026-09-28T00:51:50Z: STEER_DONE via browser task (td-100 modeling continuation; session was idle post-provisioning checkpoint, new run started on the steered instruction). Do NOT re-steer while the session is working.",
-    "dispatch-p3d-069 popped: dispatched directly by main agent via browser task in the 16:0x turn (pickup verification pending); entry removed to prevent duplicate dispatch",
-    "dispatch-td-039 popped: dispatched by main agent via browser task 2026-09-24T21:16Z (task_e_6ab592f19d7c832ebe4f79410ddef4e4, already Thinking at dispatch)",
-    "screenshots-pr63 popped: main agent eyeballed td-033 after-0/1/2 (car clear of rail, no penetration visible); evidence audit already passed by worker",
-    "steer-claude popped: permission granted for td-037 billing re-check, session resumed (STEER_DONE 22:10Z)",
-    "dispatch-codex p3d-064 popped: DISPATCH_DONE 22:18Z, task https://chatgpt.com/codex/cloud/tasks/task_e_6ab5a16f6fc8832e8eed592fc110dfc4",
-    "screenshots-pr64 popped 2026-09-24 ~18:00 CDT: PR #64 (td-039) is docs/evidence-only (CHECKPOINT.md, TODO.md, DEVLOG.md, task file, 2 evidence PNGs) \u2014 zero live-site files changed, so live-site screenshots are meaningless. Merged-diff inspection/report stays with the cron's next-run INSPECT_MERGED using the evidence PNGs committed in the PR.",
-    "screenshots-pr46 popped 2026-09-24 ~18:05 CDT (partial): barricade-broken CONFIRMED on live site (wreck frame at bridge roadblock shows red/white planks scattered; eyeballed). Cone fly-off / crushed-cone NOT capturable by browser automation (animation <2s at 238 km/h; 6 races tried). Cone hits register live (hearts drop); PR #46 build evidence has both animations. Cone items to be owned by p3d-080 split children.",
-    "steer-codex codex:tokyo-drift-3d popped: STEER_DONE 23:17Z (session was idle post-td-039, td-038 failover brief delivered verbatim, session refreshing repo). watch.py failover ledgered.",
-    "dispatch-codex p3d-061 popped: DISPATCH_DONE 00:06Z, task https://chatgpt.com/codex/cloud/tasks/task_e_6ab5b94e9edc832e89b32e77210a1453 (auto-titled 'Fix civilian car sprite size inconsistency' \u2014 Codex exposes no rename; brief verbatim, task Working). Archive/unarchive cycle during dispatch \u2014 pickup/run-state verification pending fresh classification.",
-    "resume p3d-061: first run on task_e_6ab5b94e9edc832e89b32e77210a1453 finished after 2m10s with setup only (no branch/PR) \u2014 continuation steer dispatched via browser task 00:20Z",
-    "dispatch-p3d-085/086/087: dispatched directly by main agent via browser task 2026-09-25T00:33Z (Craig's 19:31 CDT Docklands QA: water vertical extent, grey walls, brown dirt). Do NOT re-dispatch; pickup verification pending.",
-    "dispatch-codex p3d-086 popped 2026-09-25T00:41Z: NO_ACTION_WORKING \u2014 already dispatched directly by main agent 00:33Z (task_e_6ab5c1a30240832e9176ba9bc1f51b99, confirmed 'Working on your task' 00:35Z). Watchdog's 00:39Z DISPATCH CHECK re-queued it without seeing the direct dispatch; popping to avoid two workers on the same task.",
-    "dispatch-codex p3d-086 re-queued 2026-09-25T01:05Z is LEGITIMATE salvage-and-handover, not the 00:39Z blind duplicate (popped 00:41Z): the 00:33Z direct dispatch (task_e_6ab5c1a3) created branch p3d-086-grey-wall-sprite + draft PR #50 (updated 00:38:27Z) then stopped per stop-after-2 (Pillow unavailable). Verified via GitHub API 01:0xZ: PR #50 open, draft, head p3d-086-grey-wall-sprite. Fresh session takes over with salvage folded into the brief. Do NOT pop.",
-    "td-040 dispatch popped 2026-09-25T03:25Z: Codex cloud task created and running (task_e_6ab5e95dc430832e9e2007d6c58dbd3f), verified by main agent.",
-    "p3d-088 dispatch popped 2026-09-25T03:30Z: Codex cloud task created and running (task_e_6ab5e9e95c54832ea8f3b9c17160e24d), verified by main agent.",
-    "nudge-claude popped 2026-09-25 ~03:5xZ per per-blocker guard: session-limit reached (out_of_tokens_since 01:00Z; 'Try again after your session limit resets', weekly reset Tue Sep 29 8PM) \u2014 recorded BEFORE the 01:53Z nudge was queued, so that nudge could never land. Parked: no further nudges on this blocker; guard recorded in session note.",
-    "td-041 dispatch popped 2026-09-25T04:00Z: Codex cloud task created and RUNNING (task_e_6ab5f18d5a90832eb881a07140839cce), brief delivered verbatim.",
-    "p3d-086 CI fix dispatch queued 2026-09-25T04:20Z: PR #50 rebased onto main, CI failed at npm run qa (snapshot mismatches). Steer/dispatch for snapshot regen; harbor-desktop-linux.png excluded (p3d-088 owns it).",
-    "dispatch-codex p3d-090 queued 2026-09-25T05:22:52Z: todo163 (blue land terrain, Craig 22:23 CDT QA verbatim), fresh start, no branch/salvage, highest-priority open unowned NEON task; pickup verification pending next fresh classification. Sibling QA tasks p3d-091..096 (todos 164-169) remain open/unowned.",
-    "dispatch-codex p3d-090 popped 2026-09-25T05:26Z: DISPATCH delivered via browser task (p3d-090 blue land terrain, neon-drift env); pickup verification pending next fresh classification.",
-    "p3d-086 NO salvage owed 2026-09-25T05:26Z: the +191/-2 was docs/DEVLOG+README (verified via PR #50 files API), NOT a claimed snapshot regen \u2014 worker explicitly recorded \"no snapshot was regenerated\" per stop-after-two. PR #50 correctly parked on p3d-088/PR #52 harbor snapshot. Do NOT re-dispatch p3d-086.",
-    "PR #58 merged by cron 2026-09-25T05:40Z (td-026 Shuto C1 second URL, sha 5fc2d79f, CI green smoke+export); no web-export files touched \u2014 live site unchanged, publish-web skipped. Task file status update owed.",
-    "td-046 subagent dispatched 2026-09-25T06:1xZ: Muse subagent on td-046 steps 1-2 ONLY (review smoke run 36096013550 evidence via API, open pointer-PR updating deploy/web-candidate.json; NEVER merge/publish). Pickup pickup: PR #58 merged 05:38:43Z by cron. Do NOT re-dispatch td-026/td-046; next run verifies pointer PR + dispatches publish-game.yml after merge.",
-    "td-046 implementation complete 2026-09-25T06:24Z: pointer PR #71 merged by cron (e421a809), publish-game.yml run 36102533277 green, shuto-web/ on main, publish-web-shuto.yml run 36102574597 green, both Pages deploys green, second URL LIVE. Screenshots action queued for main agent. Subagent work reconciled \u2014 do NOT re-dispatch td-046.",
-    "dispatch-codex p3d-091 popped 2026-09-25T07:03Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab61bf0bc5c832eab0778efd5b61f67 (auto-titled 'Fix land/water projection to horizon', brief verbatim, Thinking at dispatch). Pickup verification pending next fresh classification.",
-    "screenshots td-046 popped 2026-09-25T07:06Z: two capture attempts (01:54Z, 06:57Z) both failed \u2014 pages crash to about:blank in this browser (no WebGL2; base shows game's WebGL2 fallback banner, Shuto stalled at 1M/88M loader). Stop-after-2. No gameplay frames committed. Outcome recorded in td-046.md (commit 2fa99ed95d88). Deployment verified via API (build-sha + index.pck). Visual verification left to Craig's phone playtest.",
-    "screenshots PR#53 popped 2026-09-25T07:16Z: live capture succeeded \u2014 3 gameplay frames (bridge 19%, city 49%, city 57%) all show land NOT blue, water blue. Committed under todos/todo163/qa/ (commit 643057c71f36ef197200a5ae94da97c601211978); evidence recorded in todo163/README.md (0c2b74f19f2e).",
-    "dispatch-codex td-042 queued 2026-09-25T07:47Z: opponent AI hitting walls (Craig 2026-09-24 phone QA verbatim), fresh start, no salvage; tokyo-drift-3d env. td-040/td-041 Codex tasks already running in env (03:25Z/04:00Z) \u2014 parallel workers on different tasks per max-parallelization. Pickup verification pending next fresh classification.",
-    "nudge-claude skipped 2026-09-25T07:47Z: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. PR #48 (draft, head 75aaf2b0 pushed 07:04Z, shuto-c1's CI fix) has CI check-suites still queued 42 min after push \u2014 session was waiting on CI, still waiting. If work must move, failover route (Codex sibling / MUSE_SUBAGENT), not this session.",
-    "dispatch-codex td-042 popped 2026-09-25T07:59Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab629447900832e86bd94c68cf6ebb3 (Codex auto-titled 'Fix opponent-car navigation issues', no rename control; brief verbatim, task Thinking/Working on branch fix/td-042-opponent-navigation). Pickup verified live at dispatch.",
-    "screenshots PR#54 skipped 2026-09-25T08:1xZ: diff touched NO web-export files (renderer.js + docs + tests + QA PNGs only) -> live site unchanged, publish-web skipped; live capture would show pre-fix frames (meaningless). Evidence audit passed on the committed QA pair instead: todos/todo164/qa/p3d-091-criterion-1-before.png / -after.png (same instance, same camera, same distance/seed). Fix waits for a future export-touched publish to reach the live site.",
-    "nudge-claude skipped 2026-09-25T08:2xZ: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z run; no duplicate park.",
-    "nudge-claude skipped 2026-09-25T08:4xZ: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z/08:2xZ runs; no duplicate park. Session self-scheduled CI check-in 08:53 UTC on PR #48.",
-    "nudge-claude skipped 2026-09-25T08:57Z: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z/08:2xZ/08:4xZ runs. Session self-check-in 08:53 UTC on PR #48 CI.",
-    "PR #48 OVERLAP FLAG 2026-09-25T08:57Z: draft PR #48 (Shuto C1: touch controls + countdown/finish, keep-left traffic, pause menu, no road clips; branch map/shuto-c1-loop, head a2512184) went fully CI-green (export + smoke, both completed success, smoke finished 08:52:49Z), mergeable_state clean. Owner session (claude shuto-c1) is BLOCKED on the session-limit guard until Tue Sep 29 8PM \u2014 the PR is NOT a finished session's parked PR, it is mid-flight (self-check-in 08:53 UTC). DO NOT merge it from the cron this run. It modifies godot/docs/tasks/td-042.md, td-043.md, td-044.md and godot/scripts/traffic_ai.gd + godot/scripts/kit/pause_menu.gd \u2014 overlapping Codex Tokyo td-042 (task_e_6ab62944, WORKING) and the queued td-043 dispatch. Two workers on the same task files: at merge time the later merger rebases and reconciles (max-parallelization). Next runs: if PR #48 merges, steer Codex tasks to sync main + reconcile; if still unmerged when Codex PRs land, merge Codex first and PR #48 rebases onto it.",
-    "dispatch-codex td-043 popped 2026-09-25T09:06Z: DRAFT_RECOVERED via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab6397ac86c832e9450d6a1bb3aca8b (Working, brief verbatim). Pickup verification pending next fresh classification.",
-    "nudge-claude skipped 2026-09-25T09:13Z: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset - BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z/08:2xZ/08:4xZ/08:57Z runs; no duplicate park. PR #48 (Shuto C1, claude draft) still open, mergeable_state unknown - overlap flag holds, NOT merging from cron.",
-    "dispatch-codex p3d-092 popped 2026-09-25T09:15Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab63b66cb60832e915138a294e6f923 (Thinking, brief verbatim). Pickup verification via fresh classification in flight.",
-    "steer-codex td-043 queued 2026-09-25T09:35Z: finished task never pushed branch nor opened PR; steer asks only for push + PR + task-file update, no rework.",
-    "screenshots PR #69 popped 2026-09-25T09:36Z: capture attempted on live Shuto second URL \u2014 STUCK/inconclusive. Loader rendered normally at first (no 88M/88M counter, ~1/5 progress, 'Downloading the game'), never cleared within 60s, tab degraded to about:blank. Browser env repeatedly destabilized by the 88M Godot load \u2014 result neither confirms nor refutes the tdGamePrepared fix. Needs phone verification.",
-    "steer-codex td-043 popped 2026-09-25T09:49Z: STEER_DONE, session resumed ('Refreshing repo'), branch td043-pause-menu-phone; push may need origin fix on agent side (checkout had no git remote).",
-    "steer-codex queued 2026-09-25T10:00Z: PR #55 (p3d-092) SHIP blocked \u2014 CI not green. npm run qa failed exit 1 on heads 7bf13ceb (09:32Z) and 4bcd8fbc (09:20Z), bridge-exit perf test red per session note; final head d97ee4f4 run CANCELLED at Set up job (09:40Z), no verdict on it. Real build failure, not infra noise \u2014 merge withheld, re-check next run after fix+green.",
-    "td-043 PR #75 SHIP blocked 2026-09-25T10:00Z: not draft, mergeable, head 6d3cee1b; export success (09:52:50Z) but smoke still in_progress \u2014 no merge until CI fully green. Re-check next run.",
-    "nudge-claude skipped 2026-09-25T10:00Z: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z/08:2xZ/08:4xZ/08:57Z/09:13Z runs; no duplicate park.",
-    "steer-codex p3d-092 CI fix popped 2026-09-25T10:05Z: STEER_DONE, session resumed live run on bridge-exit perf test fix.",
-    "SHIP td-043 2026-09-25T10:13Z: PR #75 (pause menu phone QA) merged by cron via REST PUT (sha 46072c1) \u2014 build clean (export success on head 6d3cee1b), smoke in_progress after 20min treated as after-the-fact per Craig's rule (not a deploy gate), no failure. publish-web run 36122832114 green, live build-sha c45e05b9 verified on tokyo-drift-3d-web. Task file status -> merged (commit a3ed8309). Ledgered 'merged codex:tokyo-drift-3d cron'; next run does INSPECT_MERGED. Overlap note: shuto-c1 draft PR #48 also touches pause_menu.gd + td-043.md \u2014 if it merges it rebases onto main.",
-    "nudge-claude skipped 2026-09-25T10:13Z: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z/08:2xZ/08:4xZ/08:57Z/09:13Z/10:00Z runs; no duplicate park.",
-    "DISPATCH CHECK 2026-09-25T10:1xZ: codex:tokyo-drift-3d FINISHED but no clean unassigned task \u2014 td-041/td-042 have running Codex tasks, td-044 overlaps shuto-c1's draft PR #48 (touches td-044.md), td-045 has shuto-c1's first pass. Dispatching any of them = two workers on same task/file. No dispatch queued.",
-    "SHIP td-046/PR#72 2026-09-25T10:39Z: cron shipped the parked docs PR itself. Branch td046-live-evidence was conflicted (mergeable_state dirty \u2014 main had advanced via PRs #73/#75); rebased in-run via git-data API onto main a3ed8309 (commit fcbdf1e7, force push on own docs branch only \u2014 head unchanged at aa2beaf8 before push), kept main's td-042 checkpoint/devlog sections + added branch's td-046 sections. CI green on same content (smoke+export). Squash-merged as e8ff0b5a. Task file status -> merged in same run (76c6462f) per merge-time rule. Branch auto-deleted on merge. Ledgered 'merged claude-code:tokyo-drift-3d cron'; next run does INSPECT_MERGED on that session for PR #72.",
-    "SHIP-NOTE CORRECTION 2026-09-25T10:4xZ: the claude session note's 'PR#55 merge-clean commit a88c226 pushed awaiting CI' is STALE \u2014 no PR #55 in either repo has head a88c226. Neon PR #55 (p3d-092, draft, head a7ac6c9): CI RED (npm run qa, bridge-exit perf test failure) \u2014 real build failure, Codex p3d-092 worker is fixing it (steer done 10:05Z); it is NOT a parked PR, do NOT merge from cron. Tokyo PR #55 (td026-shuto-prebuild, draft, head 642b37ac): mergeable_state dirty, smoke still in_progress; likely obsolete after td-026 completed via PR #58/#71 \u2014 do NOT merge from cron. Neither is shippable.",
-    "INSPECT_MERGED PR#75 2026-09-25T10:4xZ (td-043 pause menu, merged by cron 10:13Z): live build-sha c45e05b9 verified on tokyo-drift-3d-web. Diff: shared pause kit replaced with phone-first sheet (return-to-main, 6 tuning rows, 64px targets), Harbor redundant TUNE button removed, Shuto binds same sheet. Evidence audit PASSED: criterion-1/2 before/after pairs committed under godot/docs/qa/td-043/ (same instance, same camera; worker personally opened full-res frames); criterion 3 = deterministic logs; criterion 4 = Craig phone verdict (pending, not a job). Screenshots action NOT queued: live Godot capture is stop-after-2 (3 failed attempts \u2014 about:blank/WebGL2 banner/88M-loader stall); report carries the committed pair links instead. Overlap: shuto-c1 draft PR #48 (head 3d7135d6, dirty) still touches pause_menu.gd + td-043.md \u2014 at its merge time it rebases onto main. No new tasks, no steer.",
-    "DISPATCH CHECK 2026-09-25T10:4xZ: codex:tokyo-drift-3d FINISHED but no clean unassigned task \u2014 td-044 (open) overlaps shuto-c1 draft PR #48 which touches td-044.md; td-045 (open) is shuto-c1's first-pass task (owner expected back at session-limit reset Tue Sep 29); td-041/td-042 have running Codex tasks. Two-workers-on-same-task rule forbids all. No dispatch queued. claude-code:tokyo-drift-3d FINISHED but session-limit blocked until Tue Sep 29 8PM \u2014 no dispatch-claude per per-blocker guard (failover routes only if work must move). codex:neon-drift WORKING \u2014 no action.",
-    "dispatch-codex td-029 queued 2026-09-25T11:0xZ: start-button freeze ~8s (Craig 2026-09-23 verbatim), P1, fresh start, no salvage; tokyo-drift-3d env. td-040/td-041/td-042 Codex tasks already running (parallel, different tasks per max-parallelization). td-027 skipped (overlaps shuto-c1 draft PR #48 controls/menus), td-044 skipped (overlaps PR #48's td-044.md), td-045 held for shuto-c1's return at session-limit reset. Pickup verification pending next fresh classification.",
-    "dispatch-codex td-029 popped 2026-09-25T11:07Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab655aaa554832ea03213dcf19cb08b (auto-titled \"Fix start button post-click freeze\", Thinking at dispatch, brief verbatim). No duplicate found. Pickup verification via next fresh classification.",
-    "SHIP claude skipped 2026-09-25T11:14Z: main-dev FINISHED (idle, Send disabled; weekly 100%, reset Tue Sep 29 9PM). Stale SHIP_NOTE (PR#55 a88c226 merge-clean) retired \u2014 verified via API: no such head. PR #48 (shuto-c1 draft, head 4f865646): export green, smoke in_progress since 10:52Z \u2014 CI pending = no merge, re-check next run. Tokyo PR #55 (draft, head f3b41fb9): export green, smoke in_progress since 10:51Z \u2014 likely obsolete post-td-026 (PR #58/#71), do NOT merge from cron. shuto-c1 Recents title shows Merged but PR #48 itself is open/unmerged. Session note corrected so next run acts on verified facts.",
-    "dispatch-codex td-034 delivered 2026-09-25T11:30Z: new Codex task created in tokyo-drift-3d env, brief verbatim, running at https://chatgpt.com/codex/cloud/tasks/task_e_6ab65ab47d64832e8a6daaf60551a37b (auto-titled Diagnose smoke job failure in PR #68; no rename control). Duplicate check clean (td-040 task untouched). Entry popped.",
-    "PR #48 MERGED BY CRAIG 2026-09-25T11:56:02Z as 788fd1ea (manual conflict resolution, doublehidenblade). Final head f27d82fa CI RED at merge (11:54Z): smoke 'Export Shuto second-URL candidate (td-026)' + native-debug 'Import and export Android and macOS debug builds' both failed. Root cause: conflict resolution dropped 'func start_countdown() -> void:' from godot/scripts/shuto_c1/shuto_c1.gd (call at line 108 kept) -> GDScript parse error. Fixed on main as b069daff 12:22Z (byte-identical restore). Cause explained; no mystery left. Log-download 401'd via surrogate cred; annotations generic.",
-    "Tokyo PR #55 CORRECTION (per MEMORY 2026-09-25): merged legitimately 11:21:28Z as 1610a75e ('td-026/td-029: prebuild Shuto C1 behind the loading bar'). The 11:14Z 'likely obsolete, do not merge' note was a wrong read - flag retired.",
-    "PR #48 OVERLAP FLAG RETIRED (merged). Reconcile underway by workers themselves: td-042 branch fix/td-042-reconcile-pr48, PR #78 ready (head da5da470, export success, smoke in_progress 12:3xZ). 12:11Z classification: td-041 WORKING responding to PR #48 reconcile steer; td-042 WORKING re-running after PR #48 touched traffic_ai.gd. No reconcile steer queued - workers actively pushing.",
-    "PR #76 (td-029 start feedback) CI GREEN (smoke+export success, head 9244429a) but branch STALE (pre-#48; its main_menu.gd rewrite predates PR #48's shuto overlay +12/-1 overlap) - do NOT ship from cron until worker rebases; worker active (caught start_countdown parse error 12:11Z). Re-check next run.",
-    "PR #77 (td-034) smoke in_progress on head 47506ad8 - re-check next run. PR #68 (td-040) smoke FAILED on head fe0389f1 - not shippable; td-040.md still open.",
-    "PUBLISH HELD: no auto-publish fired on the #48 merge (path filters). NOT dispatching publish-game.yml while Craig is hands-on (he merged it himself minutes ago) - surfaced in heartbeat for his call.",
-    "nudge-codex queued 12:3xZ for codex:neon-drift p3d-092 (decide NUDGE on 12:11Z STALLED classification; no recorded blocker; deduped).",
-    "failover-claude 2026-09-25T12:3xZ: decide fired FAILOVER on the NEW out-of-tokens episode (classification flipped STALLED->OUT_OF_TOKENS 12:11Z; last_failover_ts was None). Append SKIPPED: (1) dedupe \u2014 a steer-codex for codex:tokyo-drift-3d is already pending (td-041 b069daff update, queued 12:22:38Z, undelivered); (2) the priority brief was STALE \u2014 td-038 merged PR #65 2026-09-24T23:33Z (published #66, live #67), verified via task file this run; firing it would redo finished work. (3) Nothing stranded: claude main-dev PR #55 and shuto-c1 PR #48 both merged; td-044 open (owner out of tokens), td-045 in_progress held for shuto-c1 return Sep 29 8PM; sibling codex:tokyo-drift-3d is WORKING (td-041/td-042 reconcile). Ledgered via watch.py failover so the episode does not refire. PRIORITY_BRIEF config re-curated (td-038 retired; next target TBD with td-044/td-027 candidates, verify before firing).",
-    "td-034 PR #77 CI GREEN (smoke+export success, head 47506ad8, verified 2026-09-25T13:0xZ via check-runs API) but mergeable_state=dirty (conflicted post-#48) - NOT a SHIP (session WORKING); worker needs to rebase; surfaced in heartbeat.",
-    "td-029 PR #76 CI GREEN (head 9244429a) but mergeable_state=dirty (stale pre-#48) - do NOT ship from cron until worker rebases; worker active. td-040 PR #68 smoke FAILED (head fe0389f1) - not shippable.",
-    "DELIVERY-PATH WARNING 2026-09-25T12:58Z: pending_actions queued 12:22:38Z (steer-codex codex:neon-drift p3d-092 baseline + steer-codex codex:tokyo-drift-3d td-041 update) still undelivered ~35 min later. Main-agent handoff delivery may be stalled - surfaced loudly in heartbeat.",
-    "watchdog run 2026-09-25T15:26Z: all sessions ACTION=NOTHING. PR re-checks: neon #55 (p3d-092, draft, head dc8b5fd1) sole check-run CANCELLED 13:44Z -> no CI verdict, NOT shippable; p3d-097 (todo170) filed the bridge-exit perf test as flaky infra noise. Tokyo #77 (td-034) CI green but mergeable_state=dirty (rebase owed to worker); #76 (td-029) CI green but mergeable_state unknown (recompute, rebase owed); #68 (td-040) smoke FAILED on fe0389f1. DELIVERY-PATH RECOVERED: pending_actions queue empty (12:58Z undelivered-steers alarm cleared; 12:22Z steers delivered/popped by main agent). DISPATCH CHECK: codex:tokyo-drift-3d FINISHED but no clean task (td-044 open but owned by shuto-c1, out of tokens until Sep 29; td-045 held for shuto-c1's return; td-027 implementation done via merged PR #48, verdict only; td-040/041/042 have running Codex tasks; td-034/td-029 PRs need worker rebase). codex:neon-drift FINISHED but Craig's 14:54Z follow-up in flight (redirect unresolved) -> no dispatch into NEON this run. claude session-limit blocked until Tue Sep 29 8PM (per-blocker guard holds). No all-blocked escalation: nothing stranded, fails guarded.",
-    "screenshots PR#75 dropped 2026-09-25T15:5xZ: the 10:4xZ INSPECT_MERGED run deliberately did NOT queue live screenshots (live Godot capture is stop-after-2: 3 failed attempts \u2014 about:blank/WebGL2 banner/88M-loader stall). This run's duplicate INSPECT_MERGED re-queued it; dropped, not executed. Report carries the committed godot/docs/qa/td-043/ before/after pair links instead.",
-    "dispatch-codex p3d-093 queued 2026-09-25T21:13Z: todo166 (other-car side sprites, Craig 22:23 CDT QA verbatim), highest-priority open unowned NEON task; fresh start, no salvage. codex:neon-drift FINISHED (idle, latest classification 21:05Z). The 15:26Z 'Craig NEON follow-up in flight' hold is stale (6h, zero NEON repo activity since 13:42Z push; his intervening activity was Tokyo). p3d-092's worker is separate (draft PR #55, CI cancelled on dc8b5fd1) \u2014 no task conflict. Pickup verification pending next fresh classification.",
-    "td-047 dispatched by MAIN AGENT 2026-09-25T15:40Z (Craig's 10:39 CDT P0: Shuto road network regressed \u2014 splits/merges/overpass gone, stub roads cut off mid-air), recorded on tokyo main as bf4e1e58 with pickup verified. Fresh Codex session; do NOT re-dispatch td-047. td-044 stays held for shuto-c1 (session-limit reset Tue Sep 29 8PM).",
-    "PR #77 (td-034 diagnostics wrapper) MERGED BY CRAIG 2026-09-25T15:35:08Z as 7a80d63d (rebase-merge, author Dingyu Peng). Nothing owed \u2014 merged by the user, not a parked PR.",
-    "PICKUP VERIFIED 2026-09-25T17:1xZ: p3d-093 dispatch (16:34Z) confirmed live \u2014 codex:neon-drift WORKING ('Fix other car sprite visibility issue'), draft PR #56 opened on branch p3d-093-other-car-sides 16:54:59Z (mergeable_state clean, CI not yet run). No second dispatch owed.",
-    "dispatch-codex p3d-094 queued 2026-09-25T17:42:16Z: todo167 (other cars run over obstacles without reacting/dodging, Craig 22:23 CDT QA verbatim), highest-priority open unowned NEON task in batch order (p3d-090/091/093 merged, p3d-092 in flight w/ draft PR #55); fresh start, no salvage; pickup verification pending next fresh classification.",
-    "dispatch-codex td-048 queued 2026-09-25T18:54:26Z: P0 Shuto C1 section-end road terminates mid-air (Craig 2026-09-25 ~14:33 EDT verbatim), filed by Craig himself as godot/docs/tasks/td-048.md (commit 516ba920). Status open, no owner, no salvage (fresh). Target: codex:tokyo-drift-3d (FINISHED/idle per 18:16Z note; max-parallelization allows parallel with the pending td-042-rebase steer, which targets a different cloud task URL). Pickup verification pending next fresh classification. Do NOT re-dispatch; do NOT send a second worker to td-048.",
-    "td-049 dispatch HELD 2026-09-25T20:2xZ by main agent: waits for the td-042 corrected steer (browser-task:6dd85390, in flight since 19:15Z) to return STEER_DONE before delivering \u2014 concurrent browser actions must not target the same tracked session. NOT a delivery-path stall; do not alarm on it. Fire once td-042 clears.",
-    "DEFERRED dispatch (main agent 2026-09-25T20:2xZ): the td-049 dispatch-codex entry below was converted to a td-042 dispatch because PR #78 is still conflicted and the td-042 steer could not be delivered (no composer on the task page). Re-queue td-049 as dispatch-codex for codex:tokyo-drift-3d AFTER the td-042 dispatch is delivered and the worker is confirmed working. Full td-049 brief preserved here: {\"type\": \"dispatch-codex\", \"session\": \"codex:tokyo-drift-3d\", \"env\": \"tokyo-drift-3d\", \"task\": \"td-049\", \"task_file\": \"godot/docs/tasks/td-049.md\", \"brief\": \"Task: td-049 \\u2014 player car too large; shrink to opponent car size.\\n\\nTask file (source of truth \\u2014 read it first, in full): https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-049.md\\nYour chat transcript is background noise; the task file plus committed evidence are the only sources of truth.\\n\\nRepo: doublehidenblade/tokyo-drift-3d. First: sync main (git pull --rebase origin main), then create branch td-049-player-car-size. If the container's git remote is missing, add origin https://github.com/doublehidenblade/tokyo-drift-3d.git.\\n\\nCraig's report (verbatim, 2026-09-25, live Shuto URL playtest): \\\"make the player car smaller, same size as opponent cars.\\\"\\n\\nThe fix: resize the player car to match the opponent car size exactly \\u2014 same length, width, and height scale. Keep the rear-view lock, handling, and collision behavior unchanged apart from the size correction.\\n\\nCompletion criteria:\\n1. Player car and opponent cars render at identical size from the same camera distance.\\n2. No regression: player handling, rear-view lock, and collision behavior unchanged apart from the size correction.\\n3. One before-frame and one after-frame of the player car beside an opponent car from the same camera angle, named td-049-criterion-1-before.png / td-049-criterion-1-after.png, committed under qa/td-049/.\\n\\nEvidence: for the visual criterion, personally inspect every frame at full resolution before claiming done \\u2014 logs and selectors never overrule visible pixels; eyeball every screenshot. A criterion without its committed pair is not finished.\\n\\nStanding rules: one defect = one task, do only td-049; NEVER merge or publish; update the task file's Work log and Status as you go; stop after two identical failures and report instead of retrying variations; Godot .tscn comments use `;`, never `#`.\\n\\nSTATUS TABLE (Craig 2026-09-25, source of truth): task status lives in the board table at https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/boards/tokyo-drift-3d.md \\u2014 NOT in your task file's Status line. On EVERY status transition (open \\u2192 in_progress \\u2192 in_review \\u2192 validated, or blocked), update td-049's row (Status, Owner, Last update columns) in that table and land it via a PR to doublehidenblade/game-dev-central (PR ONLY \\u2014 Craig 2026-09-25: every worker uploads a PR; direct push is forbidden). Touch ONLY the td-049 row \\u2014 never add or remove rows. If the table and the task file disagree, the table wins.\", \"queued_at\": \"2026-09-25T19:12:11.728021+00:00\"}",
-    "dispatch-codex p3d-098 queued 2026-09-25T20:4xZ: todo171 (PR #56 after-evidence shows rear sprite, not side sprite \u2014 Craig 2026-09-25 verbatim), highest-priority open unowned NEON task (recurring p3d-060/p3d-093 class; p3d-060 row stays open but its class is actively covered by this dispatch); fresh start, no salvage. codex:neon-drift FINISHED after cron shipped PR #59. Pickup verification pending next fresh classification.",
-    "2026-09-25T21:49Z PAUSE KILL: td-042 corrected steer (browser-task:6dd85390, in flight since 19:15Z) is DEAD \u2014 td-042 is paused 2026-09-25 under the MP reprioritization. If the browser task is still running, the main agent may drop it; do NOT re-queue, do NOT redeliver.",
-    "2026-09-25T21:49Z PAUSE KILL: td-049 deferred dispatch is DEAD \u2014 td-049 is paused 2026-09-25. The brief preserved in earlier notes is superseded; never re-queue it.",
-    "2026-09-25T21:49Z PAUSE KILL: td-048 dispatch is DEAD \u2014 td-048 is paused 2026-09-25. Never re-dispatch.",
-    "dispatch-codex td-058 queued 2026-09-25T23:12Z: net.gd ping handler (Godot sessions reaped ~60s after joining), P0 multiplayer; highest-priority open unowned Tokyo task after td-057 (delivered 18:05 CDT, task_e_6ab6fedc8228832e93ae1ce8669c3b33). No salvage (fresh). Conflict risk minimal: td-057 touches server/signaling-fly/server.mjs only, this touches net.gd. Soft dependency: pong must use td-057's converged key (recommendation `type`) \u2014 noted in brief. codex:tokyo-drift-3d FINISHED/idle. Pickup verification pending next fresh classification. Do NOT re-dispatch; never two workers on the same task.",
-    "p3d-095 DOUBLE-FAILURE 2026-09-25T23:25Z: Codex task task_e_6ab6ff9c3668832ea998d086a57d1a95 ('Fix building sides 3D perspective', neon-drift) failed initial run after 42s ('An unknown error occurred'). Browser-task retry clicked once -> spawned NEW task task_e_6ab702251a48832e87ed4517edae69bb; its run ALSO failed after 36s with the identical 'An unknown error occurred' during setup ('setup is running' -> died before 'Working on your task'). Stop-after-2: NO further retries. Do NOT re-dispatch p3d-095 into neon-drift until the env/setup failure is understood. Diagnostic signal: the td-058 dispatch (tokyo-drift-3d env, browser task in flight since ~23:2xZ) will show whether Codex task setup works at all right now; if it succeeds, the failure is neon-drift-env-specific.",
-    "dispatch-codex p3d-096 popped 2026-09-25T23:52Z: DISPATCH_DONE, task https://chatgpt.com/codex/cloud/tasks/task_e_6ab7081e1a68832e8916827c9a9accdc (Codex auto-titled 'Fix race start sign positioning'; brief identifies p3d-096 verbatim). Run state at creation: Thinking, worker picked up, branch 'p3d-096-in-progress'. DIAGNOSTIC UPDATE: p3d-096 got PAST setup on the neon-drift env \u2014 the env is NOT universally broken. p3d-095's double identical setup failure ('An unknown error occurred') may be task-specific or transient, not env-wide. Stop-after-2 still holds for p3d-095 itself (no re-dispatch of that task without a changed approach); a future reroute decision should weigh this new evidence.",
-    "dispatch-codex td-058 popped 2026-09-25T23:36Z: DISPATCH_DONE, task https://chatgpt.com/codex/cloud/tasks/task_e_6ab70535a708832eb4d3f460c7d7ec7c ('Fix signaling ping/pong implementation', auto-titled). Run state at creation: Thinking \u2014 pickup confirmed. OWNED by codex:tokyo-drift-3d; do NOT treat as open/unassigned. td-057 dispatch (task_e_6ab6fedc8228832e93ae1ce8669c3b33) pickup also confirmed; its 'Failed, not live' label seen during the td-058 duplicate check needs fresh classification.",
-    "td-058 FIRST FAILURE 2026-09-26T00:13Z: task_e_6ab70535a708832eb4d3f460c7d7ec7c 'Fix signaling ping/pong implementation' (tokyo-drift-3d) died after 35s with 'An unknown error occurred' during setup \u2014 IDENTICAL signature to p3d-095's double failure on neon-drift. Revised diagnosis: Codex-cloud platform flake (capacity?), NOT task- or env-specific \u2014 p3d-096 passed setup on neon-drift at ~23:45Z between the failures. Codex-cloud 'usage nearing limit' banner also visible. One retry allowed per stop-after-2 (first failure on this task); retry in flight via browser task.",
-    "2026-09-26T07:1xZ all-blocked follow-up: 2 of the 3 failover subagents from the ~03:05Z episode are DONE (td-060 CLOSED via PR #95 merged by Craig 05:20Z; p3d-092 CLOSED via PR #63 merged by Craig 04:50Z, live). p3d-094 subagent reconciled branches 03:25Z (merge commit 8c5ebc91) but draft PR #57 is dirty (main moved via #63) and branch static since \u2014 owner unknown, do not rebase under it this run; next run re-checks branch movement, then acts.",
-    "2026-09-26T07:1xZ watchdog spawned Muse subagent on td-054 (2-4 player integration test, branch td-054-mptest): last open multiplayer milestone, board 'queued', no salvage, prerequisites merged, signaling live. Never merge/publish; leaves PR open.",
-    "2026-09-26T07:1xZ watchdog spawned Muse subagent on p3d-097 (flaky bridge-exit CPU p95 perf guard infra noise, todo170): open since 2026-09-25, no worker. Stabilize guard without deleting/raising budget; Browser CI evidence; never merge/publish.",
-    {
-      "ts": "2026-09-26T09:03:00Z",
-      "note": "watchdog 09:0xZ: all three decide ACTION=NOTHING (failover already fired for this OOT episode). p3d-094 subagent silent 5.5h (no commits since 03:25Z, PR #57 draft+merge-conflict) -> REFIRED a fresh context-migrated Muse subagent (resolve PR #57 conflict, evidence, undraft; never merge/publish). td-054 subagent (refired 08:35Z) only ~30min in -> keep, next run verifies pickup. p3d-100 filing/diagnosis subagent active. Board hygiene: PR #32 had a stale conflict (rows already landed by #33) -> closed unmerged w/ comment; PR #34 opened+shipped by cron for p3d-094/td-054 in_progress rows. CLASSIFICATION STALENESS: last browser classification 02:59Z (~6h); main-agent dispatch path may be broken -> flagged in heartbeat."
-    },
-    {
-      "ts": "2026-09-26T10:45:00Z",
-      "note": "watchdog 10:4xZ: all three decide ACTION=NOTHING (failover already fired for this OOT episode). p3d-094 refire (09:22Z) silent ~80min \u2014 PR #57 draft+dirty, branch head static since 03:25Z; verify pickup NEXT run per handoff-pickup rule, else pop/refire. td-054 + p3d-100 refires (10:35Z) ~10min in \u2014 normal startup, next run verifies. p3d-097 subagent ~3.5h, branches fix/p3d-097-perf-guard + p3d-097-flaky-p95-gate show activity \u2014 alive, left alone. STOP-AFTER-2 ON REFires: td-054 refires have gone silent twice (03:22Z/5h, 08:35Z/2h) \u2014 if the 10:35Z refire is silent again next run, do NOT refire a 5th time; reconcile/escalate instead. CLASSIFICATION ALARM: last browser classification 02:59Z (~7.7h) \u2014 main-agent classification dispatch path looks broken; watchdog continues on GitHub API."
-    },
-    {
-      "ts": "2026-09-26T12:20:00Z",
-      "note": "watchdog 12:2xZ: all three decide ACTION=NOTHING (failover already fired this OOT episode). p3d-094 refire (09:22Z) silent 2.8h \u2014 PR #57 draft+dirty, head static 8c5ebc91 since 03:25Z \u2192 REFIRED fresh context-migrated Muse subagent (rebase onto main post-#63, keep obstacle-awareness, undraft when green; never merge/publish). p3d-100 filing refire (10:35Z) silent 1.5h (no todo174, no board row, no PR) \u2192 REFIRED with file-first brief. td-054 10:35Z refire silent 1.5h = 3rd silent attempt (03:22Z/5h, 08:35Z/2h) \u2192 NO refire per 10:45Z policy; ESCALATED (outcome 3). p3d-097 subagent left alone (branch commit 07:25Z median-of-3 batch p95s \u2014 alive). Craig merged Tokyo PR #98 himself 12:23Z (td-061 RANDOM driver-name button + prefill, multiplayer_lobby.gd; .gd only, no export \u2192 live unchanged). CLASSIFICATION ALARM: last browser classification 02:59Z (~9.2h) \u2014 main-agent dispatch path looks broken."
-    },
-    {
-      "ts": "2026-09-26T12:50:00Z",
-      "note": "watchdog 12:4xZ: all three decide ACTION=NOTHING (failover already fired this OOT episode). p3d-094 refire VERIFIED WORKING \u2014 PR #57 head moved 8c5ebc91->2623cf51 'p3d-094: rebase onto main 5344499b' 12:36Z, still draft. CI on rebased head RED: 'Chromium gameplay, screenshots and performance' failed at step 6 'npm run qa' (run 36242449966, completed 12:42Z; step-log blob 401s from this env so exact assertion unseen). Pattern = known flaky suite, not a rebase breakage: main failed 01:39Z pre-#63, mixed pass/fail all night (p3d-094 branch green 03:25Z, p3d-092 branch red 03:32Z); matches p95-guard infra flake class p3d-097 is stabilizing. Subagent owns the re-run (brief: undraft when green); do NOT block merge on it. p3d-100 refire (12:2xZ file-first) ~25min in \u2014 no todo174/branch yet, normal startup; next run verifies pickup. p3d-097 subagent quiet 5.4h (branch head 7c6bd975 07:25Z) \u2014 left alone, next run watches. td-054: NO refire (3rd silent attempt); outcome 3 ESCALATED; board row updated via watchdog PR (in flight). Craig merged Tokyo PR #98 himself 12:23:04Z (td-061 RANDOM driver-name button + prefill, .gd only -> live unchanged). CLASSIFICATION ALARM: last browser classification 02:59Z (~9.7h) \u2014 main-agent dispatch path still broken."
-    },
-    {
-      "ts": "2026-09-26T14:00:00Z",
-      "note": "watchdog 13:4xZ: all three decide ACTION=NOTHING (OOT episode, failovers ledgered). FINDINGS: (1) p3d-094 PR #57 head 2623cf51 (rebased 12:36Z, draft) CI RED 12:42Z: 77/78 passed; ONLY failure is flaky bridge-exit CPU render p95 guard \u2014 expect 43.7999... toBeLessThan 25 (tests/game.spec.js:427); p3d-094's own test 'AI cars anticipate and dodge intact road obstacles' PASSED. Infra-noise class owned by p3d-097; not a real build failure; owner subagent must re-run CI or apply p3d-097 stabilization before mark-ready/merge. Do NOT merge on this red. (2) NEW parked Tokyo signaling PRs created 13:56-13:58Z (PR #101 td-062 null-socket guard READY, PR #102 td-064 single-instance READY, PR #103 td-063+td-065 begin_race RPC READY) \u2014 CI in_progress/pending; watch-and-ship when green, do not merge blind. (3) p3d-097 branch fix/p3d-097-perf-guard has median-of-3 stabilization commit 7c6bd975 07:25Z, no PR yet; p3d-100 filed todo174 (commit a987a7b9 10:39Z on fix/p3d-100-mobile-loading-99), no PR yet. (4) td-054: NO branch on tokyo-drift-3d after 03:22Z/08:35Z attempts; board already records stop-after-2 + escalated to Craig \u2014 no refire. (5) Classification staleness: last verified browser classification 02:59:37Z (~11h); main-agent dispatch path may be broken \u2014 alarm repeated."
-    },
-    "dispatch-td-068 popped: dispatched by main agent via browser task 2026-09-26T15:09:11Z (pickup verification pending); entry removed to prevent duplicate dispatch",
-    {
-      "ts": "2026-09-26T16:48:00Z",
-      "note": "watchdog 16:4xZ: all three decide ACTION=NOTHING (OOT episode, failovers ledgered). CRAIG'S MULTIPLAYER PUSH INSPECTED: he authored+merged Tokyo PRs #98 (td-061 driver-name RANDOM+input overlay, 12:23Z), #101 (td-062 null-socket guard, 14:01Z), #102 (td-064 signaling single-instance, 14:01Z), #103 (td-063+td-065 begin_race RPC, 14:01Z), #105 (td-066 TouchControls in MP, 15:49Z), #106 (td-067 harbor bridge map in MP, 15:49Z). Signaling DEPLOYED success 15:28Z. publish-web success 16:37Z, live build-sha 1d419b48 \u2014 all .gd changes LIVE. Board-hygiene: game-dev-central PR #45 (td-061..067 rows -> merged+live, Craig as owner) created+merged by cron 16:46:59Z. td-068 pickup VERIFIED: branch fix/td-068-single-instance active (commits 15:01Z file, 15:28Z machines-aware fix), board row done (PR #107). p3d-094: PR #57 draft, head 2623cf51 static since 12:36Z, CI red on known flaky p95 guard (43.8 vs 25, infra-noise class p3d-097 owns) \u2014 owner subagent quiet ~4.3h; left assigned. p3d-097: branch head 7c6bd975 static since 07:25Z \u2014 owner subagent quiet ~9.5h; WATCH \u2014 next run considers refire if still silent. p3d-100: ACTIVE \u2014 diagnosis-note commit 3568192a 14:40Z. td-054: outcome 3, no refire. CLASSIFICATION ALARM: last browser classification 02:59Z (~13.8h) \u2014 main-agent dispatch path still silent."
-    },
-    {
-      "ts": "2026-09-26T17:45:00Z",
-      "note": "watchdog 17:4xZ: all three decide ACTION=NOTHING (OOT episode, failovers ledgered). p3d-094 PR #57 MERGED by Craig 17:13Z, publish-web b75985a0 live (already verified+reported 17:15Z) -> board hygiene PR game-dev-central#47 (row -> merged+live) created+merged by cron. p3d-097: refired (3rd route) \u2014 fresh context-migrated Muse subagent spawned 17:45Z (continue from head 7c6bd975, stabilize flaky p95 guard, never merge/publish); prior subagent silent 10.4h (head static since 07:25Z). Verify pickup NEXT run. td-068 PR #107 merged by Craig 15:28Z (board done). td-054 outcome 3 stands (13:40Z probe defects largely superseded by Craig's td-064 split-brain fix deployed 15:28Z; no refire). p3d-100 subagent ACTIVE (diagnosis commit 3568192a 14:40Z). CLASSIFICATION ALARM: no fresh browser classification since 02:59Z (~14.8h) \u2014 main-agent dispatch path silent 15+ runs; DEGRADED WATCHDOG on classification freshness."
-    },
-    "screenshots tokyo (queued 01:22:52Z) popped 18:19Z: ~17h stale; target PRs long since merged/inspected/reported.",
-    "screenshots neon (queued 01:52:00Z) popped 18:19Z: ~16.5h stale; underlying inspections already reported to Craig.",
-    "screenshots neon (queued 17:24:13Z) popped 18:19Z: was for p3d-094 post-merge inspection; evidence pair already eyeballed and reported 17:15Z, PR #57 merged + live. Fulfilled, not redelivered.",
-    "screenshots td-069/td-070 popped 2026-09-26 ~18:40Z: live-site capture FAILED \u2014 browser-task Chromium has no WebGL2 (no GPU); game stalls at 'Assembling city geometry' and tabs crash. No flags can be passed to the managed browser. Audit not performed; R15 symmetry eyeball deferred to Craig's phone QA (his phone is final per standing rules). Do not re-queue without a WebGL2-capable capture environment.",
-    "screenshots-pr50 popped: main agent verified live site shows grey roadside walls (browser capture 19:43Z, eyeballed); PR #50 inspection fully closed",
-    "dispatch-codex p3d-075 popped: DISPATCH_DONE 19:43Z, task https://chatgpt.com/codex/cloud/tasks/task_e_6ab820562e28832eb4c4c96f3f13eadc (worker running setup)",
-    {
-      "ts": "2026-09-26T20:01:14Z",
-      "note": "watchdog: DISPATCH CHECK \u2014 codex:tokyo-drift-3d FINISHED idle, signaling RESTORED (/health 200, uptime 816s @ 19:57Z probe; td-071 infra cause resolved). Queued dispatch-codex td-054 (2-4 player live acceptance) \u2014 the promised 're-dispatch fresh after signaling returns' (18:52Z escalation). Salvage folded in: probe RESULTS (host-create PASS, bad-code PASS, join FAIL, race-start FAIL), td-062..td-065 + td-066..td-070 merged by Craig and live (build-sha 1d419b48 / 18:13Z), td-072 owned by 19:38Z subagent (no conflict). p3d-075 pickup VERIFIED on neon (commit f0a45801 19:55:29Z 'replace circuit tunnel with arch bridge') \u2014 Codex NEON tokens recovered, working. Do NOT re-dispatch td-054; pickup verification pending next classification."
-    },
-    {
-      "ts": "2026-09-26T21:25:00Z",
-      "note": "dispatch-codex td-074 IN FLIGHT: browser task dispatched 21:25Z to create new Codex task in tokyo-drift-3d env with td-074 brief (verbatim, adjusted for restored task file). Pickup verification pending task URL return. ALSO: manual PR #111 merge via Git Data API used PR-head tree only, silently DELETED td-074..td-078 task files from main (commit 4610a736357e orphaned). Restored all 5 files as commit 589497fff3c0 21:2xZ. LESSON: manual merge commits must merge trees, not take head tree."
-    },
-    {
-      "ts": "2026-09-26T21:25:00Z",
-      "note": "dispatch-codex td-074 popped: DISPATCH_DONE 21:24:49Z via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab8380514c0832ea7af51bfbe28ad01 (auto-titled \"Fix invalid room join to show error\", brief verbatim via type action, Running/Working on task page). td-054 task also visible in env, untouched. Pickup verification pending next fresh classification."
-    },
-    {
-      "ts": "2026-09-26T21:32:00Z",
-      "note": "td-079 FILED + DISPATCH IN FLIGHT: Craig 21:31Z live 2-phone test \u2014 joiner stuck on \"waiting for host to start\" while host raced alone. Task file godot/docs/tasks/td-079.md committed be336fb51a61; board row added 32c67e10bdea. Browser task dispatched 21:32Z to create Codex task in tokyo-drift-3d env. Pickup verification pending task URL return."
-    },
-    {
-      "ts": "2026-09-26T21:34:00Z",
-      "note": "dispatch-codex td-079 popped: DISPATCH_DONE 21:33:04Z via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab839fe4db0832e9b9007e1024a3cbe (auto-titled \"Fix race start synchronization issue\", brief verbatim via type action, Running \u2014 configuring runtimes at dispatch). Pickup verification pending next fresh classification."
-    },
-    "dispatch-codex td-075 popped 2026-09-26T21:36Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab83ac315a8832eb3bfcaa27c4a8b95 (auto-titled \"Read and complete task td-075\", Working at dispatch, brief verbatim). Pickup verification pending next fresh classification.",
-    "dispatch-codex td-076 popped 2026-09-26T22:35Z: already implemented by Muse subagent \u2014 code pushed to feat/td-076-nameplates, draft PR tokyo-drift-3d#117 open with before/after evidence, board row in_review. Dispatching a Codex worker would duplicate coverage on the same task file.",
-    "screenshots PR #67 completed 2026-09-26T22:43Z: stone arch bridge verified on live neon-drift-web via harness captures (dist=1680, full arch + both lamps). Old neon tunnel gone.",
-    "steer-codex td-084 popped 2026-09-26T22:47Z: main agent already dispatched dedicated new Codex task for td-084 (browser-task in flight). Watchdog classification was 82min stale, did not know. Kept new-task route; popped steer to avoid two workers on td-084.",
-    "dispatch-codex p3d-060 completed 2026-09-26T22:46Z: new Codex task created and running (task_e_6ab84a94e05c832e862ac6fe0625f031, branch fix/p3d-060-relative-facing-review).",
-    "dispatch-codex td-085 popped 2026-09-26T23:5xZ: dispatched directly by main agent via browser task (fresh tokyo-drift-3d session, brief = corrected td085-brief.md: td-084 shipped via production sync, publish-first-then-fix, HOLD lifted). Board row on main reads plain 'open' (game-dev-central PR #69 merged via Git Data API fallback 23:50Z). td085-merge-gate cron removed; gate flag files deleted. Do NOT re-dispatch; pickup/run-state verification pending (browser task reports the new Codex task URL on completion).",
-    "td-085 pickup VERIFIED 23:53Z: fresh Codex task running in tokyo-drift-3d env, brief pasted verbatim \u2014 https://chatgpt.com/codex/cloud/tasks/task_e_6ab85aed81f0832e810b1c2f6b414560 (Codex auto-titled 'Add share link with copy button'). Next: classify in ~15m runs; worker handles publish itself per brief.",
-    "dispatch-codex p3d-084 popped 2026-09-27T00:17Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab860147938832e915b6cb6e6087960 (neon-drift env, Thinking at dispatch, brief verbatim). Codex auto-titled it 'Create worker subagent task template' (no rename control); brief identifies p3d-084 throughout. Pickup verification pending next fresh classification. Do NOT re-dispatch p3d-084.",
-    "dispatch-codex td-077 popped 2026-09-27T00:19Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab860de7840832ebc6f60b32ebb8dad (tokyo-drift-3d env, Thinking at dispatch, brief verbatim, title first line 'td-077 \u2014 multiplayer traffic/AI cars' though Codex auto-titled the display 'Implement multiplayer traffic AI cars' \u2014 no rename control). Pickup verification pending next fresh classification. Do NOT re-dispatch td-077.",
-    "td-079 PR #114 SHIP SEQUENCING (main agent 2026-09-27T00:2xZ): do NOT merge PR #114 while the web client cannot be published. The PR's server.mjs half auto-deploys to Fly on merge, and the new server gates 'start' on every peer having sent the new 'ready' message \u2014 the current live client never sends 'ready', so merging early would break multiplayer entirely (no race could ever start). Required sequence once the Actions budget is restored: mark PR #114 ready (remove draft) -> merge -> wait for Fly signaling deploy -> dispatch publish-game.yml -> verify live build + run a live two-client create/join/start test -> Craig retests on phone. Worker's final state: FINISHED, fix implemented + locally tested (Godot 4.7.2 import, client contract test, two-WebSocket test pass), parked as draft pending a WebGL validation run it could not complete. Craig explicitly warned 2026-09-27 ~00:2xZ not to merge PR #114 early.",
-    "dispatch-td-079-merge popped: dispatched by main agent via browser task 2026-09-27T00:27Z (task_e_6ab862ec6624832e812ac383bffa1b6d, Codex tokyo-drift-3d env, container initializing at launch); entry removed to prevent duplicate dispatch \u2014 pickup verified via next watchdog classification",
-    "screenshots-pr72 popped 2026-09-27T01:1xZ: PR #72 evidence audit PASSED on the 6 committed todos/todo157/qa/ before/after pairs; the audit notification with 3 after-shots was delivered to Craig 01:05Z. Live-site capture would show the PRE-fix build (PR #72 touched no web-export files, publish blocked on Actions budget) - meaningless and misleading. No capture owed.",
-    {
-      "ts": "2026-09-27T01:40:00Z",
-      "note": "dispatch-codex td-084 + p3d-076 popped: both pickups verified 01:14Z (td-084 branch commit 494005a9, PR #119 updated 01:00Z; p3d-076 draft PR #73 updated 01:09Z), workers confirmed active in 01:27Z cron. Entries removed to prevent duplicate dispatch/delivery."
-    },
-    "screenshots-pr73 popped 2026-09-27 ~02:50Z: main agent eyeballed p3d-076 criterion-1 before/after (todos/todo149/qa/): building sides now render with correct receding perspective vs the flat/smeared look before; same camera/scene. Live-site capture meaningless (merged, not live). Evidence audit already passed by worker.",
-    {
-      "ts": "2026-09-27T03:42:00Z",
-      "note": "dispatch-codex p3d-083 popped: main agent dispatched via browser task (neon-drift env, title 'p3d-083 \u2014 readable complex-road forks', brief verbatim incl. salvage from dead worker + conflicted PR #68 rebase). PR #68 verified pre-dispatch: open, draft, mergeable_state dirty, head fc3ba3c3 static since 22:41Z \u2014 old worker dead, entry not stale. Pickup verification pending fresh classification (also in flight)."
-    },
-    {
-      "ts": "2026-09-27T04:37:29Z",
-      "note": "dispatch-codex p3d-083 DISPATCH_DONE: new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab89d69f5bc832eb690d955bdb12543 (auto-titled 'Rebase p3d-083-readable-forks onto main' \u2014 Codex exposes no rename; brief verbatim, neon-drift env explicitly selected). Run state at dispatch: Thinking, worker already produced first output. Pickup verification pending next fresh classification."
-    },
-    {
-      "ts": "2026-09-27T05:32:26Z",
-      "note": "watchdog 05:3xZ: INSPECT_MERGED p3d-083 (neon PR #68, merged by Craig 05:17Z) \u2014 evidence audit PASSED (distinct before/after frames, same instance/camera per criterion + 4 through-zone frames); main CI 85/86, only failure = flaky bridge p95 gate (p3d-097 infra). p3d-094 (neon PR #57, merged by Craig 09-26 17:13Z) discovered merged-but-never-reported \u2014 inspected: +188/-11 AI obstacle awareness, evidence pair distinct frames, recorded in pending.json. Status PRs shipped: game-dev-central#86 (board rows p3d-083+p3d-094 -> merged), neon#75 (todo156 status -> merged). DISPATCH CHECK: queued dispatch-codex codex:neon-drift -> p3d-078 (todo151, rail collision box; fresh, no salvage) with push-on-request brief (merge-only, no publish-web). Do not re-dispatch."
-    },
-    "screenshots-pr78 popped 2026-09-27T12:1xZ: PR #78 merge notification already delivered to Craig with 3 inspected screenshots (start-sign-night + criterion-1/2 after frames).",
-    "screenshots-pr127 popped 2026-09-27T12:1xZ: main agent eyeballed committed QA pairs godot/qa/td-076/td-076-criterion-{1,2}-after.png \u2014 nameplates \"Amy\" (blue) and \"Dave\" (red) render correctly above cars, tinted by player color. Evidence audit already PASSED by cron.",
-    "dispatch-codex p3d-079 popped 2026-09-27T12:08Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab9070e86bc832e8282469369732285 (\"Fix collision and nitro spark sizes\"), Thinking/working, brief verbatim. Pickup verification via next fresh classification.",
-    "screenshots-pr82/pr83 popped 2026-09-27T17:32:49.924438+00:00: PRs merged-not-live (push-on-request); worker evidence audit passed from merged diff (todo177/qa before/after PNGs; todo178/qa EVIDENCE.md+traces). Live-site capture would show pre-PR state \u2014 meaningless. Visual verification happens on Craig's next push.",
-    "resume-codex-tokyo popped 2026-09-27T17:32:49.924438+00:00: superseded by direct td-088 dispatch 17:24Z (task_e_6ab95103a52c832e8cf859adf3cce82f, confirmed working). Worker's 17:32Z decide saw stale DEAD state and re-queued resume; popping to avoid two workers on tokyo-drift-3d.",
-    "screenshots-pr81 popped 2026-09-27T17:37:56.725662+00:00: PR #81 merged-not-live (push-on-request); worker evidence audit passed (before/after pair committed, eyeballed). Craig notified 12:28 CDT with the PR's own evidence images. Live-site capture would show pre-PR state \u2014 meaningless.",
-    "dispatch-codex p3d-102 ACTION_DONE 2026-09-27T17:50:57.668158+00:00: new task task_e_6ab957113bf8832ea8f4254c16517924 in neon-drift env, agent active. Entry popped.",
-    "dispatch-codex td-088 ACTION_DONE 2026-09-27T17:51:18.356864+00:00: new task task_e_6ab956fd1c1c832eac72935e6abcea0b in tokyo-drift-3d env, agent Thinking. Caveats: title auto-generated 'Fix default driver name reshuffling' (no rename control); brief sent 3x concatenated (flaky composer), content intact. Entry popped.",
-    {
-      "task": "screenshots-pr88",
-      "type": "screenshots-done",
-      "dispatched_at": "2026-09-27T23:31Z",
-      "note": "Eyeballed committed evidence PNGs (todos/todo122/qa/). Criterion-1 tunnel: before shows flat mural mountains painted on tunnel walls; after shows lamp-lit walls with warm light pools + water channels. Criterion-2 docklands: before shows flat pasted mountains/flat ground; after shows layered misty mountains + textured ground/water. Pairs are same-camera-mode (rear chase cam) same-scene-type, defect->fix legible. Caveat: before frames mid-race, after frames at race start \u2014 not pixel-registered positions, acceptable for this game's fixed chase cam. Evidence audit passes.",
-      "by": "main-agent"
-    },
-    {
-      "task": "screenshots-pr143",
-      "type": "screenshots-done",
-      "dispatched_at": "2026-09-27T23:31Z",
-      "note": "Popped without screenshots: td-095 TURN relay has zero visual change (connectivity fallback only), and the merge is not live (push-on-request) so live-site captures are meaningless. Worker verified protocol/client/import/web-export logs green; hosted restrictive-NAT acceptance test waits for Craig's push + signaling deploy.",
-      "by": "main-agent"
-    },
-    "dispatch-p3d-088 popped: PR #52 already merged 20:58Z, harbor snapshot green on the 23:50Z CI run; queued brief was stale (called PR #52 'draft') and wrongly instructed a cost-incurring CI re-run",
-    "td-100 queued dispatch dropped: existing worker unblocked (Blender 4.0.2 installed, ba4adde pushed); no duplicate dispatch",
-    "dispatch-codex p3d-069 queued 2026-09-28T02:45Z: codex:neon-drift FINISHED/idle, no pending action, no active subagent -- DISPATCH CHECK fired. p3d-069 (neon complex roads, second map proof-of-concept, todos/todo142) is the highest-priority open unowned NEON task per board priority (civilian cluster + visual fixes merged/awaiting Craig verdict; p3d-070 never dispatched per kill order). Brief is fresh-start (PR #45 docs-only, no implementation salvage). Main agent delivers via browser task per handoff duties.",
-    {
-      "task": "steer-codex-td100-evidence",
-      "type": "steer-codex-NO_ACTION_TASK_GONE-popped",
-      "dispatched_at": "2026-09-28T04:39:32Z",
-      "note": "Popped without sending. Target task_e_6ab9a3b8 (codex:tokyo-drift-3d) no longer loads \u2014 'Error loading task', not in task list/search/archive. Session likely deleted or in different workspace. Evidence pairs already committed under godot/qa/td-100/; only the task-file Evidence section listing is missing. Low priority \u2014 can fold into next td-100 touch or leave as-is.",
-      "by": "main-agent"
-    },
-    {
-      "ts": "2026-09-28T08:15:07.065849+00:00",
-      "note": "Dispatch queued: dispatch-codex codex:tokyo-drift-3d \u2192 td-104 phase-2 (bounded multiplayer trace format + phone report, per merged PR #148 diagnosis; td-102 theory dead, no fix authorized yet, phone capture waits on Craig). Pending in pending_actions.json for main-agent handoff; do not re-dispatch."
-    },
-    {
-      "task": "screenshots-pr150",
-      "type": "screenshots-done",
-      "dispatched_at": "2026-09-28T09:46:20.386838+00:00",
-      "note": "Eyeballed committed QA screenshots (game-fleet-after.png): 4 distinct rear-view vehicles \u2014 teal cab-over van, orange wedge sedan, dark Iron Mask sedan, red FC/DR hero with spoiler. All opaque, distinct silhouettes, proper taillights. Matches td-103 brief. Evidence audit already PASS per watchdog.",
-      "by": "main-agent"
-    },
-    "watchdog 2026-09-28T11:36Z: SHIPPED stale parked tokyo PR #116 (td-083 rank screen, in_review since 2026-09-26, worker session long gone). Rebases onto main via git-database API (93 commits drift; conflicts in mp_race.gd/mp_race.tscn resolved; took branch's rank/DNF/deadline/navigation as designed, kept main's newer pickups/traffic/HUD/trace/prediction code; dropped stale web-candidate.json). Squash-merged as 8ab74caf. Evidence audit PASS (matched criterion-4 before/after pair eyeballed: 1st Akira 01:12.34 red, 2nd NeonFox DNF blue, QUIT + RACE AGAIN buttons). In pending.json (held for Craig's push, NOT live). Board synced via game-dev-central#139 (merged). Do NOT re-ship #116.",
-    "steer-codex codex:neon-drift popped 2026-09-28T11:54:04.794343+00:00: STEER_DONE via browser task (p3d-060 reconcile). URL correction: queued target_task_url task_e_6aba1f4ce43c832eb64924733ba4876f actually opens the p3d-108 task; browser task located the real p3d-060 session ('Fix civilian car sprite selection') at https://chatgpt.com/codex/cloud/tasks/task_e_6ab84a94e05c832e862ac6fe0625f031 and steered that \u2014 no second session created. Session was idle/finished (PR #70 pushed unmerged, in_review); new run started on the reconcile brief.",
-    "steer-codex codex:tokyo-drift-3d popped 2026-09-28T21:18Z: STEER_DONE via browser task (failover td-109 sedan rebuild; session was idle post-td-103, new run started on the steered instruction). Do NOT re-steer while the session is working.",
-    {
-      "type": "dispatch-codex",
-      "task": "td-105",
-      "note": "POPPED 2026-09-28T23:05Z: duplicate \u2014 board already shows td-105 in_progress, Codex task_e_6abaef36a3e0832eabe7025c055154b3 dispatched 2026-09-28 (row added before this run's queue). Watchdog queued a parallel dispatch on a stale board read; popped to honor never-two-workers-on-the-same-task.",
-      "by": "watchdog"
-    },
-    "steer-codex codex:tokyo-drift-3d popped 2026-09-28T23:5xZ WITHOUT sending: premise false \u2014 PR #157 for branch codex/trace-auto-upload already exists AND is merged (state closed, merged True, merged_at 2026-09-28T23:10:49Z, verified via API). The 19:34 EDT classification browser's 'Create PR button visible / no PR' note was a stale UI read. Sending the steer would have asked a finished session to open a duplicate PR. Do NOT re-queue.",
-    {
-      "task": "td-112",
-      "type": "dispatch-codex-done",
-      "dispatched_at": "2026-09-29T00:21:46Z",
-      "env": "tokyo-drift-3d",
-      "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abb040df7e4832ebcbbabbe1ad21cfd",
-      "brief_verbatim": true,
-      "title_note": "Codex auto-titled \"Fix panel gaps in TD-112 model\"; no rename control in UI",
-      "status": "worker active: Working on your task, on branch feat/td-109-dr30-sedan",
-      "by": "main-agent"
-    },
-    {
-      "note": "Dispatch queued: dispatch-codex codex:tokyo-drift-3d -> td-115 (guest never receives race-start, v26 regression room 7R4CQZ; open + unassigned on the board). Pending in pending_actions.json for main-agent handoff; do not re-dispatch. Queued 2026-09-29T02:14Z.",
-      "ts": "2026-09-29T02:14:30Z"
-    },
-    {
-      "ts": "2026-09-29T03:16:31Z",
-      "by": "watchdog",
-      "note": "DO-NOT-DISPATCH GUARD (board/task-file conflict): board rows show td-119 and p3d-109 as 'open | unassigned', but the task files say in_progress with a worker on 2026-09-29 phases 1-2, parked at Craig's blueprint review (MAIN PIVOT gate, Showa anime round-2). Craig rejected round-1 himself on 2026-09-29 and is mid-review. Do NOT queue dispatch-codex for td-119/p3d-109; they are review-gated, not idle-assignable. Board rows need reconciling with task files (table-wins rule vs fresher task-file evidence). Similarly td-110/td-111 board 'in_progress \u2014 handoff to Muse 2026-09-28T22:04Z, reconcile branch/PR before dispatch': do not dispatch until the handoff reconcile completes."
-    },
-    {
-      "task": "td-121",
-      "type": "dispatch-rerouted",
-      "note": "dispatch-codex popped 2026-09-29T05:35Z: Codex account usage-capped until Oct 3 12:21 UTC, new cloud-task creation would fail. Rerouted to Muse subagent per worker suggestion (ALL-BLOCKED ESCALATION).",
-      "by": "main-agent"
-    },
-    "watchdog 2026-09-29T08:30Z: decide=NOTHING x3 (classifications ~52min old). DISPATCH CHECK: codex:neon-drift FINISHED/idle, no dispatch (NEON priority chain all merged; p3d-097 owned, p3d-060 in_review PR #70, p3d-109 blocked on Craig's blueprint review). codex:tokyo-drift-3d FINISHED/idle (td-112/td-113 done+inspected); td-054 fresh 2-4p acceptance on v27 live is the only ownerless open task (board owner = stale 2026-09-26 task_e_6ab8263c) BUT Codex account usage-capped until Oct 3 12:21 UTC (05:35Z reroute precedent: new cloud tasks fail) and the Muse-subagent route is exhausted (3 silent attempts 2026-09-26, stop-after-2, escalated). No dispatch queued; td-054 acceptance OWED on first capacity (Claude session-limit reset 9PM CDT 2026-09-29, or Codex after Oct 3). claude-code:tokyo-drift-3d OOT until 9PM CDT 2026-09-29, failover already ledgered. Budget: OK 84.4% ($42.2/$50), no ask. Board hygiene: tokyo PRs #192 (td-120) and #193 (td-121) closed/merged into v27 but board rows still in_review \u2014 stale rows need a hygiene pass.",
-    "steer-codex td-113 popped 2026-09-29T14:35Z: browser task opened the finished task page \u2014 session NOT working but usage exhausted (banner: 'You're out of Codex and Work usage for now'), composer shows 'Usage limit reached' badge, no usable textbox \u2014 steer NOT delivered, nothing typed. Verified via API: Tokyo PR #168 (root-cause fix) and PR #169 ('docs: record td-113 merge handoff', merged 02:13:07Z) are BOTH merged, so no work is stranded; the task-page +1557/-9 diff reflects already-merged content. No retry owed; do NOT re-queue this steer.",
-    "screenshots-pr210 popped 2026-09-30T02:33Z: main agent eyeballed committed pair td-132-criterion-1-before/after.png \u2014 before shows 0.35m float, after shows grounded 0.0m deviation, Y math consistent with source (sphere 0.5, ModelHolder -0.15, body 0.5->0.15). Real gameplay screenshots impossible (no WebGL2 in sandbox); Craig's phone QA is the visual gate. Evidence audit passes.",
-    "dispatch-codex td-134 popped 2026-10-01T01:33Z: Codex cloud task created and running (https://chatgpt.com/codex/cloud/tasks/task_e_6abdb84020c4832e937eed3b4351c734, auto-titled 'Fix traffic cars collision box scaling'; required title placed as first line of prompt). Do NOT re-dispatch; pickup verification pending fresh classification.",
-    "dispatch-codex td-134 RE-QUEUED 01:44Z by watchdog POPPED as duplicate: main agent already dispatched td-134 at 01:33Z (https://chatgpt.com/codex/cloud/tasks/task_e_6abdb84020c4832e937eed3b4351c734, confirmed 'Working on your task' with active log on civilian_traffic.gd). NEVER dispatch a second worker on td-134.",
-    {
-      "ts": "2026-10-01T14:50:00Z",
-      "note": "MAIN AGENT 2026-10-01T14:50Z: SUPPRESSED dispatch-codex td-134 as DUPLICATE. PR #261 'td-134: align traffic visuals with collision footprints' MERGED 2026-10-01T08:25:36Z (API-verified, state=closed). Board row still says 'open \u2014 filed 2026-09-30' (stale row; merging worker never updated it per rule 11). No Codex task created. Opening board-fix PR to flip the row to merged so DISPATCH CHECK stops re-queueing it."
-    },
-    {
-      "ts": "2026-10-01T15:03:00Z",
-      "note": "MAIN AGENT 2026-10-01T15:03Z: steer-codex (td-134 stand-down + td-125 reconcile) DELIVERED, STEER_DONE confirmed, entry popped. Session now working."
-    },
-    {
-      "ts": "2026-10-01T17:29:27Z",
-      "note": "watchdog: POPPED self-queued dispatch-codex td-138 stage 3 (~10min after queueing) \u2014 API check shows stages 2/3/4/5 were ALREADY done+merged this morning by a 05:25-07:21Z run (PR #254 stage2 merged 06:03Z, #255 stage3 merged 06:15Z, #257 stage4 merged 07:01Z, #258 stage5 merged 07:21Z). The stage-3 brief file is STALE (says PR #254 open/do-not-merge). Dispatching again would be a duplicate \u2014 never re-dispatch; record why. td-138 board row 'open \u2014 round-2 REJECTED' is also stale vs these merges. Merged_by and inspection legitimacy under investigation this run; DO NOT re-queue any td-138 stage dispatch until the merge chain is reconciled."
-    },
-    {
-      "ts": "2026-10-01T17:31:09Z",
-      "note": "watchdog: queued steer-codex codex:tokyo-drift-3d for td-119 placement re-brief \u2014 PR #256's 'blocking mismatch' audit is a worker misread (td-119's nine models are Showa ENV hero models from PR #202, never cars; task file reference images 09-14 confirm). Per BLOCKED-WORK DISCIPLINE(3): block not real, steer with concrete next step (fresh branch, place env models per blueprint, evidence under godot/qa/td-119/, PR left open). Do NOT dispatch a second td-119 worker while this steer is pending."
-    },
-    "steer-codex codex:tokyo-drift-3d popped 2026-10-01T18:10Z: STEER_DONE via browser task (td-119 placement re-brief correcting car-model misread; session was idle, new run started on the steered instruction).",
-    {
-      "ts": "2026-10-01T19:42:30Z",
-      "note": "watchdog 19:42Z: DISPATCH CHECK fired on codex:tokyo-drift-3d (FINISHED idle, pending_actions empty, no live subagent). Queued: dispatch-codex codex:tokyo-drift-3d -> td-124 (P0 guest-cant-see-host-car v27 regression of td-120; salvage branch td-124-debug 4 ahead/72 behind main, NO open PR; brief carries rebase-first + drop-the-landed-task-filing-commit + re-run-9/9-headless-test + open-PR + acceptance-honesty instructions; do NOT redo the 2026-09-29 diagnosis). Skipped: td-054 (board row says do NOT re-dispatch blindly, needs stronger multi-renderer host), td-138 (DISPATCH HELD \u2014 GT-R LM Nismo base mesh missing from repo), td-134 (never-redispatch flag), td-119 (placement steer delivered 18:10Z, no second worker), td-125 (owner Muse td-104/td-125 worker), td-127 (Claude session working), td-101 (owner Astra). Do not double-dispatch td-124."
-    },
-    "steer-codex codex:tokyo-drift-3d (PR #265 rebase) popped 2026-10-01T20:40Z: browser steer blocked (td-119 task page would not render); rerouted to subagent b98e9de0 which rebased td-119-place-environment onto main (new head f611fb3d), resolved CHECKPOINT/TODO/DEVLOG by union, pushed. PR #265 now mergeable=true/clean. No merge per instructions.",
-    "nudge-claude claude-code:tokyo-drift-3d queued 2026-10-02T01:12Z by 21:11 EDT run then POPPED 01:13Z: per-blocker guard \u2014 00:49Z note parks it on Craig's td-045/PR #69 decision, already surfaced 00:56Z. No nudge, no re-surface.",
-    {
-      "ts": "2026-10-02T01:58:00Z",
-      "note": "watchdog 01:58Z: DISPATCH CHECK re-evaluated both sessions (FINISHED, actions empty, no live subagents). Nothing to queue: 19:42Z td-124 queue was STALE (PR #197 merged 2026-09-29, board row 'done' 2026-10-01; main agent correctly popped it with no dispatch \u2014 do NOT re-queue). td-054 held (needs stronger multi-renderer host, do-not-redispatch-blindly), td-138 DISPATCH HELD (GT-R LM Nismo base mesh missing from repo), td-127 Claude session working, td-125 Codex task in flight (21:35Z), td-119 placement steer delivered 18:10Z, td-101 Astra owned. Classifications 11.5 min old (fresh), budget 0%."
-    },
-    {
-      "ts": "2026-10-02T13:29:03Z",
-      "note": "watchdog 2026-10-02 ~13:27Z: DISPATCH CHECK queued dispatch-codex td-142 (nitro-tap-steers, Craig phone QA, verified open/unowned on board + task file; no salvage) and dispatch-claude td-140 (80s-anime UI rework, 2026-10-01 dispatch delivered nothing \u2014 needs re-dispatch; visual brief template used). Both sessions FINISHED/idle, queue was empty, no live subagents. Recorded in session notes; do not double-dispatch."
-    },
-    "dispatch-codex td-142 popped 2026-10-02T13:30:27Z: NO_ACTION_DUPLICATE \u2014 main agent already dispatched a live Muse subagent on td-142 this turn (td-142 nitro fix + td-140 UI rework, spawned ~09:21 EDT). Delivering this entry would put two workers on the same task. Subagents recorded in main-agent context; next run must treat td-142 as owned.",
-    "dispatch-claude td-140 popped 2026-10-02T13:30:27Z: NO_ACTION_DUPLICATE \u2014 main agent already dispatched a live Muse subagent on td-140 this turn (td-142 nitro fix + td-140 UI rework, spawned ~09:21 EDT). Delivering this entry would put two workers on the same task. Subagents recorded in main-agent context; next run must treat td-140 as owned.",
-    "2026-10-02 11:16 EDT: popped screenshots/td-140/PR#273 \u2014 UI is merged-not-live, live-site capture would show the old UI; evidence already inspected from the merged godot/qa/td-140 triptychs by supervisor.",
-    "screenshots-pr273 popped 2026-10-02 11:16 EDT: PR #273 (td-140 UI) is merged-not-live, so live-site screenshots would show the old UI and prove nothing; supervisor already eyeballed all 7 mock|before|after triptychs from godot/qa/td-140 and evidence-audit is clean.",
-    "dispatch-codex td-143 popped 2026-10-02T19:35Z: task already owned by a main-agent-dispatched Muse subagent (working since 19:16Z, registered via register-worker). Watchdog's DISPATCH CHECK re-queued without seeing the direct dispatch; popping to avoid two workers on the same task. Subagent heartbeats in worker-heartbeats/td-143.json.",
-    "dispatch-claude td-144 popped 2026-10-02T19:35Z: task already owned by a main-agent-dispatched Muse subagent (working since 19:16Z, registered via register-worker). Watchdog's DISPATCH CHECK re-queued without seeing the direct dispatch; popping to avoid two workers on the same task. Subagent heartbeats in worker-heartbeats/td-144.json.",
-    {
-      "ts": "2026-10-02T20:27:00Z",
-      "note": "watchdog 20:27Z: DISPATCH CHECK held on td-119 (only viable candidate; td-101 board-owned by live Astra chat). Craig reverted the td-119 placement himself 2026-10-02T03:57Z (1d92e25): \"models fail realism check \u2014 tower looks nothing like the real thing, crossing placed on single street (should be four-way), storefront floats in air detached from building. Excluding from deploy.\" Scope reconciliation NEEDED before dispatch: (a) td-139 QA round 2 (PR #243 in_review, opened 09-30) already covers tower redo + tree lights + gantry clearance + side signs with triptych evidence \u2014 does its tower redo satisfy Craig's tower complaint? (b) crossing-four-way + storefront-attached-to-building are genuinely open rework per the standard triptych workflow (real photo -> 2D mock -> 3D screenshot). (c) board Owner cell still says \"Muse coordinator\" \u2014 no liveness signal since 10-01T20:40Z; do not double-staff. Held for main-agent/supervisor judgment, not blind dispatch. codex+claude both FINISHED/eligible, pending_actions empty."
-    },
-    "ALL-BLOCKED escalation SUPPRESSED 2026-10-03T02:41Z: both browser sessions LOGIN_BLOCKED, but liveness shows ALIVE subagent workers on td-137 (PR #282 split/merge rework) and td-101 (PR #292 vegetation kit v2 DO-NOT-MERGE), and td-119 owned by an active Muse coordinator. Spawning subagents on td-101/td-119 would duplicate live workers (forbidden). The escalation's premise (none WORKING) is false; work is progressing. Next run re-evaluates.",
-    "2026-10-04T21:56Z SUPPRESSION (JUDGMENT-ONLY override): dropped 9 queued dispatch-subagent replacements (td-157, td-158, td-163, td-164, td-165, td-168, td-172, td-173, td-174). Liveness proclaimed them DEAD on 'no heartbeat file', but the main agent holds direct, fresher aliveness evidence the script cannot see: runtime subagent monitor events within the last ~15 min show active tool calls for all 9 (Blender renders, Godot captures, script edits, preview generation). Dispatching replacements would violate never-two-workers-on-the-same-task. Workers re-registered below; main agent now maintains worker-heartbeats/<task>.json from observed monitor events.",
-    "2026-10-04T22:24Z SUPPRESSION: dropped queued [('dispatch-codex', 'td-170'), ('dispatch-claude', 'td-171')]. td-170 (PR #325) and td-171 (PR #327) are MERGED and validated; their board rows were reverted to 'open' by stale-base board merges (#261 at 20:59Z, then #265/#266 at 21:51-52Z). Dispatching workers to merged tasks would duplicate completed work. Board rows being repaired to validated via game-dev-central PR.",
-    "2026-10-05T16:35Z: dropped bogus dispatch-subagent entries for td-177/td-178 \u2014 liveness DEAD was a script 404 (queried /repos/tokyo-drift-3d/commits without owner). Direct verification: both workers alive (td-177 replacement dispatched 12:30Z after runtime killed first worker; td-178 worker completed PR #382, validator dispatched). Suppressing per JUDGMENT-ONLY override to avoid duplicate workers.",
-    "2026-10-05T16:55Z: popped 3 dispatch-subagent entries. td-177/td-178 SUPPRESSED per JUDGMENT-ONLY override \u2014 replacements already live (td-177 worker dispatched 16:30Z after runtime killed first worker; td-178 rework worker dispatched 16:37Z after validator FAIL; both running, confirmed via subagent list). td-160 DELIVERED \u2014 worker genuinely gone (~21h silent, PR #319 open since 2026-10-04T19:23Z with no images in body); replacement spawned with context migration to continue PR #319, registered.",
-    "dispatch-subagent td-160 validator popped 2026-10-05T17:50Z: main agent had already spawned the validator directly at ~17:41Z (before the 17:42 transitions flip queued this entry). Validator returned PASS, PR #319 squash-merged as 901d8046, closeout PRs #385 (task file) + #295 (board) merged. Entry moot \u2014 popping to prevent duplicate validator dispatch.",
-    "td-190 dispatch-subagent popped 2026-10-06T03:2xZ by main agent: BOGUS \u2014 the td-190 worker did NOT die; it completed successfully (PR #405 'td-190: GTA-like cop/wanted system' open, in_review, evidence mirrors HTTP 200 verified by main agent 23:1x EDT). The liveness 'dead' read was false (worker registry already empty = properly deregistered on completion). Re-dispatching an implementation worker onto a finished in-review task would duplicate work. Correct next step is the transitions validator for PR #405, not a replacement worker. Do NOT re-queue.",
-    "td-188 dispatch-subagent (validator brief) popped 2026-10-06T03:2xZ: validator subagent spawned with brief verbatim and registered as td-188-validator.",
-    "td-189-validator + td-190-validator popped 2026-10-06T03:4xZ: both validator subagents spawned with briefs verbatim and registered.",
-    "watchdog FALSE-DEAD SUPPRESSION td-195 (judgment-only override, 2026-10-06 ~12:41 EDT run): worker proclaimed DEAD 16:13:34Z after 2 quiet cycles (no heartbeat file), replacement dispatch-subagent queued. Direct fresher evidence the script couldn't see: worker pushed commit 4a499b53 'td-195: cop cars collide with world and vehicles; Tripo police asset' to branch td-195-cop-collision at 16:17:34Z (4 min AFTER the DEAD verdict), open PR #433 updated 16:23Z. Dropped the queued dispatch-subagent entry (no duplicate worker spawned); re-registered the worker to repair the liveness signal. Watch: still no heartbeat file \u2014 if it stays silent with no commits for 2 more cycles, the DEAD route refires legitimately. [td-195 queued dispatch-subagent entry dropped by cron worker]",
-    "dispatch-subagent td-192 popped 2026-10-08T07:48Z: replacement Muse subagent spawned by main agent (fresh start; dead worker's branch already on main, no unique commits). Do NOT re-dispatch td-192.",
-    "td-195 replacement dispatched 2026-10-09T07:2xZ by cron (Muse subagent, standard/M, brief state/liveness-briefs/td-195-20261009-071500.md; continues PR433 head 4a499b53). dispatch-subagent action marked executed \u2014 main agent must not duplicate.",
-    "screenshots td-192 PR #505 popped 2026-10-09T10:45Z: main-agent capture job completed \u2014 3 screenshots at ~/workspace/agent-watch/hidden_files/screenshots/td-192/ (td192-inspect-01/02/03.png) from main 3295d3a461, 3-cop pursuit staged via cops_max_active[3]=3 override, subagent verdict PASS vs three-cop criterion (min cop-cop 8.9-9.3m, box-in distributed on ring). Filed to Craig in chat.",
-    "dispatch-subagent td-245 popped 2026-10-11T00:51:17Z: NOT dispatched. Dot holds the td-245 lane ('td-245/td-217 lanes remain mine', inbox 2026-10-10T06:00Z, comment 6094460376; no release since). Coordination protocol: coordinate, never duplicate dot's lanes. Board status 'rework queued for worker' is not a Muse dispatch authorization while dot's claim stands. Re-queue only if dot releases the lane in the inbox."
-  ],
-  "dropped": [
-    {
-      "dropped_at": "2026-09-25T12:02:10.394160+00:00",
-      "reason": "Stale duplicate of the td-029 steer (queued 11:29:28, no task_url, literal \\u2014 escapes). The same message was rewritten with task_url + PR #48 paragraph and delivered 12:00:14Z. Delivering this would duplicate the steer.",
-      "message_preview": "td-029 update: the fix you were dispatched on is ALREADY on main. Direct push 1610a75 (td-026/td-029: prebuild Shuto C1 "
-    },
-    {
-      "type": "screenshots",
-      "pr": 48,
-      "reason": "PR #48 changes not yet exported/published; live screenshots would show the old build. Re-queue after publish.",
-      "dropped_at": "2026-09-25T12:22:00+00:00"
-    },
-    {
-      "type": "nudge-codex",
-      "session": "codex:neon-drift",
-      "reason": "Superseded by the in-flight p3d-092 baseline steer (delivering now); a bare \"continue\" nudge against the same session would duplicate/conflict with it. Nudge guard re-arms on next classification if still stalled.",
-      "dropped_at": "2026-09-25T12:31:28.314036+00:00"
-    },
-    {
-      "type": "nudge-codex",
-      "session": "codex:neon-drift",
-      "reason": "decide fired NUDGE on the 12:11Z STALLED classification, but the in-flight p3d-092 baseline steer (queued 12:22:38Z, still pending delivery) specifically addresses this stall; a bare 'continue' nudge would duplicate/conflict with it. Same call as the 12:31Z drop. Nudge guard re-arms on next classification if still stalled and no steer pending.",
-      "dropped_at": "2026-09-25T12:48:00+00:00"
-    },
-    {
-      "type": "nudge-codex",
-      "session": "codex:neon-drift",
-      "reason": "decide fired NUDGE on the 12:11Z STALLED classification (p3d-092, draft PR #55, worker's last push 10:55Z docs-only), but the p3d-092 baseline steer (queued 12:22:38Z, still pending delivery ~35 min) specifically addresses this stall; a bare 'continue' nudge would duplicate/conflict with it. Same call as the 12:31Z/12:48Z drops. Nudge guard re-arms on next classification if still stalled and no steer pending.",
-      "dropped_at": "2026-09-25T12:58:00Z"
-    },
-    {
-      "type": "nudge-codex",
-      "session": "codex:neon-drift",
-      "reason": "decide fired NUDGE on the 12:11Z STALLED classification (p3d-092, draft PR #55 head d9096fa9, sole check-run CANCELLED 10:56Z with no verdict on latest head), but the p3d-092 baseline steer (queued 12:22:38Z, still pending delivery ~50 min) specifically addresses this stall; a bare 'continue' nudge would duplicate/conflict with it. Same call as the 12:31Z/12:48Z/12:58Z drops. Nudge guard re-arms on next classification if still stalled and no steer pending.",
-      "dropped_at": "2026-09-25T13:13:00Z"
-    },
-    {
-      "type": "nudge-codex",
-      "session": "codex:neon-drift",
-      "reason": "decide fired NUDGE on the 12:11Z STALLED classification (p3d-092, draft PR #55 head d9096fa9, sole check-run CANCELLED 10:56Z with no verdict), but the p3d-092 baseline steer (queued 12:22:38Z, still pending delivery ~65 min) specifically addresses this stall; a bare 'continue' nudge would duplicate/conflict with it. Same call as the 12:31Z/12:48Z/12:58Z/13:13Z drops. Nudge guard re-arms on next classification if still stalled and no steer pending.",
-      "dropped_at": "2026-09-25T13:30:00Z"
-    },
-    {
-      "type": "steer-codex",
-      "session": "codex:tokyo-drift-3d",
-      "reason": "Delivery FAILED 19:54Z: target task URL task_e_6ab629447900832e86bd94c68cf6ebb3 is stale/unreachable (infinite Loading spinner, 4 nav attempts; browser session valid). Correct td-042 task is task_e_6ab6665ce220832e86bd94c68cf6ebb3; corrected steer delivered via browser-task:6dd85390 (in flight since 19:15Z). Stale 18:37Z entry superseded \u2014 do not redeliver.",
-      "dropped_at": "2026-09-25T20:2xZ"
-    },
-    {
-      "type": "dispatch-codex",
-      "task": "p3d-088",
-      "session": "codex:neon-drift",
-      "reason": "POPPED 2026-09-27T~23:59Z by main agent: PR #52 (p3d-088 harbor snapshot refresh) already squash-merged 2026-09-27T20:58:25Z as b2aa9ab6; the queued brief's premise ('draft PR #52', rebase + re-run Browser CI) is stale/wrong. The 23:50Z post-merge Browser CI run 36360004498 (head 639a1582) shows ALL snapshot tests green (incl. harbor-desktop-linux.png) \u2014 the only failure was a marginal perf flake (bridge-exit CPU render p95 25.4ms vs <25ms budget), which a snapshot-refresh dispatch cannot fix. Board row updated to merged via game-dev-central PR. Do NOT re-queue p3d-088.",
-      "dropped_at": "2026-09-27T23:59Z"
-    },
-    {
-      "type": "dispatch-codex",
-      "task": "td-100",
-      "session": "codex:tokyo-drift-3d",
-      "reason": "DROPPED 2026-09-28T00:0xZ by main agent: duplicate of the EXISTING td-100 worker (task_e_6ab9a3b814b8832e8f06c48c89ca605c). Read-only classification 2026-09-27 23:58Z confirmed the existing worker is NOT blocked: the 23:39Z steer produced a completed 4m53s run that provisioned Blender 4.0.2 via apt, recorded the art-direction note, and pushed commit ba4adde on feat/td-100-blender-vehicles. Task intentionally left open for the modeling/evidence phase. Dispatching a second worker would duplicate live work. Do NOT re-queue td-100 unless the existing session goes stale/blocked.",
-      "dropped_at": "2026-09-28T00:05Z"
-    },
-    {
-      "dropped_at": "2026-10-09T08:45:42.024718+00:00",
-      "action": {
-        "type": "dispatch-subagent",
-        "task": "td-195",
-        "task_file": "godot/docs/tasks/td-195.md",
-        "repo": "doublehidenblade/tokyo-drift-3d",
-        "brief_file": "/home/hatch/workspace/agent-watch/state/liveness-briefs/td-195-20261009-061847.md",
-        "queued_at": "2026-10-09T06:18:47.722048+00:00",
-        "reason": "DEAD-equivalent: 61h since only heartbeat (predates registration; no branch/PR/task-file commits); liveness false-ALIVE on mass-annotation commit 9c96b92 (unrelated docs commit). Manual DEAD declaration per evidence.",
-        "executed": "2026-10-09T07:2xZ",
-        "executed_by": "cron worker: spawned Muse subagent directly (corrected brief with PR433 context migration: branch td-195-cop-collision @ 4a499b53); do NOT re-dispatch via main-agent handoff"
-      },
-      "reason": "Stale vs 2026-10-09 events: executed ~07:20Z (replacement shipped Tokyo PR #433, merged 07:25:08Z); 04:34 EDT inspector retracted the done-claim (verdict FAIL on completion: no 3-min pursuit evidence, cop floats ~5.4m over trench roads) with explicit no worker spawn (watchdog no-redispatch); defect brief PR #585 + report PR #586 opened instead; 07:48Z inbox answer preserved owners + no-redispatch stops; dot 08:30Z update requires explicit bounded repair/evidence plans by the existing owner before any stopped lane resumes. A fresh replacement now would duplicate/contradict the stopped-lane agreement."
-    }
-  ],
-  "history": [
-    {
-      "type": "dispatch-codex",
-      "session": "codex:neon-drift",
-      "task": "p3d-093",
-      "dispatched_session_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab6a2766ba0832eabed4ab632e7eed7",
-      "dispatched_at": "2026-09-25T16:34:52Z",
-      "status": "dispatched-and-running",
-      "note": null
-    },
-    {
-      "type": "dispatch-codex",
-      "session": "codex:neon-drift",
-      "task": "p3d-075",
-      "dispatched_session_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab820562e28832eb4c4c96f3f13eadc",
-      "dispatched_at": "2026-09-26T19:43:50Z",
-      "status": "dispatched-and-running",
-      "note": null
-    }
-  ],
-  "action_log": [
-    {
-      "ts": "2026-09-26T00:21:24Z",
-      "action": "pop",
-      "entry_type": "resume-codex",
-      "session": "codex:tokyo-drift-3d",
-      "reason": "Duplicate of in-flight main-agent retry on the same dead task (task_e_6ab70535a708832eb4d3f460c7d7ec7c, td-058 ping/pong, first setup failure). Also worker mislabeled it as td-057. Retry browser task already dispatched ~19:15Z; second recovery would risk double-retrying the same failed run.",
-      "by": "main-agent"
-    },
-    {
-      "ts": "2026-09-26T22:05:00Z",
-      "action": "dispatched",
-      "entry_type": "dispatch-codex",
-      "task": "p3d-083",
-      "session": "codex:neon-drift",
-      "reason": "Dispatched via main-agent browser task per watchdog handoff",
-      "by": "main-agent"
-    },
-    {
-      "ts": "2026-09-27T14:40:02.137152+00:00",
-      "action": "dispatched",
-      "entry_type": "dispatch-codex",
-      "task": "td-087",
-      "session": "codex:tokyo-drift-3d",
-      "reason": "Browser task created Codex task task_e_6ab92a15c2f0832ebf69c83053afffec (branch fix/td-087-race-entry); brief accepted verbatim; worker running",
-      "by": "main-agent"
-    },
-    {
-      "ts": "2026-09-27T14:55:05.122914+00:00",
-      "action": "dispatched",
-      "entry_type": "dispatch-codex",
-      "task": "p3d-082",
-      "session": "codex:neon-drift",
-      "reason": "Browser task created Codex task task_e_6ab92e0b4584832e950f638cc97ee714 (neon-drift/main); brief accepted verbatim; worker running",
-      "by": "main-agent"
-    },
-    {
-      "at": "2026-09-27T21:37:21Z",
-      "action": "pop dispatch-codex p3d-106 (creation confirmed)"
-    },
-    {
-      "at": "2026-09-27T21:52:55Z",
-      "action": "pop dispatch-codex todo122 (creation confirmed)"
-    }
-  ],
-  "retirements_2026-09-26T03:5xZ": [
-    {
-      "retired_at": "2026-09-26T03:55:00Z",
-      "entries": [
-        {
-          "type": "dispatch-codex",
-          "session": "codex:tokyo-drift-3d",
-          "task": "td-060",
-          "queued_at": "2026-09-26T01:15:30Z"
-        },
-        {
-          "type": "dispatch-codex",
-          "session": "codex:neon-drift",
-          "task": "p3d-092",
-          "queued_at": "2026-09-26T01:46:00Z"
-        },
-        {
-          "type": "dispatch-codex",
-          "session": "codex:neon-drift",
-          "task": "p3d-094",
-          "queued_at": "2026-09-26T02:12:00Z"
-        }
-      ],
-      "reason": "superseded by all-blocked escalation (03:05Z): Muse subagents already own td-060, p3d-092, p3d-094 with commits landing; target Codex sessions out of tokens. Delivery would duplicate workers on the same task files."
-    }
-  ],
-  "dispatched": [
-    {
-      "task": "td-078",
-      "type": "dispatch-codex",
-      "dispatched_at": "2026-09-27T02:13:24Z",
-      "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab87aa64f94832ea1e29ca906138beb",
-      "task_id": "task_e_6ab87aa64f94832ea1e29ca906138beb",
-      "branch": "fix/td-078-pickups",
-      "title_note": "Codex auto-titled 'Fix nitro and hearts pickups in multiplayer'; exact requested title could not be set (no rename control in UI)"
-    },
-    {
-      "task": "td-094",
-      "type": "dispatch-codex",
-      "dispatched_at": "2026-09-27T20:50:00Z",
-      "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab9812af208832eacf598002db40356",
-      "task_id": "task_e_6ab9812af208832eacf598002db40356",
-      "branch": "fix/td-094-input-overlay-size",
-      "title_note": "Codex auto-titled Fix input overlay size on mobile; brief accepted verbatim; worker running; Craig authorized immediate deploy after merge",
-      "by": "main-agent"
-    },
-    {
-      "task": "td-093",
-      "type": "dispatch-codex",
-      "dispatched_at": "2026-09-27T21:05:27Z",
-      "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab984efb650832e9f96ab1b8f8d0895",
-      "task_id": "task_e_6ab984efb650832e9f96ab1b8f8d0895",
-      "note": "new task in tokyo-drift-3d env alongside td-094 (untouched); auto-titled Fix guest client frozen at race start; brief verbatim; worker running",
-      "by": "main-agent"
-    },
-    {
-      "task": "p3d-097",
-      "type": "dispatch-codex",
-      "dispatched_at": "2026-09-27T21:05:38Z",
-      "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab985040b24832e85ce90428d7c0544",
-      "task_id": "task_e_6ab985040b24832e85ce90428d7c0544",
-      "note": "new task in neon-drift env; auto-titled Stabilize bridge-exit CPU p95 perf check; brief verbatim; worker running",
-      "by": "main-agent"
-    },
-    {
-      "task": "failover-steer-claude-tokyo",
-      "type": "steer-codex-NO_ACTION_WORKING-popped",
-      "dispatched_at": "2026-09-27T21:19:52.840074+00:00",
-      "note": "Popped without sending. Reasons: (1) sibling codex:tokyo-drift-3d is WORKING (td-094 task_e_6ab9812a + td-093 task_e_6ab984ef) \u2014 steer-codex hard rule forbids steering a working session; (2) failover brief is STALE \u2014 td-088, td-089, td-090 are all merged/closed, no stranded Claude work exists. Failover ledgered 21:12:28Z; no retry owed.",
-      "by": "main-agent"
-    },
-    {
-      "task": "screenshots-pr52",
-      "type": "screenshots-done",
-      "dispatched_at": "2026-09-27T21:20:57.955317+00:00",
-      "note": "Eyeballed committed baselines: old (df9af420) vs new (b2aa9ab) harbor-desktop-linux.png. Scene identical except HUD heart icons \u2014 old: 5 small dark-red glyphs; new: 5 larger bright-red hearts that read as hearts at size (matches Craig 2026-09-27 heart-icon correction). 0.7% px changed, confined to the HUD panel. Evidence audit passes: same scene/camera before/after pair.",
-      "by": "main-agent"
-    },
-    {
-      "task": "p3d-106",
-      "env": "neon-drift",
-      "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab98c185400832eaed660704565c932",
-      "codex_task_id": "task_e_6ab98c185400832eaed660704565c932",
-      "dispatched_at": "2026-09-27T21:37:21Z",
-      "brief_verbatim": true,
-      "title_note": "Codex auto-titled \"Refresh game snapshot for p3d-106\"; no rename control in UI"
-    },
-    {
-      "task": "todo122",
-      "env": "neon-drift",
-      "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab98f2e0694832ebe8cd7794590bb99",
-      "codex_task_id": "task_e_6ab98f2e0694832ebe8cd7794590bb99",
-      "dispatched_at": "2026-09-27T21:52:55Z",
-      "brief_verbatim": true,
-      "title_note": "Codex auto-titled \"Reconcile todo122 items with current main\"; no rename control in UI"
-    },
-    {
-      "task": "td-124",
-      "type": "dispatch-codex",
-      "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abeba05a2d8832ea72b0ae8291b7cfc",
-      "dispatched_at": "2026-10-01T19:53:42.585638+00:00"
-    }
-  ],
-  "dispatched_log": [
-    {
-      "task": "td-113",
-      "env": "tokyo-drift-3d",
-      "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abb1c6c004c832ebafe2976487b576a",
-      "dispatched_at": "2026-09-29T02:04:05Z",
-      "brief_verbatim": true,
-      "title_note": "Codex auto-titled 'Investigate rendering checkpoint failure'; task prompt header reads 'td-113 \u2014 smoke render-checkpoint evidence failure'"
-    },
-    {
-      "task": "td-054",
-      "env": "tokyo-drift-3d",
-      "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abd25a8a34c832ebb8646581adef1a9",
-      "codex_task_id": "task_e_6abd25a8a34c832ebb8646581adef1a9",
-      "dispatched_at": "2026-09-30T15:08:25Z",
-      "brief_verbatim": true,
-      "title_note": "Codex auto-titled 'Resume online multiplayer acceptance tests'; required title 'td-054 \u2014 2\u20134 player online multiplayer acceptance resume' placed as first line of prompt"
-    },
-    {
-      "task": "td-054-bridge",
-      "env": "tokyo-drift-3d",
-      "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abd2c6c95dc832e9cb3cb8322c77dd0",
-      "codex_task_id": "task_e_6abd2c6c95dc832e9cb3cb8322c77dd0",
-      "dispatched_at": "2026-09-30T15:39:51Z",
-      "brief_verbatim": true,
-      "title_note": "Codex auto-titled 'Inspect preparedness bridge for v31 live site'; no rename control in UI; brief body verbatim"
-    },
-    {
-      "task": "td-054-two-renderer",
-      "env": "tokyo-drift-3d",
-      "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abd3702e2a8832ebc86f7a13d9f8145",
-      "codex_task_id": "task_e_6abd3702e2a8832ebc86f7a13d9f8145",
-      "dispatched_at": "2026-09-30T16:20:30Z",
-      "brief_verbatim": true,
-      "title_note": "Codex auto-titled \"Verify dual WebGL2 renderer support\"; required title \"td-054 two-renderer acceptance\" as first line of prompt. Brief: smoke-test host can retain 2 simultaneous WebGL2 Godot renderers first; td-087 recheck first; then matrix. Fresh evidence PR, never merge, no Actions. WATCH: env setup showed empty git remotes."
-    }
-  ],
-  "delivered_dispatches": {
-    "td-125": {
-      "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abed1d0b670832eb8b8bf60685b9e93",
-      "dispatched_at": "2026-10-01T21:35:40Z",
-      "run_state_at_dispatch": "Thinking"
-    }
+ "actions": [
+  {
+   "type": "note",
+   "text": "2026-10-09T21:25Z watchdog run: td-249 CANDIDATE but annotation says DO NOT auto-dispatch (LOW backlog) \u2014 no dispatch. td-245 re-validator subagent dispatched on dot 21:00Z findings (6-point checklist vs PR #627/td-245.md); matched-frame fix preserved, readiness-gated production-arc evidence + matched_run.log required. Coordinator bundle adopted: 7 files synced from game-dev-central main @0920f219 (central PR #449); RUNBOOK/README pre-adoption backups in hidden_files/runbook-backup-20261009/; watch.py untouched.",
+   "queued_at": "2026-10-09T21:30:25.937454+00:00"
   }
+ ],
+ "notes": [
+  "steer-codex codex:tokyo-drift-3d popped 2026-09-28T00:51:50Z: STEER_DONE via browser task (td-100 modeling continuation; session was idle post-provisioning checkpoint, new run started on the steered instruction). Do NOT re-steer while the session is working.",
+  "dispatch-p3d-069 popped: dispatched directly by main agent via browser task in the 16:0x turn (pickup verification pending); entry removed to prevent duplicate dispatch",
+  "dispatch-td-039 popped: dispatched by main agent via browser task 2026-09-24T21:16Z (task_e_6ab592f19d7c832ebe4f79410ddef4e4, already Thinking at dispatch)",
+  "screenshots-pr63 popped: main agent eyeballed td-033 after-0/1/2 (car clear of rail, no penetration visible); evidence audit already passed by worker",
+  "steer-claude popped: permission granted for td-037 billing re-check, session resumed (STEER_DONE 22:10Z)",
+  "dispatch-codex p3d-064 popped: DISPATCH_DONE 22:18Z, task https://chatgpt.com/codex/cloud/tasks/task_e_6ab5a16f6fc8832e8eed592fc110dfc4",
+  "screenshots-pr64 popped 2026-09-24 ~18:00 CDT: PR #64 (td-039) is docs/evidence-only (CHECKPOINT.md, TODO.md, DEVLOG.md, task file, 2 evidence PNGs) \u2014 zero live-site files changed, so live-site screenshots are meaningless. Merged-diff inspection/report stays with the cron's next-run INSPECT_MERGED using the evidence PNGs committed in the PR.",
+  "screenshots-pr46 popped 2026-09-24 ~18:05 CDT (partial): barricade-broken CONFIRMED on live site (wreck frame at bridge roadblock shows red/white planks scattered; eyeballed). Cone fly-off / crushed-cone NOT capturable by browser automation (animation <2s at 238 km/h; 6 races tried). Cone hits register live (hearts drop); PR #46 build evidence has both animations. Cone items to be owned by p3d-080 split children.",
+  "steer-codex codex:tokyo-drift-3d popped: STEER_DONE 23:17Z (session was idle post-td-039, td-038 failover brief delivered verbatim, session refreshing repo). watch.py failover ledgered.",
+  "dispatch-codex p3d-061 popped: DISPATCH_DONE 00:06Z, task https://chatgpt.com/codex/cloud/tasks/task_e_6ab5b94e9edc832e89b32e77210a1453 (auto-titled 'Fix civilian car sprite size inconsistency' \u2014 Codex exposes no rename; brief verbatim, task Working). Archive/unarchive cycle during dispatch \u2014 pickup/run-state verification pending fresh classification.",
+  "resume p3d-061: first run on task_e_6ab5b94e9edc832e89b32e77210a1453 finished after 2m10s with setup only (no branch/PR) \u2014 continuation steer dispatched via browser task 00:20Z",
+  "dispatch-p3d-085/086/087: dispatched directly by main agent via browser task 2026-09-25T00:33Z (Craig's 19:31 CDT Docklands QA: water vertical extent, grey walls, brown dirt). Do NOT re-dispatch; pickup verification pending.",
+  "dispatch-codex p3d-086 popped 2026-09-25T00:41Z: NO_ACTION_WORKING \u2014 already dispatched directly by main agent 00:33Z (task_e_6ab5c1a30240832e9176ba9bc1f51b99, confirmed 'Working on your task' 00:35Z). Watchdog's 00:39Z DISPATCH CHECK re-queued it without seeing the direct dispatch; popping to avoid two workers on the same task.",
+  "dispatch-codex p3d-086 re-queued 2026-09-25T01:05Z is LEGITIMATE salvage-and-handover, not the 00:39Z blind duplicate (popped 00:41Z): the 00:33Z direct dispatch (task_e_6ab5c1a3) created branch p3d-086-grey-wall-sprite + draft PR #50 (updated 00:38:27Z) then stopped per stop-after-2 (Pillow unavailable). Verified via GitHub API 01:0xZ: PR #50 open, draft, head p3d-086-grey-wall-sprite. Fresh session takes over with salvage folded into the brief. Do NOT pop.",
+  "td-040 dispatch popped 2026-09-25T03:25Z: Codex cloud task created and running (task_e_6ab5e95dc430832e9e2007d6c58dbd3f), verified by main agent.",
+  "p3d-088 dispatch popped 2026-09-25T03:30Z: Codex cloud task created and running (task_e_6ab5e9e95c54832ea8f3b9c17160e24d), verified by main agent.",
+  "nudge-claude popped 2026-09-25 ~03:5xZ per per-blocker guard: session-limit reached (out_of_tokens_since 01:00Z; 'Try again after your session limit resets', weekly reset Tue Sep 29 8PM) \u2014 recorded BEFORE the 01:53Z nudge was queued, so that nudge could never land. Parked: no further nudges on this blocker; guard recorded in session note.",
+  "td-041 dispatch popped 2026-09-25T04:00Z: Codex cloud task created and RUNNING (task_e_6ab5f18d5a90832eb881a07140839cce), brief delivered verbatim.",
+  "p3d-086 CI fix dispatch queued 2026-09-25T04:20Z: PR #50 rebased onto main, CI failed at npm run qa (snapshot mismatches). Steer/dispatch for snapshot regen; harbor-desktop-linux.png excluded (p3d-088 owns it).",
+  "dispatch-codex p3d-090 queued 2026-09-25T05:22:52Z: todo163 (blue land terrain, Craig 22:23 CDT QA verbatim), fresh start, no branch/salvage, highest-priority open unowned NEON task; pickup verification pending next fresh classification. Sibling QA tasks p3d-091..096 (todos 164-169) remain open/unowned.",
+  "dispatch-codex p3d-090 popped 2026-09-25T05:26Z: DISPATCH delivered via browser task (p3d-090 blue land terrain, neon-drift env); pickup verification pending next fresh classification.",
+  "p3d-086 NO salvage owed 2026-09-25T05:26Z: the +191/-2 was docs/DEVLOG+README (verified via PR #50 files API), NOT a claimed snapshot regen \u2014 worker explicitly recorded \"no snapshot was regenerated\" per stop-after-two. PR #50 correctly parked on p3d-088/PR #52 harbor snapshot. Do NOT re-dispatch p3d-086.",
+  "PR #58 merged by cron 2026-09-25T05:40Z (td-026 Shuto C1 second URL, sha 5fc2d79f, CI green smoke+export); no web-export files touched \u2014 live site unchanged, publish-web skipped. Task file status update owed.",
+  "td-046 subagent dispatched 2026-09-25T06:1xZ: Muse subagent on td-046 steps 1-2 ONLY (review smoke run 36096013550 evidence via API, open pointer-PR updating deploy/web-candidate.json; NEVER merge/publish). Pickup pickup: PR #58 merged 05:38:43Z by cron. Do NOT re-dispatch td-026/td-046; next run verifies pointer PR + dispatches publish-game.yml after merge.",
+  "td-046 implementation complete 2026-09-25T06:24Z: pointer PR #71 merged by cron (e421a809), publish-game.yml run 36102533277 green, shuto-web/ on main, publish-web-shuto.yml run 36102574597 green, both Pages deploys green, second URL LIVE. Screenshots action queued for main agent. Subagent work reconciled \u2014 do NOT re-dispatch td-046.",
+  "dispatch-codex p3d-091 popped 2026-09-25T07:03Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab61bf0bc5c832eab0778efd5b61f67 (auto-titled 'Fix land/water projection to horizon', brief verbatim, Thinking at dispatch). Pickup verification pending next fresh classification.",
+  "screenshots td-046 popped 2026-09-25T07:06Z: two capture attempts (01:54Z, 06:57Z) both failed \u2014 pages crash to about:blank in this browser (no WebGL2; base shows game's WebGL2 fallback banner, Shuto stalled at 1M/88M loader). Stop-after-2. No gameplay frames committed. Outcome recorded in td-046.md (commit 2fa99ed95d88). Deployment verified via API (build-sha + index.pck). Visual verification left to Craig's phone playtest.",
+  "screenshots PR#53 popped 2026-09-25T07:16Z: live capture succeeded \u2014 3 gameplay frames (bridge 19%, city 49%, city 57%) all show land NOT blue, water blue. Committed under todos/todo163/qa/ (commit 643057c71f36ef197200a5ae94da97c601211978); evidence recorded in todo163/README.md (0c2b74f19f2e).",
+  "dispatch-codex td-042 queued 2026-09-25T07:47Z: opponent AI hitting walls (Craig 2026-09-24 phone QA verbatim), fresh start, no salvage; tokyo-drift-3d env. td-040/td-041 Codex tasks already running in env (03:25Z/04:00Z) \u2014 parallel workers on different tasks per max-parallelization. Pickup verification pending next fresh classification.",
+  "nudge-claude skipped 2026-09-25T07:47Z: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. PR #48 (draft, head 75aaf2b0 pushed 07:04Z, shuto-c1's CI fix) has CI check-suites still queued 42 min after push \u2014 session was waiting on CI, still waiting. If work must move, failover route (Codex sibling / MUSE_SUBAGENT), not this session.",
+  "dispatch-codex td-042 popped 2026-09-25T07:59Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab629447900832e86bd94c68cf6ebb3 (Codex auto-titled 'Fix opponent-car navigation issues', no rename control; brief verbatim, task Thinking/Working on branch fix/td-042-opponent-navigation). Pickup verified live at dispatch.",
+  "screenshots PR#54 skipped 2026-09-25T08:1xZ: diff touched NO web-export files (renderer.js + docs + tests + QA PNGs only) -> live site unchanged, publish-web skipped; live capture would show pre-fix frames (meaningless). Evidence audit passed on the committed QA pair instead: todos/todo164/qa/p3d-091-criterion-1-before.png / -after.png (same instance, same camera, same distance/seed). Fix waits for a future export-touched publish to reach the live site.",
+  "nudge-claude skipped 2026-09-25T08:2xZ: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z run; no duplicate park.",
+  "nudge-claude skipped 2026-09-25T08:4xZ: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z/08:2xZ runs; no duplicate park. Session self-scheduled CI check-in 08:53 UTC on PR #48.",
+  "nudge-claude skipped 2026-09-25T08:57Z: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z/08:2xZ/08:4xZ runs. Session self-check-in 08:53 UTC on PR #48 CI.",
+  "PR #48 OVERLAP FLAG 2026-09-25T08:57Z: draft PR #48 (Shuto C1: touch controls + countdown/finish, keep-left traffic, pause menu, no road clips; branch map/shuto-c1-loop, head a2512184) went fully CI-green (export + smoke, both completed success, smoke finished 08:52:49Z), mergeable_state clean. Owner session (claude shuto-c1) is BLOCKED on the session-limit guard until Tue Sep 29 8PM \u2014 the PR is NOT a finished session's parked PR, it is mid-flight (self-check-in 08:53 UTC). DO NOT merge it from the cron this run. It modifies godot/docs/tasks/td-042.md, td-043.md, td-044.md and godot/scripts/traffic_ai.gd + godot/scripts/kit/pause_menu.gd \u2014 overlapping Codex Tokyo td-042 (task_e_6ab62944, WORKING) and the queued td-043 dispatch. Two workers on the same task files: at merge time the later merger rebases and reconciles (max-parallelization). Next runs: if PR #48 merges, steer Codex tasks to sync main + reconcile; if still unmerged when Codex PRs land, merge Codex first and PR #48 rebases onto it.",
+  "dispatch-codex td-043 popped 2026-09-25T09:06Z: DRAFT_RECOVERED via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab6397ac86c832e9450d6a1bb3aca8b (Working, brief verbatim). Pickup verification pending next fresh classification.",
+  "nudge-claude skipped 2026-09-25T09:13Z: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset - BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z/08:2xZ/08:4xZ/08:57Z runs; no duplicate park. PR #48 (Shuto C1, claude draft) still open, mergeable_state unknown - overlap flag holds, NOT merging from cron.",
+  "dispatch-codex p3d-092 popped 2026-09-25T09:15Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab63b66cb60832e915138a294e6f923 (Thinking, brief verbatim). Pickup verification via fresh classification in flight.",
+  "steer-codex td-043 queued 2026-09-25T09:35Z: finished task never pushed branch nor opened PR; steer asks only for push + PR + task-file update, no rework.",
+  "screenshots PR #69 popped 2026-09-25T09:36Z: capture attempted on live Shuto second URL \u2014 STUCK/inconclusive. Loader rendered normally at first (no 88M/88M counter, ~1/5 progress, 'Downloading the game'), never cleared within 60s, tab degraded to about:blank. Browser env repeatedly destabilized by the 88M Godot load \u2014 result neither confirms nor refutes the tdGamePrepared fix. Needs phone verification.",
+  "steer-codex td-043 popped 2026-09-25T09:49Z: STEER_DONE, session resumed ('Refreshing repo'), branch td043-pause-menu-phone; push may need origin fix on agent side (checkout had no git remote).",
+  "steer-codex queued 2026-09-25T10:00Z: PR #55 (p3d-092) SHIP blocked \u2014 CI not green. npm run qa failed exit 1 on heads 7bf13ceb (09:32Z) and 4bcd8fbc (09:20Z), bridge-exit perf test red per session note; final head d97ee4f4 run CANCELLED at Set up job (09:40Z), no verdict on it. Real build failure, not infra noise \u2014 merge withheld, re-check next run after fix+green.",
+  "td-043 PR #75 SHIP blocked 2026-09-25T10:00Z: not draft, mergeable, head 6d3cee1b; export success (09:52:50Z) but smoke still in_progress \u2014 no merge until CI fully green. Re-check next run.",
+  "nudge-claude skipped 2026-09-25T10:00Z: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z/08:2xZ/08:4xZ/08:57Z/09:13Z runs; no duplicate park.",
+  "steer-codex p3d-092 CI fix popped 2026-09-25T10:05Z: STEER_DONE, session resumed live run on bridge-exit perf test fix.",
+  "SHIP td-043 2026-09-25T10:13Z: PR #75 (pause menu phone QA) merged by cron via REST PUT (sha 46072c1) \u2014 build clean (export success on head 6d3cee1b), smoke in_progress after 20min treated as after-the-fact per Craig's rule (not a deploy gate), no failure. publish-web run 36122832114 green, live build-sha c45e05b9 verified on tokyo-drift-3d-web. Task file status -> merged (commit a3ed8309). Ledgered 'merged codex:tokyo-drift-3d cron'; next run does INSPECT_MERGED. Overlap note: shuto-c1 draft PR #48 also touches pause_menu.gd + td-043.md \u2014 if it merges it rebases onto main.",
+  "nudge-claude skipped 2026-09-25T10:13Z: decide wanted NUDGE on claude-code:tokyo-drift-3d but per-blocker guard (session-limit blocker, resets Tue Sep 29 8PM) forbids nudges/steers until reset \u2014 BLOCKED-WORK DISCIPLINE applied, parked. Same guard as 07:47Z/08:2xZ/08:4xZ/08:57Z/09:13Z/10:00Z runs; no duplicate park.",
+  "DISPATCH CHECK 2026-09-25T10:1xZ: codex:tokyo-drift-3d FINISHED but no clean unassigned task \u2014 td-041/td-042 have running Codex tasks, td-044 overlaps shuto-c1's draft PR #48 (touches td-044.md), td-045 has shuto-c1's first pass. Dispatching any of them = two workers on same task/file. No dispatch queued.",
+  "SHIP td-046/PR#72 2026-09-25T10:39Z: cron shipped the parked docs PR itself. Branch td046-live-evidence was conflicted (mergeable_state dirty \u2014 main had advanced via PRs #73/#75); rebased in-run via git-data API onto main a3ed8309 (commit fcbdf1e7, force push on own docs branch only \u2014 head unchanged at aa2beaf8 before push), kept main's td-042 checkpoint/devlog sections + added branch's td-046 sections. CI green on same content (smoke+export). Squash-merged as e8ff0b5a. Task file status -> merged in same run (76c6462f) per merge-time rule. Branch auto-deleted on merge. Ledgered 'merged claude-code:tokyo-drift-3d cron'; next run does INSPECT_MERGED on that session for PR #72.",
+  "SHIP-NOTE CORRECTION 2026-09-25T10:4xZ: the claude session note's 'PR#55 merge-clean commit a88c226 pushed awaiting CI' is STALE \u2014 no PR #55 in either repo has head a88c226. Neon PR #55 (p3d-092, draft, head a7ac6c9): CI RED (npm run qa, bridge-exit perf test failure) \u2014 real build failure, Codex p3d-092 worker is fixing it (steer done 10:05Z); it is NOT a parked PR, do NOT merge from cron. Tokyo PR #55 (td026-shuto-prebuild, draft, head 642b37ac): mergeable_state dirty, smoke still in_progress; likely obsolete after td-026 completed via PR #58/#71 \u2014 do NOT merge from cron. Neither is shippable.",
+  "INSPECT_MERGED PR#75 2026-09-25T10:4xZ (td-043 pause menu, merged by cron 10:13Z): live build-sha c45e05b9 verified on tokyo-drift-3d-web. Diff: shared pause kit replaced with phone-first sheet (return-to-main, 6 tuning rows, 64px targets), Harbor redundant TUNE button removed, Shuto binds same sheet. Evidence audit PASSED: criterion-1/2 before/after pairs committed under godot/docs/qa/td-043/ (same instance, same camera; worker personally opened full-res frames); criterion 3 = deterministic logs; criterion 4 = Craig phone verdict (pending, not a job). Screenshots action NOT queued: live Godot capture is stop-after-2 (3 failed attempts \u2014 about:blank/WebGL2 banner/88M-loader stall); report carries the committed pair links instead. Overlap: shuto-c1 draft PR #48 (head 3d7135d6, dirty) still touches pause_menu.gd + td-043.md \u2014 at its merge time it rebases onto main. No new tasks, no steer.",
+  "DISPATCH CHECK 2026-09-25T10:4xZ: codex:tokyo-drift-3d FINISHED but no clean unassigned task \u2014 td-044 (open) overlaps shuto-c1 draft PR #48 which touches td-044.md; td-045 (open) is shuto-c1's first-pass task (owner expected back at session-limit reset Tue Sep 29); td-041/td-042 have running Codex tasks. Two-workers-on-same-task rule forbids all. No dispatch queued. claude-code:tokyo-drift-3d FINISHED but session-limit blocked until Tue Sep 29 8PM \u2014 no dispatch-claude per per-blocker guard (failover routes only if work must move). codex:neon-drift WORKING \u2014 no action.",
+  "dispatch-codex td-029 queued 2026-09-25T11:0xZ: start-button freeze ~8s (Craig 2026-09-23 verbatim), P1, fresh start, no salvage; tokyo-drift-3d env. td-040/td-041/td-042 Codex tasks already running (parallel, different tasks per max-parallelization). td-027 skipped (overlaps shuto-c1 draft PR #48 controls/menus), td-044 skipped (overlaps PR #48's td-044.md), td-045 held for shuto-c1's return at session-limit reset. Pickup verification pending next fresh classification.",
+  "dispatch-codex td-029 popped 2026-09-25T11:07Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab655aaa554832ea03213dcf19cb08b (auto-titled \"Fix start button post-click freeze\", Thinking at dispatch, brief verbatim). No duplicate found. Pickup verification via next fresh classification.",
+  "SHIP claude skipped 2026-09-25T11:14Z: main-dev FINISHED (idle, Send disabled; weekly 100%, reset Tue Sep 29 9PM). Stale SHIP_NOTE (PR#55 a88c226 merge-clean) retired \u2014 verified via API: no such head. PR #48 (shuto-c1 draft, head 4f865646): export green, smoke in_progress since 10:52Z \u2014 CI pending = no merge, re-check next run. Tokyo PR #55 (draft, head f3b41fb9): export green, smoke in_progress since 10:51Z \u2014 likely obsolete post-td-026 (PR #58/#71), do NOT merge from cron. shuto-c1 Recents title shows Merged but PR #48 itself is open/unmerged. Session note corrected so next run acts on verified facts.",
+  "dispatch-codex td-034 delivered 2026-09-25T11:30Z: new Codex task created in tokyo-drift-3d env, brief verbatim, running at https://chatgpt.com/codex/cloud/tasks/task_e_6ab65ab47d64832e8a6daaf60551a37b (auto-titled Diagnose smoke job failure in PR #68; no rename control). Duplicate check clean (td-040 task untouched). Entry popped.",
+  "PR #48 MERGED BY CRAIG 2026-09-25T11:56:02Z as 788fd1ea (manual conflict resolution, doublehidenblade). Final head f27d82fa CI RED at merge (11:54Z): smoke 'Export Shuto second-URL candidate (td-026)' + native-debug 'Import and export Android and macOS debug builds' both failed. Root cause: conflict resolution dropped 'func start_countdown() -> void:' from godot/scripts/shuto_c1/shuto_c1.gd (call at line 108 kept) -> GDScript parse error. Fixed on main as b069daff 12:22Z (byte-identical restore). Cause explained; no mystery left. Log-download 401'd via surrogate cred; annotations generic.",
+  "Tokyo PR #55 CORRECTION (per MEMORY 2026-09-25): merged legitimately 11:21:28Z as 1610a75e ('td-026/td-029: prebuild Shuto C1 behind the loading bar'). The 11:14Z 'likely obsolete, do not merge' note was a wrong read - flag retired.",
+  "PR #48 OVERLAP FLAG RETIRED (merged). Reconcile underway by workers themselves: td-042 branch fix/td-042-reconcile-pr48, PR #78 ready (head da5da470, export success, smoke in_progress 12:3xZ). 12:11Z classification: td-041 WORKING responding to PR #48 reconcile steer; td-042 WORKING re-running after PR #48 touched traffic_ai.gd. No reconcile steer queued - workers actively pushing.",
+  "PR #76 (td-029 start feedback) CI GREEN (smoke+export success, head 9244429a) but branch STALE (pre-#48; its main_menu.gd rewrite predates PR #48's shuto overlay +12/-1 overlap) - do NOT ship from cron until worker rebases; worker active (caught start_countdown parse error 12:11Z). Re-check next run.",
+  "PR #77 (td-034) smoke in_progress on head 47506ad8 - re-check next run. PR #68 (td-040) smoke FAILED on head fe0389f1 - not shippable; td-040.md still open.",
+  "PUBLISH HELD: no auto-publish fired on the #48 merge (path filters). NOT dispatching publish-game.yml while Craig is hands-on (he merged it himself minutes ago) - surfaced in heartbeat for his call.",
+  "nudge-codex queued 12:3xZ for codex:neon-drift p3d-092 (decide NUDGE on 12:11Z STALLED classification; no recorded blocker; deduped).",
+  "failover-claude 2026-09-25T12:3xZ: decide fired FAILOVER on the NEW out-of-tokens episode (classification flipped STALLED->OUT_OF_TOKENS 12:11Z; last_failover_ts was None). Append SKIPPED: (1) dedupe \u2014 a steer-codex for codex:tokyo-drift-3d is already pending (td-041 b069daff update, queued 12:22:38Z, undelivered); (2) the priority brief was STALE \u2014 td-038 merged PR #65 2026-09-24T23:33Z (published #66, live #67), verified via task file this run; firing it would redo finished work. (3) Nothing stranded: claude main-dev PR #55 and shuto-c1 PR #48 both merged; td-044 open (owner out of tokens), td-045 in_progress held for shuto-c1 return Sep 29 8PM; sibling codex:tokyo-drift-3d is WORKING (td-041/td-042 reconcile). Ledgered via watch.py failover so the episode does not refire. PRIORITY_BRIEF config re-curated (td-038 retired; next target TBD with td-044/td-027 candidates, verify before firing).",
+  "td-034 PR #77 CI GREEN (smoke+export success, head 47506ad8, verified 2026-09-25T13:0xZ via check-runs API) but mergeable_state=dirty (conflicted post-#48) - NOT a SHIP (session WORKING); worker needs to rebase; surfaced in heartbeat.",
+  "td-029 PR #76 CI GREEN (head 9244429a) but mergeable_state=dirty (stale pre-#48) - do NOT ship from cron until worker rebases; worker active. td-040 PR #68 smoke FAILED (head fe0389f1) - not shippable.",
+  "DELIVERY-PATH WARNING 2026-09-25T12:58Z: pending_actions queued 12:22:38Z (steer-codex codex:neon-drift p3d-092 baseline + steer-codex codex:tokyo-drift-3d td-041 update) still undelivered ~35 min later. Main-agent handoff delivery may be stalled - surfaced loudly in heartbeat.",
+  "watchdog run 2026-09-25T15:26Z: all sessions ACTION=NOTHING. PR re-checks: neon #55 (p3d-092, draft, head dc8b5fd1) sole check-run CANCELLED 13:44Z -> no CI verdict, NOT shippable; p3d-097 (todo170) filed the bridge-exit perf test as flaky infra noise. Tokyo #77 (td-034) CI green but mergeable_state=dirty (rebase owed to worker); #76 (td-029) CI green but mergeable_state unknown (recompute, rebase owed); #68 (td-040) smoke FAILED on fe0389f1. DELIVERY-PATH RECOVERED: pending_actions queue empty (12:58Z undelivered-steers alarm cleared; 12:22Z steers delivered/popped by main agent). DISPATCH CHECK: codex:tokyo-drift-3d FINISHED but no clean task (td-044 open but owned by shuto-c1, out of tokens until Sep 29; td-045 held for shuto-c1's return; td-027 implementation done via merged PR #48, verdict only; td-040/041/042 have running Codex tasks; td-034/td-029 PRs need worker rebase). codex:neon-drift FINISHED but Craig's 14:54Z follow-up in flight (redirect unresolved) -> no dispatch into NEON this run. claude session-limit blocked until Tue Sep 29 8PM (per-blocker guard holds). No all-blocked escalation: nothing stranded, fails guarded.",
+  "screenshots PR#75 dropped 2026-09-25T15:5xZ: the 10:4xZ INSPECT_MERGED run deliberately did NOT queue live screenshots (live Godot capture is stop-after-2: 3 failed attempts \u2014 about:blank/WebGL2 banner/88M-loader stall). This run's duplicate INSPECT_MERGED re-queued it; dropped, not executed. Report carries the committed godot/docs/qa/td-043/ before/after pair links instead.",
+  "dispatch-codex p3d-093 queued 2026-09-25T21:13Z: todo166 (other-car side sprites, Craig 22:23 CDT QA verbatim), highest-priority open unowned NEON task; fresh start, no salvage. codex:neon-drift FINISHED (idle, latest classification 21:05Z). The 15:26Z 'Craig NEON follow-up in flight' hold is stale (6h, zero NEON repo activity since 13:42Z push; his intervening activity was Tokyo). p3d-092's worker is separate (draft PR #55, CI cancelled on dc8b5fd1) \u2014 no task conflict. Pickup verification pending next fresh classification.",
+  "td-047 dispatched by MAIN AGENT 2026-09-25T15:40Z (Craig's 10:39 CDT P0: Shuto road network regressed \u2014 splits/merges/overpass gone, stub roads cut off mid-air), recorded on tokyo main as bf4e1e58 with pickup verified. Fresh Codex session; do NOT re-dispatch td-047. td-044 stays held for shuto-c1 (session-limit reset Tue Sep 29 8PM).",
+  "PR #77 (td-034 diagnostics wrapper) MERGED BY CRAIG 2026-09-25T15:35:08Z as 7a80d63d (rebase-merge, author Dingyu Peng). Nothing owed \u2014 merged by the user, not a parked PR.",
+  "PICKUP VERIFIED 2026-09-25T17:1xZ: p3d-093 dispatch (16:34Z) confirmed live \u2014 codex:neon-drift WORKING ('Fix other car sprite visibility issue'), draft PR #56 opened on branch p3d-093-other-car-sides 16:54:59Z (mergeable_state clean, CI not yet run). No second dispatch owed.",
+  "dispatch-codex p3d-094 queued 2026-09-25T17:42:16Z: todo167 (other cars run over obstacles without reacting/dodging, Craig 22:23 CDT QA verbatim), highest-priority open unowned NEON task in batch order (p3d-090/091/093 merged, p3d-092 in flight w/ draft PR #55); fresh start, no salvage; pickup verification pending next fresh classification.",
+  "dispatch-codex td-048 queued 2026-09-25T18:54:26Z: P0 Shuto C1 section-end road terminates mid-air (Craig 2026-09-25 ~14:33 EDT verbatim), filed by Craig himself as godot/docs/tasks/td-048.md (commit 516ba920). Status open, no owner, no salvage (fresh). Target: codex:tokyo-drift-3d (FINISHED/idle per 18:16Z note; max-parallelization allows parallel with the pending td-042-rebase steer, which targets a different cloud task URL). Pickup verification pending next fresh classification. Do NOT re-dispatch; do NOT send a second worker to td-048.",
+  "td-049 dispatch HELD 2026-09-25T20:2xZ by main agent: waits for the td-042 corrected steer (browser-task:6dd85390, in flight since 19:15Z) to return STEER_DONE before delivering \u2014 concurrent browser actions must not target the same tracked session. NOT a delivery-path stall; do not alarm on it. Fire once td-042 clears.",
+  "DEFERRED dispatch (main agent 2026-09-25T20:2xZ): the td-049 dispatch-codex entry below was converted to a td-042 dispatch because PR #78 is still conflicted and the td-042 steer could not be delivered (no composer on the task page). Re-queue td-049 as dispatch-codex for codex:tokyo-drift-3d AFTER the td-042 dispatch is delivered and the worker is confirmed working. Full td-049 brief preserved here: {\"type\": \"dispatch-codex\", \"session\": \"codex:tokyo-drift-3d\", \"env\": \"tokyo-drift-3d\", \"task\": \"td-049\", \"task_file\": \"godot/docs/tasks/td-049.md\", \"brief\": \"Task: td-049 \\u2014 player car too large; shrink to opponent car size.\\n\\nTask file (source of truth \\u2014 read it first, in full): https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-049.md\\nYour chat transcript is background noise; the task file plus committed evidence are the only sources of truth.\\n\\nRepo: doublehidenblade/tokyo-drift-3d. First: sync main (git pull --rebase origin main), then create branch td-049-player-car-size. If the container's git remote is missing, add origin https://github.com/doublehidenblade/tokyo-drift-3d.git.\\n\\nCraig's report (verbatim, 2026-09-25, live Shuto URL playtest): \\\"make the player car smaller, same size as opponent cars.\\\"\\n\\nThe fix: resize the player car to match the opponent car size exactly \\u2014 same length, width, and height scale. Keep the rear-view lock, handling, and collision behavior unchanged apart from the size correction.\\n\\nCompletion criteria:\\n1. Player car and opponent cars render at identical size from the same camera distance.\\n2. No regression: player handling, rear-view lock, and collision behavior unchanged apart from the size correction.\\n3. One before-frame and one after-frame of the player car beside an opponent car from the same camera angle, named td-049-criterion-1-before.png / td-049-criterion-1-after.png, committed under qa/td-049/.\\n\\nEvidence: for the visual criterion, personally inspect every frame at full resolution before claiming done \\u2014 logs and selectors never overrule visible pixels; eyeball every screenshot. A criterion without its committed pair is not finished.\\n\\nStanding rules: one defect = one task, do only td-049; NEVER merge or publish; update the task file's Work log and Status as you go; stop after two identical failures and report instead of retrying variations; Godot .tscn comments use `;`, never `#`.\\n\\nSTATUS TABLE (Craig 2026-09-25, source of truth): task status lives in the board table at https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/boards/tokyo-drift-3d.md \\u2014 NOT in your task file's Status line. On EVERY status transition (open \\u2192 in_progress \\u2192 in_review \\u2192 validated, or blocked), update td-049's row (Status, Owner, Last update columns) in that table and land it via a PR to doublehidenblade/game-dev-central (PR ONLY \\u2014 Craig 2026-09-25: every worker uploads a PR; direct push is forbidden). Touch ONLY the td-049 row \\u2014 never add or remove rows. If the table and the task file disagree, the table wins.\", \"queued_at\": \"2026-09-25T19:12:11.728021+00:00\"}",
+  "dispatch-codex p3d-098 queued 2026-09-25T20:4xZ: todo171 (PR #56 after-evidence shows rear sprite, not side sprite \u2014 Craig 2026-09-25 verbatim), highest-priority open unowned NEON task (recurring p3d-060/p3d-093 class; p3d-060 row stays open but its class is actively covered by this dispatch); fresh start, no salvage. codex:neon-drift FINISHED after cron shipped PR #59. Pickup verification pending next fresh classification.",
+  "2026-09-25T21:49Z PAUSE KILL: td-042 corrected steer (browser-task:6dd85390, in flight since 19:15Z) is DEAD \u2014 td-042 is paused 2026-09-25 under the MP reprioritization. If the browser task is still running, the main agent may drop it; do NOT re-queue, do NOT redeliver.",
+  "2026-09-25T21:49Z PAUSE KILL: td-049 deferred dispatch is DEAD \u2014 td-049 is paused 2026-09-25. The brief preserved in earlier notes is superseded; never re-queue it.",
+  "2026-09-25T21:49Z PAUSE KILL: td-048 dispatch is DEAD \u2014 td-048 is paused 2026-09-25. Never re-dispatch.",
+  "dispatch-codex td-058 queued 2026-09-25T23:12Z: net.gd ping handler (Godot sessions reaped ~60s after joining), P0 multiplayer; highest-priority open unowned Tokyo task after td-057 (delivered 18:05 CDT, task_e_6ab6fedc8228832e93ae1ce8669c3b33). No salvage (fresh). Conflict risk minimal: td-057 touches server/signaling-fly/server.mjs only, this touches net.gd. Soft dependency: pong must use td-057's converged key (recommendation `type`) \u2014 noted in brief. codex:tokyo-drift-3d FINISHED/idle. Pickup verification pending next fresh classification. Do NOT re-dispatch; never two workers on the same task.",
+  "p3d-095 DOUBLE-FAILURE 2026-09-25T23:25Z: Codex task task_e_6ab6ff9c3668832ea998d086a57d1a95 ('Fix building sides 3D perspective', neon-drift) failed initial run after 42s ('An unknown error occurred'). Browser-task retry clicked once -> spawned NEW task task_e_6ab702251a48832e87ed4517edae69bb; its run ALSO failed after 36s with the identical 'An unknown error occurred' during setup ('setup is running' -> died before 'Working on your task'). Stop-after-2: NO further retries. Do NOT re-dispatch p3d-095 into neon-drift until the env/setup failure is understood. Diagnostic signal: the td-058 dispatch (tokyo-drift-3d env, browser task in flight since ~23:2xZ) will show whether Codex task setup works at all right now; if it succeeds, the failure is neon-drift-env-specific.",
+  "dispatch-codex p3d-096 popped 2026-09-25T23:52Z: DISPATCH_DONE, task https://chatgpt.com/codex/cloud/tasks/task_e_6ab7081e1a68832e8916827c9a9accdc (Codex auto-titled 'Fix race start sign positioning'; brief identifies p3d-096 verbatim). Run state at creation: Thinking, worker picked up, branch 'p3d-096-in-progress'. DIAGNOSTIC UPDATE: p3d-096 got PAST setup on the neon-drift env \u2014 the env is NOT universally broken. p3d-095's double identical setup failure ('An unknown error occurred') may be task-specific or transient, not env-wide. Stop-after-2 still holds for p3d-095 itself (no re-dispatch of that task without a changed approach); a future reroute decision should weigh this new evidence.",
+  "dispatch-codex td-058 popped 2026-09-25T23:36Z: DISPATCH_DONE, task https://chatgpt.com/codex/cloud/tasks/task_e_6ab70535a708832eb4d3f460c7d7ec7c ('Fix signaling ping/pong implementation', auto-titled). Run state at creation: Thinking \u2014 pickup confirmed. OWNED by codex:tokyo-drift-3d; do NOT treat as open/unassigned. td-057 dispatch (task_e_6ab6fedc8228832e93ae1ce8669c3b33) pickup also confirmed; its 'Failed, not live' label seen during the td-058 duplicate check needs fresh classification.",
+  "td-058 FIRST FAILURE 2026-09-26T00:13Z: task_e_6ab70535a708832eb4d3f460c7d7ec7c 'Fix signaling ping/pong implementation' (tokyo-drift-3d) died after 35s with 'An unknown error occurred' during setup \u2014 IDENTICAL signature to p3d-095's double failure on neon-drift. Revised diagnosis: Codex-cloud platform flake (capacity?), NOT task- or env-specific \u2014 p3d-096 passed setup on neon-drift at ~23:45Z between the failures. Codex-cloud 'usage nearing limit' banner also visible. One retry allowed per stop-after-2 (first failure on this task); retry in flight via browser task.",
+  "2026-09-26T07:1xZ all-blocked follow-up: 2 of the 3 failover subagents from the ~03:05Z episode are DONE (td-060 CLOSED via PR #95 merged by Craig 05:20Z; p3d-092 CLOSED via PR #63 merged by Craig 04:50Z, live). p3d-094 subagent reconciled branches 03:25Z (merge commit 8c5ebc91) but draft PR #57 is dirty (main moved via #63) and branch static since \u2014 owner unknown, do not rebase under it this run; next run re-checks branch movement, then acts.",
+  "2026-09-26T07:1xZ watchdog spawned Muse subagent on td-054 (2-4 player integration test, branch td-054-mptest): last open multiplayer milestone, board 'queued', no salvage, prerequisites merged, signaling live. Never merge/publish; leaves PR open.",
+  "2026-09-26T07:1xZ watchdog spawned Muse subagent on p3d-097 (flaky bridge-exit CPU p95 perf guard infra noise, todo170): open since 2026-09-25, no worker. Stabilize guard without deleting/raising budget; Browser CI evidence; never merge/publish.",
+  {
+   "ts": "2026-09-26T09:03:00Z",
+   "note": "watchdog 09:0xZ: all three decide ACTION=NOTHING (failover already fired for this OOT episode). p3d-094 subagent silent 5.5h (no commits since 03:25Z, PR #57 draft+merge-conflict) -> REFIRED a fresh context-migrated Muse subagent (resolve PR #57 conflict, evidence, undraft; never merge/publish). td-054 subagent (refired 08:35Z) only ~30min in -> keep, next run verifies pickup. p3d-100 filing/diagnosis subagent active. Board hygiene: PR #32 had a stale conflict (rows already landed by #33) -> closed unmerged w/ comment; PR #34 opened+shipped by cron for p3d-094/td-054 in_progress rows. CLASSIFICATION STALENESS: last browser classification 02:59Z (~6h); main-agent dispatch path may be broken -> flagged in heartbeat."
+  },
+  {
+   "ts": "2026-09-26T10:45:00Z",
+   "note": "watchdog 10:4xZ: all three decide ACTION=NOTHING (failover already fired for this OOT episode). p3d-094 refire (09:22Z) silent ~80min \u2014 PR #57 draft+dirty, branch head static since 03:25Z; verify pickup NEXT run per handoff-pickup rule, else pop/refire. td-054 + p3d-100 refires (10:35Z) ~10min in \u2014 normal startup, next run verifies. p3d-097 subagent ~3.5h, branches fix/p3d-097-perf-guard + p3d-097-flaky-p95-gate show activity \u2014 alive, left alone. STOP-AFTER-2 ON REFires: td-054 refires have gone silent twice (03:22Z/5h, 08:35Z/2h) \u2014 if the 10:35Z refire is silent again next run, do NOT refire a 5th time; reconcile/escalate instead. CLASSIFICATION ALARM: last browser classification 02:59Z (~7.7h) \u2014 main-agent classification dispatch path looks broken; watchdog continues on GitHub API."
+  },
+  {
+   "ts": "2026-09-26T12:20:00Z",
+   "note": "watchdog 12:2xZ: all three decide ACTION=NOTHING (failover already fired this OOT episode). p3d-094 refire (09:22Z) silent 2.8h \u2014 PR #57 draft+dirty, head static 8c5ebc91 since 03:25Z \u2192 REFIRED fresh context-migrated Muse subagent (rebase onto main post-#63, keep obstacle-awareness, undraft when green; never merge/publish). p3d-100 filing refire (10:35Z) silent 1.5h (no todo174, no board row, no PR) \u2192 REFIRED with file-first brief. td-054 10:35Z refire silent 1.5h = 3rd silent attempt (03:22Z/5h, 08:35Z/2h) \u2192 NO refire per 10:45Z policy; ESCALATED (outcome 3). p3d-097 subagent left alone (branch commit 07:25Z median-of-3 batch p95s \u2014 alive). Craig merged Tokyo PR #98 himself 12:23Z (td-061 RANDOM driver-name button + prefill, multiplayer_lobby.gd; .gd only, no export \u2192 live unchanged). CLASSIFICATION ALARM: last browser classification 02:59Z (~9.2h) \u2014 main-agent dispatch path looks broken."
+  },
+  {
+   "ts": "2026-09-26T12:50:00Z",
+   "note": "watchdog 12:4xZ: all three decide ACTION=NOTHING (failover already fired this OOT episode). p3d-094 refire VERIFIED WORKING \u2014 PR #57 head moved 8c5ebc91->2623cf51 'p3d-094: rebase onto main 5344499b' 12:36Z, still draft. CI on rebased head RED: 'Chromium gameplay, screenshots and performance' failed at step 6 'npm run qa' (run 36242449966, completed 12:42Z; step-log blob 401s from this env so exact assertion unseen). Pattern = known flaky suite, not a rebase breakage: main failed 01:39Z pre-#63, mixed pass/fail all night (p3d-094 branch green 03:25Z, p3d-092 branch red 03:32Z); matches p95-guard infra flake class p3d-097 is stabilizing. Subagent owns the re-run (brief: undraft when green); do NOT block merge on it. p3d-100 refire (12:2xZ file-first) ~25min in \u2014 no todo174/branch yet, normal startup; next run verifies pickup. p3d-097 subagent quiet 5.4h (branch head 7c6bd975 07:25Z) \u2014 left alone, next run watches. td-054: NO refire (3rd silent attempt); outcome 3 ESCALATED; board row updated via watchdog PR (in flight). Craig merged Tokyo PR #98 himself 12:23:04Z (td-061 RANDOM driver-name button + prefill, .gd only -> live unchanged). CLASSIFICATION ALARM: last browser classification 02:59Z (~9.7h) \u2014 main-agent dispatch path still broken."
+  },
+  {
+   "ts": "2026-09-26T14:00:00Z",
+   "note": "watchdog 13:4xZ: all three decide ACTION=NOTHING (OOT episode, failovers ledgered). FINDINGS: (1) p3d-094 PR #57 head 2623cf51 (rebased 12:36Z, draft) CI RED 12:42Z: 77/78 passed; ONLY failure is flaky bridge-exit CPU render p95 guard \u2014 expect 43.7999... toBeLessThan 25 (tests/game.spec.js:427); p3d-094's own test 'AI cars anticipate and dodge intact road obstacles' PASSED. Infra-noise class owned by p3d-097; not a real build failure; owner subagent must re-run CI or apply p3d-097 stabilization before mark-ready/merge. Do NOT merge on this red. (2) NEW parked Tokyo signaling PRs created 13:56-13:58Z (PR #101 td-062 null-socket guard READY, PR #102 td-064 single-instance READY, PR #103 td-063+td-065 begin_race RPC READY) \u2014 CI in_progress/pending; watch-and-ship when green, do not merge blind. (3) p3d-097 branch fix/p3d-097-perf-guard has median-of-3 stabilization commit 7c6bd975 07:25Z, no PR yet; p3d-100 filed todo174 (commit a987a7b9 10:39Z on fix/p3d-100-mobile-loading-99), no PR yet. (4) td-054: NO branch on tokyo-drift-3d after 03:22Z/08:35Z attempts; board already records stop-after-2 + escalated to Craig \u2014 no refire. (5) Classification staleness: last verified browser classification 02:59:37Z (~11h); main-agent dispatch path may be broken \u2014 alarm repeated."
+  },
+  "dispatch-td-068 popped: dispatched by main agent via browser task 2026-09-26T15:09:11Z (pickup verification pending); entry removed to prevent duplicate dispatch",
+  {
+   "ts": "2026-09-26T16:48:00Z",
+   "note": "watchdog 16:4xZ: all three decide ACTION=NOTHING (OOT episode, failovers ledgered). CRAIG'S MULTIPLAYER PUSH INSPECTED: he authored+merged Tokyo PRs #98 (td-061 driver-name RANDOM+input overlay, 12:23Z), #101 (td-062 null-socket guard, 14:01Z), #102 (td-064 signaling single-instance, 14:01Z), #103 (td-063+td-065 begin_race RPC, 14:01Z), #105 (td-066 TouchControls in MP, 15:49Z), #106 (td-067 harbor bridge map in MP, 15:49Z). Signaling DEPLOYED success 15:28Z. publish-web success 16:37Z, live build-sha 1d419b48 \u2014 all .gd changes LIVE. Board-hygiene: game-dev-central PR #45 (td-061..067 rows -> merged+live, Craig as owner) created+merged by cron 16:46:59Z. td-068 pickup VERIFIED: branch fix/td-068-single-instance active (commits 15:01Z file, 15:28Z machines-aware fix), board row done (PR #107). p3d-094: PR #57 draft, head 2623cf51 static since 12:36Z, CI red on known flaky p95 guard (43.8 vs 25, infra-noise class p3d-097 owns) \u2014 owner subagent quiet ~4.3h; left assigned. p3d-097: branch head 7c6bd975 static since 07:25Z \u2014 owner subagent quiet ~9.5h; WATCH \u2014 next run considers refire if still silent. p3d-100: ACTIVE \u2014 diagnosis-note commit 3568192a 14:40Z. td-054: outcome 3, no refire. CLASSIFICATION ALARM: last browser classification 02:59Z (~13.8h) \u2014 main-agent dispatch path still silent."
+  },
+  {
+   "ts": "2026-09-26T17:45:00Z",
+   "note": "watchdog 17:4xZ: all three decide ACTION=NOTHING (OOT episode, failovers ledgered). p3d-094 PR #57 MERGED by Craig 17:13Z, publish-web b75985a0 live (already verified+reported 17:15Z) -> board hygiene PR game-dev-central#47 (row -> merged+live) created+merged by cron. p3d-097: refired (3rd route) \u2014 fresh context-migrated Muse subagent spawned 17:45Z (continue from head 7c6bd975, stabilize flaky p95 guard, never merge/publish); prior subagent silent 10.4h (head static since 07:25Z). Verify pickup NEXT run. td-068 PR #107 merged by Craig 15:28Z (board done). td-054 outcome 3 stands (13:40Z probe defects largely superseded by Craig's td-064 split-brain fix deployed 15:28Z; no refire). p3d-100 subagent ACTIVE (diagnosis commit 3568192a 14:40Z). CLASSIFICATION ALARM: no fresh browser classification since 02:59Z (~14.8h) \u2014 main-agent dispatch path silent 15+ runs; DEGRADED WATCHDOG on classification freshness."
+  },
+  "screenshots tokyo (queued 01:22:52Z) popped 18:19Z: ~17h stale; target PRs long since merged/inspected/reported.",
+  "screenshots neon (queued 01:52:00Z) popped 18:19Z: ~16.5h stale; underlying inspections already reported to Craig.",
+  "screenshots neon (queued 17:24:13Z) popped 18:19Z: was for p3d-094 post-merge inspection; evidence pair already eyeballed and reported 17:15Z, PR #57 merged + live. Fulfilled, not redelivered.",
+  "screenshots td-069/td-070 popped 2026-09-26 ~18:40Z: live-site capture FAILED \u2014 browser-task Chromium has no WebGL2 (no GPU); game stalls at 'Assembling city geometry' and tabs crash. No flags can be passed to the managed browser. Audit not performed; R15 symmetry eyeball deferred to Craig's phone QA (his phone is final per standing rules). Do not re-queue without a WebGL2-capable capture environment.",
+  "screenshots-pr50 popped: main agent verified live site shows grey roadside walls (browser capture 19:43Z, eyeballed); PR #50 inspection fully closed",
+  "dispatch-codex p3d-075 popped: DISPATCH_DONE 19:43Z, task https://chatgpt.com/codex/cloud/tasks/task_e_6ab820562e28832eb4c4c96f3f13eadc (worker running setup)",
+  {
+   "ts": "2026-09-26T20:01:14Z",
+   "note": "watchdog: DISPATCH CHECK \u2014 codex:tokyo-drift-3d FINISHED idle, signaling RESTORED (/health 200, uptime 816s @ 19:57Z probe; td-071 infra cause resolved). Queued dispatch-codex td-054 (2-4 player live acceptance) \u2014 the promised 're-dispatch fresh after signaling returns' (18:52Z escalation). Salvage folded in: probe RESULTS (host-create PASS, bad-code PASS, join FAIL, race-start FAIL), td-062..td-065 + td-066..td-070 merged by Craig and live (build-sha 1d419b48 / 18:13Z), td-072 owned by 19:38Z subagent (no conflict). p3d-075 pickup VERIFIED on neon (commit f0a45801 19:55:29Z 'replace circuit tunnel with arch bridge') \u2014 Codex NEON tokens recovered, working. Do NOT re-dispatch td-054; pickup verification pending next classification."
+  },
+  {
+   "ts": "2026-09-26T21:25:00Z",
+   "note": "dispatch-codex td-074 IN FLIGHT: browser task dispatched 21:25Z to create new Codex task in tokyo-drift-3d env with td-074 brief (verbatim, adjusted for restored task file). Pickup verification pending task URL return. ALSO: manual PR #111 merge via Git Data API used PR-head tree only, silently DELETED td-074..td-078 task files from main (commit 4610a736357e orphaned). Restored all 5 files as commit 589497fff3c0 21:2xZ. LESSON: manual merge commits must merge trees, not take head tree."
+  },
+  {
+   "ts": "2026-09-26T21:25:00Z",
+   "note": "dispatch-codex td-074 popped: DISPATCH_DONE 21:24:49Z via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab8380514c0832ea7af51bfbe28ad01 (auto-titled \"Fix invalid room join to show error\", brief verbatim via type action, Running/Working on task page). td-054 task also visible in env, untouched. Pickup verification pending next fresh classification."
+  },
+  {
+   "ts": "2026-09-26T21:32:00Z",
+   "note": "td-079 FILED + DISPATCH IN FLIGHT: Craig 21:31Z live 2-phone test \u2014 joiner stuck on \"waiting for host to start\" while host raced alone. Task file godot/docs/tasks/td-079.md committed be336fb51a61; board row added 32c67e10bdea. Browser task dispatched 21:32Z to create Codex task in tokyo-drift-3d env. Pickup verification pending task URL return."
+  },
+  {
+   "ts": "2026-09-26T21:34:00Z",
+   "note": "dispatch-codex td-079 popped: DISPATCH_DONE 21:33:04Z via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab839fe4db0832e9b9007e1024a3cbe (auto-titled \"Fix race start synchronization issue\", brief verbatim via type action, Running \u2014 configuring runtimes at dispatch). Pickup verification pending next fresh classification."
+  },
+  "dispatch-codex td-075 popped 2026-09-26T21:36Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab83ac315a8832eb3bfcaa27c4a8b95 (auto-titled \"Read and complete task td-075\", Working at dispatch, brief verbatim). Pickup verification pending next fresh classification.",
+  "dispatch-codex td-076 popped 2026-09-26T22:35Z: already implemented by Muse subagent \u2014 code pushed to feat/td-076-nameplates, draft PR tokyo-drift-3d#117 open with before/after evidence, board row in_review. Dispatching a Codex worker would duplicate coverage on the same task file.",
+  "screenshots PR #67 completed 2026-09-26T22:43Z: stone arch bridge verified on live neon-drift-web via harness captures (dist=1680, full arch + both lamps). Old neon tunnel gone.",
+  "steer-codex td-084 popped 2026-09-26T22:47Z: main agent already dispatched dedicated new Codex task for td-084 (browser-task in flight). Watchdog classification was 82min stale, did not know. Kept new-task route; popped steer to avoid two workers on td-084.",
+  "dispatch-codex p3d-060 completed 2026-09-26T22:46Z: new Codex task created and running (task_e_6ab84a94e05c832e862ac6fe0625f031, branch fix/p3d-060-relative-facing-review).",
+  "dispatch-codex td-085 popped 2026-09-26T23:5xZ: dispatched directly by main agent via browser task (fresh tokyo-drift-3d session, brief = corrected td085-brief.md: td-084 shipped via production sync, publish-first-then-fix, HOLD lifted). Board row on main reads plain 'open' (game-dev-central PR #69 merged via Git Data API fallback 23:50Z). td085-merge-gate cron removed; gate flag files deleted. Do NOT re-dispatch; pickup/run-state verification pending (browser task reports the new Codex task URL on completion).",
+  "td-085 pickup VERIFIED 23:53Z: fresh Codex task running in tokyo-drift-3d env, brief pasted verbatim \u2014 https://chatgpt.com/codex/cloud/tasks/task_e_6ab85aed81f0832e810b1c2f6b414560 (Codex auto-titled 'Add share link with copy button'). Next: classify in ~15m runs; worker handles publish itself per brief.",
+  "dispatch-codex p3d-084 popped 2026-09-27T00:17Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab860147938832e915b6cb6e6087960 (neon-drift env, Thinking at dispatch, brief verbatim). Codex auto-titled it 'Create worker subagent task template' (no rename control); brief identifies p3d-084 throughout. Pickup verification pending next fresh classification. Do NOT re-dispatch p3d-084.",
+  "dispatch-codex td-077 popped 2026-09-27T00:19Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab860de7840832ebc6f60b32ebb8dad (tokyo-drift-3d env, Thinking at dispatch, brief verbatim, title first line 'td-077 \u2014 multiplayer traffic/AI cars' though Codex auto-titled the display 'Implement multiplayer traffic AI cars' \u2014 no rename control). Pickup verification pending next fresh classification. Do NOT re-dispatch td-077.",
+  "td-079 PR #114 SHIP SEQUENCING (main agent 2026-09-27T00:2xZ): do NOT merge PR #114 while the web client cannot be published. The PR's server.mjs half auto-deploys to Fly on merge, and the new server gates 'start' on every peer having sent the new 'ready' message \u2014 the current live client never sends 'ready', so merging early would break multiplayer entirely (no race could ever start). Required sequence once the Actions budget is restored: mark PR #114 ready (remove draft) -> merge -> wait for Fly signaling deploy -> dispatch publish-game.yml -> verify live build + run a live two-client create/join/start test -> Craig retests on phone. Worker's final state: FINISHED, fix implemented + locally tested (Godot 4.7.2 import, client contract test, two-WebSocket test pass), parked as draft pending a WebGL validation run it could not complete. Craig explicitly warned 2026-09-27 ~00:2xZ not to merge PR #114 early.",
+  "dispatch-td-079-merge popped: dispatched by main agent via browser task 2026-09-27T00:27Z (task_e_6ab862ec6624832e812ac383bffa1b6d, Codex tokyo-drift-3d env, container initializing at launch); entry removed to prevent duplicate dispatch \u2014 pickup verified via next watchdog classification",
+  "screenshots-pr72 popped 2026-09-27T01:1xZ: PR #72 evidence audit PASSED on the 6 committed todos/todo157/qa/ before/after pairs; the audit notification with 3 after-shots was delivered to Craig 01:05Z. Live-site capture would show the PRE-fix build (PR #72 touched no web-export files, publish blocked on Actions budget) - meaningless and misleading. No capture owed.",
+  {
+   "ts": "2026-09-27T01:40:00Z",
+   "note": "dispatch-codex td-084 + p3d-076 popped: both pickups verified 01:14Z (td-084 branch commit 494005a9, PR #119 updated 01:00Z; p3d-076 draft PR #73 updated 01:09Z), workers confirmed active in 01:27Z cron. Entries removed to prevent duplicate dispatch/delivery."
+  },
+  "screenshots-pr73 popped 2026-09-27 ~02:50Z: main agent eyeballed p3d-076 criterion-1 before/after (todos/todo149/qa/): building sides now render with correct receding perspective vs the flat/smeared look before; same camera/scene. Live-site capture meaningless (merged, not live). Evidence audit already passed by worker.",
+  {
+   "ts": "2026-09-27T03:42:00Z",
+   "note": "dispatch-codex p3d-083 popped: main agent dispatched via browser task (neon-drift env, title 'p3d-083 \u2014 readable complex-road forks', brief verbatim incl. salvage from dead worker + conflicted PR #68 rebase). PR #68 verified pre-dispatch: open, draft, mergeable_state dirty, head fc3ba3c3 static since 22:41Z \u2014 old worker dead, entry not stale. Pickup verification pending fresh classification (also in flight)."
+  },
+  {
+   "ts": "2026-09-27T04:37:29Z",
+   "note": "dispatch-codex p3d-083 DISPATCH_DONE: new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab89d69f5bc832eb690d955bdb12543 (auto-titled 'Rebase p3d-083-readable-forks onto main' \u2014 Codex exposes no rename; brief verbatim, neon-drift env explicitly selected). Run state at dispatch: Thinking, worker already produced first output. Pickup verification pending next fresh classification."
+  },
+  {
+   "ts": "2026-09-27T05:32:26Z",
+   "note": "watchdog 05:3xZ: INSPECT_MERGED p3d-083 (neon PR #68, merged by Craig 05:17Z) \u2014 evidence audit PASSED (distinct before/after frames, same instance/camera per criterion + 4 through-zone frames); main CI 85/86, only failure = flaky bridge p95 gate (p3d-097 infra). p3d-094 (neon PR #57, merged by Craig 09-26 17:13Z) discovered merged-but-never-reported \u2014 inspected: +188/-11 AI obstacle awareness, evidence pair distinct frames, recorded in pending.json. Status PRs shipped: game-dev-central#86 (board rows p3d-083+p3d-094 -> merged), neon#75 (todo156 status -> merged). DISPATCH CHECK: queued dispatch-codex codex:neon-drift -> p3d-078 (todo151, rail collision box; fresh, no salvage) with push-on-request brief (merge-only, no publish-web). Do not re-dispatch."
+  },
+  "screenshots-pr78 popped 2026-09-27T12:1xZ: PR #78 merge notification already delivered to Craig with 3 inspected screenshots (start-sign-night + criterion-1/2 after frames).",
+  "screenshots-pr127 popped 2026-09-27T12:1xZ: main agent eyeballed committed QA pairs godot/qa/td-076/td-076-criterion-{1,2}-after.png \u2014 nameplates \"Amy\" (blue) and \"Dave\" (red) render correctly above cars, tinted by player color. Evidence audit already PASSED by cron.",
+  "dispatch-codex p3d-079 popped 2026-09-27T12:08Z: DISPATCH_DONE via browser task \u2014 new Codex task https://chatgpt.com/codex/cloud/tasks/task_e_6ab9070e86bc832e8282469369732285 (\"Fix collision and nitro spark sizes\"), Thinking/working, brief verbatim. Pickup verification via next fresh classification.",
+  "screenshots-pr82/pr83 popped 2026-09-27T17:32:49.924438+00:00: PRs merged-not-live (push-on-request); worker evidence audit passed from merged diff (todo177/qa before/after PNGs; todo178/qa EVIDENCE.md+traces). Live-site capture would show pre-PR state \u2014 meaningless. Visual verification happens on Craig's next push.",
+  "resume-codex-tokyo popped 2026-09-27T17:32:49.924438+00:00: superseded by direct td-088 dispatch 17:24Z (task_e_6ab95103a52c832e8cf859adf3cce82f, confirmed working). Worker's 17:32Z decide saw stale DEAD state and re-queued resume; popping to avoid two workers on tokyo-drift-3d.",
+  "screenshots-pr81 popped 2026-09-27T17:37:56.725662+00:00: PR #81 merged-not-live (push-on-request); worker evidence audit passed (before/after pair committed, eyeballed). Craig notified 12:28 CDT with the PR's own evidence images. Live-site capture would show pre-PR state \u2014 meaningless.",
+  "dispatch-codex p3d-102 ACTION_DONE 2026-09-27T17:50:57.668158+00:00: new task task_e_6ab957113bf8832ea8f4254c16517924 in neon-drift env, agent active. Entry popped.",
+  "dispatch-codex td-088 ACTION_DONE 2026-09-27T17:51:18.356864+00:00: new task task_e_6ab956fd1c1c832eac72935e6abcea0b in tokyo-drift-3d env, agent Thinking. Caveats: title auto-generated 'Fix default driver name reshuffling' (no rename control); brief sent 3x concatenated (flaky composer), content intact. Entry popped.",
+  {
+   "task": "screenshots-pr88",
+   "type": "screenshots-done",
+   "dispatched_at": "2026-09-27T23:31Z",
+   "note": "Eyeballed committed evidence PNGs (todos/todo122/qa/). Criterion-1 tunnel: before shows flat mural mountains painted on tunnel walls; after shows lamp-lit walls with warm light pools + water channels. Criterion-2 docklands: before shows flat pasted mountains/flat ground; after shows layered misty mountains + textured ground/water. Pairs are same-camera-mode (rear chase cam) same-scene-type, defect->fix legible. Caveat: before frames mid-race, after frames at race start \u2014 not pixel-registered positions, acceptable for this game's fixed chase cam. Evidence audit passes.",
+   "by": "main-agent"
+  },
+  {
+   "task": "screenshots-pr143",
+   "type": "screenshots-done",
+   "dispatched_at": "2026-09-27T23:31Z",
+   "note": "Popped without screenshots: td-095 TURN relay has zero visual change (connectivity fallback only), and the merge is not live (push-on-request) so live-site captures are meaningless. Worker verified protocol/client/import/web-export logs green; hosted restrictive-NAT acceptance test waits for Craig's push + signaling deploy.",
+   "by": "main-agent"
+  },
+  "dispatch-p3d-088 popped: PR #52 already merged 20:58Z, harbor snapshot green on the 23:50Z CI run; queued brief was stale (called PR #52 'draft') and wrongly instructed a cost-incurring CI re-run",
+  "td-100 queued dispatch dropped: existing worker unblocked (Blender 4.0.2 installed, ba4adde pushed); no duplicate dispatch",
+  "dispatch-codex p3d-069 queued 2026-09-28T02:45Z: codex:neon-drift FINISHED/idle, no pending action, no active subagent -- DISPATCH CHECK fired. p3d-069 (neon complex roads, second map proof-of-concept, todos/todo142) is the highest-priority open unowned NEON task per board priority (civilian cluster + visual fixes merged/awaiting Craig verdict; p3d-070 never dispatched per kill order). Brief is fresh-start (PR #45 docs-only, no implementation salvage). Main agent delivers via browser task per handoff duties.",
+  {
+   "task": "steer-codex-td100-evidence",
+   "type": "steer-codex-NO_ACTION_TASK_GONE-popped",
+   "dispatched_at": "2026-09-28T04:39:32Z",
+   "note": "Popped without sending. Target task_e_6ab9a3b8 (codex:tokyo-drift-3d) no longer loads \u2014 'Error loading task', not in task list/search/archive. Session likely deleted or in different workspace. Evidence pairs already committed under godot/qa/td-100/; only the task-file Evidence section listing is missing. Low priority \u2014 can fold into next td-100 touch or leave as-is.",
+   "by": "main-agent"
+  },
+  {
+   "ts": "2026-09-28T08:15:07.065849+00:00",
+   "note": "Dispatch queued: dispatch-codex codex:tokyo-drift-3d \u2192 td-104 phase-2 (bounded multiplayer trace format + phone report, per merged PR #148 diagnosis; td-102 theory dead, no fix authorized yet, phone capture waits on Craig). Pending in pending_actions.json for main-agent handoff; do not re-dispatch."
+  },
+  {
+   "task": "screenshots-pr150",
+   "type": "screenshots-done",
+   "dispatched_at": "2026-09-28T09:46:20.386838+00:00",
+   "note": "Eyeballed committed QA screenshots (game-fleet-after.png): 4 distinct rear-view vehicles \u2014 teal cab-over van, orange wedge sedan, dark Iron Mask sedan, red FC/DR hero with spoiler. All opaque, distinct silhouettes, proper taillights. Matches td-103 brief. Evidence audit already PASS per watchdog.",
+   "by": "main-agent"
+  },
+  "watchdog 2026-09-28T11:36Z: SHIPPED stale parked tokyo PR #116 (td-083 rank screen, in_review since 2026-09-26, worker session long gone). Rebases onto main via git-database API (93 commits drift; conflicts in mp_race.gd/mp_race.tscn resolved; took branch's rank/DNF/deadline/navigation as designed, kept main's newer pickups/traffic/HUD/trace/prediction code; dropped stale web-candidate.json). Squash-merged as 8ab74caf. Evidence audit PASS (matched criterion-4 before/after pair eyeballed: 1st Akira 01:12.34 red, 2nd NeonFox DNF blue, QUIT + RACE AGAIN buttons). In pending.json (held for Craig's push, NOT live). Board synced via game-dev-central#139 (merged). Do NOT re-ship #116.",
+  "steer-codex codex:neon-drift popped 2026-09-28T11:54:04.794343+00:00: STEER_DONE via browser task (p3d-060 reconcile). URL correction: queued target_task_url task_e_6aba1f4ce43c832eb64924733ba4876f actually opens the p3d-108 task; browser task located the real p3d-060 session ('Fix civilian car sprite selection') at https://chatgpt.com/codex/cloud/tasks/task_e_6ab84a94e05c832e862ac6fe0625f031 and steered that \u2014 no second session created. Session was idle/finished (PR #70 pushed unmerged, in_review); new run started on the reconcile brief.",
+  "steer-codex codex:tokyo-drift-3d popped 2026-09-28T21:18Z: STEER_DONE via browser task (failover td-109 sedan rebuild; session was idle post-td-103, new run started on the steered instruction). Do NOT re-steer while the session is working.",
+  {
+   "type": "dispatch-codex",
+   "task": "td-105",
+   "note": "POPPED 2026-09-28T23:05Z: duplicate \u2014 board already shows td-105 in_progress, Codex task_e_6abaef36a3e0832eabe7025c055154b3 dispatched 2026-09-28 (row added before this run's queue). Watchdog queued a parallel dispatch on a stale board read; popped to honor never-two-workers-on-the-same-task.",
+   "by": "watchdog"
+  },
+  "steer-codex codex:tokyo-drift-3d popped 2026-09-28T23:5xZ WITHOUT sending: premise false \u2014 PR #157 for branch codex/trace-auto-upload already exists AND is merged (state closed, merged True, merged_at 2026-09-28T23:10:49Z, verified via API). The 19:34 EDT classification browser's 'Create PR button visible / no PR' note was a stale UI read. Sending the steer would have asked a finished session to open a duplicate PR. Do NOT re-queue.",
+  {
+   "task": "td-112",
+   "type": "dispatch-codex-done",
+   "dispatched_at": "2026-09-29T00:21:46Z",
+   "env": "tokyo-drift-3d",
+   "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abb040df7e4832ebcbbabbe1ad21cfd",
+   "brief_verbatim": true,
+   "title_note": "Codex auto-titled \"Fix panel gaps in TD-112 model\"; no rename control in UI",
+   "status": "worker active: Working on your task, on branch feat/td-109-dr30-sedan",
+   "by": "main-agent"
+  },
+  {
+   "note": "Dispatch queued: dispatch-codex codex:tokyo-drift-3d -> td-115 (guest never receives race-start, v26 regression room 7R4CQZ; open + unassigned on the board). Pending in pending_actions.json for main-agent handoff; do not re-dispatch. Queued 2026-09-29T02:14Z.",
+   "ts": "2026-09-29T02:14:30Z"
+  },
+  {
+   "ts": "2026-09-29T03:16:31Z",
+   "by": "watchdog",
+   "note": "DO-NOT-DISPATCH GUARD (board/task-file conflict): board rows show td-119 and p3d-109 as 'open | unassigned', but the task files say in_progress with a worker on 2026-09-29 phases 1-2, parked at Craig's blueprint review (MAIN PIVOT gate, Showa anime round-2). Craig rejected round-1 himself on 2026-09-29 and is mid-review. Do NOT queue dispatch-codex for td-119/p3d-109; they are review-gated, not idle-assignable. Board rows need reconciling with task files (table-wins rule vs fresher task-file evidence). Similarly td-110/td-111 board 'in_progress \u2014 handoff to Muse 2026-09-28T22:04Z, reconcile branch/PR before dispatch': do not dispatch until the handoff reconcile completes."
+  },
+  {
+   "task": "td-121",
+   "type": "dispatch-rerouted",
+   "note": "dispatch-codex popped 2026-09-29T05:35Z: Codex account usage-capped until Oct 3 12:21 UTC, new cloud-task creation would fail. Rerouted to Muse subagent per worker suggestion (ALL-BLOCKED ESCALATION).",
+   "by": "main-agent"
+  },
+  "watchdog 2026-09-29T08:30Z: decide=NOTHING x3 (classifications ~52min old). DISPATCH CHECK: codex:neon-drift FINISHED/idle, no dispatch (NEON priority chain all merged; p3d-097 owned, p3d-060 in_review PR #70, p3d-109 blocked on Craig's blueprint review). codex:tokyo-drift-3d FINISHED/idle (td-112/td-113 done+inspected); td-054 fresh 2-4p acceptance on v27 live is the only ownerless open task (board owner = stale 2026-09-26 task_e_6ab8263c) BUT Codex account usage-capped until Oct 3 12:21 UTC (05:35Z reroute precedent: new cloud tasks fail) and the Muse-subagent route is exhausted (3 silent attempts 2026-09-26, stop-after-2, escalated). No dispatch queued; td-054 acceptance OWED on first capacity (Claude session-limit reset 9PM CDT 2026-09-29, or Codex after Oct 3). claude-code:tokyo-drift-3d OOT until 9PM CDT 2026-09-29, failover already ledgered. Budget: OK 84.4% ($42.2/$50), no ask. Board hygiene: tokyo PRs #192 (td-120) and #193 (td-121) closed/merged into v27 but board rows still in_review \u2014 stale rows need a hygiene pass.",
+  "steer-codex td-113 popped 2026-09-29T14:35Z: browser task opened the finished task page \u2014 session NOT working but usage exhausted (banner: 'You're out of Codex and Work usage for now'), composer shows 'Usage limit reached' badge, no usable textbox \u2014 steer NOT delivered, nothing typed. Verified via API: Tokyo PR #168 (root-cause fix) and PR #169 ('docs: record td-113 merge handoff', merged 02:13:07Z) are BOTH merged, so no work is stranded; the task-page +1557/-9 diff reflects already-merged content. No retry owed; do NOT re-queue this steer.",
+  "screenshots-pr210 popped 2026-09-30T02:33Z: main agent eyeballed committed pair td-132-criterion-1-before/after.png \u2014 before shows 0.35m float, after shows grounded 0.0m deviation, Y math consistent with source (sphere 0.5, ModelHolder -0.15, body 0.5->0.15). Real gameplay screenshots impossible (no WebGL2 in sandbox); Craig's phone QA is the visual gate. Evidence audit passes.",
+  "dispatch-codex td-134 popped 2026-10-01T01:33Z: Codex cloud task created and running (https://chatgpt.com/codex/cloud/tasks/task_e_6abdb84020c4832e937eed3b4351c734, auto-titled 'Fix traffic cars collision box scaling'; required title placed as first line of prompt). Do NOT re-dispatch; pickup verification pending fresh classification.",
+  "dispatch-codex td-134 RE-QUEUED 01:44Z by watchdog POPPED as duplicate: main agent already dispatched td-134 at 01:33Z (https://chatgpt.com/codex/cloud/tasks/task_e_6abdb84020c4832e937eed3b4351c734, confirmed 'Working on your task' with active log on civilian_traffic.gd). NEVER dispatch a second worker on td-134.",
+  {
+   "ts": "2026-10-01T14:50:00Z",
+   "note": "MAIN AGENT 2026-10-01T14:50Z: SUPPRESSED dispatch-codex td-134 as DUPLICATE. PR #261 'td-134: align traffic visuals with collision footprints' MERGED 2026-10-01T08:25:36Z (API-verified, state=closed). Board row still says 'open \u2014 filed 2026-09-30' (stale row; merging worker never updated it per rule 11). No Codex task created. Opening board-fix PR to flip the row to merged so DISPATCH CHECK stops re-queueing it."
+  },
+  {
+   "ts": "2026-10-01T15:03:00Z",
+   "note": "MAIN AGENT 2026-10-01T15:03Z: steer-codex (td-134 stand-down + td-125 reconcile) DELIVERED, STEER_DONE confirmed, entry popped. Session now working."
+  },
+  {
+   "ts": "2026-10-01T17:29:27Z",
+   "note": "watchdog: POPPED self-queued dispatch-codex td-138 stage 3 (~10min after queueing) \u2014 API check shows stages 2/3/4/5 were ALREADY done+merged this morning by a 05:25-07:21Z run (PR #254 stage2 merged 06:03Z, #255 stage3 merged 06:15Z, #257 stage4 merged 07:01Z, #258 stage5 merged 07:21Z). The stage-3 brief file is STALE (says PR #254 open/do-not-merge). Dispatching again would be a duplicate \u2014 never re-dispatch; record why. td-138 board row 'open \u2014 round-2 REJECTED' is also stale vs these merges. Merged_by and inspection legitimacy under investigation this run; DO NOT re-queue any td-138 stage dispatch until the merge chain is reconciled."
+  },
+  {
+   "ts": "2026-10-01T17:31:09Z",
+   "note": "watchdog: queued steer-codex codex:tokyo-drift-3d for td-119 placement re-brief \u2014 PR #256's 'blocking mismatch' audit is a worker misread (td-119's nine models are Showa ENV hero models from PR #202, never cars; task file reference images 09-14 confirm). Per BLOCKED-WORK DISCIPLINE(3): block not real, steer with concrete next step (fresh branch, place env models per blueprint, evidence under godot/qa/td-119/, PR left open). Do NOT dispatch a second td-119 worker while this steer is pending."
+  },
+  "steer-codex codex:tokyo-drift-3d popped 2026-10-01T18:10Z: STEER_DONE via browser task (td-119 placement re-brief correcting car-model misread; session was idle, new run started on the steered instruction).",
+  {
+   "ts": "2026-10-01T19:42:30Z",
+   "note": "watchdog 19:42Z: DISPATCH CHECK fired on codex:tokyo-drift-3d (FINISHED idle, pending_actions empty, no live subagent). Queued: dispatch-codex codex:tokyo-drift-3d -> td-124 (P0 guest-cant-see-host-car v27 regression of td-120; salvage branch td-124-debug 4 ahead/72 behind main, NO open PR; brief carries rebase-first + drop-the-landed-task-filing-commit + re-run-9/9-headless-test + open-PR + acceptance-honesty instructions; do NOT redo the 2026-09-29 diagnosis). Skipped: td-054 (board row says do NOT re-dispatch blindly, needs stronger multi-renderer host), td-138 (DISPATCH HELD \u2014 GT-R LM Nismo base mesh missing from repo), td-134 (never-redispatch flag), td-119 (placement steer delivered 18:10Z, no second worker), td-125 (owner Muse td-104/td-125 worker), td-127 (Claude session working), td-101 (owner Astra). Do not double-dispatch td-124."
+  },
+  "steer-codex codex:tokyo-drift-3d (PR #265 rebase) popped 2026-10-01T20:40Z: browser steer blocked (td-119 task page would not render); rerouted to subagent b98e9de0 which rebased td-119-place-environment onto main (new head f611fb3d), resolved CHECKPOINT/TODO/DEVLOG by union, pushed. PR #265 now mergeable=true/clean. No merge per instructions.",
+  "nudge-claude claude-code:tokyo-drift-3d queued 2026-10-02T01:12Z by 21:11 EDT run then POPPED 01:13Z: per-blocker guard \u2014 00:49Z note parks it on Craig's td-045/PR #69 decision, already surfaced 00:56Z. No nudge, no re-surface.",
+  {
+   "ts": "2026-10-02T01:58:00Z",
+   "note": "watchdog 01:58Z: DISPATCH CHECK re-evaluated both sessions (FINISHED, actions empty, no live subagents). Nothing to queue: 19:42Z td-124 queue was STALE (PR #197 merged 2026-09-29, board row 'done' 2026-10-01; main agent correctly popped it with no dispatch \u2014 do NOT re-queue). td-054 held (needs stronger multi-renderer host, do-not-redispatch-blindly), td-138 DISPATCH HELD (GT-R LM Nismo base mesh missing from repo), td-127 Claude session working, td-125 Codex task in flight (21:35Z), td-119 placement steer delivered 18:10Z, td-101 Astra owned. Classifications 11.5 min old (fresh), budget 0%."
+  },
+  {
+   "ts": "2026-10-02T13:29:03Z",
+   "note": "watchdog 2026-10-02 ~13:27Z: DISPATCH CHECK queued dispatch-codex td-142 (nitro-tap-steers, Craig phone QA, verified open/unowned on board + task file; no salvage) and dispatch-claude td-140 (80s-anime UI rework, 2026-10-01 dispatch delivered nothing \u2014 needs re-dispatch; visual brief template used). Both sessions FINISHED/idle, queue was empty, no live subagents. Recorded in session notes; do not double-dispatch."
+  },
+  "dispatch-codex td-142 popped 2026-10-02T13:30:27Z: NO_ACTION_DUPLICATE \u2014 main agent already dispatched a live Muse subagent on td-142 this turn (td-142 nitro fix + td-140 UI rework, spawned ~09:21 EDT). Delivering this entry would put two workers on the same task. Subagents recorded in main-agent context; next run must treat td-142 as owned.",
+  "dispatch-claude td-140 popped 2026-10-02T13:30:27Z: NO_ACTION_DUPLICATE \u2014 main agent already dispatched a live Muse subagent on td-140 this turn (td-142 nitro fix + td-140 UI rework, spawned ~09:21 EDT). Delivering this entry would put two workers on the same task. Subagents recorded in main-agent context; next run must treat td-140 as owned.",
+  "2026-10-02 11:16 EDT: popped screenshots/td-140/PR#273 \u2014 UI is merged-not-live, live-site capture would show the old UI; evidence already inspected from the merged godot/qa/td-140 triptychs by supervisor.",
+  "screenshots-pr273 popped 2026-10-02 11:16 EDT: PR #273 (td-140 UI) is merged-not-live, so live-site screenshots would show the old UI and prove nothing; supervisor already eyeballed all 7 mock|before|after triptychs from godot/qa/td-140 and evidence-audit is clean.",
+  "dispatch-codex td-143 popped 2026-10-02T19:35Z: task already owned by a main-agent-dispatched Muse subagent (working since 19:16Z, registered via register-worker). Watchdog's DISPATCH CHECK re-queued without seeing the direct dispatch; popping to avoid two workers on the same task. Subagent heartbeats in worker-heartbeats/td-143.json.",
+  "dispatch-claude td-144 popped 2026-10-02T19:35Z: task already owned by a main-agent-dispatched Muse subagent (working since 19:16Z, registered via register-worker). Watchdog's DISPATCH CHECK re-queued without seeing the direct dispatch; popping to avoid two workers on the same task. Subagent heartbeats in worker-heartbeats/td-144.json.",
+  {
+   "ts": "2026-10-02T20:27:00Z",
+   "note": "watchdog 20:27Z: DISPATCH CHECK held on td-119 (only viable candidate; td-101 board-owned by live Astra chat). Craig reverted the td-119 placement himself 2026-10-02T03:57Z (1d92e25): \"models fail realism check \u2014 tower looks nothing like the real thing, crossing placed on single street (should be four-way), storefront floats in air detached from building. Excluding from deploy.\" Scope reconciliation NEEDED before dispatch: (a) td-139 QA round 2 (PR #243 in_review, opened 09-30) already covers tower redo + tree lights + gantry clearance + side signs with triptych evidence \u2014 does its tower redo satisfy Craig's tower complaint? (b) crossing-four-way + storefront-attached-to-building are genuinely open rework per the standard triptych workflow (real photo -> 2D mock -> 3D screenshot). (c) board Owner cell still says \"Muse coordinator\" \u2014 no liveness signal since 10-01T20:40Z; do not double-staff. Held for main-agent/supervisor judgment, not blind dispatch. codex+claude both FINISHED/eligible, pending_actions empty."
+  },
+  "ALL-BLOCKED escalation SUPPRESSED 2026-10-03T02:41Z: both browser sessions LOGIN_BLOCKED, but liveness shows ALIVE subagent workers on td-137 (PR #282 split/merge rework) and td-101 (PR #292 vegetation kit v2 DO-NOT-MERGE), and td-119 owned by an active Muse coordinator. Spawning subagents on td-101/td-119 would duplicate live workers (forbidden). The escalation's premise (none WORKING) is false; work is progressing. Next run re-evaluates.",
+  "2026-10-04T21:56Z SUPPRESSION (JUDGMENT-ONLY override): dropped 9 queued dispatch-subagent replacements (td-157, td-158, td-163, td-164, td-165, td-168, td-172, td-173, td-174). Liveness proclaimed them DEAD on 'no heartbeat file', but the main agent holds direct, fresher aliveness evidence the script cannot see: runtime subagent monitor events within the last ~15 min show active tool calls for all 9 (Blender renders, Godot captures, script edits, preview generation). Dispatching replacements would violate never-two-workers-on-the-same-task. Workers re-registered below; main agent now maintains worker-heartbeats/<task>.json from observed monitor events.",
+  "2026-10-04T22:24Z SUPPRESSION: dropped queued [('dispatch-codex', 'td-170'), ('dispatch-claude', 'td-171')]. td-170 (PR #325) and td-171 (PR #327) are MERGED and validated; their board rows were reverted to 'open' by stale-base board merges (#261 at 20:59Z, then #265/#266 at 21:51-52Z). Dispatching workers to merged tasks would duplicate completed work. Board rows being repaired to validated via game-dev-central PR.",
+  "2026-10-05T16:35Z: dropped bogus dispatch-subagent entries for td-177/td-178 \u2014 liveness DEAD was a script 404 (queried /repos/tokyo-drift-3d/commits without owner). Direct verification: both workers alive (td-177 replacement dispatched 12:30Z after runtime killed first worker; td-178 worker completed PR #382, validator dispatched). Suppressing per JUDGMENT-ONLY override to avoid duplicate workers.",
+  "2026-10-05T16:55Z: popped 3 dispatch-subagent entries. td-177/td-178 SUPPRESSED per JUDGMENT-ONLY override \u2014 replacements already live (td-177 worker dispatched 16:30Z after runtime killed first worker; td-178 rework worker dispatched 16:37Z after validator FAIL; both running, confirmed via subagent list). td-160 DELIVERED \u2014 worker genuinely gone (~21h silent, PR #319 open since 2026-10-04T19:23Z with no images in body); replacement spawned with context migration to continue PR #319, registered.",
+  "dispatch-subagent td-160 validator popped 2026-10-05T17:50Z: main agent had already spawned the validator directly at ~17:41Z (before the 17:42 transitions flip queued this entry). Validator returned PASS, PR #319 squash-merged as 901d8046, closeout PRs #385 (task file) + #295 (board) merged. Entry moot \u2014 popping to prevent duplicate validator dispatch.",
+  "td-190 dispatch-subagent popped 2026-10-06T03:2xZ by main agent: BOGUS \u2014 the td-190 worker did NOT die; it completed successfully (PR #405 'td-190: GTA-like cop/wanted system' open, in_review, evidence mirrors HTTP 200 verified by main agent 23:1x EDT). The liveness 'dead' read was false (worker registry already empty = properly deregistered on completion). Re-dispatching an implementation worker onto a finished in-review task would duplicate work. Correct next step is the transitions validator for PR #405, not a replacement worker. Do NOT re-queue.",
+  "td-188 dispatch-subagent (validator brief) popped 2026-10-06T03:2xZ: validator subagent spawned with brief verbatim and registered as td-188-validator.",
+  "td-189-validator + td-190-validator popped 2026-10-06T03:4xZ: both validator subagents spawned with briefs verbatim and registered.",
+  "watchdog FALSE-DEAD SUPPRESSION td-195 (judgment-only override, 2026-10-06 ~12:41 EDT run): worker proclaimed DEAD 16:13:34Z after 2 quiet cycles (no heartbeat file), replacement dispatch-subagent queued. Direct fresher evidence the script couldn't see: worker pushed commit 4a499b53 'td-195: cop cars collide with world and vehicles; Tripo police asset' to branch td-195-cop-collision at 16:17:34Z (4 min AFTER the DEAD verdict), open PR #433 updated 16:23Z. Dropped the queued dispatch-subagent entry (no duplicate worker spawned); re-registered the worker to repair the liveness signal. Watch: still no heartbeat file \u2014 if it stays silent with no commits for 2 more cycles, the DEAD route refires legitimately. [td-195 queued dispatch-subagent entry dropped by cron worker]",
+  "dispatch-subagent td-192 popped 2026-10-08T07:48Z: replacement Muse subagent spawned by main agent (fresh start; dead worker's branch already on main, no unique commits). Do NOT re-dispatch td-192.",
+  "td-195 replacement dispatched 2026-10-09T07:2xZ by cron (Muse subagent, standard/M, brief state/liveness-briefs/td-195-20261009-071500.md; continues PR433 head 4a499b53). dispatch-subagent action marked executed \u2014 main agent must not duplicate.",
+  "screenshots td-192 PR #505 popped 2026-10-09T10:45Z: main-agent capture job completed \u2014 3 screenshots at ~/workspace/agent-watch/hidden_files/screenshots/td-192/ (td192-inspect-01/02/03.png) from main 3295d3a461, 3-cop pursuit staged via cops_max_active[3]=3 override, subagent verdict PASS vs three-cop criterion (min cop-cop 8.9-9.3m, box-in distributed on ring). Filed to Craig in chat.",
+  "dispatch-subagent td-245 popped 2026-10-11T00:51:17Z: NOT dispatched. Dot holds the td-245 lane ('td-245/td-217 lanes remain mine', inbox 2026-10-10T06:00Z, comment 6094460376; no release since). Coordination protocol: coordinate, never duplicate dot's lanes. Board status 'rework queued for worker' is not a Muse dispatch authorization while dot's claim stands. Re-queue only if dot releases the lane in the inbox.",
+  "2026-10-11T03:2xZ watchdog run: td-245 dispatch-subagent executed (replacement spawned+registered); action popped."
+ ],
+ "dropped": [
+  {
+   "dropped_at": "2026-09-25T12:02:10.394160+00:00",
+   "reason": "Stale duplicate of the td-029 steer (queued 11:29:28, no task_url, literal \\u2014 escapes). The same message was rewritten with task_url + PR #48 paragraph and delivered 12:00:14Z. Delivering this would duplicate the steer.",
+   "message_preview": "td-029 update: the fix you were dispatched on is ALREADY on main. Direct push 1610a75 (td-026/td-029: prebuild Shuto C1 "
+  },
+  {
+   "type": "screenshots",
+   "pr": 48,
+   "reason": "PR #48 changes not yet exported/published; live screenshots would show the old build. Re-queue after publish.",
+   "dropped_at": "2026-09-25T12:22:00+00:00"
+  },
+  {
+   "type": "nudge-codex",
+   "session": "codex:neon-drift",
+   "reason": "Superseded by the in-flight p3d-092 baseline steer (delivering now); a bare \"continue\" nudge against the same session would duplicate/conflict with it. Nudge guard re-arms on next classification if still stalled.",
+   "dropped_at": "2026-09-25T12:31:28.314036+00:00"
+  },
+  {
+   "type": "nudge-codex",
+   "session": "codex:neon-drift",
+   "reason": "decide fired NUDGE on the 12:11Z STALLED classification, but the in-flight p3d-092 baseline steer (queued 12:22:38Z, still pending delivery) specifically addresses this stall; a bare 'continue' nudge would duplicate/conflict with it. Same call as the 12:31Z drop. Nudge guard re-arms on next classification if still stalled and no steer pending.",
+   "dropped_at": "2026-09-25T12:48:00+00:00"
+  },
+  {
+   "type": "nudge-codex",
+   "session": "codex:neon-drift",
+   "reason": "decide fired NUDGE on the 12:11Z STALLED classification (p3d-092, draft PR #55, worker's last push 10:55Z docs-only), but the p3d-092 baseline steer (queued 12:22:38Z, still pending delivery ~35 min) specifically addresses this stall; a bare 'continue' nudge would duplicate/conflict with it. Same call as the 12:31Z/12:48Z drops. Nudge guard re-arms on next classification if still stalled and no steer pending.",
+   "dropped_at": "2026-09-25T12:58:00Z"
+  },
+  {
+   "type": "nudge-codex",
+   "session": "codex:neon-drift",
+   "reason": "decide fired NUDGE on the 12:11Z STALLED classification (p3d-092, draft PR #55 head d9096fa9, sole check-run CANCELLED 10:56Z with no verdict on latest head), but the p3d-092 baseline steer (queued 12:22:38Z, still pending delivery ~50 min) specifically addresses this stall; a bare 'continue' nudge would duplicate/conflict with it. Same call as the 12:31Z/12:48Z/12:58Z drops. Nudge guard re-arms on next classification if still stalled and no steer pending.",
+   "dropped_at": "2026-09-25T13:13:00Z"
+  },
+  {
+   "type": "nudge-codex",
+   "session": "codex:neon-drift",
+   "reason": "decide fired NUDGE on the 12:11Z STALLED classification (p3d-092, draft PR #55 head d9096fa9, sole check-run CANCELLED 10:56Z with no verdict), but the p3d-092 baseline steer (queued 12:22:38Z, still pending delivery ~65 min) specifically addresses this stall; a bare 'continue' nudge would duplicate/conflict with it. Same call as the 12:31Z/12:48Z/12:58Z/13:13Z drops. Nudge guard re-arms on next classification if still stalled and no steer pending.",
+   "dropped_at": "2026-09-25T13:30:00Z"
+  },
+  {
+   "type": "steer-codex",
+   "session": "codex:tokyo-drift-3d",
+   "reason": "Delivery FAILED 19:54Z: target task URL task_e_6ab629447900832e86bd94c68cf6ebb3 is stale/unreachable (infinite Loading spinner, 4 nav attempts; browser session valid). Correct td-042 task is task_e_6ab6665ce220832e86bd94c68cf6ebb3; corrected steer delivered via browser-task:6dd85390 (in flight since 19:15Z). Stale 18:37Z entry superseded \u2014 do not redeliver.",
+   "dropped_at": "2026-09-25T20:2xZ"
+  },
+  {
+   "type": "dispatch-codex",
+   "task": "p3d-088",
+   "session": "codex:neon-drift",
+   "reason": "POPPED 2026-09-27T~23:59Z by main agent: PR #52 (p3d-088 harbor snapshot refresh) already squash-merged 2026-09-27T20:58:25Z as b2aa9ab6; the queued brief's premise ('draft PR #52', rebase + re-run Browser CI) is stale/wrong. The 23:50Z post-merge Browser CI run 36360004498 (head 639a1582) shows ALL snapshot tests green (incl. harbor-desktop-linux.png) \u2014 the only failure was a marginal perf flake (bridge-exit CPU render p95 25.4ms vs <25ms budget), which a snapshot-refresh dispatch cannot fix. Board row updated to merged via game-dev-central PR. Do NOT re-queue p3d-088.",
+   "dropped_at": "2026-09-27T23:59Z"
+  },
+  {
+   "type": "dispatch-codex",
+   "task": "td-100",
+   "session": "codex:tokyo-drift-3d",
+   "reason": "DROPPED 2026-09-28T00:0xZ by main agent: duplicate of the EXISTING td-100 worker (task_e_6ab9a3b814b8832e8f06c48c89ca605c). Read-only classification 2026-09-27 23:58Z confirmed the existing worker is NOT blocked: the 23:39Z steer produced a completed 4m53s run that provisioned Blender 4.0.2 via apt, recorded the art-direction note, and pushed commit ba4adde on feat/td-100-blender-vehicles. Task intentionally left open for the modeling/evidence phase. Dispatching a second worker would duplicate live work. Do NOT re-queue td-100 unless the existing session goes stale/blocked.",
+   "dropped_at": "2026-09-28T00:05Z"
+  },
+  {
+   "dropped_at": "2026-10-09T08:45:42.024718+00:00",
+   "action": {
+    "type": "dispatch-subagent",
+    "task": "td-195",
+    "task_file": "godot/docs/tasks/td-195.md",
+    "repo": "doublehidenblade/tokyo-drift-3d",
+    "brief_file": "/home/hatch/workspace/agent-watch/state/liveness-briefs/td-195-20261009-061847.md",
+    "queued_at": "2026-10-09T06:18:47.722048+00:00",
+    "reason": "DEAD-equivalent: 61h since only heartbeat (predates registration; no branch/PR/task-file commits); liveness false-ALIVE on mass-annotation commit 9c96b92 (unrelated docs commit). Manual DEAD declaration per evidence.",
+    "executed": "2026-10-09T07:2xZ",
+    "executed_by": "cron worker: spawned Muse subagent directly (corrected brief with PR433 context migration: branch td-195-cop-collision @ 4a499b53); do NOT re-dispatch via main-agent handoff"
+   },
+   "reason": "Stale vs 2026-10-09 events: executed ~07:20Z (replacement shipped Tokyo PR #433, merged 07:25:08Z); 04:34 EDT inspector retracted the done-claim (verdict FAIL on completion: no 3-min pursuit evidence, cop floats ~5.4m over trench roads) with explicit no worker spawn (watchdog no-redispatch); defect brief PR #585 + report PR #586 opened instead; 07:48Z inbox answer preserved owners + no-redispatch stops; dot 08:30Z update requires explicit bounded repair/evidence plans by the existing owner before any stopped lane resumes. A fresh replacement now would duplicate/contradict the stopped-lane agreement."
+  }
+ ],
+ "history": [
+  {
+   "type": "dispatch-codex",
+   "session": "codex:neon-drift",
+   "task": "p3d-093",
+   "dispatched_session_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab6a2766ba0832eabed4ab632e7eed7",
+   "dispatched_at": "2026-09-25T16:34:52Z",
+   "status": "dispatched-and-running",
+   "note": null
+  },
+  {
+   "type": "dispatch-codex",
+   "session": "codex:neon-drift",
+   "task": "p3d-075",
+   "dispatched_session_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab820562e28832eb4c4c96f3f13eadc",
+   "dispatched_at": "2026-09-26T19:43:50Z",
+   "status": "dispatched-and-running",
+   "note": null
+  }
+ ],
+ "action_log": [
+  {
+   "ts": "2026-09-26T00:21:24Z",
+   "action": "pop",
+   "entry_type": "resume-codex",
+   "session": "codex:tokyo-drift-3d",
+   "reason": "Duplicate of in-flight main-agent retry on the same dead task (task_e_6ab70535a708832eb4d3f460c7d7ec7c, td-058 ping/pong, first setup failure). Also worker mislabeled it as td-057. Retry browser task already dispatched ~19:15Z; second recovery would risk double-retrying the same failed run.",
+   "by": "main-agent"
+  },
+  {
+   "ts": "2026-09-26T22:05:00Z",
+   "action": "dispatched",
+   "entry_type": "dispatch-codex",
+   "task": "p3d-083",
+   "session": "codex:neon-drift",
+   "reason": "Dispatched via main-agent browser task per watchdog handoff",
+   "by": "main-agent"
+  },
+  {
+   "ts": "2026-09-27T14:40:02.137152+00:00",
+   "action": "dispatched",
+   "entry_type": "dispatch-codex",
+   "task": "td-087",
+   "session": "codex:tokyo-drift-3d",
+   "reason": "Browser task created Codex task task_e_6ab92a15c2f0832ebf69c83053afffec (branch fix/td-087-race-entry); brief accepted verbatim; worker running",
+   "by": "main-agent"
+  },
+  {
+   "ts": "2026-09-27T14:55:05.122914+00:00",
+   "action": "dispatched",
+   "entry_type": "dispatch-codex",
+   "task": "p3d-082",
+   "session": "codex:neon-drift",
+   "reason": "Browser task created Codex task task_e_6ab92e0b4584832e950f638cc97ee714 (neon-drift/main); brief accepted verbatim; worker running",
+   "by": "main-agent"
+  },
+  {
+   "at": "2026-09-27T21:37:21Z",
+   "action": "pop dispatch-codex p3d-106 (creation confirmed)"
+  },
+  {
+   "at": "2026-09-27T21:52:55Z",
+   "action": "pop dispatch-codex todo122 (creation confirmed)"
+  }
+ ],
+ "retirements_2026-09-26T03:5xZ": [
+  {
+   "retired_at": "2026-09-26T03:55:00Z",
+   "entries": [
+    {
+     "type": "dispatch-codex",
+     "session": "codex:tokyo-drift-3d",
+     "task": "td-060",
+     "queued_at": "2026-09-26T01:15:30Z"
+    },
+    {
+     "type": "dispatch-codex",
+     "session": "codex:neon-drift",
+     "task": "p3d-092",
+     "queued_at": "2026-09-26T01:46:00Z"
+    },
+    {
+     "type": "dispatch-codex",
+     "session": "codex:neon-drift",
+     "task": "p3d-094",
+     "queued_at": "2026-09-26T02:12:00Z"
+    }
+   ],
+   "reason": "superseded by all-blocked escalation (03:05Z): Muse subagents already own td-060, p3d-092, p3d-094 with commits landing; target Codex sessions out of tokens. Delivery would duplicate workers on the same task files."
+  }
+ ],
+ "dispatched": [
+  {
+   "task": "td-078",
+   "type": "dispatch-codex",
+   "dispatched_at": "2026-09-27T02:13:24Z",
+   "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab87aa64f94832ea1e29ca906138beb",
+   "task_id": "task_e_6ab87aa64f94832ea1e29ca906138beb",
+   "branch": "fix/td-078-pickups",
+   "title_note": "Codex auto-titled 'Fix nitro and hearts pickups in multiplayer'; exact requested title could not be set (no rename control in UI)"
+  },
+  {
+   "task": "td-094",
+   "type": "dispatch-codex",
+   "dispatched_at": "2026-09-27T20:50:00Z",
+   "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab9812af208832eacf598002db40356",
+   "task_id": "task_e_6ab9812af208832eacf598002db40356",
+   "branch": "fix/td-094-input-overlay-size",
+   "title_note": "Codex auto-titled Fix input overlay size on mobile; brief accepted verbatim; worker running; Craig authorized immediate deploy after merge",
+   "by": "main-agent"
+  },
+  {
+   "task": "td-093",
+   "type": "dispatch-codex",
+   "dispatched_at": "2026-09-27T21:05:27Z",
+   "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab984efb650832e9f96ab1b8f8d0895",
+   "task_id": "task_e_6ab984efb650832e9f96ab1b8f8d0895",
+   "note": "new task in tokyo-drift-3d env alongside td-094 (untouched); auto-titled Fix guest client frozen at race start; brief verbatim; worker running",
+   "by": "main-agent"
+  },
+  {
+   "task": "p3d-097",
+   "type": "dispatch-codex",
+   "dispatched_at": "2026-09-27T21:05:38Z",
+   "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab985040b24832e85ce90428d7c0544",
+   "task_id": "task_e_6ab985040b24832e85ce90428d7c0544",
+   "note": "new task in neon-drift env; auto-titled Stabilize bridge-exit CPU p95 perf check; brief verbatim; worker running",
+   "by": "main-agent"
+  },
+  {
+   "task": "failover-steer-claude-tokyo",
+   "type": "steer-codex-NO_ACTION_WORKING-popped",
+   "dispatched_at": "2026-09-27T21:19:52.840074+00:00",
+   "note": "Popped without sending. Reasons: (1) sibling codex:tokyo-drift-3d is WORKING (td-094 task_e_6ab9812a + td-093 task_e_6ab984ef) \u2014 steer-codex hard rule forbids steering a working session; (2) failover brief is STALE \u2014 td-088, td-089, td-090 are all merged/closed, no stranded Claude work exists. Failover ledgered 21:12:28Z; no retry owed.",
+   "by": "main-agent"
+  },
+  {
+   "task": "screenshots-pr52",
+   "type": "screenshots-done",
+   "dispatched_at": "2026-09-27T21:20:57.955317+00:00",
+   "note": "Eyeballed committed baselines: old (df9af420) vs new (b2aa9ab) harbor-desktop-linux.png. Scene identical except HUD heart icons \u2014 old: 5 small dark-red glyphs; new: 5 larger bright-red hearts that read as hearts at size (matches Craig 2026-09-27 heart-icon correction). 0.7% px changed, confined to the HUD panel. Evidence audit passes: same scene/camera before/after pair.",
+   "by": "main-agent"
+  },
+  {
+   "task": "p3d-106",
+   "env": "neon-drift",
+   "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab98c185400832eaed660704565c932",
+   "codex_task_id": "task_e_6ab98c185400832eaed660704565c932",
+   "dispatched_at": "2026-09-27T21:37:21Z",
+   "brief_verbatim": true,
+   "title_note": "Codex auto-titled \"Refresh game snapshot for p3d-106\"; no rename control in UI"
+  },
+  {
+   "task": "todo122",
+   "env": "neon-drift",
+   "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6ab98f2e0694832ebe8cd7794590bb99",
+   "codex_task_id": "task_e_6ab98f2e0694832ebe8cd7794590bb99",
+   "dispatched_at": "2026-09-27T21:52:55Z",
+   "brief_verbatim": true,
+   "title_note": "Codex auto-titled \"Reconcile todo122 items with current main\"; no rename control in UI"
+  },
+  {
+   "task": "td-124",
+   "type": "dispatch-codex",
+   "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abeba05a2d8832ea72b0ae8291b7cfc",
+   "dispatched_at": "2026-10-01T19:53:42.585638+00:00"
+  }
+ ],
+ "dispatched_log": [
+  {
+   "task": "td-113",
+   "env": "tokyo-drift-3d",
+   "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abb1c6c004c832ebafe2976487b576a",
+   "dispatched_at": "2026-09-29T02:04:05Z",
+   "brief_verbatim": true,
+   "title_note": "Codex auto-titled 'Investigate rendering checkpoint failure'; task prompt header reads 'td-113 \u2014 smoke render-checkpoint evidence failure'"
+  },
+  {
+   "task": "td-054",
+   "env": "tokyo-drift-3d",
+   "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abd25a8a34c832ebb8646581adef1a9",
+   "codex_task_id": "task_e_6abd25a8a34c832ebb8646581adef1a9",
+   "dispatched_at": "2026-09-30T15:08:25Z",
+   "brief_verbatim": true,
+   "title_note": "Codex auto-titled 'Resume online multiplayer acceptance tests'; required title 'td-054 \u2014 2\u20134 player online multiplayer acceptance resume' placed as first line of prompt"
+  },
+  {
+   "task": "td-054-bridge",
+   "env": "tokyo-drift-3d",
+   "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abd2c6c95dc832e9cb3cb8322c77dd0",
+   "codex_task_id": "task_e_6abd2c6c95dc832e9cb3cb8322c77dd0",
+   "dispatched_at": "2026-09-30T15:39:51Z",
+   "brief_verbatim": true,
+   "title_note": "Codex auto-titled 'Inspect preparedness bridge for v31 live site'; no rename control in UI; brief body verbatim"
+  },
+  {
+   "task": "td-054-two-renderer",
+   "env": "tokyo-drift-3d",
+   "codex_task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abd3702e2a8832ebc86f7a13d9f8145",
+   "codex_task_id": "task_e_6abd3702e2a8832ebc86f7a13d9f8145",
+   "dispatched_at": "2026-09-30T16:20:30Z",
+   "brief_verbatim": true,
+   "title_note": "Codex auto-titled \"Verify dual WebGL2 renderer support\"; required title \"td-054 two-renderer acceptance\" as first line of prompt. Brief: smoke-test host can retain 2 simultaneous WebGL2 Godot renderers first; td-087 recheck first; then matrix. Fresh evidence PR, never merge, no Actions. WATCH: env setup showed empty git remotes."
+  }
+ ],
+ "delivered_dispatches": {
+  "td-125": {
+   "task_url": "https://chatgpt.com/codex/cloud/tasks/task_e_6abed1d0b670832eb8b8bf60685b9e93",
+   "dispatched_at": "2026-10-01T21:35:40Z",
+   "run_state_at_dispatch": "Thinking"
+  }
+ }
 }
