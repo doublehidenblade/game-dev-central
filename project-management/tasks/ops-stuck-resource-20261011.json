@@ -165,6 +165,11 @@
       "at": "2026-10-11T01:11:13Z",
       "by": "dot-stuck-resource-author",
       "entry": "Prepared the second and final PR466 registration correction for the independently reproduced canonical-plan omission finding. Declared a separately verified exact-plan collection prerequisite covering canonical, candidate-task and actual submitted plans, all nine non-check entries, strict input binding and fail-closed recollection. Included a local stdlib comparison/control recipe. The shared validator does not enforce this equality. Phase A/B, C1-C6, policies/plans, artifacts and implementation budget remain unchanged. No actual acknowledgment/authority/receipt, independent acceptance, executable implementation or denied-read retry. Local validation passed: embedded comparator 2 positive/55 negative controls, including all nine non-check entries; actual CLI 2 positive/10 negative checks with exit 0/1/2 and input hashes verified. Exact Phase A/B, C1-C6, policy/plan and write-scope preservation plus JSON/whitespace checks passed. These are comparison controls only, not engine admission or independent acceptance."
+    },
+    {
+      "at": "2026-10-11T01:34:44Z",
+      "by": "dot-stuck-resource-author",
+      "entry": "Same-task Phase A continuation after independently accepted PR466 source 82dddad2e1a1575db4d1abb815483015c84c5dff and merge 4a1320380c310fb92993b3bf760acb546cc3ab29. This task-record-only checkpoint supplies the open candidate PR/branch/head required for genuine supported scoped collection; it does not restart registration or alter the accepted grant. Fresh main e9766161c55c936e7e3ed663c0a74dd4b0a34013 changes only legacy state since the registration merge; current rule/task blobs are unchanged, the complete tree has no GitHub workflows and Pages is disabled. Independent authority/exact-plan equality receipt and fresh supported guard remain pending. Activation time and implementation deadline are unset; no executable implementation has started. Existing owner/status, C1-C6, evidence policies/plans, exact Phase A write scope, Phase B/live-adoption holds and implementation budget are preserved."
     }
   ],
   "verdict": null,
