@@ -2,9 +2,9 @@
   "id": "ops-stuck-resource-20261011",
   "title": "Persist stuck attempts, bound retries and admit work using actual executor resources",
   "status": "open",
-  "phase": "Owner registration and bounded executable-proof plan; implementation not started",
+  "phase": "Consolidated registration amendment in review; conditional Phase A offline proof only after recorded activation; Phase B and live adoption remain separate; no executable work started",
   "owner": "dot-stuck-resource-author",
-  "independent_reviewer": "dot-stuck-resource-reviewer (separate role; coordinator assigns and verifies before acceptance)",
+  "independent_reviewer": "dot-stuck-resource-reviewer — proposed separate role; actual independent principal and evidence are authenticated at admission",
   "ask": {
     "by": "Craig, relayed by the authorized coordinator",
     "date": "2026-10-11",
@@ -14,9 +14,9 @@
   "reference_images": [],
   "implementation_scope": {
     "registration_only": [
-      "This task JSON",
-      "One additive operational row in project-management/boards/tokyo-drift-3d.md",
-      "One public-role reservation in project-management/workers.md"
+      "This existing task JSON",
+      "Only this task's existing operational board row",
+      "Only this task's existing public-role registry row"
     ],
     "new_files": [
       "project-management/watchdog/attempt_ledger.py",
@@ -24,18 +24,30 @@
       "project-management/watchdog/test_attempt_ledger.py",
       "project-management/watchdog/test_resource_admission.py",
       "project-management/watchdog/test_operational_admission.py",
-      "project-management/watchdog/fixtures/operational-admission/"
+      "project-management/watchdog/fixtures/operational-admission/board-projection.json",
+      "project-management/watchdog/fixtures/operational-admission/broken-original.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/attempt-ledger.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/operational-admission.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/resource-admission.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-acceptance-isolation.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-coordinator.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-evidence.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-final-guards.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-hold-invariance.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-operation-needs.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-review.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-scoped.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-test-rules.json",
+      "project-management/watchdog/fixtures/operational-admission/phase-status.json",
+      "project-management/watchdog/fixtures/operational-admission/reservation-race.json",
+      "project-management/watchdog/fixtures/operational-admission/resource-observation.json",
+      "project-management/watchdog/fixtures/operational-admission/scope-preservation.diff",
+      "project-management/watchdog/fixtures/operational-admission/source-manifest.json",
+      "project-management/watchdog/fixtures/operational-admission/stop-cleanup-guidance.md"
     ],
-    "integration_regions": [
-      "coordinator.py validate/evaluate/revalidate",
-      "coordinator_cli.py supported run/dispatch-guard routes",
-      "scoped_admission.py query/inventory_digest/verify",
-      "watch.py supported CLI/imported-alias interception only",
-      "RUNBOOK.md and README.md new operational contract/usage sections",
-      "test_rules.py and test_scoped_admission.py fixture builders only if required for new ledger/resource inputs; retain existing behavioral assertions and independent probes"
-    ],
-    "canonical_row_projection": "After acceptance of the implementation, expose stuck_status, stuck_count, stuck_reason and ledger revision for every task row in both canonical central boards and central operational registrations. Missing history is unknown/null, never fabricated zero. Preserve all existing task status, owner, evidence, ordering and pause/freeze text; an operational metadata projection does not reactivate a task.",
-    "limits": "Registration is not implementation admission. Fresh source-bound admission and exact-region ownership reconciliation precede shared-file edits. Freeze exact fixture/helper paths and criterion source/check bindings before executable review. Existing evidence_policy.py and retained independent regression source/evidence remain unchanged; fixture migration cannot remove or weaken existing assertions.",
+    "integration_regions": "Phase B only: the exact predecessor regions listed in phase_b_successor_regions; each remains held until a narrow recorded handoff and fresh supported guard. Evidence source_paths are read bindings, not write grants.",
+    "canonical_row_projection": "Phase A builds and persists scratch projections for all canonical-row identities, retaining unknown/null history; it does not edit other live board rows. Phase B proves every-row coverage and owner/status/evidence preservation through offline output. Publishing live all-row metadata is part of separately activated live adoption, not a Phase A write grant or automatic acceptance claim.",
+    "limits": "Phase A may read existing pinned files but writes only the two new modules, three new tests and enumerated new evidence artifacts, plus this task's ordinary metadata/own board and registry row and its append-only coordinator-log entries. No executable helper or fixture outside the three named tests is admitted. Phase B may touch only handed-off regions; existing assertions, evidence_policy.py, accepted independent probes and foreign rows remain unchanged. No blanket ownership release follows a merge.",
     "excluded": [
       "Game source or denied gameplay reads/auth retries",
       "Legacy state/, queue, heartbeat or release-ledger writes",
@@ -51,7 +63,7 @@
     "Provide a read-only Linux resource sampler and deterministic admission decisions using executor identity, cgroup limits/usage, CPU quota/usage deltas, disk headroom and declared task/review budgets. Produce reviewable canonical-row metadata and stop/cleanup recommendations; perform no process killing or deletion."
   ],
   "ledger_contract": {
-    "state": "A new authoritative private project ledger, never the retired state/queue. Require a durable location and backend identity shared by participating sessions; a disposable workspace copy is not cross-session authority.",
+    "state": "Phase A uses explicit private scratch files for executable persistence/CAS proof. Live use requires a separately verified authoritative project backend durable across sessions; never use retired state/queue or call a disposable workspace copy authoritative. Missing live backend does not block offline proof.",
     "bound": "One initial recoverable failure plus one evidence-based correction; the second parks that operation/target, with no third. First auth/permission/explicit-stop denial parks immediately across executors/providers. Missing/stale/corrupt ledger or pending/uncertain reservation fails closed for the affected action; unrelated fully evidenced eligible work remains selectable.",
     "concurrency": "Bind decisions to ledger/backend revision; only one compare-and-swap reservation wins. Local locking proves one-host/shared-file atomicity only. No distributed guarantee or automatic live adoption is claimed.",
     "reset": "Append a substantive, evidenced resolution/reset event without erasing lifetime history. Success polls, new sessions, provider/model changes, renames, source changes and timeouts are not resets. Technical work cannot reset an auth/permission denial or explicit stop.",
@@ -94,14 +106,14 @@
     "provider_preference": "Selected Game-development environment for central-only work; no rerouting of denied gameplay operations",
     "requested_model": "gpt-6-astra",
     "requested_effort": "max",
-    "environment_and_tools": "Python 3.12.14 and central GitHub connector reads verified; standard-library implementation/tests in private scratch fixtures. No installation or gameplay engine required.",
+    "environment_and_tools": "Same selected environment recovered and rechecked 2026-10-11T00:46:16Z: Python 3.12.14, prior registration file, private scratch read/write/fsync, file locking and child-process execution verified. Central connector reads work. Standard-library proof and local metrics need no install or gameplay engine. Model/reviewer identity and capacity remain unconfirmed until setup verification.",
     "availability_checked": "2026-10-11: task catalog lists Astra/max; this author's selected/serving runtime identity and independent reviewer capacity are unconfirmed.",
     "fallback": "wait_for_required_tier",
     "attempt_budget": "After actual implementation activation: one initial attempt plus at most one evidence-based correction within two hours, reserving a separate independent review. Same recoverable failure twice parks; auth/permission denial stops immediately without another route.",
-    "escalation_criteria": "Unresolved existing owner, missing required setup or durable backend, denied access, unsafe write scope, repeated failure or exhausted bound: park the dependent action and report another independently eligible action.",
+    "escalation_criteria": "Phase A: new-path/own-task overlap, missing required setup, auth denial, unsafe scope, repeated failure or exhausted bound parks the dependent action. Historical shared-owner reconciliation and absent live backend hold Phase B/live adoption only. No weaker tier or denial workaround.",
     "verification_budget": "Reserve 45 minutes inside the two-hour implementation bound for tests/correction and up to one separate hour for independent frontier/max review; do not weaken gates to meet the clock.",
     "requested_versus_confirmed": "Astra/max is requested/catalog-supported, not serving-model attestation. Python and this executor's readable metrics are verified.",
-    "actual_outcome": "Registration only; executable proof, runtime adoption and independent acceptance pending. Model usage/billing unavailable."
+    "actual_outcome": "Consolidated documentation correction: schema/plan/link/preservation checks pass with nine rejecting negative controls; original C1-C6 and foreign owner rows retained. Environment ready for private standard-library proof subject to actual admission/setup. No implementation, live adoption, acknowledgment/authority fabrication or acceptance. Model usage/billing unavailable."
   },
   "preflight": {
     "central_base": "1893bae0f63410885792894a057c8b8a128019ab",
@@ -118,8 +130,24 @@
       "pressure_metrics": "not exposed",
       "native_vm_or_other_workers": "unobserved; this sample cannot establish their capacity"
     },
-    "implementation_limit": "No live collector/dispatcher is installed. The first proof uses only private temporary ledgers and mocked external/mutation routes; authoritative live storage/identity and actual coordinator adoption remain separate explicit prerequisites.",
-    "legacy_runtime_limit": "Main advanced during registration with changes only to legacy state/state.json and pending_actions.json, including a quiet-heartbeat replacement record. Preserve those bytes. Repository source changes in supported routes do not prove that an outside legacy scheduler uses them; installation/adoption or changes to a denied automation are not authorized here."
+    "implementation_limit": "Phase A is private executable proof only. Missing production backend does not block it. Shared integration and live adoption remain separately held; this amendment creates no live collector/dispatcher.",
+    "legacy_runtime_limit": "Main advanced during registration with changes only to legacy state/state.json and pending_actions.json, including a quiet-heartbeat replacement record. Preserve those bytes. Repository source changes in supported routes do not prove that an outside legacy scheduler uses them; installation/adoption or changes to a denied automation are not authorized here.",
+    "environment_recovery": {
+      "observed_at": "2026-10-11T00:46:16Z",
+      "same_environment": true,
+      "python": "3.12.14",
+      "private_scratch_read_write_fsync": true,
+      "prior_registration_file_present": true,
+      "model_runtime_attestation": "unconfirmed",
+      "task_or_worker_duplicate_created": false,
+      "file_lock_and_child_process": "verified using private scratch only",
+      "current_executor_limits": {
+        "cpu_quota_cores": 4,
+        "memory_limit_bytes": 17179869184,
+        "memory_current_bytes": 108167168
+      }
+    },
+    "coordinator_handoff_status": "Coordinator reports prior PR396/406/449/455/461 merged and 393 branches/103 open-PR file lists checked without a competing watchdog/RUNBOOK change; narrow prior-session/region reconciliation remains pending. Reported six predecessor blobs independently match current central main 1893bae0f63410885792894a057c8b8a128019ab. Merge is not ownership release."
   },
   "evidence": [],
   "work_log": [
@@ -127,6 +155,11 @@
       "at": "2026-10-11T00:23:04Z",
       "by": "dot-stuck-resource-author",
       "entry": "Read current central rules/board/owners, supported and retired routes, scoped proof hooks and trigger policy; checked own central access and bounded local resource signals. Prepared this minimal registration. No gameplay denied-read retry, executable edit, dispatch, process stop or cleanup performed."
+    },
+    {
+      "at": "2026-10-11T00:46:16Z",
+      "by": "dot-stuck-resource-author",
+      "entry": "Consolidated independent-review amendment: complete central rule inventory and C1-C6 policies/plans with exact helper/test sources and all retained check commands; conditional Phase A new-file proof, Phase B narrow handoff and live adoption separated. Same environment readiness verified; original criteria preserved. Actual acknowledgment/authority/admission and independent acceptance remain uncollected; no executable implementation or denied operation retried. Local schema-only checks using unchanged evidence_policy pure validators passed; nine negative controls reject missing inventory/policy/log/coverage, self-review, directory-only source, build mismatch, unbound probe and fabricated authority. Readiness locking/fsync/child execution passed. No admission receipt or independent verdict was generated."
     }
   ],
   "verdict": null,
@@ -134,7 +167,1076 @@
     "status": "pending_admission",
     "count": null,
     "count_scope": "Authoritative attempt ledger not yet established; missing history is not zero",
-    "reason": "Implementation has not started; normal admission and ownership reconciliation pending",
+    "reason": "Registration amendment awaits independent acceptance/merge and actual Phase A admission/setup; Phase B handoff and live backend are separate holds",
     "ledger_revision": null
+  },
+  "evidence_rule_inventory": [
+    {
+      "id": "central:COORDINATOR.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "COORDINATOR.md"
+    },
+    {
+      "id": "central:knowledge/standing-rules.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/standing-rules.md"
+    },
+    {
+      "id": "central:project-management/rules/SYSTEM.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/SYSTEM.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_BRIEF.md"
+    },
+    {
+      "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/VALIDATOR_BRIEF.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_SELECTION_POLICY.md"
+    },
+    {
+      "id": "central:project-management/rules/DURABILITY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/DURABILITY.md"
+    },
+    {
+      "id": "central:knowledge/workflow/game-dev-workflow.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/workflow/game-dev-workflow.md"
+    },
+    {
+      "id": "central:knowledge/brief-snippet.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/brief-snippet.md"
+    },
+    {
+      "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/EVIDENCE_POLICY.md"
+    },
+    {
+      "id": "central:project-management/watchdog/RUNBOOK.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/RUNBOOK.md"
+    },
+    {
+      "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md"
+    }
+  ],
+  "rule_scope_note": "All applicable centralized rules for this nonvisual, central-only task are enumerated above. Current exact commit/blob citations are collected at admission. No Tokyo/NEON source changes or denied gameplay reads are required or authorized. Current task/user boundaries retain no Actions/merge/deploy, no live state/queue writes and no quiet-heartbeat takeover; historical conflicting prose does not authorize those operations.",
+  "evidence_policy": {
+    "C1": {
+      "applicability": "required",
+      "rationale": "Required nonvisual coordinator criterion. Durable retry identity and complete canonical-row coverage. Phase A is partial; final evidence must cover every listed instance. No rendered/game/build/phone result is claimed.",
+      "rule_id": "central:project-management/rules/DURABILITY.md",
+      "instances": [
+        "durable-history-and-stable-identity",
+        "canonical-row-coverage-and-preservation",
+        "unknown-history-fails-closed"
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py",
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/boards/neon-drift.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "attempt-ledger",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_attempt_ledger.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "operational-admission",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_operational_admission.py",
+            "-v"
+          ]
+        }
+      ]
+    },
+    "C2": {
+      "applicability": "required",
+      "rationale": "Required nonvisual coordinator criterion. Two recoverable failures park; first denial stops; another independently eligible action remains available. Phase A is partial; final evidence must cover every listed instance. No rendered/game/build/phone result is claimed.",
+      "rule_id": "central:project-management/rules/WORKER_BRIEF.md",
+      "instances": [
+        "two-recoverable-failures-no-third",
+        "first-denial-stops-all-routes",
+        "failure-relabel-does-not-reset",
+        "unrelated-eligible-action-survives"
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "attempt-ledger",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_attempt_ledger.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "operational-admission",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_operational_admission.py",
+            "-v"
+          ]
+        }
+      ]
+    },
+    "C3": {
+      "applicability": "required",
+      "rationale": "Required nonvisual coordinator criterion. One durable reservation wins and stale decisions cannot dispatch. Phase A is partial; final evidence must cover every listed instance. No rendered/game/build/phone result is claimed.",
+      "rule_id": "central:project-management/watchdog/RUNBOOK.md",
+      "instances": [
+        "atomic-single-winner-reservation",
+        "restart-torn-write-and-uncertain-result",
+        "stale-revision-and-duplicate-attempt"
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "attempt-ledger",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_attempt_ledger.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "operational-admission",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_operational_admission.py",
+            "-v"
+          ]
+        }
+      ]
+    },
+    "C4": {
+      "applicability": "required",
+      "rationale": "Required nonvisual coordinator criterion. All supported aliases and scoped proofs enforce the same ledger/resource gates without weakening existing ownership/evidence rules. Phase A is partial; final evidence must cover every listed instance. No rendered/game/build/phone result is claimed.",
+      "rule_id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "instances": [
+        "supported-cli-and-imported-aliases",
+        "scoped-ledger-resource-bindings",
+        "retired-routes-remain-closed",
+        "retained-source-acceptance-and-owner-guards"
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "attempt-ledger",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_attempt_ledger.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "resource-admission",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_resource_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "operational-admission",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_operational_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "retained-coordinator",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_rules.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "retained-scoped",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_scoped_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "retained-evidence",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_evidence_policy.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "retained-test-rules",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_rules.py"
+          ]
+        },
+        {
+          "id": "retained-review",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_review.py"
+          ]
+        },
+        {
+          "id": "retained-acceptance-isolation",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+          ]
+        },
+        {
+          "id": "retained-final-guards",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_final_guards.py"
+          ]
+        },
+        {
+          "id": "retained-operation-needs",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_operation_needs.py"
+          ]
+        },
+        {
+          "id": "retained-hold-invariance",
+          "command": [
+            "python3",
+            "project-management/watchdog/test_coordinator_hold_invariance.py"
+          ]
+        }
+      ]
+    },
+    "C5": {
+      "applicability": "required",
+      "rationale": "Required nonvisual coordinator criterion. Resource admission measures the actual executor and stops resource churn without inventing capacity. Phase A is partial; final evidence must cover every listed instance. No rendered/game/build/phone result is claimed.",
+      "rule_id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+      "instances": [
+        "actual-executor-not-host-or-foreign-capacity",
+        "quota-memory-disk-and-budget-admission",
+        "missing-stale-and-reset-signals",
+        "read-only-local-observation"
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "resource-admission",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_resource_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "operational-admission",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_operational_admission.py",
+            "-v"
+          ]
+        }
+      ]
+    },
+    "C6": {
+      "applicability": "required",
+      "rationale": "Required nonvisual coordinator criterion. Safe stopping/cleanup guidance and an independent exact-head result. Phase A is partial; final evidence must cover every listed instance. No rendered/game/build/phone result is claimed.",
+      "rule_id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+      "instances": [
+        "churn-requires-positive-evidence",
+        "quiet-and-foreign-workers-preserved",
+        "no-kill-delete-or-dirty-work-loss",
+        "partial-phase-and-independent-review-truth"
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py",
+        "project-management/watchdog/README.md",
+        "project-management/watchdog/RUNBOOK.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "resource-admission",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_resource_admission.py",
+            "-v"
+          ]
+        },
+        {
+          "id": "operational-admission",
+          "command": [
+            "python3",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "project-management/watchdog",
+            "-p",
+            "test_operational_admission.py",
+            "-v"
+          ]
+        }
+      ]
+    }
+  },
+  "plans": {
+    "C1": {
+      "method": "Run test_attempt_ledger.py against restart/cross-session, alias/rename/provider/SHA changes, duplicate result IDs and full real-board-format inventories. Every task row projects status/count/reason/revision; malformed or missing history stays unknown. Compare all pre-existing owner/status/evidence cells byte-for-byte. Builders, child-process entrypoints, baseline controls and mocks reside only in the three named new test files. Capture actual output/failures at the tested full source head; commands are planned, not claimed run. Full coverage and Phase B checks remain pending during Phase A.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/attempt-ledger.json",
+          "type": "log",
+          "check_id": "attempt-ledger"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/operational-admission.json",
+          "type": "log",
+          "check_id": "operational-admission"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/board-projection.json",
+          "type": "document"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/source-manifest.json",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py",
+        "project-management/boards/tokyo-drift-3d.md",
+        "project-management/boards/neon-drift.md"
+      ],
+      "build": null,
+      "coverage": [
+        "durable-history-and-stable-identity",
+        "canonical-row-coverage-and-preservation",
+        "unknown-history-fails-closed"
+      ],
+      "reviewer_id": "dot-stuck-resource-reviewer"
+    },
+    "C2": {
+      "method": "Actual CLI negative controls cover first failure, one changed correction, second failure and rejected third reservation; family relabelling, unknown result, protected denial/reset, task-specific scope and unrelated eligible selection. Retain the failing-original control. Builders, child-process entrypoints, baseline controls and mocks reside only in the three named new test files. Capture actual output/failures at the tested full source head; commands are planned, not claimed run. Full coverage and Phase B checks remain pending during Phase A.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/attempt-ledger.json",
+          "type": "log",
+          "check_id": "attempt-ledger"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/operational-admission.json",
+          "type": "log",
+          "check_id": "operational-admission"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/broken-original.json",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py"
+      ],
+      "build": null,
+      "coverage": [
+        "two-recoverable-failures-no-third",
+        "first-denial-stops-all-routes",
+        "failure-relabel-does-not-reset",
+        "unrelated-eligible-action-survives"
+      ],
+      "reviewer_id": "dot-stuck-resource-reviewer"
+    },
+    "C3": {
+      "method": "Use concurrent independent processes on a private scratch ledger, CAS revision races, duplicate IDs, interrupted/torn write and restart/reconciliation controls. Missing or uncertain reservations never permit replacement dispatch. Exercise reserve/result/reset commands, not compilation only. Builders, child-process entrypoints, baseline controls and mocks reside only in the three named new test files. Capture actual output/failures at the tested full source head; commands are planned, not claimed run. Full coverage and Phase B checks remain pending during Phase A.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/attempt-ledger.json",
+          "type": "log",
+          "check_id": "attempt-ledger"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/operational-admission.json",
+          "type": "log",
+          "check_id": "operational-admission"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/reservation-race.json",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py"
+      ],
+      "build": null,
+      "coverage": [
+        "atomic-single-winner-reservation",
+        "restart-torn-write-and-uncertain-result",
+        "stale-revision-and-duplicate-attempt"
+      ],
+      "reviewer_id": "dot-stuck-resource-reviewer"
+    },
+    "C4": {
+      "method": "Run test_operational_admission.py plus reviewed existing coordinator/scoped/evidence/hold-isolation suites with network and mutation routes mocked/disabled. Cover CLI and imported aliases, omitted/stale inputs and retired register-worker/queue-action; prove no legacy state mutation and no alternate automation path. Builders, child-process entrypoints, baseline controls and mocks reside only in the three named new test files. Capture actual output/failures at the tested full source head; commands are planned, not claimed run. Full coverage and Phase B checks remain pending during Phase A.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/attempt-ledger.json",
+          "type": "log",
+          "check_id": "attempt-ledger"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/resource-admission.json",
+          "type": "log",
+          "check_id": "resource-admission"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/operational-admission.json",
+          "type": "log",
+          "check_id": "operational-admission"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/retained-coordinator.json",
+          "type": "log",
+          "check_id": "retained-coordinator"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/retained-scoped.json",
+          "type": "log",
+          "check_id": "retained-scoped"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/retained-evidence.json",
+          "type": "log",
+          "check_id": "retained-evidence"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/retained-test-rules.json",
+          "type": "log",
+          "check_id": "retained-test-rules"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/retained-review.json",
+          "type": "log",
+          "check_id": "retained-review"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/retained-acceptance-isolation.json",
+          "type": "log",
+          "check_id": "retained-acceptance-isolation"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/retained-final-guards.json",
+          "type": "log",
+          "check_id": "retained-final-guards"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/retained-operation-needs.json",
+          "type": "log",
+          "check_id": "retained-operation-needs"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/retained-hold-invariance.json",
+          "type": "log",
+          "check_id": "retained-hold-invariance"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/scope-preservation.diff",
+          "type": "diff"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py",
+        "project-management/watchdog/test_rules.py",
+        "project-management/watchdog/test_scoped_admission.py",
+        "project-management/watchdog/test_evidence_policy.py",
+        "project-management/watchdog/test_coordinator_review.py",
+        "project-management/watchdog/test_coordinator_acceptance_isolation.py",
+        "project-management/watchdog/test_coordinator_final_guards.py",
+        "project-management/watchdog/test_coordinator_operation_needs.py",
+        "project-management/watchdog/test_coordinator_hold_invariance.py"
+      ],
+      "build": null,
+      "coverage": [
+        "supported-cli-and-imported-aliases",
+        "scoped-ledger-resource-bindings",
+        "retired-routes-remain-closed",
+        "retained-source-acceptance-and-owner-guards"
+      ],
+      "reviewer_id": "dot-stuck-resource-reviewer"
+    },
+    "C5": {
+      "method": "Run test_resource_admission.py with quota-vs-host, missing/stale/wrong-executor, low-memory/disk, exhausted budget, counter reset/restart and mixed eligible-work controls; record a read-only sample from the selected executor. Unknown native/cloud/model quota remains unknown; no container-to-native capacity inference. Builders, child-process entrypoints, baseline controls and mocks reside only in the three named new test files. Capture actual output/failures at the tested full source head; commands are planned, not claimed run. Full coverage and Phase B checks remain pending during Phase A.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/resource-admission.json",
+          "type": "log",
+          "check_id": "resource-admission"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/operational-admission.json",
+          "type": "log",
+          "check_id": "operational-admission"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/resource-observation.json",
+          "type": "document"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py"
+      ],
+      "build": null,
+      "coverage": [
+        "actual-executor-not-host-or-foreign-capacity",
+        "quota-memory-disk-and-budget-admission",
+        "missing-stale-and-reset-signals",
+        "read-only-local-observation"
+      ],
+      "reviewer_id": "dot-stuck-resource-reviewer"
+    },
+    "C6": {
+      "method": "Tests require sustained repeated-operation/no-progress plus budget/resource evidence before recommending a stop; quiet heartbeat alone and Muse/foreign ownership cannot qualify. Preserve source, evidence and dirty work. Collector/proof contains no kill/unlink/cleanup execution. Separate reviewer inspects actual commands, negative controls, source diff and limits before acceptance. Builders, child-process entrypoints, baseline controls and mocks reside only in the three named new test files. Capture actual output/failures at the tested full source head; commands are planned, not claimed run. Full coverage and Phase B checks remain pending during Phase A.",
+      "artifacts": [
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/resource-admission.json",
+          "type": "log",
+          "check_id": "resource-admission"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/execution/operational-admission.json",
+          "type": "log",
+          "check_id": "operational-admission"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/stop-cleanup-guidance.md",
+          "type": "document"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/phase-status.json",
+          "type": "document"
+        },
+        {
+          "path": "project-management/watchdog/fixtures/operational-admission/scope-preservation.diff",
+          "type": "diff"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/attempt_ledger.py",
+        "project-management/watchdog/resource_admission.py",
+        "project-management/watchdog/coordinator.py",
+        "project-management/watchdog/coordinator_cli.py",
+        "project-management/watchdog/scoped_admission.py",
+        "project-management/watchdog/watch.py",
+        "project-management/watchdog/evidence_policy.py",
+        "project-management/watchdog/test_attempt_ledger.py",
+        "project-management/watchdog/test_resource_admission.py",
+        "project-management/watchdog/test_operational_admission.py",
+        "project-management/watchdog/README.md",
+        "project-management/watchdog/RUNBOOK.md"
+      ],
+      "build": null,
+      "coverage": [
+        "churn-requires-positive-evidence",
+        "quiet-and-foreign-workers-preserved",
+        "no-kill-delete-or-dirty-work-loss",
+        "partial-phase-and-independent-review-truth"
+      ],
+      "reviewer_id": "dot-stuck-resource-reviewer"
+    }
+  },
+  "phase_a": {
+    "grant": "After this exact amended registration receives independent acceptance and is merged, the supported current admission/guard passes for Phase A's new-file-only operation, new-file/own-row ownership and setup are freshly verified, and the coordinator records activation, the named author is conditionally authorized to implement Phase A without another unspecified proposal.",
+    "write_paths": [
+      "project-management/watchdog/attempt_ledger.py",
+      "project-management/watchdog/resource_admission.py",
+      "project-management/watchdog/test_attempt_ledger.py",
+      "project-management/watchdog/test_resource_admission.py",
+      "project-management/watchdog/test_operational_admission.py",
+      "project-management/watchdog/fixtures/operational-admission/board-projection.json",
+      "project-management/watchdog/fixtures/operational-admission/broken-original.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/attempt-ledger.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/operational-admission.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/resource-admission.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-acceptance-isolation.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-coordinator.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-evidence.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-final-guards.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-hold-invariance.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-operation-needs.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-review.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-scoped.json",
+      "project-management/watchdog/fixtures/operational-admission/execution/retained-test-rules.json",
+      "project-management/watchdog/fixtures/operational-admission/phase-status.json",
+      "project-management/watchdog/fixtures/operational-admission/reservation-race.json",
+      "project-management/watchdog/fixtures/operational-admission/resource-observation.json",
+      "project-management/watchdog/fixtures/operational-admission/scope-preservation.diff",
+      "project-management/watchdog/fixtures/operational-admission/source-manifest.json",
+      "project-management/watchdog/fixtures/operational-admission/stop-cleanup-guidance.md"
+    ],
+    "helper_binding": "All synthetic fixtures, fault injection, concurrent child entrypoints, forbidden-I/O mocks and broken-baseline builders are inside test_attempt_ledger.py, test_resource_admission.py or test_operational_admission.py. Existing test/production files are read-only inputs. No directory-only executable/helper binding. New test builders do not import predecessor test fixtures; their phase-specific mocks and builders stay in the new tests. Phase B's retained suites independently exercise their own unchanged helpers.",
+    "proof_boundary": "Private scratch ledgers, mocked network/dispatch/mutation routes and read-only local resource sampling only. No real worker dispatch, live ledger write, installation, process signal or cleanup execution. Ledger persistence/concurrency evidence is across local processes/restarts, not a deployed cross-host guarantee.",
+    "unblocked_by": "Unresolved historical shared-region ownership and absent production durable backend do not block this disjoint new-file proof. Phase A reconciles only its own task/new paths; it does not assume old owners are dead or released.",
+    "completion_limit": "Partial implementation only. Keep C1-C6 required and unchanged. Phase A can produce ledger/resource and isolated-test evidence but cannot claim integrated C4, live canonical-row deployment, live scheduler adoption or final acceptance. Later source changes invalidate evidence according to the unchanged policy."
+  },
+  "phase_b_successor_regions": [
+    {
+      "path": "project-management/watchdog/coordinator.py",
+      "observed_blob": "fe791a54a76eb793b97c44b9036b6f00170974b3",
+      "region": "Imports required by ledger/resource gates; validate ledger/resource input shape, evaluate additional eligibility and receipt fields, revalidate revision/resource binding only. Preserve existing source/acceptance/owner/hold decisions.",
+      "handoff": "pending exact coordinator reconciliation; observation/merge is not release"
+    },
+    {
+      "path": "project-management/watchdog/coordinator_cli.py",
+      "observed_blob": "16be941f65f6e546d330435975fb2124ef339c88",
+      "region": "run parser and supported plan/guard routing for explicit ledger/resource inputs/reservations only. Preserve RETIRED set, run_evidence and fail-closed exit semantics.",
+      "handoff": "pending exact coordinator reconciliation; observation/merge is not release"
+    },
+    {
+      "path": "project-management/watchdog/scoped_admission.py",
+      "observed_blob": "469d9c1b359325b0ec1a1c60d17a101603083c2f",
+      "region": "query, inventory_digest and verify additions for ledger/resource identity, inventory, freshness and revision only. Preserve prior v1/v2 composition and foreign-context proof semantics.",
+      "handoff": "pending exact coordinator reconciliation; observation/merge is not release"
+    },
+    {
+      "path": "project-management/watchdog/watch.py",
+      "observed_blob": "122025514084dbf6dcf4eb76d946757111a05d89",
+      "region": "Supported coordinator import/CLI interception and _coordinator_command adapter only if necessary. Preserve legacy quarantine, evidence wrappers, retired routes, dispatch-model and flagship-waiting behavior.",
+      "handoff": "pending exact coordinator reconciliation; observation/merge is not release"
+    },
+    {
+      "path": "project-management/watchdog/test_rules.py",
+      "observed_blob": "c36e51b50dbd8c95f0e84fac75c78cb2b6842b0c",
+      "region": "coordinator_fixture and coordinator_seal input builders only if new required fields need migration; preserve all assertions, coordinator_forbid_io and other test bodies.",
+      "handoff": "pending exact coordinator reconciliation; observation/merge is not release"
+    },
+    {
+      "path": "project-management/watchdog/test_scoped_admission.py",
+      "observed_blob": "397330c20590589adf1c08112a3b0e8cd6a93f76",
+      "region": "seal, docs_case and runtime_case input builders only if required; preserve all assertions, tests, historical proof controls and independent evidence.",
+      "handoff": "pending exact coordinator reconciliation; observation/merge is not release"
+    },
+    {
+      "path": "project-management/watchdog/RUNBOOK.md",
+      "observed_blob": "e90c226df5d17f39fd6f878dbb61c68f754982e8",
+      "region": "Supported coordinator contract/usage additions and one new operational section; no game-admission, historical-owner or accepted-evidence rewrite.",
+      "handoff": "pending exact coordinator reconciliation"
+    },
+    {
+      "path": "project-management/watchdog/README.md",
+      "observed_blob": "4a6b6b7705cc01aa103b2b7c748819a35821dd3d",
+      "region": "New module/command entries and explicit offline/live limitations only.",
+      "handoff": "pending exact coordinator reconciliation"
+    }
+  ],
+  "phase_b": {
+    "grant": "Shared integration activates only after the coordinator records exact predecessor path/blob/region handoff, current required source-bound admission/guard and setup, within the same original attempt/deadline budget. Phase A acceptance alone does not release these regions.",
+    "status": "held for exact successor-region handoff; no shared executable/RUNBOOK edits in this amendment or Phase A",
+    "required_checks": [
+      {
+        "id": "attempt-ledger",
+        "command": [
+          "python3",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "project-management/watchdog",
+          "-p",
+          "test_attempt_ledger.py",
+          "-v"
+        ]
+      },
+      {
+        "id": "resource-admission",
+        "command": [
+          "python3",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "project-management/watchdog",
+          "-p",
+          "test_resource_admission.py",
+          "-v"
+        ]
+      },
+      {
+        "id": "operational-admission",
+        "command": [
+          "python3",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "project-management/watchdog",
+          "-p",
+          "test_operational_admission.py",
+          "-v"
+        ]
+      },
+      {
+        "id": "retained-coordinator",
+        "command": [
+          "python3",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "project-management/watchdog",
+          "-p",
+          "test_rules.py",
+          "-v"
+        ]
+      },
+      {
+        "id": "retained-scoped",
+        "command": [
+          "python3",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "project-management/watchdog",
+          "-p",
+          "test_scoped_admission.py",
+          "-v"
+        ]
+      },
+      {
+        "id": "retained-evidence",
+        "command": [
+          "python3",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "project-management/watchdog",
+          "-p",
+          "test_evidence_policy.py",
+          "-v"
+        ]
+      },
+      {
+        "id": "retained-test-rules",
+        "command": [
+          "python3",
+          "project-management/watchdog/test_rules.py"
+        ]
+      },
+      {
+        "id": "retained-review",
+        "command": [
+          "python3",
+          "project-management/watchdog/test_coordinator_review.py"
+        ]
+      },
+      {
+        "id": "retained-acceptance-isolation",
+        "command": [
+          "python3",
+          "project-management/watchdog/test_coordinator_acceptance_isolation.py"
+        ]
+      },
+      {
+        "id": "retained-final-guards",
+        "command": [
+          "python3",
+          "project-management/watchdog/test_coordinator_final_guards.py"
+        ]
+      },
+      {
+        "id": "retained-operation-needs",
+        "command": [
+          "python3",
+          "project-management/watchdog/test_coordinator_operation_needs.py"
+        ]
+      },
+      {
+        "id": "retained-hold-invariance",
+        "command": [
+          "python3",
+          "project-management/watchdog/test_coordinator_hold_invariance.py"
+        ]
+      }
+    ],
+    "preservation": "Keep PR143 visual-rule hunks, PR451/349/350 other registry/log rows, all prior accepted behavior/evidence and protected gameplay owners. Whole-file ownership and released prior sessions must never be inferred from merged PRs."
+  },
+  "live_adoption": {
+    "status": "not activated; independent of offline proof readiness",
+    "prerequisites": "A verified durable shared project backend identity, measured actual executor identities, accepted integrated source, current authorization/owner/guard receipts, coordinator integration and documented rollout are required before live use. Local scratch is not the authoritative backend.",
+    "boundary": "No current grant to install a daemon, change an automation, mutate live ledgers/queues, dispatch workers, publish broad board metadata, signal processes or delete files. Preserve the original C1-C6 and record which live requirements remain unverified."
+  },
+  "activation_record": {
+    "required_fields": [
+      "task_id",
+      "accepted_registration_pr",
+      "accepted_registration_head",
+      "registration_merge",
+      "phase",
+      "author_id",
+      "operation",
+      "write_paths_or_successor_regions",
+      "predecessor_blob_pins",
+      "ownership_observations",
+      "admission_receipt",
+      "guard_receipt",
+      "verified_setup",
+      "reviewer_id",
+      "reviewer_budget",
+      "started_at_utc",
+      "deadline_utc"
+    ],
+    "record_locations": [
+      "project-management/coordinator-log.md (one append-only entry for this task)",
+      "project-management/tasks/ops-stuck-resource-20261011.json (work_log/activation metadata)",
+      "project-management/boards/tokyo-drift-3d.md (own row only)",
+      "project-management/workers.md (own row only)"
+    ],
+    "timing": "Record actual T0 and T0+2h before the first executable edit, one initial attempt plus at most one evidence-based correction across both phases; phase switch, disconnect, source/session/model/provider changes or time spent on a block never reset the bound. Reserve distinct independent review. Stop immediately on auth/permission denial; do not reroute."
+  },
+  "admission_collection": {
+    "status": "not collected; no author acknowledgment, authority packet, receipt or acceptance is fabricated by this registration",
+    "author_acknowledgment": "At activation the actual named author reads and acknowledges every current rule with exact repository/commit/path/blob citations. This prose and schema check are not acknowledgment.",
+    "independent_authority": "Coordinator independently authenticates current task/rule heads, actual author/reviewer identities, stops, phase write grant and owners, all findings/decisions and collection provenance. Never copy a synthetic test authority into a live packet.",
+    "plans": "Copy the independently accepted task.plans without narrowing source/instance/check/artifact coverage; bind the actual independent reviewer principal to the planned role, or amend the plan before admission if the identity differs. No planned artifact is evidence until actually executed/inspected.",
+    "gate": "Use unchanged evidence_policy admission plus the supported current coordinator plan/guard. A missing or failing actual gate stops the dependent action; schema-only validation is not ADMISSIBLE.",
+    "final_evidence": "Actual execution JSON uses check_id, command, exit_code, output, source_head, build, performed_at and actor_id with authenticated observations. Preserve raw failures and negative controls. Each planned artifact and instance must be accounted for; C4 requires the three new suites, four retained suite invocations and five independent probes. Distinct reviewer supplies the exact-head criterion verdict; the author never self-accepts."
   }
 }
