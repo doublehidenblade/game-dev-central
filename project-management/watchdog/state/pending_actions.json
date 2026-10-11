@@ -4,6 +4,11 @@
    "type": "note",
    "text": "2026-10-09T21:25Z watchdog run: td-249 CANDIDATE but annotation says DO NOT auto-dispatch (LOW backlog) \u2014 no dispatch. td-245 re-validator subagent dispatched on dot 21:00Z findings (6-point checklist vs PR #627/td-245.md); matched-frame fix preserved, readiness-gated production-arc evidence + matched_run.log required. Coordinator bundle adopted: 7 files synced from game-dev-central main @0920f219 (central PR #449); RUNBOOK/README pre-adoption backups in hidden_files/runbook-backup-20261009/; watch.py untouched.",
    "queued_at": "2026-10-09T21:30:25.937454+00:00"
+  },
+  {
+   "type": "screenshots",
+   "session": "td-250",
+   "pr": 675
   }
  ],
  "notes": [
