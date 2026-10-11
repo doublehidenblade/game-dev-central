@@ -1,0 +1,173 @@
+{
+  "version": 1,
+  "observed_at": "2026-10-09T17:21:45.718Z",
+  "rule_heads": {
+    "doublehidenblade/tokyo-drift-3d": "8a4e146804e9e8c3b1d3667e64f983a0a2dc64ed",
+    "doublehidenblade/game-dev-central": "551655f26ce45c55686079507d1d85f421ab3442"
+  },
+  "rules": [
+    {
+      "id": "central:project-management/rules/DURABILITY.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "project-management/rules/DURABILITY.md",
+        "blob": "11d159e403d88c292a8051e3d7589b1ab9af72df"
+      }
+    },
+    {
+      "id": "central:project-management/rules/WORKER_BRIEF.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "project-management/rules/WORKER_BRIEF.md",
+        "blob": "95dc23587561489931e897f9a58c7be0c2202e7d"
+      }
+    },
+    {
+      "id": "central:knowledge/workflow/game-dev-workflow.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "knowledge/workflow/game-dev-workflow.md",
+        "blob": "9d3b278c9b71e213d59874c5a56498630d14fc74"
+      }
+    },
+    {
+      "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md",
+        "blob": "bc5f07fbd9d2a331b01d7ee4a8c142d399fcd4e1"
+      }
+    },
+    {
+      "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "project-management/rules/WORKER_SELECTION_POLICY.md",
+        "blob": "343d3e3f8db6976789d4a631ca38619b6c27dc0e"
+      }
+    },
+    {
+      "id": "central:COORDINATOR.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "COORDINATOR.md",
+        "blob": "58786d160ad1bc509a7ee74df030988056389308"
+      }
+    },
+    {
+      "id": "central:knowledge/standing-rules.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "knowledge/standing-rules.md",
+        "blob": "01b19a267622992cbe7713f856e2c2bcf87b1e50"
+      }
+    },
+    {
+      "id": "central:project-management/rules/SYSTEM.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "project-management/rules/SYSTEM.md",
+        "blob": "08226c75366dfa25133fcd058477b4b854febaf2"
+      }
+    },
+    {
+      "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "project-management/rules/VALIDATOR_BRIEF.md",
+        "blob": "405469fad99355eb23b01551c92c0c74693e75fe"
+      }
+    },
+    {
+      "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "project-management/watchdog/EVIDENCE_POLICY.md",
+        "blob": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe"
+      }
+    },
+    {
+      "id": "central:knowledge/brief-snippet.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "knowledge/brief-snippet.md",
+        "blob": "54efe155ef96ac54e1d68008bd578d1a966e943e"
+      }
+    },
+    {
+      "id": "central:project-management/watchdog/RUNBOOK.md",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "551655f26ce45c55686079507d1d85f421ab3442",
+        "path": "project-management/watchdog/RUNBOOK.md",
+        "blob": "b4ea0683ea8fc8219828c7a78c6965af77a74348"
+      }
+    },
+    {
+      "id": "tokyo:AGENTS.md",
+      "ref": {
+        "repository": "doublehidenblade/tokyo-drift-3d",
+        "commit": "8a4e146804e9e8c3b1d3667e64f983a0a2dc64ed",
+        "path": "AGENTS.md",
+        "blob": "0c13fa62327dd6532621a318e7a4920682b2809a"
+      }
+    },
+    {
+      "id": "tokyo:README.md",
+      "ref": {
+        "repository": "doublehidenblade/tokyo-drift-3d",
+        "commit": "8a4e146804e9e8c3b1d3667e64f983a0a2dc64ed",
+        "path": "README.md",
+        "blob": "f8ef49023683a156334878e3ccc7218ca7965285"
+      }
+    }
+  ],
+  "task_ref": {
+    "repository": "doublehidenblade/game-dev-central",
+    "commit": "cd252d15a910065deb3c53129d9a6680feee94e2",
+    "path": "project-management/tasks/td-218-docs-admission.json",
+    "blob": "647018cf85e512012e8284c8eeccb6f0d12a9c6a"
+  },
+  "candidate": {
+    "repository": "doublehidenblade/game-dev-central",
+    "implementation_head": "cd252d15a910065deb3c53129d9a6680feee94e2",
+    "artifact_head": "0abe43e01f4186f5ce480aba9c0bd32ae105cb6e"
+  },
+  "principals": {
+    "author": "/root/register_recovery_guidance_substage",
+    "coordinator": "/root",
+    "reviewer": "/root/review_guidance_admission_proposals",
+    "human": null
+  },
+  "owner_id": "/root/register_recovery_guidance_substage",
+  "status": "in_review",
+  "stopped": false,
+  "exclusions": {},
+  "attestations": [
+    {
+      "kind": "review",
+      "ref": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "0abe43e01f4186f5ce480aba9c0bd32ae105cb6e",
+        "path": "project-management/tasks/td-218-docs-admission/review.json",
+        "blob": "33a3994611b09491a5523dbfc4a278211b4f6544"
+      },
+      "actor_id": "/root/review_guidance_admission_proposals",
+      "observed_at": "2026-10-09T17:20:21.872Z",
+      "provenance": "Parent /root authenticated distinct reviewer identity via direct collaboration results, confirmed 2026-10-09T17:19:57Z; parent published exact reviewer-supplied bytes. Independent reviewer then fetched this exact immutable GitHub review path and verified byte equality and full Git blob hash. This is an independent documentation review, not model runtime attestation or gameplay acceptance."
+    }
+  ],
+  "findings": [],
+  "decisions": []
+}
