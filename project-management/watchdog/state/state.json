@@ -2216,7 +2216,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 249
+  "stale_runs": 250
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2446,7 +2446,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-11T22:46:13.815714+00:00",
+  "ts": "2026-10-11T23:16:14.442219+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2459,11 +2459,11 @@
     "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
     "ALIVE td-243 (no heartbeat file; open PR #704 Inspector report: 2026-10-11 18:34 EDT (report-only, do not ; open PR #703 Inspector report: 2026-10-11 17:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
-    "ALIVE td-246 (heartbeat stale (3220min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (3260min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (2884min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
-    "STALE td-248 (no fresh observation; counter frozen; heartbeat stale (1583min); session 07bf1209-ce3c-4e22-a591-1cee9253a714 classification stale/missing)",
-    "STALE td-245 (no fresh observation; counter frozen; heartbeat stale (1167min); session 6659e6fe-359d-4179-8db4-ccaa6a7d74df classification stale/missing)",
+    "ALIVE td-246 (heartbeat stale (3250min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (3290min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (2914min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-248 (no fresh observation; counter frozen; heartbeat stale (1613min); session 07bf1209-ce3c-4e22-a591-1cee9253a714 classification stale/missing)",
+    "STALE td-245 (no fresh observation; counter frozen; heartbeat stale (1197min); session 6659e6fe-359d-4179-8db4-ccaa6a7d74df classification stale/missing)",
     "ALIVE td-251 (no heartbeat file; open PR #671 td-251: skip signs with no destinations instead of building )",
     "ALIVE td-252 (no heartbeat file; task-file commit 87c7fc2 2026-10-11T13:34; open PR #672 td-252: Wire td-186 Asset Forge buildings into Lower City + )",
     "ALIVE td-250 (no heartbeat file; task-file commit 5854bf0 2026-10-11T12:54; open PR #704 Inspector report: 2026-10-11 18:34 EDT (report-only, do not ; open PR #703 Inspector )"
@@ -2472,7 +2472,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=249"
+    "STALE-RUNS=250"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2489,10 +2489,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-11T22:45:53.044150+00:00",
-   "classification-health": "2026-10-11T22:46:13.815714+00:00",
-   "transitions": "2026-10-11T22:46:08.293123+00:00",
-   "conflicts": "2026-10-11T22:46:03.635298+00:00",
+   "liveness": "2026-10-11T23:15:53.758005+00:00",
+   "classification-health": "2026-10-11T23:16:14.442219+00:00",
+   "transitions": "2026-10-11T23:16:11.496461+00:00",
+   "conflicts": "2026-10-11T23:16:07.666638+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
