@@ -957,6 +957,10 @@ completion policy at current rule pins; registration never rewrites its criteria
 The scope amendment must identify the reviewed `source_parent`; complete Git
 changes from that ancestor must be allowed nonexecutable JSON/Markdown metadata.
 Current main may differ only outside all candidate/dependency/future query regions.
+Every declared new path must be absent at both the reviewed source parent and
+current canonical base. The intact parent's accepted appendix is the only
+existing-file edit permitted; dependency and unrelated existing files remain
+byte-identical, even when a proposal lists them in a metadata allowlist.
 
 `registration_admission.inspect_candidate(snapshot)["query"]` derives the exact
 query from immutable source. It covers actual document writes, the intact parent,
@@ -966,6 +970,12 @@ unknown scopes. Query every authorized current source/owner/session/reservation
 provider with those identities and regions. Do not use a name prefix, caller
 shortlist, branch naming, or missing heartbeat as evidence of completeness.
 No historical branch mapping or fresh historical branch sweep is required.
+When the canonical parent/dependency closure names workers, the derived query
+also contains their `named_sessions` (repository, task ID, session ID and owner).
+Each needs an exact matching current ended-session observation in the retained
+catalog/activity response. An empty collection, another owner/task/repository,
+or a live/unknown session does not reconcile a named worker. This check applies
+even without a PR coexistence disposition.
 
 `collection` has `query` and `reads`: policies, tasks, board, requests, owners,
 queue, blockers, executors, catalog and activity. Each read has actual `records`,

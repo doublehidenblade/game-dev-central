@@ -1,0 +1,10 @@
+{
+  "observed_at": "2026-10-11T23:18:54.584160+00:00",
+  "repository": "doublehidenblade/game-dev-central",
+  "main_head": "3e850ee2505c1bf48dc4fa5012ace2794464618b",
+  "actions_workflow_count": 0,
+  "has_pages": false,
+  "push_permission": true,
+  "trigger_configuration_paths": [],
+  "inspection": "Read actual current main tree, candidate index, Actions workflow inventory and Pages configuration before source-only correction push to existing draft PR473. No Actions/deployment mutation."
+}

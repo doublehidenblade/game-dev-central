@@ -1,5 +1,11 @@
 # Candidate-specific metadata registration
 
+The initial source `80a2e7f8ddc8152876ad8d71f61518b9f2fe071d` failed independent
+review and is **not approved for merge/use**. Its original test/replay evidence
+is retained. The one bounded correction is documented in
+[CORRECTION.md](CORRECTION.md), with [full correction tests](CORRECTION_TEST_RESULTS.json).
+Independent acceptance of the corrected source remains pending.
+
 An unfiled subordinate document could not use the filed-task scoped route, so
 registration depended on repository-wide historical branch accounting. The new
 opt-in `registration_source` route in `registration_admission.py` binds one
@@ -22,7 +28,7 @@ New metadata, future code, board, ambiguous hunks and different-owner conflicts
 cannot use this exception. Pending document worker identities require exact
 current ended-session receipts; disposition never establishes liveness.
 
-[Tests](TEST_RESULTS.json): 18 focused tests; retained dispatch 24, coordinator
+[Initial tests](TEST_RESULTS.json): 18 focused tests; retained dispatch 24, coordinator
 37, evidence 53, scoped 62; standalone suites 14/15/2/128/32; historical full
 test_rules passes. Logs are adjacent. Negative cases cover narrowed/omitted
 sources, stale/mutated receipts, future-code overlap, owner/stop/dependency

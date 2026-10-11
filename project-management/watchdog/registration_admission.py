@@ -33,6 +33,23 @@ def current_ref(ref, heads):
     need(heads.get(ref["repository"]) == ref["commit"], "canonical source pin changed: " + ref["path"])
 
 
+def named_session(document, repository):
+    worker = document.get("assigned_worker")
+    need(worker is None or isinstance(worker, str) and worker.strip() == worker and bool(worker),
+         "unsupported named worker identity: " + document["id"])
+    if worker is not None:
+        need(isinstance(document["owner"], str) and document["owner"], "named worker owner is unknown")
+        return dict(repository=repository, task_id=document["id"], session_id=worker, owner_id=document["owner"])
+
+
+def require_ended_sessions(expected, activity):
+    for session in expected:
+        need(any(row["kind"] == "session" and row["repository"] == session["repository"] and
+                 row["id"] == session["session_id"] and row["state"] == "ended" and
+                 row["owner_id"] == session["owner_id"] and session["task_id"] in row["task_ids"] for row in activity),
+             "named document session needs current ended receipt: " + session["task_id"] + ":" + session["session_id"])
+
+
 def inspect_candidate(snapshot):
     """Immutable source inspection only; this result is NOT admission authority."""
     scope = snapshot["registration_source"]
@@ -73,6 +90,9 @@ def inspect_candidate(snapshot):
         current_ref(dependency_ref, heads)
         dep = task_document(store, dependency_ref)
         need(dep["id"] not in related and dependency_ref["repository"] == repo, "duplicate/wrong-repository dependency")
+        need(sa.leaf(store, repo, dependency_ref["commit"], dependency_ref["path"]) ==
+             sa.leaf(store, repo, candidate["artifact_head"], dependency_ref["path"]),
+             "canonical dependency must remain byte-identical: " + dep["id"])
         related[dep["id"]] = dep
     seen, pending = set(), [parent["id"]]
     while pending:
@@ -86,6 +106,7 @@ def inspect_candidate(snapshot):
             sa.names(dependencies, "canonical " + field)
             pending.extend(dependencies)
     need(seen == set(related), "unrelated or omitted dependency records")
+    named_sessions = [session for tid in sorted(related) if (session := named_session(related[tid], repo)) is not None]
     need(proposal.get("dependencies") == proposal.get("depends_on") == [], "subordinate adds unsupported execution dependencies")
     for tid, document in related.items():
         task = next((t for t in snapshot["tasks"] if t["id"] == tid and t["repository"] == repo), None)
@@ -111,6 +132,15 @@ def inspect_candidate(snapshot):
     need(store.ancestor(repo, source_parent, heads[repo]) and
          store.ancestor(repo, source_parent, candidate["artifact_head"]), "unproved candidate source parent")
     delta = sorted(sa.changed_paths(store, repo, source_parent, candidate["artifact_head"]))
+    sa.names(amendment["permitted_new_paths"], "declared new metadata paths")
+    sa.names(amendment["frozen_reviewed_local_paths"], "frozen reviewed metadata paths")
+    for path in amendment["permitted_new_paths"]:
+        need(sa.leaf(store, repo, source_parent, path) is None and sa.leaf(store, repo, heads[repo], path) is None,
+             "declared new metadata path already exists: " + path)
+    need(set(amendment["frozen_reviewed_local_paths"]) <= {parent_ref["path"]}, "only the intact parent can be an existing-file edit")
+    need(all(path == parent_ref["path"] or
+             sa.leaf(store, repo, source_parent, path) is None and sa.leaf(store, repo, heads[repo], path) is None for path in delta),
+         "registration cannot rewrite any other existing file")
     permitted = set(amendment["permitted_new_paths"] + amendment["frozen_reviewed_local_paths"])
     permitted.update(r["path"] for r in authority["decisions"] if r["repository"] == repo)
     permitted.add(submission["verdict"]["path"])
@@ -151,8 +181,10 @@ def inspect_candidate(snapshot):
              "allocation_digest": ep.digest(scope["allocation"]),
              "include_global_stops": True, "include_unpublished": True, "include_unknown": True,
              "source_mode": "all current open PRs and active/unknown branches, sessions and reservations; no historical task mapping"}
+    if named_sessions:
+        query["named_sessions"] = named_sessions
     return {"query": query, "packet": packet, "journal": journal, "document": proposal,
-            "parent": parent, "write_paths": delta, "canonical_disjoint_changes": sorted(drift)}
+            "parent": parent, "write_paths": delta, "canonical_disjoint_changes": sorted(drift), "named_sessions": named_sessions}
 
 
 def compatible_document_pr(row, disposition, inspected, scope, at):
@@ -176,7 +208,7 @@ def compatible_document_pr(row, disposition, inspected, scope, at):
     expected = [{"repository": repo, "path": p, "row_keys": []} for p in sorted(changes)]
     need(row["regions"] == expected, "coexistence must retain the complete source delta")
     reads = {r["path"]: r for r in [scope["parent_ref"], *scope["dependency_refs"]]}
-    pending_sessions = set()
+    pending_sessions = []
     for path in changes:
         protected = [r for r in query["regions"] if r["repository"] == repo and sa.path_overlap(path, r)]
         if not protected:
@@ -192,9 +224,9 @@ def compatible_document_pr(row, disposition, inspected, scope, at):
              for k in ("id", "owner", "dependencies", "depends_on", "completion_criteria")),
              "coexistence cannot change dependency ownership or acceptance criteria")
         for document in (canonical_task, pending_task):
-            if document.get("assigned_worker"):
-                need(isinstance(document["assigned_worker"], str), "unsupported pending worker identity")
-                pending_sessions.add(document["assigned_worker"])
+            session = named_session(document, repo)
+            if session is not None and session not in pending_sessions:
+                pending_sessions.append(session)
         if path in inspected["write_paths"]:
             need(path == scope["parent_ref"]["path"] and path.endswith(".md"), "only the intact parent's appendix can share a write path")
             before, current, after = [raw.splitlines(keepends=True) for raw in (baseline, original, other)]
@@ -209,7 +241,7 @@ def compatible_document_pr(row, disposition, inspected, scope, at):
                          for _, a, b, c, d in unchanged), "source changes intersect canonical edits or candidate appendix boundary")
         # Read-only prerequisites may have pending same-owner amendments; no
         # bytes are imported and no task/dependency/status/acceptance is changed.
-    return {"pending_session_ids": sorted(pending_sessions)}
+    return {"pending_session_ids": sorted({s["session_id"] for s in pending_sessions}), "named_sessions": pending_sessions}
 
 
 def verify(snapshot, at):
@@ -281,14 +313,13 @@ def verify(snapshot, at):
         compatible = False
         if relevant and dispositions:
             proof = compatible_document_pr(row, dispositions[0], inspected, scope, at)
-            for session_id in proof["pending_session_ids"]:
-                need(any(r["kind"] == "session" and r["id"] == session_id and r["state"] == "ended" and r["owner_id"] == row["owner_id"]
-                         for r in activity), "pending document session needs current ended receipt: " + session_id)
+            require_ended_sessions(proof["named_sessions"], activity)
             compatible = True
             used_dispositions.extend(dispositions)
         need(not relevant or compatible or row["state"] == "ended" and row["kind"] == "session",
              "relevant live/open/unknown overlap retained: " + row["id"])
     need(len(used_dispositions) == len(scope["coexistence"]), "unmatched/stale coexistence disposition")
+    require_ended_sessions(inspected["named_sessions"], activity)
     for row in snapshot["owners"]:
         if row["task_id"] in query["task_ids"] or row["executor_id"] == binding["executor_id"]:
             need(row["task_id"] == binding["task_id"] or row["state"] == "released", "relevant parent/dependency owner retained: " + row["id"])

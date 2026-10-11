@@ -90,6 +90,14 @@
     {
       "date": "2026-10-11",
       "entry": "Authored candidate-specific metadata registration guard and adversarial offline tests under the new Craig-directed requirement. Frozen td201 real-source scope passes without 659 historical mappings; exact PR455 same-owner document coexistence retains current-session requirements. Original stale authority remains held. No live filing, runtime implementation, journal/queue mutation or self-acceptance; independent source review is next."
+    },
+    {
+      "date": "2026-10-11",
+      "entry": "Independent review rejected registration head 80a2e7f8 for canonical named-session omission and existing-file/dependency mutation admission. Reproduced all reported variants on unchanged rejected source and preserved logs. Applying the one bounded correction on the same PR473; no gameplay or prior task budget reset, merge or live use."
+    },
+    {
+      "date": "2026-10-11",
+      "entry": "Single correction completed: canonical named sessions require exact current ended proofs; dependencies are byte-identical, declared new paths absent at both bases, all existing-file edits limited to the intact parent appendix. 24 focused tests plus full retained suites pass. Frozen real td201 replay remains byte-identical INPUT_REQUIRED for live authority/receipts. Original failure artifacts and all prior allocations retained; no further correction allocation implied."
     }
   ],
   "verdict": null,
@@ -109,7 +117,7 @@
     {
       "id": "candidate-specific-subordinate-registration-20261011",
       "authority": "Craig, relayed by parent: remove unrelated historical branch mapping from task-specific registration; implement and independently review before use.",
-      "status": "in_review",
+      "status": "in_review: single bounded correction submitted",
       "scope": [
         "project-management/watchdog/registration_admission.py",
         "project-management/watchdog/coordinator.py (opt-in integration only)",
@@ -126,8 +134,24 @@
       "evidence": [
         "project-management/dispatch/registration-admission/IMPLEMENTATION.md",
         "project-management/dispatch/registration-admission/TEST_RESULTS.json",
-        "project-management/dispatch/registration-admission/TD201_REPLAY.json"
-      ]
+        "project-management/dispatch/registration-admission/TD201_REPLAY.json",
+        "project-management/dispatch/registration-admission/CORRECTION.md",
+        "project-management/dispatch/registration-admission/CORRECTION_TEST_RESULTS.json",
+        "project-management/dispatch/registration-admission/REJECTED_HEAD_REPRODUCTION.json"
+      ],
+      "correction": {
+        "count": 1,
+        "rejected_head": "80a2e7f8ddc8152876ad8d71f61518b9f2fe071d",
+        "authority": "Parent consolidated independent findings delegated in this same task; one bounded correction, no further allocation implied.",
+        "findings": [
+          "R1: omitted canonical named parent/dependency workers admitted without exact current ended-session proof.",
+          "R2: dependency mutations and unrelated existing Muse-owned paused task rewrites could be metadata-allowlisted."
+        ],
+        "evidence": "project-management/dispatch/registration-admission/CORRECTION.md",
+        "prior_allocation": "Initial registration implementation consumed and failed independent review; prior dispatch/gameplay allocations unchanged.",
+        "status": "consumed; 24 focused and all retained suites pass; corrected exact-head independent acceptance required",
+        "review": "https://github.com/doublehidenblade/game-dev-central/pull/473#issuecomment-6114996820"
+      }
     }
   ]
 }

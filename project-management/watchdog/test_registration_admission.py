@@ -28,18 +28,29 @@ def seal(snapshot, activity=()):
     return snapshot
 
 
-def fixture(markdown=False, future=False):
+def fixture(markdown=False, future=False, assigned_workers=None, transitive=False, dependency_mutation=None, existing_edit_mode=None):
     w = World()
     parent = dict(id="parent", owner="coordinator-A", status="blocked", assigned_worker=None,
                   dependencies=["dependency"], completion_criteria=[{"check": "Preserve full production criteria"}],
                   ask={"by": "Craig", "scope": "metadata only"}, constraints=["No runtime activation"],
                   evidence=[], verdict=None, work_log=[])
     dependency = dict(parent, id="dependency", dependencies=[], owner="dependency-owner")
+    documents = [parent, dependency]
+    if transitive:
+        dependency["dependencies"] = ["grand-dependency"]
+        documents.append(dict(parent, id="grand-dependency", dependencies=[], owner="grand-owner"))
+    for document in documents:
+        document["assigned_worker"] = (assigned_workers or {}).get(document["id"])
     parent_path = "docs/parent.md" if markdown else "docs/parent.json"
     parent_bytes = "# Parent\n\n```json\n" + json.dumps(parent, indent=2) + "\n```\n" if markdown else parent
-    w.file(parent_path, parent_bytes); w.file("docs/dependency.json", dependency)
-    w.file("board.md", "| Task | Title | Status | Owner |\n|---|---|---|---|\n| parent | Parent | blocked | coordinator-A |\n| dependency | Dependency | blocked | dependency-owner |\n")
+    w.file(parent_path, parent_bytes)
+    for doc in documents[1:]:
+        w.file("docs/" + doc["id"] + ".json", doc)
+    w.file("board.md", "| Task | Title | Status | Owner |\n|---|---|---|---|\n" +
+           "".join(f'| {doc["id"]} | Task | blocked | {doc["owner"]} |\n' for doc in documents))
     w.file("rules.md", "# Rules\nIndependent document review required.\n")
+    if existing_edit_mode:
+        w.file("docs/muse-paused.json", dict(id="muse-paused",owner="Muse",status="paused",work_log=["Existing frozen history"],completion_criteria=["Original gate"]))
     journal = dict(version=1, revision=0, history={REPO + ":dependency": dict(prior_attempts=2, state="parked", receipts=["SYNTHETIC exhausted production allocation"])}, events=[])
     w.file("project-management/dispatch/ATTEMPTS.json", journal)
     base = w.commit()
@@ -50,6 +61,16 @@ def fixture(markdown=False, future=False):
                 dependencies=[], depends_on=[], scope_amendment=dict(source_parent=base, permitted_new_paths=["docs/registration.json", "docs/proof.md"], frozen_reviewed_local_paths=[]))
     task["evidence_rule_inventory"] = [dict(id="R1", repository=REPO, path="rules.md")]
     task["evidence_policy"]["C1"]["source_paths"] = ["docs/proof.md"]
+    if dependency_mutation:
+        tid, changes = dependency_mutation
+        path = "docs/" + tid + ".json"
+        task["scope_amendment"]["frozen_reviewed_local_paths"].append(path)
+        w.file(path, dict(next(doc for doc in documents if doc["id"] == tid), **changes))
+    if existing_edit_mode:
+        field = "frozen_reviewed_local_paths" if existing_edit_mode == "frozen" else "permitted_new_paths"
+        task["scope_amendment"][field].append("docs/muse-paused.json")
+        if existing_edit_mode != "unchanged-declared-new":
+            w.file("docs/muse-paused.json",dict(id="muse-paused",owner="coordinator-A",status="validated",work_log=[],completion_criteria=[]))
     if markdown:
         task["scope_amendment"]["frozen_reviewed_local_paths"] = [parent_path]
         w.file(parent_path, parent_bytes + "\n## Registration appendix\nPreserve all original production criteria.\n")
@@ -77,7 +98,7 @@ def fixture(markdown=False, future=False):
     assert result["status"] == "ACCEPTABLE", result
     s = dict(version=1, observed_at=NOW.isoformat(), repositories={REPO: base}, sources=[], **{k: [] for k in co.TABLES})
     s["policies"] = [dict(id="source-policy", repository=REPO, triggers_checked=True, push_runs_actions=False, push_deploys=False, merge_runs_actions=False, merge_deploys=False)]
-    for doc in (parent, dependency):
+    for doc in documents:
         t = dict(id=doc["id"], repository=REPO, head_sha=base, status=doc["status"], owner_id=doc["owner"],
                  project="lower-city", author_id=doc["owner"], needs=[], criteria=["production"], required_checks=["independent"], requirements={})
         s["tasks"].append(t); s["board"].append({k: t[k] for k in ("id", "repository", "head_sha", "status", "owner_id")})
@@ -85,10 +106,17 @@ def fixture(markdown=False, future=False):
     s["executors"] = [dict(id="native", repository=REPO, owner_id="coordinator-A", kind="native", state="available", capabilities=["admission"], observed_model=None, observed_effort=None, runtime_confirmed=False, resume_task=REQUEST)]
     s["evidence_policy"] = {"registration": dict(authority=authority, submission=submission, objects=w.objects)}
     s["registration_source"] = dict(version=1, binding=dict(task_id=REQUEST, repository=REPO, operation="admission", executor_id="native", owner_id="coordinator-A", head_sha=base),
-        document_id="registration", parent_ref=w.ref(base,parent_path), dependency_refs=[w.ref(base,"docs/dependency.json")], board_ref=w.ref(base,"board.md"),
+        document_id="registration", parent_ref=w.ref(base,parent_path), dependency_refs=[w.ref(base,"docs/"+doc["id"]+".json") for doc in documents[1:]], board_ref=w.ref(base,"board.md"),
         journal_ref=w.ref(base,"project-management/dispatch/ATTEMPTS.json"), collection={}, attestation={}, coexistence=[],
         allocation=dict(request_id=REQUEST, operation="admission", limit=1, used=0, evidence="SYNTHETIC known unused single metadata-registration allocation; production budget untouched"))
     w.base_files = base_files
+    if dependency_mutation or existing_edit_mode:
+        try:
+            return w, seal(s)
+        except reg.sa.ScopeError:
+            # Invalid immutable source is rejected before collection. On the
+            # rejected production head, seal succeeds and the regression fails.
+            return w, s
     return w, seal(s)
 
 
@@ -274,7 +302,7 @@ class RegistrationTests(unittest.TestCase):
         s["repositories"][REPO]=collision;scope["binding"]["head_sha"]=collision
         for ref in [scope["parent_ref"],*scope["dependency_refs"],scope["board_ref"],scope["journal_ref"]]:ref["commit"]=collision
         for row in s["tasks"]+s["board"]:row["head_sha"]=collision
-        self.assertIn("canonical changes overlap",str(self.assert_blocked(s)))
+        self.assertIn("declared new metadata path already exists",str(self.assert_blocked(s)))
 
     def test_pending_document_worker_requires_exact_current_ended_session(self):
         w,s=fixture(markdown=True);w.files=deepcopy(w.base_files);base=s["repositories"][REPO]
@@ -284,9 +312,9 @@ class RegistrationTests(unittest.TestCase):
         seal(s,[row]);s["registration_source"]["coexistence"]=[coexistence(s,row,base)]
         self.assertIn("needs current ended receipt",str(self.assert_blocked(s)))
         for state,owner in (("unknown","coordinator-A"),("live","coordinator-A"),("ended","foreign-owner")):
-            seal(s,[row,activity(kind="session",state=state,path="docs/parent.md") | dict(id="old-worker",owner_id=owner)])
+            seal(s,[row,activity(kind="session",state=state,path="docs/parent.md",task_ids=["parent"]) | dict(id="old-worker",owner_id=owner)])
             self.assert_blocked(s)
-        seal(s,[row,activity(kind="session",state="ended",path="docs/parent.md") | dict(id="old-worker",owner_id="coordinator-A")])
+        seal(s,[row,activity(kind="session",state="ended",path="docs/parent.md",task_ids=["parent"]) | dict(id="old-worker",owner_id="coordinator-A")])
         self.assertEqual(self.result(s)["status"],"ACTION_REQUIRED")
 
     def test_frozen_projects_and_wrong_route_never_admit(self):
@@ -296,6 +324,71 @@ class RegistrationTests(unittest.TestCase):
         for operation in ("implementation","upload","merge","deploy"):
             s=deepcopy(self.s);s["registration_source"]["binding"]["operation"]=operation
             self.assert_blocked(s)
+
+    def test_canonical_named_parent_and_transitive_workers_cannot_be_omitted(self):
+        for task_id in ("parent", "dependency", "grand-dependency"):
+            with self.subTest(task_id=task_id):
+                _,s=fixture(assigned_workers={task_id:"known-pending-worker"},transitive=True)
+                self.assertEqual(s["registration_source"]["coexistence"],[])
+                self.assertEqual(s["registration_source"]["collection"]["reads"]["activity"]["records"],[])
+                self.assert_blocked(s)
+
+    def test_canonical_named_worker_needs_exact_current_ended_session(self):
+        for task_id,owner in (("parent","coordinator-A"),("dependency","dependency-owner"),("grand-dependency","grand-owner")):
+            _,s=fixture(assigned_workers={task_id:"known-pending-worker"},transitive=True)
+            row=activity(kind="session",state="ended",path="docs/"+task_id+".json",task_ids=[task_id]) | dict(id="known-pending-worker",owner_id=owner)
+            seal(s,[row]);self.assertEqual(self.result(s)["status"],"ACTION_REQUIRED")
+            for change in (dict(state="live"),dict(state="unknown"),dict(owner_id="wrong-owner"),
+                           dict(id="different-worker"),dict(task_ids=["unrelated"],regions=[dict(repository=REPO,path="unrelated/file",row_keys=[])])):
+                with self.subTest(task_id=task_id,change=change):
+                    seal(s,[row | change]);self.assert_blocked(s)
+            seal(s,[row]);self.assert_blocked(s,at=NOW+timedelta(minutes=15))
+
+    def test_every_canonical_named_worker_is_required_and_not_a_global_history_sweep(self):
+        _,s=fixture(assigned_workers={"parent":"parent-worker","grand-dependency":"dependency-worker"},transitive=True)
+        rows=[activity(kind="session",state="ended",task_ids=[tid]) | dict(id=sid,owner_id=owner) for tid,sid,owner in
+              (("parent","parent-worker","coordinator-A"),("grand-dependency","dependency-worker","grand-owner"))]
+        seal(s,rows[:1]);self.assert_blocked(s)
+        seal(s,rows)
+        s["branches"]=[dict(id=f"historical-{i}",repository=REPO,task_id=None,head_sha="e"*40) for i in range(659)]
+        self.assertEqual(self.result(s)["status"],"ACTION_REQUIRED")
+        self.assertEqual(self.result(s)["source_scope"]["global_coverage"],"unknown")
+
+    def test_canonical_dependencies_are_read_only_even_when_metadata_allowlisted(self):
+        mutations = [dict(owner="foreign-owner"),dict(status="validated"),dict(completion_criteria=[]),
+                     dict(dependencies=[]),dict(depends_on=["unrelated"]),dict(assigned_worker="new-worker"),
+                     dict(work_log=[dict(entry="Rewritten history")]),dict(evidence=["invented-evidence"])]
+        for changes in mutations:
+            with self.subTest(changes=changes):
+                _,s=fixture(transitive=True,dependency_mutation=("dependency",changes))
+                self.assertIn("canonical dependency must remain byte-identical",str(self.assert_blocked(s)))
+        _,s=fixture(transitive=True,dependency_mutation=("grand-dependency",dict(owner="foreign-owner")))
+        self.assertIn("canonical dependency must remain byte-identical",str(self.assert_blocked(s)))
+
+    def test_existing_muse_paused_metadata_cannot_be_declared_new_or_frozen(self):
+        for mode in ("declared-new","frozen","unchanged-declared-new"):
+            with self.subTest(mode=mode):
+                _,s=fixture(existing_edit_mode=mode)
+                expected="only the intact parent" if mode=="frozen" else "declared new metadata path already exists"
+                self.assertIn(expected,str(self.assert_blocked(s)))
+
+    def test_named_session_query_binding_and_receipt_replay(self):
+        _,s=fixture(assigned_workers={"dependency":"known-pending-worker"})
+        expected=dict(repository=REPO,task_id="dependency",session_id="known-pending-worker",owner_id="dependency-owner")
+        self.assertEqual(s["registration_source"]["collection"]["query"]["named_sessions"],[expected])
+        narrowed=deepcopy(s);del narrowed["registration_source"]["collection"]["query"]["named_sessions"]
+        narrowed["registration_source"]["attestation"]["query_digest"]=ep.digest(narrowed["registration_source"]["collection"]["query"])
+        self.assertIn("query changed or narrowed",str(self.assert_blocked(narrowed)))
+        row=activity(kind="session",state="ended",task_ids=["dependency"]) | dict(id="known-pending-worker",owner_id="dependency-owner")
+        seal(s,[row]);decision=self.result(s)["actions"][0]
+        target={k:decision[k] for k in ("task_id","operation","executor_id","owner_id","head_sha")}
+        self.assertEqual(co.revalidate(s,decision,target,NOW)["status"],"GO")
+        # A matching ID/owner in another declared repository is not this session.
+        foreign=deepcopy(s);foreign["repositories"]["example/other"]=foreign["repositories"][REPO]
+        seal(foreign,[row | dict(repository="example/other",regions=[])])
+        self.assertIn("needs current ended receipt",str(self.assert_blocked(foreign)))
+        seal(s,[])
+        self.assertEqual(co.revalidate(s,decision,target,NOW)["status"],"NO_GO")
 
 
 if __name__ == "__main__":
