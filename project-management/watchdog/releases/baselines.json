@@ -1,23 +1,23 @@
 {
- "neon": {
-  "source_build": "b7096224",
-  "web_sha": "5b006961",
-  "web_published_at": "2026-09-29T16:55:00Z",
-  "url": "https://doublehidenblade.github.io/neon-drift-web/",
-  "note": "Craig push request 2026-09-29: all 24 pending NEON changes live (publish-web run 36600647269, success)"
- },
- "tokyo": {
-  "web_sha": "e12d8636",
-  "source_sha": "b0a91ea66438be7dc4885c7fab8607d2e84e2222",
-  "published_at": "2026-10-02T19:03:12.109322+00:00",
-  "version": "v34",
-  "note": "Craig 2026-10-02 force publish (publish-game run 37051037780, success): PR #270 traffic fleet (12 Blender-cleaned cars), #272 NITRO tap guard, #273 UI rework 80s-anime theme, #274 Shuto salvage, traffic texture optimization (2048->512px ORM MIME fix)"
- },
- "tokyo-drift-3d": {
-  "version": "v29",
-  "source": "4479c464093d283bb05f4f6db2c3fc5f9185b972",
-  "web_sha": "dc87cc18",
-  "pushed": "2026-09-30T00:38:17.823857+00:00",
-  "notes": "td-126 guest downstream-death fix + td-127 ping HUD + export-preset fix (qa/* excluded from pck)"
- }
+  "neon": {
+    "source_build": "b7096224",
+    "web_sha": "5b006961",
+    "web_published_at": "2026-09-29T16:55:00Z",
+    "url": "https://doublehidenblade.github.io/neon-drift-web/",
+    "note": "Craig push request 2026-09-29: all 24 pending NEON changes live (publish-web run 36600647269, success)"
+  },
+  "tokyo": {
+    "web_sha": "v47",
+    "source_sha": "f671c0745bae514d5003d090b1f536f2515854a2",
+    "published_at": "2026-10-11T00:09:22Z",
+    "version": "v47",
+    "note": "Craig deploy request 2026-10-10 (Deploy): 16 merged fixes since v46 live on https://doublehidenblade.github.io/tokyo-drift-3d-web/ (publish-game 38097423777 + publish-web 38097476938 success; deployment.json source_sha=f671c0745bae verified). Mirror reconciled 2026-10-11T06:25Z."
+  },
+  "tokyo-drift-3d": {
+    "version": "v29",
+    "source": "4479c464093d283bb05f4f6db2c3fc5f9185b972",
+    "web_sha": "dc87cc18",
+    "pushed": "2026-09-30T00:38:17.823857+00:00",
+    "notes": "td-126 guest downstream-death fix + td-127 ping HUD + export-preset fix (qa/* excluded from pck)"
+  }
 }
