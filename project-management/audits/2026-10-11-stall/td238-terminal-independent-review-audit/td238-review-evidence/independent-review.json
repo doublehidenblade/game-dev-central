@@ -1,0 +1,447 @@
+{
+  "report_type": "independent criterion review; NOT a canonical evidence-policy acceptance verdict",
+  "task_id": "td-238-terminal-component",
+  "actor_id": "dot-td238-terminal-component-reviewer",
+  "performed_at": "2026-10-11T08:35:07.721666+00:00",
+  "candidate_head": "fd8776c02aefab4f4de6cc0d2208838be93990d4",
+  "artifact_head": "709ea8711799cd44a87db643eef7409ac16f8e44",
+  "source_main": "f80754ea8c5cea99138f9c3623e155925f9b016e",
+  "central_main": "12dfb166d99f18d092c2b3066fc04481f6f5ef4a",
+  "decision": "CHANGES_REQUIRED",
+  "criteria": {
+    "T1": {
+      "decision": "PASS",
+      "rationale": "57 unchanged author assertions and extended rejection/container tests pass. Both registry container and all entry dictionaries are read-only; returned values cannot mutate the retained registry. Strict names/numbers, ASCII/control rejection, traffic presets and boundaries are supported.",
+      "source_lines": {
+        "godot/scripts/lower_city/debug_terminal_commands.gd": [
+          [
+            5,
+            16
+          ],
+          [
+            19,
+            32
+          ],
+          [
+            35,
+            72
+          ]
+        ]
+      },
+      "citations": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/scripts/lower_city/debug_terminal_commands.gd",
+          "blob": "432a2aef247c3a1e26ed1b18867fbe14740626e9"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T1-execution.json",
+          "blob": "a42a3c21e2c2071f82fc566c7adda9c4a85d6e4f"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T1-raw.log",
+          "blob": "23ada12128377b1dd998b70cd533330f005d41db"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/wrong-number-raw.log",
+          "blob": "c8e77f8d02c4024fb6deda7ac420b42dcd4981ba"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/numeric-coercion-raw.log",
+          "blob": "349d6a5c27da0d8ebd6e9a68f820046dda27e9ca"
+        }
+      ],
+      "local_evidence": [
+        "T1/T1-execution.json",
+        "adversarial-rerun/execution.json",
+        "focus-probe/execution.json"
+      ]
+    },
+    "T2": {
+      "decision": "PASS",
+      "rationale": "19 unchanged assertions pass, as do duplicate ticket plus signal delivery over 100 accepted submissions, detached return containers, exact 512/513 output boundaries, literal markup and disable/generation rejection. Histories retain at most 128 lines and 32 recalls. No game adapters are called.",
+      "source_lines": {
+        "godot/scripts/lower_city/debug_terminal_panel.gd": [
+          [
+            105,
+            158
+          ],
+          [
+            161,
+            178
+          ],
+          [
+            210,
+            240
+          ],
+          [
+            322,
+            330
+          ]
+        ]
+      },
+      "citations": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/scripts/lower_city/debug_terminal_panel.gd",
+          "blob": "be5dc4c4335c4529b4330ae12b2c03b2a2ce2117"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T2-execution.json",
+          "blob": "3a9459c6334701cdf116c77eb938c23f3131f9fc"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T2-raw.log",
+          "blob": "807dad931354ee2efa118ec4967625d72ccc6852"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/duplicate-submit-raw.log",
+          "blob": "42c936c7e50a21f5a3197930741cfbcefa191c61"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/unbounded-history-raw.log",
+          "blob": "190ee6142c3fae428fe9a4f826a0c74e3299f1b7"
+        }
+      ],
+      "local_evidence": [
+        "T2/T2-execution.json",
+        "adversarial-rerun/execution.json"
+      ]
+    },
+    "T3": {
+      "decision": "FAIL",
+      "rationale": "48 unchanged assertions and actual XTest keys/wheel reproduce; all four original visual pairs match framing and render byte-identically. Additional native scroll probes make clipped content readable. However rapid close/reopen loses the still-valid original focus target, and a focusable fixture parent admitted by the open boundary is not restored on close. Both failures reproduce headless and X11 on unchanged product bytes.",
+      "source_lines": {
+        "godot/scripts/lower_city/debug_terminal_panel.gd": [
+          [
+            55,
+            67
+          ],
+          [
+            70,
+            78
+          ],
+          [
+            181,
+            184
+          ],
+          [
+            194,
+            207
+          ]
+        ],
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd": [
+          [
+            140,
+            179
+          ]
+        ]
+      },
+      "citations": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/scripts/lower_city/debug_terminal_panel.gd",
+          "blob": "be5dc4c4335c4529b4330ae12b2c03b2a2ce2117"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/test_terminal_component.gd",
+          "blob": "b1291d86caba2eed038f3f863f0587625100b62e"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-execution.json",
+          "blob": "0bcc612d0dee40eb7ee5e0aa8b85cc300353c8ff"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-raw.log",
+          "blob": "1cdf5722ea6796b4ab9dec62d5f0e2ca8e70c59a"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/stale-focus-raw.log",
+          "blob": "8c130a95d6f53896c9ff43a47ade2d867ce3f1a2"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-long-help-1280x720-after.png",
+          "blob": "8586164d206612e50ca2efc1ba6397dd8e37fc77"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-long-help-1280x720-before.png",
+          "blob": "32ee4af6e0ee6d0a44ef4c1089b07eb39b3b4dc8"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-long-help-960x540-after.png",
+          "blob": "89e40745785c4655e59957c8cc2294c28e8bdf59"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-long-help-960x540-before.png",
+          "blob": "ca48cc3235f14413e5b0dc1235709241fc8dc66f"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-1280x720-after.png",
+          "blob": "03ca8c781faf44d34de5f4901f9108a4f5f69545"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-1280x720-before.png",
+          "blob": "32ee4af6e0ee6d0a44ef4c1089b07eb39b3b4dc8"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-960x540-after.png",
+          "blob": "6145e7dd69a21c3f888647af7b09bd9611d60bd5"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-960x540-before.png",
+          "blob": "ca48cc3235f14413e5b0dc1235709241fc8dc66f"
+        }
+      ],
+      "local_evidence": [
+        "T3/T3-execution.json",
+        "image-comparison.json",
+        "adversarial-rerun/execution.json",
+        "focus-probe/execution.json",
+        "focus-probe-native/execution.json"
+      ],
+      "finding_ids": [
+        "IR1-rapid-reopen-focus",
+        "IR2-parent-focus"
+      ],
+      "visual_inspection": {
+        "method": "direct_pixel_inspection",
+        "matched_pairs": true,
+        "nonempty": true,
+        "meaningful": true,
+        "component_absence_resolved": true,
+        "human_verdict": null
+      }
+    },
+    "T4": {
+      "decision": "PASS",
+      "rationale": "16 unchanged assertions plus generation, disable/deferred work and removal probes pass. Off/mobile/unknown/empty-platform and stale-generation contexts fail closed. Ordinary fixture input/action remain usable. Desktop-browser is a simulated capability string in native Godot, not browser acceptance.",
+      "source_lines": {
+        "godot/scripts/lower_city/debug_terminal_panel.gd": [
+          [
+            41,
+            52
+          ],
+          [
+            177,
+            184
+          ],
+          [
+            210,
+            240
+          ],
+          [
+            243,
+            248
+          ]
+        ]
+      },
+      "citations": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/scripts/lower_city/debug_terminal_panel.gd",
+          "blob": "be5dc4c4335c4529b4330ae12b2c03b2a2ce2117"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T4-execution.json",
+          "blob": "211eb38af70e2435f849e88ce7612eae41c7fb0b"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T4-raw.log",
+          "blob": "e8654fac96b43e8206305057d54bd844a8cf5c74"
+        }
+      ],
+      "local_evidence": [
+        "T4/T4-execution.json",
+        "adversarial-rerun/execution.json"
+      ]
+    },
+    "T5": {
+      "decision": "PASS",
+      "rationale": "7 unchanged assertions pass. Independent Git tree comparison also verifies every pre-existing runtime blob AND mode is unchanged, nine admitted executable/UID paths are new, all nine plus parent are identical from implementation to artifact head, and original six parent criteria/four dependencies remain exact. Production imports/mount, save/network/OS/owner effects are absent. This is source/fixture isolation evidence, not a full game execution.",
+      "source_lines": {
+        "godot/qa/td-238/terminal_component/run_checks.py": [
+          [
+            202,
+            233
+          ]
+        ],
+        "godot/docs/tasks/td-238.md": [
+          [
+            78,
+            109
+          ],
+          [
+            183,
+            249
+          ]
+        ]
+      },
+      "citations": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/run_checks.py",
+          "blob": "19a1eab2ed30806524b2702cf3a0fb502f857fde"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T5-execution.json",
+          "blob": "8b88aed42d7cc9cb69e285e57bef264ca2580698"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T5-raw.log",
+          "blob": "fff2f90f8caa33e6ef394a7ccac5c25cdaf9a3d1"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/docs/tasks/td-238.md",
+          "blob": "903d01f74db685608ee9ee341f70fcaed89be45e"
+        }
+      ],
+      "local_evidence": [
+        "T5/T5-execution.json",
+        "source-equivalence.json"
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "IR1-rapid-reopen-focus",
+      "severity": "P2",
+      "criterion": "T3",
+      "path": "godot/scripts/lower_city/debug_terminal_panel.gd",
+      "lines": [
+        60,
+        61
+      ],
+      "description": "open_terminal overwrites _previous_focus from current viewport focus even when reopening before the deferred restoration has run. Closing hides the old editor and current focus becomes null, so an immediate reopen erases the original live sentinel target. Final close leaves focus null.",
+      "reproduction": "sentinel focus -> open_terminal(1) -> await frames -> close_terminal() -> open_terminal(1) in the same tick -> await frames -> close_terminal() -> await frames",
+      "observed": "focus null; expected original still-valid fixture.sentinel",
+      "evidence": [
+        "focus-probe.txt",
+        "focus-probe/execution.json",
+        "focus-probe-native/execution.json"
+      ],
+      "coverage_gap": "test_terminal_component.gd:153-160 checks focus while rapid toggles are open, then explicitly re-grabs the sentinel rather than asserting restoration after the final close."
+    },
+    {
+      "id": "IR2-parent-focus",
+      "severity": "P2",
+      "criterion": "T3",
+      "path": "godot/scripts/lower_city/debug_terminal_panel.gd",
+      "lines": [
+        202,
+        204
+      ],
+      "description": "The open boundary explicitly permits current == boundary, but restore requires boundary.is_ancestor_of(target), which is false for the boundary itself. A valid focusable parent therefore opens successfully and loses focus on close.",
+      "reproduction": "fixture.focus_mode = Control.FOCUS_ALL; fixture.grab_focus(); open_terminal(1); await frames; close_terminal(); await frames",
+      "observed": "open true; final focus null; expected same live fixture parent",
+      "evidence": [
+        "focus-probe.txt",
+        "focus-probe/execution.json",
+        "focus-probe-native/execution.json"
+      ]
+    },
+    {
+      "id": "IR3-execution-record-schema",
+      "severity": "P2 acceptance record",
+      "criterion": "T1-T5 evidence binding",
+      "path": "godot/qa/td-238/terminal_component/run_checks.py",
+      "lines": [
+        255,
+        274
+      ],
+      "description": "Planned Tn-execution.json records contain runner-specific nested receipts. They lack the strict canonical top-level check_id, command, exit_code, output, build, performed_at and actor_id fields and add unrecognized fields. All five fail evidence_policy.fields with MALFORMED. Authentic wrapper records, plan mapping and collection receipts are required; observations must not be relabeled or fabricated.",
+      "canonical_citation": {
+        "repository": "doublehidenblade/game-dev-central",
+        "commit": "12dfb166d99f18d092c2b3066fc04481f6f5ef4a",
+        "path": "project-management/watchdog/evidence_policy.py",
+        "blob": "afbcd927a16340da5c235ea4368857ab8edc6522"
+      },
+      "canonical_lines": [
+        566,
+        578
+      ],
+      "evidence": [
+        "execution-schema-check.json"
+      ]
+    }
+  ],
+  "test_counts": {
+    "author_unchanged_assertions": 147,
+    "author_assertions_passed": 147,
+    "negative_controls_detected": 5,
+    "independent_extra_distinct_assertions": 111,
+    "independent_extra_passed": 109,
+    "independent_extra_failed": 2,
+    "native_focus_confirmation_assertions": 6,
+    "native_focus_confirmation_passed": 4,
+    "native_focus_confirmation_failed": 2
+  },
+  "acceptance_limitations": [
+    "Original author admission result is inspected and internally consistent, but its source snapshot/authority/object inputs are not present. Cannot authenticate or replay source/owner/queue completeness from result JSON alone.",
+    "A fresh exact-head reviewer verification snapshot/decision/guard receipt was requested from the parent and has not been supplied. No new dispatch GO, global completeness, or liveness claim is made.",
+    "Current authenticated authority, final author evidence manifest and conforming execution/capture receipts are unavailable, so authority_digest and evidence_digest are deliberately omitted.",
+    "T3 fails component lifecycle; no canonical acceptance verdict is issued. Craig human visual gate remains pending.",
+    "Author correction budget remains exhausted; no product correction is authorized/performed by this review.",
+    "Unmounted native fixture only; no playable integration, browser/phone/device-performance or full parent C1-C6 acceptance."
+  ],
+  "library_screenshot": {
+    "local_path": "/workspace/td238-review-evidence/td238-terminal-inspected.png",
+    "library_file_id": "libfile_e83fbb0e43a881919f77d1d3da18976a",
+    "file_id": "file_00000000a9d881f7815c2ab79cbddb0d",
+    "sha256": "efc8484faceffc7ecf5d8aa26bf688cc121602273b9e0120ca8fffad90bbaec9"
+  }
+}

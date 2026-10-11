@@ -1,0 +1,811 @@
+{
+  "task": "td-238-terminal-component",
+  "criterion": "T3",
+  "started_at": "2026-10-11T08:26:59.022566+00:00",
+  "source_head": "709ea8711799cd44a87db643eef7409ac16f8e44",
+  "source_hashes_before": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "binary": {
+    "path": "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e"
+  },
+  "invocation": [
+    "godot/qa/td-238/terminal_component/run_checks.py",
+    "--godot",
+    "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "--criterion",
+    "T3",
+    "--render",
+    "--output",
+    "/workspace/td238-review-evidence/T3"
+  ],
+  "negative_controls": [
+    {
+      "name": "stale-focus",
+      "temporary_copy_only": true,
+      "test_assertions_unchanged": true,
+      "mutation": {
+        "path": "godot/scripts/lower_city/debug_terminal_panel.gd",
+        "from": "\tif stamp != _epoch or generation != _generation or _open or not is_inside_tree():",
+        "to": "\tif false:"
+      },
+      "expected_failing_assertion": "stale_focus_restore_rejected",
+      "detected": true,
+      "source_unchanged": true,
+      "source_hashes_before": {
+        "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+        "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+        "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+        "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+        "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+        "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+        "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+        "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+      },
+      "source_hashes_after": {
+        "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+        "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+        "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+        "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+        "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+        "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+        "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+        "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+      },
+      "execution": {
+        "started_at": "2026-10-11T08:27:17.760599+00:00",
+        "finished_at": "2026-10-11T08:27:21.641136+00:00",
+        "command": [
+          "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+          "--path",
+          "/tmp/td238-check-zzrsftsp/project",
+          "--headless",
+          "--audio-driver",
+          "Dummy",
+          "--script",
+          "res://qa/td-238/terminal_component/test_terminal_component.gd",
+          "--",
+          "--criterion",
+          "T3",
+          "--artifacts",
+          "/tmp/td238-check-zzrsftsp/artifacts",
+          "--lifecycle-only"
+        ],
+        "exit_code": 1,
+        "harness_error": null,
+        "result": {
+          "browser_or_phone_acceptance": false,
+          "checks": [
+            {
+              "detail": null,
+              "label": "open_focus_input",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "stale_focus_restore_rejected",
+              "pass": false
+            },
+            {
+              "detail": null,
+              "label": "rapid_toggle_focus",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "disable_cancels_deferred_focus",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "valid_previous_focus_restored",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "removal_with_deferred_work_survives",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "ordinary_input_after_removal",
+              "pass": true
+            }
+          ],
+          "criterion": "T3",
+          "display": "headless",
+          "engine": {
+            "build": "official",
+            "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+            "hex": 263938,
+            "major": 4,
+            "minor": 7,
+            "patch": 2,
+            "status": "stable",
+            "string": "4.7.2-stable (official)",
+            "timestamp": 0
+          },
+          "native_steps": [],
+          "passed": false
+        },
+        "raw_log_sha256": "0828cf552a7f4ad49dae4835590bf575c78b98b78133eb87cc761bbe5377f678",
+        "images": [],
+        "native_driver": null
+      }
+    }
+  ],
+  "scope": "Unmounted standalone component; no parent C1-C6, playable integration, browser, phone or device acceptance",
+  "independent_review": "pending",
+  "human_visual_verdict": null,
+  "baseline": {
+    "started_at": "2026-10-11T08:26:59.026303+00:00",
+    "finished_at": "2026-10-11T08:27:17.757001+00:00",
+    "command": [
+      "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+      "--path",
+      "/tmp/td238-check-7pzec4kj/project",
+      "--display-driver",
+      "x11",
+      "--rendering-method",
+      "gl_compatibility",
+      "--position",
+      "0,0",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "res://qa/td-238/terminal_component/test_terminal_component.gd",
+      "--",
+      "--criterion",
+      "T3",
+      "--artifacts",
+      "/tmp/td238-check-7pzec4kj/artifacts"
+    ],
+    "exit_code": 0,
+    "harness_error": null,
+    "result": {
+      "browser_or_phone_acceptance": false,
+      "checks": [
+        {
+          "detail": null,
+          "label": "open_focus_input",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "stale_focus_restore_rejected",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "rapid_toggle_focus",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "disable_cancels_deferred_focus",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "valid_previous_focus_restored",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "removal_with_deferred_work_survives",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "ordinary_input_after_removal",
+          "pass": true
+        },
+        {
+          "detail": "X11",
+          "label": "actual_native_display",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_driver_F10_open",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_F10_focus",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_driver_type_help_enter",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_typing_enter_once",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_driver_scroll_up",
+          "pass": true
+        },
+        {
+          "detail": {
+            "after": 10.0,
+            "before": 394.0
+          },
+          "label": "native_scroll_moves_history",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_driver_tab_close",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_tab_close",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_driver_tab_output",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_tab_output",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_driver_tab_input",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_tab_input",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_driver_escape",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_escape_restores_focus",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_driver_reopen_recall",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_recall_up",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_driver_recall_draft",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_recall_down",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_driver_F10_close",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "native_F10_close",
+          "pass": true
+        },
+        {
+          "detail": [
+            1280,
+            720
+          ],
+          "label": "capture_dimensions_T3-long-help-1280x720-before.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "capture_saved_T3-long-help-1280x720-before.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "layout_fits_long-help_1280x720",
+          "pass": true
+        },
+        {
+          "detail": [
+            1280,
+            720
+          ],
+          "label": "capture_dimensions_T3-long-help-1280x720-after.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "capture_saved_T3-long-help-1280x720-after.png",
+          "pass": true
+        },
+        {
+          "detail": [
+            1280,
+            720
+          ],
+          "label": "capture_dimensions_T3-unavailable-1280x720-before.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "capture_saved_T3-unavailable-1280x720-before.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "layout_fits_unavailable_1280x720",
+          "pass": true
+        },
+        {
+          "detail": [
+            1280,
+            720
+          ],
+          "label": "capture_dimensions_T3-unavailable-1280x720-after.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "capture_saved_T3-unavailable-1280x720-after.png",
+          "pass": true
+        },
+        {
+          "detail": [
+            960,
+            540
+          ],
+          "label": "capture_dimensions_T3-long-help-960x540-before.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "capture_saved_T3-long-help-960x540-before.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "layout_fits_long-help_960x540",
+          "pass": true
+        },
+        {
+          "detail": [
+            960,
+            540
+          ],
+          "label": "capture_dimensions_T3-long-help-960x540-after.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "capture_saved_T3-long-help-960x540-after.png",
+          "pass": true
+        },
+        {
+          "detail": [
+            960,
+            540
+          ],
+          "label": "capture_dimensions_T3-unavailable-960x540-before.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "capture_saved_T3-unavailable-960x540-before.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "layout_fits_unavailable_960x540",
+          "pass": true
+        },
+        {
+          "detail": [
+            960,
+            540
+          ],
+          "label": "capture_dimensions_T3-unavailable-960x540-after.png",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "capture_saved_T3-unavailable-960x540-after.png",
+          "pass": true
+        }
+      ],
+      "criterion": "T3",
+      "display": "X11",
+      "engine": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      },
+      "native_steps": [
+        {
+          "index": 0,
+          "keys": [
+            "F10"
+          ],
+          "label": "F10_open",
+          "marker": "/tmp/td238-check-7pzec4kj/artifacts/native-step-0.done",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "scroll": 0,
+          "window": 4194307
+        },
+        {
+          "index": 1,
+          "keys": [
+            "h",
+            "e",
+            "l",
+            "p",
+            "Return"
+          ],
+          "label": "type_help_enter",
+          "marker": "/tmp/td238-check-7pzec4kj/artifacts/native-step-1.done",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "scroll": 0,
+          "window": 4194307
+        },
+        {
+          "index": 2,
+          "keys": [],
+          "label": "scroll_up",
+          "marker": "/tmp/td238-check-7pzec4kj/artifacts/native-step-2.done",
+          "point": [
+            640.0,
+            382.0
+          ],
+          "scroll": -8,
+          "window": 4194307
+        },
+        {
+          "index": 3,
+          "keys": [
+            "Tab"
+          ],
+          "label": "tab_close",
+          "marker": "/tmp/td238-check-7pzec4kj/artifacts/native-step-3.done",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "scroll": 0,
+          "window": 4194307
+        },
+        {
+          "index": 4,
+          "keys": [
+            "Tab"
+          ],
+          "label": "tab_output",
+          "marker": "/tmp/td238-check-7pzec4kj/artifacts/native-step-4.done",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "scroll": 0,
+          "window": 4194307
+        },
+        {
+          "index": 5,
+          "keys": [
+            "Tab"
+          ],
+          "label": "tab_input",
+          "marker": "/tmp/td238-check-7pzec4kj/artifacts/native-step-5.done",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "scroll": 0,
+          "window": 4194307
+        },
+        {
+          "index": 6,
+          "keys": [
+            "Escape"
+          ],
+          "label": "escape",
+          "marker": "/tmp/td238-check-7pzec4kj/artifacts/native-step-6.done",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "scroll": 0,
+          "window": 4194307
+        },
+        {
+          "index": 7,
+          "keys": [
+            "F10",
+            "Up"
+          ],
+          "label": "reopen_recall",
+          "marker": "/tmp/td238-check-7pzec4kj/artifacts/native-step-7.done",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "scroll": 0,
+          "window": 4194307
+        },
+        {
+          "index": 8,
+          "keys": [
+            "Down"
+          ],
+          "label": "recall_draft",
+          "marker": "/tmp/td238-check-7pzec4kj/artifacts/native-step-8.done",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "scroll": 0,
+          "window": 4194307
+        },
+        {
+          "index": 9,
+          "keys": [
+            "F10"
+          ],
+          "label": "F10_close",
+          "marker": "/tmp/td238-check-7pzec4kj/artifacts/native-step-9.done",
+          "point": [
+            0.0,
+            0.0
+          ],
+          "scroll": 0,
+          "window": 4194307
+        },
+        {
+          "observed_fixture_keys": [
+            {
+              "echo": false,
+              "keycode": 72,
+              "unicode": 104
+            },
+            {
+              "echo": false,
+              "keycode": 69,
+              "unicode": 101
+            },
+            {
+              "echo": false,
+              "keycode": 76,
+              "unicode": 108
+            },
+            {
+              "echo": false,
+              "keycode": 80,
+              "unicode": 112
+            },
+            {
+              "echo": false,
+              "keycode": 4194306,
+              "unicode": 0
+            },
+            {
+              "echo": false,
+              "keycode": 4194306,
+              "unicode": 0
+            },
+            {
+              "echo": false,
+              "keycode": 4194306,
+              "unicode": 0
+            }
+          ],
+          "observed_wheel_events": 8,
+          "scroll_values": [
+            0.0,
+            394.0,
+            346.0,
+            298.0,
+            250.0,
+            202.0,
+            154.0,
+            106.0,
+            58.0,
+            10.0
+          ]
+        }
+      ],
+      "passed": true
+    },
+    "raw_log_sha256": "b2a9a6ac447d604bf662226f27d2a1957e043cc3aedf2dd5ccfc8df62863dcc3",
+    "images": [
+      {
+        "path": "godot/qa/td-238/terminal_component/T3-long-help-1280x720-after.png",
+        "sha256": "eafc8525505ae9a397e0a1b2fcee20f20cffa16031ee42c93656734036d760a2"
+      },
+      {
+        "path": "godot/qa/td-238/terminal_component/T3-long-help-1280x720-before.png",
+        "sha256": "bc92aa0385bb9f7008086d2dcf2a7403b5a5de0a68dd61662cbed982b78031d7"
+      },
+      {
+        "path": "godot/qa/td-238/terminal_component/T3-long-help-960x540-after.png",
+        "sha256": "d21db43169b7a4343046e1403c404d28d3196d6fcd7952e631d3bf00e0efa47a"
+      },
+      {
+        "path": "godot/qa/td-238/terminal_component/T3-long-help-960x540-before.png",
+        "sha256": "83653d557ad02bc59c0287408cffff84367dd6aaf183edde971da18827de4e60"
+      },
+      {
+        "path": "godot/qa/td-238/terminal_component/T3-unavailable-1280x720-after.png",
+        "sha256": "efc8484faceffc7ecf5d8aa26bf688cc121602273b9e0120ca8fffad90bbaec9"
+      },
+      {
+        "path": "godot/qa/td-238/terminal_component/T3-unavailable-1280x720-before.png",
+        "sha256": "bc92aa0385bb9f7008086d2dcf2a7403b5a5de0a68dd61662cbed982b78031d7"
+      },
+      {
+        "path": "godot/qa/td-238/terminal_component/T3-unavailable-960x540-after.png",
+        "sha256": "1e3ab30843e04a5a9084f4ca36c36f7701ffc629fdca8b9d5881a9cf73bcd278"
+      },
+      {
+        "path": "godot/qa/td-238/terminal_component/T3-unavailable-960x540-before.png",
+        "sha256": "83653d557ad02bc59c0287408cffff84367dd6aaf183edde971da18827de4e60"
+      }
+    ],
+    "native_driver": {
+      "method": "X11 XTest OS events through native Godot window",
+      "events": [
+        {
+          "at": "2026-10-11T08:27:10.216487+00:00",
+          "step": "F10_open",
+          "key": "F10",
+          "keycode": 76
+        },
+        {
+          "at": "2026-10-11T08:27:10.734765+00:00",
+          "step": "type_help_enter",
+          "key": "h",
+          "keycode": 43
+        },
+        {
+          "at": "2026-10-11T08:27:10.855121+00:00",
+          "step": "type_help_enter",
+          "key": "e",
+          "keycode": 26
+        },
+        {
+          "at": "2026-10-11T08:27:10.988254+00:00",
+          "step": "type_help_enter",
+          "key": "l",
+          "keycode": 46
+        },
+        {
+          "at": "2026-10-11T08:27:11.112476+00:00",
+          "step": "type_help_enter",
+          "key": "p",
+          "keycode": 33
+        },
+        {
+          "at": "2026-10-11T08:27:11.236320+00:00",
+          "step": "type_help_enter",
+          "key": "Return",
+          "keycode": 36
+        },
+        {
+          "at": "2026-10-11T08:27:12.249500+00:00",
+          "step": "scroll_up",
+          "scroll": -8,
+          "point": [
+            640,
+            382
+          ]
+        },
+        {
+          "at": "2026-10-11T08:27:12.738401+00:00",
+          "step": "tab_close",
+          "key": "Tab",
+          "keycode": 23
+        },
+        {
+          "at": "2026-10-11T08:27:13.260131+00:00",
+          "step": "tab_output",
+          "key": "Tab",
+          "keycode": 23
+        },
+        {
+          "at": "2026-10-11T08:27:13.772407+00:00",
+          "step": "tab_input",
+          "key": "Tab",
+          "keycode": 23
+        },
+        {
+          "at": "2026-10-11T08:27:14.261254+00:00",
+          "step": "escape",
+          "key": "Escape",
+          "keycode": 9
+        },
+        {
+          "at": "2026-10-11T08:27:14.728327+00:00",
+          "step": "reopen_recall",
+          "key": "F10",
+          "keycode": 76
+        },
+        {
+          "at": "2026-10-11T08:27:14.852324+00:00",
+          "step": "reopen_recall",
+          "key": "Up",
+          "keycode": 98
+        },
+        {
+          "at": "2026-10-11T08:27:15.368325+00:00",
+          "step": "recall_draft",
+          "key": "Down",
+          "keycode": 104
+        },
+        {
+          "at": "2026-10-11T08:27:15.911327+00:00",
+          "step": "F10_close",
+          "key": "F10",
+          "keycode": 76
+        }
+      ]
+    }
+  },
+  "source_hashes_after": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "finished_at": "2026-10-11T08:27:21.642363+00:00",
+  "passed": true
+}

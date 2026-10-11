@@ -1,0 +1,71 @@
+{
+  "created_at": "2026-10-11T14:04:12.772511+00:00",
+  "purpose": "private evidence export only",
+  "files": [
+    {
+      "path": "README-export.md",
+      "bytes": 1283,
+      "sha256": "a40f689eef8ca373b0f30e4f72794c48f7af04c07316c500844a37ecb061fe7e"
+    },
+    {
+      "path": "admission-result.md",
+      "bytes": 7371,
+      "sha256": "e15b14acd54c03ce8424c2733c08a3da62dde26b090c36b3ab944c2772f8bc0e"
+    },
+    {
+      "path": "provenance/concept-local-identity.json",
+      "bytes": 549,
+      "sha256": "1c9c6c959da8004c6b8ae23b19ac43275905c4eaf5c7b35817ecca73cab4c0d3"
+    },
+    {
+      "path": "provenance/local-artifact-inventory.json",
+      "bytes": 7829,
+      "sha256": "77bbfefa5e04867cdf974994a07e527ee6577109d4e597d60c63138eaf7da86e"
+    },
+    {
+      "path": "provenance/pr374-body.md",
+      "bytes": 1569,
+      "sha256": "225f3bcb350e01fd0be395c5b7c3d787cab1252061c7b4894271968f3988026b"
+    },
+    {
+      "path": "provenance/pr374-original-inventory-record.json",
+      "bytes": 21518,
+      "sha256": "662f629e095fd8fd20773b3f17af0f1c0e44d4b28bbd9eb447bd15fd5afbe7e3"
+    },
+    {
+      "path": "provenance/pr374-pinned-board-excerpts.json",
+      "bytes": 2976,
+      "sha256": "290ec2bd5d11eb7c01d9f330ad4474c321fa9dc8b76591399fed0364020e001a"
+    },
+    {
+      "path": "provenance/pr374-stop-evidence.md",
+      "bytes": 2371,
+      "sha256": "c7048c9854859cb02cc7e88a547ce8ea9fb5cba9c2c62866d2fb44950885f080"
+    },
+    {
+      "path": "provenance/r4-artifact-manifest.json",
+      "bytes": 4051,
+      "sha256": "1e5513c51d8395a4ab0fe51ee5f83e4dcc8965fe68f90493ebd8cd1a614e73a7"
+    },
+    {
+      "path": "provenance/r4-independent-recheck.md",
+      "bytes": 5535,
+      "sha256": "13949475922b8eba3be93d5dc6e97d64d75a4476f4c5ce34d5612d89f1d5b2e9"
+    },
+    {
+      "path": "provenance/r4-interfaces.json",
+      "bytes": 12042,
+      "sha256": "c2c28368b09e9e79ead0f84ff8ccd778eff1d67fb7507aca7eb2492191ecba82"
+    },
+    {
+      "path": "provenance/r4-publication-clarification.json",
+      "bytes": 1215,
+      "sha256": "7c083f6ec9ba71ca7322876a01b2c27bce8f4ba7162bf7d4a6d747c79ee94d3a"
+    },
+    {
+      "path": "reference-verification.json",
+      "bytes": 4559,
+      "sha256": "3c356eeb888c90035a4c7d65c4ca22aae94c80e1b3f11a6dfb3afed63e9fc6ca"
+    }
+  ]
+}

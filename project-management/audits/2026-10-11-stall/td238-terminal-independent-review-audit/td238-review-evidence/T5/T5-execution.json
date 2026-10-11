@@ -1,0 +1,102 @@
+{
+  "task": "td-238-terminal-component",
+  "criterion": "T5",
+  "started_at": "2026-10-11T08:26:28.911059+00:00",
+  "source_head": "709ea8711799cd44a87db643eef7409ac16f8e44",
+  "source_hashes_before": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "binary": {
+    "path": "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e"
+  },
+  "invocation": [
+    "godot/qa/td-238/terminal_component/run_checks.py",
+    "--godot",
+    "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "--criterion",
+    "T5",
+    "--output",
+    "/workspace/td238-review-evidence/T5"
+  ],
+  "negative_controls": [],
+  "scope": "Unmounted standalone component; no parent C1-C6, playable integration, browser, phone or device acceptance",
+  "independent_review": "pending",
+  "human_visual_verdict": null,
+  "baseline": {
+    "exit_code": 0,
+    "result": {
+      "criterion": "T5",
+      "passed": true,
+      "checks": [
+        {
+          "pass": true,
+          "label": "all_existing_game_blobs_unchanged",
+          "detail": []
+        },
+        {
+          "pass": true,
+          "label": "all_nine_code_paths_new",
+          "detail": null
+        },
+        {
+          "pass": true,
+          "label": "no_unadmitted_code_paths",
+          "detail": []
+        },
+        {
+          "pass": true,
+          "label": "parent_task_original_bytes_preserved",
+          "detail": {
+            "original_sha256": "8335ace5b6589c4e7ecc05d89c56cb9265b9b2e5ad6ef65cdcc4844dbbc0bc48",
+            "current_sha256": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+          }
+        },
+        {
+          "pass": true,
+          "label": "no_persistence_os_network_or_mount_api",
+          "detail": []
+        },
+        {
+          "pass": true,
+          "label": "only_own_parser_import",
+          "detail": [
+            "const Commands = preload(\"res://scripts/lower_city/debug_terminal_commands.gd\")"
+          ]
+        },
+        {
+          "pass": true,
+          "label": "no_production_mount",
+          "detail": []
+        }
+      ],
+      "base": "f81232f777ea4151af6e096121087ef9890fa4e9",
+      "browser_or_phone_acceptance": false
+    },
+    "raw_log_sha256": "f431ffe4c909e65ad1c19575ed2441a341dae177d486444b0e1e401da1b4021c"
+  },
+  "source_hashes_after": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "finished_at": "2026-10-11T08:26:42.838649+00:00",
+  "passed": true
+}

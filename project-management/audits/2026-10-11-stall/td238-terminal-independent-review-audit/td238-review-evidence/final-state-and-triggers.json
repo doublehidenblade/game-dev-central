@@ -1,0 +1,54 @@
+{
+  "observed_at": "2026-10-11T08:38:08.109652+00:00",
+  "source_main": "f80754ea8c5cea99138f9c3623e155925f9b016e",
+  "artifact": "709ea8711799cd44a87db643eef7409ac16f8e44",
+  "central_main": "12dfb166d99f18d092c2b3066fc04481f6f5ef4a",
+  "source_workflows": [
+    {
+      "path": ".github/workflows/deploy-signaling.yml",
+      "source_head": "f80754ea8c5cea99138f9c3623e155925f9b016e",
+      "trigger_block": "  workflow_dispatch:\n",
+      "artifact_same_blob": true
+    },
+    {
+      "path": ".github/workflows/native-debug.yml",
+      "source_head": "f80754ea8c5cea99138f9c3623e155925f9b016e",
+      "trigger_block": "  # Craig 2026-09-27: ALL cost-incurring automation runs ONLY on his explicit\n  # request. This workflow is workflow_dispatch-only; pushes and PRs no longer\n  # trigger runs. Supersedes the 2026-09-26/27 CI cost trims.\n  workflow_dispatch:\n",
+      "artifact_same_blob": true
+    },
+    {
+      "path": ".github/workflows/publish-game.yml",
+      "source_head": "f80754ea8c5cea99138f9c3623e155925f9b016e",
+      "trigger_block": "  workflow_dispatch:\n    inputs:\n      run_id:\n        description: Successful same-repository Godot WebGL2 run to publish\n        required: false\n      force:\n        description: \"Standing rule (Craig 2026-10-02): ALWAYS true. Smoke/test results never gate publication; failures become post-publish follow-up.\"\n        required: false\n        default: true\n        type: boolean",
+      "artifact_same_blob": true
+    },
+    {
+      "path": ".github/workflows/publish-web-shuto.yml",
+      "source_head": "f80754ea8c5cea99138f9c3623e155925f9b016e",
+      "trigger_block": "  workflow_dispatch:\n",
+      "artifact_same_blob": true
+    },
+    {
+      "path": ".github/workflows/publish-web.yml",
+      "source_head": "f80754ea8c5cea99138f9c3623e155925f9b016e",
+      "trigger_block": "  workflow_dispatch:\n",
+      "artifact_same_blob": true
+    },
+    {
+      "path": ".github/workflows/review-godot-evidence.yml",
+      "source_head": "f80754ea8c5cea99138f9c3623e155925f9b016e",
+      "trigger_block": "  # Craig 2026-09-27: ALL cost-incurring automation runs ONLY on his explicit\n  # request. This workflow is workflow_dispatch-only; pushes and PRs no longer\n  # trigger runs. Supersedes the 2026-09-26/27 CI cost trims.\n  workflow_dispatch:\n    inputs:\n      run_id:\n        description: Completed Godot WebGL2 run to inspect\n        required: true\n        default: '35495094607'\n",
+      "artifact_same_blob": true
+    },
+    {
+      "path": ".github/workflows/webgl-smoke.yml",
+      "source_head": "f80754ea8c5cea99138f9c3623e155925f9b016e",
+      "trigger_block": "  # Craig 2026-09-27: ALL cost-incurring automation runs ONLY on his explicit\n  # request. This workflow is workflow_dispatch-only; pushes and PRs no longer\n  # trigger runs. Supersedes the 2026-09-26/27 CI cost trims.\n  workflow_dispatch:\n",
+      "artifact_same_blob": true
+    }
+  ],
+  "central_workflows": [],
+  "source_status": "",
+  "central_status": "",
+  "scope": "Read-only review metadata; no source upload/merge/deployment performed or authorized by this observation"
+}

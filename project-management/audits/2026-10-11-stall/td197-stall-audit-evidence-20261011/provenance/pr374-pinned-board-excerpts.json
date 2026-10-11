@@ -1,0 +1,20 @@
+{
+  "source_url": "https://github.com/doublehidenblade/game-dev-central/blob/93645f303a9193344224cf69722a2d0251c4b2f7/project-management/boards/tokyo-drift-3d.md",
+  "git_blob": "64ac0d5b8eb9bbf87d02af4f732d88497f04542c",
+  "commit": "93645f303a9193344224cf69722a2d0251c4b2f7",
+  "read_at": "2026-10-11T14:02:36Z",
+  "lines": [
+    {
+      "line": 200,
+      "text": "| td-197 | Garage reference mocks and measured layout gate (mock-first) | blocked — full mock/layout gate pending; R4 authoring/publication stopped after owner rejection; existing-asset provenance/reuse audit only | dot | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-197.md) | 2026-10-09 |"
+    },
+    {
+      "line": 201,
+      "text": "| td-198 | Driveable garage graybox in the actual Lower City (worker admitted 2026-10-07 04:09 UTC per PR #455) | blocked — old worker paused; R4 authoring/publication stopped; reuse-only preparation does not admit actual-world implementation | dot | [task](https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-198.md) | 2026-10-09 |"
+    },
+    {
+      "line": 250,
+      "text": "- **Garage stops (Craig correction, 2026-10-09):** td-197–202 remain blocked. Craig rejected the scratch primitive R4 appearance and directed existing-truck reuse through the established visual workflow. R4 authoring and publication are stopped; central [#355](https://github.com/doublehidenblade/game-dev-central/pull/355) and Tokyo [#506](https://github.com/doublehidenblade/tokyo-drift-3d/pull/506) remain historical draft proposals and must not be used to resume the isolated study. Keep foundation/design [#327](https://github.com/doublehidenblade/game-dev-central/pull/327), existing owners, the old paused td-198 worker and the full measured-layout/world acceptance gates unchanged. Read-only provenance/identity recovery and matched original-asset visual comparison may inform a bounded reuse/repair proposal. Recover the intended source GLB, references and manifest/task provenance; do not silently substitute the existing Forge cab-over truck for Craig's earlier Tripo mini-truck. Before any later adaptation, independently inspect actual rendered pixels against honestly labeled reference/approved mock/matching-angle existing-asset evidence under the [visual brief workflow](../rules/VISUAL_BRIEF_TEMPLATE.md) and the later [Blender/Godot anime pipeline](../../knowledge/lessons/hybrid-blender-godot-anime-pipeline.md); counts or script checks are not visual acceptance. Preserve working geometry, wheel/controller contracts and existing task ownership. No production admission, new asset selection, authored meshes, full-task acceptance, world integration or deployment is claimed. Routine docs correction and read-only reuse audit require no new design-approval pause; unresolved intended-asset identity is a narrow clarification only if authorized source recovery cannot resolve it."
+    }
+  ]
+}

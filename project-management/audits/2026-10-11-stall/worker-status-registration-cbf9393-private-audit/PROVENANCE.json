@@ -1,0 +1,90 @@
+{
+  "export_type": "private audit of existing local registration and historical admission stalls",
+  "created_at_utc": "2026-10-11T14:07:57.219170Z",
+  "repository": "doublehidenblade/game-dev-central",
+  "commit": "cbf939328a21f39875a6f06f37201219e506d169",
+  "parent_commit": "bec73fbfdb6d6a4fdcf920065ff2ce30a925e304",
+  "commit_created_at": "2026-10-11T02:55:43Z",
+  "original_project_files": [
+    "project-management/boards/tokyo-drift-3d.md",
+    "project-management/tasks/ops-worker-status-contract-20261011.json",
+    "project-management/tasks/ops-worker-status-contract-20261011/registration-proof.json"
+  ],
+  "files": [
+    {
+      "path": "project-management/boards/tokyo-drift-3d.md",
+      "kind": "original-project-file",
+      "commit": "cbf939328a21f39875a6f06f37201219e506d169",
+      "git_blob": "188960c5c19d0f26503312fbd57d4827153f4185",
+      "size_bytes": 108288,
+      "sha256": "32a435bd0cc24b55afce4b6543856ccefc7a2365b5366892972986c34288e00b"
+    },
+    {
+      "path": "project-management/tasks/ops-worker-status-contract-20261011.json",
+      "kind": "original-project-file",
+      "commit": "cbf939328a21f39875a6f06f37201219e506d169",
+      "git_blob": "a9193db10a8f5d4a5ea47fe99e006e8f1c26f83c",
+      "size_bytes": 20444,
+      "sha256": "3cab8e52284139bc3e88b56995719ad65dc6d54bc5201e99b2c3f9d4e57638af"
+    },
+    {
+      "path": "project-management/tasks/ops-worker-status-contract-20261011/registration-proof.json",
+      "kind": "original-project-file",
+      "commit": "cbf939328a21f39875a6f06f37201219e506d169",
+      "git_blob": "bcc9d485b3d3854841d230cbe4c50cefb6ae6e7e",
+      "size_bytes": 9639,
+      "sha256": "64497b39c999bfcd7ebac02663fe5077e603a357538eb79c0ead99cea7299c9c"
+    },
+    {
+      "path": "registration.patch",
+      "kind": "git-format-patch",
+      "source_commit": "cbf939328a21f39875a6f06f37201219e506d169",
+      "size_bytes": 34284,
+      "sha256": "965188cbbe68883cc48318d0d813770ac46dfbcec631a34d198adc6aa4c86e0e",
+      "provenance": "Reproduced from the retained Git commit; SHA-256 exactly equals the previously recorded original patch."
+    },
+    {
+      "path": "evidence/runbook-admission-excerpts.md",
+      "kind": "immutable-source-excerpts",
+      "source_commit": "bec73fbfdb6d6a4fdcf920065ff2ce30a925e304",
+      "source_path": "project-management/watchdog/RUNBOOK.md",
+      "source_blob": "e90c226df5d17f39fd6f878dbb61c68f754982e8",
+      "original_line_ranges": [
+        [
+          183,
+          218
+        ],
+        [
+          253,
+          272
+        ],
+        [
+          377,
+          420
+        ],
+        [
+          480,
+          501
+        ],
+        [
+          580,
+          589
+        ]
+      ],
+      "size_bytes": 10410,
+      "sha256": "f0af9c886b4753c741eec242ea370369a906b9f63a7298a6a5b56d8f3b28ccf7"
+    },
+    {
+      "path": "evidence/admission-blocker-history.json",
+      "kind": "labeled-historical-tool-output-reconstruction",
+      "size_bytes": 6533,
+      "sha256": "4203928e045546b6c3e11dd42900e7ab1389f9596498cd912883c30dbb711731",
+      "provenance_limit": "Only the embedded initial proof survives as a Git file; later /tmp raw evidence is unavailable. No new verification is asserted."
+    }
+  ],
+  "missing_prior_temporary_evidence": "/tmp/worker-status-registration and its reconciliation diagnostics were absent after the environment restart. They were not recollected. Historical facts copied from retained tool outputs are explicitly labeled in evidence/admission-blocker-history.json.",
+  "excluded": "Credentials, authentication material, private owner prompt queues, private raw snapshots/session observations, unrelated repository files and broad branch/PR/worker inventories. The three expressly requested original project files remain byte-exact, including their pre-existing project content.",
+  "activity_boundary": "Local Git-object reading, byte copying, hashing, archive creation and private Library upload only. No gates rerun, implementation, source pushes, PRs, rule changes, denied-action retries, Actions, deployments, sharing or publication-hold waiver.",
+  "publication_hold_remains": true,
+  "manifest_integrity_note": "This manifest lists the other six archive members. The final archive size/SHA-256 is returned separately to avoid a circular self-hash."
+}

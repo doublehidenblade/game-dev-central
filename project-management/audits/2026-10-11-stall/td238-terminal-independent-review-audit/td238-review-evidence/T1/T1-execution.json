@@ -1,0 +1,1112 @@
+{
+  "task": "td-238-terminal-component",
+  "criterion": "T1",
+  "started_at": "2026-10-11T08:26:28.912686+00:00",
+  "source_head": "709ea8711799cd44a87db643eef7409ac16f8e44",
+  "source_hashes_before": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "binary": {
+    "path": "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e"
+  },
+  "invocation": [
+    "godot/qa/td-238/terminal_component/run_checks.py",
+    "--godot",
+    "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "--criterion",
+    "T1",
+    "--output",
+    "/workspace/td238-review-evidence/T1"
+  ],
+  "negative_controls": [
+    {
+      "name": "wrong-number",
+      "temporary_copy_only": true,
+      "test_assertions_unchanged": true,
+      "mutation": {
+        "path": "godot/scripts/lower_city/debug_terminal_commands.gd",
+        "from": "{\"option\": 1, \"name\": \"money\"",
+        "to": "{\"option\": 9, \"name\": \"money\""
+      },
+      "expected_failing_assertion": "stable_mapping_1",
+      "detected": true,
+      "source_unchanged": true,
+      "source_hashes_before": {
+        "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+        "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+        "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+        "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+        "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+        "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+        "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+        "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+      },
+      "source_hashes_after": {
+        "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+        "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+        "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+        "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+        "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+        "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+        "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+        "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+      },
+      "execution": {
+        "started_at": "2026-10-11T08:26:29.590481+00:00",
+        "finished_at": "2026-10-11T08:26:30.218808+00:00",
+        "command": [
+          "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+          "--path",
+          "/tmp/td238-check-_413n17l/project",
+          "--headless",
+          "--audio-driver",
+          "Dummy",
+          "--script",
+          "res://qa/td-238/terminal_component/test_terminal_component.gd",
+          "--",
+          "--criterion",
+          "T1",
+          "--artifacts",
+          "/tmp/td238-check-_413n17l/artifacts"
+        ],
+        "exit_code": 1,
+        "harness_error": null,
+        "result": {
+          "browser_or_phone_acceptance": false,
+          "checks": [
+            {
+              "detail": null,
+              "label": "stable_mapping_1",
+              "pass": false
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_1",
+              "pass": false
+            },
+            {
+              "detail": null,
+              "label": "stable_mapping_2",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_2",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "stable_mapping_3",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_3",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "stable_mapping_4",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_4",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "stable_mapping_5",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_5",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "stable_mapping_6",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_6",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "traffic_traffic_normal",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "traffic_2_normal",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "traffic_traffic_busy",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "traffic_2_busy",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "case_and_outer_spaces",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "repeated_ascii_spaces",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "registry_copy_isolation",
+              "pass": false
+            },
+            {
+              "detail": null,
+              "label": "exact_256_boundary",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_257_boundary",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_   ",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_0",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_7",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_9",
+              "pass": false
+            },
+            {
+              "detail": null,
+              "label": "reject_01",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_+1",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_-1",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_1.0",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_1e0",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_1x",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_1/1",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_0x1",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_1 2",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help now",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_money 20",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_3 extra",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_reset yes",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_exit now",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_traffic fast",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_2 busy extra",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help;exit",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help&&exit",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help|exit",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\\nexit",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\\t",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\\r",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\ufffd",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\u007f",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_\uff11",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_\u00e9",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\ud83d\ude42",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "truthful_unavailable_money",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "truthful_unavailable_traffic",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "truthful_unavailable_reset",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "truthful_unavailable_exit",
+              "pass": true
+            }
+          ],
+          "criterion": "T1",
+          "display": "headless",
+          "engine": {
+            "build": "official",
+            "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+            "hex": 263938,
+            "major": 4,
+            "minor": 7,
+            "patch": 2,
+            "status": "stable",
+            "string": "4.7.2-stable (official)",
+            "timestamp": 0
+          },
+          "native_steps": [],
+          "passed": false
+        },
+        "raw_log_sha256": "512eb73da080b5ef69d29532140ad45067cfb64fe47349396fc0c342bdbf397b",
+        "images": [],
+        "native_driver": null
+      }
+    },
+    {
+      "name": "numeric-coercion",
+      "temporary_copy_only": true,
+      "test_assertions_unchanged": true,
+      "mutation": {
+        "path": "godot/scripts/lower_city/debug_terminal_commands.gd",
+        "from": "\tvar token: String = parts[0]",
+        "to": "\tvar token: String = parts[0]\n\tif token.is_valid_float():\n\t\ttoken = str(int(float(token)))"
+      },
+      "expected_failing_assertion": "reject_1.0",
+      "detected": true,
+      "source_unchanged": true,
+      "source_hashes_before": {
+        "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+        "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+        "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+        "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+        "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+        "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+        "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+        "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+      },
+      "source_hashes_after": {
+        "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+        "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+        "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+        "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+        "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+        "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+        "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+        "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+        "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+      },
+      "execution": {
+        "started_at": "2026-10-11T08:26:30.220993+00:00",
+        "finished_at": "2026-10-11T08:26:30.881406+00:00",
+        "command": [
+          "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+          "--path",
+          "/tmp/td238-check-aljfukk8/project",
+          "--headless",
+          "--audio-driver",
+          "Dummy",
+          "--script",
+          "res://qa/td-238/terminal_component/test_terminal_component.gd",
+          "--",
+          "--criterion",
+          "T1",
+          "--artifacts",
+          "/tmp/td238-check-aljfukk8/artifacts"
+        ],
+        "exit_code": 1,
+        "harness_error": null,
+        "result": {
+          "browser_or_phone_acceptance": false,
+          "checks": [
+            {
+              "detail": null,
+              "label": "stable_mapping_1",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_1",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "stable_mapping_2",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_2",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "stable_mapping_3",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_3",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "stable_mapping_4",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_4",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "stable_mapping_5",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_5",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "stable_mapping_6",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "help_mapping_6",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "traffic_traffic_normal",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "traffic_2_normal",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "traffic_traffic_busy",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "traffic_2_busy",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "case_and_outer_spaces",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "repeated_ascii_spaces",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "registry_copy_isolation",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "exact_256_boundary",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_257_boundary",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_   ",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_0",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_7",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_9",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_01",
+              "pass": false
+            },
+            {
+              "detail": null,
+              "label": "reject_+1",
+              "pass": false
+            },
+            {
+              "detail": null,
+              "label": "reject_-1",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_1.0",
+              "pass": false
+            },
+            {
+              "detail": null,
+              "label": "reject_1e0",
+              "pass": false
+            },
+            {
+              "detail": null,
+              "label": "reject_1x",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_1/1",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_0x1",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_1 2",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help now",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_money 20",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_3 extra",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_reset yes",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_exit now",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_traffic fast",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_2 busy extra",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help;exit",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help&&exit",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help|exit",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\\nexit",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\\t",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\\r",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\ufffd",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\u007f",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_\uff11",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_\u00e9",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "reject_help\ud83d\ude42",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "truthful_unavailable_money",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "truthful_unavailable_traffic",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "truthful_unavailable_reset",
+              "pass": true
+            },
+            {
+              "detail": null,
+              "label": "truthful_unavailable_exit",
+              "pass": true
+            }
+          ],
+          "criterion": "T1",
+          "display": "headless",
+          "engine": {
+            "build": "official",
+            "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+            "hex": 263938,
+            "major": 4,
+            "minor": 7,
+            "patch": 2,
+            "status": "stable",
+            "string": "4.7.2-stable (official)",
+            "timestamp": 0
+          },
+          "native_steps": [],
+          "passed": false
+        },
+        "raw_log_sha256": "764cc6e99f07b86a3e7f5e1a4f7262e0cdba9b5f6b14b627e00ebdd618e1ef1c",
+        "images": [],
+        "native_driver": null
+      }
+    }
+  ],
+  "scope": "Unmounted standalone component; no parent C1-C6, playable integration, browser, phone or device acceptance",
+  "independent_review": "pending",
+  "human_visual_verdict": null,
+  "baseline": {
+    "started_at": "2026-10-11T08:26:28.919280+00:00",
+    "finished_at": "2026-10-11T08:26:29.588413+00:00",
+    "command": [
+      "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+      "--path",
+      "/tmp/td238-check-x9cwslrw/project",
+      "--headless",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "res://qa/td-238/terminal_component/test_terminal_component.gd",
+      "--",
+      "--criterion",
+      "T1",
+      "--artifacts",
+      "/tmp/td238-check-x9cwslrw/artifacts"
+    ],
+    "exit_code": 0,
+    "harness_error": null,
+    "result": {
+      "browser_or_phone_acceptance": false,
+      "checks": [
+        {
+          "detail": null,
+          "label": "stable_mapping_1",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "help_mapping_1",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "stable_mapping_2",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "help_mapping_2",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "stable_mapping_3",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "help_mapping_3",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "stable_mapping_4",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "help_mapping_4",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "stable_mapping_5",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "help_mapping_5",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "stable_mapping_6",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "help_mapping_6",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "traffic_traffic_normal",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "traffic_2_normal",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "traffic_traffic_busy",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "traffic_2_busy",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "case_and_outer_spaces",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "repeated_ascii_spaces",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "registry_copy_isolation",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "exact_256_boundary",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_257_boundary",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_   ",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_0",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_7",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_9",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_01",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_+1",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_-1",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_1.0",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_1e0",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_1x",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_1/1",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_0x1",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_1 2",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_help now",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_money 20",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_3 extra",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_reset yes",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_exit now",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_traffic fast",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_2 busy extra",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_help;exit",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_help&&exit",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_help|exit",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_help\\nexit",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_help\\t",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_help\\r",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_help\ufffd",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_help\u007f",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_\uff11",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_\u00e9",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "reject_help\ud83d\ude42",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "truthful_unavailable_money",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "truthful_unavailable_traffic",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "truthful_unavailable_reset",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "truthful_unavailable_exit",
+          "pass": true
+        }
+      ],
+      "criterion": "T1",
+      "display": "headless",
+      "engine": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      },
+      "native_steps": [],
+      "passed": true
+    },
+    "raw_log_sha256": "98c14bbf3bfed57f72338b3dc83726caea12b50dfc43f3196258467055e32eb5",
+    "images": [],
+    "native_driver": null
+  },
+  "source_hashes_after": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "finished_at": "2026-10-11T08:26:30.882622+00:00",
+  "passed": true
+}

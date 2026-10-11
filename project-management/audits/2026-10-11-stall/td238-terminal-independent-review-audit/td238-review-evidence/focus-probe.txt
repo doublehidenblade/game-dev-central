@@ -1,0 +1,32 @@
+extends "res://qa/td-238/terminal_component/review_base.gd"
+
+func _run() -> void:
+	_check(Commands.REGISTRY.is_read_only(), "registry_container_read_only")
+	_check(Commands.REGISTRY.all(func(entry: Dictionary) -> bool: return entry.is_read_only()), "registry_entries_read_only")
+	var fixture = await _fixture()
+	var panel = fixture.panel
+	fixture.focus_mode = Control.FOCUS_ALL
+	fixture.grab_focus()
+	_check(root.gui_get_focus_owner() == fixture, "focusable_parent_is_valid_previous_focus")
+	_check(panel.open_terminal(1), "parent_focus_allowed_by_open_boundary")
+	await _frames()
+	panel.close_terminal()
+	await _frames()
+	_check(root.gui_get_focus_owner() == fixture, "parent_focus_restored_on_close", {"focus":str(root.gui_get_focus_owner()),"expected":str(fixture)})
+	fixture.queue_free()
+	await _frames()
+	fixture = await _fixture()
+	panel = fixture.panel
+	panel.open_terminal(1)
+	await _frames()
+	panel.close_terminal()
+	panel.open_terminal(1)
+	await _frames()
+	panel.close_terminal()
+	await _frames()
+	_check(root.gui_get_focus_owner() == fixture.sentinel, "rapid_reopen_preserves_original_focus", {"focus":str(root.gui_get_focus_owner()),"expected":str(fixture.sentinel)})
+	fixture.queue_free()
+	await _frames()
+	var failed := checks.filter(func(item: Dictionary) -> bool: return not item["pass"])
+	print("RESULT_JSON " + JSON.stringify({"criterion":"independent-focus-restoration","passed":failed.is_empty(),"checks":checks,"engine":Engine.get_version_info(),"display":DisplayServer.get_name()}))
+	quit(0 if failed.is_empty() else 1)

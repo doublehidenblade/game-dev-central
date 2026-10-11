@@ -1,0 +1,230 @@
+{
+  "note": "Actual local file byte inventory, not evidence_policy submission digest or authenticated attestations",
+  "files": [
+    {
+      "path": "REVIEW.md",
+      "size": 16931,
+      "sha256": "44cbaa97d5c2e0378bba97bf573b15586d1101ca7a9ba41346b11bc43a53d499"
+    },
+    {
+      "path": "T1/T1-execution.json",
+      "size": 34644,
+      "sha256": "6a8c7a27a25efe2372abcb936b4ddf78f43c3981b14cde746c393455da2ccc64"
+    },
+    {
+      "path": "T1/T1-raw.log",
+      "size": 3568,
+      "sha256": "98c14bbf3bfed57f72338b3dc83726caea12b50dfc43f3196258467055e32eb5"
+    },
+    {
+      "path": "T1/numeric-coercion-raw.log",
+      "size": 3715,
+      "sha256": "764cc6e99f07b86a3e7f5e1a4f7262e0cdba9b5f6b14b627e00ebdd618e1ef1c"
+    },
+    {
+      "path": "T1/wrong-number-raw.log",
+      "size": 3738,
+      "sha256": "512eb73da080b5ef69d29532140ad45067cfb64fe47349396fc0c342bdbf397b"
+    },
+    {
+      "path": "T2/T2-execution.json",
+      "size": 22544,
+      "sha256": "5acfd90c1100b9c285fc02fc2c0d48e1d58afc66f09a872fe01ed93b6630f186"
+    },
+    {
+      "path": "T2/T2-raw.log",
+      "size": 1784,
+      "sha256": "828e9965d6b42798a0015ef1148bca2e6738a8786eb744206d4e1235453c2564"
+    },
+    {
+      "path": "T2/duplicate-submit-raw.log",
+      "size": 1880,
+      "sha256": "4366ee3e3555203cfd6d3e6373f41bf4fdeb15d7bec39cba273df3849e940c69"
+    },
+    {
+      "path": "T2/unbounded-history-raw.log",
+      "size": 1826,
+      "sha256": "ef6eaf8b255286328c91f4f2aea48953748dd1f363f71460d9f6fd17e8663adb"
+    },
+    {
+      "path": "T3/T3-execution.json",
+      "size": 25248,
+      "sha256": "15aa8b351a09f4d671b105b0d5da5416fc0accd9fafecc4019f5505728410b73"
+    },
+    {
+      "path": "T3/T3-long-help-1280x720-after.png",
+      "size": 89994,
+      "sha256": "eafc8525505ae9a397e0a1b2fcee20f20cffa16031ee42c93656734036d760a2"
+    },
+    {
+      "path": "T3/T3-long-help-1280x720-before.png",
+      "size": 47399,
+      "sha256": "bc92aa0385bb9f7008086d2dcf2a7403b5a5de0a68dd61662cbed982b78031d7"
+    },
+    {
+      "path": "T3/T3-long-help-960x540-after.png",
+      "size": 70430,
+      "sha256": "d21db43169b7a4343046e1403c404d28d3196d6fcd7952e631d3bf00e0efa47a"
+    },
+    {
+      "path": "T3/T3-long-help-960x540-before.png",
+      "size": 44416,
+      "sha256": "83653d557ad02bc59c0287408cffff84367dd6aaf183edde971da18827de4e60"
+    },
+    {
+      "path": "T3/T3-raw.log",
+      "size": 7929,
+      "sha256": "b2a9a6ac447d604bf662226f27d2a1957e043cc3aedf2dd5ccfc8df62863dcc3"
+    },
+    {
+      "path": "T3/T3-unavailable-1280x720-after.png",
+      "size": 101240,
+      "sha256": "efc8484faceffc7ecf5d8aa26bf688cc121602273b9e0120ca8fffad90bbaec9"
+    },
+    {
+      "path": "T3/T3-unavailable-1280x720-before.png",
+      "size": 47399,
+      "sha256": "bc92aa0385bb9f7008086d2dcf2a7403b5a5de0a68dd61662cbed982b78031d7"
+    },
+    {
+      "path": "T3/T3-unavailable-960x540-after.png",
+      "size": 93145,
+      "sha256": "1e3ab30843e04a5a9084f4ca36c36f7701ffc629fdca8b9d5881a9cf73bcd278"
+    },
+    {
+      "path": "T3/T3-unavailable-960x540-before.png",
+      "size": 44416,
+      "sha256": "83653d557ad02bc59c0287408cffff84367dd6aaf183edde971da18827de4e60"
+    },
+    {
+      "path": "T3/stale-focus-raw.log",
+      "size": 907,
+      "sha256": "0828cf552a7f4ad49dae4835590bf575c78b98b78133eb87cc761bbe5377f678"
+    },
+    {
+      "path": "T4/T4-execution.json",
+      "size": 6671,
+      "sha256": "e88dada8f5277be54799fbc341ad6fd8da1f9ccbc55654180e68a3285c4533c0"
+    },
+    {
+      "path": "T4/T4-raw.log",
+      "size": 1455,
+      "sha256": "2f5f421cb61d8a054aca2436b09586ad67be1a157c352bea2828a45dae5c8703"
+    },
+    {
+      "path": "T5/T5-execution.json",
+      "size": 5005,
+      "sha256": "6c810727cee8bcf91af9af81716bbf07e8f880cb5e23c8b377ad47ee58eaa811"
+    },
+    {
+      "path": "T5/T5-raw.log",
+      "size": 1142,
+      "sha256": "f431ffe4c909e65ad1c19575ed2441a341dae177d486444b0e1e401da1b4021c"
+    },
+    {
+      "path": "adversarial/initial-probe-failure.txt",
+      "size": 770,
+      "sha256": "88aa25eb0254e0c28879f09764a815ed8a37a749cf11a859ed288c23e3559cc5"
+    },
+    {
+      "path": "adversarial-rerun/T3-raw.log",
+      "size": 12445,
+      "sha256": "7d27d29a3cad381af13424f9600156f0b2d8ce37f1cefe09a07a909abf43cfbc"
+    },
+    {
+      "path": "adversarial-rerun/execution.json",
+      "size": 24529,
+      "sha256": "cd90a8e65c8ae242b6270abc51d111194ba17e174f6f95d9fde9b49b8a2f266e"
+    },
+    {
+      "path": "adversarial-rerun/review-long-help-1280x720-bottom.png",
+      "size": 99606,
+      "sha256": "183c817615f954271dac22259b12e696a43aaa8955cf36abe98bc3a787228e7e"
+    },
+    {
+      "path": "adversarial-rerun/review-long-help-960x540-bottom.png",
+      "size": 80683,
+      "sha256": "2da8712c9bea1bac2b298df847e194f92c61f320d0c786071819291501e89c47"
+    },
+    {
+      "path": "adversarial-rerun/review-unavailable-1280x720-bottom.png",
+      "size": 98590,
+      "sha256": "5c232fb69d943c7e7c54cf9ded6c2e0d00d6e3d110ee64364da1143c67c05904"
+    },
+    {
+      "path": "adversarial-rerun/review-unavailable-960x540-bottom.png",
+      "size": 94196,
+      "sha256": "3da323359460b7294fce6a7a733728ad17d2de7fd4861f208901850a9ed8efb2"
+    },
+    {
+      "path": "execution-schema-check.json",
+      "size": 1023,
+      "sha256": "b303ade29531871fb184af0c116a8d9c20aa3bced08d1f7ec625454db026d8ce"
+    },
+    {
+      "path": "final-state-and-triggers.json",
+      "size": 3137,
+      "sha256": "cbb7f2468315c8929efa39566442ef08da29fa4d4467782ed66a10d7f3f34286"
+    },
+    {
+      "path": "focus-probe/T2-raw.log",
+      "size": 1219,
+      "sha256": "116a906bb64cc79d4d673db84431972624df1afeedcc92ab151f51e659ef9439"
+    },
+    {
+      "path": "focus-probe/execution.json",
+      "size": 4724,
+      "sha256": "c2df9fc833b8d1d516e948a17acfdf30de2f5b67e44f0c7b3a7b64d2fec95b52"
+    },
+    {
+      "path": "focus-probe-native/T3-raw.log",
+      "size": 1509,
+      "sha256": "01071f41480abbe1d3dbf4a68c5598ed13761d216cb751d7fd5611f4cfe057c6"
+    },
+    {
+      "path": "focus-probe-native/execution.json",
+      "size": 5017,
+      "sha256": "58a9a5c34b3501c356fcd4063d096696c0bc14aa8f4f8b391a88b086705402de"
+    },
+    {
+      "path": "focus-probe.txt",
+      "size": 1542,
+      "sha256": "e171b109d00222ac38c24bef2d687c6202265640bde664ea95449397da856104"
+    },
+    {
+      "path": "image-comparison.json",
+      "size": 3103,
+      "sha256": "d1ff6ffaaf1f82c05d66ccd464f072c9f5fe383bdf9e7c00500ce053d2245faf"
+    },
+    {
+      "path": "independent-probe-initial.txt",
+      "size": 6041,
+      "sha256": "9953bfb05302e795edc10e5af972afb919809c33f62951a79ca9aa4bf7268488"
+    },
+    {
+      "path": "independent-probe.txt",
+      "size": 6065,
+      "sha256": "26340fe9f700fc63ba9c7ae2866e37fef29674c695d5f4581e046f04c7d7d8bd"
+    },
+    {
+      "path": "independent-review.json",
+      "size": 18842,
+      "sha256": "e7267214dc74bbbb1a6fc0f845afd37a66d05e2df3afc3003b2ad3a0a998079a"
+    },
+    {
+      "path": "probe-reproduction.txt",
+      "size": 2357,
+      "sha256": "a2905f368ef322a815e1e0e8e2ddd430fad7a23911a003792d055d1ae8b73c88"
+    },
+    {
+      "path": "source-equivalence.json",
+      "size": 8908,
+      "sha256": "353f7d996e3783567bfb24146f3c23224a65f025224c3eab51cc3c28c073854a"
+    },
+    {
+      "path": "td238-terminal-inspected.png",
+      "size": 101240,
+      "sha256": "efc8484faceffc7ecf5d8aa26bf688cc121602273b9e0120ca8fffad90bbaec9"
+    }
+  ]
+}

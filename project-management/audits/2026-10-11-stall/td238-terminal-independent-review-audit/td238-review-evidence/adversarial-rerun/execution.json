@@ -1,0 +1,914 @@
+{
+  "started_at": "2026-10-11T08:30:34.333937+00:00",
+  "finished_at": "2026-10-11T08:31:02.127843+00:00",
+  "command": [
+    "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "--path",
+    "/tmp/td238-check-cwsrjcvc/project",
+    "--display-driver",
+    "x11",
+    "--rendering-method",
+    "gl_compatibility",
+    "--position",
+    "0,0",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "res://qa/td-238/terminal_component/test_terminal_component.gd",
+    "--",
+    "--criterion",
+    "T3",
+    "--artifacts",
+    "/tmp/td238-check-cwsrjcvc/artifacts"
+  ],
+  "exit_code": 0,
+  "harness_error": null,
+  "result": {
+    "checks": [
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_3030",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_30303031",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_312e",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_2e31",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_31652b30",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_314530",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_31652d30",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_2b3031",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_2d30",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_4e614e",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_494e46",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_2d494e46",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_306231",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_306f31",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_305831",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_315f30",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_312c30",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_313b",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_32206e6f726d616c3b737461747573",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_3220425553592078",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_7374617475732033",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_68656c702023636f6d6d656e74",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_68656c705c6e",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_223122",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_273127",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_31313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131313131",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_c2a068656c70",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "extra_parser_reject_utf8_68656c70e280a8",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_0",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_1",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_2",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_3",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_4",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_5",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_6",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_7",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_8",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_9",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_10",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_11",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_12",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_13",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_14",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_15",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_16",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_17",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_18",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_19",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_20",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_21",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_22",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_23",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_24",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_25",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_26",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_27",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_28",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_29",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_30",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "ascii_control_reject_31",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "valid_alias_  MONEY ",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "valid_alias_  1  ",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "valid_alias_TrAfFiC BUSY",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "valid_alias_  2   NORMAL ",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "valid_alias_STATUS",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "valid_alias_RESET",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "valid_alias_CLOSE",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "valid_alias_EXIT",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "returned_values_isolated",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "empty_recall_safe",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "hundred_duplicate_and_signal_submissions_once",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "returned_histories_isolated_and_bounded",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "exact_output_512_513",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "url_and_image_markup_literal",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "disable_blocks_queued_submit_and_focus",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "disable_restores_ordinary_focus",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "close_does_not_steal_new_focus",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "freed_prior_focus_safe",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "removed_panel_rejects_submit",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "nonpositive_generation_-1",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "nonpositive_generation_0",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "native_driver_review_bottom_long-help_1280x720",
+        "pass": true
+      },
+      {
+        "detail": {
+          "after": 394.0,
+          "before": 0.0,
+          "content_height": 782,
+          "max": 782.0,
+          "output_rect": "[P: (42.0, 176.0), S: (1196.0, 412.0)]",
+          "page": 388.0,
+          "visible": true
+        },
+        "label": "scroll_reaches_bottom_long-help_1280x720",
+        "pass": true
+      },
+      {
+        "detail": [
+          1280,
+          720
+        ],
+        "label": "capture_dimensions_review-long-help-1280x720-bottom.png",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "capture_saved_review-long-help-1280x720-bottom.png",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "native_driver_review_keyboard_long-help_1280x720",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "keyboard_status_at_long-help_1280x720",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "native_driver_review_bottom_unavailable_1280x720",
+        "pass": true
+      },
+      {
+        "detail": {
+          "after": 0.0,
+          "before": 0.0,
+          "content_height": 230,
+          "max": 230.0,
+          "output_rect": "[P: (42.0, 176.0), S: (1196.0, 412.0)]",
+          "page": 230.0,
+          "visible": false
+        },
+        "label": "scroll_reaches_bottom_unavailable_1280x720",
+        "pass": true
+      },
+      {
+        "detail": [
+          1280,
+          720
+        ],
+        "label": "capture_dimensions_review-unavailable-1280x720-bottom.png",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "capture_saved_review-unavailable-1280x720-bottom.png",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "native_driver_review_keyboard_unavailable_1280x720",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "keyboard_status_at_unavailable_1280x720",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "native_driver_review_bottom_long-help_960x540",
+        "pass": true
+      },
+      {
+        "detail": {
+          "after": 574.0,
+          "before": 0.0,
+          "content_height": 782,
+          "max": 782.0,
+          "output_rect": "[P: (42.0, 176.0), S: (876.0, 232.0)]",
+          "page": 208.0,
+          "visible": true
+        },
+        "label": "scroll_reaches_bottom_long-help_960x540",
+        "pass": true
+      },
+      {
+        "detail": [
+          960,
+          540
+        ],
+        "label": "capture_dimensions_review-long-help-960x540-bottom.png",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "capture_saved_review-long-help-960x540-bottom.png",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "native_driver_review_keyboard_long-help_960x540",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "keyboard_status_at_long-help_960x540",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "native_driver_review_bottom_unavailable_960x540",
+        "pass": true
+      },
+      {
+        "detail": {
+          "after": 22.0,
+          "before": 0.0,
+          "content_height": 230,
+          "max": 230.0,
+          "output_rect": "[P: (42.0, 176.0), S: (876.0, 232.0)]",
+          "page": 208.0,
+          "visible": false
+        },
+        "label": "scroll_reaches_bottom_unavailable_960x540",
+        "pass": true
+      },
+      {
+        "detail": [
+          960,
+          540
+        ],
+        "label": "capture_dimensions_review-unavailable-960x540-bottom.png",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "capture_saved_review-unavailable-960x540-bottom.png",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "native_driver_review_keyboard_unavailable_960x540",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "keyboard_status_at_unavailable_960x540",
+        "pass": true
+      }
+    ],
+    "criterion": "independent-adversarial-probes",
+    "display": "X11",
+    "engine": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "native_steps": [
+      {
+        "index": 0,
+        "keys": [],
+        "label": "review_bottom_long-help_1280x720",
+        "marker": "/tmp/td238-check-cwsrjcvc/artifacts/native-step-0.done",
+        "point": [
+          640.0,
+          382.0
+        ],
+        "scroll": 24,
+        "window": 4194307
+      },
+      {
+        "index": 1,
+        "keys": [
+          "Escape",
+          "F10",
+          "3",
+          "Return"
+        ],
+        "label": "review_keyboard_long-help_1280x720",
+        "marker": "/tmp/td238-check-cwsrjcvc/artifacts/native-step-1.done",
+        "point": [
+          0.0,
+          0.0
+        ],
+        "scroll": 0,
+        "window": 4194307
+      },
+      {
+        "index": 2,
+        "keys": [],
+        "label": "review_bottom_unavailable_1280x720",
+        "marker": "/tmp/td238-check-cwsrjcvc/artifacts/native-step-2.done",
+        "point": [
+          640.0,
+          382.0
+        ],
+        "scroll": 24,
+        "window": 4194307
+      },
+      {
+        "index": 3,
+        "keys": [
+          "Escape",
+          "F10",
+          "3",
+          "Return"
+        ],
+        "label": "review_keyboard_unavailable_1280x720",
+        "marker": "/tmp/td238-check-cwsrjcvc/artifacts/native-step-3.done",
+        "point": [
+          0.0,
+          0.0
+        ],
+        "scroll": 0,
+        "window": 4194307
+      },
+      {
+        "index": 4,
+        "keys": [],
+        "label": "review_bottom_long-help_960x540",
+        "marker": "/tmp/td238-check-cwsrjcvc/artifacts/native-step-4.done",
+        "point": [
+          480.0,
+          292.0
+        ],
+        "scroll": 24,
+        "window": 4194307
+      },
+      {
+        "index": 5,
+        "keys": [
+          "Escape",
+          "F10",
+          "3",
+          "Return"
+        ],
+        "label": "review_keyboard_long-help_960x540",
+        "marker": "/tmp/td238-check-cwsrjcvc/artifacts/native-step-5.done",
+        "point": [
+          0.0,
+          0.0
+        ],
+        "scroll": 0,
+        "window": 4194307
+      },
+      {
+        "index": 6,
+        "keys": [],
+        "label": "review_bottom_unavailable_960x540",
+        "marker": "/tmp/td238-check-cwsrjcvc/artifacts/native-step-6.done",
+        "point": [
+          480.0,
+          292.0
+        ],
+        "scroll": 24,
+        "window": 4194307
+      },
+      {
+        "index": 7,
+        "keys": [
+          "Escape",
+          "F10",
+          "3",
+          "Return"
+        ],
+        "label": "review_keyboard_unavailable_960x540",
+        "marker": "/tmp/td238-check-cwsrjcvc/artifacts/native-step-7.done",
+        "point": [
+          0.0,
+          0.0
+        ],
+        "scroll": 0,
+        "window": 4194307
+      }
+    ],
+    "passed": true
+  },
+  "raw_log_sha256": "7d27d29a3cad381af13424f9600156f0b2d8ce37f1cefe09a07a909abf43cfbc",
+  "images": [
+    {
+      "path": "godot/qa/td-238/terminal_component/review-long-help-1280x720-bottom.png",
+      "sha256": "183c817615f954271dac22259b12e696a43aaa8955cf36abe98bc3a787228e7e"
+    },
+    {
+      "path": "godot/qa/td-238/terminal_component/review-long-help-960x540-bottom.png",
+      "sha256": "2da8712c9bea1bac2b298df847e194f92c61f320d0c786071819291501e89c47"
+    },
+    {
+      "path": "godot/qa/td-238/terminal_component/review-unavailable-1280x720-bottom.png",
+      "sha256": "5c232fb69d943c7e7c54cf9ded6c2e0d00d6e3d110ee64364da1143c67c05904"
+    },
+    {
+      "path": "godot/qa/td-238/terminal_component/review-unavailable-960x540-bottom.png",
+      "sha256": "3da323359460b7294fce6a7a733728ad17d2de7fd4861f208901850a9ed8efb2"
+    }
+  ],
+  "native_driver": {
+    "method": "X11 XTest OS events through native Godot window",
+    "events": [
+      {
+        "at": "2026-10-11T08:30:51.131403+00:00",
+        "step": "review_bottom_long-help_1280x720",
+        "scroll": 24,
+        "point": [
+          640,
+          382
+        ]
+      },
+      {
+        "at": "2026-10-11T08:30:51.781068+00:00",
+        "step": "review_keyboard_long-help_1280x720",
+        "key": "Escape",
+        "keycode": 9
+      },
+      {
+        "at": "2026-10-11T08:30:51.901446+00:00",
+        "step": "review_keyboard_long-help_1280x720",
+        "key": "F10",
+        "keycode": 76
+      },
+      {
+        "at": "2026-10-11T08:30:52.021786+00:00",
+        "step": "review_keyboard_long-help_1280x720",
+        "key": "3",
+        "keycode": 12
+      },
+      {
+        "at": "2026-10-11T08:30:52.148165+00:00",
+        "step": "review_keyboard_long-help_1280x720",
+        "key": "Return",
+        "keycode": 36
+      },
+      {
+        "at": "2026-10-11T08:30:54.460328+00:00",
+        "step": "review_bottom_unavailable_1280x720",
+        "scroll": 24,
+        "point": [
+          640,
+          382
+        ]
+      },
+      {
+        "at": "2026-10-11T08:30:55.196655+00:00",
+        "step": "review_keyboard_unavailable_1280x720",
+        "key": "Escape",
+        "keycode": 9
+      },
+      {
+        "at": "2026-10-11T08:30:55.316978+00:00",
+        "step": "review_keyboard_unavailable_1280x720",
+        "key": "F10",
+        "keycode": 76
+      },
+      {
+        "at": "2026-10-11T08:30:55.437352+00:00",
+        "step": "review_keyboard_unavailable_1280x720",
+        "key": "3",
+        "keycode": 12
+      },
+      {
+        "at": "2026-10-11T08:30:55.557697+00:00",
+        "step": "review_keyboard_unavailable_1280x720",
+        "key": "Return",
+        "keycode": 36
+      },
+      {
+        "at": "2026-10-11T08:30:57.726093+00:00",
+        "step": "review_bottom_long-help_960x540",
+        "scroll": 24,
+        "point": [
+          480,
+          292
+        ]
+      },
+      {
+        "at": "2026-10-11T08:30:58.287642+00:00",
+        "step": "review_keyboard_long-help_960x540",
+        "key": "Escape",
+        "keycode": 9
+      },
+      {
+        "at": "2026-10-11T08:30:58.407995+00:00",
+        "step": "review_keyboard_long-help_960x540",
+        "key": "F10",
+        "keycode": 76
+      },
+      {
+        "at": "2026-10-11T08:30:58.528348+00:00",
+        "step": "review_keyboard_long-help_960x540",
+        "key": "3",
+        "keycode": 12
+      },
+      {
+        "at": "2026-10-11T08:30:58.648708+00:00",
+        "step": "review_keyboard_long-help_960x540",
+        "key": "Return",
+        "keycode": 36
+      },
+      {
+        "at": "2026-10-11T08:31:00.729092+00:00",
+        "step": "review_bottom_unavailable_960x540",
+        "scroll": 24,
+        "point": [
+          480,
+          292
+        ]
+      },
+      {
+        "at": "2026-10-11T08:31:01.270299+00:00",
+        "step": "review_keyboard_unavailable_960x540",
+        "key": "Escape",
+        "keycode": 9
+      },
+      {
+        "at": "2026-10-11T08:31:01.392492+00:00",
+        "step": "review_keyboard_unavailable_960x540",
+        "key": "F10",
+        "keycode": 76
+      },
+      {
+        "at": "2026-10-11T08:31:01.512836+00:00",
+        "step": "review_keyboard_unavailable_960x540",
+        "key": "3",
+        "keycode": 12
+      },
+      {
+        "at": "2026-10-11T08:31:01.633213+00:00",
+        "step": "review_keyboard_unavailable_960x540",
+        "key": "Return",
+        "keycode": 36
+      }
+    ]
+  },
+  "probe_sha256": "26340fe9f700fc63ba9c7ae2866e37fef29674c695d5f4581e046f04c7d7d8bd",
+  "probe_source": "../independent-probe.txt",
+  "source_hashes_before": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "source_hashes_after": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "source_unchanged": true
+}

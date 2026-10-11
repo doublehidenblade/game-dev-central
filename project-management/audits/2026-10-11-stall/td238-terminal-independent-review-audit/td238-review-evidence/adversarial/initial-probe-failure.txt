@@ -1,0 +1,4 @@
+The initial reviewer-only probe completed its engine invocation but the unchanged author runner failed parsing the RESULT_JSON output:
+json.decoder.JSONDecodeError: Unterminated string starting at: line 1 column 2011 (char 2010)
+run_checks.py:190 uses log.splitlines(). A probe rejection label contained literal U+2028, which splitlines treats as a separator inside the JSON string.
+No product or committed test source was changed. No assertion result is claimed for that invocation. The initial probe text is retained as ../independent-probe-initial.txt. The subsequent reviewer-only probe encodes rejection labels as UTF-8 hex so this label cannot split the log record. This is not an author implementation correction and does not reset the author's exhausted budget.

@@ -1,0 +1,111 @@
+extends "res://qa/td-238/terminal_component/review_base.gd"
+
+func _run() -> void:
+	var args := OS.get_cmdline_user_args()
+	for index in range(args.size()):
+		if args[index] == "--artifacts": artifacts = args[index + 1]
+	var invalid := ["00", "0001", "1.", ".1", "1e+0", "1E0", "1e-0", "+01", "-0", "NaN", "INF", "-INF", "0b1", "0o1", "0X1", "1_0", "1,0", "1;", "2 normal;status", "2 BUSY x", "status 3", "help #comment", "help\\n", "\"1\"", "'1'", "1".repeat(256), String.chr(160) + "help", "help" + String.chr(8232)]
+	for value: String in invalid:
+		_check(not Commands.parse(value).get("ok", false), "extra_parser_reject_" + value.c_escape())
+	for index in range(32):
+		_check(not Commands.parse("he" + String.chr(index) + "lp").get("ok", false), "ascii_control_reject_%d" % index)
+	for value in ["  MONEY ", "  1  ", "TrAfFiC BUSY", "  2   NORMAL ", "STATUS", "RESET", "CLOSE", "EXIT"]:
+		_check(Commands.parse(value).get("ok", false), "valid_alias_" + value)
+	var returned: Dictionary = Commands.parse("1")
+	returned["command"] = "exit"
+	returned["available"] = true
+	var registry: Array = Commands.registry()
+	registry[1]["option"] = 6
+	registry[1]["available"] = true
+	_check(Commands.parse("1")["command"] == "money" and not Commands.parse("1")["available"] and Commands.parse("2")["command"] == "traffic" and not Commands.parse("2")["available"], "returned_values_isolated")
+	var fixture = await _fixture()
+	var panel = fixture.panel
+	panel.open_terminal(1)
+	await _frames()
+	panel.recall_previous()
+	panel.recall_next()
+	_check(panel.command_input.text == "" and panel.recall_entries().is_empty(), "empty_recall_safe")
+	for index in range(100):
+		panel.set_input_text("status")
+		var revision: int = panel.input_revision()
+		panel.submit_text("status", revision, 1)
+		panel.submit_text("status", revision, 1)
+		panel.command_input.text_submitted.emit("status")
+	_check(panel.accepted_submissions == 100, "hundred_duplicate_and_signal_submissions_once")
+	var output_copy: Array = panel.output_lines()
+	var recall_copy: Array = panel.recall_entries()
+	output_copy.clear()
+	recall_copy.clear()
+	_check(panel.output_lines().size() == 128 and panel.recall_entries().size() == 32, "returned_histories_isolated_and_bounded")
+	panel.append_output("A".repeat(512) + "\n" + "B".repeat(513))
+	_check(panel.output_lines()[-2] == "A".repeat(512) and panel.output_lines()[-1] == "B".repeat(509) + "...", "exact_output_512_513")
+	panel.append_output("[url=https://example.invalid]literal[/url]\n[img]literal[/img]")
+	_check(panel.output.get_parsed_text().contains("[url=https://example.invalid]literal[/url]") and panel.output.get_parsed_text().contains("[img]literal[/img]"), "url_and_image_markup_literal")
+	panel.set_input_text("status")
+	var stale_revision: int = panel.input_revision()
+	var stale_epoch: int = panel.lifecycle_epoch()
+	panel.configure_preview(false, "desktop_native", 2)
+	panel._focus_input(stale_epoch, 1)
+	_check(not panel.submit_text("status", stale_revision, 1).get("ok", false) and not panel.is_open(), "disable_blocks_queued_submit_and_focus")
+	await _frames()
+	_check(root.gui_get_focus_owner() == fixture.sentinel, "disable_restores_ordinary_focus")
+	panel.configure_preview(true, "desktop_native", 3)
+	panel.open_terminal(3)
+	await _frames()
+	panel.close_terminal()
+	fixture.ordinary_button.grab_focus()
+	await _frames()
+	_check(root.gui_get_focus_owner() == fixture.ordinary_button, "close_does_not_steal_new_focus")
+	fixture.sentinel.grab_focus()
+	panel.open_terminal(3)
+	await _frames()
+	fixture.sentinel.queue_free()
+	await _frames()
+	panel.close_terminal()
+	await _frames()
+	_check(not panel.is_open(), "freed_prior_focus_safe")
+	panel.configure_preview(true, "desktop_native", 4)
+	panel.open_terminal(4)
+	panel.set_input_text("status")
+	stale_revision = panel.input_revision()
+	fixture.remove_child(panel)
+	_check(not panel.submit_text("status", stale_revision, 4).get("ok", false), "removed_panel_rejects_submit")
+	panel.free()
+	fixture.queue_free()
+	await _frames()
+	for generation in [-1, 0]:
+		fixture = await _fixture()
+		panel = fixture.panel
+		panel.configure_preview(true, "desktop_native", generation)
+		_check(not panel.open_terminal(generation), "nonpositive_generation_%d" % generation)
+		fixture.queue_free()
+		await _frames()
+	for viewport: Vector2i in [Vector2i(1280,720), Vector2i(960,540)]:
+		DisplayServer.window_set_size(viewport)
+		root.size = viewport
+		await _frames(8)
+		for view in ["long-help", "unavailable"]:
+			fixture = await _fixture()
+			panel = fixture.panel
+			panel.open_terminal(1)
+			await _frames()
+			if view == "long-help":
+				_submit(panel, "help")
+			else:
+				for name in ["1", "2 busy", "4", "6"]:
+					_submit(panel, name)
+			await _frames(8)
+			panel.output.get_v_scroll_bar().value = 0
+			await _frames()
+			var bar: VScrollBar = panel.output.get_v_scroll_bar()
+			var before := bar.value
+			await _os_step("review_bottom_%s_%dx%d" % [view,viewport.x,viewport.y], [], 24, panel.output.get_global_rect().get_center())
+			_check(bar.value >= bar.max_value - bar.page - 1, "scroll_reaches_bottom_%s_%dx%d" % [view,viewport.x,viewport.y], {"before":before,"after":bar.value,"max":bar.max_value,"page":bar.page,"visible":bar.visible,"output_rect":str(panel.output.get_global_rect()),"content_height":panel.output.get_content_height()})
+			await _capture(artifacts.path_join("review-%s-%dx%d-bottom.png" % [view,viewport.x,viewport.y]))
+			await _os_step("review_keyboard_%s_%dx%d" % [view,viewport.x,viewport.y], ["Escape", "F10", "3", "Return"])
+			_check(panel.is_open() and panel.recall_entries()[-1] == "3", "keyboard_status_at_%s_%dx%d" % [view,viewport.x,viewport.y])
+			fixture.queue_free()
+			await _frames()
+	var failed := checks.filter(func(item: Dictionary) -> bool: return not item["pass"])
+	print("RESULT_JSON " + JSON.stringify({"criterion":"independent-adversarial-probes","passed":failed.is_empty(),"checks":checks,"native_steps":native_steps,"engine":Engine.get_version_info(),"display":DisplayServer.get_name()}))
+	quit(0 if failed.is_empty() else 1)

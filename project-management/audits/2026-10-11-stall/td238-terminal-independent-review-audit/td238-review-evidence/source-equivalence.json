@@ -1,0 +1,90 @@
+{
+  "checked_at": "2026-10-11T08:31:18.016043+00:00",
+  "base": "f81232f777ea4151af6e096121087ef9890fa4e9",
+  "admitted_head": "d1c892184a6dc00c661f8cc807d1324ffdb1b4f3",
+  "implementation_head": "fd8776c02aefab4f4de6cc0d2208838be93990d4",
+  "artifact_head": "709ea8711799cd44a87db643eef7409ac16f8e44",
+  "implementation_is_ancestor": true,
+  "source_files": [
+    {
+      "path": "godot/scripts/lower_city/debug_terminal_commands.gd",
+      "implementation_tree_entry": "100644 blob 432a2aef247c3a1e26ed1b18867fbe14740626e9\tgodot/scripts/lower_city/debug_terminal_commands.gd",
+      "artifact_tree_entry": "100644 blob 432a2aef247c3a1e26ed1b18867fbe14740626e9\tgodot/scripts/lower_city/debug_terminal_commands.gd",
+      "identical_blob_and_mode": true,
+      "sha256": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696"
+    },
+    {
+      "path": "godot/scripts/lower_city/debug_terminal_commands.gd.uid",
+      "implementation_tree_entry": "100644 blob e598eae9be33cbf5552f2199dbc8c23d652b49b7\tgodot/scripts/lower_city/debug_terminal_commands.gd.uid",
+      "artifact_tree_entry": "100644 blob e598eae9be33cbf5552f2199dbc8c23d652b49b7\tgodot/scripts/lower_city/debug_terminal_commands.gd.uid",
+      "identical_blob_and_mode": true,
+      "sha256": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee"
+    },
+    {
+      "path": "godot/scripts/lower_city/debug_terminal_panel.gd",
+      "implementation_tree_entry": "100644 blob be5dc4c4335c4529b4330ae12b2c03b2a2ce2117\tgodot/scripts/lower_city/debug_terminal_panel.gd",
+      "artifact_tree_entry": "100644 blob be5dc4c4335c4529b4330ae12b2c03b2a2ce2117\tgodot/scripts/lower_city/debug_terminal_panel.gd",
+      "identical_blob_and_mode": true,
+      "sha256": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862"
+    },
+    {
+      "path": "godot/scripts/lower_city/debug_terminal_panel.gd.uid",
+      "implementation_tree_entry": "100644 blob 453a57f1538d8f956a4559fe11d2d418585716ec\tgodot/scripts/lower_city/debug_terminal_panel.gd.uid",
+      "artifact_tree_entry": "100644 blob 453a57f1538d8f956a4559fe11d2d418585716ec\tgodot/scripts/lower_city/debug_terminal_panel.gd.uid",
+      "identical_blob_and_mode": true,
+      "sha256": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3"
+    },
+    {
+      "path": "godot/qa/td-238/terminal_component/fixture.gd",
+      "implementation_tree_entry": "100644 blob 7d3db8e76872a661bf4eb5d02e4a6a1265f261c0\tgodot/qa/td-238/terminal_component/fixture.gd",
+      "artifact_tree_entry": "100644 blob 7d3db8e76872a661bf4eb5d02e4a6a1265f261c0\tgodot/qa/td-238/terminal_component/fixture.gd",
+      "identical_blob_and_mode": true,
+      "sha256": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1"
+    },
+    {
+      "path": "godot/qa/td-238/terminal_component/fixture.gd.uid",
+      "implementation_tree_entry": "100644 blob 3729e6c961b74645348cc8e237efcd21888a05c0\tgodot/qa/td-238/terminal_component/fixture.gd.uid",
+      "artifact_tree_entry": "100644 blob 3729e6c961b74645348cc8e237efcd21888a05c0\tgodot/qa/td-238/terminal_component/fixture.gd.uid",
+      "identical_blob_and_mode": true,
+      "sha256": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91"
+    },
+    {
+      "path": "godot/qa/td-238/terminal_component/test_terminal_component.gd",
+      "implementation_tree_entry": "100644 blob b1291d86caba2eed038f3f863f0587625100b62e\tgodot/qa/td-238/terminal_component/test_terminal_component.gd",
+      "artifact_tree_entry": "100644 blob b1291d86caba2eed038f3f863f0587625100b62e\tgodot/qa/td-238/terminal_component/test_terminal_component.gd",
+      "identical_blob_and_mode": true,
+      "sha256": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6"
+    },
+    {
+      "path": "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid",
+      "implementation_tree_entry": "100644 blob a610127a783a0c78f8a29f887da424df53c4b066\tgodot/qa/td-238/terminal_component/test_terminal_component.gd.uid",
+      "artifact_tree_entry": "100644 blob a610127a783a0c78f8a29f887da424df53c4b066\tgodot/qa/td-238/terminal_component/test_terminal_component.gd.uid",
+      "identical_blob_and_mode": true,
+      "sha256": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613"
+    },
+    {
+      "path": "godot/qa/td-238/terminal_component/run_checks.py",
+      "implementation_tree_entry": "100644 blob 19a1eab2ed30806524b2702cf3a0fb502f857fde\tgodot/qa/td-238/terminal_component/run_checks.py",
+      "artifact_tree_entry": "100644 blob 19a1eab2ed30806524b2702cf3a0fb502f857fde\tgodot/qa/td-238/terminal_component/run_checks.py",
+      "identical_blob_and_mode": true,
+      "sha256": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf"
+    },
+    {
+      "path": "godot/docs/tasks/td-238.md",
+      "implementation_tree_entry": "100644 blob 903d01f74db685608ee9ee341f70fcaed89be45e\tgodot/docs/tasks/td-238.md",
+      "artifact_tree_entry": "100644 blob 903d01f74db685608ee9ee341f70fcaed89be45e\tgodot/docs/tasks/td-238.md",
+      "identical_blob_and_mode": true,
+      "sha256": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+    }
+  ],
+  "changed_existing_runtime_modes_or_blobs": [],
+  "parent_original_is_identical_prefix": true,
+  "parent_original_json_equal": true,
+  "parent_criteria_count": 6,
+  "parent_dependencies_count": 4,
+  "parent_original_file_sha256": "8335ace5b6589c4e7ecc05d89c56cb9265b9b2e5ad6ef65cdcc4844dbbc0bc48",
+  "admitted_to_implementation_delta": "A\tgodot/qa/td-238/terminal_component/admission-guard.json\nA\tgodot/qa/td-238/terminal_component/correction-record.json\nA\tgodot/qa/td-238/terminal_component/fixture.gd\nA\tgodot/qa/td-238/terminal_component/fixture.gd.uid\nA\tgodot/qa/td-238/terminal_component/implementation-start.json\nA\tgodot/qa/td-238/terminal_component/initial-attempt/T1-execution.json\nA\tgodot/qa/td-238/terminal_component/initial-attempt/T1-raw.log\nA\tgodot/qa/td-238/terminal_component/initial-attempt/numeric-coercion-raw.log\nA\tgodot/qa/td-238/terminal_component/initial-attempt/wrong-number-raw.log\nA\tgodot/qa/td-238/terminal_component/run_checks.py\nA\tgodot/qa/td-238/terminal_component/test_terminal_component.gd\nA\tgodot/qa/td-238/terminal_component/test_terminal_component.gd.uid\nA\tgodot/scripts/lower_city/debug_terminal_commands.gd\nA\tgodot/scripts/lower_city/debug_terminal_commands.gd.uid\nA\tgodot/scripts/lower_city/debug_terminal_panel.gd\nA\tgodot/scripts/lower_city/debug_terminal_panel.gd.uid\n",
+  "implementation_to_artifact_delta": "M\tgodot/docs/tasks/td-238-terminal-component.json\nA\tgodot/qa/td-238/terminal_component/REVIEW.md\nA\tgodot/qa/td-238/terminal_component/T1-execution.json\nA\tgodot/qa/td-238/terminal_component/T1-raw.log\nA\tgodot/qa/td-238/terminal_component/T2-execution.json\nA\tgodot/qa/td-238/terminal_component/T2-raw.log\nA\tgodot/qa/td-238/terminal_component/T3-execution.json\nA\tgodot/qa/td-238/terminal_component/T3-long-help-1280x720-after.png\nA\tgodot/qa/td-238/terminal_component/T3-long-help-1280x720-before.png\nA\tgodot/qa/td-238/terminal_component/T3-long-help-960x540-after.png\nA\tgodot/qa/td-238/terminal_component/T3-long-help-960x540-before.png\nA\tgodot/qa/td-238/terminal_component/T3-raw.log\nA\tgodot/qa/td-238/terminal_component/T3-unavailable-1280x720-after.png\nA\tgodot/qa/td-238/terminal_component/T3-unavailable-1280x720-before.png\nA\tgodot/qa/td-238/terminal_component/T3-unavailable-960x540-after.png\nA\tgodot/qa/td-238/terminal_component/T3-unavailable-960x540-before.png\nA\tgodot/qa/td-238/terminal_component/T4-execution.json\nA\tgodot/qa/td-238/terminal_component/T4-raw.log\nA\tgodot/qa/td-238/terminal_component/T5-execution.json\nA\tgodot/qa/td-238/terminal_component/T5-raw.log\nA\tgodot/qa/td-238/terminal_component/duplicate-submit-raw.log\nA\tgodot/qa/td-238/terminal_component/numeric-coercion-raw.log\nA\tgodot/qa/td-238/terminal_component/review-handoff.json\nA\tgodot/qa/td-238/terminal_component/stale-focus-raw.log\nA\tgodot/qa/td-238/terminal_component/unbounded-history-raw.log\nA\tgodot/qa/td-238/terminal_component/wrong-number-raw.log\n",
+  "initial_to_correction_code_diff": "diff --git a/godot/qa/td-238/terminal_component/test_terminal_component.gd b/godot/qa/td-238/terminal_component/test_terminal_component.gd\nindex c4f174d..b1291d8 100644\n--- a/godot/qa/td-238/terminal_component/test_terminal_component.gd\n+++ b/godot/qa/td-238/terminal_component/test_terminal_component.gd\n@@ -140,7 +140,7 @@ func _t2() -> void:\n func _lifecycle() -> void:\n \tvar fixture = await _fixture()\n \tvar panel = fixture.panel\n-\tvar previous := weakref(fixture.sentinel)\n+\tvar previous: WeakRef = weakref(fixture.sentinel)\n \tpanel.open_terminal(1)\n \tawait _frames()\n \t_check(root.gui_get_focus_owner() == panel.command_input, \"open_focus_input\")\n",
+  "working_tree_status": ""
+}

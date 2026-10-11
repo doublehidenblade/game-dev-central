@@ -1,0 +1,32 @@
+[
+  {
+    "criterion": "T1",
+    "schema": "FAIL",
+    "code": "MALFORMED",
+    "detail": "execution log: expected check_id command exit_code output source_head build performed_at actor_id; optional "
+  },
+  {
+    "criterion": "T2",
+    "schema": "FAIL",
+    "code": "MALFORMED",
+    "detail": "execution log: expected check_id command exit_code output source_head build performed_at actor_id; optional "
+  },
+  {
+    "criterion": "T3",
+    "schema": "FAIL",
+    "code": "MALFORMED",
+    "detail": "execution log: expected check_id command exit_code output source_head build performed_at actor_id; optional "
+  },
+  {
+    "criterion": "T4",
+    "schema": "FAIL",
+    "code": "MALFORMED",
+    "detail": "execution log: expected check_id command exit_code output source_head build performed_at actor_id; optional "
+  },
+  {
+    "criterion": "T5",
+    "schema": "FAIL",
+    "code": "MALFORMED",
+    "detail": "execution log: expected check_id command exit_code output source_head build performed_at actor_id; optional "
+  }
+]

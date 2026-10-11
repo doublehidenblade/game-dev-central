@@ -1,0 +1,327 @@
+{
+  "id": "ops-worker-status-contract-20261011",
+  "title": "Persist the Worker status source-projection and additive task-note contract",
+  "status": "open",
+  "phase": "registration-only; publication/admission pending; implementation not started",
+  "owner": "dot-worker-status-contract-author",
+  "independent_reviewer": "dot-worker-status-contract-reviewer",
+  "ownership": "Distinct public dot roles reserved in this task and its own proposed board row; no implementation worker or reviewer dispatched and no runtime identity attested.",
+  "ask": {
+    "by": "Craig, relayed by the authorized coordinator",
+    "date": "2026-10-11",
+    "exact_requests": [
+      "And make sure watchdog updates this board",
+      "Actually, this board should be displaying the backend task board table, reflecting saved info. Watchdog just adds extra notes, like why a task/worker is blocked, what has past watchdog runs done to each job"
+    ],
+    "delegated_scope": "Register a new canonical documentation task for RUNBOOK only plus its own registration/proof. Stop at registration handoff; the final privacy-safe Site contract is supplied separately."
+  },
+  "bug_shape": "The clarified saved-source projection and additive-note responsibilities need a durable RUNBOOK contract so later coordinators do not replace backend task truth with inferred watchdog status or lose note/history provenance.",
+  "reference_images": [],
+  "dependencies": [
+    {
+      "id": "accepted-worker-status-site-contract",
+      "status": "pending",
+      "source_ref": null,
+      "requirement": "The coordinator must supply the final accepted privacy-safe projection/provenance contract and authorize its public-safe text in project-management/tasks/ops-worker-status-contract-20261011/accepted-contract.md. No field list, private session link, Site implementation detail or acceptance is inferred."
+    }
+  ],
+  "implementation_scope": {
+    "product_allowlist": [
+      "project-management/watchdog/RUNBOOK.md"
+    ],
+    "bounded_insertion": {
+      "heading": "## Worker status source projection and additive task notes",
+      "before_heading": "## Timeout discipline (2026-10-09)",
+      "base_commit": "bec73fbfdb6d6a4fdcf920065ff2ce30a925e304",
+      "original_runbook_blob": "e90c226df5d17f39fd6f878dbb61c68f754982e8",
+      "rule": "Exactly one inserted section. Removing it must reconstruct the pinned original blob. Reconcile and review a changed baseline before implementation; no silent repinning."
+    },
+    "registration": {
+      "task_path": "project-management/tasks/ops-worker-status-contract-20261011.json",
+      "board_path": "project-management/boards/tokyo-drift-3d.md",
+      "board_write": "Only the new owner-marked ops-worker-status-contract-20261011 row and its minimal table/header. Existing board bytes remain unchanged. This is a real proposed reservation, not a cosmetic edit to evade a source guard."
+    },
+    "proof_allowlist": [
+      "project-management/tasks/ops-worker-status-contract-20261011/registration-proof.json",
+      "project-management/tasks/ops-worker-status-contract-20261011/accepted-contract.md",
+      "project-management/tasks/ops-worker-status-contract-20261011/RUNBOOK.diff",
+      "project-management/tasks/ops-worker-status-contract-20261011/C1-review.md",
+      "project-management/tasks/ops-worker-status-contract-20261011/C2-review.md",
+      "project-management/tasks/ops-worker-status-contract-20261011/C3-review.md",
+      "project-management/tasks/ops-worker-status-contract-20261011/execution-C3.json",
+      "project-management/tasks/ops-worker-status-contract-20261011/independent-verdict.json"
+    ],
+    "excluded": [
+      "COORDINATOR.md (open PR143 owner retained) and all other onboarding/rule changes",
+      "All-board transformation, scheduler/runtime implementation, resource watcher and ops-stuck-resource-20261011 reuse or guard bypass",
+      "Foreign task/board rows, owners, worker-registry edits and coordinator-log dispatch entries",
+      "Site implementation, automation/schedule changes, live state/queue/heartbeat/ledger writes",
+      "Actions, game deployment, merges without independent verification, credentials/security changes, external-agent contact",
+      "Private session links or raw private ownership/queue/authority observations"
+    ]
+  },
+  "completion_criteria": [
+    {
+      "id": "C1",
+      "criterion": "Persist the final accepted privacy-safe Worker status source-projection and provenance contract in RUNBOOK. The board displays saved backend task-board information; watchdog contributes additional notes. Do not guess the separately corrected Site contract.",
+      "verification": "Once the coordinator supplies and accepts the final contract, bind its exact public-safe text and provenance in project-management/tasks/ops-worker-status-contract-20261011/accepted-contract.md. A distinct reviewer compares every applicable contract statement and source/provenance distinction with the exact RUNBOOK diff; missing or disputed contract text leaves C1 pending."
+    },
+    {
+      "id": "C2",
+      "criterion": "Document additive per-task notes explaining task/worker blocks and what past watchdog runs did to each job, preserving history and original observation ages. Retain other schedules and the last 12 actual runs; use public-safe data and only connected Worker status writes followed by readback.",
+      "verification": "Independent clause-by-clause review against Craig's exact ask and the supplied accepted contract covers additive notes/history, original observed/performed times, truthful unknown/stale state, other schedule preservation, last12 actual-run preservation, connected-write scope and readback. This proves documented obligations only; it does not claim any live write, schedule change or runtime behavior."
+    },
+    {
+      "id": "C3",
+      "criterion": "Add one bounded section to RUNBOOK immediately before Timeout discipline, preserving every unrelated original RUNBOOK byte and all unrelated repository content. Keep task/owner registration and proof separate from product changes.",
+      "verification": "Run the registered byte-reconstruction check against the pinned original RUNBOOK blob; retain its exact command, output, source head and original execution time. Independently inspect the complete changed-file list and diff, allowing only RUNBOOK, this task's registration/own board row and enumerated proof. Verify COORDINATOR.md, all foreign rows, worker registry, schedules, state and executable files remain unchanged; reject private links, source scope expansion or an unreviewed base change."
+    }
+  ],
+  "recommended_setup": {
+    "capability_tier": "efficient for bounded documentation against a final accepted contract; escalate semantic ambiguity instead of guessing",
+    "provider_preference": "provider-neutral; preserve reserved dot roles and use the selected authorized executor with Git/Python/read access",
+    "requested_model": "gpt-6-luna",
+    "requested_effort": "medium",
+    "environment_and_required_tools": "Selected environment has Git, Python 3 and authenticated central repository read access. No game engine or browser is needed for this nonvisual documentation task. Future author/reviewer setup remains to be verified.",
+    "availability_checked": "2026-10-11T02:53:25Z: current tool catalog lists gpt-6-luna/medium; no worker launched, serving runtime or reviewer capacity verified.",
+    "fallback": "bounded_attempt_then_escalate",
+    "attempt_budget": "After separate implementation admission: one initial documentation attempt and at most one evidence-based correction within 45 minutes. At most two bounded attempts for the same recoverable failure; stop immediately on an auth/permission denial or explicit stop.",
+    "escalation_criteria": "Missing/failing final contract, ownership/source overlap, need to change excluded files, unverifiable provenance, missing tools or exhausted bound: park and refer to coordinator for gpt-6.1-sol/high review; no silent downgrade or bypass.",
+    "verification_budget": "Reserve 15 minutes within the author bound for schema/link/diff/blob checks and a separate 30-minute gpt-6.1-sol/high independent semantic/exact-head review. Authenticate the actual distinct reviewer before admission/acceptance.",
+    "requested_versus_confirmed_setup": "Recommendations only; actual model/effort and independent reviewer runtime unconfirmed. Registration does not dispatch either role.",
+    "actual_outcome": "Registration preparation only; implementation and C1-C3 evidence pending; usage/cost unavailable."
+  },
+  "evidence_rule_inventory": [
+    {
+      "id": "central:COORDINATOR.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "COORDINATOR.md"
+    },
+    {
+      "id": "central:knowledge/standing-rules.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/standing-rules.md"
+    },
+    {
+      "id": "central:project-management/rules/SYSTEM.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/SYSTEM.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_BRIEF.md"
+    },
+    {
+      "id": "central:project-management/rules/VALIDATOR_BRIEF.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/VALIDATOR_BRIEF.md"
+    },
+    {
+      "id": "central:project-management/rules/WORKER_SELECTION_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/WORKER_SELECTION_POLICY.md"
+    },
+    {
+      "id": "central:project-management/rules/DURABILITY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/rules/DURABILITY.md"
+    },
+    {
+      "id": "central:knowledge/workflow/game-dev-workflow.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/workflow/game-dev-workflow.md"
+    },
+    {
+      "id": "central:knowledge/brief-snippet.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "knowledge/brief-snippet.md"
+    },
+    {
+      "id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/EVIDENCE_POLICY.md"
+    },
+    {
+      "id": "central:project-management/watchdog/RUNBOOK.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/RUNBOOK.md"
+    },
+    {
+      "id": "central:project-management/watchdog/releases/PUSH-PROCEDURE.md",
+      "repository": "doublehidenblade/game-dev-central",
+      "path": "project-management/watchdog/releases/PUSH-PROCEDURE.md"
+    }
+  ],
+  "evidence_policy": {
+    "C1": {
+      "applicability": "required",
+      "rationale": "Nonvisual documentation criterion; acceptance concerns exact source text, provenance and diff preservation. No rendered Site, live board behavior, scheduler enforcement or game/device acceptance is claimed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "final-accepted-privacy-safe-projection",
+        "saved-backend-task-source",
+        "source-provenance"
+      ],
+      "source_paths": [
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/tasks/ops-worker-status-contract-20261011/accepted-contract.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    },
+    "C2": {
+      "applicability": "required",
+      "rationale": "Nonvisual documentation criterion; acceptance concerns exact source text, provenance and diff preservation. No rendered Site, live board behavior, scheduler enforcement or game/device acceptance is claimed.",
+      "rule_id": "central:project-management/rules/SYSTEM.md",
+      "instances": [
+        "additive-block-and-action-notes",
+        "immutable-history-and-original-observation-ages",
+        "other-schedule-and-last12-actual-runs",
+        "public-safe-connected-worker-status-write-and-readback"
+      ],
+      "source_paths": [
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/tasks/ops-worker-status-contract-20261011/accepted-contract.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": []
+    },
+    "C3": {
+      "applicability": "required",
+      "rationale": "Nonvisual documentation criterion; acceptance concerns exact source text, provenance and diff preservation. No rendered Site, live board behavior, scheduler enforcement or game/device acceptance is claimed.",
+      "rule_id": "central:project-management/watchdog/EVIDENCE_POLICY.md",
+      "instances": [
+        "bounded-runbook-insertion",
+        "unrelated-bytes-and-foreign-ownership-preserved",
+        "independent-exact-head-review"
+      ],
+      "source_paths": [
+        "project-management/watchdog/RUNBOOK.md"
+      ],
+      "build": null,
+      "visual": false,
+      "checks": [
+        {
+          "id": "runbook-insertion-preservation",
+          "command": [
+            "python3",
+            "-c",
+            "import hashlib,pathlib,sys; p=pathlib.Path(sys.argv[1]); data=p.read_bytes(); start=b'## Worker status source projection and additive task notes\\n'; end=b'## Timeout discipline (2026-10-09)\\n'; assert data.count(start)==1 and data.count(end)==1; left,tail=data.split(start,1); _,right=tail.split(end,1); original=left+end+right; actual=hashlib.sha1(b'blob '+str(len(original)).encode()+b'\\0'+original).hexdigest(); assert actual==sys.argv[2], (actual,sys.argv[2]); print('Only the bounded RUNBOOK insertion changed; original Git blob '+actual)",
+            "project-management/watchdog/RUNBOOK.md",
+            "e90c226df5d17f39fd6f878dbb61c68f754982e8"
+          ]
+        }
+      ]
+    }
+  },
+  "criterion_plans": {
+    "C1": {
+      "method": "Once the coordinator supplies and accepts the final contract, bind its exact public-safe text and provenance in project-management/tasks/ops-worker-status-contract-20261011/accepted-contract.md. A distinct reviewer compares every applicable contract statement and source/provenance distinction with the exact RUNBOOK diff; missing or disputed contract text leaves C1 pending.",
+      "artifacts": [
+        {
+          "path": "project-management/tasks/ops-worker-status-contract-20261011/C1-review.md",
+          "type": "document"
+        },
+        {
+          "path": "project-management/tasks/ops-worker-status-contract-20261011/RUNBOOK.diff",
+          "type": "diff"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/tasks/ops-worker-status-contract-20261011/accepted-contract.md"
+      ],
+      "build": null,
+      "coverage": [
+        "final-accepted-privacy-safe-projection",
+        "saved-backend-task-source",
+        "source-provenance"
+      ],
+      "reviewer_id": "dot-worker-status-contract-reviewer"
+    },
+    "C2": {
+      "method": "Independent clause-by-clause review against Craig's exact ask and the supplied accepted contract covers additive notes/history, original observed/performed times, truthful unknown/stale state, other schedule preservation, last12 actual-run preservation, connected-write scope and readback. This proves documented obligations only; it does not claim any live write, schedule change or runtime behavior.",
+      "artifacts": [
+        {
+          "path": "project-management/tasks/ops-worker-status-contract-20261011/C2-review.md",
+          "type": "document"
+        },
+        {
+          "path": "project-management/tasks/ops-worker-status-contract-20261011/RUNBOOK.diff",
+          "type": "diff"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/RUNBOOK.md",
+        "project-management/tasks/ops-worker-status-contract-20261011/accepted-contract.md"
+      ],
+      "build": null,
+      "coverage": [
+        "additive-block-and-action-notes",
+        "immutable-history-and-original-observation-ages",
+        "other-schedule-and-last12-actual-runs",
+        "public-safe-connected-worker-status-write-and-readback"
+      ],
+      "reviewer_id": "dot-worker-status-contract-reviewer"
+    },
+    "C3": {
+      "method": "Run the registered byte-reconstruction check against the pinned original RUNBOOK blob; retain its exact command, output, source head and original execution time. Independently inspect the complete changed-file list and diff, allowing only RUNBOOK, this task's registration/own board row and enumerated proof. Verify COORDINATOR.md, all foreign rows, worker registry, schedules, state and executable files remain unchanged; reject private links, source scope expansion or an unreviewed base change.",
+      "artifacts": [
+        {
+          "path": "project-management/tasks/ops-worker-status-contract-20261011/C3-review.md",
+          "type": "document"
+        },
+        {
+          "path": "project-management/tasks/ops-worker-status-contract-20261011/RUNBOOK.diff",
+          "type": "diff"
+        },
+        {
+          "path": "project-management/tasks/ops-worker-status-contract-20261011/execution-C3.json",
+          "type": "log",
+          "check_id": "runbook-insertion-preservation"
+        }
+      ],
+      "source_paths": [
+        "project-management/watchdog/RUNBOOK.md"
+      ],
+      "build": null,
+      "coverage": [
+        "bounded-runbook-insertion",
+        "unrelated-bytes-and-foreign-ownership-preserved",
+        "independent-exact-head-review"
+      ],
+      "reviewer_id": "dot-worker-status-contract-reviewer"
+    }
+  },
+  "registration_route": {
+    "operation": "admission of an unfiled ask",
+    "request_id": "craig-worker-status-contract-20261011",
+    "command": "python3 project-management/watchdog/watch.py coordinator-plan --snapshot <private-registration-snapshot.json>",
+    "status": "INPUT_REQUIRED",
+    "exit_code": 2,
+    "permitted_actions": 0,
+    "scoped_source_used": false,
+    "publication": "held; no source push or draft PR performed",
+    "limitations": "Complete raw branch/open-PR inventory does not establish current normalized task/source identity, outside ownership/session/queue/stop coverage or every publication trigger. Preserve all unknowns and the existing parked-task guard; no supported PASS is claimed."
+  },
+  "remaining_admission_requirements": [
+    "Truthful complete inputs for the supported unfiled-ask route, then a current permitted decision and exact dispatch-guard before registration publication; recheck source/PR triggers without retrying denied administrative endpoints.",
+    "Publish and independently review the owner-marked registration PR; board ownership must be registered through the appropriate accepted PR before any new implementation.",
+    "Supply and independently accept the final public-safe Site contract; preserve its provenance without private links.",
+    "Before documentation implementation: genuine current-rule author acknowledgment, exact canonical per-criterion plans and source refs, independently collected evidence-policy authority/objects, fresh relevant ownership/source/stop/queue/setup observations and supported plan/guard. Registration proof is not evidence-policy ADMISSIBLE or scoped_source PASS.",
+    "Actual distinct reviewer designation and independent exact-head evidence are required before completion or merge. No implementation or merge is authorized by this registration handoff."
+  ],
+  "evidence": [],
+  "verdict": null,
+  "execution_started_at": null,
+  "work_log": [
+    {
+      "at": "2026-10-11T02:53:25Z",
+      "by": "dot-worker-status-contract-registrar",
+      "entry": "Read current central policies, boards, registry and operational task records at bec73fbfdb6d6a4fdcf920065ff2ce30a925e304; inspected the actual source tree and current repository metadata, 395 branches and all 102 open-PR file lists. RUNBOOK has no open-PR file overlap; PR143 and divergent-board PR450 remain owned and unchanged. The real unfiled-ask route returned INPUT_REQUIRED with no action using explicitly partial observations. Prepared local task/own-row registration only. Final contract, publication, independent review and implementation admission remain pending; no source push, dispatch or RUNBOOK change."
+    }
+  ]
+}

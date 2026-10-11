@@ -1,0 +1,174 @@
+{
+  "task": "td-238-terminal-component",
+  "criterion": "T4",
+  "started_at": "2026-10-11T08:26:29.027604+00:00",
+  "source_head": "709ea8711799cd44a87db643eef7409ac16f8e44",
+  "source_hashes_before": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "binary": {
+    "path": "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "version": "4.7.2.stable.official.ed1daf0bf",
+    "sha256": "8d106cbe6144c2dc7e881d61d2429c1a8a76e6b22ef48bd5e48dcf934953f71e"
+  },
+  "invocation": [
+    "godot/qa/td-238/terminal_component/run_checks.py",
+    "--godot",
+    "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "--criterion",
+    "T4",
+    "--output",
+    "/workspace/td238-review-evidence/T4"
+  ],
+  "negative_controls": [],
+  "scope": "Unmounted standalone component; no parent C1-C6, playable integration, browser, phone or device acceptance",
+  "independent_review": "pending",
+  "human_visual_verdict": null,
+  "baseline": {
+    "started_at": "2026-10-11T08:26:29.032131+00:00",
+    "finished_at": "2026-10-11T08:26:30.300724+00:00",
+    "command": [
+      "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+      "--path",
+      "/tmp/td238-check-5m9fpi8z/project",
+      "--headless",
+      "--audio-driver",
+      "Dummy",
+      "--script",
+      "res://qa/td-238/terminal_component/test_terminal_component.gd",
+      "--",
+      "--criterion",
+      "T4",
+      "--artifacts",
+      "/tmp/td238-check-5m9fpi8z/artifacts"
+    ],
+    "exit_code": 0,
+    "harness_error": null,
+    "result": {
+      "browser_or_phone_acceptance": false,
+      "checks": [
+        {
+          "detail": null,
+          "label": "fail_closed_mobile",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "ordinary_input_preserved_mobile",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "ordinary_button_preserved_mobile",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "fail_closed_unknown",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "ordinary_input_preserved_unknown",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "ordinary_button_preserved_unknown",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "fail_closed_",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "ordinary_input_preserved_",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "ordinary_button_preserved_",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "fail_closed_desktop_native",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "ordinary_input_preserved_desktop_native",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "ordinary_button_preserved_desktop_native",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "stale_open_generation",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "stale_configuration_disables",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "simulated_browser_capability_only",
+          "pass": true
+        },
+        {
+          "detail": null,
+          "label": "outside_focus_boundary",
+          "pass": true
+        }
+      ],
+      "criterion": "T4",
+      "display": "headless",
+      "engine": {
+        "build": "official",
+        "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+        "hex": 263938,
+        "major": 4,
+        "minor": 7,
+        "patch": 2,
+        "status": "stable",
+        "string": "4.7.2-stable (official)",
+        "timestamp": 0
+      },
+      "native_steps": [],
+      "passed": true
+    },
+    "raw_log_sha256": "2f5f421cb61d8a054aca2436b09586ad67be1a157c352bea2828a45dae5c8703",
+    "images": [],
+    "native_driver": null
+  },
+  "source_hashes_after": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "finished_at": "2026-10-11T08:26:30.301785+00:00",
+  "passed": true
+}

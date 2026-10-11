@@ -1,0 +1,105 @@
+{
+  "started_at": "2026-10-11T08:32:44.557270+00:00",
+  "finished_at": "2026-10-11T08:32:45.482985+00:00",
+  "command": [
+    "/workspace/tokyo-drift-3d/.tools/Godot_v4.7.2-stable_linux.x86_64",
+    "--path",
+    "/tmp/td238-check-0wq97fsu/project",
+    "--headless",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "res://qa/td-238/terminal_component/test_terminal_component.gd",
+    "--",
+    "--criterion",
+    "T2",
+    "--artifacts",
+    "/tmp/td238-check-0wq97fsu/artifacts"
+  ],
+  "exit_code": 1,
+  "harness_error": null,
+  "result": {
+    "checks": [
+      {
+        "detail": null,
+        "label": "registry_container_read_only",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "registry_entries_read_only",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "focusable_parent_is_valid_previous_focus",
+        "pass": true
+      },
+      {
+        "detail": null,
+        "label": "parent_focus_allowed_by_open_boundary",
+        "pass": true
+      },
+      {
+        "detail": {
+          "expected": "@Control@2:<Control#27850180045>",
+          "focus": "<Object#null>"
+        },
+        "label": "parent_focus_restored_on_close",
+        "pass": false
+      },
+      {
+        "detail": {
+          "expected": "PreviousFocusSentinel:<LineEdit#29544678879>",
+          "focus": "<Object#null>"
+        },
+        "label": "rapid_reopen_preserves_original_focus",
+        "pass": false
+      }
+    ],
+    "criterion": "independent-focus-restoration",
+    "display": "headless",
+    "engine": {
+      "build": "official",
+      "hash": "ed1daf0bf001b61586d9930840f2f1394092c079",
+      "hex": 263938,
+      "major": 4,
+      "minor": 7,
+      "patch": 2,
+      "status": "stable",
+      "string": "4.7.2-stable (official)",
+      "timestamp": 0
+    },
+    "passed": false
+  },
+  "raw_log_sha256": "116a906bb64cc79d4d673db84431972624df1afeedcc92ab151f51e659ef9439",
+  "images": [],
+  "native_driver": null,
+  "probe_sha256": "e171b109d00222ac38c24bef2d687c6202265640bde664ea95449397da856104",
+  "probe_source": "../focus-probe.txt",
+  "source_hashes_before": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "source_hashes_after": {
+    "godot/scripts/lower_city/debug_terminal_commands.gd": "a0455f44eb6aa3c5189c6e9b4022b83772f73eabe57989723e79fc1740d3d696",
+    "godot/scripts/lower_city/debug_terminal_commands.gd.uid": "414aeb9b19d1a83017da91415ab1846f3828f6d60d05c0f4ea362c6685eeefee",
+    "godot/scripts/lower_city/debug_terminal_panel.gd": "96068e4951801eda17df97ebda0ec3b6d6032db014e56e061bc085fcdc1f7862",
+    "godot/scripts/lower_city/debug_terminal_panel.gd.uid": "88ea377500fa2f11981243012ebed2a9917960e16695605523350a8285c8c9e3",
+    "godot/qa/td-238/terminal_component/fixture.gd": "573eef14cd911e6160ade5968a576fe68bc559830ea688283ab1b33add5705d1",
+    "godot/qa/td-238/terminal_component/fixture.gd.uid": "7609a2cedac7642475d061a6008f3b67b936e0a33bc7612e7e024a5c0845cc91",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd": "7f6a86ee7e9bc2feb4332631ab7059fd519c8674cf7dbb67f04a47a3ceb10cb6",
+    "godot/qa/td-238/terminal_component/test_terminal_component.gd.uid": "256bba963b552b190ef15d52fc9682b3888951bee66a0568418f9ffa90c90613",
+    "godot/qa/td-238/terminal_component/run_checks.py": "14096531ebbac8f54ad5a0c474711047e40b8f4e3f5c6fb081e56fd6e1f1d8cf",
+    "godot/docs/tasks/td-238.md": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+  },
+  "source_unchanged": true
+}

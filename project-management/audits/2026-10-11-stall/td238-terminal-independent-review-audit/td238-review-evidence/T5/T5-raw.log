@@ -1,0 +1,48 @@
+{
+  "criterion": "T5",
+  "passed": true,
+  "checks": [
+    {
+      "pass": true,
+      "label": "all_existing_game_blobs_unchanged",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "label": "all_nine_code_paths_new",
+      "detail": null
+    },
+    {
+      "pass": true,
+      "label": "no_unadmitted_code_paths",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "label": "parent_task_original_bytes_preserved",
+      "detail": {
+        "original_sha256": "8335ace5b6589c4e7ecc05d89c56cb9265b9b2e5ad6ef65cdcc4844dbbc0bc48",
+        "current_sha256": "ba0a14243cd118b4c866dfb3219341b168f916384f9ce3273f5f42079ceeca6a"
+      }
+    },
+    {
+      "pass": true,
+      "label": "no_persistence_os_network_or_mount_api",
+      "detail": []
+    },
+    {
+      "pass": true,
+      "label": "only_own_parser_import",
+      "detail": [
+        "const Commands = preload(\"res://scripts/lower_city/debug_terminal_commands.gd\")"
+      ]
+    },
+    {
+      "pass": true,
+      "label": "no_production_mount",
+      "detail": []
+    }
+  ],
+  "base": "f81232f777ea4151af6e096121087ef9890fa4e9",
+  "browser_or_phone_acceptance": false
+}

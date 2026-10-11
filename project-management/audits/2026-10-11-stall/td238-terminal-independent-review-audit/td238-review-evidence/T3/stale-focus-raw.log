@@ -1,0 +1,4 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ASSERTION FAILED: stale_focus_restore_rejected <null>
+RESULT_JSON {"browser_or_phone_acceptance":false,"checks":[{"detail":null,"label":"open_focus_input","pass":true},{"detail":null,"label":"stale_focus_restore_rejected","pass":false},{"detail":null,"label":"rapid_toggle_focus","pass":true},{"detail":null,"label":"disable_cancels_deferred_focus","pass":true},{"detail":null,"label":"valid_previous_focus_restored","pass":true},{"detail":null,"label":"removal_with_deferred_work_survives","pass":true},{"detail":null,"label":"ordinary_input_after_removal","pass":true}],"criterion":"T3","display":"headless","engine":{"build":"official","hash":"ed1daf0bf001b61586d9930840f2f1394092c079","hex":263938,"major":4,"minor":7,"patch":2,"status":"stable","string":"4.7.2-stable (official)","timestamp":0},"native_steps":[],"passed":false}

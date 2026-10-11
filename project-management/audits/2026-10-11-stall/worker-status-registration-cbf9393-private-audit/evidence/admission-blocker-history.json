@@ -1,0 +1,143 @@
+{
+  "kind": "historical-admission-blocker-export",
+  "provenance": "The first evaluation is copied from the original committed registration proof. Later facts below are copied from retained tool outputs in this conversation because the previous /tmp diagnostics did not survive the environment restart. This is a labeled historical reconstruction, not recovered raw diagnostic files, a new collection, a gate rerun or current authority.",
+  "first_evaluation": {
+    "source_commit": "bec73fbfdb6d6a4fdcf920065ff2ce30a925e304",
+    "observed_at": "2026-10-11T02:51:17.589173Z",
+    "command": "python3 project-management/watchdog/watch.py coordinator-plan --snapshot <private-registration-snapshot.json>",
+    "exit_code": 2,
+    "status": "INPUT_REQUIRED",
+    "permitted_actions": 0,
+    "blocked_operation": "admission of request:craig-worker-status-contract-20261011",
+    "reasons": [
+      "INPUT_REQUIRED: blockers,board,branches,owners,policies,prs,queue,requests,tasks"
+    ],
+    "scoped_source_used": false,
+    "guard": "not invoked because no permitted decision exists",
+    "publication": "held; no source push or draft PR",
+    "private_inputs": "Raw collection, snapshot and diagnostic output retained locally for handoff; not committed as public authority."
+  },
+  "second_evaluation": {
+    "source_head": "5aab161fe2636a39414903cd8964139138c56e2e",
+    "command_exit_code": 2,
+    "status": "INPUT_REQUIRED",
+    "actions": [],
+    "evaluation_time": "Not recoverable from the retained output; not invented.",
+    "task_id": "request:craig-worker-status-contract-20261011",
+    "operation": "admission",
+    "reasons": [
+      "INPUT_REQUIRED: blockers,board,branches,owners,policies,prs,queue,requests,tasks"
+    ],
+    "unmapped_branch_count": 390,
+    "board_task_id_mismatch": [
+      "ops-lower-city-priority-ranking-20261009"
+    ],
+    "owner_warnings": [
+      "incomplete read/pagination",
+      "stale observation"
+    ],
+    "queue_warning": "incomplete read/pagination",
+    "owner_prompt_queue": "not read, not claimed"
+  },
+  "historical_collection": {
+    "branch_inventory": {
+      "observed_at": "2026-10-11T02:58:45.156839Z",
+      "pages_read": 4,
+      "items_seen": 395,
+      "exhausted": true,
+      "git_head_mismatches": 0
+    },
+    "open_pr_inventory": {
+      "observed_at": "2026-10-11T02:58:44.448684Z",
+      "pages_read": 2,
+      "items_seen": 102,
+      "exhausted": true,
+      "all_filelists_completed_at": "2026-10-11T02:58:51.339821Z"
+    },
+    "source_mapping_findings": {
+      "explicit_canonical_task_mappings": 5,
+      "unmapped_branches": 390,
+      "branches_with_single_changed_board_identity": 244,
+      "branches_with_multiple_changed_board_identities": 77,
+      "branches_with_no_changed_board_identity": 74,
+      "contained_heads_without_an_unscoped_exemption": 53,
+      "ambiguous_multi_or_no_row_pr_deltas": 28,
+      "board_rows": 286,
+      "ambiguous_board_column_counts": 22,
+      "canonical_central_task_files": 5,
+      "operational_board_rows": 4
+    },
+    "saved_worker_status": {
+      "worker_count": 30,
+      "underlying_observed_at": "2026-10-11T02:32:12.000Z",
+      "limitation": "Read of saved status did not refresh underlying observation ages or prove current complete live ownership. No private worker records or prompts are exported."
+    }
+  },
+  "trigger_evidence": {
+    "workflows": {
+      "observed_at": "2026-10-11T03:00:18.254659Z",
+      "endpoint": "GET /repos/doublehidenblade/game-dev-central/actions/workflows?per_page=100",
+      "exit_code": 0,
+      "total_count": 0,
+      "workflows": []
+    },
+    "repository": {
+      "observed_at": "2026-10-11T03:00:18.843968Z",
+      "has_pages": false,
+      "default_branch": "main"
+    },
+    "hooks": {
+      "observed_at": "2026-10-11T03:00:53.794035Z",
+      "endpoint": "GET /repos/doublehidenblade/game-dev-central/hooks?per_page=100&page=1",
+      "exit_code": 1,
+      "error": "gh: Resource not accessible by integration (HTTP 403)",
+      "pages_read": 0,
+      "exhausted": false,
+      "response_configuration_or_credentials": "Not included; no successful hook data read."
+    },
+    "local_cli_error": "An initial gh --slurp invocation failed locally with unknown flag; no HTTP request occurred. One corrected invocation then received the hook HTTP 403. No further retry or alternate route followed."
+  },
+  "remaining_fields_at_handoff": {
+    "policies": "Hook/publication trigger observation unavailable; no trigger clearance claimed.",
+    "board": "22 ambiguous row shapes require source-backed identity/owner/status interpretation.",
+    "tasks": "One central task lacks a board row; 282 other board identities require canonical source/criterion/check/owner/requirement bindings.",
+    "branches": "390 canonical task mappings unestablished, including main; no invented task or scoped-source substitution.",
+    "prs": "Canonical task and review/check ID cross-accounting incomplete; all 102 metadata/file inventories were read.",
+    "owners": "Complete fresh live-session, executor and reservation coverage not established.",
+    "queue": "Intentionally not read or claimed; authorized coordinator must collect it.",
+    "requests": "This registration authorization verified; exhaustive other current asks/cancellations not observed.",
+    "blockers": "Repository stops retained; complete current outside-session/coordinator holds unavailable."
+  },
+  "queue_observation_contract_previously_returned": {
+    "collector": "Authorized coordinator only; this delegate did not read, claim or acknowledge owner prompts.",
+    "normalized_entry_fields": [
+      "id",
+      "repository",
+      "task_id",
+      "operation",
+      "executor_id",
+      "owner_id",
+      "head_sha",
+      "state"
+    ],
+    "allowed_state": [
+      "pending",
+      "running"
+    ],
+    "source_receipt_fields": [
+      "id",
+      "kind",
+      "repository",
+      "source_repository",
+      "ref_sha",
+      "observed_at",
+      "read_status",
+      "pagination.pages_read",
+      "pagination.items_seen",
+      "pagination.exhausted",
+      "ids"
+    ],
+    "limits": "Preserve original dates; require actual authenticated current reads and source/owner/executor mappings. Fixed Codex-task allowlist coverage is not global queue completeness. Unknown states remain unresolved. Do not substitute a historical empty legacy queue."
+  },
+  "publication_hold": "Unchanged. This private export authorizes no source push, PR, implementation, gate bypass, Actions or deployment."
+}

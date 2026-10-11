@@ -1,0 +1,769 @@
+{
+  "package": "td238-terminal-independent-review-audit",
+  "created_at": "2026-10-11T14:03:58.781497+00:00",
+  "scope": "Export only of existing /workspace/td238-review-evidence; no script/test rerun or GitHub operation",
+  "source_repository": "doublehidenblade/tokyo-drift-3d",
+  "artifact_head": "709ea8711799cd44a87db643eef7409ac16f8e44",
+  "implementation_head": "fd8776c02aefab4f4de6cc0d2208838be93990d4",
+  "review_verdict": "CHANGES_REQUIRED",
+  "corrections_remaining": 0,
+  "file_count": 47,
+  "uncompressed_evidence_bytes": 1326431,
+  "publication_counts": {
+    "unpublished_review_evidence": 29,
+    "local_review_copy_with_bytes_already_in_PR684": 18
+  },
+  "publication_basis": "No repository evidence was published by this reviewer. Byte-identical matches refer only to the exact already-reviewed PR684 artifact in local Git objects; no new remote reads or global publication claims. Text findings were handed to the parent in chat. The prior single-image Library delivery was private, not GitHub publication.",
+  "privacy": "Selected only task reports, JSON evidence, probe text, raw logs and PNG screenshots; excluded caches and transfer helpers. No credentials/private-instruction files or unrelated project data included. Secret-pattern scan found no candidates in selected text files.",
+  "files": [
+    {
+      "path": "REVIEW.md",
+      "archive_path": "td238-review-evidence/REVIEW.md",
+      "size_bytes": 16931,
+      "sha256": "44cbaa97d5c2e0378bba97bf573b15586d1101ca7a9ba41346b11bc43a53d499",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T1/T1-execution.json",
+      "archive_path": "td238-review-evidence/T1/T1-execution.json",
+      "size_bytes": 34644,
+      "sha256": "6a8c7a27a25efe2372abcb936b4ddf78f43c3981b14cde746c393455da2ccc64",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T1/T1-raw.log",
+      "archive_path": "td238-review-evidence/T1/T1-raw.log",
+      "size_bytes": 3568,
+      "sha256": "98c14bbf3bfed57f72338b3dc83726caea12b50dfc43f3196258467055e32eb5",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T1-raw.log",
+          "blob": "23ada12128377b1dd998b70cd533330f005d41db"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T1/numeric-coercion-raw.log",
+      "archive_path": "td238-review-evidence/T1/numeric-coercion-raw.log",
+      "size_bytes": 3715,
+      "sha256": "764cc6e99f07b86a3e7f5e1a4f7262e0cdba9b5f6b14b627e00ebdd618e1ef1c",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/numeric-coercion-raw.log",
+          "blob": "349d6a5c27da0d8ebd6e9a68f820046dda27e9ca"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T1/wrong-number-raw.log",
+      "archive_path": "td238-review-evidence/T1/wrong-number-raw.log",
+      "size_bytes": 3738,
+      "sha256": "512eb73da080b5ef69d29532140ad45067cfb64fe47349396fc0c342bdbf397b",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/wrong-number-raw.log",
+          "blob": "c8e77f8d02c4024fb6deda7ac420b42dcd4981ba"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T2/T2-execution.json",
+      "archive_path": "td238-review-evidence/T2/T2-execution.json",
+      "size_bytes": 22544,
+      "sha256": "5acfd90c1100b9c285fc02fc2c0d48e1d58afc66f09a872fe01ed93b6630f186",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T2/T2-raw.log",
+      "archive_path": "td238-review-evidence/T2/T2-raw.log",
+      "size_bytes": 1784,
+      "sha256": "828e9965d6b42798a0015ef1148bca2e6738a8786eb744206d4e1235453c2564",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T2-raw.log",
+          "blob": "807dad931354ee2efa118ec4967625d72ccc6852"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T2/duplicate-submit-raw.log",
+      "archive_path": "td238-review-evidence/T2/duplicate-submit-raw.log",
+      "size_bytes": 1880,
+      "sha256": "4366ee3e3555203cfd6d3e6373f41bf4fdeb15d7bec39cba273df3849e940c69",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/duplicate-submit-raw.log",
+          "blob": "42c936c7e50a21f5a3197930741cfbcefa191c61"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T2/unbounded-history-raw.log",
+      "archive_path": "td238-review-evidence/T2/unbounded-history-raw.log",
+      "size_bytes": 1826,
+      "sha256": "ef6eaf8b255286328c91f4f2aea48953748dd1f363f71460d9f6fd17e8663adb",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/unbounded-history-raw.log",
+          "blob": "190ee6142c3fae428fe9a4f826a0c74e3299f1b7"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/T3-execution.json",
+      "archive_path": "td238-review-evidence/T3/T3-execution.json",
+      "size_bytes": 25248,
+      "sha256": "15aa8b351a09f4d671b105b0d5da5416fc0accd9fafecc4019f5505728410b73",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/T3-long-help-1280x720-after.png",
+      "archive_path": "td238-review-evidence/T3/T3-long-help-1280x720-after.png",
+      "size_bytes": 89994,
+      "sha256": "eafc8525505ae9a397e0a1b2fcee20f20cffa16031ee42c93656734036d760a2",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-long-help-1280x720-after.png",
+          "blob": "8586164d206612e50ca2efc1ba6397dd8e37fc77"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/T3-long-help-1280x720-before.png",
+      "archive_path": "td238-review-evidence/T3/T3-long-help-1280x720-before.png",
+      "size_bytes": 47399,
+      "sha256": "bc92aa0385bb9f7008086d2dcf2a7403b5a5de0a68dd61662cbed982b78031d7",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-long-help-1280x720-before.png",
+          "blob": "32ee4af6e0ee6d0a44ef4c1089b07eb39b3b4dc8"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-1280x720-before.png",
+          "blob": "32ee4af6e0ee6d0a44ef4c1089b07eb39b3b4dc8"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/T3-long-help-960x540-after.png",
+      "archive_path": "td238-review-evidence/T3/T3-long-help-960x540-after.png",
+      "size_bytes": 70430,
+      "sha256": "d21db43169b7a4343046e1403c404d28d3196d6fcd7952e631d3bf00e0efa47a",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-long-help-960x540-after.png",
+          "blob": "89e40745785c4655e59957c8cc2294c28e8bdf59"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/T3-long-help-960x540-before.png",
+      "archive_path": "td238-review-evidence/T3/T3-long-help-960x540-before.png",
+      "size_bytes": 44416,
+      "sha256": "83653d557ad02bc59c0287408cffff84367dd6aaf183edde971da18827de4e60",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-long-help-960x540-before.png",
+          "blob": "ca48cc3235f14413e5b0dc1235709241fc8dc66f"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-960x540-before.png",
+          "blob": "ca48cc3235f14413e5b0dc1235709241fc8dc66f"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/T3-raw.log",
+      "archive_path": "td238-review-evidence/T3/T3-raw.log",
+      "size_bytes": 7929,
+      "sha256": "b2a9a6ac447d604bf662226f27d2a1957e043cc3aedf2dd5ccfc8df62863dcc3",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/T3-unavailable-1280x720-after.png",
+      "archive_path": "td238-review-evidence/T3/T3-unavailable-1280x720-after.png",
+      "size_bytes": 101240,
+      "sha256": "efc8484faceffc7ecf5d8aa26bf688cc121602273b9e0120ca8fffad90bbaec9",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-1280x720-after.png",
+          "blob": "03ca8c781faf44d34de5f4901f9108a4f5f69545"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/T3-unavailable-1280x720-before.png",
+      "archive_path": "td238-review-evidence/T3/T3-unavailable-1280x720-before.png",
+      "size_bytes": 47399,
+      "sha256": "bc92aa0385bb9f7008086d2dcf2a7403b5a5de0a68dd61662cbed982b78031d7",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-long-help-1280x720-before.png",
+          "blob": "32ee4af6e0ee6d0a44ef4c1089b07eb39b3b4dc8"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-1280x720-before.png",
+          "blob": "32ee4af6e0ee6d0a44ef4c1089b07eb39b3b4dc8"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/T3-unavailable-960x540-after.png",
+      "archive_path": "td238-review-evidence/T3/T3-unavailable-960x540-after.png",
+      "size_bytes": 93145,
+      "sha256": "1e3ab30843e04a5a9084f4ca36c36f7701ffc629fdca8b9d5881a9cf73bcd278",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-960x540-after.png",
+          "blob": "6145e7dd69a21c3f888647af7b09bd9611d60bd5"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/T3-unavailable-960x540-before.png",
+      "archive_path": "td238-review-evidence/T3/T3-unavailable-960x540-before.png",
+      "size_bytes": 44416,
+      "sha256": "83653d557ad02bc59c0287408cffff84367dd6aaf183edde971da18827de4e60",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-long-help-960x540-before.png",
+          "blob": "ca48cc3235f14413e5b0dc1235709241fc8dc66f"
+        },
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-960x540-before.png",
+          "blob": "ca48cc3235f14413e5b0dc1235709241fc8dc66f"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T3/stale-focus-raw.log",
+      "archive_path": "td238-review-evidence/T3/stale-focus-raw.log",
+      "size_bytes": 907,
+      "sha256": "0828cf552a7f4ad49dae4835590bf575c78b98b78133eb87cc761bbe5377f678",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/stale-focus-raw.log",
+          "blob": "8c130a95d6f53896c9ff43a47ade2d867ce3f1a2"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T4/T4-execution.json",
+      "archive_path": "td238-review-evidence/T4/T4-execution.json",
+      "size_bytes": 6671,
+      "sha256": "e88dada8f5277be54799fbc341ad6fd8da1f9ccbc55654180e68a3285c4533c0",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T4/T4-raw.log",
+      "archive_path": "td238-review-evidence/T4/T4-raw.log",
+      "size_bytes": 1455,
+      "sha256": "2f5f421cb61d8a054aca2436b09586ad67be1a157c352bea2828a45dae5c8703",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T4-raw.log",
+          "blob": "e8654fac96b43e8206305057d54bd844a8cf5c74"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T5/T5-execution.json",
+      "archive_path": "td238-review-evidence/T5/T5-execution.json",
+      "size_bytes": 5005,
+      "sha256": "6c810727cee8bcf91af9af81716bbf07e8f880cb5e23c8b377ad47ee58eaa811",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "T5/T5-raw.log",
+      "archive_path": "td238-review-evidence/T5/T5-raw.log",
+      "size_bytes": 1142,
+      "sha256": "f431ffe4c909e65ad1c19575ed2441a341dae177d486444b0e1e401da1b4021c",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T5-raw.log",
+          "blob": "fff2f90f8caa33e6ef394a7ccac5c25cdaf9a3d1"
+        }
+      ],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "Xorg.98.log",
+      "archive_path": "td238-review-evidence/Xorg.98.log",
+      "size_bytes": 66030,
+      "sha256": "84c048fd1d23b56d36da5cadd6cae453a0a4fecfd66d43469a2b30b77ef22b27",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "adversarial/initial-probe-failure.txt",
+      "archive_path": "td238-review-evidence/adversarial/initial-probe-failure.txt",
+      "size_bytes": 770,
+      "sha256": "88aa25eb0254e0c28879f09764a815ed8a37a749cf11a859ed288c23e3559cc5",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "adversarial-rerun/T3-raw.log",
+      "archive_path": "td238-review-evidence/adversarial-rerun/T3-raw.log",
+      "size_bytes": 12445,
+      "sha256": "7d27d29a3cad381af13424f9600156f0b2d8ce37f1cefe09a07a909abf43cfbc",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "adversarial-rerun/execution.json",
+      "archive_path": "td238-review-evidence/adversarial-rerun/execution.json",
+      "size_bytes": 24529,
+      "sha256": "cd90a8e65c8ae242b6270abc51d111194ba17e174f6f95d9fde9b49b8a2f266e",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "adversarial-rerun/review-long-help-1280x720-bottom.png",
+      "archive_path": "td238-review-evidence/adversarial-rerun/review-long-help-1280x720-bottom.png",
+      "size_bytes": 99606,
+      "sha256": "183c817615f954271dac22259b12e696a43aaa8955cf36abe98bc3a787228e7e",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "adversarial-rerun/review-long-help-960x540-bottom.png",
+      "archive_path": "td238-review-evidence/adversarial-rerun/review-long-help-960x540-bottom.png",
+      "size_bytes": 80683,
+      "sha256": "2da8712c9bea1bac2b298df847e194f92c61f320d0c786071819291501e89c47",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "adversarial-rerun/review-unavailable-1280x720-bottom.png",
+      "archive_path": "td238-review-evidence/adversarial-rerun/review-unavailable-1280x720-bottom.png",
+      "size_bytes": 98590,
+      "sha256": "5c232fb69d943c7e7c54cf9ded6c2e0d00d6e3d110ee64364da1143c67c05904",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "adversarial-rerun/review-unavailable-960x540-bottom.png",
+      "archive_path": "td238-review-evidence/adversarial-rerun/review-unavailable-960x540-bottom.png",
+      "size_bytes": 94196,
+      "sha256": "3da323359460b7294fce6a7a733728ad17d2de7fd4861f208901850a9ed8efb2",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "evidence-files.json",
+      "archive_path": "td238-review-evidence/evidence-files.json",
+      "size_bytes": 7429,
+      "sha256": "fcf57d44e42e7ecdcac741371050a8cd712295643a1966f9dbf938ec4f83be03",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "execution-schema-check.json",
+      "archive_path": "td238-review-evidence/execution-schema-check.json",
+      "size_bytes": 1023,
+      "sha256": "b303ade29531871fb184af0c116a8d9c20aa3bced08d1f7ec625454db026d8ce",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "final-state-and-triggers.json",
+      "archive_path": "td238-review-evidence/final-state-and-triggers.json",
+      "size_bytes": 3137,
+      "sha256": "cbb7f2468315c8929efa39566442ef08da29fa4d4467782ed66a10d7f3f34286",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "focus-probe/T2-raw.log",
+      "archive_path": "td238-review-evidence/focus-probe/T2-raw.log",
+      "size_bytes": 1219,
+      "sha256": "116a906bb64cc79d4d673db84431972624df1afeedcc92ab151f51e659ef9439",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "focus-probe/execution.json",
+      "archive_path": "td238-review-evidence/focus-probe/execution.json",
+      "size_bytes": 4724,
+      "sha256": "c2df9fc833b8d1d516e948a17acfdf30de2f5b67e44f0c7b3a7b64d2fec95b52",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "focus-probe-native/T3-raw.log",
+      "archive_path": "td238-review-evidence/focus-probe-native/T3-raw.log",
+      "size_bytes": 1509,
+      "sha256": "01071f41480abbe1d3dbf4a68c5598ed13761d216cb751d7fd5611f4cfe057c6",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "focus-probe-native/execution.json",
+      "archive_path": "td238-review-evidence/focus-probe-native/execution.json",
+      "size_bytes": 5017,
+      "sha256": "58a9a5c34b3501c356fcd4063d096696c0bc14aa8f4f8b391a88b086705402de",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "focus-probe.txt",
+      "archive_path": "td238-review-evidence/focus-probe.txt",
+      "size_bytes": 1542,
+      "sha256": "e171b109d00222ac38c24bef2d687c6202265640bde664ea95449397da856104",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "image-comparison.json",
+      "archive_path": "td238-review-evidence/image-comparison.json",
+      "size_bytes": 3103,
+      "sha256": "d1ff6ffaaf1f82c05d66ccd464f072c9f5fe383bdf9e7c00500ce053d2245faf",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "independent-probe-initial.txt",
+      "archive_path": "td238-review-evidence/independent-probe-initial.txt",
+      "size_bytes": 6041,
+      "sha256": "9953bfb05302e795edc10e5af972afb919809c33f62951a79ca9aa4bf7268488",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "independent-probe.txt",
+      "archive_path": "td238-review-evidence/independent-probe.txt",
+      "size_bytes": 6065,
+      "sha256": "26340fe9f700fc63ba9c7ae2866e37fef29674c695d5f4581e046f04c7d7d8bd",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "independent-review.json",
+      "archive_path": "td238-review-evidence/independent-review.json",
+      "size_bytes": 18842,
+      "sha256": "e7267214dc74bbbb1a6fc0f845afd37a66d05e2df3afc3003b2ad3a0a998079a",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "probe-reproduction.txt",
+      "archive_path": "td238-review-evidence/probe-reproduction.txt",
+      "size_bytes": 2357,
+      "sha256": "a2905f368ef322a815e1e0e8e2ddd430fad7a23911a003792d055d1ae8b73c88",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "source-equivalence.json",
+      "archive_path": "td238-review-evidence/source-equivalence.json",
+      "size_bytes": 8908,
+      "sha256": "353f7d996e3783567bfb24146f3c23224a65f025224c3eab51cc3c28c073854a",
+      "repository_publication": "unpublished_review_evidence",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [],
+      "previous_private_library_upload": null
+    },
+    {
+      "path": "td238-terminal-inspected.png",
+      "archive_path": "td238-review-evidence/td238-terminal-inspected.png",
+      "size_bytes": 101240,
+      "sha256": "efc8484faceffc7ecf5d8aa26bf688cc121602273b9e0120ca8fffad90bbaec9",
+      "repository_publication": "local_review_copy_with_bytes_already_in_PR684",
+      "uploaded_to_repository_by_this_reviewer": false,
+      "matching_PR684_artifacts": [
+        {
+          "repository": "doublehidenblade/tokyo-drift-3d",
+          "commit": "709ea8711799cd44a87db643eef7409ac16f8e44",
+          "path": "godot/qa/td-238/terminal_component/T3-unavailable-1280x720-after.png",
+          "blob": "03ca8c781faf44d34de5f4901f9108a4f5f69545"
+        }
+      ],
+      "previous_private_library_upload": {
+        "library_file_id": "libfile_e83fbb0e43a881919f77d1d3da18976a",
+        "file_id": "file_00000000a9d881f7815c2ab79cbddb0d"
+      }
+    }
+  ],
+  "excluded": [
+    {
+      "path": "library-helper/library_file_transfer.py",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/0bd3dc0958fa2205aaaa8ebb13e2872b-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/12c5eb5b0d6d6fd1848053bcdafabe09-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/188ac73a183f12857f63bb60a4a6d603-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/3047814df9a2f067bd2d96a2b9c36e5a-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/32b6488e5b8292a2e95c79d947e009e8-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/467c019e582ee353435ea5c21d137ef6-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/4c599c202bc5c08e2d34565a40eac3b2-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/573ec803664ed168555e0e8b6d0f0c7f-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/57e423e26b20ab21d0f2f29c145174c3-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/6333f38776742d18e214673cd2c24e34-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/6aa41aa22e18b8fa06a12da28ea9c28b-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/6cc790b63b123a6a96ee260fcdad32a9-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/707971e003b4ae6c8121c3a920e507f5-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/7ef2298fde41cc6eeb7af42e48b7d293-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/95530828ff6c81d309f8258d8d02a23e-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/9b89f8e3dae116d678bbf48e5f21f69b-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/CACHEDIR.TAG",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/a4e60e8d1e10d2fdff3fe3037a1845fb-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/bbd3eebb6912613e2596f2fd46535a95-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/c57959a16110560c8d0fcea73374aeeb-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/c855463f699352c367813e37f3f70ea7-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/d3e5c4ee2ceb1fc347f91d4cefc53bc0-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/d589a48862398ed80a3d6066f4f56f4c-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/d82eb4fd963d448e2fcb7d7b793b5df3-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/e0aa53bcfa504e64f87823c16bc01eb6-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/e13b20fdb08344e0e664864cc2ede53d-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/e52a45a1c8c8fe895fc0fc8c4e6999b8-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/f1f2465696798768e9653f19e17ccdc8-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    },
+    {
+      "path": "native-cache/fontconfig/fe547fea3a41b43a38975d292a2b19c7-le64.cache-9",
+      "reason": "font cache or transfer helper; unrelated to audit deliverables"
+    }
+  ]
+}

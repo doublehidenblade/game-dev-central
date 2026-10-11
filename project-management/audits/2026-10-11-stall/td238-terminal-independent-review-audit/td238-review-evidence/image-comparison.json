@@ -1,0 +1,122 @@
+[
+  {
+    "file": "T3-long-help-1280x720-after.png",
+    "size": [
+      1280,
+      720
+    ],
+    "rgba_alpha_extrema": [
+      255,
+      255
+    ],
+    "rerender_identical": true,
+    "diff_bbox": null,
+    "author_sha256": "eafc8525505ae9a397e0a1b2fcee20f20cffa16031ee42c93656734036d760a2",
+    "review_sha256": "eafc8525505ae9a397e0a1b2fcee20f20cffa16031ee42c93656734036d760a2"
+  },
+  {
+    "file": "T3-long-help-1280x720-before.png",
+    "size": [
+      1280,
+      720
+    ],
+    "rgba_alpha_extrema": [
+      255,
+      255
+    ],
+    "rerender_identical": true,
+    "diff_bbox": null,
+    "author_sha256": "bc92aa0385bb9f7008086d2dcf2a7403b5a5de0a68dd61662cbed982b78031d7",
+    "review_sha256": "bc92aa0385bb9f7008086d2dcf2a7403b5a5de0a68dd61662cbed982b78031d7"
+  },
+  {
+    "file": "T3-long-help-960x540-after.png",
+    "size": [
+      960,
+      540
+    ],
+    "rgba_alpha_extrema": [
+      255,
+      255
+    ],
+    "rerender_identical": true,
+    "diff_bbox": null,
+    "author_sha256": "d21db43169b7a4343046e1403c404d28d3196d6fcd7952e631d3bf00e0efa47a",
+    "review_sha256": "d21db43169b7a4343046e1403c404d28d3196d6fcd7952e631d3bf00e0efa47a"
+  },
+  {
+    "file": "T3-long-help-960x540-before.png",
+    "size": [
+      960,
+      540
+    ],
+    "rgba_alpha_extrema": [
+      255,
+      255
+    ],
+    "rerender_identical": true,
+    "diff_bbox": null,
+    "author_sha256": "83653d557ad02bc59c0287408cffff84367dd6aaf183edde971da18827de4e60",
+    "review_sha256": "83653d557ad02bc59c0287408cffff84367dd6aaf183edde971da18827de4e60"
+  },
+  {
+    "file": "T3-unavailable-1280x720-after.png",
+    "size": [
+      1280,
+      720
+    ],
+    "rgba_alpha_extrema": [
+      255,
+      255
+    ],
+    "rerender_identical": true,
+    "diff_bbox": null,
+    "author_sha256": "efc8484faceffc7ecf5d8aa26bf688cc121602273b9e0120ca8fffad90bbaec9",
+    "review_sha256": "efc8484faceffc7ecf5d8aa26bf688cc121602273b9e0120ca8fffad90bbaec9"
+  },
+  {
+    "file": "T3-unavailable-1280x720-before.png",
+    "size": [
+      1280,
+      720
+    ],
+    "rgba_alpha_extrema": [
+      255,
+      255
+    ],
+    "rerender_identical": true,
+    "diff_bbox": null,
+    "author_sha256": "bc92aa0385bb9f7008086d2dcf2a7403b5a5de0a68dd61662cbed982b78031d7",
+    "review_sha256": "bc92aa0385bb9f7008086d2dcf2a7403b5a5de0a68dd61662cbed982b78031d7"
+  },
+  {
+    "file": "T3-unavailable-960x540-after.png",
+    "size": [
+      960,
+      540
+    ],
+    "rgba_alpha_extrema": [
+      255,
+      255
+    ],
+    "rerender_identical": true,
+    "diff_bbox": null,
+    "author_sha256": "1e3ab30843e04a5a9084f4ca36c36f7701ffc629fdca8b9d5881a9cf73bcd278",
+    "review_sha256": "1e3ab30843e04a5a9084f4ca36c36f7701ffc629fdca8b9d5881a9cf73bcd278"
+  },
+  {
+    "file": "T3-unavailable-960x540-before.png",
+    "size": [
+      960,
+      540
+    ],
+    "rgba_alpha_extrema": [
+      255,
+      255
+    ],
+    "rerender_identical": true,
+    "diff_bbox": null,
+    "author_sha256": "83653d557ad02bc59c0287408cffff84367dd6aaf183edde971da18827de4e60",
+    "review_sha256": "83653d557ad02bc59c0287408cffff84367dd6aaf183edde971da18827de4e60"
+  }
+]
