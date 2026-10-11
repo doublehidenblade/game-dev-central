@@ -13,6 +13,8 @@ selection. Supply the existing supported scoped snapshot/evidence packets, prese
 unknowns, current owners, reservations and every stop. Do not normalize the whole fleet
 as a prerequisite for unrelated, independently proved work. Do not narrow the guard
 or its genuine dependency, owner and acceptance checks to make a task pass.
+Queue writes must fit the hash-verified task's `scope.write_allowlist` and full
+regions in the exact scoped query. Missing permission or row-only coverage blocks them.
 
 Run `dispatch_loop.py cycle` with the current journal revision and private input
 `{"candidates":{"owner/repo:task-id":{"snapshot":{},"reconciliation":{}}},"liveness":{}}`.
@@ -26,14 +28,19 @@ the current `watch.py dispatch-guard`, then use only authorized coordinator tool
 launch that sole worker. If tools are unavailable, report the exact failure. A planner
 result is not a launch. Record the actual session immediately with `record --input`;
 then require its first changed code/artifact receipt within ten minutes. `record`
-consumes `kind`, `attempt_id` and `session` or `receipt` + hash-verified Git `objects`;
+consumes `kind`, `attempt_id` and `session` or `receipt` + hash-verified Git `objects`
+and the original reserved `snapshot` (rechecked by `bind_write_scope`);
 see `record()` and the deterministic fixtures in [test_dispatch_loop.py](../watchdog/test_dispatch_loop.py).
 Record independent review with kind `review` and its fresh exact-head snapshot.
 
 Re-run the cycle after results or missing receipts. For liveness use exact attempt ID,
 session ID (null only if none is known), `ended/not_started/live/unknown`, timestamp
 and tool-evidence reference. Missing/uncertain receipt is unsuccessful; confirm no
-live equivalent before replacement. Never nudge a working session, reset two used
+live equivalent before replacement. A discovered session needs fresh authenticated
+`session` evidence with the original `attempt_id`, `decision_id`, owner/executor,
+session ID and start time. Supply it within the liveness observation or via late
+`record` kind `session`. It stays unsuccessful/reserved until that exact session ends.
+Never nudge a working session, reset two used
 attempts, reassign Muse/Craig work, revive the parked resource task or fill an empty
 queue with invented tasks. Report each candidate's exact blocker on escalation.
 

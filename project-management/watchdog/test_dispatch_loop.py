@@ -19,9 +19,10 @@ import test_scoped_admission as scoped
 from test_evidence_policy import NOW
 
 
-def fixture(repo="example/evidence-policy", executor="native"):
+def fixture(repo="example/evidence-policy", executor="native", write_allowlist=("src/",), protected_paths=("src/",)):
     with patch.object(evidence, "REPO", repo), patch.object(scoped, "REPO", repo):
-        case = scoped.docs_case()
+        case = scoped.docs_case(task_transform=lambda t: t.update(scope={"write_allowlist": list(write_allowlist)})
+                                if write_allowlist is not None else None)
     s = case["snapshot"]
     t = s["tasks"][0]
     t.update(project="lower-city", status="open", needs=["implementation"])
@@ -29,6 +30,7 @@ def fixture(repo="example/evidence-policy", executor="native"):
     s["requests"][0]["project"] = "lower-city"
     s["executors"][0].update(id=executor, owner_id="worker-A", resume_task="ops-docs")
     s["scoped_source"]["binding"].update(operation="implementation", owner_id="worker-A", executor_id=executor)
+    s["scoped_source"]["regions"].extend(dict(repository=repo, path=p, row_keys=[]) for p in protected_paths)
     s["evidence_policy"]["ops-docs"]["authority"]["status"] = "open"
     scoped.seal(s)
     c = dict(repository=repo, task_id="ops-docs", state="ready", write_paths=["src/"], receipts=["SYNTHETIC approved task"])
@@ -58,12 +60,21 @@ def liveness(attempt, state, at=NOW + timedelta(minutes=11), session=None):
         observed_at=at.isoformat(), evidence="SYNTHETIC exact launch request and session reconciliation")}
 
 
+def discovered_session(attempt, at):
+    return dict(attempt_id=attempt["attempt_id"], decision_id=attempt["decision"]["decision_id"],
+        observed_at=at.isoformat(), evidence="SYNTHETIC authenticated discovery of original launch",
+        session_id="session-1", session_evidence="SYNTHETIC launch tool lookup by exact attempt/decision",
+        executor_id="native", owner_id="worker-A", started_at=NOW.isoformat())
+
+
 def write_receipt(case, attempt):
-    w = case["world"]
+    snapshot = deepcopy(case["snapshot"])
+    w = deepcopy(case["world"])
     w.file("src/feature.gd", "extends Node\n")
     head = w.commit(case["head"])
     ref = w.ref(head, "src/feature.gd")
     return {"kind": "receipt", "attempt_id": attempt["attempt_id"], "objects": w.objects,
+            "snapshot": snapshot,
             "receipt": dict(observed_at=NOW.isoformat(), evidence="SYNTHETIC authenticated write tool result",
                 session_id="session-1", session_evidence="SYNTHETIC launch tool response",
                 executor_id="native", owner_id="worker-A", started_at=NOW.isoformat(), written_at=NOW.isoformat(), first_write=ref)}
@@ -97,6 +108,64 @@ class DispatchTests(unittest.TestCase):
         self.l = json.loads(json.dumps(self.l))
         self.assertEqual(self.cycle()["status"], "ESCALATION_REQUIRED")
         self.assertEqual(len(loop.attempts(self.l)), 1)
+
+    def test_review_reproduction_unbound_foreign_feature_never_reserves_or_receipts(self):
+        case, c, _ = fixture(write_allowlist=None, protected_paths=())
+        scoped.add_branch(case, {"src/feature.gd": "# Foreign owner's active implementation\n"}, pr=True)
+        s = case["snapshot"]
+        # The old guard validly proves only doc/board/task/qa scope, not src/.
+        self.assertEqual(co.evaluate(s, NOW)["status"], "ACTION_REQUIRED")
+        ledger = ledger_for(c)
+        r = loop.cycle(queue_for(c), ledger, {loop.key(c): packet(s)}, {}, NOW)
+        self.assertEqual(r["status"], "ESCALATION_REQUIRED", r)
+        self.assertEqual(ledger["events"], [])
+
+    def test_legacy_unbound_foreign_feature_reservation_cannot_record_receipt(self):
+        case, c, _ = fixture(write_allowlist=None, protected_paths=())
+        scoped.add_branch(case, {"src/feature.gd": "# Foreign owner's active implementation\n"}, pr=True)
+        s, ledger = case["snapshot"], ledger_for(c)
+        # An old unbound reservation cannot become a valid first-write receipt.
+        legacy = {"key": loop.key(c), "attempt_id": loop.key(c) + ":1"}
+        loop.append(ledger, "reserve", legacy, "admitted", NOW, decision=co.evaluate(s, NOW)["actions"][0],
+                    write_paths=["src/"], receipt_due=(NOW + loop.RECEIPT_WINDOW).isoformat())
+        before = deepcopy(ledger)
+        with self.assertRaises((ValueError, KeyError)):
+            loop.record(ledger, write_receipt(case, legacy), NOW)
+        self.assertEqual(ledger, before)
+
+    def test_write_scope_requires_both_canonical_permission_and_full_checked_region(self):
+        for allowlist, regions in ((("doc.md",), ("src/",)), (("src/",), ()),
+                                   (("src/",), ("src/feature.gd",)),
+                                   (("src/feature.gd",), ("src/",))):
+            with self.subTest(allowlist=allowlist, regions=regions):
+                case, c, p = fixture(write_allowlist=allowlist, protected_paths=regions)
+                r = loop.cycle(queue_for(c), ledger_for(c), {loop.key(c): p}, {}, NOW)
+                self.assertEqual(r["status"], "ESCALATION_REQUIRED", r)
+        case, c, p = fixture(write_allowlist=("board.md",), protected_paths=())
+        c["write_paths"] = ["board.md"]  # One checked row cannot authorize whole-file writes.
+        self.assertEqual(loop.cycle(queue_for(c), ledger_for(c), {loop.key(c): p}, {}, NOW)["status"], "ESCALATION_REQUIRED")
+
+    def test_authorized_scope_still_blocks_foreign_feature_overlap(self):
+        scoped.add_branch(self.case, {"src/feature.gd": "# Foreign owner's implementation\n"}, pr=True)
+        self.packets[loop.key(self.c)] = packet(self.case["snapshot"])
+        result = self.cycle()
+        self.assertEqual(result["status"], "ESCALATION_REQUIRED", result)
+        self.assertIn("overlapping or unresolved source", json.dumps(result))
+        self.assertFalse(loop.attempts(self.l))
+
+    def test_write_receipt_rechecks_bound_scope_and_queue_cannot_widen_reservation(self):
+        self.c["write_paths"] = ["src/feature.gd"]
+        a = self.cycle()["attempt"]
+        self.c["write_paths"].append("foreign/")
+        self.assertEqual(loop.attempts(self.l)[0]["write_paths"], ["src/feature.gd"])
+        event = write_receipt(self.case, a)
+        for mutate in (lambda e: e.pop("snapshot"),
+                       lambda e: e["snapshot"]["scoped_source"]["regions"].pop(),
+                       lambda e: e["snapshot"]["scoped_source"]["binding"].update(owner_id="foreign")):
+            bad = deepcopy(event); mutate(bad)
+            with self.assertRaises((ValueError, KeyError)):
+                loop.record(self.l, bad, NOW)
+        self.assertEqual(loop.record(self.l, event, NOW)["state"], "in_progress")
 
     def test_stop_before_selection_is_retained_when_omitted_later(self):
         self.p["reconciliation"]["stops"] = ["PR374@exact-head R4 stop"]
@@ -167,8 +236,104 @@ class DispatchTests(unittest.TestCase):
         self.assertTrue(a["unsuccessful"])
         self.assertFalse(a["released"])
         self.assertEqual(a["state"], "parked")
-        result = self.cycle(NOW + timedelta(minutes=12), liveness(first, "ended", NOW + timedelta(minutes=12)))
+        result = self.cycle(NOW + timedelta(minutes=12), liveness(first, "not_started", NOW + timedelta(minutes=12)))
         self.assertEqual(result["status"], "DISPATCH_REQUIRED", result)
+
+    def test_late_live_discovery_preserves_failed_attempt_until_exact_ended_observation(self):
+        first = self.cycle()["attempt"]
+        self.c["correction"] = dict(evidence="known launcher failure", changed_approach="recovered durable launcher")
+        self.cycle(NOW + timedelta(minutes=11))
+        prefix, history = deepcopy(self.l["events"]), deepcopy(self.l["history"])
+        at = NOW + timedelta(minutes=12)
+        observed = liveness(first, "live", at, session="session-1")
+        observed[first["attempt_id"]]["session"] = discovered_session(first, at)
+        result = self.cycle(at, observed)
+        self.assertEqual(result["status"], "ESCALATION_REQUIRED", result)
+        self.assertEqual(self.l["events"][:len(prefix)], prefix)
+        self.assertEqual(self.l["history"], history)
+        saved = loop.attempts(self.l)[0]
+        self.assertTrue(saved["unsuccessful"])
+        self.assertFalse(saved["released"])
+        self.assertEqual(saved["state"], "parked")
+        self.assertEqual(saved["session"]["session_id"], "session-1")
+        self.assertEqual(len(loop.attempts(self.l)), 1)
+        with self.assertRaises(ValueError):
+            loop.record(self.l, write_receipt(self.case, first), at)
+        for state, session in (("ended", "other-session"), ("ended", None), ("not_started", "session-1")):
+            with self.subTest(state=state, session=session), self.assertRaises(ValueError):
+                self.cycle(at, liveness(first, state, at, session=session))
+        self.assertFalse(loop.attempts(self.l)[0]["released"])
+        # The same journal survives a coordinator restart. Only this exact end releases it.
+        self.l = json.loads(json.dumps(self.l))
+        result = self.cycle(at, liveness(first, "ended", at, session="session-1"))
+        self.assertEqual(result["status"], "DISPATCH_REQUIRED", result)
+        self.assertTrue(loop.attempts(self.l)[0]["released"])
+        self.assertTrue(loop.attempts(self.l)[0]["unsuccessful"])
+        self.assertEqual(result["attempt"]["attempt_id"], loop.key(self.c) + ":2")
+
+    def test_late_session_record_and_ended_discovery_never_reset_budget_or_stops(self):
+        for route in ("record", "cycle-ended"):
+            with self.subTest(route=route):
+                ledger = ledger_for(self.c)
+                ledger["history"][loop.key(self.c)]["prior_attempts"] = 1
+                self.c["correction"] = dict(evidence="failure", changed_approach="new launcher")
+                first = loop.cycle(self.q, ledger, self.packets, {}, NOW)["attempt"]
+                at = NOW + timedelta(minutes=11)
+                loop.cycle(self.q, ledger, self.packets, {}, at)
+                if route == "record":
+                    loop.append(ledger, "hold", dict(key=loop.key(self.c), attempt_id=None), "parked", at,
+                                reasons=["Craig stopped implementation"], receipts=["SYNTHETIC stop"])
+                    result = loop.record(ledger, dict(kind="session", attempt_id=first["attempt_id"],
+                                         session=discovered_session(first, at)), at)
+                    self.assertEqual(result["state"], "parked")
+                    self.assertFalse(loop.attempts(ledger)[0]["released"])
+                    observed = liveness(first, "ended", at, session="session-1")
+                else:
+                    observed = liveness(first, "ended", at, session="session-1")
+                    observed[first["attempt_id"]]["session"] = discovered_session(first, at)
+                result = loop.cycle(self.q, ledger, self.packets, observed, at)
+                self.assertEqual(result["status"], "ESCALATION_REQUIRED", result)
+                self.assertTrue(loop.attempts(ledger)[0]["released"])
+                self.assertTrue(loop.attempts(ledger)[0]["unsuccessful"])
+                self.assertEqual(len(loop.attempts(ledger)), 1)
+                self.assertEqual(ledger["history"][loop.key(self.c)]["prior_attempts"], 1)
+                self.assertIn("retained explicit stop" if route == "record" else "exhausted", json.dumps(result))
+
+    def test_discovery_requires_authenticated_exact_original_launch_binding(self):
+        first = self.cycle()["attempt"]
+        at = NOW + timedelta(minutes=11)
+        self.cycle(at)
+        for mutation in (lambda s: s.update(attempt_id="another-attempt"),
+                         lambda s: s.update(decision_id="another-decision"),
+                         lambda s: s.update(owner_id="foreign"),
+                         lambda s: s.update(executor_id="foreign"),
+                         lambda s: s.update(session_evidence=""),
+                         lambda s: s.update(evidence=""),
+                         lambda s: s.update(observed_at=(NOW - timedelta(minutes=16)).isoformat()),
+                         lambda s: s.update(started_at=(NOW - timedelta(seconds=1)).isoformat()),
+                         lambda s: s.update(started_at=at.isoformat())):
+            observed = liveness(first, "live", at, session="session-1")
+            session = discovered_session(first, at); mutation(session)
+            observed[first["attempt_id"]]["session"] = session
+            before = deepcopy(self.l)
+            with self.assertRaises(ValueError):
+                self.cycle(at, observed)
+            self.assertEqual(self.l, before)
+        with self.assertRaises((ValueError, KeyError)):
+            self.cycle(at, liveness(first, "live", at, session="session-1"))
+        self.assertFalse(loop.attempts(self.l)[0]["released"])
+
+    def test_discovery_after_deadline_without_prior_timeout_is_failure_and_holds(self):
+        first = self.cycle()["attempt"]
+        at = NOW + timedelta(minutes=11)
+        result = loop.record(self.l, dict(kind="session", attempt_id=first["attempt_id"],
+                             session=discovered_session(first, at)), at)
+        self.assertEqual(result["state"], "parked")
+        self.assertEqual([e["kind"] for e in self.l["events"]], ["reserve", "missing_receipt", "session_discovered"])
+        observed = liveness(first, "unknown", at, session="session-1")
+        self.assertEqual(self.cycle(at, observed)["status"], "ESCALATION_REQUIRED")
+        self.assertTrue(loop.attempts(self.l)[0]["unsuccessful"])
+        self.assertFalse(loop.attempts(self.l)[0]["released"])
 
     def test_actual_session_and_changed_git_artifact_required(self):
         a = self.cycle()["attempt"]

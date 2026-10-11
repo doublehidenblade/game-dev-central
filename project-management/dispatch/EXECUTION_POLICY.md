@@ -14,6 +14,9 @@ admission and repeated planning were reported without an implementation receipt.
    board commit/blob/row, complete open-PR heads, explicit user-stop sources and
    actual session/queue observations. Bind their receipts to the snapshot digest.
    Use the existing [scoped guard](../watchdog/RUNBOOK.md#task-scoped-source-coverage-isolated-repair-2026-10-09).
+   Every `write_paths` entry must fit the hash-verified task's `scope.write_allowlist`
+   and a full-file/directory region in that exact guarded query; row-only coverage
+   cannot authorize a file write. Missing canonical scope fails closed.
    Unknown liveness is a hold; old GitHub activity is not proof of death. Record
    stops/denials persistently; changing executor, branch or a status description
    cannot remove them. The loop has no reset command.
@@ -31,15 +34,21 @@ admission and repeated planning were reported without an implementation receipt.
    (`record`, kind `session`); status stays `admitted`. Within ten minutes, record
    kind `receipt`: actual session/owner/executor, start/write times and the first
    changed code/artifact path with a hash-verified Git citation, based on the admitted
-   head and inside the approved write allowlist. Task/board/admission edits are not
+   head and inside the approved write allowlist. Supply the original reserved
+   `snapshot` with the receipt; `bind_write_scope` rechecks the exact decision,
+   canonical task and protected regions before accepting it. Task/board/admission edits are not
    implementation; reviewers must keep them out of that allowlist. Only this receipt
    yields `in_progress`. Persist sanitized references, never private prompts/notes.
 5. **Bound attempts and rotate.** `open → ready → admitted → in_progress → in_review
    → validated/rejected/parked`. One initial attempt plus one evidence-based correction
    maximum, including preserved historical attempts. Unknown counts remain `null`
    and block that candidate. Missing receipts count as unsuccessful; live/unknown
-   launches retain their reservations until exact liveness reconciliation. Select
-   the next independently eligible candidate in the same cycle; never duplicate
+   launches retain their reservations until exact liveness reconciliation.
+   A lost launch record can be recovered with a fresh authenticated session receipt
+   binding the original `attempt_id` and `decision_id` (see `record_session`).
+   Discovery retains the unsuccessful attempt and reservation; only that session's
+   exact `ended` observation releases it. `not_started` is valid only with no known session.
+   Select the next independently eligible candidate in the same cycle; never duplicate
    the task, executor or reserved write scope. `validated` needs the existing
    independent exact-head acceptance proof. A failed gate never becomes a pass here.
 6. **Escalate precisely.** Empty/blocked queues return `ESCALATION_REQUIRED` with

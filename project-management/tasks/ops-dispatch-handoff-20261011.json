@@ -60,16 +60,41 @@
     "verification_budget": "Focused offline suite, retained regression suites, source/trigger inspection; parent independent acceptance and first one-game-task rollout",
     "escalation_criteria": "Failed safety gate, unknown owner/stop, third attempt or missing authoritative backend; retain evidence and report",
     "requested_versus_confirmed": "Selected runtime available; provider/model identity unconfirmed",
-    "actual_outcome": "Implementation and corrected local tests produced; independent review pending"
+    "actual_outcome": "Both independent findings corrected under the one owner-directed additional allocation; 24 focused tests and retained suites pass. New exact-head independent acceptance and parent merge/rollout remain pending."
   },
   "evidence": [
-    "project-management/dispatch/IMPLEMENTATION_EVIDENCE.md"
+    "project-management/dispatch/IMPLEMENTATION_EVIDENCE.md",
+    "project-management/dispatch/ADDITIONAL_CORRECTION_TEST_RESULTS.json"
   ],
   "work_log": [
     {
       "date": "2026-10-11",
       "entry": "Recovered missing audit original with supplied size/SHA-256/Git hash; authored dispatch_loop.py before any gameplay claim. Initial focused suite: 12 passed, one test NameError. Single correction repaired import and added launch-only/session persistence and executor reservation coverage. No gameplay task launched."
+    },
+    {
+      "date": "2026-10-11",
+      "entry": "Independent review failed head 8d070716403355be388d404163c43b024184f3ad for unbound implementation write scope and launch-crash session recovery. Review: https://github.com/doublehidenblade/game-dev-central/pull/472#issuecomment-6112364709. Original initial implementation and sole correction remain consumed."
+    },
+    {
+      "date": "2026-10-11",
+      "entry": "Craig requested finishing, merging and pulling this PR in direct response to the held repair/additional-correction discussion. Parent explicitly delegated one additional bounded correction of those two findings on the existing task/branch/PR, with negative regressions and retained tests. No task, model, branch or historical budget reset. Parent retains independent exact-head acceptance and merge; author must not merge, launch or deploy."
+    },
+    {
+      "date": "2026-10-11",
+      "entry": "Additional correction binds writes to canonical scope plus exact guarded regions, including receipt revalidation; authenticated discovery retains timed-out unsuccessful attempts/reservations until exact session end. 24 focused tests and all retained suites pass; three negative regressions reproduce failures against rejected head 8d070716. No further allocation or self-acceptance; parent owns independent acceptance/merge/rollout."
     }
   ],
-  "verdict": null
+  "verdict": null,
+  "additional_allocation": {
+    "authority": "Craig, relayed by parent in this existing delegated session",
+    "date": "2026-10-11",
+    "count": 1,
+    "scope": [
+      "Bind implementation write_paths to authenticated canonical task scope and exact conflict-checked regions before reservation/receipt.",
+      "Recover a later authenticated session on the same timed-out unsuccessful attempt; retain consumed budget/reservation until exact ended observation."
+    ],
+    "prior_allocation": "One initial implementation and one correction consumed; retained above without reset.",
+    "status": "consumed; correction submitted for independent exact-head review",
+    "review": "https://github.com/doublehidenblade/game-dev-central/pull/472#issuecomment-6112364709"
+  }
 }

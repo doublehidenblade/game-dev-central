@@ -61,7 +61,7 @@ def validate(queue, ledger):
     attempts = {}
     for n, event in enumerate(ledger["events"], 1):
         need(event["revision"] == n and event["state"] in STATES, "invalid journal event")
-        need(event["kind"] in {"hold", "reserve", "session", "receipt", "review", "missing_receipt", "liveness_reconciled"},
+        need(event["kind"] in {"hold", "reserve", "session", "session_discovered", "receipt", "review", "missing_receipt", "liveness_reconciled"},
              "unknown journal event")
         if event["kind"] == "hold":
             need(event["state"] == "parked" and event["reasons"] and event["receipts"], "invalid retained stop")
@@ -94,6 +94,32 @@ def attempts(ledger):
     return list(result.values())
 
 
+def record_session(ledger, attempt, session, at, discovered=False):
+    """Attach launch evidence; discovery never retries or revives implementation."""
+    need(not attempt["released"] and attempt["session"] is None and attempt["receipt"] is None,
+         "session already recorded or reservation released")
+    fresh(session, at)
+    for field in ("session_id", "session_evidence"):
+        need(isinstance(session[field], str) and session[field].strip(), "actual launch tool receipt required")
+    need(all(session[k] == attempt["decision"][k] for k in ("executor_id", "owner_id")), "wrong session owner/executor")
+    started, due = co.utc(session["started_at"]), co.utc(attempt["receipt_due"])
+    need(co.utc(attempt["reserved_at"]) <= started <= co.utc(session["observed_at"]) <= at and started <= due,
+         "session did not start within the original reserved receipt window")
+    if discovered:
+        need(session["attempt_id"] == attempt["attempt_id"] and
+             session["decision_id"] == attempt["decision"]["decision_id"], "discovery must bind the exact original launch")
+    else:
+        need(attempt["state"] == "admitted" and not attempt["unsuccessful"] and at < due,
+             "late session requires authenticated discovery")
+    if at >= due and not attempt["unsuccessful"]:
+        append(ledger, "missing_receipt", attempt, "parked", at, unsuccessful=True, released=False,
+               evidence=None, reason="No verified session and first-write receipt by deadline")
+        attempt = dict(attempt, state="parked", unsuccessful=True)
+    append(ledger, "session_discovered" if discovered else "session", attempt, attempt["state"], at,
+           session=deepcopy(session))
+    return dict(attempt, session=deepcopy(session))
+
+
 def reconcile_attempts(ledger, observations, at):
     """Timeout is failure to prove implementation, never proof of worker death."""
     for attempt in attempts(ledger):
@@ -104,9 +130,17 @@ def reconcile_attempts(ledger, observations, at):
         if observation:
             fresh(observation, at)
             need(observation["attempt_id"] == attempt["attempt_id"], "liveness targets another attempt")
-            session_id = (attempt["session"] or attempt["receipt"] or {}).get("session_id")
-            need(observation["session_id"] == session_id, "liveness session mismatch")
             need(observation["state"] in {"ended", "not_started", "live", "unknown"}, "invalid liveness")
+            session_id = (attempt["session"] or attempt["receipt"] or {}).get("session_id")
+            if session_id is None and observation["session_id"] is not None:
+                need(observation["state"] != "not_started", "discovered session cannot be not_started")
+                session = observation["session"]
+                need(session["session_id"] == observation["session_id"] and
+                     co.utc(session["observed_at"]) == co.utc(observation["observed_at"]), "discovery observation mismatch")
+                attempt = record_session(ledger, attempt, session, at, discovered=True)
+                session_id = session["session_id"]
+            need(observation["session_id"] == session_id, "liveness session mismatch")
+            need(observation["state"] not in {"live", "ended"} or session_id is not None, "exact session ID required for live/ended observation")
             need(observation["state"] != "not_started" or session_id is None, "known session cannot be not_started")
             clear = observation["state"] in {"ended", "not_started"}
         expired = at >= co.utc(attempt["receipt_due"])
@@ -122,6 +156,37 @@ def reconcile_attempts(ledger, observations, at):
 def overlaps(left, right):
     return any(a == b or a.endswith("/") and b.startswith(a) or
                b.endswith("/") and a.startswith(b) for a in left for b in right)
+
+
+def covers(parent, path):
+    return path == parent or parent.endswith("/") and path.startswith(parent)
+
+
+def bind_write_scope(write_paths, snapshot, decision, at):
+    """Queue intent is bounded by a pinned task and the exact guarded query."""
+    target = {k: decision[k] for k in ("task_id", "operation", "executor_id", "owner_id", "head_sha")}
+    need(co.revalidate(snapshot, decision, target, at)["status"] == "GO", "write-scope final guard failed")
+    scope = snapshot["scoped_source"]
+    need(decision.get("source_scope_digest") == co.digest(scope), "exact conflict-checked regions required")
+    proof = snapshot["evidence_policy"][decision["task_id"]]
+    ref = proof["authority"]["task_ref"]
+    store = ep.GitObjects(proof["objects"])
+    task = store.json(ref)
+    need(ref["repository"] == decision["repository"] and task["id"] == decision["task_id"], "write scope names another task")
+    current = store.json({**ref, "commit": decision["head_sha"],
+                          "blob": store.blob_at(ref["repository"], decision["head_sha"], ref["path"])})
+    need(isinstance(task.get("scope"), dict), "canonical task scope.write_allowlist required; queue intent is not authority")
+    allowlist = task["scope"].get("write_allowlist")
+    need(isinstance(allowlist, list) and allowlist and all(isinstance(p, str) for p in allowlist),
+         "canonical task scope.write_allowlist required; queue intent is not authority")
+    need(current.get("scope") == task["scope"], "canonical write scope changed at admitted head")
+    for path in allowlist + write_paths:
+        ep.path_parts(path.removesuffix("/"))
+    for path in write_paths:
+        need(any(covers(p, path) for p in allowlist), "write path outside authenticated task scope: " + path)
+        need(any(r["repository"] == decision["repository"] and not r["row_keys"] and covers(r["path"], path)
+                 for r in scope["regions"]), "write path outside full conflict-checked regions: " + path)
+    return {"task_ref": deepcopy(ref), "write_paths": list(write_paths), "source_scope_digest": decision["source_scope_digest"]}
 
 
 def candidate_action(candidate, packet, at):
@@ -141,9 +206,8 @@ def candidate_action(candidate, packet, at):
         reasons = [b for b in plan["blocked"] if b["task_id"] == candidate["task_id"]]
         raise ValueError(json.dumps({"guard_blockers": reasons, "warnings": plan["warnings"]}, sort_keys=True))
     action = actions[0]
-    target = {k: action[k] for k in ("task_id", "operation", "executor_id", "owner_id", "head_sha")}
-    need(co.revalidate(snapshot, action, target, at)["status"] == "GO", "final guard failed")
-    return action, receipt
+    binding = bind_write_scope(candidate["write_paths"], snapshot, action, at)
+    return action, receipt, binding
 
 
 def cycle(queue, ledger, packets, observations, at):
@@ -175,7 +239,7 @@ def cycle(queue, ledger, packets, observations, at):
                 held.append(append(ledger, "hold", {"key": task_key, "attempt_id": None}, "parked", at,
                                    reasons=stops, receipts=[reconciliation["user_stops"]]))
             need(not held, "retained explicit stop/denial: " + str([e["reasons"] for e in held]))
-            action, receipt = candidate_action(candidate, packets[task_key], at)
+            action, receipt, binding = candidate_action(candidate, packets[task_key], at)
             history = ledger["history"].get(task_key)
             need(history is not None and history["prior_attempts"] is not None,
                  "historical attempt count unknown; never infer zero")
@@ -196,7 +260,7 @@ def cycle(queue, ledger, packets, observations, at):
                      "unreleased reservation: " + other["attempt_id"] + "; reconcile liveness, never duplicate")
             identity = {"key": task_key, "attempt_id": task_key + ":" + str(count + 1)}
             event = append(ledger, "reserve", identity, "admitted", at, decision=action,
-                           reconciliation=receipt, write_paths=candidate["write_paths"],
+                           reconciliation=deepcopy(receipt), write_paths=list(candidate["write_paths"]), write_scope=binding,
                            correction=candidate.get("correction"), receipt_due=(at + RECEIPT_WINDOW).isoformat())
             return {"status": "DISPATCH_REQUIRED", "attempt": event, "escalations": escalations,
                     "next": "Persist the journal; revalidate exact decision immediately before authorized coordinator launch. Admission is not implementation."}
@@ -213,18 +277,11 @@ def cycle(queue, ledger, packets, observations, at):
 
 def record(ledger, event, at):
     attempt = next(a for a in attempts(ledger) if a["attempt_id"] == event["attempt_id"])
-    need(not any(e["kind"] == "hold" and e["key"] == attempt["key"] for e in ledger["events"]),
+    discovery = event["kind"] == "session" and (attempt["unsuccessful"] or at >= co.utc(attempt["receipt_due"]))
+    need(discovery or not any(e["kind"] == "hold" and e["key"] == attempt["key"] for e in ledger["events"]),
          "retained stop; recording cannot restart this attempt")
     if event["kind"] == "session":
-        need(attempt["state"] == "admitted" and attempt["session"] is None and not attempt["unsuccessful"],
-             "session already recorded or attempt unavailable")
-        session = event["session"]
-        fresh(session, at)
-        need(session["session_id"] and session["session_evidence"], "actual launch tool receipt required")
-        need(all(session[k] == attempt["decision"][k] for k in ("executor_id", "owner_id")), "wrong session owner/executor")
-        need(co.utc(attempt["reserved_at"]) <= co.utc(session["started_at"]) <= at <= co.utc(attempt["receipt_due"]),
-             "session outside reserved receipt window")
-        append(ledger, "session", attempt, "admitted", at, session=session)
+        record_session(ledger, attempt, event["session"], at, discovered=discovery)
     elif event["kind"] == "receipt":
         need(attempt["state"] == "admitted" and not attempt["unsuccessful"], "receipt cannot revive a failed/stopped attempt")
         need(at <= co.utc(attempt["receipt_due"]), "late receipt requires liveness reconciliation, not a new attempt")
@@ -233,6 +290,8 @@ def record(ledger, event, at):
         for field in ("session_id", "session_evidence"):
             need(isinstance(receipt[field], str) and receipt[field].strip(), "actual session receipt required")
         decision = attempt["decision"]
+        binding = bind_write_scope(attempt["write_paths"], event["snapshot"], decision, at)
+        need(binding == attempt["write_scope"], "receipt write scope differs from reservation")
         need(all(receipt[k] == decision[k] for k in ("executor_id", "owner_id")), "wrong session owner/executor")
         need(attempt["session"] is None or attempt["session"]["session_id"] == receipt["session_id"], "first write names another session")
         need(co.utc(attempt["reserved_at"]) <= co.utc(receipt["started_at"]) <= co.utc(receipt["written_at"]) <= at,

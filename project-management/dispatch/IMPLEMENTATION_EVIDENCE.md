@@ -1,5 +1,67 @@
 # Dispatch repair evidence — 2026-10-11
 
+## Owner-directed additional correction — pending independent acceptance
+
+Independent review [rejected head 8d070716](https://github.com/doublehidenblade/game-dev-central/pull/472#issuecomment-6112364709)
+for two reproduced defects. Craig then requested finishing/merging/pulling this
+existing PR; the parent delegated **one additional bounded correction** of those
+findings. The [same canonical task](../tasks/ops-dispatch-handoff-20261011.json)
+records that allocation and retains the original initial attempt and correction.
+This allocation does not reset any gameplay or parked-resource history.
+
+- `bind_write_scope` now requires every queue write path to fit both the pinned,
+  hash-verified canonical task's `scope.write_allowlist` and a full-file/directory
+  region in the exact guarded snapshot. It verifies canonical scope is unchanged
+  at the admitted head. Row-only coverage cannot authorize an entire file. The
+  reservation retains that binding and copies its paths; first-write recording
+  rechecks the original reserved snapshot/decision and the same binding. Old
+  unbound reservations fail closed; they are not rewritten or inferred safe.
+- `record_session` can append authenticated discovery of the original launch
+  after timeout, via `cycle` liveness or late `record` kind `session`. Discovery
+  must bind the original attempt/decision, owner, executor, session and start
+  window. It preserves unsuccessful status, consumed attempt and reservation,
+  including retained stops. Only the exact discovered session's `ended`
+  observation releases its reservation; live/unknown never does. Null-session
+  `ended` is rejected; authenticated `not_started` remains limited to no known
+  session. Recovery does not make a late first-write receipt successful.
+
+**Verification:** [24 focused tests](evidence/additional-correction-tests.log) PASS;
+retained coordinator/evidence/scoped suites PASS **37/53/62**; standalone retained
+acceptance/final-guard/hold/operation/review checks PASS **14/15/2/128/32**; historical
+`test_rules.py` reports ALL TESTS PASSED. [Machine results and source/log hashes](ADDITIONAL_CORRECTION_TEST_RESULTS.json)
+bind the evidence to the corrected code and test files. Tests use synthetic
+authenticated observations and real unmodified guards, with sockets disabled.
+
+The [same negative regressions against rejected head 8d070716](evidence/reviewed-head-reproductions.log)
+produce two scope assertion failures (reservation and receipt) and the late-live
+session mismatch error. The [initial additional-correction red run](evidence/additional-correction-before.log)
+is also retained. During the single correction allocation, a focused test first
+failed because its artifact builder mutated its admission snapshot; the helper
+now copies the synthetic Git world. No production guard or assertion was relaxed.
+
+The actual CLI still returns eight exact candidate escalations with an unchanged
+scratch journal. READY_QUEUE, ATTEMPTS, audit originals, core/scoped/evidence
+guards, prior tests, board, workers, legacy state and parked resource task remain
+unchanged by this correction. No saved automation was changed.
+
+Before this source update, current main `424e441bc69a924bda8b992c77374e1cfb9823ad`
+and the PR had no `.github` files; GitHub reported zero workflows and
+`has_pages: false`. The main advance since the original PR base changes only
+`project-management/watchdog/state/state.json`, outside this repair. The source
+update stays on the same branch/PR and preserves the rejected head as an ancestor.
+
+Parent integration: independently accept the **new exact PR head**, recheck current
+push/merge triggers, then merge using an exact-head match. In the existing clean
+`/workspace/game-dev-central` checkout (branch `work` at `b880784` when inspected),
+fetch `origin main` and fast-forward with `git merge --ff-only origin/main`; stop
+if local work/divergence appears. Do not reset, force-push or delete another lane.
+Parent retains the accepted merge and first one-game-task rollout. Authenticated
+fresh collection and one durable serialized authoritative journal remain required
+for live adoption; review recording still requires complete fresh task/board/PR/
+review observations. No author merge, launch, Actions or deployment occurred.
+
+## Original candidate history — retained
+
 Implemented [dispatch_loop.py](../watchdog/dispatch_loop.py) (331 lines) and
 [15 deterministic tests](../watchdog/test_dispatch_loop.py). This is coordinator
 mechanism code, **not gameplay implementation**. No game worker was launched.

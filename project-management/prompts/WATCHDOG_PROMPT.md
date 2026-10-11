@@ -15,6 +15,8 @@ planner launched a worker.
 
 For every candidate, reconcile current board rows, open PRs and explicit user
 stops **before selection**. Preserve unknown attempt counts and session liveness.
+Queue writes require both canonical task permission and the exact checked regions;
+the first-write receipt rechecks that binding against the reserved snapshot.
 When an authorized coordinator receives `DISPATCH_REQUIRED`, it persists the
 reservation, rechecks the exact guard, launches through its authorized tools and
 records the actual session and first code/artifact write. Admission or a session
@@ -22,8 +24,11 @@ without a write is not implementation. The watchdog itself does not implement ga
 
 After ten minutes without the complete receipt, the attempt is unsuccessful.
 Reconcile the exact launch request/session before replacement. Keep live/unknown
-reservations; never nudge or duplicate a working session. Move to another independently
-eligible approved scope with nonconflicting executor/writes. One initial attempt
+reservations; never nudge or duplicate a working session.
+If the launch record was lost, attach authenticated discovery to the same attempt
+with its original decision ID. Keep failure/budget history and its reservation;
+only an exact ended observation for the discovered session releases that reservation.
+Move to another independently eligible approved scope with nonconflicting executor/writes. One initial attempt
 plus one evidence-based correction is the maximum, including historical attempts;
 no new task alias, model, source head or failure label resets it.
 
