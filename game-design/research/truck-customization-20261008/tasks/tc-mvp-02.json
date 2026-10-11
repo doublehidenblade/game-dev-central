@@ -1,0 +1,109 @@
+{
+  "status": "blocked",
+  "owner": "dot",
+  "assigned_worker": null,
+  "ask": {
+    "by": "Craig",
+    "date": "2026-10-08",
+    "scope": "Stash the truck customization brief; prepare references, mocks and 3D; provide a rotatable garage showcase with only enough MVP functionality to pair with upgrades; sequence behind completion of ongoing gigs, UI, lively city and traffic."
+  },
+  "required_reading": [
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/SYSTEM.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/WORKER_BRIEF.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/VISUAL_BRIEF_TEMPLATE.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/WORKER_SELECTION_POLICY.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/knowledge/standing-rules.md",
+    "../README.md",
+    "../sequence.md"
+  ],
+  "reference_images": [
+    "Existing corrected td-197/td-198 references only after actual bytes and pixels are verified",
+    "New original concepts under ../mocks/ when available; none delivered by this task filing"
+  ],
+  "constraints": [
+    "No Actions dispatch/rerun/workflow changes, merge or deployment",
+    "One confirmed worker per task; no duplicate existing garage/Forge owner",
+    "Read actual source pixels; label reference photos, generated mockups and real game captures distinctly",
+    "Current release first; preserve owner files and interfaces",
+    "No copied real brands/murals; use original or verified permitted assets",
+    "Author reports in_review; independent reviewer writes verdict; Craig's final phone gate remains separate"
+  ],
+  "evidence": [],
+  "work_log": [
+    {
+      "at": "2026-10-08T02:00:00Z",
+      "by": "dot",
+      "entry": "Planning record saved as an isolated customization addendum. No dispatch, image/model publication, runtime implementation or acceptance implied."
+    }
+  ],
+  "verdict": null,
+  "id": "tc-mvp-02",
+  "title": "Author the minimal original truck asset kit",
+  "maps_to_existing_tasks": [
+    "td-198"
+  ],
+  "dependencies": [
+    "tc-mvp-01 independent mock gate",
+    "Existing td-198/Forge source and exclusive asset-path agreement",
+    "Working required-tier Blender/Godot toolchain"
+  ],
+  "blocker": "Reference gate and owner/tool preflight remain prerequisites; reuse of existing mini-truck work must be checked first",
+  "bug_shape": "A customization mock without coherent editable geometry, shared sockets and a proven game export cannot be integrated safely.",
+  "recommended_setup": {
+    "capability_tier": "frontier",
+    "reason": "Hero vehicle proportions, common bed modules and costly-to-rebuild 3D coherence",
+    "provider_preference": "OpenAI Astra as requested for this project; verify the target executor's current catalog",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "max",
+    "environment_and_required_tools": "Working Blender, Godot 4.7.2 or verified project-required version, approved source asset, reference pixels, render/pixel inspection; target executor unverified",
+    "availability_checked": {
+      "at": "2026-10-08T02:00:00Z",
+      "source": "Documentation planning only; target executor/tool and capacity preflight not performed",
+      "status": "unverified"
+    },
+    "fallback": "wait_for_required_tier",
+    "allowed_alternative": "Read-only source/tool preparation only; no lower-tier production substitute",
+    "attempt_budget": "One coherent attempt plus at most one correction supported by new evidence. One chassis reuse/repair plus base/two finishes and one visible module demonstration. Stop before world integration.",
+    "escalation_criteria": "Missing tier/tools/reference bytes, structural mismatch, scope or owner conflict, failed checks, repeated identical failure twice or budget exhausted; report to coordinator",
+    "verification_budget": "Reserve independent Astra/max review of source, topology, matching-angle renders and real Godot import; budget one corrective pass.",
+    "requested_versus_confirmed_setup": "Requested setup is a recommendation. Actual executor, model and effort are unconfirmed; record observed evidence at admission.",
+    "actual_outcome": "pending; no implementation or accepted evidence; usage/cost unknown"
+  },
+  "scope": [
+    "Read and reuse the approved existing mini-truck/common blockout first. If absent or incomplete, coordinate continuation under td-198; no competing base or garage architecture worker.",
+    "Deliver original editable Blender source and game-ready export for one coherent small work-truck chassis, fixed paint zones, base plus two finishes and one compatible visible module demonstration.",
+    "Preserve approved axis/scale, wheel nodes, collider envelope and common bed-floor sockets. Module cannot block cab/window/lamps/tailgate/wheel travel or cargo readability.",
+    "Use cold-box prototype only as honest art/fit work until functional capability is supplied. Prefer existing accepted rack/padded fitting for eventual playable pairing.",
+    "Create matching reference/mock/3D views and baseline/after renders; record mesh/material/texture/triangle/memory budgets measured against the actual project."
+  ],
+  "visual_brief": {
+    "skill_workflow": "Use available 3dviz-pro-max visual iteration: genuine reference pixels → reviewed 2D mock → Blender model → matching render triptych → inspect/iterate → Godot import. Report unavailable skill/tool steps precisely.",
+    "quality_bar": "Original mini-truck working silhouette; clean cab/bed relation and wheel centers; consistent proportions in every view; restrained cel-anime materials and readable rear upgrade.",
+    "excluded_shortcuts": "No procedural placeholder sold as production model; no downloaded branded whole vehicle or copied mural; no beauty-only validation; no manufactured metrics.",
+    "effort_calibration": "Substantial reference-led Blender authoring/reuse and corrective visual work, not a quick script. Exact estimate follows source/tool inspection.",
+    "evidence": "Editable source/export manifest; triptychs, wireframes, Godot captures and budget results under owner-approved QA path.",
+    "merge_and_status": "Draft PR only, author in_review; independent reviewer judges original pixels. No runtime hookup or self-acceptance.",
+    "standing_constraints": "Opaque materials, original/licensed inputs, exact SHA and owner boundaries; current cel-anime direction supersedes obsolete sedan/PBR appearance."
+  },
+  "completion_criteria": [
+    {
+      "check": "Independent reviewer opens source and export; checks real dimensions, wheel origins, common sockets, material zones, non-overlap and named no-build envelopes.",
+      "evidence": "Owner-approved asset-manifest.json, dimensions.json, source.blend, export.glb and review.md"
+    },
+    {
+      "check": "Reviewer opens matched reference/mock/3D views and before/after pairs for every changed visual feature; body and module preserve coherent geometry and rear readability.",
+      "evidence": "criterion-N-before.png / criterion-N-after.png plus honestly labeled triptychs and wireframes"
+    },
+    {
+      "check": "Godot imports the source/export and material zones without missing resources; measured geometry/texture/draw-call/memory figures respect agreed budgets. Prototype is not represented as integrated gameplay.",
+      "evidence": "Exact-source import log, native capture, asset-budget.json and independent verdict"
+    }
+  ],
+  "out_of_scope": [
+    "New garage building or scene assembly",
+    "Changing existing Forge/hero model paths without owner agreement",
+    "Runtime vehicle adapter/physics/traffic changes",
+    "All cargo modules, six complete skins or heavy trucks",
+    "Refrigeration or paint economy implementation"
+  ]
+}
