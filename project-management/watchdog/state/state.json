@@ -2029,6 +2029,10 @@
     {
       "ts": "2026-10-11T13:31:59.317607+00:00",
       "note": "td-251 validator REJECTED 0/3 at PR671 head c635a7e2e0 (2026-10-11T13:31Z): no image evidence in PR body (worker declared 'Evidence: code fix only'); no QA folder on branch (404); commit left td-251.md byte-identical to main (no work log). Approach tension: PR removes blank signs (empty dests in _pointer()/_guide_layout()) instead of giving them text per the task's desired behavior \u2014 worker must justify per sign (bad data vs broken wiring) and prove no gap where a real sign should be. Verdict recorded in task file on branch (status: rejected). NOT merged. Rework route: existing td-251 Muse lane iterates on the rejection notes (do NOT dispatch a second worker while the lane is alive); next run verifies head and re-arms validator only on new head."
+    },
+    {
+      "ts": "2026-10-11T13:34:40.098506+00:00",
+      "note": "td-252 validator REJECTED 1/3 at PR672 head a45a41a106 (2026-10-11T13:33Z): C1 FAIL (no godot/qa/td-252 on branch, evidence plan only); C2 FAIL (collision claimed by code inspection, raycast sweep never run, no log; road-layout-unchanged sub-fact PASS); C3 PASS (7 style->GLB mappings, all 8 wired folders verified present, remaining box styles named with reason). Verdict PR691 merged to main 87c7fc22 (docs-only). PR672 stays OPEN/unmerged \u2014 back to the existing td-252 Muse lane for rework (production-scene before/after pairs, raycast sweep + log, commit under godot/qa/td-252/). Non-criterion flag (perf): ~3,154 lots each instanced GLB, no chunk/visibility culling, phone frame rate untested \u2014 carry as follow-up task candidate next run."
     }
   ],
   "workers": {
@@ -2640,5 +2644,14 @@
     "head": "c635a7e2e0",
     "at": "2026-10-11T13:31:06Z",
     "verdict": "0/3 criteria pass"
+  },
+  "td252_validator_reject": {
+    "status": "rejected",
+    "pr": 672,
+    "head": "a45a41a106",
+    "at": "2026-10-11T13:33:44Z",
+    "verdict": "1/3 criteria pass",
+    "verdict_pr": 691,
+    "verdict_merge_sha": "87c7fc2254955f64f61f63406a87f043332d8657"
   }
 }
