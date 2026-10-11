@@ -588,8 +588,10 @@ installed. Craig's exception admitted only the isolated repair itself.
 
 - Version 1 supports one exact filed-task `implementation`, `verification`,
   `upload` or `merge` operation with one current open/draft PR and candidate
-  branch. Unfiled-ask registration, post-merge review and deployment retain the
-  existing routes; they cannot be smuggled through this scoped schema.
+  branch. Unfiled metadata registration uses the separate
+  [candidate registration route](#candidate-specific-subordinate-registration-2026-10-11).
+  Post-merge review and deployment retain their existing routes; none of these
+  operations can be smuggled through the filed-task scoped schema.
 - A successful scoped action leaves `source_scope.global_coverage: unknown` and
   a visible coverage warning. No scoped-only snapshot can yield global `IDLE`.
   Incomplete global source receipts remain incomplete; do not reseal them as
@@ -816,7 +818,8 @@ an old decision. This remains a recheck, not an atomic distributed lock.
 ### Module bundle, private inputs and reproduction
 
 Use the repository's complete matching module bundle: `watch.py`,
-`coordinator_cli.py`, `coordinator.py`, `scoped_admission.py`, `evidence_policy.py`.
+`coordinator_cli.py`, `coordinator.py`, `scoped_admission.py`, `evidence_policy.py`,
+`registration_admission.py` and `dispatch_loop.py` (including the existing journal validator).
 A copied historical standalone `watch.py` does not gain these commands through
 a documentation update. At module initialization, canonical `watch.py` wraps
 supported/retired `cmd_*` names, and its CLI dispatch selects the same adapters.
@@ -934,3 +937,77 @@ retains fresh scoped owner/guard checks before dispatch, and rechecks actual
 workflow/publication triggers before writes. No executable changes, Actions,
 merge, deployment, external-agent contact, credential/security change or
 retry/resource-enforcement work is authorized by this documentation.
+
+
+## Candidate-specific subordinate registration (2026-10-11)
+
+`registration_source` is a separate, opt-in source guard for one unfiled
+**metadata-only** ask. It supersedes global historical branch-to-task accounting
+only for this registration operation. It does not change `scoped_source` v1/v2,
+production admission, independent acceptance, stop/deploy policy or the accepted
+[dispatch loop](../dispatch/EXECUTION_POLICY.md). Never supply both scoped routes.
+
+Keep the normal snapshot and truthful global `sources`. Add exactly `version: 1`,
+`binding` (request ID, repository, admission operation, executor, owner and current
+base SHA), `document_id`, current Git `parent_ref`, all transitive
+`dependency_refs`, `board_ref`, canonical `journal_ref`, `allocation`,
+`collection`, `attestation` and `coexistence` (empty unless explicitly approved).
+The document's existing `evidence_policy` packet must independently pass full
+completion policy at current rule pins; registration never rewrites its criteria.
+The scope amendment must identify the reviewed `source_parent`; complete Git
+changes from that ancestor must be allowed nonexecutable JSON/Markdown metadata.
+Current main may differ only outside all candidate/dependency/future query regions.
+Every declared new path must be absent at both the reviewed source parent and
+current canonical base. The intact parent's accepted appendix is the only
+existing-file edit permitted; dependency and unrelated existing files remain
+byte-identical, even when a proposal lists them in a metadata allowlist.
+
+`registration_admission.inspect_candidate(snapshot)["query"]` derives the exact
+query from immutable source. It covers actual document writes, the intact parent,
+all canonical dependency files and identities, board rows and any declared future
+runtime paths (query scope only). Include global stops, unpublished work and
+unknown scopes. Query every authorized current source/owner/session/reservation
+provider with those identities and regions. Do not use a name prefix, caller
+shortlist, branch naming, or missing heartbeat as evidence of completeness.
+No historical branch mapping or fresh historical branch sweep is required.
+When the canonical parent/dependency closure names workers, the derived query
+also contains their `named_sessions` (repository, task ID, session ID and owner).
+Each needs an exact matching current ended-session observation in the retained
+catalog/activity response. An empty collection, another owner/task/repository,
+or a live/unknown session does not reconcile a named worker. This check applies
+even without a PR coexistence disposition.
+
+`collection` has `query` and `reads`: policies, tasks, board, requests, owners,
+queue, blockers, executors, catalog and activity. Each read has actual `records`,
+`pages_read`, `items_seen`, `exhausted`, `read_status`. Normalized tables must
+exactly match the retained records. Catalog independently lists every current
+open PR and active/unknown branch/session/reservation identity, repository, kind
+and head SHA; activity supplies each exact source's state, head, owner, all task
+IDs and repository/path/row-key regions. Unknown scope is a hold. Known open PRs
+cannot disappear or change heads. Inability to query a source is not an empty read.
+
+The coordinator's authenticated `attestation` records `collector_id`,
+`observed_at`, `query_digest`, `records_digest` and source `evidence`. Collection
+must be under 15 minutes old. Hashes bind bytes, not external identity: the
+trusted collector must actually perform the inclusive queries and retain the
+responses; a caller cannot certify a chosen subset. `allocation` has exact
+`request_id`, `operation: admission`, evidenced known `used`, `limit` (at most 2)
+and `evidence`; unknown is never zero and old gameplay budgets never reset.
+
+`coexistence` permits only explicit same-owner serialized single-commit document
+PRs. Each receipt binds `source_digest`, `query_digest`, `candidate_head`,
+`source_base`, `owner_id`, `approved_by`, `observed_at`, `owner_evidence` and
+`approval_evidence`. The code proves complete source delta and disjoint append
+regions. Any pending assigned worker needs an exact current ended-session
+observation. No live/unknown session, reservation, foreign owner, stop, future
+code, new metadata or failed acceptance is cleared by this receipt.
+
+Use the normal coordinator-plan and dispatch-guard entrypoints and revalidate the
+exact decision immediately before an authorized registration. The sole serialized
+coordinator must consume its evidenced registration allocation before the filing,
+then observe the new canonical task/row; replay against the old snapshot is not a
+new allocation. This read-only module installs no collector, writer or worker.
+Independent exact-head source acceptance is required before live use.
+
+See [implementation/tests](../dispatch/registration-admission/IMPLEMENTATION.md)
+and [immutable td201 reproduction](fixtures/registration-admission/README.md).

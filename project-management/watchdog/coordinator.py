@@ -9,6 +9,7 @@ import re
 
 import evidence_policy
 import scoped_admission
+import registration_admission
 from datetime import datetime, timedelta, timezone
 
 VERSION = 1
@@ -93,7 +94,7 @@ def validate(snapshot, at):
     """
     require(isinstance(at, datetime) and at.tzinfo is not None and
             at.utcoffset() == timedelta(0), "evaluation clock must be UTC")
-    fields(snapshot, "version observed_at repositories sources " + " ".join(TABLES), "snapshot", optional="evidence_policy scoped_source")
+    fields(snapshot, "version observed_at repositories sources " + " ".join(TABLES), "snapshot", optional="evidence_policy scoped_source registration_source")
     require(type(snapshot["version"]) is int and snapshot["version"] == VERSION, "unsupported version")
     require(isinstance(snapshot.get("evidence_policy", {}), dict), "evidence_policy must be a task map")
     observed = utc(snapshot["observed_at"])
@@ -353,7 +354,10 @@ def evaluate(snapshot, at):
     result = {"version": VERSION, "status": "INPUT_REQUIRED", "actions": [], "blocked": [], "warnings": [], "reconciliations": []}
     try:
         index, sources, warnings = validate(snapshot, at)
+        require(not ("scoped_source" in snapshot and "registration_source" in snapshot), "choose exactly one scoped route")
         scoped = scoped_admission.verify(snapshot, at, TABLES, SOURCES_FOR) if "scoped_source" in snapshot else None
+        if "registration_source" in snapshot:
+            scoped = registration_admission.verify(snapshot, at)
         result["input_digest"] = digest(snapshot)
     except (InputError, TypeError, ValueError, KeyError, AttributeError, evidence_policy.PolicyError) as exc:
         result["warnings"] = [str(exc)]

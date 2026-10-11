@@ -1,0 +1,12 @@
+{
+  "observed_at": "2026-10-11T23:07:33.631462+00:00",
+  "repository": "doublehidenblade/game-dev-central",
+  "main_head": "3e850ee2505c1bf48dc4fa5012ace2794464618b",
+  "actions_workflow_count": 0,
+  "actions_workflows": [],
+  "has_pages": false,
+  "push_permission": true,
+  "main_protected": false,
+  "trigger_configuration_paths": [],
+  "inspection": "Read actual main tree and current local index, workflow inventory and Pages status; source-only branch/PR. No workflow, deployment or webhook mutation."
+}

@@ -1,0 +1,49 @@
+{
+  "rejected_head": "80a2e7f8ddc8152876ad8d71f61518b9f2fe071d",
+  "source_blob": "ff7ca777c855f26a9403847ff0ef5dd5afc05e15",
+  "command": [
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "test_registration_admission.RegistrationTests.test_canonical_named_parent_and_transitive_workers_cannot_be_omitted",
+    "test_registration_admission.RegistrationTests.test_canonical_named_worker_needs_exact_current_ended_session",
+    "test_registration_admission.RegistrationTests.test_every_canonical_named_worker_is_required_and_not_a_global_history_sweep",
+    "-v"
+  ],
+  "cwd": "project-management/watchdog",
+  "exit_code": 1,
+  "log": "rejected-head-known-session-regressions.log",
+  "sha256": "88ac7327786ae0123855f623291d26425129ebd33b26cd3e99c0ec7e430fa61b",
+  "interpretation": "New negative regressions fail against unchanged rejected production source; baseline permits omitted and mismatched known canonical sessions.",
+  "dependency_mutation_reproduction": {
+    "command": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "test_registration_admission.RegistrationTests.test_canonical_dependencies_are_read_only_even_when_metadata_allowlisted",
+      "-v"
+    ],
+    "cwd": "project-management/watchdog",
+    "exit_code": 1,
+    "log": "rejected-head-dependency-regressions.log",
+    "sha256": "162ce3c5351b119723039c447671f4387f328c69e0dd22244569732b9de18b09",
+    "interpretation": "All nine allowlisted dependency mutation probes admit under unchanged rejected source instead of holding."
+  },
+  "existing_path_reproduction": {
+    "command": [
+      "python3",
+      "-B",
+      "-m",
+      "unittest",
+      "test_registration_admission.RegistrationTests.test_existing_muse_paused_metadata_cannot_be_declared_new_or_frozen",
+      "-v"
+    ],
+    "cwd": "project-management/watchdog",
+    "exit_code": 1,
+    "log": "rejected-head-existing-path-regressions.log",
+    "sha256": "0cd10fcf081699b06875cfa7fb2eb4d9880f8ce9645526d2fa8e255a8c8bd9f7",
+    "interpretation": "All three existing Muse-owned paused document declarations admit under rejected source instead of holding."
+  }
+}
