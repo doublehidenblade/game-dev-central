@@ -32,13 +32,13 @@
     },
     {
       "repository": "doublehidenblade/game-dev-central",
-      "commit": "c294771867a1af222af38667687d19cb031bd8cb",
+      "commit": "5c8be5bc95f3eb53e6c672155d5db7fb7ec267cc",
       "path": "project-management/watchdog/RUNBOOK.md",
       "blob": "e90c226df5d17f39fd6f878dbb61c68f754982e8"
     },
     {
       "repository": "doublehidenblade/game-dev-central",
-      "commit": "c294771867a1af222af38667687d19cb031bd8cb",
+      "commit": "5c8be5bc95f3eb53e6c672155d5db7fb7ec267cc",
       "path": "project-management/watchdog/EVIDENCE_POLICY.md",
       "blob": "fc77f25b14eb07ae934ad5921da721cfcf0c2ebe"
     }
@@ -47,7 +47,7 @@
     "rule_id": "central:project-management/watchdog/RUNBOOK.md",
     "rule_ref": {
       "repository": "doublehidenblade/game-dev-central",
-      "commit": "c294771867a1af222af38667687d19cb031bd8cb",
+      "commit": "5c8be5bc95f3eb53e6c672155d5db7fb7ec267cc",
       "path": "project-management/watchdog/RUNBOOK.md",
       "blob": "e90c226df5d17f39fd6f878dbb61c68f754982e8"
     }
