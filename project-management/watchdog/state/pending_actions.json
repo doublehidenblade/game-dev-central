@@ -19,6 +19,11 @@
    "type": "note",
    "text": "2026-10-12 01:55Z watchdog run: td-250 lane revived \u2014 old Muse subagent exited ~13h ago (no heartbeat file ever, no commits/pushes since 15:00Z; dot confirmed exit 13:24Z). Dispatched a fresh Muse caption-correction subagent with full context migration: rewrite ONLY the Criterion-2 caption in PR #694 (branch docs/td-250-evidence-pairs, head e9bc07bce1) with true frame provenance \u2014 before=original harness capture (td250_evidence.gd lines 345-371, run.log touched_pole=true passed_through=true final_along=6.48 pre-capture; contact timing NOT established; never label 'before contact'); after=re-shot first-contact freeze t=0.550s (td-250-collision-contact.png, re-shoot log instrumentation attributed to the after frame only). No recapture, no game code, no merge \u2014 push to the same branch. Re-registered lane in worker registry (replaces stale 12:51Z registration). PR #694 must NOT merge until the caption is corrected (per 16:20Z inbox directive).",
    "queued_at": "2026-10-12T01:52:16.983010+00:00"
+  },
+  {
+   "type": "note",
+   "text": "2026-10-12 02:00Z follow-up: td-250 caption-correction worker COMPLETED (commit c6d5136 on docs/td-250-evidence-pairs, verified live on branch via API \u2014 head matches). Criterion-2 caption now states true provenance: before=original post-drive wide shot (contact timing NOT established, explicitly not 'before contact'); after=re-shot first-contact freeze t=0.550s; re-shoot log instrumentation attributed to the after frame only; not-same-camera honesty retained. Docs-only, no game code, no recapture. Worker exited; lane deregistered. PR #694 OPEN, NOT merged \u2014 merge disposition + dot confirmation go to the next watchdog run (dot holds the td-250 evidence/caption reconcile claim).",
+   "queued_at": "2026-10-12T01:56:02.659013+00:00"
   }
  ],
  "notes": [

@@ -2045,7 +2045,8 @@
    "note": "watchdog 2026-10-11 18:12 EDT run: STEP 0a liveness 14 ALIVE + STALE(3) td-217/td-248/td-245 (counters frozen), conflicts OK, transitions NO-FLIPS, classification-health STALE-RUNS=248 (cloud eyes blind, both sessions LOGIN_BLOCKED ~124.5h; loginfail SUPPRESSED both, notified 5.9h ago). STEP 0b review-sweep: no VALIDATOR-DUE (td-212/213/223/224 validators already dispatched). Orphan sweep: 0 ORPHAN-READY (report-only inspector HELDs + #585 td-195 defect brief + #633 td-245 verdict record + drafts/unknowns left alone). STEP 0c inbox: no new comments since 6111620593; silent. STEP 1/2: both cloud REPORT_LOGIN; only unowned candidate td-249 HELD per task-file LOW-backlog (unchanged); flagship-waiting NONE. TD-245 LANE FINDING: second replacement (dispatched 03:18Z, brief td-245-20261011-031449) silent 19h, no heartbeat/branch/PR activity \u2014 dead on the same signature as the first (01:42Z-03:14Z, 2 branch commits then silence). Pattern: scheduler-run-spawned subagents die when the spawning run ends (children can't deliver into a finished run); 2/2 failures in 24h. Branch rework/td-245-c2-true-recapture @66bee86cc5 holds the first replacement's base+district-pin work \u2014 continue, do not redo. DECISION: no third auto-replacement from a scheduler run (waste + duplicate-live-session risk); lane needs a worker spawned from the main agent's persistent context via handoff. Lane carried as waiting-for-persistent-spawn.",
    "at": "2026-10-11T22:13:00Z"
   },
-  "2026-10-12T00:14Z LIVENESS: td-251 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-251-20261012-001440.md)."
+  "2026-10-12T00:14Z LIVENESS: td-251 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-251-20261012-001440.md).",
+  "2026-10-12T01:55Z deregistered td-250 (subagent): caption-correction complete: PR #694 head c6d5136, Criterion-2 caption now states true frame provenance (before=original post-drive wide shot, contact timing unestablished; after=re-shot t=0.550s contact freeze; re-shoot log attributed to after only). Worker exited. PR #694 open, merge disposition + dot confirmation go to next run."
  ],
  "workers": {
   "td-188": {
@@ -2191,15 +2192,6 @@
    "dispatched_at": "2026-10-11T12:51:56.029968+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-250": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-250.md",
-   "dispatched_at": "2026-10-12T01:51:10.786537+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
   },
   "td-251": {
    "kind": "subagent",
