@@ -2051,7 +2051,8 @@
   "2026-10-12T05:27Z LIVENESS: td-213 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-213-20261012-052708.md).",
   "2026-10-12T05:27Z LIVENESS: td-223 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-223-20261012-052722.md).",
   "2026-10-12T05:27Z LIVENESS: td-224 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-224-20261012-052737.md).",
-  "2026-10-12T05:28Z LIVENESS: td-216 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-216-20261012-052836.md)."
+  "2026-10-12T05:28Z LIVENESS: td-216 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-216-20261012-052836.md).",
+  "2026-10-12T13:40Z watchdog 09:12 EDT run: STEP 0a liveness 18 ALIVE + STALE(2) td-217/td-252 (td-217 HELD per Craig strong-high/max conflict, pending his call; td-252 worker silent 646min, PR #672 merge-hold), conflicts OK, transitions NO-FLIPS, classification-health STALE-RUNS=272 (cloud eyes blind; both sessions LOGIN_BLOCKED ~139.8h, loginfail SUPPRESSED both, notified 0.6h ago). STEP 0b review-sweep: no VALIDATOR-DUE (td-212/213/223/224 validator-due notices already posted in inbox 09:18/09:47/10:18Z; td-223 validator-dispatched). STEP 0c inbox: newest comment 6122268643 = checkpoint, no new comments since; silent. STEP 1: both cloud sessions REPORT_LOGIN; adopt-orphans: 0 ORPHAN-READY (HELD/DRAFT/UNKNOWN inspector reports left alone) - nothing shipped. STEP 2: all CANDIDATEs owned (td-249 unowned but HELD per LOW-backlog task file); flagship-waiting NONE >48h. 05:26Z DEAD replacements for td-212/213/223/224/216 queued in pending_actions.json - only td-224 executed so far (registered 05:41Z, ALIVE); lanes for td-212/213/223/216 await main-agent handoff spawn per td-245 scheduler-spawn finding. pending_actions.json holds 5 dispatch-subagent entries + td-250 notes."
  ],
  "workers": {
   "td-188": {
@@ -2241,7 +2242,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 271
+  "stale_runs": 272
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2471,7 +2472,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-12T12:45:47.132496+00:00",
+  "ts": "2026-10-12T13:29:25.293250+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2484,22 +2485,22 @@
     "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
     "ALIVE td-243 (no heartbeat file; open PR #725 Inspector report: 2026-10-12 06:34 EDT (report-only, do not ; open PR #722 Inspector report: 2026-10-12 05:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
-    "ALIVE td-246 (heartbeat stale (4059min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (4099min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (3723min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
-    "ALIVE td-248 (heartbeat stale (2422min); open PR #730 [DRAFT] td-223: reconciled three-ray corridor (do not merge))",
-    "ALIVE td-245 (heartbeat stale (2006min); open PR #712 [td-245] C2 true-recapture: matched same-camera pairs + run )",
-    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (601min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
-    "ALIVE td-251 (heartbeat stale (743min); open PR #719 td-251: raise city_sign_text_range 95->220 m (blank guide si; open PR #716 td-251: investigation \u2014 sign builder verified )",
+    "ALIVE td-246 (heartbeat stale (4104min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (4144min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (3767min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "ALIVE td-248 (heartbeat stale (2466min); open PR #730 [DRAFT] td-223: reconciled three-ray corridor (do not merge))",
+    "ALIVE td-245 (heartbeat stale (2050min); open PR #712 [td-245] C2 true-recapture: matched same-camera pairs + run )",
+    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (646min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
+    "ALIVE td-251 (heartbeat stale (787min); open PR #719 td-251: raise city_sign_text_range 95->220 m (blank guide si; open PR #716 td-251: investigation \u2014 sign builder verified )",
     "ALIVE td-235 (no heartbeat file; open PR #710 Draft td-235: readable minimap gig-target marker over red la)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "ALIVE td-224 (no heartbeat file; open PR #714 [Report-only] Validator: td-224 verdict on PR #544 \u2014 REJECTE)"
+    "ALIVE td-224 (no heartbeat file; open PR #733 Inspector report: 2026-10-12 08:34 EDT (report-only, do not ; open PR #714 [Report-only] Validator: td-224 verdict on PR #544 \u2014 )"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=271"
+    "STALE-RUNS=272"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2516,10 +2517,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-12T12:45:00.582102+00:00",
-   "classification-health": "2026-10-12T12:45:47.132496+00:00",
-   "transitions": "2026-10-12T12:45:18.666382+00:00",
-   "conflicts": "2026-10-12T12:45:10.969321+00:00",
+   "liveness": "2026-10-12T13:29:25.293250+00:00",
+   "classification-health": "2026-10-12T13:17:09.439176+00:00",
+   "transitions": "2026-10-12T13:16:36.658168+00:00",
+   "conflicts": "2026-10-12T13:16:00.293800+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
@@ -2562,9 +2563,9 @@
    "note": "dot independent reviews reconciled at this head (inbox 18:12Z notice); full-SHA fix so sweep matches"
   },
   "td-223": {
-   "pr": 531,
-   "head_sha": "8de8d5ec3d278300599c89b01d4b100a08d08e44",
-   "at": "2026-10-12T09:18:21.874404+00:00"
+   "pr": 730,
+   "head_sha": "f4162bf7",
+   "at": "2026-10-12T13:30:53.615050+00:00"
   },
   "td-234": {
    "pr": 556,
