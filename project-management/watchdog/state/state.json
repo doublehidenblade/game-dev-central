@@ -767,7 +767,7 @@
   "neon-drift": {
    "gate_fired": true,
    "head_sha": "531d5ce",
-   "idle_min": 13559.9,
+   "idle_min": 17686.1,
    "last_activity_ts": "2026-09-29T22:45:48+00:00",
    "last_browser_check_ts": "2026-09-29T22:35:26.055165+00:00",
    "needs_browser": true,
@@ -787,34 +787,34 @@
    "open_prs": 10
   },
   "tokyo-drift-3d": {
-   "gate_fired": false,
-   "head_sha": "3295d3a",
-   "idle_min": 4.2,
-   "last_activity_ts": "2026-10-09T08:41:30+00:00",
+   "gate_fired": true,
+   "head_sha": "b617aa7",
+   "idle_min": 78.4,
+   "last_activity_ts": "2026-10-12T04:13:25+00:00",
    "last_browser_check_ts": "2026-10-06T17:47:50.239833+00:00",
-   "needs_browser": false,
+   "needs_browser": true,
    "open_issues": 0,
    "open_pr_numbers": [
-    586,
-    585,
-    581,
-    576,
-    574,
-    568,
-    566,
-    565,
-    564,
-    563,
-    562,
-    561,
-    560,
-    558,
-    557,
-    556,
-    555,
-    553,
-    551,
-    550
+    712,
+    711,
+    710,
+    709,
+    708,
+    707,
+    706,
+    705,
+    704,
+    703,
+    702,
+    701,
+    700,
+    699,
+    698,
+    697,
+    695,
+    694,
+    693,
+    692
    ],
    "open_prs": 20
   },
@@ -2046,7 +2046,12 @@
    "at": "2026-10-11T22:13:00Z"
   },
   "2026-10-12T00:14Z LIVENESS: td-251 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-251-20261012-001440.md).",
-  "2026-10-12T01:55Z deregistered td-250 (subagent): caption-correction complete: PR #694 head c6d5136, Criterion-2 caption now states true frame provenance (before=original post-drive wide shot, contact timing unestablished; after=re-shot t=0.550s contact freeze; re-shoot log attributed to after only). Worker exited. PR #694 open, merge disposition + dot confirmation go to next run."
+  "2026-10-12T01:55Z deregistered td-250 (subagent): caption-correction complete: PR #694 head c6d5136, Criterion-2 caption now states true frame provenance (before=original post-drive wide shot, contact timing unestablished; after=re-shot t=0.550s contact freeze; re-shoot log attributed to after only). Worker exited. PR #694 open, merge disposition + dot confirmation go to next run.",
+  "2026-10-12T05:26Z LIVENESS: td-212 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-212-20261012-052652.md).",
+  "2026-10-12T05:27Z LIVENESS: td-213 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-213-20261012-052708.md).",
+  "2026-10-12T05:27Z LIVENESS: td-223 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-223-20261012-052722.md).",
+  "2026-10-12T05:27Z LIVENESS: td-224 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-224-20261012-052737.md).",
+  "2026-10-12T05:28Z LIVENESS: td-216 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-216-20261012-052836.md)."
  ],
  "workers": {
   "td-188": {
@@ -2202,42 +2207,6 @@
    "quiet_cycles": 0,
    "last_verdict": "stale"
   },
-  "td-212": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-212.md",
-   "dispatched_at": "2026-10-12T05:22:56.743924+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
-  "td-213": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-213.md",
-   "dispatched_at": "2026-10-12T05:22:57.051233+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
-  "td-223": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-223.md",
-   "dispatched_at": "2026-10-12T05:23:00.943866+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
-  "td-224": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-224.md",
-   "dispatched_at": "2026-10-12T05:23:04.368646+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
   "td-235": {
    "kind": "subagent",
    "session": null,
@@ -2247,15 +2216,6 @@
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
-  "td-216": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-216.md",
-   "dispatched_at": "2026-10-12T05:22:59.408500+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  },
   "td-218": {
    "kind": "subagent",
    "session": null,
@@ -2264,6 +2224,15 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
+  },
+  "td-224": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-224.md",
+   "dispatched_at": "2026-10-12T05:41:29.299966+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -2502,7 +2471,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-12T03:49:20.414835+00:00",
+  "ts": "2026-10-12T05:31:39.488746+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2515,19 +2484,19 @@
     "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
     "ALIVE td-243 (no heartbeat file; open PR #711 Inspector report: 2026-10-11 23:34 EDT (report-only, do not ; open PR #708 Inspector report: 2026-10-11 22:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
-    "ALIVE td-246 (heartbeat stale (3520min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (3561min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (3184min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
-    "STALE td-248 (no fresh observation; counter frozen; heartbeat stale (1883min); session 07bf1209-ce3c-4e22-a591-1cee9253a714 classification stale/missing)",
-    "ALIVE td-245 (heartbeat stale (1467min); open PR #712 [td-245] C2 true-recapture: matched same-camera pairs + run )",
-    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (63min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
-    "STALE td-251 (no fresh observation; counter frozen; heartbeat stale (204min); session 9cc12daa-e403-4218-b2a2-77c59a843cbf classification stale/missing)",
-    "QUIET(1) td-212 (no heartbeat file)",
-    "QUIET(1) td-213 (no heartbeat file)",
-    "QUIET(1) td-223 (no heartbeat file)",
-    "QUIET(1) td-224 (no heartbeat file)",
+    "ALIVE td-246 (heartbeat stale (3620min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (3660min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (3284min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-248 (no fresh observation; counter frozen; heartbeat stale (1983min); session 07bf1209-ce3c-4e22-a591-1cee9253a714 classification stale/missing)",
+    "ALIVE td-245 (heartbeat stale (1567min); open PR #712 [td-245] C2 true-recapture: matched same-camera pairs + run )",
+    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (163min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
+    "STALE td-251 (no fresh observation; counter frozen; heartbeat stale (304min); session 9cc12daa-e403-4218-b2a2-77c59a843cbf classification stale/missing)",
+    "DEAD td-212 (replacement queued; no heartbeat file)",
+    "DEAD td-213 (replacement queued; no heartbeat file)",
+    "DEAD td-223 (replacement queued; no heartbeat file)",
+    "DEAD td-224 (replacement queued; no heartbeat file)",
     "ALIVE td-235 (no heartbeat file; open PR #710 Draft td-235: readable minimap gig-target marker over red la)",
-    "QUIET(1) td-216 (no heartbeat file)",
+    "DEAD td-216 (replacement queued; no heartbeat file)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
    ],
    "transitions": [
@@ -2551,10 +2520,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-12T03:48:01.183475+00:00",
+   "liveness": "2026-10-12T05:29:04.642487+00:00",
    "classification-health": "2026-10-12T03:49:20.414835+00:00",
-   "transitions": "2026-10-12T03:48:17.645958+00:00",
-   "conflicts": "2026-10-12T03:48:10.901075+00:00",
+   "transitions": "2026-10-12T05:31:39.488746+00:00",
+   "conflicts": "2026-10-12T05:31:07.811039+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }

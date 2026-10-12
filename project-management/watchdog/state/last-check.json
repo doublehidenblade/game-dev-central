@@ -1,5 +1,5 @@
 {
- "ts": "2026-10-09T08:45:44.367057+00:00",
+ "ts": "2026-10-12T05:31:51.766817+00:00",
  "repos": {
   "neon-drift": {
    "open_work": true,
@@ -8,7 +8,7 @@
    "sess_open": false,
    "sess_working_stale": false,
    "last_activity": "2026-09-29T22:45:48+00:00",
-   "idle_min": 13559.9,
+   "idle_min": 17686.1,
    "gate_fired": true,
    "browser_cooldown_ok": true,
    "needs_browser": true
@@ -19,11 +19,11 @@
    "open_issues": 0,
    "sess_open": false,
    "sess_working_stale": false,
-   "last_activity": "2026-10-09T08:41:30+00:00",
-   "idle_min": 4.2,
-   "gate_fired": false,
+   "last_activity": "2026-10-12T04:13:25+00:00",
+   "idle_min": 78.4,
+   "gate_fired": true,
    "browser_cooldown_ok": true,
-   "needs_browser": false
+   "needs_browser": true
   }
  }
 }
