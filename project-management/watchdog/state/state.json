@@ -973,7 +973,7 @@
    ],
    "assignments": [],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-11T22:49:31.088591+00:00",
+   "login_fail_notified_ts": "2026-10-12T06:45:30.055272+00:00",
    "finished_no_pr": true,
    "out_of_tokens_since": "2026-10-05T20:34:50.864329+00:00",
    "failover_declined_note": "2026-10-05 03:20 EDT: OOT failover assessed and DECLINED (not executed). All 4 Claude sessions hit 100% usage (reset ~06:10 EDT); each stood down cleanly with 'nothing pending' (main-dev: td-126/PR#263 + td-127 merged; shuto-c1: PR#274 merged; texture-imagegen: 6 textures on branch; 4th 'New session': Tripo coupe work idle). No stranded priority work to hand over. Failover brief is 4 days stale (2026-10-01 curation, refs PR#249-era exclusions); dispatch-candidates shows ZERO unowned tasks (all owned/skipped). Steering Codex with the stale brief would manufacture duplicate work. last_failover_ts set to suppress re-fire for this episode; sessions resume on token reset ~06:10 EDT.",
@@ -1580,7 +1580,7 @@
     "https://chatgpt.com/remote/task_e_6abed1d0b670832eb8b8bf60685b9e93"
    ],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-11T22:49:26.587048+00:00",
+   "login_fail_notified_ts": "2026-10-12T06:45:08.683177+00:00",
    "inspected_ts": "2026-10-09T07:24:54.945453+00:00",
    "finished_no_pr": true
   },
@@ -2232,7 +2232,7 @@
    "task_file": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-224.md",
    "dispatched_at": "2026-10-12T05:41:29.299966+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
@@ -2471,7 +2471,7 @@
   "td-249": "open"
  },
  "run_verdicts": {
-  "ts": "2026-10-12T05:31:39.488746+00:00",
+  "ts": "2026-10-12T06:39:57.037401+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2484,20 +2484,16 @@
     "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
     "ALIVE td-243 (no heartbeat file; open PR #711 Inspector report: 2026-10-11 23:34 EDT (report-only, do not ; open PR #708 Inspector report: 2026-10-11 22:34 EDT (report-only, )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
-    "ALIVE td-246 (heartbeat stale (3620min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (3660min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (3284min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
-    "STALE td-248 (no fresh observation; counter frozen; heartbeat stale (1983min); session 07bf1209-ce3c-4e22-a591-1cee9253a714 classification stale/missing)",
-    "ALIVE td-245 (heartbeat stale (1567min); open PR #712 [td-245] C2 true-recapture: matched same-camera pairs + run )",
-    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (163min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
-    "STALE td-251 (no fresh observation; counter frozen; heartbeat stale (304min); session 9cc12daa-e403-4218-b2a2-77c59a843cbf classification stale/missing)",
-    "DEAD td-212 (replacement queued; no heartbeat file)",
-    "DEAD td-213 (replacement queued; no heartbeat file)",
-    "DEAD td-223 (replacement queued; no heartbeat file)",
-    "DEAD td-224 (replacement queued; no heartbeat file)",
+    "ALIVE td-246 (heartbeat stale (3687min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (3728min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (3352min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-248 (no fresh observation; counter frozen; heartbeat stale (2051min); session 07bf1209-ce3c-4e22-a591-1cee9253a714 classification stale/missing)",
+    "ALIVE td-245 (heartbeat stale (1635min); open PR #712 [td-245] C2 true-recapture: matched same-camera pairs + run )",
+    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (231min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
+    "STALE td-251 (no fresh observation; counter frozen; heartbeat stale (373min); session 9cc12daa-e403-4218-b2a2-77c59a843cbf classification stale/missing)",
     "ALIVE td-235 (no heartbeat file; open PR #710 Draft td-235: readable minimap gig-target marker over red la)",
-    "DEAD td-216 (replacement queued; no heartbeat file)",
-    "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
+    "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
+    "ALIVE td-224 (no heartbeat file; open PR #714 [Report-only] Validator: td-224 verdict on PR #544 \u2014 REJECTE)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2520,10 +2516,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-09T11:43:54.333163+00:00",
-   "liveness": "2026-10-12T05:29:04.642487+00:00",
+   "liveness": "2026-10-12T06:36:44.288238+00:00",
    "classification-health": "2026-10-12T03:49:20.414835+00:00",
-   "transitions": "2026-10-12T05:31:39.488746+00:00",
-   "conflicts": "2026-10-12T05:31:07.811039+00:00",
+   "transitions": "2026-10-12T06:39:57.037401+00:00",
+   "conflicts": "2026-10-12T06:39:26.679221+00:00",
    "all-blocked": "2026-10-04T20:29:38.387112+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
