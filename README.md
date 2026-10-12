@@ -69,6 +69,8 @@ agent (or Craig) might need lives here, not in anyone's context window.
 
 - [`transcripts/6aca460d00000000180052b5.md`](transcripts/6aca460d00000000180052b5.md) — 太疯狂了，AI几乎可以逆向一切 (12:26) — AI reverse-engineering game binaries: GPT-6 Astra SREBench >99% claim (unverified); three mod approaches (pass-through bridge mods via universal-motor, full Rust rewrites via Ghidra/IDA MCP, mechanic porting e.g. Mirror's Edge parkour → Skyrim); VR + PS5→PC ports. Channel: [?]. Tool: `scripts/xhs_transcript.py`.
 
+- [`transcripts/6accb461000000001c02d6f0.md`](transcripts/6accb461000000001c02d6f0.md) — REA助力，Adobe正被加速推向坟场？ (2:42) — REA-assisted open-source clones: 12 MIT-licensed apps vs Adobe suite + Office + CAD (alpha); CAD 16MB with AutoCAD-identical shortcuts; REA "reverse-engineer anything" viral repo (120k stars claimed, unverified); thesis: software moats = users/data/cloud/ecosystems, not code. No platform subtitles — video downloaded + faster-whisper small ASR. Channel: [?].
+
 **Workflow (process source of truth for all game repos):**
 
 - [`workflow/game-dev-workflow.md`](workflow/game-dev-workflow.md) — centralized generic game-dev workflow extracted from NEON DRIFT and Tokyo Drift 3D (pre/post-work checklists, QA, CI, screenshot/visual verification, performance discipline). Hard rules defer to `standing-rules.md`.
