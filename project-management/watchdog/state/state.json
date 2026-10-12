@@ -2177,12 +2177,12 @@
   },
   "td-245": {
    "kind": "subagent",
-   "session": "6659e6fe-359d-4179-8db4-ccaa6a7d74df",
-   "repo": "doublehidenblade/tokyo-drift-3d",
+   "session": null,
+   "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-245.md",
-   "dispatched_at": "2026-10-11T03:18:40.830553+00:00",
+   "dispatched_at": "2026-10-12T03:13:29.098010+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "stale"
+   "last_verdict": "registered"
   },
   "td-252": {
    "kind": "subagent",
@@ -2201,6 +2201,69 @@
    "dispatched_at": "2026-10-12T00:19:46.248280+00:00",
    "quiet_cycles": 0,
    "last_verdict": "stale"
+  },
+  "td-212": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-212.md",
+   "dispatched_at": "2026-10-12T03:13:26.967864+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-213": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-213.md",
+   "dispatched_at": "2026-10-12T03:13:27.243299+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-223": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-223.md",
+   "dispatched_at": "2026-10-12T03:13:27.458089+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-224": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-224.md",
+   "dispatched_at": "2026-10-12T03:13:27.789304+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-235": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-235.md",
+   "dispatched_at": "2026-10-12T03:13:28.054833+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-216": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-216.md",
+   "dispatched_at": "2026-10-12T03:13:28.380752+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  },
+  "td-218": {
+   "kind": "subagent",
+   "session": null,
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-218.md",
+   "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
