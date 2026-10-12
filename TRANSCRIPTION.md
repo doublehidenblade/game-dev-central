@@ -1,5 +1,14 @@
 # Video Transcription — Methods Log
 
+## 2026-10-12 — No-subtitle fallback that worked (RedNote)
+
+- When a note has no platform subtitles, the video stream itself is downloadable: `note.video.media.stream` (or `mediaV2`) in `__INITIAL_STATE__` carries `masterUrl` (+ `backupUrls`) — plain https mp4, no signing beyond the query params already in the URL. `urllib` (not curl) fetched it fine through egress.
+- Transcribed with faster-whisper `small` (zh, int8, CPU, VAD) in a venv under `~/workspace` (`/tmp` was full; also wiped on reboot). `small` was noticeably better than the 2026-09-21 `tiny` verdict for Chinese; `medium` wouldn't fit the 2 GB free disk.
+- Pitfalls hit: (a) pre-existing `no_proxy` bracketed-IPv6 entries crash httpx's proxy parsing — same workaround as 2026-09-21 (`no_proxy=localhost,127.0.0.1`); (b) installed `av` (PyAV) rejected faster-whisper's `metadata_errors` kwarg — bypassed by decoding the wav with stdlib `wave` and passing a float32 numpy array to `model.transcribe()` instead of a file path.
+- First use: `transcripts/6accb461000000001c02d6f0.md` (2:42, REA-assisted Adobe/Office/CAD clones).
+
+
+
 How we get transcripts of YouTube and RedNote videos for this hub. Newest first.
 If a method stops working, note the date and move on to the next.
 
