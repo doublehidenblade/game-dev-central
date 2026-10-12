@@ -1,0 +1,1 @@
+{"ts": "2026-10-12T02:43:19.519463+00:00", "task": "td-252", "step": "timeout: stopping. Fixed get_aabb crash + global_transform-in-tree issue; after-capture ready to re-run", "status": "working"}
