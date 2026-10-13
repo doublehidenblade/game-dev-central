@@ -1,1 +1,1 @@
-{"ts": "2026-10-13T14:55:47Z", "task": "td-256", "step": "drive-mode after run complete 24/28 (c1+c2 all pass, zero set_power_blocked errors); states-mode after run in progress for clean c3", "status": "working"}
+{"ts": "2026-10-13T15:16:38Z", "task": "td-256", "step": "PR #770 merged by validator; production evidence PR #772 open; board PR #480 open; waiting on before-drive log to attach", "status": "working"}
