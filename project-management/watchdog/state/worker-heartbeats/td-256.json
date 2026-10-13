@@ -1,1 +1,1 @@
-{"ts": "2026-10-13T14:23:53Z", "task": "td-256", "step": "production Lower City drive-mode run detached in progress (legs driving)", "status": "working"}
+{"ts": "2026-10-13T14:55:47Z", "task": "td-256", "step": "drive-mode after run complete 24/28 (c1+c2 all pass, zero set_power_blocked errors); states-mode after run in progress for clean c3", "status": "working"}
