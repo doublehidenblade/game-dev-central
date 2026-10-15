@@ -54,3 +54,69 @@ Append-only. Newest entries at the bottom. Every coordinator turn that changes d
 ## PR455 implementation status — 2026-10-10
 
 Task ops-scoped-runtime-base-20261009 started implementation at 2026-10-10T05:25:43Z from source 6d904f12b2b2aa87e257deb11bd98344c4c1a731. Existing public owner: dot-scoped-runtime-base-author. The registered six-path scope and C1-C7 remain binding. Implementation is in progress; tests and independent review are pending. No completion acceptance or deployment is recorded.
+
+## 2026-10-11 17:12 UTC — td-229 first QA-only reservation proposal
+
+- User delegated registration of the existing investigation's first subordinate
+  QA component, not probe execution or production repair. Proposed sole QA role
+  `dot-td229-qa-author` maps to the same existing task that authored Tokyo #696 /
+  central #470; no new task/session dispatched. Distinct reviewer remains unassigned.
+- Verified accepted documentation: Tokyo `b617aa71cc411b55191f0edec4310b515deb4569`,
+  central `de4fb2c56f0c181ff5493810dc915e6a3d35c956`; current central snapshot
+  `0dd990b113613c6a125ddf59b24861b788235b02`. Three parent-file commits, no
+  `godot/qa/td-229` history, no recorded runtime worker/dispatch/QA reservation.
+  All 241 source / 101 central open PR file inventories and 654 / 397 branch
+  inventories checked; no competing td-229 edit found. Hidden-session completeness
+  is not inferred from retained records; recheck owner/session/queue closure at activation.
+- Component: [td-229-qa-probe.json](https://github.com/doublehidenblade/tokyo-drift-3d/blob/1467e7ff0b8dc2d06da1fffb183790d95f260fa6/godot/docs/tasks/td-229-qa-probe.json).
+  Pure JSON adds Q1-Q4, complete rule inventory, evidence and skill plans, fixed
+  QA files and first unused allocation: one initial observation plus at most one
+  evidence-based correction in 45 author minutes / 15 independent-review minutes.
+  No clock starts here; no prior budget, stop or failed attempt is reset.
+- Registration review and canonical landing, genuine distinct reviewer and
+  setup/owner binding, fresh component-only admission/guard and explicit coordinator
+  activation remain required. Never rerun unsupported full-parent scoped-v1 or
+  delete its coordination dependency. Parent stays blocked with production
+  allowlist empty and all criteria open; Muse traffic, dot td-223 and Craig
+  td-185 assembly remain owned. No probe, build, test suite, Actions, merge,
+  deployment, credential change, external-agent contact or live state/queue write.
+- Static component/plan/path checks pass; canonical `coordinator-plan` retains
+  `INPUT_REQUIRED` for incomplete activation observations. The one registration
+  correction fixed duplicate argv values; corrected source
+  `1467e7ff0b8dc2d06da1fffb183790d95f260fa6` ([draft #698](https://github.com/doublehidenblade/tokyo-drift-3d/pull/698))
+  reaches `admission-check` / `INPUT_REQUIRED`: `reviewer: nonempty text required`.
+  No admission PASS, runtime attestation or attempt is claimed.
+
+## 2026-10-11 18:05 UTC — td-229 deferred reviewer binding
+
+- Coordinator relayed acceptance by the existing distinct reviewer task of public
+  identity `dot-td229-qa-reviewer-20261011` and the existing 15-minute allocation.
+  Bind that identity in the component, all Q1-Q4 plans and worker registry. The
+  private task mapping stays with the coordinator; no new reviewer is dispatched.
+  Revised source [PR #698](https://github.com/doublehidenblade/tokyo-drift-3d/pull/698)
+  head: `25aaa1c04084bf3763f26863e961de6a99fb94c2`.
+- Reviewer readiness remains pending. Relayed environment observations: Godot
+  `4.7.2.stable.official.ed1daf0bf`, FFmpeg 7.1.5, Pillow 12.3 and image-view tools;
+  Xvfb/DISPLAY unavailable. All 14 rule revisions reportedly read; no public ACK
+  was supplied or synthesized. Obtain any required reviewer ACK through parent
+  relay. These observations do not attest author setup or activate either clock.
+- [Q3 visual classification](https://github.com/doublehidenblade/tokyo-drift-3d/pull/698#discussion_r4242533075)
+  and [90-second timeout accounting](https://github.com/doublehidenblade/tokyo-drift-3d/pull/698#discussion_r4242533076)
+  are supported, unresolved contract findings. Q3's nonvisual flag skips the
+  machine visual-review branch; 30 seconds of startup plus 60 seconds of
+  observation leaves no outer launch/finalization headroom. The one documentation
+  correction was used at `1467e7ff0b8dc2d06da1fffb183790d95f260fa6`; dependent
+  contract corrections are parked until an additional bounded documentation
+  allowance is explicitly authorized. No policy, command, scope or budget changed.
+- This finishes the specifically authorized deferred identity binding on existing
+  PR698/471. The coordinator reported a prior source-merge denial for the missing
+  binding; do not retry merge before fresh independent review of the revised
+  exact heads. Prior-head PASS is historical, not acceptance of this revision.
+  Earlier PR696 ledger/staging findings still require reconciliation before
+  activation; this update neither resolves them nor expands the authorized files.
+- Parent JSON/coordination dependency, all criteria and empty runtime/production
+  allowlists remain unchanged. Muse td-189/193/194, dot td-223 and Craig td-185
+  assembly retain ownership. Same sole author; zero QA runs and no clock/budget
+  reset. Static binding/preservation/diff checks only; no new admission/guard/ACK
+  packet, probe, build, test suite, Actions, merge, deployment, credential change,
+  external-agent contact or live ledger write.
