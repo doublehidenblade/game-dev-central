@@ -1,6 +1,8 @@
 # FLEET & GEAR
 ### KUROGANE BAY Art Book — Chapter: the vehicles, the upgrades, the cargo, the kit
 
+**Source pair (2026-10-06 draft):** [canonical chapter](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/art-book/fleet-gear/chapter.md) · [world bible](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/gig-city-world-bible.md) · [source audit / regeneration rules](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/README.md). The linked draft and this copy must be reconciled together; current main does not yet include these proposed mechanics.
+
 *Status: draft for bible approval. Canon sources: `gig-city-world-bible.md` §7/§9/§12, `gig-city-retrofutur-identity.md` §1/§4/§8, `showa-dust-extrapolation.md` §5.2/§5.8. Research: 3 Gemini consult rounds (upgrade-tier legibility; cargo telegraphing; low-poly production translation) — digested below, not quoted.*
 
 **Mock layers:** every mock in this chapter carries a layer tag. **[REFERENCE]** = aspirational, painterly, art-directed — the dream. **[IMPLEMENTATION]** = what the final 3D actually looks like under our real technology: Godot low-poly geometry, the AnimeLook shader module (flat color fields, ink outlines, 2-band cel shading, washed-out texture noise), traffic cars ~2k tris and hero cars still low-poly, fixed lighting, upgrade tiers that must read at 50 m in dust. The de-risk question for every IMPLEMENTATION mock: does the visual progression survive low-poly, or only the reference promise?
@@ -12,6 +14,8 @@
 - Every face is masked; every cab carries dust protection. The cab is sovereign ground: the wheelman never leaves the wheel.
 
 ---
+
+**2026-10-06 scope proposal:** the six chassis and five visual upgrade tiers below are the long-term art vocabulary, not the first playable economy's shopping list. Start with the existing vehicle and two distinct load/module configurations; add a second chassis only after route and handling tests show a useful niche. All unlock/stat numbers in the historical class descriptions are tuning proposals. [Research and phase gates](../design-review.md) govern scope; no existing Forge vehicle work is canceled.
 
 ## A. THE 6 VEHICLE CLASSES
 
@@ -158,6 +162,25 @@ These ride alongside the four stats — the dust is a tax, and these are the rec
 
 ---
 
+### B6. HOME GARAGE — money, materials and a reason to return
+
+**Craig's direction:** resources brought home fund improvements, better handling/speed/capacity, later vehicles and parking. **Recommended rules:** one protected home bay, limited owned-stock storage, a repair bench and a manifest shelf. Storage transfers are atomic; only player-owned goods and explicitly awarded legal salvage enter upgrade recipes. Customer freight stays sealed even when parked overnight.
+
+Start with two recognizable material inputs — scrap and repair parts — plus cash. Every recipe shows exact inputs and benefit; shops offer a cash substitute at posted prices so a rare drop never gates basic progress. A proposed rack upgrade might cost 2 scrap + 1 parts crate + labor cash; selling those materials instead is an immediate liquidity choice. Avoid random component tiers and hidden recipes. Reconcile crafting yields and buyback values against the economy ledger before tuning rewards.
+
+| Step | What changes at home | Tradeoff / scope gate |
+|---|---|---|
+| Starter bench and storage | Repair, fuel/filters, secured small cargo, one useful rack or handling upgrade | Ordinary work remains profitable with the starter. Cash spent upgrading cannot also cover the next fuel bill; display a working-reserve estimate. |
+| Specialist module and second vehicle | Choose cargo rack, protective lining, cold box, or responsive light chassis | Modules consume mass/space and have operating costs. Faster handling stays useful in alleys; a larger van consolidates bulk but loses access/turning/braking flexibility. Cooling trades capacity and fuel for shelf life. |
+| Rented parking bays | Keep a second configuration ready; later store more owned stock | Rent is quoted per shift, not offline real time. Missed rent suspends extra-bay use under a disclosed grace rule; stored goods and the starter are not silently deleted. No hidden infinite storage. |
+| Abstract hired dispatch (later) | Assign one bounded route, driver, vehicle and load with a ledger | Pay wages, upkeep, fuel and parking from real proceeds. Never earn while paused; no goods teleporting between two simultaneous jobs. This is not yet a physical convoy. |
+| Following trucks/fleet (last) | A visible convoy with grouping, separation and stuck recovery | Requires dedicated navigation, traffic, stop/parking and save tests. Do not make follower AI a dependency for the first garage upgrade. |
+
+Dust filters slow wear rather than ending service forever; propose diminishing returns and a minimum service cost, subject to balance review. Armor reduces specific impact loss but adds mass; racks do not increase engine output. Handling upgrades improve a declared response/braking band, not immunity to loaded inertia. Preserve the small-car niche. T1–T5 silhouette studies remain available for later art work; fewer mechanical levels can ship first.
+
+The garage should show the operation growing through existing props: one bench, labeled parts shelves, a painted bay number and later a rental placard. The player returns to see the resources they chose to keep. New garage art is a later request; this documentation update commissions none.
+
+
 ## C. CARGO ITEMS — the physical payload catalog
 
 **The telegraphing doctrine** (from Gemini design consult, canon-filtered): every item's *form* tells you its *handling rules* before you touch the throttle. Ground 70% of each item in period-accurate 1970s utility (corrugated tin, Showa typography, hemp knots, oxidized steel); the remaining 30% is the *game tell*, scaled up — one oversized analog gauge, one violently swinging sight-glass, one absurdly heavy weld bracket. Exactly **one** animated tell per item. Never a plain wooden crate: perishable boxes are slatted, heavy boxes get cast-steel corner boots, fragile boxes hang inside gimbal rings.
@@ -167,6 +190,8 @@ These ride alongside the four stats — the dust is a tax, and these are the rec
 - **Steel chain** — zero stretch, for dense cargo only. Chains spark against sheet metal under load — the audio-visual warning that an anchor point is about to rip out.
 - **Canvas tarp** — milspec olive, ratchet-cinched: weatherproof, suppresses shifting. A loose, fluttering tarp costs you top speed in drag.
 - **Leather straps + brass buckles** — paper cargo. Precise, quiet, expensive-looking. If it's buckled in brass, it cannot get wet, full stop.
+
+**Mechanical staging (proposal):** ordinary robust crates are the baseline; use discrete load slots, a mass value and a simple condition meter first. Add one specialist modifier at a time. The C1–C8 props remain authored visual targets, not eight required simulations. Independent rigid bodies, slosh/detonation, RPM medical cooling and pneumatic interception are later feasibility work. Keep deadline pressure optional on ordinary freight. Passengers consume seats and use comfort/appointment constraints; contraband applies an inspection tag. The same load ledger must support all of them.
 
 ### C1. Fragile egg-run (G-force & bump thresholds)
 
@@ -240,14 +265,14 @@ The driver is never modeled unmasked. The kit *is* the character — silhouette 
 
 ### D2. The working tools
 
-- **ROUTE-88 punch cards** — brass-edged card stock, punched for each accepted gig. Fed into the dash slot with the *CHUNK-CHUNK*; the phosphor CRT traces the route with a visible sweep beam. Drivers carry a card wallet; a veteran's wallet is thick as a novel.
+- **ROUTE-88 punch cards** — brass-edged manifest cards for each accepted gig. Fed into the dash slot with the *CHUNK-CHUNK*; the CRT displays stops, payload, the agreed window and settlement, never a live route trace. The briefing, paper map, road signs and landmark memory guide the driver. Card-wallet thickness remains a veteran's visual signature; cards are not a mandatory paid consumable in the proposed slice.
 - **Coin tray** — red felt, dash-mounted: coins, delivery chits, cigarette butts, toll tokens. The tray's contents are the driver's autobiography.
 - **Split-drum taximeter** — mechanical, brass plates flipping with each fare increment. It is also the driver's lie detector: the drums don't stop for anyone.
 - **Dash-mounted oscillating fan** — a 12V exposed-blade metal fan clamped to the A-pillar, sweeping the cabin with dust-scented air. It doesn't cool anything; it *moves* the air, which is the next best thing.
 
 ### D3. The cab interior as confessional booth
 
-The *Night on Earth* rule: the cab is the one sealed, private room in a city with no privacy. The dashboard suite — green vector CRT, split-drum taximeter, oscillating fan, coin tray, lace seat covers, the pneumatic door lever — frames every passenger conversation like a confessional screen. Passengers say things in the back of a cab they'd never say anywhere else: the sweating exec's double life, the oyabun's daughter's date, the whistleblower's evidence. The driver hears everything, judges nothing, and the ROUTE-88 keeps the route. **The interior is a storytelling machine built from stamped steel and bakelite** — no dialogue is scripted here; the *situation* (who's in the back seat, what's in the trunk, how much heat is outside) does the work.
+The *Night on Earth* rule: the cab is the one sealed, private room in a city with no privacy. The dashboard suite — green vector CRT, split-drum taximeter, oscillating fan, coin tray, lace seat covers, the pneumatic door lever — frames every passenger conversation like a confessional screen. Passengers say things in the back of a cab they'd never say anywhere else: the sweating exec's double life, the oyabun's daughter's date, the whistleblower's evidence. The driver hears everything, judges nothing, and the ROUTE-88 keeps the manifest. **The interior is a storytelling machine built from stamped steel and bakelite** — use a few authored introductions and milestone conversations; on ordinary repeat jobs, the *situation* (who's in the back seat, what's in the trunk, how much heat is outside) carries the variation.
 
 ---
 

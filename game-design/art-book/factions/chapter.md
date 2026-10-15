@@ -1,6 +1,8 @@
 # FACTIONS — Art Book Chapter
 ### KUROGANE BAY / Tokyo Drift 3D gig-driver game
 
+**Source pair (2026-10-06 draft):** [canonical chapter](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/art-book/factions/chapter.md) · [world bible](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/gig-city-world-bible.md) · [source audit / regeneration rules](https://github.com/doublehidenblade/game-dev-central/blob/docs/lower-city-systemic-source-reconciliation/game-design/README.md). The linked draft and this copy must be reconciled together; current main does not yet include these proposed mechanics.
+
 *World law first: no faction is "the mafia." Each has a civilian economic origin — dockers, cabaret owners, fishmongers, drivers. Wars are over **drivable logistics chokepoints** (customs gates, cold-chain, elevator terminals, panel fields), never abstract turf. Every faction's street presence must read at **100 m visibility** — banner colors, vehicle liveries, checkpoint architecture. Character law: **no unmasked faces, ever.** Tone law: the world takes itself 100% seriously — comedy emerges from systems only; nothing in this chapter is a punchline.*
 
 **Reading key (per faction):** LOOK (colors, insignia, mask/uniform design) · VEHICLES (livery) · TURF (where they read on the street) · THE WHEELMAN (how they hire, threaten, or tolerate the player).
@@ -10,6 +12,20 @@
 > **A note on method.** At 100 m through dust you cannot read a badge — you read **silhouette geometry, luminance contrast, and material motion.** Every faction below was designed to be identified by those three channels before you ever read its insignia. (Gemini design consultation digested throughout; consult notes in `consult/gig-city/factions-design/`.)
 
 ---
+
+## Delivery pressure — fairness and scope proposal (2026-10-06)
+
+Faction motives and visual identities below remain authored worldbuilding. For the economy proof, use a stable ownership map and one additional pressure type at a time. Existing police/traffic tasks continue under their current owners; this chapter does not replace or reopen them. [Phase gates and open decisions](../design-review.md).
+
+| Pressure | Read before taking the risk | Fair consequence and phase |
+|---|---|---|
+| Time | Ordinary window versus optional rush premium; legal loaded travel + handling allowance | Late fee is bounded and printed. No universal rush timer. |
+| Police / inspections | Posted checkpoints, cargo legality, inspection/toll band and alternative route | Legal work remains viable. Confiscation/fines affect the declared load once; integrate accepted arrest behavior and recovery rules. Existing pursuits are not removed. |
+| Rivals | Board shows a competitor's reserved job or scheduled delivery | Compete for unreserved jobs first; never steal the player's accepted reservation. Chasing/ramming needs a later explicit feature gate. |
+| Bandits | Radio warning, marked dangerous corridor, known safe detour and hazard premium | Start with a bounded warned roadblock event if chosen. No random unavoidable ambush or spawning on the player's bumper; combat is later. |
+
+Do not stack every pressure on the first shift. Introduce a rule on a low-stakes job before combining it with another. A changed blockade must retain an escape/detour or allow a no-penalty return. Faction reputation shows who is affected, by how much and for how long on the receipt; the city should not silently punish unrelated jobs.
+
 
 ## 1. KAIUN-GUMI — 海運組 · The Ocean Transport Syndicate
 
@@ -62,7 +78,7 @@
 
 **TURF — Kamome Wholesale Ward, North Rail Depots.** The wet-pavement labyrinth: seafood halls, cold storage, auction stalls, dust caked on every awning. Checkpoint architecture: interlocking fish crates and brine barrels bound with hemp rope, auction-hall gantries, the cold-chain gates — the war with Kaiun-gumi is fought *at the gates of the cold-storage customs*, and you read it on the street as crate barricades vs. container walls. The ward's morning soundtrack is the tuna auction chant under the hazard lamps; by 7 AM the streets are washed down and the Tsuru-kai aprons are hung out to dry — a hundred indigo flags marking claimed doorways.
 
-**THE WHEELMAN — hired as cold-chain infrastructure.** Tsuru-kai gigs are timers with teeth: perishables on a clock (Kenji the Fish-King's million-yen tuna to Haibara before rigor mortis), restaurant resupply, cash-bag escorts before sunrise. They pay in *produce and credit*, not just yen: a driver in good standing eats from the auction floor and gets first call on the dawn runs. **"Abacus" Kenjiro Sato** (merchant apron, canvas dust hood, brass abacus — carried, not a gun) destroys rivals through debt, supply starvation, and razor-wire ambushes on supply avenues. He hires drivers the way he hires everything: on margin. Be late with his fish and the abacus beads click — and your next three gigs across the whole city quietly pay 10% less until the ledger balances. No threats. Arithmetic.
+**THE WHEELMAN — hired as cold-chain infrastructure.** Tsuru-kai gigs are timers with teeth: perishables on a clock (Kenji the Fish-King's million-yen tuna to Haibara before rigor mortis), restaurant resupply, cash-bag escorts before sunrise. They pay in *produce and credit*, not just yen: a driver in good standing eats from the auction floor and gets first call on the dawn runs. **"Abacus" Kenjiro Sato** (merchant apron, canvas dust hood, brass abacus — carried, not a gun) destroys rivals through debt, supply starvation, and razor-wire ambushes on supply avenues. He hires drivers the way he hires everything: on margin. Be late with his fish and the abacus beads click — the settlement prints a bounded deduction and any temporary Tsuru-kai standing change, with its expiry; unrelated city contracts keep their accepted terms. No threats. Arithmetic.
 
 **Production translation (no mock this round — see §10).** The consult's verdict: the non-negotiable read is the stark white boot blocks (ground-level value contrast in fog) plus tall, rigid nobori banner cards on the trucks — and the cheapest cuts are the crane kamon on the apron belly and the copper scrubber canisters (boxy geometry at LOD0 only, culled by LOD2). Trap warning: the reference's streaming banners must NOT become cloth sim — rigid opaque low-poly cards with baked vertex-shader sway (`sin(TIME*freq + VERTEX.y)`), no bones, no alpha-cut edges (alpha kills TBDR tile performance). Honest flag: with no implementation mock commissioned, Tsuru-kai's 100 m read is consult-verified on paper, not proven in pixels — flagged for the next mock round (§9 #2).
 

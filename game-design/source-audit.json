@@ -1,0 +1,336 @@
+{
+  "central_base": "3bdf1181b003e38ec9602f0d2ae03e8fb9ea6f01",
+  "web_original_base": "2e8c63e3030247fc90e0eea273867181bd5d1098",
+  "initial_web_draft": "2761d844d7e630d0a6492db9590bb0df8af1e719",
+  "original_game_design_file_count": 112,
+  "original_task_team_file_count": 11,
+  "mirrored_text_files": [
+    "art-book/lower-city/chapter.md",
+    "art-book/world-lore/chapter.md",
+    "art-book/fleet-gear/chapter.md",
+    "art-book/factions/chapter.md",
+    "art-book/design-review.md"
+  ],
+  "mirrored_text_equal": true,
+  "all_47_shared_pngs_preserved": true,
+  "scope": "design text only; no game/supervisor/operational changes",
+  "source_completeness": "showa-dust-extrapolation.md is published with a truncated tail; no restoration invented",
+  "sources": {
+    "gig-city-world-bible.md": {
+      "original_blob": "a564180d3fa13ad532b163fb4faa03fc979c59e2",
+      "candidate_blob": "94cffc4a64c337dad397ffb2fabe9294d8b02d73"
+    },
+    "gig-city-retrofutur-identity.md": {
+      "original_blob": "878347a2099a35943649dde1aa9b213598c990e1",
+      "candidate_blob": "1e9f4dbd13c13efdee6b135ac6b88dc4dfbd6710"
+    },
+    "showa-dust-extrapolation.md": {
+      "original_blob": "6ad994c348da6ef2401787bc30471f112cb52f8e",
+      "candidate_blob": "aebcf32b8699fe0b72943dacb0a11c1f601528d2"
+    },
+    "art-book/lower-city/chapter.md": {
+      "original_blob": "81872c11d9b6fb5388a3bfc97bf2ac9abb7082ad",
+      "candidate_blob": "d722f875d0d201d869a35510c69d086888abd1e4"
+    },
+    "art-book/world-lore/chapter.md": {
+      "original_blob": "f3a51427cd347ad10b089a2d986f62d8568fef35",
+      "candidate_blob": "5e3cf3678005f02e9296f6a013b56b923789556f"
+    },
+    "art-book/fleet-gear/chapter.md": {
+      "original_blob": "7f4aa66ee561f620b8c46867aa165d5326c8b8f6",
+      "candidate_blob": "f7b35f3b4325f1e0ce2a376be79651cbccb1f8f7"
+    },
+    "art-book/factions/chapter.md": {
+      "original_blob": "60d15d2b45912ddc2888efae4d8e366134214367",
+      "candidate_blob": "bef8eda3aaefc9f81c643d67c9e60df9cdd71065"
+    },
+    "art-book/design-review.md": {
+      "original_blob": null,
+      "candidate_blob": "87778f2f04e79eca4a00b4395d59d5f1227beee6"
+    }
+  },
+  "shared_asset_comparison": [
+    {
+      "path": "art-book/factions/impl-ironwheel-garage.png",
+      "central_original_blob": "2e50be011c96789cd1e0d40775cf14e46c17c771",
+      "web_original_blob": "d04312a6bc6c26cd01bbd0bf7f42d74bc3e5e141",
+      "equal": false
+    },
+    {
+      "path": "art-book/factions/impl-kaiun-checkpoint.png",
+      "central_original_blob": "16da370b903b44fe495e8e5eeee4c4012c87ab8a",
+      "web_original_blob": "214ae6aa2ffccce7122f5c9c7e926c700e6a8c35",
+      "equal": false
+    },
+    {
+      "path": "art-book/factions/impl-kmted-cruiser.png",
+      "central_original_blob": "447fa8ce5389470b5dcaa9218529b650499ce045",
+      "web_original_blob": "837982ef77789c336d7070058a46185b417ca7f3",
+      "equal": false
+    },
+    {
+      "path": "art-book/factions/mock-american-depot.png",
+      "central_original_blob": "b7ed02b5935f2b42f8c442a84a3640a54cc617dc",
+      "web_original_blob": "f361b9fbd067cb82611eecb35ceb6648e2f7e60f",
+      "equal": false
+    },
+    {
+      "path": "art-book/factions/mock-ironwheel-garage.png",
+      "central_original_blob": "d95cb52c19ef44269f15b774841a7c478c3ef641",
+      "web_original_blob": "574ccd5f4eb37b32455cef913830ff2764d10339",
+      "equal": false
+    },
+    {
+      "path": "art-book/factions/mock-kaiun-checkpoint.png",
+      "central_original_blob": "29b10d3e4b08d092cec4bc42b250004fe5d98ce3",
+      "web_original_blob": "f814784671b3a7ebd7b88c2983e9dc4b8a7b86f6",
+      "equal": false
+    },
+    {
+      "path": "art-book/factions/mock-kanzaki-mask.png",
+      "central_original_blob": "f08e19886169e2eb02931bcbdcfc5bcb70e3e76d",
+      "web_original_blob": "3b0212ae2692e766bedad7cc1a3bc2688abfc8d5",
+      "equal": false
+    },
+    {
+      "path": "art-book/factions/mock-kmted-cruiser.png",
+      "central_original_blob": "7d65ebbb12a8ce7e65fd5fbf3347e51901686d57",
+      "web_original_blob": "ceee0cad84d654f2f988e08942b488e32e9ec6cf",
+      "equal": false
+    },
+    {
+      "path": "art-book/fleet-gear/impl-cargo-lashing.png",
+      "central_original_blob": "15903473cf54eaf4a69f70edbb9d579f577d8c93",
+      "web_original_blob": "04e8cc54fecc7b6cc5f4e6ceca84628e5d46430b",
+      "equal": false
+    },
+    {
+      "path": "art-book/fleet-gear/impl-goliath-800.png",
+      "central_original_blob": "f52ead0ac90c5398afec81790722e4ef122bdb8f",
+      "web_original_blob": "55d6cc4c36faac5ca84d5e81f4415605643fddfd",
+      "equal": false
+    },
+    {
+      "path": "art-book/fleet-gear/impl-hinode-carrier.png",
+      "central_original_blob": "944c851280e63821cd396a1aba26c8d5104047d6",
+      "web_original_blob": "0d080b7edba5d5765a02bb8b6a9f67fd0f409e08",
+      "equal": false
+    },
+    {
+      "path": "art-book/fleet-gear/mock-cargo-lashing.png",
+      "central_original_blob": "5e07dfbf2b025aa050ebf5058fff4b472a92f5b4",
+      "web_original_blob": "96d003d08b9b7bc1ff8a74d69cbeb8539744f55c",
+      "equal": false
+    },
+    {
+      "path": "art-book/fleet-gear/mock-driver-gear.png",
+      "central_original_blob": "68165a00b157613b6a34d53ef971ecad02f280a8",
+      "web_original_blob": "34ecfe8b15c27c23eba2fca665fd3218de08ce08",
+      "equal": false
+    },
+    {
+      "path": "art-book/fleet-gear/mock-goliath-800.png",
+      "central_original_blob": "814fd17ff148a78a97f0540f20d3bfa2c01d7784",
+      "web_original_blob": "cde733b3056775799a24086344c43fd30b32115b",
+      "equal": false
+    },
+    {
+      "path": "art-book/fleet-gear/mock-hinode-carrier.png",
+      "central_original_blob": "3f1cce24acb23d7727b11cc79c38af6abfcfd12f",
+      "web_original_blob": "d2a08de287519d490cc8d1a67d2af90f7df7bfc9",
+      "equal": false
+    },
+    {
+      "path": "art-book/fleet-gear/mock-ohtori-sovereign.png",
+      "central_original_blob": "5445c338e51c0951f02538cf427a859543c58aea",
+      "web_original_blob": "ee90cfb1d5880f8b33551024c51b5060513a1a5e",
+      "equal": false
+    },
+    {
+      "path": "art-book/lower-city/impl-chidori.png",
+      "central_original_blob": "eb1dee3bbd5d4b7a2d93059d2ffaf2c53092d34e",
+      "web_original_blob": "788bce3f6e9c3a92fc1970f99fab53dd4838fa2b",
+      "equal": false
+    },
+    {
+      "path": "art-book/lower-city/impl-kamome.png",
+      "central_original_blob": "216c1a4427bec99dfed0db529f8b8ad7059b2283",
+      "web_original_blob": "f5d36bedcc4870a296e3a3113140946ab4b6d837",
+      "equal": false
+    },
+    {
+      "path": "art-book/lower-city/impl-kotobuki.png",
+      "central_original_blob": "65e7d2774ea675d4e6f5ff1babde7fd933372f9a",
+      "web_original_blob": "e577e8a4638be133324cd55a18daacf6f667c73f",
+      "equal": false
+    },
+    {
+      "path": "art-book/lower-city/impl-tenjin.png",
+      "central_original_blob": "690e028306fc3b5a85104412999056bcba830bae",
+      "web_original_blob": "6d6f1b63f7c9c4196aeea1eb339853c601216687",
+      "equal": false
+    },
+    {
+      "path": "art-book/lower-city/mock-chidori.png",
+      "central_original_blob": "a5efa73f599af9fb969ad317d100d14336115c9b",
+      "web_original_blob": "b88f44cb21e4fe6f8dab5cdb91684bcb2c7ff8b4",
+      "equal": false
+    },
+    {
+      "path": "art-book/lower-city/mock-kamome.png",
+      "central_original_blob": "8a405133464067c76374ce00949f97116ec4adde",
+      "web_original_blob": "22694c06e4adb8225ffc85e81b56bfa6b450dc09",
+      "equal": false
+    },
+    {
+      "path": "art-book/lower-city/mock-kotobuki.png",
+      "central_original_blob": "2b14cd88c997e11e7aa982a20307358896230cea",
+      "web_original_blob": "73d42b71b97b21bc438bdf1c8002e1709ebb44c5",
+      "equal": false
+    },
+    {
+      "path": "art-book/lower-city/mock-shinkai.png",
+      "central_original_blob": "606d1bdcd82b2ddc8d9bc259892cf47495225842",
+      "web_original_blob": "869ab0375a223a175e38ea9ad2c2004e2f716f98",
+      "equal": false
+    },
+    {
+      "path": "art-book/lower-city/mock-tenjin.png",
+      "central_original_blob": "022b98073610ced6c1cf68738a3eafefbaf91609",
+      "web_original_blob": "825e9d1b739e81ebefc921c1b71043108b12b716",
+      "equal": false
+    },
+    {
+      "path": "art-book/outskirts/impl-fishing-harbor.png",
+      "central_original_blob": "56f1e337044f790631a7e0a8bbad5e16c3a4ef07",
+      "web_original_blob": "524b0c3cd646462718cd23bd9431784018371266",
+      "equal": false
+    },
+    {
+      "path": "art-book/outskirts/impl-viaduct-sea.png",
+      "central_original_blob": "a26dec1a84fb103e79e26ab9802a3e018238f8a7",
+      "web_original_blob": "a84463a374205c84308a51099fd31d11100949ec",
+      "equal": false
+    },
+    {
+      "path": "art-book/outskirts/impl-waystation-dusk.png",
+      "central_original_blob": "d9b48052be1ae8a81385b0bfa5eb2fcfcf8c8b67",
+      "web_original_blob": "64c14918c583cc31cef07c2809f1fbb4579371df",
+      "equal": false
+    },
+    {
+      "path": "art-book/outskirts/mock-fishing-harbor.png",
+      "central_original_blob": "8549d6b7d57cf7dbe590b3e775e3fabc57b8c53a",
+      "web_original_blob": "cb8913e3aec24c74e74ceb64b66657cce92a4e48",
+      "equal": false
+    },
+    {
+      "path": "art-book/outskirts/mock-switchback.png",
+      "central_original_blob": "c6c8c83e9856c880c918d25b50ea4b9a607fc048",
+      "web_original_blob": "339482bcb25976a9c4a100be03fc0e406187e7e0",
+      "equal": false
+    },
+    {
+      "path": "art-book/outskirts/mock-viaduct-sea.png",
+      "central_original_blob": "f25ff0d852684249257453f27f266c181803ab36",
+      "web_original_blob": "485b3c7adc21711bccdbc73d27eeea8e590bc92c",
+      "equal": false
+    },
+    {
+      "path": "art-book/outskirts/mock-waystation-dusk.png",
+      "central_original_blob": "612d50ff7ea16094cf1eaa458dff683c8b10b953",
+      "web_original_blob": "9069bf0144ae2aa7a1ab124a2e1822f0159b9f48",
+      "equal": false
+    },
+    {
+      "path": "art-book/upper-city/impl-1-skyway-ribbon.png",
+      "central_original_blob": "f8ed3fadecbd54526b38f5dc789664e4e8d24858",
+      "web_original_blob": "8d54bd181bca6b558f1dcaf18176d950ced54443",
+      "equal": false
+    },
+    {
+      "path": "art-book/upper-city/impl-2-haibara-estate.png",
+      "central_original_blob": "fdefb8c656cba101ee2ea658fee90a569f757847",
+      "web_original_blob": "d8dc7408fa97fc124343ade1972aa3660d73802a",
+      "equal": false
+    },
+    {
+      "path": "art-book/upper-city/impl-3-terminal-1.png",
+      "central_original_blob": "12cafe373f5b84f7e63fb8be6e63d8068dee034b",
+      "web_original_blob": "580a3de1c58d5331dead74f8a46c2b9a2c4e400e",
+      "equal": false
+    },
+    {
+      "path": "art-book/upper-city/mock-1-skyway-ribbon.png",
+      "central_original_blob": "56c2b176632d1d9c960d8f2d31929c6b4ebbd13a",
+      "web_original_blob": "1838f64bb5b7c1c59d6125c35f728a452e739646",
+      "equal": false
+    },
+    {
+      "path": "art-book/upper-city/mock-2-haibara-estate.png",
+      "central_original_blob": "bbd682aafc6aef586ed4d1be94236b7f236a2197",
+      "web_original_blob": "6aa1da949e3f577084bc9cde9394287eb5a6110e",
+      "equal": false
+    },
+    {
+      "path": "art-book/upper-city/mock-3-terminal-1.png",
+      "central_original_blob": "d13caa55ad731cb8d19e1c288748f70254c6386b",
+      "web_original_blob": "ac40b9105d506f5d424101b9cb41ecf42b596d60",
+      "equal": false
+    },
+    {
+      "path": "art-book/upper-city/mock-4-corporate-plaza.png",
+      "central_original_blob": "2c9f5f826d11f4d141b23f04c2b8aa91541200c1",
+      "web_original_blob": "5d23a4f3d01e5ba40c9dc527e67b8ec2583c4e2a",
+      "equal": false
+    },
+    {
+      "path": "art-book/upper-city/mock-5-cloudbreak-vista.png",
+      "central_original_blob": "9940a8a94ba66129445b75a90079757577d6f4ef",
+      "web_original_blob": "3daf9d7df885937625e98b32f982230653d98413",
+      "equal": false
+    },
+    {
+      "path": "art-book/world-lore/impl-dust-tithe.png",
+      "central_original_blob": "ecf28d0b7b21becc1d87950ef25c001f25429554",
+      "web_original_blob": "1b7a8c9ee04e94d7bce7b648988c6ffb0e17d55d",
+      "equal": false
+    },
+    {
+      "path": "art-book/world-lore/impl-elevator-build.png",
+      "central_original_blob": "13e89fe927f5160148d42e67ff090e69c33b07a3",
+      "web_original_blob": "748688fcaa6044a210227fefc9f86325817efcae",
+      "equal": false
+    },
+    {
+      "path": "art-book/world-lore/impl-sea-night.png",
+      "central_original_blob": "1d37b510528c7037e8579439a359ec76d127e780",
+      "web_original_blob": "c5f1be018cccc99b3a81d4407d2e30c5970702c0",
+      "equal": false
+    },
+    {
+      "path": "art-book/world-lore/mock-dust-tithe.png",
+      "central_original_blob": "a867fc53e186c16be7e228625930d2719636234f",
+      "web_original_blob": "7ef323bae181711d892090490ab86a03a4ff31ba",
+      "equal": false
+    },
+    {
+      "path": "art-book/world-lore/mock-elevator-build.png",
+      "central_original_blob": "c06dd000be4f8a8f053ba452193ebadd69d54d4c",
+      "web_original_blob": "452e17ef7a9f6a997f3c1855bf2cc2ad6b68bc60",
+      "equal": false
+    },
+    {
+      "path": "art-book/world-lore/mock-sea-night.png",
+      "central_original_blob": "0504146343041d8ef7bdde34485a0b0d863f62b4",
+      "web_original_blob": "cb851b6428cff65ff20732f7c26a1fcf9147fd99",
+      "equal": false
+    },
+    {
+      "path": "art-book/world-lore/mock-worldmap.png",
+      "central_original_blob": "ad6f961e9091416fc853f52592e360caa35bc673",
+      "web_original_blob": "9b534dd0f112e59b9e81e9e9e688e75084a13572",
+      "equal": false
+    }
+  ]
+}
