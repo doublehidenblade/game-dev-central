@@ -113,3 +113,25 @@ Rules:
 - The GitHub credential helper path moved once (`dynamic_credentials`): if `create`
   dies with ModuleNotFoundError, set
   `PYTHONPATH=/opt/hatch/workflow-skills/custom-connector-setup/bin`.
+
+## External review notes (2026-10-15, MyClaw design review — graded against the code)
+
+- **Worktrees:** full copies were chosen for isolation, but for the record worktrees
+  never actually bit this fleet — the measured killers were per-worker download+import,
+  undeleted trees filling the disk, and RAM contention from parallel Godot runs.
+- **Lock and swap:** the swap half already existed (refresh builds into
+  `GOLDEN.new`, then renames into place). The lock half was genuinely missing —
+  fixed 2026-10-15: `golden_refresh` and `create`'s copy now serialize on
+  `state/golden.lock` (flock), so the refresh cron and a lazy create-refresh
+  can't collide on the build dir or copy mid-swap.
+- **"Update, don't rebuild" (`git pull` + incremental import):** right instinct,
+  mechanism unavailable here — the golden is tarball-built because git-over-HTTPS
+  auth does not work on this VM. The transferable version (overlay the new tarball
+  onto the existing tree, keep `.godot`, let Godot import only what changed) is a
+  possible v2; the guarded cron currently absorbs refresh cost in quiet windows.
+- **`git clone --local` instead of plain copy:** rejected for this setup. The
+  golden is not a git repo, workers push via the GitHub API by design, `create`
+  is already ~25 s, and hardlinked files carry an in-place-write corruption risk
+  if any tool rewrites a shared file instead of write-renaming. Plain copy stays.
+- **Import concurrency:** agreed, and already policy — dispatches are staggered
+  (one Godot-heavy job at a time) and the refresh cron refuses to run on a busy VM.
