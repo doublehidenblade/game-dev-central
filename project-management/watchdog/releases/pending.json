@@ -12,6 +12,14 @@
    "status": "HELD",
    "hold_reason": "validator-merge 5854bf0 reconciled: pole-collision criterion 2 (production harness) UNPROVEN \u2014 verdict-text-only merge touched only td-250.md (+8/-2), no code/QA blob. Rework open, owned by td-250 lane. NOT release acceptance; publish-verify must refuse until criterion 2 proven.",
    "held_at": "2026-10-11T14:22:53.790531+00:00"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-262",
+   "pr": 817,
+   "merged_sha": "37eb3088d51c1ee6ac47b3c387f1f105186ec3b2",
+   "merged_at": "2026-10-15T23:22:18.384913+00:00",
+   "summary": "Driver self-extrication + recover() reset-to-lane fallback \u2014 validator PASS, merged"
   }
  ]
 }
