@@ -2053,7 +2053,8 @@
   "2026-10-12T05:28Z LIVENESS: td-216 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-216-20261012-052836.md).",
   "2026-10-12T13:40Z watchdog 09:12 EDT run: STEP 0a liveness 18 ALIVE + STALE(2) td-217/td-252 (td-217 HELD per Craig strong-high/max conflict, pending his call; td-252 worker silent 646min, PR #672 merge-hold), conflicts OK, transitions NO-FLIPS, classification-health STALE-RUNS=272 (cloud eyes blind; both sessions LOGIN_BLOCKED ~139.8h, loginfail SUPPRESSED both, notified 0.6h ago). STEP 0b review-sweep: no VALIDATOR-DUE (td-212/213/223/224 validator-due notices already posted in inbox 09:18/09:47/10:18Z; td-223 validator-dispatched). STEP 0c inbox: newest comment 6122268643 = checkpoint, no new comments since; silent. STEP 1: both cloud sessions REPORT_LOGIN; adopt-orphans: 0 ORPHAN-READY (HELD/DRAFT/UNKNOWN inspector reports left alone) - nothing shipped. STEP 2: all CANDIDATEs owned (td-249 unowned but HELD per LOW-backlog task file); flagship-waiting NONE >48h. 05:26Z DEAD replacements for td-212/213/223/224/216 queued in pending_actions.json - only td-224 executed so far (registered 05:41Z, ALIVE); lanes for td-212/213/223/216 await main-agent handoff spawn per td-245 scheduler-spawn finding. pending_actions.json holds 5 dispatch-subagent entries + td-250 notes.",
   "2026-10-13T05:44Z LIVENESS: td-245 proclaimed DEAD (2 quiet cycles; heartbeat stale (3026min)). Replacement dispatch-subagent queued (brief td-245-20261013-054454.md).",
-  "2026-10-13T05:45Z LIVENESS: td-235 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-235-20261013-054508.md)."
+  "2026-10-13T05:45Z LIVENESS: td-235 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-235-20261013-054508.md).",
+  "2026-10-15T03:15Z LIVENESS: td-224 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-224-20261015-031521.md)."
  ],
  "workers": {
   "td-188": {
@@ -2208,15 +2209,6 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-224": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/main/godot/docs/tasks/td-224.md",
-   "dispatched_at": "2026-10-12T05:41:29.299966+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
   },
   "td-256": {
    "kind": "subagent",
@@ -2517,7 +2509,7 @@
   "td-269": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-15T02:46:01.336709+00:00",
+  "ts": "2026-10-15T03:16:52.454376+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2530,20 +2522,20 @@
     "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
     "ALIVE td-243 (no heartbeat file; open PR #800 Inspector report: 2026-10-14 02:34 EDT (report-only, do not )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
-    "ALIVE td-246 (heartbeat stale (7780min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (7820min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (7443min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
-    "ALIVE td-248 (heartbeat stale (6142min); open PR #810 td-263: pedestrians obey signals + walk crossings continuous)",
-    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (4321min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
-    "ALIVE td-251 (heartbeat stale (4463min); task-file commit c5906ca 2026-10-13T14:25; open PR #815 td-265: remaining empty road signs \u2014 sign-class census and f)",
+    "ALIVE td-246 (heartbeat stale (7810min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (7850min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (7473min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "ALIVE td-248 (heartbeat stale (6172min); open PR #810 td-263: pedestrians obey signals + walk crossings continuous)",
+    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (4352min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
+    "ALIVE td-251 (heartbeat stale (4493min); task-file commit c5906ca 2026-10-13T14:25; open PR #815 td-265: remaining empty road signs \u2014 sign-class census and f)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "QUIET(1) td-224 (no heartbeat file)",
-    "ALIVE td-256 (heartbeat stale (2128min); task-file commit e38c8c2 2026-10-13T15:09)",
+    "DEAD td-224 (replacement queued; no heartbeat file)",
+    "ALIVE td-256 (heartbeat stale (2159min); task-file commit e38c8c2 2026-10-13T15:09)",
     "ALIVE td-202 (no heartbeat file; task-file commit 8de7a85 2026-10-14T07:46; open PR #827 Inspector report: 2026-10-14 22:34 EDT (report-only, do not ; open PR #826 Inspector )",
-    "ALIVE td-263 (heartbeat stale (796min); open PR #810 td-263: pedestrians obey signals + walk crossings continuous)",
-    "ALIVE td-260 (heartbeat 30min ago (delicate variant complete: refusal, install, facto); open PR #824 Inspector report: 2026-10-14 19:34 EDT (report-only, do not ; open PR #82)",
-    "ALIVE td-261 (heartbeat stale (795min); open PR #824 Inspector report: 2026-10-14 19:34 EDT (report-only, do not ; open PR #822 Inspector report: 2026-10-14 10:34 EDT (report)",
-    "ALIVE td-262 (heartbeat stale (795min); open PR #827 Inspector report: 2026-10-14 22:34 EDT (report-only, do not ; open PR #824 Inspector report: 2026-10-14 19:34 EDT (report)"
+    "ALIVE td-263 (heartbeat stale (827min); open PR #810 td-263: pedestrians obey signals + walk crossings continuous)",
+    "ALIVE td-260 (heartbeat 27min ago (bulky + delicate variants fully proven (failures=0); open PR #824 Inspector report: 2026-10-14 19:34 EDT (report-only, do not ; open PR #82)",
+    "ALIVE td-261 (heartbeat stale (826min); open PR #824 Inspector report: 2026-10-14 19:34 EDT (report-only, do not ; open PR #822 Inspector report: 2026-10-14 10:34 EDT (report)",
+    "ALIVE td-262 (heartbeat stale (826min); open PR #827 Inspector report: 2026-10-14 22:34 EDT (report-only, do not ; open PR #824 Inspector report: 2026-10-14 19:34 EDT (report)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2571,10 +2563,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-15T02:45:29.303608+00:00",
+   "liveness": "2026-10-15T03:15:47.739340+00:00",
    "classification-health": "2026-10-15T02:46:01.336709+00:00",
-   "transitions": "2026-10-15T02:45:48.498736+00:00",
-   "conflicts": "2026-10-15T02:45:41.729483+00:00",
+   "transitions": "2026-10-15T03:16:52.454376+00:00",
+   "conflicts": "2026-10-15T03:16:05.836605+00:00",
    "all-blocked": "2026-10-14T12:50:11.908170+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
