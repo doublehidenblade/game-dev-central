@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "task": "td-208",
+  "created_at": "2026-10-07T18:16:00Z",
+  "purpose": "Publish the three existing approved reference images for consumer-local inspection before Fuel/Wanted implementation. These files are usable from this feature branch without merging it.",
+  "canonical_task": "https://github.com/doublehidenblade/tokyo-drift-3d/blob/212e28b096d2b7d024cc47c4b3bcaddd543c74e1/godot/docs/tasks/td-208.md",
+  "related_pull_request": "https://github.com/doublehidenblade/tokyo-drift-3d/pull/479",
+  "files": [
+    {
+      "file": "01-quiet-drive.png",
+      "revision": 2,
+      "source": "Existing corrected design mock; published byte-for-byte without image modification.",
+      "sha256": "088aed42bce31f7a6bff2f81ddc3dc21b9f1b052014865e8377446ee0e84ac81",
+      "git_blob_sha1": "13b73dea0a4167a59d43a10792f6f5d4c9206501",
+      "bytes": 1630986,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "use": "Compact desktop text, bold green cash and background-free driving HUD hierarchy. Conceptual design board only."
+    },
+    {
+      "file": "04-pressure-states.png",
+      "revision": 2,
+      "source": "Existing corrected design mock; published byte-for-byte without image modification.",
+      "sha256": "2fe098448c5ae9b4e8322cfe7437c6dee911004e31d65d6ab2a9964923b90298",
+      "git_blob_sha1": "2e62e9709ffaf903503246c27a128919b27f7834",
+      "bytes": 1665921,
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "use": "Compact warning hierarchy and wanted placement. Conceptual design board only."
+    },
+    {
+      "file": "user-police-symbol.png",
+      "source": "Original police-symbol image supplied by Craig for wanted markers; published byte-for-byte without image modification.",
+      "sha256": "c841c17b6bf9d4cdc26b3bf962e13ebddf7c556fdb87fdebd53087e45213320f",
+      "git_blob_sha1": "268e1ca507af342f8e59740bb9761ea8d162fa17",
+      "bytes": 58071,
+      "width": 497,
+      "height": 473,
+      "mode": "RGBA",
+      "use": "Canonical symbol silhouette, circular center and pointed-ray proportions. This original overrides all generated emblem variants.",
+      "licensing": "User-supplied reference. No licensing or official-asset claim is made."
+    }
+  ],
+  "verification": {
+    "source_bytes": "All three files decode as PNG. SHA256 and Git blob SHA1 calculated from actual bytes. Both board SHA256 values match canonical td-208 at the pinned task commit.",
+    "source_pixels": "All three source images opened at original resolution before publication.",
+    "consumer_gate": "Consumer must fetch this exact feature-branch commit, verify each SHA256, decode the files and open actual full-resolution pixels locally before image-dependent work. Publication alone does not prove consumer transfer or pixel inspection.",
+    "acceptance": "Reference publication only. No implementation, runtime acceptance or independent acceptance verdict is claimed."
+  },
+  "design_limitations": [
+    "The boards reconstruct scenery and Japanese lettering; they are reference-grounded concepts, not literal unchanged screenshot composites. Do not use generated lettering or street viewpoints as game assets.",
+    "Minimap topology is illustrative. Map, gig, health, controls and scene-assembly ownership remain outside td-208.",
+    "Generated hero-size emblem rays differ from the original. Never trace the board's emblem geometry; use the original supplied symbol as the canonical reference.",
+    "Collage viewport proportions, text sizes and touch targets are not measured runtime acceptance evidence. Required real native/browser viewport, interaction and state matrices remain mandatory.",
+    "The quiet and warning boards provide the compact desktop type-scale direction. Values, warning states and depicted transactions are illustrative rather than runtime proof.",
+    "Existing minimap/GAS, DamageBar, natural chassis-wreck and physical-phone gates remain independent. This publication does not clear any implementation or acceptance gate."
+  ]
+}
