@@ -2509,7 +2509,7 @@
   "td-269": "validated"
  },
  "run_verdicts": {
-  "ts": "2026-10-15T08:45:35.424018+00:00",
+  "ts": "2026-10-15T09:15:35.871522+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2522,19 +2522,19 @@
     "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
     "ALIVE td-243 (no heartbeat file; open PR #800 Inspector report: 2026-10-14 02:34 EDT (report-only, do not )",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
-    "ALIVE td-246 (heartbeat stale (8139min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (8180min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (7803min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
-    "ALIVE td-248 (heartbeat stale (6502min); open PR #810 td-263: pedestrians obey signals + walk crossings continuous)",
-    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (4681min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
-    "ALIVE td-251 (heartbeat stale (4823min); task-file commit c5906ca 2026-10-13T14:25; open PR #815 td-265: remaining empty road signs \u2014 sign-class census and f)",
+    "ALIVE td-246 (heartbeat stale (8170min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (8210min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (7833min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "ALIVE td-248 (heartbeat stale (6532min); open PR #810 td-263: pedestrians obey signals + walk crossings continuous)",
+    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (4712min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
+    "ALIVE td-251 (heartbeat stale (4853min); task-file commit c5906ca 2026-10-13T14:25; open PR #815 td-265: remaining empty road signs \u2014 sign-class census and f)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "ALIVE td-256 (heartbeat stale (2488min); task-file commit e38c8c2 2026-10-13T15:09)",
+    "ALIVE td-256 (heartbeat stale (2518min); task-file commit e38c8c2 2026-10-13T15:09)",
     "ALIVE td-202 (no heartbeat file; task-file commit 8de7a85 2026-10-14T07:46; open PR #833 Inspector report: 2026-10-15 04:34 EDT (report-only, do not ; open PR #832 Inspector )",
-    "ALIVE td-263 (heartbeat stale (1156min); open PR #810 td-263: pedestrians obey signals + walk crossings continuous)",
-    "ALIVE td-260 (heartbeat stale (356min); open PR #824 Inspector report: 2026-10-14 19:34 EDT (report-only, do not ; open PR #822 Inspector report: 2026-10-14 10:34 EDT (report)",
-    "ALIVE td-261 (heartbeat stale (1155min); open PR #824 Inspector report: 2026-10-14 19:34 EDT (report-only, do not ; open PR #822 Inspector report: 2026-10-14 10:34 EDT (repor)",
-    "ALIVE td-262 (heartbeat stale (1155min); open PR #833 Inspector report: 2026-10-15 04:34 EDT (report-only, do not ; open PR #832 Inspector report: 2026-10-15 03:34 EDT (repor)"
+    "ALIVE td-263 (heartbeat stale (1186min); open PR #810 td-263: pedestrians obey signals + walk crossings continuous)",
+    "ALIVE td-260 (heartbeat stale (386min); open PR #824 Inspector report: 2026-10-14 19:34 EDT (report-only, do not ; open PR #822 Inspector report: 2026-10-14 10:34 EDT (report)",
+    "ALIVE td-261 (heartbeat stale (1185min); open PR #824 Inspector report: 2026-10-14 19:34 EDT (report-only, do not ; open PR #822 Inspector report: 2026-10-14 10:34 EDT (repor)",
+    "ALIVE td-262 (heartbeat stale (1185min); open PR #833 Inspector report: 2026-10-15 04:34 EDT (report-only, do not ; open PR #832 Inspector report: 2026-10-15 03:34 EDT (repor)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2562,10 +2562,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-15T08:45:30.328291+00:00",
+   "liveness": "2026-10-15T09:15:29.604930+00:00",
    "classification-health": "2026-10-15T08:45:35.424018+00:00",
-   "transitions": "2026-10-15T08:45:32.081484+00:00",
-   "conflicts": "2026-10-15T08:45:30.657578+00:00",
+   "transitions": "2026-10-15T09:15:35.871522+00:00",
+   "conflicts": "2026-10-15T09:15:32.388896+00:00",
    "all-blocked": "2026-10-14T12:50:11.908170+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
