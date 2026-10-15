@@ -1,0 +1,58 @@
+{
+  "observed_at": "2026-10-09T17:22:17.309683+00:00",
+  "task_id": "td-218-docs-admission-board",
+  "candidate": {
+    "repository": "doublehidenblade/game-dev-central",
+    "implementation_head": "cd252d15a910065deb3c53129d9a6680feee94e2",
+    "artifact_head": "0abe43e01f4186f5ce480aba9c0bd32ae105cb6e"
+  },
+  "review_ref": {
+    "repository": "doublehidenblade/game-dev-central",
+    "commit": "0abe43e01f4186f5ce480aba9c0bd32ae105cb6e",
+    "path": "project-management/tasks/td-218-docs-admission/review.json",
+    "blob": "33a3994611b09491a5523dbfc4a278211b4f6544"
+  },
+  "rule_heads": {
+    "doublehidenblade/tokyo-drift-3d": "8a4e146804e9e8c3b1d3667e64f983a0a2dc64ed",
+    "doublehidenblade/game-dev-central": "551655f26ce45c55686079507d1d85f421ab3442"
+  },
+  "policy_module": "doublehidenblade/game-dev-central:project-management/watchdog/evidence_policy.py",
+  "admission": {
+    "version": 1,
+    "operation": "admission",
+    "status": "ADMISSIBLE",
+    "authority_digest": "d84526aaa996887fd08f327ab8133744d48b1c6b19344040c198d1f788c214d1",
+    "issues": [],
+    "gates": {
+      "admission": "PASS"
+    },
+    "reconciliations": [],
+    "mutations": [],
+    "limitations": [
+      "Authenticated collection and identity attestations are caller responsibilities; this evaluator never fetches, dispatches, changes ownership or accepts work on its own."
+    ]
+  },
+  "completion": {
+    "version": 1,
+    "operation": "completion",
+    "status": "ACCEPTABLE",
+    "authority_digest": "d84526aaa996887fd08f327ab8133744d48b1c6b19344040c198d1f788c214d1",
+    "issues": [],
+    "gates": {
+      "author": "PASS",
+      "test_evidence": "BOUND",
+      "independent_review": "PASS",
+      "human_visual": "NOT_APPLICABLE"
+    },
+    "reconciliations": [],
+    "mutations": [],
+    "limitations": [
+      "Authenticated collection and identity attestations are caller responsibilities; this evaluator never fetches, dispatches, changes ownership or accepts work on its own."
+    ]
+  },
+  "limits": [
+    "Evidence-policy documentation completion only; no complete coordinator snapshot or merge-eligibility decision is claimed.",
+    "No gameplay, phone, fresh served-build or model runtime attestation.",
+    "These packet bytes are independently assembled local inputs. Persist receipt and exact input references before any separately authorized merge; refresh after subsequent artifact or rule changes."
+  ]
+}
