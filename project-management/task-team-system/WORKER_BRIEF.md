@@ -151,3 +151,12 @@ Non-obvious constraints for this task: [ANYTHING THE TASK FILE DOESN'T SAY]
     (craigpdy@gmail.com) via the browser (Google sign-in default); never ask
     him to paste codes. Otherwise use Tripo's "Rig and Animate 3D Models" (the
     Tripo credential is already connected) to rig + animate the models.
+15. STAGING TREE — GOLDEN CHECKOUT (Craig 2026-10-15 — STANDING): create your
+    working tree ONLY with
+    `python3 ~/workspace/agent-watch/worker_tree.py create <slug>` — a
+    ~25-second copy of the pre-imported golden checkout at
+    ~/workspace/.golden/tokyo-drift-3d (Godot import cache inherited). NEVER
+    clone the repo, download a tarball, or run a fresh Godot import. Full
+    playbook: project-management/task-team-system/golden-checkout.md in this
+    repo. When your task merges or closes, delete the tree in the same
+    close-out: `python3 ~/workspace/agent-watch/worker_tree.py close <slug>`.
