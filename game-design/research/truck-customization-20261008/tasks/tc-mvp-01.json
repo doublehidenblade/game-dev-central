@@ -1,0 +1,106 @@
+{
+  "status": "blocked",
+  "owner": "dot",
+  "assigned_worker": null,
+  "ask": {
+    "by": "Craig",
+    "date": "2026-10-08",
+    "scope": "Stash the truck customization brief; prepare references, mocks and 3D; provide a rotatable garage showcase with only enough MVP functionality to pair with upgrades; sequence behind completion of ongoing gigs, UI, lively city and traffic."
+  },
+  "required_reading": [
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/SYSTEM.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/WORKER_BRIEF.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/VISUAL_BRIEF_TEMPLATE.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/WORKER_SELECTION_POLICY.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/knowledge/standing-rules.md",
+    "../README.md",
+    "../sequence.md"
+  ],
+  "reference_images": [
+    "Existing corrected td-197/td-198 references only after actual bytes and pixels are verified",
+    "New original concepts under ../mocks/ when available; none delivered by this task filing"
+  ],
+  "constraints": [
+    "No Actions dispatch/rerun/workflow changes, merge or deployment",
+    "One confirmed worker per task; no duplicate existing garage/Forge owner",
+    "Read actual source pixels; label reference photos, generated mockups and real game captures distinctly",
+    "Current release first; preserve owner files and interfaces",
+    "No copied real brands/murals; use original or verified permitted assets",
+    "Author reports in_review; independent reviewer writes verdict; Craig's final phone gate remains separate"
+  ],
+  "evidence": [],
+  "work_log": [
+    {
+      "at": "2026-10-08T02:00:00Z",
+      "by": "dot",
+      "entry": "Planning record saved as an isolated customization addendum. No dispatch, image/model publication, runtime implementation or acceptance implied."
+    }
+  ],
+  "verdict": null,
+  "id": "tc-mvp-01",
+  "title": "Reference and mock the working-truck MVP",
+  "maps_to_existing_tasks": [
+    "td-197"
+  ],
+  "dependencies": [
+    "Coordinator confirms existing reference-lane ownership and accessible inputs"
+  ],
+  "blocker": "Plan-to-owner binding, actual source pixels and a verifiable output path are not established by this filing",
+  "bug_shape": "A mixed reference set could be mistaken for a period-correct kei specification or for finished game art.",
+  "recommended_setup": {
+    "capability_tier": "frontier",
+    "reason": "Reference-critical art direction and coherent views before expensive modeling",
+    "provider_preference": "OpenAI Astra as requested for this project; verify the target executor's current catalog",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "high",
+    "environment_and_required_tools": "Actual reference-image pixels, current approved mini-truck/game captures, image generation or design tool, pixel viewer; target executor unverified",
+    "availability_checked": {
+      "at": "2026-10-08T02:00:00Z",
+      "source": "Documentation planning only; target executor/tool and capacity preflight not performed",
+      "status": "unverified"
+    },
+    "fallback": "wait_for_required_tier",
+    "allowed_alternative": "Read-only source/tool preparation only; no lower-tier production substitute",
+    "attempt_budget": "One coherent attempt plus at most one correction supported by new evidence. Bound to two original concept sheets and a provenance manifest; no additional concept series.",
+    "escalation_criteria": "Missing tier/tools/reference bytes, structural mismatch, scope or owner conflict, failed checks, repeated identical failure twice or budget exhausted; report to coordinator",
+    "verification_budget": "Reserve a separate frontier/high visual reviewer to open both sheets and evaluate every criterion before modeling.",
+    "requested_versus_confirmed_setup": "Requested setup is a recommendation. Actual executor, model and effort are unconfirmed; record observed evidence at admission.",
+    "actual_outcome": "pending; no implementation or accepted evidence; usage/cost unknown"
+  },
+  "scope": [
+    "Inspect the seven supplied reference images through authorized access; record honest type/era/scale limits without publicly reposting them.",
+    "Produce two original concept sheets: (1) a consistent mini-truck base flatbed, one cold-box fit demonstration and base plus two restrained finish treatments; (2) the actual-garage orbit viewer with preview/apply/cancel/reset/zoom-limit direction.",
+    "Give the three style families equal value; rear/chase-angle, rear three-quarter, side and front geometry must agree. English UI; blank or separately checked Japanese signage.",
+    "Capture the current game cel-anime look as a labeled engine frame and use it as the implementation target. Reconcile existing final-only mock direction instead of generating another conflicting base.",
+    "Document cold-box art as conceptual until the module owner supplies real capability. Six looks are future direction only."
+  ],
+  "visual_brief": {
+    "skill_workflow": "Reference pixels → original labeled 2D contact sheet → independent pixel review. Use current image-generation/design skill; 3dviz-pro-max visual-iteration workflow is the downstream handoff.",
+    "quality_bar": "Same cab/bed/wheel geometry across all variants, modest work-truck proportions, broad cel-shaded paint zones, legible rear cargo/lamps; garage controls do not obscure the truck.",
+    "excluded_shortcuts": "No traced logo/mural, no fabricated source-photo label, no generated text treated as final lettering, no box-model or beauty render labeled gameplay.",
+    "effort_calibration": "Serious reference sorting and visual iteration, bounded to the two sheets; no production 3D.",
+    "evidence": "Opened source manifest, labeled contact sheets, reviewer notes and hashes.",
+    "merge_and_status": "Leave draft PR open, author in_review only; no self-acceptance.",
+    "standing_constraints": "Original/permission-safe outputs only; preserve existing graybox and production owners."
+  },
+  "completion_criteria": [
+    {
+      "check": "A reviewer opens the accessible source pixels and labels each reference's factual/creative scope; era and vehicle-class uncertainty is explicit.",
+      "evidence": "mocks/reference-manifest.json and reference-review.md; source links and rights status, no private identifiers"
+    },
+    {
+      "check": "Open both original sheets and compare all variants at matching views: coherent chassis, no branding copies, visible functional bed, restrained current-game style and the minimal controls.",
+      "evidence": "mocks/truck-kit-concept.png, mocks/garage-viewer-concept.png and per-sheet review"
+    },
+    {
+      "check": "Compare actual-game baseline to concept at matching camera where possible; report nonmatching concept views honestly and record exact acceptance/remaining gaps for the model owner.",
+      "evidence": "mocks/gate.md with criterion verdicts, filenames, hashes and view labels"
+    }
+  ],
+  "out_of_scope": [
+    "Publicly uploading supplied user/reference photos",
+    "3D source/modeling",
+    "Runtime garage or economy changes",
+    "Claiming generated concepts are engine evidence"
+  ]
+}

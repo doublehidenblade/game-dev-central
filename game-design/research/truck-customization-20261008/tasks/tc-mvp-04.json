@@ -1,0 +1,96 @@
+{
+  "status": "blocked",
+  "owner": "dot",
+  "assigned_worker": null,
+  "ask": {
+    "by": "Craig",
+    "date": "2026-10-08",
+    "scope": "Stash the truck customization brief; prepare references, mocks and 3D; provide a rotatable garage showcase with only enough MVP functionality to pair with upgrades; sequence behind completion of ongoing gigs, UI, lively city and traffic."
+  },
+  "required_reading": [
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/SYSTEM.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/WORKER_BRIEF.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/VISUAL_BRIEF_TEMPLATE.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/project-management/rules/WORKER_SELECTION_POLICY.md",
+    "https://github.com/doublehidenblade/game-dev-central/blob/main/knowledge/standing-rules.md",
+    "../README.md",
+    "../sequence.md"
+  ],
+  "reference_images": [
+    "Existing corrected td-197/td-198 references only after actual bytes and pixels are verified",
+    "New original concepts under ../mocks/ when available; none delivered by this task filing"
+  ],
+  "constraints": [
+    "No Actions dispatch/rerun/workflow changes, merge or deployment",
+    "One confirmed worker per task; no duplicate existing garage/Forge owner",
+    "Read actual source pixels; label reference photos, generated mockups and real game captures distinctly",
+    "Current release first; preserve owner files and interfaces",
+    "No copied real brands/murals; use original or verified permitted assets",
+    "Author reports in_review; independent reviewer writes verdict; Craig's final phone gate remains separate"
+  ],
+  "evidence": [],
+  "work_log": [
+    {
+      "at": "2026-10-08T02:00:00Z",
+      "by": "dot",
+      "entry": "Planning record saved as an isolated customization addendum. No dispatch, image/model publication, runtime implementation or acceptance implied."
+    }
+  ],
+  "verdict": null,
+  "id": "tc-mvp-04",
+  "title": "Independently verify the customization slice",
+  "maps_to_existing_tasks": [
+    "td-202"
+  ],
+  "dependencies": [
+    "tc-mvp-03 exact-head evidence and integrated candidate",
+    "Separate reviewer from all relevant authors"
+  ],
+  "blocker": "No integrated candidate exists for this addendum",
+  "recommended_setup": {
+    "capability_tier": "frontier",
+    "reason": "Independent acceptance of visible 3D quality and coupled loadout/input/persistence",
+    "provider_preference": "OpenAI Astra as requested for this project; verify the target executor's current catalog",
+    "requested_model": "gpt-6-astra",
+    "requested_effort": "max",
+    "environment_and_required_tools": "Exact candidate source, actual Godot/browser runtime, original reference/mock/source files and readable evidence pixels; target executor unverified",
+    "availability_checked": {
+      "at": "2026-10-08T02:00:00Z",
+      "source": "Documentation planning only; target executor/tool and capacity preflight not performed",
+      "status": "unverified"
+    },
+    "fallback": "wait_for_required_tier",
+    "allowed_alternative": "Read-only source/tool preparation only; no lower-tier production substitute",
+    "attempt_budget": "One coherent attempt plus at most one correction supported by new evidence. One full independent criterion review; return failures to the author, no fixes by reviewer.",
+    "escalation_criteria": "Missing tier/tools/reference bytes, structural mismatch, scope or owner conflict, failed checks, repeated identical failure twice or budget exhausted; report to coordinator",
+    "verification_budget": "Budget all visual pairs and actual-world entry/apply/cancel/upgrade/exit/reload scenarios, with source and negative-control inspection; report unavailable phone evidence.",
+    "requested_versus_confirmed_setup": "Requested setup is a recommendation. Actual executor, model and effort are unconfirmed; record observed evidence at admission.",
+    "actual_outcome": "pending; no implementation or accepted evidence; usage/cost unknown"
+  },
+  "scope": [
+    "Judge each tc-mvp-01–03 criterion against actual artifacts and exact source; do not accept the author's summary as proof.",
+    "Open every claimed visual pair and original/mock/render label. Reproduce the actual Lower City garage flow and compare equipped vehicle/skin/module before and after exit/reload.",
+    "Check scope/ownership diff, existing economy authority, release exclusion and required local regressions.",
+    "Record each PASS/FAIL/BLOCKED with citations; distinguish accepted design, standalone asset, runtime behavior and Craig's physical-phone verdict."
+  ],
+  "completion_criteria": [
+    {
+      "check": "Every criterion receives independent PASS/FAIL/BLOCKED with an opened artifact, test output or reproduced behavior citation and exact SHA.",
+      "evidence": "Independent verdict.md and opened-evidence manifest"
+    },
+    {
+      "check": "Actual garage flow, gesture bounds, preview/apply/cancel, control recovery, module identity and save interruption/double-click checks reproduce without new economy or owner-state side effects.",
+      "evidence": "Reviewer-owned scenario matrix, logs and real-world frames"
+    },
+    {
+      "check": "No claim of current release readiness, deployment or phone performance is inferred from isolated asset/native/software-renderer results; all remaining gates and owners are explicit.",
+      "evidence": "Remaining-gates.md and scope comparison"
+    }
+  ],
+  "out_of_scope": [
+    "Fixing the work under review",
+    "Self-acceptance",
+    "Merge/deploy/Actions",
+    "Closing existing garage or release tasks by association"
+  ]
+}
