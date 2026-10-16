@@ -36,6 +36,14 @@
    "merged_sha": "c32708c0cf41cba0184eaeaceb6cdb1866945401",
    "merged_at": "2026-10-16T20:29:42.940606+00:00",
    "summary": "driver honesty \u2014 real-movement extrication, give-up never reports finished, destination pull-in (validator merge-on-pass)"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-271",
+   "pr": 876,
+   "merged_sha": "9f64728ffdb7ef878888ab7f93c9505a027fc937",
+   "merged_at": "2026-10-16T23:28:41.619596+00:00",
+   "summary": "Mariko supplier approach unblocked \u2014 trench bay heights capped under Ring lid + cut-wall openings at slip landings"
   }
  ]
 }
