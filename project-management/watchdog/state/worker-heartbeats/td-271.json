@@ -1,1 +1,1 @@
-{"ts": "2026-10-16T16:53:04Z", "task": "td-271", "step": "AFTER trip 1 still oscillates (wide turn insufficient) - awaiting trace to analyze approach with new lane; preparing focused turn diagnostic", "status": "working"}
+{"ts": "2026-10-16T17:32:00Z", "task": "td-271", "step": "diag-turn2 analyzed: driver steers full lock and model yaws west, but velocity stays north ~4 s (x pinned ~394.0) - instrumented harness (wall normal, ground normal, vehicle input, yaw rate) ready; waiting for td-272 Godot run to clear before launching", "status": "working"}
