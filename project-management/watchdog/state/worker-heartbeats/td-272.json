@@ -1,1 +1,1 @@
-{"status":"working","step":"still gated: td-271 before-run active (mariko loop repro); my runs queued behind it per stagger gate","task":"td-272","ts":"2026-10-16T16:02:00Z"}
+{"ts": "2026-10-16T17:47:47Z", "task": "td-272", "step": "pin AFTER PASS (exit 0): give-up 37.4s, recover(), leg2 finished 3.0m from dock bay. Launching shaft3 AFTER", "status": "working"}
