@@ -20,6 +20,14 @@
    "merged_sha": "37eb3088d51c1ee6ac47b3c387f1f105186ec3b2",
    "merged_at": "2026-10-15T23:22:18.384913+00:00",
    "summary": "Driver self-extrication + recover() reset-to-lane fallback \u2014 validator PASS, merged"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-255",
+   "pr": 811,
+   "merged_sha": "5b2d781434520f8e9dc7ed4a9b69c8c8255aab4c",
+   "merged_at": "2026-10-16T07:27:52.653608+00:00",
+   "summary": "Utility UI converted to English \u2014 all utility text English, in-world Japanese signage untouched; validator passed all 6 criteria and merged PR #811"
   }
  ]
 }
