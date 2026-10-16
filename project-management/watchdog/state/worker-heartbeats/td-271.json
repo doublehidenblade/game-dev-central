@@ -1,1 +1,1 @@
-{"ts": "2026-10-16T15:51:43Z", "task": "td-271", "step": "BEFORE run reproduced rev-8 failure exactly: deterministic jam cycle at (387.50,747.88) deck edge, rejoin idx 1202-1203; collecting full trace", "status": "working"}
+{"ts": "2026-10-16T16:53:04Z", "task": "td-271", "step": "AFTER trip 1 still oscillates (wide turn insufficient) - awaiting trace to analyze approach with new lane; preparing focused turn diagnostic", "status": "working"}
