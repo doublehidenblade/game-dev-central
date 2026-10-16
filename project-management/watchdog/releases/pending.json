@@ -28,6 +28,14 @@
    "merged_sha": "5b2d781434520f8e9dc7ed4a9b69c8c8255aab4c",
    "merged_at": "2026-10-16T07:27:52.653608+00:00",
    "summary": "Utility UI converted to English \u2014 all utility text English, in-world Japanese signage untouched; validator passed all 6 criteria and merged PR #811"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-272",
+   "pr": 872,
+   "merged_sha": "c32708c0cf41cba0184eaeaceb6cdb1866945401",
+   "merged_at": "2026-10-16T20:29:42.940606+00:00",
+   "summary": "driver honesty \u2014 real-movement extrication, give-up never reports finished, destination pull-in (validator merge-on-pass)"
   }
  ]
 }
