@@ -1,1 +1,1 @@
-{"ts": "2026-10-16T15:23:03Z", "task": "td-271", "step": "diagnosis: route exits via kotobuki slip ramp arc 648; car overshoots 90deg deck exit and jams at (387.5,747.8); waiting on staging tree (golden refresh contention)", "status": "working"}
+{"ts": "2026-10-16T15:51:43Z", "task": "td-271", "step": "BEFORE run reproduced rev-8 failure exactly: deterministic jam cycle at (387.50,747.88) deck edge, rejoin idx 1202-1203; collecting full trace", "status": "working"}

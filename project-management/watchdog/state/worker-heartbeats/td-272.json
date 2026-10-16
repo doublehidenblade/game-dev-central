@@ -1,1 +1,1 @@
-{"status":"working","step":"diagnosis complete (see notes); harness drafted; waiting for golden lock (td-271 tree build ahead in queue)","task":"td-272","ts":"2026-10-16T15:31:00Z"}
+{"status":"working","step":"still gated: td-271 before-run active (mariko loop repro); my runs queued behind it per stagger gate","task":"td-272","ts":"2026-10-16T16:02:00Z"}
