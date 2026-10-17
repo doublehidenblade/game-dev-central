@@ -31,6 +31,13 @@ Subcommands:
                             quiet_cycles on stale observations.
   status                    Dump current state summary.
   decide <session>          Print ACTION for the last recorded state (no writes).
+  queue-health [game] [--state-dir DIR] [--checklist PATH] [--board-file PATH]
+                            Never-idle check (Craig 2026-10-17): deterministically
+                            prints QUEUE-HEALTH OK / QUEUE-EMPTY-VISION-DUE /
+                            VISION-COMPLETE from registry workers, dispatch
+                            candidates, and the vision checklist — an empty
+                            queue with vision work left is a loud defect,
+                            never a quiet resting state.
 
 Hard rules (enforced here, not just in prose):
   - WORKING -> never act.
@@ -1140,17 +1147,19 @@ LIVENESS_TERMINAL = STATUS_PREFIXES_TERMINAL  # alias; do not diverge
 # Sessions whose product is retired — skipped by construction, not by prose.
 ARCHIVED_SESSIONS = {"codex:neon-drift"}
 PENDING_ACTIONS_PATH = os.path.join(STATE_DIR, "pending_actions.json")
+# Vision checklist (Craig 2026-10-17 never-idle rule): one entry per feature
+# of the full game vision (godot/GAME_DESIGN.md, linked from VISION.md), in
+# dependency order. Local working copy here; canonical copy mirrored at
+# game-dev-central project-management/watchdog/vision-checklist.json.
+VISION_CHECKLIST_PATH = os.path.join(HERE, "vision-checklist.json")
 
 
-def _board_rows(game):
-    """Fetch the board markdown and parse rows -> [{task,status,prefix,owner,pr}].
+def _parse_board_rows(text):
+    """Parse board markdown text -> [{task,status,prefix,owner,pr}].
     Finds the task cell by id pattern (td-NNN / p3d-NNN / td-NNN-shuto) instead
     of assuming column 0 — rows 143-145 carry a corrupt 7th leading row-number
     column (audit 2026-10-02), which naive positional parsing misparses."""
     import re
-    blob = _gh(f"/repos/{BOARD_REPO}/contents/{BOARD_PATHS[game]}?ref=main")
-    import base64
-    text = base64.b64decode(blob["content"]).decode("utf-8", "replace")
     rows = []
     task_re = re.compile(r"^((?:td|p3d)-\d+(?:-shuto)?)$", re.I)
     for line in text.splitlines():
@@ -1168,6 +1177,14 @@ def _board_rows(game):
                      "prefix": prefix, "owner": cells[ti + 3], "pr": cells[ti + 4],
                      "last_update": cells[ti + 5] if ti + 5 < len(cells) else ""})
     return rows
+
+
+def _board_rows(game):
+    """Fetch the board markdown from the board repo and parse its rows."""
+    blob = _gh(f"/repos/{BOARD_REPO}/contents/{BOARD_PATHS[game]}?ref=main")
+    import base64
+    text = base64.b64decode(blob["content"]).decode("utf-8", "replace")
+    return _parse_board_rows(text)
 
 
 def cmd_board(args):
@@ -2295,6 +2312,46 @@ def cmd_brief_check(args):
     raise SystemExit(coordinator_cli.run_evidence('brief-check', list(args)))
 
 
+def _dispatch_rows(rows, state, pa=None):
+    """Classify board rows for dispatch -> [(task, prefix, mark, status)].
+    Only rows whose status prefix is open/in_progress appear. mark is
+    'SKIP <reason>' for denylisted rows, 'unowned' for dispatchable ones,
+    or 'owned(<sources>)'. Shared by dispatch-candidates (prints the list)
+    and queue-health (counts the unowned) so the two can never diverge —
+    the 2026-10-17 idle happened because nothing counted what
+    dispatch-candidates saw."""
+    if pa is None:
+        pa = _load_pending_actions()
+    owned = set(state.get("workers", {}))
+    owned |= {sst.get("last_task") for sst in state.get("sessions", {}).values()
+              if sst.get("last_task")}
+    owned |= {e["task"] for e in pa.get("actions", [])
+              if e.get("type", "").startswith("dispatch") and e.get("task")}
+    # Standing per-task dispatch exclusions (Craig's explicit calls).
+    denylist = state.get("dispatch_denylist", {})
+    if isinstance(denylist, list):
+        denylist = {t: "" for t in denylist}
+    denylist = dict(denylist)
+    denylist.setdefault("td-054", "explicit no-redispatch per Craig")
+    out = []
+    for r in rows:
+        if r["prefix"] not in ("open", "in_progress"):
+            continue
+        if r["task"] in denylist:
+            why = denylist[r["task"]] or "denylisted"
+            out.append((r["task"], r["prefix"], f"SKIP {why}", r["status"]))
+            continue
+        srcs = []
+        if r["task"] in owned:
+            srcs.append("tracked")
+        bo = r["owner"].strip()
+        if bo and bo not in ("—", "-", "unassigned", ""):
+            srcs.append("board:" + bo[:30])
+        mark = "unowned" if not srcs else "owned(" + ",".join(srcs) + ")"
+        out.append((r["task"], r["prefix"], mark, r["status"]))
+    return out
+
+
 def cmd_dispatch_candidates(args):
     """dispatch-candidates — scripted DISPATCH CHECK shortlist.
     Board rows whose status prefix is open/in_progress, minus terminal
@@ -2305,33 +2362,131 @@ def cmd_dispatch_candidates(args):
     game = args[0] if args else "tokyo-drift-3d"
     rows = _board_rows(game)
     state = load_state()
-    owned = set(state.get("workers", {}))
-    owned |= {sst.get("last_task") for sst in state.get("sessions", {}).values()
-              if sst.get("last_task")}
-    pa = _load_pending_actions()
-    owned |= {e["task"] for e in pa.get("actions", [])
-              if e.get("type", "").startswith("dispatch") and e.get("task")}
-    # Standing per-task dispatch exclusions (Craig's explicit calls).
-    denylist = state.get("dispatch_denylist", {})
-    if isinstance(denylist, list):
-        denylist = {t: "" for t in denylist}
-    denylist = dict(denylist)
-    denylist.setdefault("td-054", "explicit no-redispatch per Craig")
-    for r in rows:
-        if r["prefix"] not in ("open", "in_progress"):
-            continue
-        if r["task"] in denylist:
-            why = denylist[r["task"]] or "denylisted"
-            print(f"SKIP {r['task']} {why} :: {r['status'][:60]}")
-            continue
-        srcs = []
-        if r["task"] in owned:
-            srcs.append("tracked")
-        bo = r["owner"].strip()
-        if bo and bo not in ("—", "-", "unassigned", ""):
-            srcs.append("board:" + bo[:30])
-        mark = "unowned" if not srcs else "owned(" + ",".join(srcs) + ")"
-        print(f"CANDIDATE {r['task']} {r['prefix']} {mark} :: {r['status'][:80]}")
+    for task, prefix, mark, status in _dispatch_rows(rows, state):
+        if mark.startswith("SKIP"):
+            print(f"SKIP {task} {mark[5:]} :: {status[:60]}")
+        else:
+            print(f"CANDIDATE {task} {prefix} {mark} :: {status[:80]}")
+
+
+# Registry verdicts that mean "this worker may still be working" for
+# queue-health. Liveness drops DEAD workers from the registry itself, and
+# deregister-worker removes finished ones, so any entry still present with
+# one of these verdicts counts as a live implementation worker. "stale"
+# (no fresh observation) does NOT count — unknown is not alive.
+QUEUE_HEALTH_LIVE_VERDICTS = {"registered", "alive", "grace"}
+
+
+def _vision_items(checklist_path):
+    """Load the vision checklist -> ordered item list (main items first,
+    then any reconciled world-bible items appended under the extension
+    point). Raises on unreadable/malformed files: a missing checklist must
+    be loud (QUEUE-HEALTH-ERROR), never silently read as 'vision done'."""
+    with open(checklist_path) as f:
+        data = json.load(f)
+    items = list(data.get("items", []))
+    ext = data.get("world_bible_extension") or {}
+    items += list(ext.get("items", []))
+    for it in items:
+        if not it.get("id") or not it.get("name") or not it.get("status"):
+            raise ValueError(f"checklist item missing id/name/status: {it}")
+    return items
+
+
+def cmd_queue_health(args):
+    """queue-health [game] [--state-dir DIR] [--checklist PATH]
+    [--board-file PATH] — the never-idle check (Craig 2026-10-17).
+
+    Root cause of the 2026-10-17 idle: dispatch-candidates derived work
+    SOLELY from board rows, and nothing treated 'zero unowned candidates
+    AND zero live workers' as abnormal — when the board went stale/frozen
+    the empty queue became a permanent silent equilibrium and every run
+    reported 'nothing to dispatch'. This command makes that state
+    impossible to file quietly. Deterministic; no LLM judgment.
+
+    Computes (i) live implementation workers from the registry
+    (state["workers"] entries whose last_verdict is registered/alive/
+    grace/quiet-*; liveness prunes the dead itself), (ii) dispatchable
+    unowned candidates via the exact _dispatch_rows logic behind
+    dispatch-candidates, (iii) remaining vision work from the vision
+    checklist (items not yet 'implemented', in dependency order).
+    Prints EXACTLY ONE line:
+      QUEUE-HEALTH OK workers=<n> candidates=<n> vision_remaining=<n>
+      QUEUE-EMPTY-VISION-DUE <checklist-item-id> :: <name>
+        (workers=0 AND candidates=0 AND vision remains; names the first
+        not-started item, else the first remaining one — the cron's
+        STEP 2b breaks it down and dispatches in the SAME run)
+      VISION-COMPLETE
+        (nothing remains on the checklist — the only quiet-queue state)
+    An unreadable checklist prints QUEUE-HEALTH-ERROR <reason> and exits 3.
+    The --state-dir/--board-file/--checklist overrides exist so the DUE
+    path can be tested against a sandbox copy without touching live
+    state."""
+    game = "tokyo-drift-3d"
+    state_dir = None
+    checklist_path = VISION_CHECKLIST_PATH
+    board_file = None
+    rest = list(args)
+    if rest and not rest[0].startswith("--"):
+        game = rest.pop(0)
+    while rest:
+        a = rest.pop(0)
+        if a == "--state-dir" and rest:
+            state_dir = rest.pop(0)
+        elif a == "--checklist" and rest:
+            checklist_path = rest.pop(0)
+        elif a == "--board-file" and rest:
+            board_file = rest.pop(0)
+        else:
+            print(f"ERROR unknown queue-health arg {a}", file=sys.stderr)
+            sys.exit(2)
+    # (iii) vision remaining — fail loud before anything else.
+    try:
+        items = _vision_items(checklist_path)
+    except Exception as e:
+        print(f"QUEUE-HEALTH-ERROR checklist unreadable: {e}")
+        sys.exit(3)
+    remaining = [it for it in items if it.get("status") != "implemented"]
+    # State source: live state dir, or the sandbox override.
+    if state_dir:
+        sp = os.path.join(state_dir, "state.json")
+        if os.path.exists(sp):
+            with open(sp) as f:
+                state = json.load(f)
+        else:
+            state = {"repos": {}, "sessions": {}}
+        try:
+            with open(os.path.join(state_dir, "pending_actions.json")) as f:
+                pa = json.load(f)
+        except Exception:
+            pa = {"actions": [], "notes": []}
+    else:
+        state = load_state()
+        pa = None  # _dispatch_rows loads the live ledger itself
+    # (i) live implementation workers from the registry.
+    workers = 0
+    for w in state.get("workers", {}).values():
+        v = str(w.get("last_verdict") or "registered").lower()
+        if v in QUEUE_HEALTH_LIVE_VERDICTS or v.startswith("quiet-"):
+            workers += 1
+    # (ii) dispatchable unowned candidates (dispatch-candidates' logic).
+    if board_file:
+        with open(board_file) as f:
+            rows = _parse_board_rows(f.read())
+    else:
+        rows = _board_rows(game)
+    candidates = sum(1 for _t, _p, mark, _s in _dispatch_rows(rows, state, pa)
+                     if mark == "unowned")
+    if not remaining:
+        print("VISION-COMPLETE")
+        return
+    if workers == 0 and candidates == 0:
+        due = next((it for it in remaining if it["status"] == "not_started"),
+                   remaining[0])
+        print(f"QUEUE-EMPTY-VISION-DUE {due['id']} :: {due['name']}")
+        return
+    print(f"QUEUE-HEALTH OK workers={workers} candidates={candidates} "
+          f"vision_remaining={len(remaining)}")
 
 
 def cmd_dispatch_model(args):
@@ -3371,6 +3526,8 @@ def main():
         cmd_dispatch_candidates(sys.argv[2:])
     elif cmd == "dispatch-model":
         cmd_dispatch_model(sys.argv[2:])
+    elif cmd == "queue-health":
+        cmd_queue_health(sys.argv[2:])
     elif cmd == "flagship-waiting":
         cmd_flagship_waiting(sys.argv[2:])
     elif cmd == "ship-verify":
