@@ -1,6 +1,1 @@
-{
- "ts": "2026-10-09T07:26:43.507851+00:00",
- "task": "td-195",
- "step": "DONE: PR #433 rebased+merged (499b9ba5); task file done-pending-verdict (PR #580); board row done (gdc PR #389). Only Craig phone verdict outstanding.",
- "status": "done"
-}
+{"ts": "2026-10-17T23:25:45Z", "task": "td-195", "step": "tree create queued behind ~8 sibling creates on the golden flock; fix and harness fully drafted, ready to apply", "status": "working"}
