@@ -1,1 +1,1 @@
-{"ts": "2026-10-18T01:05:00Z", "task": "td-274", "step": "BEFORE probe launched under a guarded window-watch (waits for <=1 other Godot + >=2GB free, then runs). Draft PR #910 banked.", "status": "working"}
+{"ts": "2026-10-18T12:05:00Z", "task": "td-274", "step": "AFTER stats PERFECT: 64 spawns, 0 in view, 0 off-road, 0 in geometry, 75.6-139.6m band, escalation 1/2/4 intact. BEFORE capture verified by eye (white cruiser with red taillights materialized mid-road 90m ahead). AFTER capture + no-graph fallback runs in flight.", "status": "working"}
