@@ -1,1 +1,1 @@
-{"ts": "2026-10-17T23:52:00Z", "task": "td-243", "step": "tree create: golden Godot import still running (~19 min, VM loaded by sibling wave); fix files fully prepped in ~/workspace/td243-prep, ready to apply on tree landing", "status": "working"}
+{"ts": "2026-10-18T00:47:00Z", "task": "td-243", "step": "PR #914 open with fix + harnesses (head 8eccfc005d). Next: quick harness re-runs on current main, then the full-scene restart probe when a Godot-quiet window opens", "status": "working"}

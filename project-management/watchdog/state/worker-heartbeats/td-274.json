@@ -1,1 +1,1 @@
-{"ts": "2026-10-18T00:00:00Z", "task": "td-274", "step": "golden-lock livelock: each queued create re-refreshes the golden (~25 min) because main keeps moving from fleet merges (now 6ab4c465). My create is queued; fix + probe + task file all drafted in scratch, ready to drop in.", "status": "working"}
+{"ts": "2026-10-18T00:30:00Z", "task": "td-274", "step": "draft PR #910 banked (task file + probe). Running BEFORE spawn probe on pristine main code in production lower_city.tscn.", "status": "working"}

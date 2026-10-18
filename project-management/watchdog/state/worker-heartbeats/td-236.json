@@ -1,1 +1,1 @@
-{"ts": "2026-10-17T23:23:00Z", "task": "td-236", "step": "starting: creating staging tree and reading task file", "status": "working"}
+{"ts": "2026-10-18T04:22:00Z", "task": "td-236", "step": "Golden refreshed to current main 6ab4c465d0 after two failed create attempts in the herd; running create again — expect GOLDEN-OK fast copy, then implementing immediately", "status": "working"}
