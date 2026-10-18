@@ -1,1 +1,1 @@
-{"ts": "2026-10-18T00:47:00Z", "task": "td-243", "step": "PR #914 open with fix + harnesses (head 8eccfc005d). Next: quick harness re-runs on current main, then the full-scene restart probe when a Godot-quiet window opens", "status": "working"}
+{"ts": "2026-10-18T01:14:00Z", "task": "td-243", "step": "full-scene restart probe RUNNING (real harbor_slice.tscn, first world build in progress, RSS ~1.5GB); PR #914 banked at 6b37ef9080 with fix + fresh mech/LC/cover evidence", "status": "working"}
