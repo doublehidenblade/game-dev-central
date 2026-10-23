@@ -1,0 +1,1 @@
+{"ts": "2026-10-23T20:22:51Z", "task": "td-280", "step": "registered by Muse poll 2026-10-23 16:24 ET at dot supervisor request, without interrupting run: race scenario Godot process live (started 16:12 ET), trace-race.json updated 16:21 ET (boot/race/start_leg events), WIP preserved in staging tree td280-race, no branch/PR yet", "status": "working"}
