@@ -44,6 +44,38 @@
    "merged_sha": "9f64728ffdb7ef878888ab7f93c9505a027fc937",
    "merged_at": "2026-10-16T23:28:41.619596+00:00",
    "summary": "Mariko supplier approach unblocked \u2014 trench bay heights capped under Ring lid + cut-wall openings at slip landings"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-236",
+   "pr": 920,
+   "merged_sha": "fe40de75e676b7ec8ebefc2951b5f8b7481ea2c4",
+   "summary": "GPS pre-gig route preview in gig detail panel (td-236, PR #920) \u2014 merged 2026-10-23 by recovery coordinator; publish only on Craig's word",
+   "merged_at": "2026-10-23T23:59:00+00:00"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-276",
+   "pr": 913,
+   "merged_sha": "d9a1271644ad54785ebc34013d513f10dd4c051a",
+   "summary": "Seasons: living sky phase 2 (td-276, PR #913) incl. rendered season captures \u2014 merged 2026-10-23 by recovery coordinator; publish only on Craig's word",
+   "merged_at": "2026-10-23T23:59:00+00:00"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-243",
+   "pr": 1053,
+   "merged_sha": "300f3cab8337f2964bb60dedaa54b37c865cc0cb",
+   "summary": "Restart loading cover actually presented across teardown/rebuild (td-243 fix, PR #1053) \u2014 merged 2026-10-23 by recovery coordinator; publish only on Craig's word",
+   "merged_at": "2026-10-23T23:59:00+00:00"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-280",
+   "pr": 1055,
+   "merged_sha": "f07eabcba1fe46daca03ac557ff179bf019862e2",
+   "summary": "Race gigs: a race class on the gig board (td-280, PR #1055) \u2014 merged 2026-10-23 by recovery coordinator; publish only on Craig's word",
+   "merged_at": "2026-10-23T23:59:00+00:00"
   }
  ]
 }

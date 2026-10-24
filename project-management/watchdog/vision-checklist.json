@@ -119,9 +119,9 @@
       "id": "race-gig-class",
       "name": "Race gigs as a gig class on the gig board",
       "source": "Craig direction 2026-10-05 (gigs = timed delivery, races, personal delivery)",
-      "status": "in_progress",
+      "status": "implemented",
       "task": "td-280",
-      "notes": "Task td-280 filed 2026-10-23 by the recovery coordinator (tokyo-drift-3d PR #1045, merged 132edfdc); implementation dispatched 2026-10-23."
+      "notes": "LANDED 2026-10-23: td-280 PR #1055 merged to main f07eabcb. Par-time races on the gig board, settlement by margin vs par, verified in production scene."
     },
     {
       "id": "vehicle-unlocks",
@@ -141,15 +141,17 @@
       "id": "gps-pre-gig-planning",
       "name": "GPS pre-gig route planning before accepting a gig",
       "source": "Craig direction 2026-10-05",
-      "status": "not_started",
-      "task": null
+      "status": "implemented",
+      "task": null,
+      "notes": "First slice LANDED 2026-10-23: route preview in gig detail panel (PR #920, main fe40de75) with panel-fit fix + production captures. Full-screen map overlay remains a recorded follow-on."
     },
     {
       "id": "seasons",
       "name": "Seasons for the living sky (phase 2)",
       "source": "td-267 phase-2 specification (living sky)",
-      "status": "not_started",
-      "task": "td-267"
+      "status": "implemented",
+      "task": "td-267",
+      "notes": "LANDED 2026-10-23: PR #913 merged to main d9a12716 incl. rendered season captures (criteria 2-4) + persistence proof."
     },
     {
       "id": "multiplayer-races",
