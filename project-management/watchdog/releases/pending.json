@@ -76,6 +76,22 @@
    "merged_sha": "f07eabcba1fe46daca03ac557ff179bf019862e2",
    "summary": "Race gigs: a race class on the gig board (td-280, PR #1055) \u2014 merged 2026-10-23 by recovery coordinator; publish only on Craig's word",
    "merged_at": "2026-10-23T23:59:00+00:00"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-281",
+   "pr": 1062,
+   "merged_sha": "23552398c1c5",
+   "merged_at": "2026-10-24T06:55:56.344166+00:00",
+   "summary": "Lower City entry hang fix (td-270 Chidori kit slicing) + staged entry cover + webgl-smoke city-entry check"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-282",
+   "pr": 1065,
+   "merged_sha": "6d822cacb7e8",
+   "merged_at": "2026-10-24T06:55:56.485573+00:00",
+   "summary": "Lower City direct-entry link (?city=1) boots straight into city, skips menu and Tokyo Bay prebuild"
   }
  ]
 }
