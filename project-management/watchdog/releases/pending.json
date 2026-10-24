@@ -100,6 +100,30 @@
    "merged_sha": "47cb8598f8083cb3e807cb49969924bbd988d3f7",
    "merged_at": "2026-10-24T09:52:35.953434+00:00",
    "summary": "Service discoverability: garage + fuel markers verified in web build; repair named on both map sheets, fuel names on minimap, fuel destination lines gain distance (td-283, PR #1069) - merged 2026-10-24; rides next Friday weekly deploy"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-284",
+   "pr": 1058,
+   "merged_sha": "fdaf3c81a83d3273fbc1fbd45b9e88c35860a821",
+   "merged_at": "2026-10-24T12:49:32.853277+00:00",
+   "summary": "restore seasons + GPS route preview integrations clobbered by race-gig merge"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-281",
+   "pr": 1062,
+   "merged_sha": "23552398c1c57354c6a0ded46e8d5dbc4543f73b",
+   "merged_at": "2026-10-24T12:49:34.981868+00:00",
+   "summary": "fix Lower City entry hang + staged entry cover"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-282",
+   "pr": 1065,
+   "merged_sha": "6d822cacb7e834e4561701e3245e9a9ecce8a229",
+   "merged_at": "2026-10-24T12:49:36.988091+00:00",
+   "summary": "Lower City direct-entry link (?city=1)"
   }
  ]
 }
