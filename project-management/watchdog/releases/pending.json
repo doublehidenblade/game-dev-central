@@ -92,6 +92,14 @@
    "merged_sha": "6d822cacb7e8",
    "merged_at": "2026-10-24T06:55:56.485573+00:00",
    "summary": "Lower City direct-entry link (?city=1) boots straight into city, skips menu and Tokyo Bay prebuild"
+  },
+  {
+   "game": "tokyo-drift-3d",
+   "task": "td-283",
+   "pr": 1069,
+   "merged_sha": "47cb8598f8083cb3e807cb49969924bbd988d3f7",
+   "merged_at": "2026-10-24T09:52:35.953434+00:00",
+   "summary": "Service discoverability: garage + fuel markers verified in web build; repair named on both map sheets, fuel names on minimap, fuel destination lines gain distance (td-283, PR #1069) - merged 2026-10-24; rides next Friday weekly deploy"
   }
  ]
 }
