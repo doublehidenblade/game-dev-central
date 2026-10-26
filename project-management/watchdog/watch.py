@@ -1896,7 +1896,7 @@ def _parse_ts(s):
         return None
 
 
-def _auto_deregister(task, pr, game=None):
+def _auto_deregister(task, pr, game=None, expect_session=None):
     """Retire a task's worker registration when its PR merges. Added
     2026-10-26 after the registry audit (Craig's direct order): the
     register-only lifecycle left 22 finished workers reading ALIVE for
@@ -1905,28 +1905,48 @@ def _auto_deregister(task, pr, game=None):
     deregistration rides it. Reports, never raises: a failure here must
     not fail the merge bookkeeping, but it is printed, never silent.
 
-    Binding (dot's review of v1, 2026-10-26): retire only the
-    registration this PR's merge actually completes. If the task was
-    re-registered for new work after this PR merged, the current
-    registration belongs to a newer worker and a replayed or late
-    record-pending must never retire it — the registration's
-    dispatched_at must predate the PR's real merged_at (from the API).
-    Regression tests: tests/test_auto_deregister.py."""
+    FAIL CLOSED (dot's reviews of v1 and v2, 2026-10-26): chronology is
+    not identity, and missing evidence is not permission. Retire only
+    when every check positively binds this registration to this PR:
+    (1) when the caller supplies the merging worker's session
+    (--session), the registration must carry exactly that session;
+    (2) the registration's dispatched_at must exist and parse;
+    (3) the game must resolve to a repo; (4) the PR's merged_at must
+    exist and parse; (5) dispatched_at must predate merged_at — a
+    registration dispatched at or after the merge belongs to a newer
+    worker, and a replayed or late record-pending must never retire it.
+    Any missing/bad evidence prints DEREGISTER-SKIP and keeps the
+    registration. Regression tests: tests/test_auto_deregister.py."""
     try:
         state = load_state()
         workers = state.get("workers", {})
         w = workers.get(task)
         if w is None:
             return
+        if expect_session is not None and w.get("session") != expect_session:
+            print(f"DEREGISTER-SKIP {task}: registration session "
+                  f"{w.get('session')!r} != merge session {expect_session!r}")
+            return
         dispatched = _parse_ts(w.get("dispatched_at"))
+        if dispatched is None:
+            print(f"DEREGISTER-SKIP {task}: registration has no parseable "
+                  f"dispatched_at — cannot bind it to PR #{pr}")
+            return
         repo = PUBLISH_REPOS.get(game or "", (None,))[0]
-        if dispatched is not None and repo:
-            merged_at = _parse_ts(_gh(f"/repos/{repo}/pulls/{pr}").get("merged_at"))
-            if merged_at is not None and dispatched >= merged_at:
-                print(f"DEREGISTER-SKIP {task}: registration dispatched "
-                      f"{w.get('dispatched_at')} is not the worker PR #{pr} "
-                      f"completed (merged {merged_at.isoformat()})")
-                return
+        if not repo:
+            print(f"DEREGISTER-SKIP {task}: unknown game {game!r} — cannot "
+                  f"verify PR #{pr} merge time")
+            return
+        merged_at = _parse_ts(_gh(f"/repos/{repo}/pulls/{pr}").get("merged_at"))
+        if merged_at is None:
+            print(f"DEREGISTER-SKIP {task}: PR #{pr} has no parseable "
+                  f"merged_at — not retiring on an unverified merge")
+            return
+        if dispatched >= merged_at:
+            print(f"DEREGISTER-SKIP {task}: registration dispatched "
+                  f"{w.get('dispatched_at')} is not the worker PR #{pr} "
+                  f"completed (merged {merged_at.isoformat()})")
+            return
         workers.pop(task)
         state.setdefault("notes", []).append(
             f"{now().isoformat()[:16]}Z deregistered {task} ({w.get('kind')}): "
@@ -1938,24 +1958,37 @@ def _auto_deregister(task, pr, game=None):
 
 
 def cmd_record_pending(args):
-    """record-pending <game> <task> <pr> <sha> <summary> — deduped append to
-    project-management/watchdog/releases/pending.json. Dedupe on pr. Replaces the prose
-    'dedupe on pr' rule in the SHIP step. Also auto-deregisters the task's
-    worker (see _auto_deregister) on both the record and dedupe paths."""
+    """record-pending <game> <task> <pr> <sha> <summary> [--session <id>] —
+    deduped append to project-management/watchdog/releases/pending.json.
+    Dedupe on pr. Replaces the prose 'dedupe on pr' rule in the SHIP
+    step. Also auto-deregisters the task's worker (see _auto_deregister)
+    on both the record and dedupe paths. The dedupe path VERIFIES the
+    ledger's recorded task instead of trusting the caller's: a supplied
+    task that disagrees with the ledger retires nothing. --session binds
+    the deregistration to the registration carrying that session."""
+    expect_session = None
+    if "--session" in args:
+        i = args.index("--session")
+        expect_session = args[i + 1]
+        args = args[:i] + args[i + 2:]
     game, task, pr, sha = args[0], args[1], int(args[2]), args[3]
     summary = args[4] if len(args) > 4 else ""
     data, path = _load_pending_ledger()
     for e in data.get("pending", []):
         if e.get("pr") == pr and e.get("game") == game:
             print(f"PENDING-DEDUPED {game} PR #{pr} (already recorded)")
-            _auto_deregister(task, pr, game)
+            if e.get("task") != task:
+                print(f"DEREGISTER-SKIP {task}: ledger records PR #{pr} "
+                      f"under {e.get('task')}, not {task}")
+                return
+            _auto_deregister(task, pr, game, expect_session)
             return
     data.setdefault("pending", []).append({
         "game": game, "task": task, "pr": pr, "merged_sha": sha,
         "merged_at": now().isoformat(), "summary": summary})
     json.dump(data, open(path, "w"), indent=1)
     print(f"PENDING-RECORDED {game} {task} PR #{pr} {sha[:7]}")
-    _auto_deregister(task, pr, game)
+    _auto_deregister(task, pr, game, expect_session)
 
 
 def cmd_pending_report(args):
