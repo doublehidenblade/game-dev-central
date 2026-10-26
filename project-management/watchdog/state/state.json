@@ -2550,7 +2550,7 @@
   "td-283": "done-pending-verdict"
  },
  "run_verdicts": {
-  "ts": "2026-10-26T02:45:42.652234+00:00",
+  "ts": "2026-10-26T03:16:05.876198+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2561,23 +2561,23 @@
     "ALIVE td-240 (no heartbeat file; task-file commit b3a194e 2026-10-09T16:06)",
     "ALIVE td-241 (no heartbeat file; task-file commit 50902c8 2026-10-09T15:18)",
     "ALIVE td-242 (no heartbeat file; task-file commit b7bc375 2026-10-09T15:53)",
-    "ALIVE td-243 (heartbeat stale (11610min); task-file commit 300f3ca 2026-10-23T23:24)",
+    "ALIVE td-243 (heartbeat stale (11641min); task-file commit 300f3ca 2026-10-23T23:24)",
     "ALIVE td-244 (no heartbeat file; task-file commit 184f380 2026-10-09T16:23)",
-    "ALIVE td-246 (heartbeat stale (23619min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
-    "ALIVE td-247 (heartbeat stale (23659min); task-file commit 4d2c79d 2026-10-09T17:33)",
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (23283min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
-    "STALE td-248 (no fresh observation; counter frozen; heartbeat stale (21982min); session 07bf1209-ce3c-4e22-a591-1cee9253a714 classification stale/missing)",
-    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (20161min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
-    "ALIVE td-251 (heartbeat stale (20302min); task-file commit c5906ca 2026-10-13T14:25)",
+    "ALIVE td-246 (heartbeat stale (23650min); task-file commit 08b0393 2026-10-09T17:22; branch docs/td246-verdict-addendum 1 ahead)",
+    "ALIVE td-247 (heartbeat stale (23690min); task-file commit 4d2c79d 2026-10-09T17:33)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (23313min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-248 (no fresh observation; counter frozen; heartbeat stale (22013min); session 07bf1209-ce3c-4e22-a591-1cee9253a714 classification stale/missing)",
+    "STALE td-252 (no fresh observation; counter frozen; heartbeat stale (20192min); session cd8bfdbf-ca99-4e2c-97c9-c6c050b59001 classification stale/missing)",
+    "ALIVE td-251 (heartbeat stale (20333min); task-file commit c5906ca 2026-10-13T14:25)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "ALIVE td-256 (heartbeat stale (17968min); task-file commit faf51a5 2026-10-17T22:53)",
-    "ALIVE td-202 (heartbeat stale (14159min); task-file commit 8de7a85 2026-10-14T07:46)",
-    "ALIVE td-260 (heartbeat stale (15836min); task-file commit 4e6336d 2026-10-16T01:29)",
-    "ALIVE td-261 (heartbeat stale (14602min); task-file commit 768127f 2026-10-15T23:59)",
-    "ALIVE td-262 (heartbeat stale (14607min); task-file commit 37eb308 2026-10-15T23:17)",
-    "ALIVE td-273 (heartbeat stale (12946min); task-file commit 98d9b9f 2026-10-17T09:58; branch coordinator/td-273-task-file 1 ahead)",
+    "ALIVE td-256 (heartbeat stale (17999min); task-file commit faf51a5 2026-10-17T22:53)",
+    "ALIVE td-202 (heartbeat stale (14190min); task-file commit 8de7a85 2026-10-14T07:46)",
+    "ALIVE td-260 (heartbeat stale (15867min); task-file commit 4e6336d 2026-10-16T01:29)",
+    "ALIVE td-261 (heartbeat stale (14633min); task-file commit 768127f 2026-10-15T23:59)",
+    "ALIVE td-262 (heartbeat stale (14638min); task-file commit 37eb308 2026-10-15T23:17)",
+    "ALIVE td-273 (heartbeat stale (12977min); task-file commit 98d9b9f 2026-10-17T09:58; branch coordinator/td-273-task-file 1 ahead)",
     "ALIVE td-282 (no heartbeat file; task-file commit 34bc5b4 2026-10-26T00:49; open PR #1104 Inspector report 2026-10-25 15:34 EDT - report only, do not )",
-    "ALIVE td-283 (heartbeat stale (2560min); task-file commit cb132ec 2026-10-26T00:50)"
+    "ALIVE td-283 (heartbeat stale (2590min); task-file commit cb132ec 2026-10-26T00:50)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2605,10 +2605,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-26T02:45:11.971682+00:00",
+   "liveness": "2026-10-26T03:15:57.836151+00:00",
    "classification-health": "2026-10-26T02:45:42.652234+00:00",
-   "transitions": "2026-10-26T02:45:31.809781+00:00",
-   "conflicts": "2026-10-26T02:45:27.175034+00:00",
+   "transitions": "2026-10-26T03:16:05.876198+00:00",
+   "conflicts": "2026-10-26T03:16:04.555795+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
