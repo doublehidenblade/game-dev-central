@@ -148,6 +148,14 @@
    "merged_sha": "34bc5b47",
    "merged_at": "2026-10-26T18:57:31.807486+00:00",
    "summary": "Pause-quit harness prepared-flag fix (td-282) \u2014 dedupe completion of lifecycle"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-288",
+   "pr": 1135,
+   "merged_sha": "1249dc96eccf48980dbb6512859f8a3487121afb",
+   "merged_at": "2026-10-26T20:30:57.247622+00:00",
+   "summary": "World Inspector 2D city-plan view + studio-preview isolation (td-288, PR #1135)"
   }
  ]
 }
