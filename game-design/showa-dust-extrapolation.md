@@ -3,6 +3,10 @@
 
 *Written 2026-10-05. Research/planning only — extends the world bible's visual roots. Craig's direction: research Ghibli's WWII-era films (Japanese-European architecture blend, cable cars/trams as era signatures), then extend outward through crazy Tokyo architecture projects and retro-futurism into "a plausible dust future for this civilization."*
 
+**2026-10-06 source status:** the published file ends partway through §5.9 with a literal truncation marker. The original published blob is `6ad994c348da6ef2401787bc30471f112cb52f8e`; its only available history has the same tail. No missing prose is reconstructed here. Read [the source audit](README.md) before treating this as a complete original. The following targeted implications reconcile the readable source with the systems draft; photo/film research and image history remain unchanged.
+
+**Current design boundary:** [world bible §§4/8/9/17](gig-city-world-bible.md) defines the proposed small economy, no-GPS planning, home-garage growth and staging. [Research review](art-book/design-review.md) separates Craig's direction from recommendations. Suited outdoor workers at posts are allowed by Kuro-Kiri; the wheelman stays in the cab. No new scene/asset work is authorized.
+
 ---
 
 ## 1. Photo catalog — Craig's 4 Showa street references
@@ -78,17 +82,17 @@ Each entry: **real Showa reference → 40 years of dust → gameplay/art implica
 ### 5.1 The shotengai storefront → the dust arcade
 **Reference:** Photo 1's wooden machiya — 4-depth signage sediment (fascia, noren, banners, plates).
 **+40 years dust:** The timber facade is sand-blasted to silver-gray; paint survives only in sheltered crevices. The kawara tile roof is half-buried under drifted dust — the shop *digs itself out* each morning (a daily ritual, visible in-game as swept dust piles). The 4-depth signage compresses to 2: fascia boards are gone (wind-torn), but **enamel plates survive and thrive** — sand-blasting keeps them legible. Noren curtains are now heavy canvas dust flaps, weighted at the hem with sewn-in chain links. The menu banners are shorter, stiffer, oilcloth.
-**Implication:** drive-up shopfronts only (canon). The swept-dust pile by each door is a cheap decal that sells "people live here" with zero AI. Enamel signage becomes the district's *persistent* information layer — quest-relevant signs are always enamel.
+**Implication:** drive-up shopfronts only (canon). The swept-dust pile by each door is a cheap decal that sells "people live here" with zero AI. Enamel signage becomes the district's *persistent* information layer — quest-relevant signs are always enamel. Delivery destinations and loading restrictions must remain readable by signs and the paper map, without a GPS overlay. Add legible EMPTY / RESERVED / READY states and input/output icons to existing business boards so a stock change has a visible consequence.
 
 ### 5.2 The bonnet bus → the dust hauler
 **Reference:** Photo 2's Isuzu-style bonnet bus — truck chassis, exposed hood, round headlights, destination blind.
 **+40 years dust:** The exposed hood now carries a **cyclone filter intake** (a conical dust separator, like a miniature cement mixer) — the bus breathes through it. Headlights are caged behind wire guards. The destination blind is replaced by an enamel route plate (permanent — routes don't change in the dust). Side panels carry spare filter canisters like ammunition. The cream/red two-tone is now dust-ochre over rust-red primer.
-**Implication:** a traffic archetype (the Hauler) and a potential player vehicle class. The filter canister is a *consumable* — gameplay: filters clog on long dust runs, a resource pressure that only exists in this setting.
+**Implication:** a traffic archetype (the Hauler) and a potential player vehicle class. The filter canister is a *consumable* — proposed gameplay: filters clog on long dust runs and need a quoted service cost. This is an expression of the setting, not a competitor-exclusivity claim. Better filters slow wear, not an end to service; ordinary jobs retain a viable operating margin and recovery path.
 
 ### 5.3 The tram → the armored dust tram
 **Reference:** Photo 3's red single-car tram on embedded rails under the wire jungle.
 **+40 years dust:** The tram is the street's **icebreaker** — a riveted steel pilot plow on the front, wire-mesh window guards, the clerestory roof sealed with gasketed hatches. The overhead wires are still there but now carry *thicker* feeder cables (the tram is the district's power bus — it drags a power feed). The *chin-chin* bell is replaced by a compressed-air horn (audible through dust). Rails are kept clear by the tram's own passage — the one vehicle that never stops.
-**Implication:** already canon (Harbor Tram as moving cover/lethal wall). Add: the tram *clears* dust as it moves — driving in its wake is a slipstream tactic.
+**Implication:** retain the Harbor Tram visual/world role; dust-clearing slipstream behavior is a later proposal, not implemented proof or a dependency of the first supply chains. Warn drivers of its route and preserve current traffic work.
 
 ### 5.4 The wire jungle → the cable canopy
 **Reference:** Photo 3's overhead catenary forest; Miyazaki's "jumbles of wooden utility poles."
@@ -112,8 +116,8 @@ Each entry: **real Showa reference → 40 years of dust → gameplay/art implica
 
 ### 5.8 The handcart → the trunk economy
 **Reference:** Photo 4's daihachiguruma (handcart) in the crowd.
-**+40 years dust:** Nobody pulls carts in the dust — but every *car* has a cart's descendant: the **roof-rack and trunk rig**. Cargo is strapped, tarped, and chained on external racks (visible load = visible gameplay: unsecured cargo physics is already a comedy engine). The handcart's DNA survives as the *manner* of loading: everything is lashed by hand, with rope.
-**Implication:** reinforces "the wheelman never leaves the wheel" — all cargo handling is external, visible, physical.
+**+40 years dust:** The wheelman does not pull a cart through the dust; suited loading workers at their posts remain legal. Each working *car* has a cart's descendant: the **roof-rack and trunk rig**. Cargo is strapped, tarped, and chained on external racks (visible load = visible gameplay: mass and condition are the first model; independent rigid bodies and spills are later experiments). The handcart's DNA survives as the *manner* of loading: everything is lashed by hand, with rope.
+**Implication:** reinforces "the wheelman never leaves the wheel" — loading happens at a marked bay through workers/equipment. A heavy consolidated load saves handling/empty returns but costs acceleration, braking and access; fast repeated runs retain an alley/urgency niche. Keep customer freight separate from owned stock. Garage shelves hold only legally owned materials; painted bay numbers/rental placards show staged growth. Use existing art vocabulary; commission no new images in this reconciliation.
 
 ### 5.9 The museum → the archive instinct
 **Reference:** Photo 2's Showa museum — the era curating its own optimism (Olympics, Astro Boy, kei trucks).

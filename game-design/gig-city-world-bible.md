@@ -1,7 +1,9 @@
-# KUROGANE BAY — World Bible (v2)
+# KUROGANE BAY — World Bible (v2.1 systems draft)
 ### Tokyo Drift 3D: the gig-driver game
 
-*Written 2026-10-05, revised same day with Craig's refinements. Direction chosen by Craig: delivery + cab gig game in a Mad-Max-Tokyo vertical dust city. This document is canon. It supersedes `showa-direction-options.md` and v1 of this bible. No implementation tasks until Craig approves this bible.*
+*Written 2026-10-05, revised same day with Craig's refinements. Direction chosen by Craig: delivery + cab gig game in a Mad-Max-Tokyo vertical dust city. The world/visual canon is retained. The 2026-10-06 systems revision is a draft implementing Craig's requested design direction, with tuning and sequencing recommendations still open for review. It supersedes the conflicting economy/navigation/story-budget proposals in v2 and keeps `showa-direction-options.md` as historical exploration. It does not approve new implementation or revoke existing Lower City/Forge/police/traffic work.*
+
+**2026-10-06 direction:** recognize Cloudpunk as a direct reference; prioritize a small, readable supply-chain economy and procedural delivery work, meaningful loads/routes and garage growth. Retain authored places, people and lore. Intercity arbitrage, following trucks/fleet and full combat are later ambitions. The bounded model, tick duration, recipe counts, fee caps and phases below are recommendations, not newly confirmed user mandates. [Research, sources, playtest gates and open decisions](art-book/design-review.md) · [source reconciliation and mirror rules](README.md).
 
 **Research behind this document:**
 - 4 rounds of Gemini consultation — veteran game designer / open-world lore writer / art director & media researcher (`consult/gig-city/`) + vertical-city game design (`consult/gig-city-v2/round1-vertical-city.md`: Gravity Rush 2, Cyberpunk 2077's failures, Silent Hill/Ridge Racer fog-culling, elevator-as-gate design, cutscene transition rules)
@@ -40,7 +42,7 @@ A separate stratum ABOVE the dust cloud: cleaner, wealthier, arcology-scale mega
 
 **Districts:** Haibara Heights (clifftop estates, now literally above the cloud), Minami Aerium (corporate megastructures, Councilman Minami's toll empire HQ) (§3).
 
-**The ROUTE-88 recalibrates between strata:** the in-dash CRT plays a static-desync animation on elevator exit and redraws as a clean blue vector wireframe. The minimap NEVER shows both layers at once.
+**Navigation between strata:** the paper briefing identifies the destination stratum and terminal; signs and landmarks lead the driver. ROUTE-88 may change its green/white-phosphor manifest on elevator exit, but never supplies a live minimap, moving dot, computed route trace or turn-by-turn GPS (§8).
 
 ### OUTSKIRTS — "Nagisa"
 Mountains and a beach with an unnaturally vivid teal-green sea (§13), distant skyscraper silhouettes on the horizon (skybox, not geometry). Connected to the Lower City by **ONE long highway** — and district transitions happen via **cutscene, never seamless driving** (explicit scope decision: no open-world streaming). The cutscene rules: 4–6 seconds max, three Showa-anime shots (wheel close-up → wide coastal viaduct over the teal sea → dashboard radio scrub), and the player **enters the new district at full cruising speed** — a catapult, not a parking brake.
@@ -48,13 +50,13 @@ Mountains and a beach with an unnaturally vivid teal-green sea (§13), distant s
 ### THE SKY ELEVATORS — car lifts between worlds
 The only way between Lower and Upper City: gigantic brutalist freight elevators — open platforms riding cables and counterweights up through the dust layer, cars parked on decks like cargo. 2–3 elevator pylons are anchored into bedrock and punch straight through the cloud deck; they are the city's spatial anchors (glimpse a pylon through the haze and your mental compass resets).
 
-**Elevators are gameplay gates, not loading screens** (the Mass Effect-1-elevator failure is banned):
+**Later-phase elevator proposals:** these retain the vertical-world fantasy; none is required by the local-economy proof. The following queue/inspection ideas need their own feasibility and fairness review:
 - **Queues & tolls** — high faction standing buys the Express Freight Line (immediate dispatch); low standing means the Commercial Hopper (tolls + delays).
 - **Inspection triage** — automated gantry scanners sweep for contraband during the queue window: toggle your scrambler, bribe the gatekeeper terminal, or sweat.
-- **Decontamination scrubbers** — UV/chemical fog kills Lower City biologicals. Raw contraband (Outskirts fish, unscrubbed tools) arrives worthless unless sealed in a lead-lined smuggler trunk (heavy — changes your drift physics) or you risk the broken industrial lifts (30% mechanical failure or syndicate ambush).
+- **Decontamination scrubbers** — UV/chemical fog kills Lower City biologicals. Raw contraband (Outskirts fish, unscrubbed tools) arrives worthless unless sealed in a lead-lined smuggler trunk (heavy — changes your drift physics) or the driver chooses an industrial lift with a posted condition/risk warning and a viable safe alternative. The earlier blanket 30% failure roll is retired.
 - **The 8-second ascent is the Gig Triage Screen** — the fog drops away beneath you, the Lower City shrinks into an amber dust sea, you punch through into blinding sunlight while the ROUTE-88 updates with Upper City targets and shifting market prices. You plan while you climb.
 
-**Faction control of lift terminals** is the endgame war map: whoever holds the terminals taxes the vertical economy.
+**Faction control of lift terminals** remains a later endgame ambition: whoever holds the terminals taxes the vertical economy. Ownership stays authored and stable during the local-economy proof.
 
 ---
 
@@ -105,17 +107,61 @@ The only way between Lower and Upper City: gigantic brutalist freight elevators 
         [TENJIN TYCOONS: clean capital outflow, speculation, tolls]
                         │
                         ▼
-        [UPPER CITY: decontaminated goods at 3× markup; elevator tolls skimmed by Minami]
+        [UPPER CITY: sealed freight, decontamination/access costs; Minami takes tolls]
 ```
 
-**Money flows (the gig generator):**
-1. **The Harbor Siphon** — unregistered cargo moves by midnight van from the piers to Kotobuki chop shops → refurbished goods sold in Chidori/Tenjin at 300% markup.
+**Money flows (worldbuilding anchors; operational job generation is specified below):**
+1. **The Harbor Siphon** — unregistered cargo moves by midnight van from the piers to Kotobuki chop shops → refurbished goods reach Chidori/Tenjin. Payment comes from delivery and repair work with real input costs; a blanket 300% neighborhood markup is retired.
 2. **The Synthetic Bloodline** — Sol-88 flows to licensed stations; syndicates siphon ~15% to fuel the underground delivery network and street-racing scene. Fuel price fluctuates with faction wars (canon: gas is never free, never infinite).
 3. **The Morning Wholesale Squeeze** — Tsuru-kai controls all food entering Kamome; kickbacks from haulers; cash laundered through Tenjin paper firms.
 4. **The Neon Wash** — Chidori's physical cash moves across town *by cab driver* to avoid electronic scrutiny → Tenjin shell banks.
 5. **The Paper Chase** — tycoons pay off-the-books couriers to move bond certificates and blackmail material ahead of regulatory raids.
-6. **The Vertical Arbitrage** *(new)* — anything crossing the dust layer gains value: Lower City goods sell at 3× in the Upper City after decontamination; Upper City tech (filters, compensators, sealed trunks) sells at 5× below. The elevator terminals are the tollbooths on this arbitrage — and the war map.
+6. **The Vertical Freight Gate** — later sealed freight between strata earns fees for access, queue time and decontamination. The old automatic 3×/5× price gaps are retired. Larger merchant margins require genuinely separated depot/intercity markets with finite demand, travel time and costs; the elevator alone is not a money loop.
 7. **The Dust Tithe** *(new)* — every Lower City vehicle pays the dust: filter replacements, air-rinse bays, radiator scrubs. Kotobuki's rinse bays are the most recession-proof business in the city.
+
+### How the player learns the economy: the settlement chit
+
+The ROUTE-88 prints a receipt with **gross earned, condition/late adjustment, costs already paid, costs still due, and net**. Sol-88 excise belongs to the fuel purchase; the Dust Tithe belongs to actual filter/rinse service; roadbed access tariffs belong to the gates used. Itemize their attribution to the trip without deducting them twice at delivery. Estimates before acceptance and actual costs afterward explain the difference. KPC owns the fuel, dust wears the car, Minami taxes the road: lore remains in the paperwork.
+
+### Local production — recommended bounded model
+
+**Scope proposal:** six business nodes inside the existing map, four goods, two recipes. Decorative businesses remain decorative; no simulation of every resident, worker, vehicle or faction balance sheet. The six-node proof uses two three-node chains:
+
+| Chain | Producer → converter → consumer | Visible cause and effect |
+|---|---|---|
+| Repairs | Daikoku salvage yard: scrap → Kotobuki machine shop: repair parts → Tenjin service depot | Deliver scrap, see a queued batch start; after its production time, a parts-delivery offer appears. The depot consumes parts on its bounded service schedule. |
+| Food | Kamome wholesaler: ingredients → Chidori canteen kitchen: meal crates → Daikoku shift canteen | An input shortage halts kitchen output; delivery restores one batch; the shift canteen consumes meals at scheduled intervals. |
+
+For the first recipe sheet, propose 2 scrap → 1 repair-parts crate in 6 ticks and 2 ingredient crates → 1 meal crate in 3 ticks. Recipe units are containers, not equal physical mass; outputs/byproducts must never create tradable material from nothing. Each node has finite input/output storage, batch capacity and a receiving limit. Later electronics or filter manufacture is an optional third chain, not another launch dependency.
+
+Raw stock enters through **explicit, capped port/wholesale import schedules**. End consumers remove goods on bounded schedules and replenish a capped purchasing budget from an external customer-demand allowance. These are declared economy sources/sinks, not invisible rescue spawns. Fuel, repairs, rents and taxes are cash sinks. NPC fulfillment is an abstract, scheduled stock transfer with a visible arrival notice; do not simulate every truck. Leave a measured fraction of demand for the player, rather than letting instant NPC arbitrage erase the job board. [Bannerlord inspiration and source limits](art-book/design-review.md).
+
+### Tick, job and transaction contract
+
+**Proposed clock:** a fixed 10-second simulation tick, independent of render rate. Pause freezes economy, deadlines and spoilage together; no offline progression in the slice. Save the seed, tick index, event order, inventory, reservations, quotes, jobs, cash and upgrade state. On resume, process only uncommitted ticks; no catch-up jackpot. Tick order is stable: due imports/consumption → completed production → eligible new batches → unreserved deficits/offers. Player pickup/delivery events join the same ordered ledger with unique IDs.
+
+Procedural jobs are generated from **unreserved deficits** against available source stock and reachable legal receiving bays. A job records source, destination, quantity, mass/slots, owner, condition rule, quote expiry, loading allowance, due time, payout cap and risk band. Filter impossible routes, incompatible cargo and over-capacity loads before offering them. Offer variety is a seeded choice among feasible needs; a cooldown suppresses identical repeated manifests. No infinite timer-based job faucet divorced from inventory.
+
+Acceptance atomically reserves source stock, destination capacity and fee budget. Pickup transfers reserved stock into customer-owned cargo. Delivery atomically transfers accepted units, records condition and pays once; replaying a signal cannot pay again. Cancellation/expiry releases reservations once. Pre-pickup withdrawal has no reward; picked-up returns go back to source with no reward or material conversion. Only one legal ownership state exists for each lot: source, reserved, aboard, delivered, returned, consumed or written off.
+
+### Prices, fees and the small-city boundary
+
+Local hauling earns mainly a **service fee** for distance, handling, access and optional urgency/risk. It does not require one street selling the same box for five times its neighbor's price. Prototype merchant prices later as a modest, disclosed stock band (initial hypothesis: 0.9–1.1 × common reference price), finite quotes, transport costs and a buy/sell spread. Lock accepted contract fees; timestamp unaccepted quotes. Bulk purchases/sales move the available stock and the next quote. Cap destination demand so endless dumping stops paying.
+
+This is a deliberately open, bounded economy, not a claim of complete macroeconomic realism. Regional/intercity price differences only arrive with actual separated suppliers, distance, shipping schedules, border/toll/access costs and finite demand. Keep a legal ordinary-job floor and reserve high margins for visible constraints. If the price model demands implausible local gaps to feel fun, improve the delivery decisions before increasing the multipliers.
+
+### Failure, recovery and exploit boundaries
+
+- **Late/damaged freight:** disclose a bounded reduction or rejection threshold. Valid partial deliveries consume and pay only the accepted units. Spoiled/seized/destroyed stock is written off once. The remaining obligation closes or returns under the printed contract; no repeated failure fee.
+- **Fair disruptions:** publish checkpoint/toll bands before acceptance. A closure after pickup must leave a viable detour plus deadline relief, or allow penalty-free return. No unavoidable ambush at a blind turn or attack during a loading/menu state. If pursuit becomes inescapable, the failure must still lead to recovery, not bankruptcy without options.
+- **Bust/tow:** integrate with the existing police/arrest work through its eventual accepted interface. Proposed cap on loss, a receipt and return to a known safe bay prevent stacked fees; the exact respawn remains that task's decision. No remote teleport preserving a valuable delivery reward.
+- **Zero-cash recovery:** provide a non-transferable basic loaner or repair/fuel allowance for one legal recovery contract. It cannot be sold, stored, crafted, cashed out or repeatedly claimed while an allowance is active. The basic job covers its costs and leaves positive net; no exponential debt, permanent loss of the only working vehicle or mandatory contraband.
+- **No resource loops:** customer freight cannot fund upgrades; legal salvage has a unique origin and bounded award. Crafted output plus resale cannot exceed inputs plus paid work through a repeatable instant loop. Buying, returning, refunding, duplicate settlement, save/reload, upgrade removal and renting/canceling parking all need ledger checks. Prices round consistently in integer currency.
+- **No induced-shortage jackpot:** destroying goods or hoarding inputs cannot raise the payout of one's existing reservation; reward bands are capped. Hold/reservation expiry and capped NPC imports keep one blocked chain from freezing every legal job. Recovery work remains available independently.
+
+### Authored anchors, procedural consequences
+
+Keep the district histories, faction motives, recurring dispatchers and a few short introductions/milestone scenes. Propose one reusable manifest template per job family, a small curated bank of radio lines, and business-specific supply/risk constraints. The seven money flows above are **worldbuilding and optional anchor vignettes**, not seven mandatory branching campaigns or bespoke mechanics for every generated job. Generated work recombines approved places, goods and rules; it never invents new lore or requires runtime story generation. Review the templates, contradictory combinations and state transitions, then sample seeded shifts.
 
 **The tycoons above the factions** (Night-City-style power tier):
 - **Baroness Chiyo Moriyama** (Moriyama Heavy Logistics) — owns the land the docks sit on; sets the tariffs that decide whether syndicates feast or starve. The Kaiun-gumi *think* they run the harbor.
@@ -180,12 +226,14 @@ The only way between Lower and Upper City: gigantic brutalist freight elevators 
 
 ## 7. Gig taxonomy
 
-### Craig's three pillars
-1. **Timed delivery A→B** — the bread and butter.
+### Work families retained from the earlier brief
+1. **Delivery A→B** — the bread and butter, with ordinary forgiving windows and optional premium timed work.
 2. **Race events** — pink-slip sprints, checkpoint rallies, outrun-the-interceptors.
 3. **Personal/chauffeur delivery** — people, not packages. *Owning a fancy car (Appeal ≥ 70) adds ~20% more personal-gig offers* — the clients check the car before they check the driver.
 
-### Generic templates (90% of content — parameterized, endlessly recombinable)
+### Procedural templates — bounded combinations, not infinite content
+**Scope recommendation:** start with robust contract freight, two-stop batching and existing passenger behavior, driven by the finite needs in §4. Customer cargo, owned merchant stock and passenger seats have different ownership rules; contraband is a declared modifier. The remaining templates are a staged catalog, not a requirement to implement fifteen mechanics at once. All historic multipliers/stat gates below are unvalidated tuning proposals.
+
 Each template varies along three axes: **payload rules** (how it behaves in the car), **route pressures** (what the world throws at you), **payout conditions** (how you're paid).
 
 1. **Point-to-Point Express** — time buffer × traffic density × dust visibility × police radar zones. Tests: speed, map knowledge, shortcuts.
@@ -206,8 +254,8 @@ Each template varies along three axes: **payload rules** (how it behaves in the 
 14. **Grease-Fall Drift** — Upper City runoff slicks a Lower City corridor: chain drifts through zero-traction zones for multiplier gigs. Tests: counter-steering, commitment.
 15. **Nagisa Long-Haul** — the single-highway outskirts run: one road, no shortcuts, fuel and filter math the whole way. Tests: endurance, preparation, highway speed.
 
-### Scripted missions (10% — 25 total, tier-advancement exams)
-Never arrive via quest log. An emergency pager beep fires **only after economic/reputation milestones** (e.g. $25k lifetime earnings, 5-star district rating). Structure: 10–15 procedural gigs → milestone → urgent scripted anchor → new vehicle class / district license unlocked.
+### Authored anchors — a small reviewed set, not a 25-mission requirement
+Keep a few dispatcher introductions, relationship moments and progression milestones. The eight premises below are preserved as optional worldbuilding, not mandatory branching missions or vehicle-unlock exams. Prove repeatable work with dialogue disabled; then choose a small anchor budget for the slice. Progression does not require writing another sixteen or seventeen missions. Pager/radio delivery and physical documents keep the story inside the cab. No runtime generated dialogue is required.
 
 Premises in Craig's style (interesting stories, not jokes):
 1. **"The Scent of Osmanthus"** — a sweaty exec is late for his anniversary dinner *with his mistress*, but left his wife's heart medication in the family sedan across town. Mid-route: his wife collapses, rushed to the hospital *opposite the restaurant*. Floor it to the hospital with the meds, or drop him at the restaurant to save his double life — while he has a moral breakdown in your back seat.
@@ -215,33 +263,22 @@ Premises in Craig's style (interesting stories, not jokes):
 3. **"The Prime Catch"** — Kenji the Fish-King's 220 kg bluefin must reach the Grand Bay Hotel before the 5:30 AM press breakfast; Kaiun-gumi has blockaded the market gates. The melting ice kills your rear traction. Bypass via drainage canals and an unfinished ramp bridge.
 4. **"Discreet Extraction"** — Chidori's No.1 hostess flees a drunk, weeping police superintendent barricaded in her dressing room — carrying his service revolver *and* his payoff notebook. Gokuraku enforcers demand the book mid-route. Sell out the passenger for syndicate favor, or break the blockade to honor the fare?
 5. **"The Midnight Kidney"** — Sister Beatrice's organ cooler has a dying battery: it only charges above 3,500 RPM. Cross the city at high revs through truck traffic and speed checkpoints without stalling or crashing — dropping below speed kills the patient.
-6. **"The Whistleblower's Route"** — a KPC engineer carries proof of toxic dumping into Kamome's seafood beds. KPC security is hunting him. Mid-route, Moriyama Heavy Logistics offers a life-changing wire transfer to redirect him to a quiet dock warehouse. Justice or the payout?
+6. **"The Whistleblower's Route"** — a KPC engineer carries proof of toxic dumping into Kamome's seafood beds. KPC security is hunting him. Mid-route, Moriyama Heavy Logistics offers a life-changing bearer payment to redirect him to a quiet dock warehouse. Justice or the payout?
 7. **"The Maestro's Fragile Masterpiece"** — the Record-Shop Phantom's one-of-a-kind acetate shatters above 0.4 G. Mid-route, an illegal drag race swallows the expressway. Velvet-smooth driving through nitrous chaos, on a studio-rental clock.
 8. **"The Cloudbreak Fare"** *(new)* — "Highline" Adaeze's own mother needs to reach a Haibara clinic, but Adaeze can't be seen favoring family on the manifest. Get her through Terminal 1 inspection *as contraband*: sealed trunk, scrubber timing, no questions. The gatekeeper's favor is the payout.
-9. *(+16 more to be written — one per vehicle-class exam and district license.)*
+The former “+16 more” commitment is retired; the original §17 also said seventeen, so neither count is a production requirement.
 
 ---
 
-## 8. GPS pre-gig planning — the ROUTE-88 system
+## 8. Pre-gig planning — manifest, signs and paper map
 
-**Canon:** there is no satellite GPS — there is the **ROUTE-88**, a chunky in-dash CRT punch-card route computer. Accepting a gig plays a *CHUNK-CHUNK* as you feed a punched card into a brass slot; the phosphor screen traces your route with a visible sweep beam. Same gameplay, better world.
+**Current direction:** no GPS. ROUTE-88 is a chunky in-dash CRT punch-card manifest and settlement terminal, not a disguised navigation app. The *CHUNK-CHUNK* and green/white phosphor remain. A briefing marks pickup/destination on a paper-style map; street signs, district silhouettes and landmark memory teach the fixed city. No moving player dot, computed route line, magnetic waypoint snapping or turn-by-turn directions. The older GPS exception is retired.
 
-**The planning screen (must stay under 60 seconds):**
-- Cel-shaded vector map: origin pin, destination pin, baseline safe route (1.0× pay).
-- 3–5 glowing **opportunity nodes** slightly off-route: cheap gas (Sol-88), garage/stash drop, black-market fence, hitchhiker pickup, **filter-rinse bay**.
-- **Hazards** marked: speed traps, construction blockades, faction checkpoints, traffic jams, Meter Maid patrol zones, **grease-fall slicks, elevator queue lengths**.
-- Player drags the route line; it snaps magnetically to intersections and nodes. Max 3 custom waypoints.
+The offer lists quantity, ownership, mass/slots or passenger seats, condition rules, loading allowance, optional deadline, quoted fee, known toll/inspection bands and expiry. Dated radio/split-flap notices reveal conditions; the driver chooses a route. In the proposed single-player slice, planning pauses economy, spoilage and deadlines together. Ordinary work has no universal 60-second planning limit or automatic 1%/second payout decay. A clearly optional Quick-Dispatch premium may be tested separately.
 
-**Stratum rules:** the map NEVER shows both layers. Crossing strata via elevator plays the CRT desync animation and redraws the new layer's network. Elevator terminals show live queue depth and toll brackets on the planning screen — picking your terminal is part of the gamble.
+**Working loop:** read demand → reserve a feasible manifest and receiving space → fit a load/module → drive by signs/map → deliver a visible stock consequence → settle once → return with money/legally awarded materials → repair, invest or take another job. [Lower City §9A](art-book/lower-city/chapter.md) gives job ownership and the worked heavy/light comparison.
 
-**The tradeoffs (time vs. money vs. risk):**
-- **Gas stop** — running on fumes caps top speed at 60%. Stop: +12 s, full boost. Skip: gamble.
-- **Garage drop** — stash contraband to zero your Heat, at the cost of a detour. Keep it: confiscation risk if rammed.
-- **Hitchhiker stack** — pick up a side fare mid-cargo-run: payout doubles, but their destination adds a stop and their comfort rules apply to your fragile cargo *immediately*.
-- **Filter rinse** — a saturated particulate filter chokes boost: rinse now (+20 s) or gamble the engine.
-- **Quick-Dispatch bonus** — lock the plan within 15 s: +15% tip. After 45 s the client texts annoyance; payout decays 1%/s. One-button default (Space/X) accepts the baseline route instantly.
-
-**Design law:** planning feels like *gambling with time*, never like filling a form.
+**Choices:** a gas/rinse stop costs cash and time but restores range; consolidation saves repeated stops and empty returns but adds mass, braking distance and access limits; a legal passenger may fill an unused seat if cargo safety permits. No automatic doubled hitchhiker payout or garage action that erases wanted state. Posted police rules and the accepted arrest implementation control recovery. Upper City plans later use separate paper briefings, preserving its distinct stratum above the clouds.
 
 ---
 
@@ -257,21 +294,39 @@ Premises in Craig's style (interesting stories, not jokes):
 | **Goliath 800** | Heavy flatbed rig | Twin-steer tractor, knuckle-boom crane, winch bumper | Oversized freight, syndicate heavy work |
 | **Mirage Zero** | Exotic wedge | Doorstop show-car wedge, pop-up headlight brow, louvered engine deck | Top-tier syndicate gigs, prestige fares |
 
-### Upgrade economy (per Craig: speed / cargo size / health / appeal)
-- 5 tiers per stat × 4 stats = 20 upgrades per chassis. Minor upgrade ≈ 3–4 gigs of earnings; full vehicle tier ≈ 30–40 gigs + a milestone gate (the scripted exam mission).
-- **Dust-era upgrades** *(new)*: **particulate filter** tiers (longer boost before saturation), **altitude compensator** (carb/jetting auto-trims between strata — without it, a Lower tune runs rich and smoky upstairs and attracts corporate police), **lead-sealed smuggler trunk** (decon-proof, +mass, changes drift physics), **dust armor** (sealed bearings, gasketed panels — less degradation in Shinkai).
-- **Class gating without frustration:** classes are *operational permits*, not locked doors — the van physically fits 6 pallets; corporate clients refuse a rusted hatchback (Appeal ≥ 70). If a gig needs a class you don't own: **subcontract/lease** — the client provides the vehicle for a 50% cut. A showroom test-drive that converts grind into aspiration.
-- **Anti-grind levers:** district surge multipliers (rotating economic events: "Docks Strike → cargo 2.5×"), flawless tip chains (no-crash streaks stack a 2.5× tip multiplier; one crash resets it).
+### Upgrade economy — requested goals, proposed staging
 
-### Money sinks (endgame — the map becomes *yours*)
-- **Garages as forward bases** — buy properties across districts and strata: instant repair, free refuel, filter rinse, new planning jump-off points.
-- **City infrastructure bribes** — sink endgame cash into permanently changing YOUR map: remove the bridge speed camera ($150k), install a canal jump-ramp ($300k), **buy a monthly Express Freight Line elevator pass** ($500k). One static map, player-carved.
+Craig's direction retains speed, cargo size, health and appeal, plus garage/resources growth. The six chassis are the long-term art vocabulary. Start with the existing vehicle and two useful load/module configurations; preserve active Forge work. Five visual tiers per stat are available art studies, not a commitment to 120 mechanical upgrades or mandatory scripted exams. Numeric class gates and lease shares remain tuning hypotheses.
+
+Use finite, visible contract fees instead of stacking surge and flawless-tip multipliers without a budget. A lease can let players try heavier work, but its fee and return terms must be posted and ledger-safe. Racks, armor and cooling add mass/space/operating costs; a faster small vehicle keeps its alley/handling niche. Filters slow recurring wear rather than permanently ending the Dust Tithe. [Fleet & Gear](art-book/fleet-gear/chapter.md) is the visual/upgrade detail source.
+
+### B6. HOME GARAGE — money, materials and a reason to return
+
+**Craig's direction:** resources brought home fund improvements, better handling/speed/capacity, later vehicles and parking. **Recommended rules:** one protected home bay, limited owned-stock storage, a repair bench and a manifest shelf. Storage transfers are atomic; only player-owned goods and explicitly awarded legal salvage enter upgrade recipes. Customer freight stays sealed even when parked overnight.
+
+Start with two recognizable material inputs — scrap and repair parts — plus cash. Every recipe shows exact inputs and benefit; shops offer a cash substitute at posted prices so a rare drop never gates basic progress. A proposed rack upgrade might cost 2 scrap + 1 parts crate + labor cash; selling those materials instead is an immediate liquidity choice. Avoid random component tiers and hidden recipes. Reconcile crafting yields and buyback values against the economy ledger before tuning rewards.
+
+| Step | What changes at home | Tradeoff / scope gate |
+|---|---|---|
+| Starter bench and storage | Repair, fuel/filters, secured small cargo, one useful rack or handling upgrade | Ordinary work remains profitable with the starter. Cash spent upgrading cannot also cover the next fuel bill; display a working-reserve estimate. |
+| Specialist module and second vehicle | Choose cargo rack, protective lining, cold box, or responsive light chassis | Modules consume mass/space and have operating costs. Faster handling stays useful in alleys; a larger van consolidates bulk but loses access/turning/braking flexibility. Cooling trades capacity and fuel for shelf life. |
+| Rented parking bays | Keep a second configuration ready; later store more owned stock | Rent is quoted per shift, not offline real time. Missed rent suspends extra-bay use under a disclosed grace rule; stored goods and the starter are not silently deleted. No hidden infinite storage. |
+| Abstract hired dispatch (later) | Assign one bounded route, driver, vehicle and load with a ledger | Pay wages, upkeep, fuel and parking from real proceeds. Never earn while paused; no goods teleporting between two simultaneous jobs. This is not yet a physical convoy. |
+| Following trucks/fleet (last) | A visible convoy with grouping, separation and stuck recovery | Requires dedicated navigation, traffic, stop/parking and save tests. Do not make follower AI a dependency for the first garage upgrade. |
+
+Dust filters slow wear rather than ending service forever; propose diminishing returns and a minimum service cost, subject to balance review. Armor reduces specific impact loss but adds mass; racks do not increase engine output. Handling upgrades improve a declared response/braking band, not immunity to loaded inertia. Preserve the small-car niche. T1–T5 silhouette studies remain available for later art work; fewer mechanical levels can ship first.
+
+The garage should show the operation growing through existing props: one bench, labeled parts shelves, a painted bay number and later a rental placard. The player returns to see the resources they chose to keep. New garage art is a later request; this documentation update commissions none.
+
+### Later money sinks
+
+Rented bays and eventually forward garages offer convenience and storage. They do not create free transferable fuel or instantaneous repair profit: fuel/parts are purchased or drawn from owned stock, labor is priced, and rent never silently deletes goods or the starter. Infrastructure bribes, Express Freight passes and multiple-stratum property ownership remain later ideas with explicit costs and route/fairness review. They are not needed for the first useful upgrade.
 
 ---
 
 ## 10. Emergent comedy — systems, not jokes (design law)
 
-Craig's rule is absolute: **no AI-written jokes, ever.** Comedy comes from physics, conflicting AI goals, and cascading failures — the player is the comedian. Four systemic engines:
+Craig's rule is absolute: **no AI-written jokes, ever.** Authored worldbuilding remains. The following four ideas are preserved as **later experiments**, not promised slice systems; cargo slots/mass/condition come first. Physical spills, brawls, ejections and combat require separate safety-of-play, cost and feasibility review, and must respect the Kuro-Kiri suited-worker law. No current pedestrian or police task is canceled by this staging:
 
 1. **Unsecured cargo physics** — cargo has real rigid-body mass. Brake hard without securing it and the safe goes through the windshield; the chicken crate bursts open and feathers physically block the cockpit camera until you roll down the windows. (*FlatOut/Wobbly Life* lineage.)
 2. **Aggro-redirect cascades** — NPCs run an aggro state machine. Dodge a ramming cop and he hits a civilian muscle car instead — whose driver gets out and drags the cop from the cruiser to brawl while you drive away clean. (*Far Cry/GTA* lineage.)
@@ -284,11 +339,9 @@ Plus the **Meter Maid**: a silent parking enforcer on a three-wheeled scooter �
 
 ## 11. Retention on one map
 
-The city never sits in the same state twice — without moving a single building:
-- **Weekly infrastructure shifts** — Monday: expressway closed for repaving → alley routes. Typhoon weekend: canal districts flood → muscle cars hydroplane, lifted rigs rule. (Collision-layer toggles + water planes; zero new geometry.)
-- **Daily Hot Route** — a seeded 5-drop Mega-Shift, same weather/traffic/cargo for everyone; ranked on net profit (bounty − fuel − damage − violations). Prestige cosmetics only, zero power creep.
-- **Faction war phases** — the war map ticks: blockades move, **elevator terminal control changes hands**, surge multipliers follow the fighting, dispatchers' loyalties shift. Your mental map is the progression.
-- **Dust storm events** *(new)* — periodic brown-outs drop Lower City visibility to 30 m: hazard pay ×2, retroreflector navigation becomes the skill, grease-falls multiply.
+**Proposed proof:** the fixed city presents different useful manifests as stock, production and finite consumption change. Use seeded demand, scheduled supplier arrivals and a small number of warned route disruptions. The player can explain cause and effect; randomness must not invalidate an accepted job without relief or a return option. Repetition is measured, not declared solved.
+
+Daily ranked challenges, dynamic faction wars/terminal control, severe dust events and flood variants remain later experiments. Do not require multiplayer economy synchronization, new geometry or a full weather system to demonstrate a second interesting shift. Use the [research review's playtest gates](art-book/design-review.md): five first-time players, two shifts, at least three seeds, comprehension/route/load-choice/recovery checks, and a separate deterministic ledger soak. These are targets, not completed tests.
 
 ---
 
@@ -345,32 +398,34 @@ The sea at Nagisa is a vivid, unnatural **teal-green** — not tropical, not alg
 
 ---
 
-## 14. Performance by canon — every lore decision is an engineering saving
+## 14. Performance hypotheses and current-work boundary
 
-| Lore decision | Engineering saving |
+The older cost claims below are design hypotheses, not benchmark results. Preserve current Lower City/Forge/traffic/police workers and their accepted interfaces; no old scope label here authorizes deleting their work.
+
+| Lore decision | Engineering implication |
 |---|---|
 | **Permanent Lower City dust** | Exponential-squared distance fog + 50–80 m far-plane cap: the far plane is a *wall*, not a gradient. Geometry beyond it drops to silhouette. Aggressive, guilt-free culling on mobile-class GPUs. |
-| **No pedestrians (Kuro-Kiri ordinance)** | Deletes walking AI, sidewalk navmeshes, ped-vehicle collision, crowd LODs, hitboxes — the single largest AI/animation scope item, gone. Replaced with 2D skybridge silhouettes and static masked figures (zero locomotion). |
+| **Kuro-Kiri suited-worker law** | Unsuited outdoor travel is forbidden; suited workers at posts remain legal. Static silhouettes can provide inexpensive background life. This is not a ban on the active pedestrian/Forge work or permission to delete its locomotion/hit reactions. |
 | **Cutscene district transitions** | No open-world streaming system between Lower/Upper/Outskirts. Each stratum is a separate authored scene; the 4–6 s cutscene IS the loading screen, disguised as cinema. |
 | **Distant skyscrapers as skybox** | The horizon skyline is painted silhouettes, not geometry. Zero draw calls beyond the fog wall. |
 | **Masked characters, no faces** | No facial rigs, no lip-sync, no expression animation. Characters are silhouette + mask + props. Cutscene and NPC costs collapse. |
 | **Fixed lighting per stratum** | No dynamic day/night cycle: Lower = perpetual amber murk, Upper = clean pale sun, Nagisa = teal afternoon. Baked lighting, zero GI passes at runtime. |
 | **No traffic lights** | No intersection state machines, no idle downtime breaking driving flow. |
-| **12–16 car traffic donut** | Baked Path3D splines, 2 raycasts per car, recycled along the velocity vector. No dynamic steering AI. |
-| **KMTED: 2-car pinning chases** | No helicopters, no SWAT, no wanted-level army. The cheapest pursuit system that still produces stories. |
+| **Bounded civilian traffic** | Earlier 12–16-car spline/raycast proposals are historical. Reuse the active road-graph traffic/spawn work and measure its budget; do not replace it with the old no-steering prescription. |
+| **KMTED enforcement** | Reuse current police/arrest work under its owners. Keep new economy pressure bounded; full combat and extra pursuit systems need a later gate. No cost or fun guarantee is inferred. |
 
 ---
 
 ## 15. Canon guardrails (world rules)
 
-1. **Showa-futurist tech ceiling** — vacuum tubes, CRTs, pneumatic tubes, carburetors, cassettes. NEVER: smartphones, internet, drones, self-driving cars. **One exception: the ROUTE-88 punch-card route computer** (Craig's GPS, diegetic).
+1. **Showa-futurist tech ceiling** — vacuum tubes, CRTs, pneumatic tubes, carburetors, cassettes. NEVER: smartphones, internet, drones, self-driving cars. **ROUTE-88 is an analog manifest terminal, not a GPS exception** (§8).
 2. **Yakuza-game tone discipline** — deadly serious world; absurdity from high-stakes × mundane collisions. No fourth-wall breaks, no parody, no supernatural (the Minotaur stays a metaphor — §16).
 3. **No written jokes, ever** — comedy is systemic. (Craig's law.)
 4. **The cab is sovereign ground** — couriers make the city work; syndicates don't murder neutral drivers, or the food/fuel/vice stops moving. Professional + neutral = begrudging safe passage.
 5. **Geography is fixed** — the map never shifts; shortcut mastery IS progression. Strata are separate authored scenes; transitions are cutscenes, never seamless.
 6. **Cash and Sol-88 rule everything** — paper yen, fluctuating fuel prices, damage persists until paid for at Kotobuki garages. **Dust is a tax:** filters, rinses, and sealed bearings are recurring costs.
 7. **The wheelman stays behind the wheel** — no on-foot shooter; the vehicle is body, weapon, shield, livelihood. Interactions happen through windows, bumper, horn, trunk, radio.
-8. **Every face is masked** — no unmasked human faces anywhere in the game. (Craig's character law: mysterious + cheap.)
+8. **Every face is masked** — no unmasked human faces anywhere in the game. Kuro-Kiri prohibits unsuited outdoor travel; suited workers at their posts are legal. It does not ban all outdoor humans. (Craig's character law.)
 9. **The dust is the wall** — Lower City visibility never meaningfully clears; the Upper City never sees the ground. The strata stay visually and mechanically distinct.
 
 ---
@@ -394,38 +449,20 @@ The sea at Nagisa is a vivid, unnatural **teal-green** — not tropical, not alg
 
 ---
 
-## 17. Dependent worker-task breakdown (NOT FILED — for watchdog dispatch after Craig approves the bible)
+## 17. Staged roadmap — proposal, not a dispatch plan
 
-**Phase 0 — Approval gate.** Craig approves this bible (or amends it). Nothing below starts before that.
+This replaces the old sequence requiring three strata, six vehicles, fifteen gig types, GPS planning and 25 scripted missions before the full loop could work. It does not reopen, reassign or reprioritize existing tasks. Read the current boards and workers before implementation; this document update authorizes no game work or watchdog dispatch.
 
-**Phase 1 — World geometry: KUROGANE BAY, three strata.**
-- 1a. **Lower City road network** (the main map): multi-lane expressway ring, 6 district street grids, alleys, canal service roads, haul roads. Trench-grid topology: narrow, 90°, claustrophobic. Road variety is the #1 requirement.
-- 1b. **Upper City skyway network**: curvilinear viaducts, banked ring roads between arcologies. Radically opposed topology to Lower (never the same street grid twice).
-- 1c. **Sky-elevator terminals** (3): brutalist lift towers with car decks, toll booths, inspection gantries, faction banners. Major set pieces.
-- 1d. **Outskirts highway**: the single long road, mountain switchbacks, coastal viaduct, teal-sea beach terminus. Cutscene trigger gates at both ends.
-- 1e. **District visual identity pass** per §12 (dust palette, capsule towers, panel fields, megastructures), following the anime-strokes skill. Distant skyscrapers as skybox silhouettes.
-- 1f. **Dust system**: exponential-squared distance fog, 50–80 m far-plane wall, drifting particulate cards around the player, per-stratum baked lighting.
+This is a scope recommendation, not authorization to implement or cancel another worker's work. `td-185` already supplies the city/sign/map/gig foundation; traffic and cops have separate current tasks. Preserve implemented passenger/cargo behavior and police integration. The phases below describe additional economy work and its gates, not a replacement city or a reset of shipped progress.
 
-**Phase 2 — Vehicle roster.** 6 archetypes (§9) via the Tripo-then-Blender pipeline, anime-styled per §12. Dust-era modules: filters, altitude compensators, smuggler trunks.
+| Phase | Bounded addition | Gate before expanding |
+|---|---|---|
+| 0 — preserve the foundation | Inventory current gig, save, damage, traffic and arrest behavior on the accepted game head. Exercise the existing map and signs. | Document actual interfaces and remaining defects with owners; don't import design promises as implemented facts. |
+| 1 — local economy proof | In the existing city use 6 businesses, 4 goods, 2 recipes, one starter vehicle plus two load/module configurations, contract freight and existing passenger jobs. Fixed ticks, short manifests, receipts, garage storage/one upgrade, two-stop batching. No whole-population or off-map simulation. | Stock/settlement invariants and ordinary-job recovery pass; players can explain a downstream consequence and choose between heavy and light runs. |
+| 2 — varied shifts | Optional third chain, owned trading stock, a second vehicle, comfort/perishable/contraband modifiers and one legible pressure layer at a time. Reuse existing police work subject to its acceptance; rivals first compete for unreserved work, bandits first use warned road events. | No repeatable money/resource loop; both vehicle niches survive; risk is understood before commitment. |
+| 3 — distant depot trade | A constrained Nagisa/terminal market with a shipping schedule, real travel cost and finite imports; only then a separate intercity market, after map and handling gates. Rented parking and bounded abstract driver dispatch. | Longer routes earn margins through separation, time and access; wages/upkeep/parking remain legible and player driving remains worthwhile. |
+| 4 — optional expansion | Physical following trucks, convoy recovery/formation AI, additional cities, faction territory simulation, full vehicle combat. | Separate feasibility and fun reviews for pathfinding, blocked junctions, save consistency, performance and combat. None is needed to prove Phase 1. |
 
-**Phase 3 — Core gig system.** Dispatcher (Auntie), gig board, the 10 generic + 5 stratum templates (§7) with parameter ranges, payout/economy tables.
+A solo developer using AI still owns balance, persistence, asset rights, route QA and readable feedback. Deterministic tables and authored constraints reduce debugging/review surface; unlimited procedural text, many-agent economies and combat multiply it. No runtime generative dialogue or paid generation is required by this design.
 
-**Phase 4 — ROUTE-88 GPS planning.** In-dash CRT fiction + planning screen UI: vector map, opportunity nodes (incl. rinse bays, elevator queues), hazard marks, snap routing, stratum desync animation, Quick-Dispatch bonus, decay rules. The elevator ascent as Gig Triage Screen.
-
-**Phase 5 — Progression.** 4 stats × 5 tiers upgrades + dust-era modules, 6 vehicle purchases, gig-class permits, subcontract/lease fallback, surge multipliers, tip chains, elevator Express passes.
-
-**Phase 6 — Factions & heat.** 4 syndicates + 3 tycoons, war-phase state machine (incl. terminal control), KMTED heat/contraband systems, dispatcher loyalty, inspection triage at elevators.
-
-**Phase 7 — Scripted missions.** 25 missions; premises 1–8 above are written, 17 more to author. Pager delivery at milestones only.
-
-**Phase 8 — Emergent-comedy systems.** Cargo rigid-body physics, NPC aggro state machine, passenger state machines (incl. Ejection Meter), spill decals with friction values, grease-fall drift zones, the Meter Maid.
-
-**Phase 9 — Retention.** Daily Hot Route seeding, weekly infrastructure shifts, dust-storm events, garage purchases, infrastructure bribes.
-
-**Phase 10 — Audio & identity.** Radio stations (FM-synth + Nagisa surf-rock pirate station), engine voices per archetype, *CHUNK-CHUNK* punch-card sound, stratum-specific ambience (Lower: diesel rumble + steam; Upper: turbine hum + wind), city name treatment/logo.
-
-**Dependencies:** 1 → 2,3 (vehicles and gigs need roads); 3 → 4,5 (planning and progression need gigs); 6 needs 3; 7 needs 3+5+6; 8 needs 2+3; 9 needs 1+3; 10 anytime after 1.
-
----
-
-*End of world bible v2. Awaiting Craig's approval. Nothing dispatches until he approves.*
+**Next design decision:** review pressure, trading timing, material rewards, the clock/recovery policy and fleet scope in the [open decisions](art-book/design-review.md). Exact tick/recipe/price values remain test hypotheses. Keep this systems revision in draft; there is no new implementation dispatch, merge or deployment authority.
