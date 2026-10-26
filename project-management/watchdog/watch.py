@@ -1885,22 +1885,47 @@ def _load_pending_ledger():
     return data, path
 
 
+def _auto_deregister(task, pr):
+    """Retire a task's worker registration when its PR merges. Added
+    2026-10-26 after the registry audit (Craig's direct order): the
+    register-only lifecycle left 22 finished workers reading ALIVE for
+    weeks because deregister-worker was a manual step nobody ran.
+    record-pending is the one step every merge passes through, so the
+    deregistration rides it. Reports, never raises: a failure here must
+    not fail the merge bookkeeping, but it is printed, never silent."""
+    try:
+        state = load_state()
+        workers = state.get("workers", {})
+        if task in workers:
+            w = workers.pop(task)
+            state.setdefault("notes", []).append(
+                f"{now().isoformat()[:16]}Z deregistered {task} ({w.get('kind')}): "
+                f"auto — PR #{pr} merged (record-pending)")
+            save_state(state)
+            print(f"DEREGISTERED {task} (auto: PR #{pr} merged)")
+    except Exception as e:
+        print(f"DEREGISTER-SKIP {task}: {e}")
+
+
 def cmd_record_pending(args):
     """record-pending <game> <task> <pr> <sha> <summary> — deduped append to
     project-management/watchdog/releases/pending.json. Dedupe on pr. Replaces the prose
-    'dedupe on pr' rule in the SHIP step."""
+    'dedupe on pr' rule in the SHIP step. Also auto-deregisters the task's
+    worker (see _auto_deregister) on both the record and dedupe paths."""
     game, task, pr, sha = args[0], args[1], int(args[2]), args[3]
     summary = args[4] if len(args) > 4 else ""
     data, path = _load_pending_ledger()
     for e in data.get("pending", []):
         if e.get("pr") == pr and e.get("game") == game:
             print(f"PENDING-DEDUPED {game} PR #{pr} (already recorded)")
+            _auto_deregister(task, pr)
             return
     data.setdefault("pending", []).append({
         "game": game, "task": task, "pr": pr, "merged_sha": sha,
         "merged_at": now().isoformat(), "summary": summary})
     json.dump(data, open(path, "w"), indent=1)
     print(f"PENDING-RECORDED {game} {task} PR #{pr} {sha[:7]}")
+    _auto_deregister(task, pr)
 
 
 def cmd_pending_report(args):
