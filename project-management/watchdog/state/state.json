@@ -2056,117 +2056,31 @@
   "2026-10-13T05:45Z LIVENESS: td-235 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-235-20261013-054508.md).",
   "2026-10-15T03:15Z LIVENESS: td-224 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-224-20261015-031521.md).",
   "2026-10-15T18:15Z LIVENESS: td-263 proclaimed DEAD (2 quiet cycles; heartbeat stale (1726min)). Replacement dispatch-subagent queued (brief td-263-20261015-181513.md).",
-  "2026-10-20T08:00Z LIVENESS: td-236 proclaimed DEAD (2 quiet cycles; heartbeat stale (3098min)). Replacement dispatch-subagent queued (brief td-236-20261020-080002.md)."
+  "2026-10-20T08:00Z LIVENESS: td-236 proclaimed DEAD (2 quiet cycles; heartbeat stale (3098min)). Replacement dispatch-subagent queued (brief td-236-20261020-080002.md).",
+  "2026-10-26T16:46Z deregistered td-188 (subagent): PR #594 merged 2026-10-09; board merged; worker finished (redo: earlier deregistration was clobbered by a concurrent watchdog state-pull before state-push)",
+  "2026-10-26T16:46Z deregistered td-189 (subagent): PR #593 merged 2026-10-09; board merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-190 (subagent): PR #595 merged 2026-10-09; board merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-196 (subagent): PR #592 merged 2026-10-09; board merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-202 (subagent): validated PASS 2026-10-17; worker finished; PR #795 evidence record only",
+  "2026-10-26T16:46Z deregistered td-239 (subagent): PR #598 merged 2026-10-09; board merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-240 (subagent): PR #600 merged 2026-10-09; board merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-241 (subagent): PR #603 merged 2026-10-09; board merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-242 (subagent): PR #608 merged 2026-10-09; board merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-243 (subagent): done-pending-verdict; cover fix landed 2026-10-23 PR #1053; worker finished",
+  "2026-10-26T16:46Z deregistered td-244 (subagent): PR #611 merged 2026-10-09; board merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-246 (subagent): validated 2026-10-09; PRs #618 #619 merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-247 (subagent): validated 2026-10-09; PR #622 merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-248 (muse-subagent): validated 2026-10-09; PR #620 merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-251 (subagent): worker finished Oct 12; task in_review/rejected on dot merge-hold - phantom registration only, task untouched",
+  "2026-10-26T16:46Z deregistered td-252 (subagent): worker finished Oct 12; task rejected on dot merge-hold - phantom registration only, task untouched",
+  "2026-10-26T16:46Z deregistered td-256 (subagent): board done; fix merged 2026-10-17 PR #770; worker finished",
+  "2026-10-26T16:46Z deregistered td-260 (subagent): board done 2026-10-15; PR #814 merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-261 (subagent): board done 2026-10-15 validated; worker finished",
+  "2026-10-26T16:46Z deregistered td-262 (subagent): board done 2026-10-15 validated; worker finished",
+  "2026-10-26T16:46Z deregistered td-273 (subagent): board done 2026-10-17 inspector PASS; PR #888 merged; worker finished",
+  "2026-10-26T16:46Z deregistered td-283 (subagent): done-pending-verdict via gdc PR #541; corrections merged PR #1105; worker finished Oct 25"
  ],
  "workers": {
-  "td-188": {
-   "kind": "subagent",
-   "session": "067047e7-881a-4ca1-83ae-644da1ae9b71",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-188.md",
-   "dispatched_at": "2026-10-09T12:49:07.116025+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-189": {
-   "kind": "subagent",
-   "session": "4bc3c45f-a2fd-4b1e-acf6-a3cf7077b284",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-189.md",
-   "dispatched_at": "2026-10-09T12:49:09.962441+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-190": {
-   "kind": "subagent",
-   "session": "521a38ed-583a-4f10-85ca-14c85d8aa881",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-190.md",
-   "dispatched_at": "2026-10-09T12:49:10.147656+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-196": {
-   "kind": "subagent",
-   "session": "b66a5ca1-4091-45e6-b637-c03962adc606",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-196.md",
-   "dispatched_at": "2026-10-09T12:49:10.300971+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-239": {
-   "kind": "subagent",
-   "session": "24596696-7135-4a29-b132-31b31f670a87",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-239.md",
-   "dispatched_at": "2026-10-09T13:57:43.595198+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-240": {
-   "kind": "subagent",
-   "session": "565eaf25-326a-4caf-84d2-4683f03a5108",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-240.md",
-   "dispatched_at": "2026-10-09T14:25:33.155789+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-241": {
-   "kind": "subagent",
-   "session": "5094fc5c-a52b-45da-ad2c-851837db40d0",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-241.md",
-   "dispatched_at": "2026-10-09T14:25:33.353278+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-242": {
-   "kind": "subagent",
-   "session": "c1251930-c07f-490a-966a-ff652dab8afc",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-242.md",
-   "dispatched_at": "2026-10-09T14:46:34.242163+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-243": {
-   "kind": "subagent",
-   "session": "57924e65-7ff9-42a5-b022-4be25d7c4554",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-243.md",
-   "dispatched_at": "2026-10-09T15:43:42.554430+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-244": {
-   "kind": "subagent",
-   "session": "8fd72fe6-9e90-4a34-b391-66418817b49e",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-244.md",
-   "dispatched_at": "2026-10-09T14:46:34.889967+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-246": {
-   "kind": "subagent",
-   "session": "5fc04d66-d1dd-4173-a580-d8e9b2355298",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-246.md",
-   "dispatched_at": "2026-10-09T16:25:31.924484+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-247": {
-   "kind": "subagent",
-   "session": "beccd3d8-cd3a-4adb-99e1-939efa5e293a",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-247.md",
-   "dispatched_at": "2026-10-09T16:25:30.906626+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
   "td-217": {
    "kind": "muse-subagent",
    "session": "b4c71eb0-50e9-4723-bb42-bca7eb10a7c3",
@@ -2176,93 +2090,12 @@
    "quiet_cycles": 0,
    "last_verdict": "stale"
   },
-  "td-248": {
-   "kind": "muse-subagent",
-   "session": "07bf1209-ce3c-4e22-a591-1cee9253a714",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-248.md",
-   "dispatched_at": "2026-10-10T20:22:36.068959+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "stale"
-  },
-  "td-252": {
-   "kind": "subagent",
-   "session": "cd8bfdbf-ca99-4e2c-97c9-c6c050b59001",
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-252.md",
-   "dispatched_at": "2026-10-12T02:22:02.068551+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "stale"
-  },
-  "td-251": {
-   "kind": "subagent",
-   "session": "9cc12daa-e403-4218-b2a2-77c59a843cbf",
-   "repo": "doublehidenblade/tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-251.md",
-   "dispatched_at": "2026-10-12T00:19:46.248280+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
   "td-218": {
    "kind": "subagent",
    "session": null,
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-218.md",
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-256": {
-   "kind": "subagent",
-   "session": "3939bc8d-768d-4de6-815d-2293e82b9bae",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-256.md",
-   "dispatched_at": "2026-10-13T13:58:17.466353+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-202": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-202.md",
-   "dispatched_at": "2026-10-14T03:49:42.020074+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-260": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-260.md",
-   "dispatched_at": "2026-10-14T13:30:38.264042+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-261": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-261.md",
-   "dispatched_at": "2026-10-14T13:30:56.767419+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-262": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-262.md",
-   "dispatched_at": "2026-10-14T13:31:49.098473+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-273": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-273.md",
-   "dispatched_at": "2026-10-17T02:58:58.088459+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
@@ -2275,14 +2108,14 @@
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
-  "td-283": {
+  "td-286": {
    "kind": "subagent",
-   "session": null,
+   "session": "989920b1-9cf2-4fe5-93a3-ee3a31922e2b",
    "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-283.md",
-   "dispatched_at": "2026-10-24T07:51:25.819808+00:00",
+   "task_file": "godot/docs/tasks/td-286.md",
+   "dispatched_at": "2026-10-26T16:46:18.037986+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
