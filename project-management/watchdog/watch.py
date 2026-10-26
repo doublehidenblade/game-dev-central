@@ -1885,24 +1885,54 @@ def _load_pending_ledger():
     return data, path
 
 
-def _auto_deregister(task, pr):
+def _parse_ts(s):
+    """Parse an ISO-8601 timestamp ('Z' or offset form) to an aware
+    datetime; None when unparseable."""
+    if not s:
+        return None
+    try:
+        return datetime.fromisoformat(s.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def _auto_deregister(task, pr, game=None):
     """Retire a task's worker registration when its PR merges. Added
     2026-10-26 after the registry audit (Craig's direct order): the
     register-only lifecycle left 22 finished workers reading ALIVE for
     weeks because deregister-worker was a manual step nobody ran.
     record-pending is the one step every merge passes through, so the
     deregistration rides it. Reports, never raises: a failure here must
-    not fail the merge bookkeeping, but it is printed, never silent."""
+    not fail the merge bookkeeping, but it is printed, never silent.
+
+    Binding (dot's review of v1, 2026-10-26): retire only the
+    registration this PR's merge actually completes. If the task was
+    re-registered for new work after this PR merged, the current
+    registration belongs to a newer worker and a replayed or late
+    record-pending must never retire it — the registration's
+    dispatched_at must predate the PR's real merged_at (from the API).
+    Regression tests: tests/test_auto_deregister.py."""
     try:
         state = load_state()
         workers = state.get("workers", {})
-        if task in workers:
-            w = workers.pop(task)
-            state.setdefault("notes", []).append(
-                f"{now().isoformat()[:16]}Z deregistered {task} ({w.get('kind')}): "
-                f"auto — PR #{pr} merged (record-pending)")
-            save_state(state)
-            print(f"DEREGISTERED {task} (auto: PR #{pr} merged)")
+        w = workers.get(task)
+        if w is None:
+            return
+        dispatched = _parse_ts(w.get("dispatched_at"))
+        repo = PUBLISH_REPOS.get(game or "", (None,))[0]
+        if dispatched is not None and repo:
+            merged_at = _parse_ts(_gh(f"/repos/{repo}/pulls/{pr}").get("merged_at"))
+            if merged_at is not None and dispatched >= merged_at:
+                print(f"DEREGISTER-SKIP {task}: registration dispatched "
+                      f"{w.get('dispatched_at')} is not the worker PR #{pr} "
+                      f"completed (merged {merged_at.isoformat()})")
+                return
+        workers.pop(task)
+        state.setdefault("notes", []).append(
+            f"{now().isoformat()[:16]}Z deregistered {task} ({w.get('kind')}): "
+            f"auto — PR #{pr} merged (record-pending)")
+        save_state(state)
+        print(f"DEREGISTERED {task} (auto: PR #{pr} merged)")
     except Exception as e:
         print(f"DEREGISTER-SKIP {task}: {e}")
 
@@ -1918,14 +1948,14 @@ def cmd_record_pending(args):
     for e in data.get("pending", []):
         if e.get("pr") == pr and e.get("game") == game:
             print(f"PENDING-DEDUPED {game} PR #{pr} (already recorded)")
-            _auto_deregister(task, pr)
+            _auto_deregister(task, pr, game)
             return
     data.setdefault("pending", []).append({
         "game": game, "task": task, "pr": pr, "merged_sha": sha,
         "merged_at": now().isoformat(), "summary": summary})
     json.dump(data, open(path, "w"), indent=1)
     print(f"PENDING-RECORDED {game} {task} PR #{pr} {sha[:7]}")
-    _auto_deregister(task, pr)
+    _auto_deregister(task, pr, game)
 
 
 def cmd_pending_report(args):
