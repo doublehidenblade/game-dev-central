@@ -1885,40 +1885,76 @@ def _load_pending_ledger():
     return data, path
 
 
+def _parse_ts(s):
+    """Parse an ISO-8601 timestamp ('Z' or offset form) to an aware
+    datetime; None when unparseable."""
+    if not s:
+        return None
+    try:
+        return datetime.fromisoformat(s.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
 def cmd_assign_pr(args):
-    """assign-pr <task> <session> <pr> — record the completed-assignment
-    identity for a worker: this session completed this task with this PR.
-    Recorded from the worker's own completion report at merge time; it
-    is the identity _auto_deregister verifies before retiring a
-    registration (v4, dot's review 2026-10-26). Snapshots the current
-    registration's dispatched_at so a later replacement registration can
-    never match it, and repairs a registration whose session was
-    recorded as '-' with the reported session. Refuses to overwrite a
-    conflicting assignment."""
+    """assign-pr <task> <session> <pr> <game> — record the completed-
+    assignment identity for a worker: this session completed this task
+    with this PR. Called at merge time from the worker's own completion
+    report; it is the identity _auto_deregister verifies before
+    retiring a registration.
+
+    FAIL CLOSED (v5, dot's reviews 2026-10-26): the identity is the
+    LAUNCH-TIME registration itself. assign-pr records nothing unless
+    the current registration IS the completing worker: a registration
+    must exist, its session must be present and equal the reported
+    session, and its dispatched_at (the snapshot) must be present.
+    No repair, no stamping from an unbound report — a session-less or
+    mismatched registration can never be auto-deregistered (manual
+    deregister-worker is the route). The game's repo is recorded as
+    the assignment's scope so a cross-repo record-pending cannot
+    retire it. Refuses to overwrite a conflicting assignment."""
     task, session, pr = args[0], args[1], int(args[2])
+    game = args[3] if len(args) > 3 else None
+    repo = PUBLISH_REPOS.get(game or "", (None,))[0]
     state = load_state()
+    w = state.get("workers", {}).get(task)
+    if w is None:
+        print(f"ASSIGN-SKIP {task}: no registration on record")
+        return
+    if not session or w.get("session") != session:
+        print(f"ASSIGN-SKIP {task}: registration session "
+              f"{w.get('session')!r} does not match completion report "
+              f"{session!r} — identity unbound, nothing recorded")
+        return
+    if not w.get("dispatched_at"):
+        print(f"ASSIGN-SKIP {task}: registration has no dispatched_at "
+              f"to bind — nothing recorded")
+        return
+    if not repo:
+        print(f"ASSIGN-SKIP {task}: unknown game {game!r} — no repo "
+              f"scope to bind, nothing recorded")
+        return
     assigns = state.setdefault("assignments", {})
     key = f"{task}:{pr}"
     existing = assigns.get(key)
-    if existing and existing.get("session") != session:
+    if existing and (existing.get("session") != session
+                     or existing.get("repo") != repo):
         print(f"ASSIGN-CONFLICT {task} PR #{pr}: already assigned to "
-              f"{existing.get('session')!r}, refusing {session!r}")
+              f"{existing.get('session')!r}/{existing.get('repo')!r}, "
+              f"refusing {session!r}/{repo!r}")
         return
-    w = state.get("workers", {}).get(task, {})
     if existing is None:
         assigns[key] = {
             "session": session,
+            "repo": repo,
+            "game": game,
             "recorded_at": now().isoformat(),
             "reg_dispatched_at": w.get("dispatched_at"),
-            "reg_session": w.get("session"),
         }
         state.setdefault("notes", []).append(
             f"{now().isoformat()[:16]}Z assigned {task} PR #{pr} -> session {session}")
-    if w and w.get("session") is None and session:
-        w["session"] = session
-        print(f"ASSIGN-REPAIRED {task}: registration session set from completion report")
     save_state(state)
-    print(f"ASSIGNED {task} PR #{pr} -> {session}")
+    print(f"ASSIGNED {task} PR #{pr} -> {session} ({repo})")
 
 
 def _auto_deregister(task, pr, game=None, expect_session=None):
@@ -1930,18 +1966,19 @@ def _auto_deregister(task, pr, game=None, expect_session=None):
     deregistration rides it. Reports, never raises: a failure here must
     not fail the merge bookkeeping, but it is printed, never silent.
 
-    FAIL CLOSED, IDENTITY FIRST (dot's reviews of v1–v3, 2026-10-26):
+    FAIL CLOSED, IDENTITY FIRST (dot's reviews of v1–v4, 2026-10-26):
     chronology is not identity, and missing evidence is not permission.
-    Retire only when a completed-assignment identity recorded from the
-    worker's own completion report (assign-pr) binds this registration
-    to this PR: an assignment must exist for (task, pr); the
-    registration's session must equal the assignment's session; the
-    registration's dispatched_at must equal the snapshot taken when
-    the assignment was recorded (a replacement registration — even one
-    dispatched before the old PR merged, even one with no session —
-    never matches); a caller-supplied --session must equal the
-    assignment's session. The v3 evidence checks then apply as sanity:
-    dispatched_at parses, the game resolves to a repo, the PR's
+    Retire only when a completed-assignment identity (assign-pr,
+    recorded at merge time from the worker's own completion report)
+    binds this registration to this PR. The identity is the LAUNCH-TIME
+    registration itself: the assignment must exist for (task, pr), its
+    session must be present and equal the registration's session, its
+    dispatched_at snapshot must be present and equal the
+    registration's dispatched_at (a replacement registration — even
+    one dispatched before the old PR merged — never matches), and its
+    recorded repo scope must equal this game's repo. A caller-supplied
+    --session must equal the assignment's session. The v3 evidence
+    checks then apply as sanity: dispatched_at parses, the PR's
     merged_at parses, and dispatched_at predates merged_at. Any gap
     prints DEREGISTER-SKIP and keeps the registration. On success the
     assignment is consumed, so a replay retires nothing.
@@ -1959,16 +1996,33 @@ def _auto_deregister(task, pr, game=None, expect_session=None):
             print(f"DEREGISTER-SKIP {task}: no completed-assignment "
                   f"identity on record for PR #{pr} (assign-pr not recorded)")
             return
+        if not asg.get("session"):
+            print(f"DEREGISTER-SKIP {task}: assignment for PR #{pr} "
+                  f"carries no session identity — unbound")
+            return
+        if not asg.get("reg_dispatched_at"):
+            print(f"DEREGISTER-SKIP {task}: assignment for PR #{pr} "
+                  f"carries no dispatch snapshot — unbound")
+            return
+        repo = PUBLISH_REPOS.get(game or "", (None,))[0]
+        if not repo:
+            print(f"DEREGISTER-SKIP {task}: unknown game {game!r} — cannot "
+                  f"verify PR #{pr} merge time")
+            return
+        if asg.get("repo") != repo:
+            print(f"DEREGISTER-SKIP {task}: assignment scope "
+                  f"{asg.get('repo')!r} != game repo {repo!r} for PR #{pr}")
+            return
         if w.get("session") != asg.get("session"):
             print(f"DEREGISTER-SKIP {task}: registration session "
                   f"{w.get('session')!r} != assignment session "
                   f"{asg.get('session')!r} for PR #{pr}")
             return
-        snap = asg.get("reg_dispatched_at")
-        if snap is not None and w.get("dispatched_at") != snap:
+        if w.get("dispatched_at") != asg.get("reg_dispatched_at"):
             print(f"DEREGISTER-SKIP {task}: registration instance changed "
                   f"since the PR #{pr} assignment was recorded "
-                  f"(dispatched {w.get('dispatched_at')} != snapshot {snap})")
+                  f"(dispatched {w.get('dispatched_at')} != snapshot "
+                  f"{asg.get('reg_dispatched_at')})")
             return
         if expect_session is not None and expect_session != asg.get("session"):
             print(f"DEREGISTER-SKIP {task}: caller session "
@@ -1979,11 +2033,6 @@ def _auto_deregister(task, pr, game=None, expect_session=None):
         if dispatched is None:
             print(f"DEREGISTER-SKIP {task}: registration has no parseable "
                   f"dispatched_at — cannot bind it to PR #{pr}")
-            return
-        repo = PUBLISH_REPOS.get(game or "", (None,))[0]
-        if not repo:
-            print(f"DEREGISTER-SKIP {task}: unknown game {game!r} — cannot "
-                  f"verify PR #{pr} merge time")
             return
         merged_at = _parse_ts(_gh(f"/repos/{repo}/pulls/{pr}").get("merged_at"))
         if merged_at is None:
