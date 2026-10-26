@@ -124,6 +124,30 @@
    "merged_sha": "6d822cacb7e834e4561701e3245e9a9ecce8a229",
    "merged_at": "2026-10-24T12:49:36.988091+00:00",
    "summary": "Lower City direct-entry link (?city=1)"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-287",
+   "pr": 1133,
+   "merged_sha": "5a2225093a8814a9e8eb4ce2a94d0033e5b0a167",
+   "merged_at": "2026-10-26T18:57:23.394674+00:00",
+   "summary": "World Inspector per-asset viewer + web export registry fix (td-287)"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-286",
+   "pr": 1129,
+   "merged_sha": "80a9b2dd",
+   "merged_at": "2026-10-26T18:57:30.506903+00:00",
+   "summary": "Asset registry (td-286) \u2014 dedupe completion of lifecycle"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-282",
+   "pr": 1108,
+   "merged_sha": "34bc5b47",
+   "merged_at": "2026-10-26T18:57:31.807486+00:00",
+   "summary": "Pause-quit harness prepared-flag fix (td-282) \u2014 dedupe completion of lifecycle"
   }
  ]
 }

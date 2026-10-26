@@ -2078,7 +2078,13 @@
   "2026-10-26T16:46Z deregistered td-261 (subagent): board done 2026-10-15 validated; worker finished",
   "2026-10-26T16:46Z deregistered td-262 (subagent): board done 2026-10-15 validated; worker finished",
   "2026-10-26T16:46Z deregistered td-273 (subagent): board done 2026-10-17 inspector PASS; PR #888 merged; worker finished",
-  "2026-10-26T16:46Z deregistered td-283 (subagent): done-pending-verdict via gdc PR #541; corrections merged PR #1105; worker finished Oct 25"
+  "2026-10-26T16:46Z deregistered td-283 (subagent): done-pending-verdict via gdc PR #541; corrections merged PR #1105; worker finished Oct 25",
+  "2026-10-26T18:57Z assigned td-287 PR #1133 -> session a5ff989b-1110-4ed1-be87-a20e21e0b3de",
+  "2026-10-26T18:57Z deregistered td-287 (subagent): auto \u2014 PR #1133 merged (record-pending)",
+  "2026-10-26T18:57Z assigned td-286 PR #1129 -> session 989920b1-9cf2-4fe5-93a3-ee3a31922e2b",
+  "2026-10-26T18:57Z deregistered td-286 (subagent): auto \u2014 PR #1129 merged (record-pending)",
+  "2026-10-26T18:57Z assigned td-282 PR #1108 -> session e2804a76-8975-487f-bc42-0322908dcde9",
+  "2026-10-26T18:57Z deregistered td-282 (subagent): auto \u2014 PR #1108 merged (record-pending)"
  ],
  "workers": {
   "td-217": {
@@ -2098,33 +2104,6 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-282": {
-   "kind": "subagent",
-   "session": "e2804a76-8975-487f-bc42-0322908dcde9",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-282.md",
-   "dispatched_at": "2026-10-26T00:19:16.739306+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-286": {
-   "kind": "subagent",
-   "session": "989920b1-9cf2-4fe5-93a3-ee3a31922e2b",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-286.md",
-   "dispatched_at": "2026-10-26T16:49:51.317065+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-287": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-287.md",
-   "dispatched_at": "2026-10-26T17:16:50.230329+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
   }
  },
  "dispatch_denylist": {
@@ -2620,5 +2599,6 @@
   "verdict": "1/3 criteria pass",
   "verdict_pr": 691,
   "verdict_merge_sha": "87c7fc2254955f64f61f63406a87f043332d8657"
- }
+ },
+ "assignments": {}
 }
