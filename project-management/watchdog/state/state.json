@@ -974,7 +974,7 @@
    ],
    "assignments": [],
    "last_task": null,
-   "login_fail_notified_ts": "2026-10-26T10:47:58.283513+00:00",
+   "login_fail_notified_ts": "2026-10-26T16:49:46.952000+00:00",
    "out_of_tokens_since": "2026-10-05T20:34:50.864329+00:00",
    "failover_declined_note": "2026-10-05 03:20 EDT: OOT failover assessed and DECLINED (not executed). All 4 Claude sessions hit 100% usage (reset ~06:10 EDT); each stood down cleanly with 'nothing pending' (main-dev: td-126/PR#263 + td-127 merged; shuto-c1: PR#274 merged; texture-imagegen: 6 textures on branch; 4th 'New session': Tripo coupe work idle). No stranded priority work to hand over. Failover brief is 4 days stale (2026-10-01 curation, refs PR#249-era exclusions); dispatch-candidates shows ZERO unowned tasks (all owned/skipped). Steering Codex with the stale brief would manufacture duplicate work. last_failover_ts set to suppress re-fire for this episode; sessions resume on token reset ~06:10 EDT.",
    "blockers": {
@@ -2113,7 +2113,7 @@
    "session": "989920b1-9cf2-4fe5-93a3-ee3a31922e2b",
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-286.md",
-   "dispatched_at": "2026-10-26T16:46:18.037986+00:00",
+   "dispatched_at": "2026-10-26T16:49:51.317065+00:00",
    "quiet_cycles": 0,
    "last_verdict": "registered"
   }
@@ -2124,7 +2124,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 356
+  "stale_runs": 357
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2383,7 +2383,7 @@
   "td-283": "done-pending-verdict"
  },
  "run_verdicts": {
-  "ts": "2026-10-26T16:15:11.214142+00:00",
+  "ts": "2026-10-26T16:49:31.844918+00:00",
   "checks": {
    "liveness": [
     "ALIVE td-188 (no heartbeat file; task-file commit e48d0b4 2026-10-09T13:32)",
@@ -2416,7 +2416,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=356"
+    "STALE-RUNS=357"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2439,7 +2439,7 @@
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
    "liveness": "2026-10-26T16:15:11.214142+00:00",
-   "classification-health": "2026-10-26T15:46:22.570552+00:00",
+   "classification-health": "2026-10-26T16:49:31.844918+00:00",
    "transitions": "2026-10-26T15:46:13.876819+00:00",
    "conflicts": "2026-10-26T15:46:01.659809+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
