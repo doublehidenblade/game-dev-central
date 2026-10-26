@@ -2375,10 +2375,10 @@
   "td-288": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-10-26T19:47:20.328486+00:00",
+  "ts": "2026-10-26T19:49:52.579071+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (24302min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (24308min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
    ],
    "transitions": [
@@ -2407,7 +2407,7 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-26T19:43:44.383910+00:00",
+   "liveness": "2026-10-26T19:49:52.579071+00:00",
    "classification-health": "2026-10-26T19:47:20.328486+00:00",
    "transitions": "2026-10-26T19:44:02.668348+00:00",
    "conflicts": "2026-10-26T19:43:53.873616+00:00",
