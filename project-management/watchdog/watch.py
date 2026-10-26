@@ -1885,15 +1885,40 @@ def _load_pending_ledger():
     return data, path
 
 
-def _parse_ts(s):
-    """Parse an ISO-8601 timestamp ('Z' or offset form) to an aware
-    datetime; None when unparseable."""
-    if not s:
-        return None
-    try:
-        return datetime.fromisoformat(s.replace("Z", "+00:00"))
-    except ValueError:
-        return None
+def cmd_assign_pr(args):
+    """assign-pr <task> <session> <pr> — record the completed-assignment
+    identity for a worker: this session completed this task with this PR.
+    Recorded from the worker's own completion report at merge time; it
+    is the identity _auto_deregister verifies before retiring a
+    registration (v4, dot's review 2026-10-26). Snapshots the current
+    registration's dispatched_at so a later replacement registration can
+    never match it, and repairs a registration whose session was
+    recorded as '-' with the reported session. Refuses to overwrite a
+    conflicting assignment."""
+    task, session, pr = args[0], args[1], int(args[2])
+    state = load_state()
+    assigns = state.setdefault("assignments", {})
+    key = f"{task}:{pr}"
+    existing = assigns.get(key)
+    if existing and existing.get("session") != session:
+        print(f"ASSIGN-CONFLICT {task} PR #{pr}: already assigned to "
+              f"{existing.get('session')!r}, refusing {session!r}")
+        return
+    w = state.get("workers", {}).get(task, {})
+    if existing is None:
+        assigns[key] = {
+            "session": session,
+            "recorded_at": now().isoformat(),
+            "reg_dispatched_at": w.get("dispatched_at"),
+            "reg_session": w.get("session"),
+        }
+        state.setdefault("notes", []).append(
+            f"{now().isoformat()[:16]}Z assigned {task} PR #{pr} -> session {session}")
+    if w and w.get("session") is None and session:
+        w["session"] = session
+        print(f"ASSIGN-REPAIRED {task}: registration session set from completion report")
+    save_state(state)
+    print(f"ASSIGNED {task} PR #{pr} -> {session}")
 
 
 def _auto_deregister(task, pr, game=None, expect_session=None):
@@ -1905,27 +1930,50 @@ def _auto_deregister(task, pr, game=None, expect_session=None):
     deregistration rides it. Reports, never raises: a failure here must
     not fail the merge bookkeeping, but it is printed, never silent.
 
-    FAIL CLOSED (dot's reviews of v1 and v2, 2026-10-26): chronology is
-    not identity, and missing evidence is not permission. Retire only
-    when every check positively binds this registration to this PR:
-    (1) when the caller supplies the merging worker's session
-    (--session), the registration must carry exactly that session;
-    (2) the registration's dispatched_at must exist and parse;
-    (3) the game must resolve to a repo; (4) the PR's merged_at must
-    exist and parse; (5) dispatched_at must predate merged_at — a
-    registration dispatched at or after the merge belongs to a newer
-    worker, and a replayed or late record-pending must never retire it.
-    Any missing/bad evidence prints DEREGISTER-SKIP and keeps the
-    registration. Regression tests: tests/test_auto_deregister.py."""
+    FAIL CLOSED, IDENTITY FIRST (dot's reviews of v1–v3, 2026-10-26):
+    chronology is not identity, and missing evidence is not permission.
+    Retire only when a completed-assignment identity recorded from the
+    worker's own completion report (assign-pr) binds this registration
+    to this PR: an assignment must exist for (task, pr); the
+    registration's session must equal the assignment's session; the
+    registration's dispatched_at must equal the snapshot taken when
+    the assignment was recorded (a replacement registration — even one
+    dispatched before the old PR merged, even one with no session —
+    never matches); a caller-supplied --session must equal the
+    assignment's session. The v3 evidence checks then apply as sanity:
+    dispatched_at parses, the game resolves to a repo, the PR's
+    merged_at parses, and dispatched_at predates merged_at. Any gap
+    prints DEREGISTER-SKIP and keeps the registration. On success the
+    assignment is consumed, so a replay retires nothing.
+    Regression tests: tests/test_auto_deregister.py."""
     try:
         state = load_state()
         workers = state.get("workers", {})
         w = workers.get(task)
         if w is None:
             return
-        if expect_session is not None and w.get("session") != expect_session:
+        assigns = state.get("assignments", {})
+        akey = f"{task}:{pr}"
+        asg = assigns.get(akey)
+        if asg is None:
+            print(f"DEREGISTER-SKIP {task}: no completed-assignment "
+                  f"identity on record for PR #{pr} (assign-pr not recorded)")
+            return
+        if w.get("session") != asg.get("session"):
             print(f"DEREGISTER-SKIP {task}: registration session "
-                  f"{w.get('session')!r} != merge session {expect_session!r}")
+                  f"{w.get('session')!r} != assignment session "
+                  f"{asg.get('session')!r} for PR #{pr}")
+            return
+        snap = asg.get("reg_dispatched_at")
+        if snap is not None and w.get("dispatched_at") != snap:
+            print(f"DEREGISTER-SKIP {task}: registration instance changed "
+                  f"since the PR #{pr} assignment was recorded "
+                  f"(dispatched {w.get('dispatched_at')} != snapshot {snap})")
+            return
+        if expect_session is not None and expect_session != asg.get("session"):
+            print(f"DEREGISTER-SKIP {task}: caller session "
+                  f"{expect_session!r} != assignment session "
+                  f"{asg.get('session')!r} for PR #{pr}")
             return
         dispatched = _parse_ts(w.get("dispatched_at"))
         if dispatched is None:
@@ -1948,6 +1996,7 @@ def _auto_deregister(task, pr, game=None, expect_session=None):
                   f"completed (merged {merged_at.isoformat()})")
             return
         workers.pop(task)
+        assigns.pop(akey)
         state.setdefault("notes", []).append(
             f"{now().isoformat()[:16]}Z deregistered {task} ({w.get('kind')}): "
             f"auto — PR #{pr} merged (record-pending)")
@@ -3596,6 +3645,8 @@ def main():
         cmd_register_worker(sys.argv[2:])
     elif cmd == "deregister-worker":
         cmd_deregister_worker(sys.argv[2:])
+    elif cmd == "assign-pr":
+        cmd_assign_pr(sys.argv[2:])
     elif cmd == "assign":
         cmd_assign(sys.argv[2:])
     elif cmd == "liveness":
