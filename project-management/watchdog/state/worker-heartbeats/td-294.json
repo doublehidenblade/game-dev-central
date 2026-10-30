@@ -1,1 +1,1 @@
-{"ts": "2026-10-30T19:49:09Z", "task": "td-294", "step": "attempt-3 gate retry loop v2 (10s interval); gate heavily contested by td-295 cycle", "status": "working"}
+{"ts": "2026-10-30T20:48:24Z", "task": "td-294", "step": "probe proved boot+dialog wiring; issue was ineligible offer refusal. Harness v2 (eligible shortest offers, teleport-assist, 360p driving) running as attempt-5", "status": "working"}

@@ -1,1 +1,1 @@
-{"ts": "2026-10-30T20:18:09Z", "task": "td-290", "step": "gate held 38+ min by td295 race-end run; waiting", "status": "working"}
+{"ts": 1793393442.9406207, "task": "td-290", "step": "pre-fix repro attempt3 queued behind heavy gate (td291 baseline)", "status": "waiting_gate"}
