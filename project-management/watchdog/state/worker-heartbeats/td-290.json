@@ -1,1 +1,1 @@
-{"ts": 1793397246.7492568, "task": "td-290", "step": "REPRO CONFIRMED: phaseA throttle 0.85, disp 5.02m into wall; mechanism logged in task file; launching before-capture (xvfb)", "status": "in_progress"}
+{"ts": 1793398910.6389697, "task": "td-290", "step": "before-capture queued behind td289-final (~9min hold)", "status": "waiting_gate"}
