@@ -1,1 +1,1 @@
-{"ts": "2026-10-30T22:46:43Z", "task": "td-294", "step": "attempt-7 launched: harness re-route artifact fixed (bot drives dispatch lane); runs A-D with deterministic seed", "status": "working"}
+{"ts": "2026-10-30T23:19:28Z", "task": "td-294", "step": "attempt-7 queued behind td-289 batch (4h+); wrong-way harness artifact fixed in harness v3", "status": "working"}
