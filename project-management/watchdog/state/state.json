@@ -767,7 +767,7 @@
   "neon-drift": {
    "gate_fired": true,
    "head_sha": "531d5ce",
-   "idle_min": 41883.7,
+   "idle_min": 44069.1,
    "last_activity_ts": "2026-09-29T22:45:48+00:00",
    "last_browser_check_ts": "2026-09-29T22:35:26.055165+00:00",
    "needs_browser": true,
@@ -789,32 +789,32 @@
   "tokyo-drift-3d": {
    "gate_fired": false,
    "head_sha": "1249dc9",
-   "idle_min": 5.7,
-   "last_activity_ts": "2026-10-29T00:43:44+00:00",
+   "idle_min": 32.0,
+   "last_activity_ts": "2026-10-30T12:42:57+00:00",
    "last_browser_check_ts": "2026-10-14T05:40:43.464395+00:00",
    "needs_browser": false,
    "open_issues": 0,
    "open_pr_numbers": [
-    1187,
-    1186,
-    1185,
-    1184,
-    1183,
-    1182,
-    1181,
-    1180,
-    1179,
-    1178,
-    1177,
-    1176,
-    1175,
-    1174,
-    1173,
-    1172,
-    1171,
-    1170,
-    1169,
-    1168
+    1223,
+    1222,
+    1221,
+    1220,
+    1219,
+    1218,
+    1217,
+    1216,
+    1215,
+    1214,
+    1213,
+    1212,
+    1211,
+    1210,
+    1209,
+    1208,
+    1207,
+    1206,
+    1205,
+    1204
    ],
    "open_prs": 20
   },
@@ -2112,7 +2112,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 532
+  "stale_runs": 533
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2375,17 +2375,17 @@
   "td-288": "done-pending-verdict"
  },
  "run_verdicts": {
-  "ts": "2026-10-30T12:45:31.398267+00:00",
+  "ts": "2026-10-30T13:17:40.743632+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (29643min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (29673min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=532"
+    "STALE-RUNS=533"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2407,10 +2407,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-30T12:44:51.545680+00:00",
-   "classification-health": "2026-10-30T12:45:31.398267+00:00",
-   "transitions": "2026-10-30T12:45:08.544675+00:00",
-   "conflicts": "2026-10-30T12:45:02.696117+00:00",
+   "liveness": "2026-10-30T13:14:31.395965+00:00",
+   "classification-health": "2026-10-30T13:17:40.743632+00:00",
+   "transitions": "2026-10-30T13:14:42.199866+00:00",
+   "conflicts": "2026-10-30T13:14:36.312555+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
