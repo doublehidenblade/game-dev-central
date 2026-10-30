@@ -2151,7 +2151,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 552
+  "stale_runs": 553
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2421,21 +2421,21 @@
   "td-295": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-30T23:15:36.271369+00:00",
+  "ts": "2026-10-30T23:46:58.675774+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30272min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30304min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "STALE td-291 (no fresh observation; counter frozen; heartbeat stale (84min); session 45ad0eb1-53b9-4d14-9301-b1fda5802211 classification stale/missing)",
-    "ALIVE td-289 (heartbeat 9min ago (web round queued; td-294 harness-6 at ~25 min))",
-    "ALIVE td-294 (heartbeat 28min ago (attempt-7 launched: harness re-route artifact fixe))",
+    "STALE td-291 (no fresh observation; counter frozen; heartbeat stale (116min); session 45ad0eb1-53b9-4d14-9301-b1fda5802211 classification stale/missing)",
+    "ALIVE td-289 (heartbeat 26min ago (web round: import done; gig retry running to its 9))",
+    "ALIVE td-294 (heartbeat 26min ago (attempt-7 queued behind td-289 batch (4h+); wrong-))",
     "STALE td-290 (no fresh observation; counter frozen; heartbeat stale (9999min); session 1a27dd0a-2392-49f2-ae71-e5a0ad5be467 classification stale/missing)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=552"
+    "STALE-RUNS=553"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2457,10 +2457,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-30T23:14:30.490810+00:00",
-   "classification-health": "2026-10-30T23:15:36.271369+00:00",
-   "transitions": "2026-10-30T23:14:59.092304+00:00",
-   "conflicts": "2026-10-30T23:14:51.826919+00:00",
+   "liveness": "2026-10-30T23:45:59.900424+00:00",
+   "classification-health": "2026-10-30T23:46:58.675774+00:00",
+   "transitions": "2026-10-30T23:46:40.654643+00:00",
+   "conflicts": "2026-10-30T23:46:15.645985+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
