@@ -1,1 +1,1 @@
-{"ts": "2026-10-30T21:20:19Z", "task": "td-294", "step": "dialog logic smoke 20/20 PASS (incl. shadowed-param bug found+fixed); production harness attempt-5 queued behind td-290 orphan gate hold", "status": "working"}
+{"ts": "2026-10-30T22:46:43Z", "task": "td-294", "step": "attempt-7 launched: harness re-route artifact fixed (bot drives dispatch lane); runs A-D with deterministic seed", "status": "working"}
