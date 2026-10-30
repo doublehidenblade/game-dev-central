@@ -2085,7 +2085,9 @@
   "2026-10-26T18:57Z deregistered td-286 (subagent): auto \u2014 PR #1129 merged (record-pending)",
   "2026-10-26T18:57Z assigned td-282 PR #1108 -> session e2804a76-8975-487f-bc42-0322908dcde9",
   "2026-10-26T18:57Z deregistered td-282 (subagent): auto \u2014 PR #1108 merged (record-pending)",
-  "2026-10-30T20:43Z deregistered td-290 (subagent): 2e84dfce-f2f5-44b5-8f37-e24f3a18f3af"
+  "2026-10-30T20:43Z deregistered td-290 (subagent): 2e84dfce-f2f5-44b5-8f37-e24f3a18f3af",
+  "2026-10-30T20:45Z assigned td-295 PR #1231 -> session 3eaa629e-b97d-4e90-a4e1-b853290981f7",
+  "2026-10-30T20:46Z deregistered td-295 (subagent): auto \u2014 PR #1231 merged (record-pending)"
  ],
  "workers": {
   "td-217": {
@@ -2122,7 +2124,7 @@
    "task_file": "godot/docs/tasks/td-289.md",
    "dispatched_at": "2026-10-30T19:14:07.024521+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "last_verdict": "stale"
   },
   "td-294": {
    "kind": "subagent",
@@ -2131,16 +2133,7 @@
    "task_file": "godot/docs/tasks/td-294.md",
    "dispatched_at": "2026-10-30T19:14:07.186704+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-295": {
-   "kind": "subagent",
-   "session": "3eaa629e-b97d-4e90-a4e1-b853290981f7",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-295.md",
-   "dispatched_at": "2026-10-30T19:14:07.406917+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "last_verdict": "stale"
   },
   "td-290": {
    "kind": "subagent",
@@ -2149,7 +2142,7 @@
    "task_file": "godot/docs/tasks/td-290.md",
    "dispatched_at": "2026-10-30T20:43:37.586449+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
@@ -2428,16 +2421,16 @@
   "td-295": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-10-30T20:15:44.648074+00:00",
+  "ts": "2026-10-30T20:45:43.826039+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30093min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30124min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "ALIVE td-290 (heartbeat 29min ago (gate held by td295 race-end test since 19:37Z; wai))",
-    "ALIVE td-291 (heartbeat 3min ago (diagnose: probe runs queued behind heavy-gate (td-))",
-    "ALIVE td-289 (heartbeat 24min ago (baseline diag banked (139.9s); capture loop queued))",
-    "ALIVE td-294 (heartbeat 26min ago (attempt-3 gate retry loop v2 (10s interval); gate ))",
-    "ALIVE td-295 (heartbeat 28min ago (done - PR #1231 open, board PR #554 open, status i); open PR #1231 td-295: Panels too big and can't be minimized \u2014 shared Panel)"
+    "ALIVE td-291 (heartbeat 33min ago (diagnose: probe runs queued behind heavy-gate (td-))",
+    "STALE td-289 (no fresh observation; counter frozen; heartbeat stale (55min); session fecf89f3-b8b3-4aab-8a69-195f5dc5a480 classification stale/missing)",
+    "STALE td-294 (no fresh observation; counter frozen; heartbeat stale (56min); session 73cb0930-412b-4f92-bb90-92684f11f14e classification stale/missing)",
+    "ALIVE td-295 (heartbeat stale (58min); open PR #1231 td-295: Panels too big and can't be minimized \u2014 shared Panel)",
+    "ALIVE td-290 (heartbeat 28min ago (gate held 38+ min by td295 race-end run; waiting))"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2465,10 +2458,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-30T20:15:06.824486+00:00",
+   "liveness": "2026-10-30T20:45:43.826039+00:00",
    "classification-health": "2026-10-30T20:15:44.648074+00:00",
-   "transitions": "2026-10-30T20:15:25.387942+00:00",
-   "conflicts": "2026-10-30T20:15:12.984768+00:00",
+   "transitions": "2026-10-30T20:44:57.383932+00:00",
+   "conflicts": "2026-10-30T20:44:48.707667+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
