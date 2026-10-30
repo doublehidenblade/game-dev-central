@@ -2112,7 +2112,7 @@
    "task_file": "godot/docs/tasks/td-290.md",
    "dispatched_at": "2026-10-30T19:14:06.684807+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "alive"
   },
   "td-291": {
    "kind": "subagent",
@@ -2139,7 +2139,7 @@
    "task_file": "godot/docs/tasks/td-294.md",
    "dispatched_at": "2026-10-30T19:14:07.186704+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "grace"
+   "last_verdict": "alive"
   },
   "td-295": {
    "kind": "subagent",
@@ -2418,28 +2418,32 @@
   "td-286": "done-pending-verdict",
   "td-287": "done-pending-verdict",
   "td-288": "done-pending-verdict",
-  "td-289": "open",
-  "td-290": "open",
-  "td-291": "open",
+  "td-289": "in_progress",
+  "td-290": "in_progress",
+  "td-291": "in_progress",
   "td-292": "open",
   "td-293": "open",
-  "td-294": "open",
-  "td-295": "open"
+  "td-294": "in_progress",
+  "td-295": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-10-30T19:17:16.782603+00:00",
+  "ts": "2026-10-30T19:44:33.959402+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30033min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30062min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "GRACE td-290 (dispatched 0min ago; no heartbeat file; session 2e84dfce-f2f5-44b5-8f37-e24f3a18f3af classification stale/missing)",
-    "ALIVE td-291 (heartbeat 1min ago (diagnose: tracing contact->sampler->damage chain))",
-    "ALIVE td-289 (heartbeat 1min ago (reading task + exploring dressing machinery))",
-    "GRACE td-294 (dispatched 1min ago; no heartbeat file; session 73cb0930-412b-4f92-bb90-92684f11f14e classification stale/missing)",
-    "ALIVE td-295 (heartbeat 1min ago (audit panels - measuring sizes))"
+    "ALIVE td-290 (heartbeat 10min ago (attempt1 failed: CrimeBus autoload compile error i))",
+    "ALIVE td-291 (heartbeat 8min ago (diagnose: probe harness debugging (raycast helper)))",
+    "ALIVE td-289 (heartbeat 5min ago (baseline native cascade done: 139.9s to race_prepa))",
+    "ALIVE td-294 (heartbeat 2min ago (attempt-3 harness retrying through heavy gate (per))",
+    "ALIVE td-295 (heartbeat 22min ago (before-captures via heavy gate (lobby running; cod))"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-289: open -> in_progress [silent]",
+    "FLIP td-290: open -> in_progress [silent]",
+    "FLIP td-291: open -> in_progress [silent]",
+    "FLIP td-294: open -> in_progress [silent]",
+    "FLIP td-295: open -> in_progress [silent]"
    ],
    "classification-health": [
     "STALE-RUNS=545"
@@ -2464,10 +2468,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-30T19:14:52.559385+00:00",
+   "liveness": "2026-10-30T19:44:18.824406+00:00",
    "classification-health": "2026-10-30T19:17:16.782603+00:00",
-   "transitions": "2026-10-30T19:14:54.198944+00:00",
-   "conflicts": "2026-10-30T19:14:52.745241+00:00",
+   "transitions": "2026-10-30T19:44:33.959402+00:00",
+   "conflicts": "2026-10-30T19:44:32.038478+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }

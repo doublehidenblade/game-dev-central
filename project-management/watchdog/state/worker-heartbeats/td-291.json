@@ -1,1 +1,1 @@
-{"ts": "2026-10-30T19:14:01Z", "task": "td-291", "step": "diagnose: tracing contact->sampler->damage chain", "status": "working"}
+{"ts": "2026-10-30T20:12:00Z", "task": "td-291", "step": "diagnose: probe runs queued behind heavy-gate (td-290/td-295 fleet contention); retry loop active", "status": "working"}

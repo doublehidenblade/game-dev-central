@@ -1,1 +1,1 @@
-{"ts": "2026-10-30T19:19:59Z", "task": "td-289", "step": "waiting for heavy gate (td-291 runs ahead); module written + parse-checked", "status": "working"}
+{"ts": "2026-10-30T19:50:37Z", "task": "td-289", "step": "baseline diag banked (139.9s); capture loop queued behind a long td-295 regression run", "status": "working"}
