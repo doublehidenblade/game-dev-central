@@ -1,1 +1,1 @@
-{"ts": 1793411377.9868388, "task": "td-290", "step": "attempt8/9 queued behind td291-fixed-suite2 battery (4 probes+capture+3 suites)", "status": "waiting_gate"}
+{"ts": 1793413308.1958737, "task": "td-290", "step": "COMPLETE: branch worker/td-290-garage-h @2963586b, PR #1240 open, board PR game-dev-central #556 open, PNG mirror verified 200. Combined C/D+suites confirmation run (attempt10) still queued behind td291 runaway gig suite; loop armed in background, logs will land in ~/workspace/td290-runs/attempt8-after2 and attempt9-suites", "status": "in_review"}
