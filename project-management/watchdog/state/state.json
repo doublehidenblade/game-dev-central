@@ -2117,7 +2117,7 @@
    "task_file": "godot/docs/tasks/td-291.md",
    "dispatched_at": "2026-10-30T19:14:06.875600+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "stale"
+   "last_verdict": "alive"
   },
   "td-294": {
    "kind": "subagent",
@@ -2144,7 +2144,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 555
+  "stale_runs": 556
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2405,7 +2405,7 @@
   "td-286": "done-pending-verdict",
   "td-287": "done-pending-verdict",
   "td-288": "done-pending-verdict",
-  "td-289": "in_progress",
+  "td-289": "in_review",
   "td-290": "in_progress",
   "td-291": "in_progress",
   "td-292": "open",
@@ -2414,21 +2414,20 @@
   "td-295": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-31T00:44:52.837594+00:00",
+  "ts": "2026-10-31T01:17:57.860845+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30362min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30393min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "STALE td-291 (no fresh observation; counter frozen; heartbeat stale (174min); session 45ad0eb1-53b9-4d14-9301-b1fda5802211 classification stale/missing)",
-    "ALIVE td-289 (heartbeat 1min ago (probe queued; td-294 harness-7 at ~33 min))",
+    "ALIVE td-291 (heartbeat 23min ago (post-fix suite (attempt-13: pickup/delivery/contro))",
     "ALIVE td-294 (heartbeat 7min ago (attempt-7 loop v2 still queued behind td-289 batch))",
     "STALE td-290 (no fresh observation; counter frozen; heartbeat stale (9999min); session 1a27dd0a-2392-49f2-ae71-e5a0ad5be467 classification stale/missing)"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-289: in_progress -> in_review [wake-validator]"
    ],
    "classification-health": [
-    "STALE-RUNS=555"
+    "STALE-RUNS=556"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2450,10 +2449,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-31T00:44:12.896138+00:00",
-   "classification-health": "2026-10-31T00:44:52.837594+00:00",
-   "transitions": "2026-10-31T00:44:34.506736+00:00",
-   "conflicts": "2026-10-31T00:44:28.195065+00:00",
+   "liveness": "2026-10-31T01:15:21.977512+00:00",
+   "classification-health": "2026-10-31T01:17:57.860845+00:00",
+   "transitions": "2026-10-31T01:15:45.839021+00:00",
+   "conflicts": "2026-10-31T01:15:35.587546+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
