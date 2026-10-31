@@ -17,6 +17,14 @@
    "merged_sha": "8df8bc38cfcf3567c6ae8ce80348c2b638867f56",
    "merged_at": "2026-10-31T01:09:28.503627+00:00",
    "summary": "Street-dressing kit: 10 piece types/20 variants shared meshes, 12,511 rule placements, entry time no worse than v50 baseline, before/after pairs in 4 districts"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-290",
+   "pr": 1240,
+   "merged_sha": "4919c8a3d76fdc7aa7d66ea5d863a2cf853d739f",
+   "merged_at": "2026-10-31T02:22:57.595299+00:00",
+   "summary": "Garage H-key fix: DriveInput.input_blocked gate, WorkshopUi saves/restores it instead of flipping pedals mode; repro confirmed 0.85 auto-throttle mechanism"
   }
  ]
 }
