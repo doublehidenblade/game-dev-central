@@ -1,1 +1,1 @@
-{"ts": "2026-10-31T16:35:00Z", "task": "td-296", "step": "golden refresh still downloading; planning fix from main sources via GitHub API (helper + gig_hud/guide_flow/gig_menu tab/pause button, touch unchanged)", "status": "working"}
+{"ts": "2026-10-31T17:28:00Z", "task": "td-296", "step": "interactions 18/18 PASS; running td-292/294/295 suites on branch, then golden baseline", "status": "working"}
