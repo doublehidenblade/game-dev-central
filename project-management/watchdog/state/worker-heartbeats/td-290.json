@@ -1,1 +1,1 @@
-{"ts": 1793409542.7942057, "task": "td-290", "step": "attempt8/9 queued behind td294-harness-7 (66min, gate.log growing)", "status": "waiting_gate"}
+{"ts": 1793411377.9868388, "task": "td-290", "step": "attempt8/9 queued behind td291-fixed-suite2 battery (4 probes+capture+3 suites)", "status": "waiting_gate"}
