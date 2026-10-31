@@ -25,6 +25,14 @@
    "merged_sha": "4919c8a3d76fdc7aa7d66ea5d863a2cf853d739f",
    "merged_at": "2026-10-31T02:22:57.595299+00:00",
    "summary": "Garage H-key fix: DriveInput.input_blocked gate, WorkshopUi saves/restores it instead of flipping pedals mode; repro confirmed 0.85 auto-throttle mechanism"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-291",
+   "pr": 1244,
+   "merged_sha": "f5ab90a444cf9a0de86545093cb358d969dff165",
+   "merged_at": "2026-10-31T05:16:11.954986+00:00",
+   "summary": "Wall damage fix: GigDispatch._cargo sampler now runs on pickup leg and race legs (car-body only); static impacts price per existing td-273 curve; negative controls clean"
   }
  ]
 }
