@@ -1,1 +1,1 @@
-{"ts": 1793403988.127349, "task": "td-290", "step": "fix applied (DriveInput.input_blocked gate + WorkshopUi save/restore + TouchState clear); launching post-fix headless + capture runs", "status": "in_progress"}
+{"ts": 1793405698.1062355, "task": "td-290", "step": "attempt8/9 queued behind td294-harness-7", "status": "waiting_gate"}
