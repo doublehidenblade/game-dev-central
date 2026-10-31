@@ -57,6 +57,14 @@
    "merged_sha": "5562e511517897129e9d66454a1b8381aec32c2f",
    "merged_at": "2026-10-31T11:07:49.176159+00:00",
    "summary": "Gig dialog system: portrait briefings/closings, mid-gig cargo-hit/wrong-way/encouragement triggers on existing gig signals; route_progress coordinate bug found and fixed (CityData.plan); integrated with td-291 damage sampling"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-296",
+   "pr": 1261,
+   "merged_sha": "ef4a6297543337462f48a17709109e1247010010",
+   "merged_at": "2026-10-31T17:21:16.126655+00:00",
+   "summary": "Desktop UI scale on PC browser: shared desktop_scale helper applied to gig HUD, guide flow, touch controls; Guide me 210x98 to 150x44, guide card 61% to 43.8% wide, touch presentation byte-identical"
   }
  ]
 }
