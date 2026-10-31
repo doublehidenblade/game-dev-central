@@ -1,1 +1,1 @@
-{"ts": "2026-10-31T00:51:16Z", "task": "td-289", "step": "probe queued; td-294 harness-7 at ~43 min (their gig harness drowns in same env spam)", "status": "working"}
+{"ts": "2026-10-31T01:08:29Z", "task": "td-289", "step": "DONE: PR #1238 open, board PR #555 open; web probe still queued behind td-294 gate hold", "status": "complete"}

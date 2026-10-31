@@ -9,6 +9,14 @@
    "merged_sha": "b0ee438300aa0b098442c5d3410a46c3f55b018e",
    "merged_at": "2026-10-30T20:45:59.507828+00:00",
    "summary": "Panel minimize audit: shared PanelCollapse pattern, 7 panels converted, sane defaults, 33/33 interaction tests"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-289",
+   "pr": 1238,
+   "merged_sha": "8df8bc38cfcf3567c6ae8ce80348c2b638867f56",
+   "merged_at": "2026-10-31T01:09:28.503627+00:00",
+   "summary": "Street-dressing kit: 10 piece types/20 variants shared meshes, 12,511 rule placements, entry time no worse than v50 baseline, before/after pairs in 4 districts"
   }
  ]
 }
