@@ -2093,7 +2093,8 @@
   "2026-10-31T02:22Z assigned td-290 PR #1240 -> session 1a27dd0a-2392-49f2-ae71-e5a0ad5be467",
   "2026-10-31T02:22Z deregistered td-290 (subagent): auto \u2014 PR #1240 merged (record-pending)",
   "2026-10-31T05:16Z assigned td-291 PR #1244 -> session 45ad0eb1-53b9-4d14-9301-b1fda5802211",
-  "2026-10-31T05:16Z deregistered td-291 (subagent): auto \u2014 PR #1244 merged (record-pending)"
+  "2026-10-31T05:16Z deregistered td-291 (subagent): auto \u2014 PR #1244 merged (record-pending)",
+  "2026-10-31T05:49Z deregistered td-294 (subagent): 73cb0930-412b-4f92-bb90-92684f11f14e"
  ],
  "workers": {
   "td-217": {
@@ -2114,15 +2115,6 @@
    "quiet_cycles": 0,
    "last_verdict": "alive"
   },
-  "td-294": {
-   "kind": "subagent",
-   "session": "73cb0930-412b-4f92-bb90-92684f11f14e",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-294.md",
-   "dispatched_at": "2026-10-30T19:14:07.186704+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "stale"
-  },
   "td-292": {
    "kind": "subagent",
    "session": "b668a05c-c974-497c-8806-735c0f13d24a",
@@ -2131,6 +2123,15 @@
    "dispatched_at": "2026-10-31T03:00:24.282227+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
+  },
+  "td-294": {
+   "kind": "subagent",
+   "session": "88fa690f-ba54-4c95-b104-faac19ac02ce",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-294.md",
+   "dispatched_at": "2026-10-31T05:49:37.118857+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -2402,24 +2403,23 @@
   "td-288": "done-pending-verdict",
   "td-289": "in_review",
   "td-290": "in_review",
-  "td-291": "in_progress",
+  "td-291": "in_review",
   "td-292": "in_progress",
   "td-293": "open",
   "td-294": "in_progress",
   "td-295": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-31T05:17:12.694072+00:00",
+  "ts": "2026-10-31T05:47:07.525459+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30633min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30665min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "ALIVE td-291 (heartbeat stale (262min); open PR #1244 td-291: wall impacts now price damage on every gig phase (pi)",
-    "STALE td-294 (no fresh observation; counter frozen; heartbeat stale (135min); session 73cb0930-412b-4f92-bb90-92684f11f14e classification stale/missing)",
+    "ALIVE td-294 (heartbeat 31min ago (attempt-7 loop v2 still queued behind td-289 batch))",
     "ALIVE td-292 (heartbeat stale (9999min); open PR #1242 Inspector report 2026-10-30 23:34 EDT - report only, do not )"
    ],
    "transitions": [
-    "NO-FLIPS"
+    "FLIP td-291: in_progress -> in_review [wake-validator]"
    ],
    "classification-health": [
     "STALE-RUNS=563"
@@ -2444,10 +2444,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-31T05:14:34.240142+00:00",
+   "liveness": "2026-10-31T05:47:07.525459+00:00",
    "classification-health": "2026-10-31T05:17:12.694072+00:00",
-   "transitions": "2026-10-31T05:14:41.403375+00:00",
-   "conflicts": "2026-10-31T05:14:37.618742+00:00",
+   "transitions": "2026-10-31T05:45:38.312206+00:00",
+   "conflicts": "2026-10-31T05:45:30.906023+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
