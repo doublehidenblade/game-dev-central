@@ -1,1 +1,1 @@
-{"task":"td-294","ts":"2026-10-31T07:55:00Z","status":"attempt-9 runs A+B all PASS, run C driving","note":"Every attempt-7 FAIL resolved in attempt-9: A_no_wrong_way PASS, B_encouragement fired/once PASS, B_no_wrong_way PASS, B closing appreciation Y4100. Run C (intentional wrong-way) in progress."}
+{"task":"td-294","ts":"2026-10-31T08:40:00Z","status":"waiting on heavy gate (td293)","note":"Attempt-12 (run C) + regression launchers retrying through gate held by td293 attempts 1-2. Banked: attempt-9 A+B PASS, attempt-11 D PASS."}
