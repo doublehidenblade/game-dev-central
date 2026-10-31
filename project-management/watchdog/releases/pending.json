@@ -41,6 +41,14 @@
    "merged_sha": "57568cd8984f36759c5fd50735bcd0d0d5564ef7",
    "merged_at": "2026-10-31T05:53:49.382895+00:00",
    "summary": "Visual build panel (cards, pips, all-in yen), project pins on paper map + minimap via new signal module, shops read as parts shops in-world; 27/27 harness"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-293",
+   "pr": 1249,
+   "merged_sha": "e933ccd5f2c8a4a8fcf10a59f8d11de188459c11",
+   "merged_at": "2026-10-31T08:02:44.342380+00:00",
+   "summary": "Cash-only starter upgrades: roof light bar \u00a51800, driving lamps \u00a52500, alloy wheels \u00a53200 priced from starting-gig fares; single authoritative debit, visible fitments, purchase dialog with mechanic portrait; 43/43 interaction checks"
   }
  ]
 }
