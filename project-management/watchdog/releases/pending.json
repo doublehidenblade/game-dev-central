@@ -33,6 +33,14 @@
    "merged_sha": "f5ab90a444cf9a0de86545093cb358d969dff165",
    "merged_at": "2026-10-31T05:16:11.954986+00:00",
    "summary": "Wall damage fix: GigDispatch._cargo sampler now runs on pickup leg and race legs (car-body only); static impacts price per existing td-273 curve; negative controls clean"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-292",
+   "pr": 1245,
+   "merged_sha": "57568cd8984f36759c5fd50735bcd0d0d5564ef7",
+   "merged_at": "2026-10-31T05:53:49.382895+00:00",
+   "summary": "Visual build panel (cards, pips, all-in yen), project pins on paper map + minimap via new signal module, shops read as parts shops in-world; 27/27 harness"
   }
  ]
 }
