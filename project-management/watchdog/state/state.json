@@ -2137,7 +2137,7 @@
    "task_file": "godot/docs/tasks/td-292.md",
    "dispatched_at": "2026-10-31T03:00:24.282227+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -2146,7 +2146,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 558
+  "stale_runs": 559
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2410,25 +2410,26 @@
   "td-289": "in_review",
   "td-290": "in_review",
   "td-291": "in_progress",
-  "td-292": "open",
+  "td-292": "in_progress",
   "td-293": "open",
   "td-294": "in_progress",
   "td-295": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-31T02:46:39.497783+00:00",
+  "ts": "2026-10-31T03:18:08.398030+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30485min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30514min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "STALE td-291 (no fresh observation; counter frozen; heartbeat stale (114min); session 45ad0eb1-53b9-4d14-9301-b1fda5802211 classification stale/missing)",
-    "ALIVE td-294 (heartbeat 1min ago (attempt-7 loop v2 still queued behind td-289 batch))"
+    "STALE td-291 (no fresh observation; counter frozen; heartbeat stale (143min); session 45ad0eb1-53b9-4d14-9301-b1fda5802211 classification stale/missing)",
+    "ALIVE td-294 (heartbeat 16min ago (attempt-7 loop v2 still queued behind td-289 batch))",
+    "GRACE td-292 (dispatched 15min ago; heartbeat stale (9999min); session b668a05c-c974-497c-8806-735c0f13d24a classification stale/missing)"
    ],
    "transitions": [
-    "FLIP td-290: in_progress -> in_review [wake-validator]"
+    "FLIP td-292: open -> in_progress [silent]"
    ],
    "classification-health": [
-    "STALE-RUNS=558"
+    "STALE-RUNS=559"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2450,10 +2451,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-31T02:46:39.497783+00:00",
-   "classification-health": "2026-10-31T02:16:59.898534+00:00",
-   "transitions": "2026-10-31T02:45:58.846880+00:00",
-   "conflicts": "2026-10-31T02:45:56.069236+00:00",
+   "liveness": "2026-10-31T03:15:53.483681+00:00",
+   "classification-health": "2026-10-31T03:18:08.398030+00:00",
+   "transitions": "2026-10-31T03:15:58.524173+00:00",
+   "conflicts": "2026-10-31T03:15:54.539573+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
