@@ -1,1 +1,1 @@
-{"ts": "2026-10-31T00:18:19Z", "task": "td-289", "step": "web probe queued; root cause of smoke timeouts identified: 2-core VM at load ~4 from the worker fleet", "status": "working"}
+{"ts": "2026-10-31T00:51:16Z", "task": "td-289", "step": "probe queued; td-294 harness-7 at ~43 min (their gig harness drowns in same env spam)", "status": "working"}
