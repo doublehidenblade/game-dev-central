@@ -2146,7 +2146,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 560
+  "stale_runs": 561
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2416,20 +2416,20 @@
   "td-295": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-31T03:50:57.483934+00:00",
+  "ts": "2026-10-31T04:19:18.677542+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30549min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30573min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "STALE td-291 (no fresh observation; counter frozen; heartbeat stale (178min); session 45ad0eb1-53b9-4d14-9301-b1fda5802211 classification stale/missing)",
-    "STALE td-294 (no fresh observation; counter frozen; heartbeat stale (52min); session 73cb0930-412b-4f92-bb90-92684f11f14e classification stale/missing)",
+    "STALE td-291 (no fresh observation; counter frozen; heartbeat stale (202min); session 45ad0eb1-53b9-4d14-9301-b1fda5802211 classification stale/missing)",
+    "STALE td-294 (no fresh observation; counter frozen; heartbeat stale (76min); session 73cb0930-412b-4f92-bb90-92684f11f14e classification stale/missing)",
     "ALIVE td-292 (heartbeat stale (9999min); open PR #1242 Inspector report 2026-10-30 23:34 EDT - report only, do not )"
    ],
    "transitions": [
-    "FLIP td-292: open -> in_progress [silent]"
+    "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=560"
+    "STALE-RUNS=561"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2451,10 +2451,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-14T10:19:20.873842+00:00",
-   "liveness": "2026-10-31T03:50:57.483934+00:00",
-   "classification-health": "2026-10-31T03:44:25.963008+00:00",
-   "transitions": "2026-10-31T03:15:58.524173+00:00",
-   "conflicts": "2026-10-31T03:15:54.539573+00:00",
+   "liveness": "2026-10-31T04:14:56.888946+00:00",
+   "classification-health": "2026-10-31T04:19:18.677542+00:00",
+   "transitions": "2026-10-31T04:15:16.673172+00:00",
+   "conflicts": "2026-10-31T04:15:08.545028+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
