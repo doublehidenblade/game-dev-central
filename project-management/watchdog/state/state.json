@@ -2132,7 +2132,7 @@
    "task_file": "godot/docs/tasks/td-293.md",
    "dispatched_at": "2026-10-31T06:13:24.093438+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -2141,7 +2141,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 564
+  "stale_runs": 565
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2405,25 +2405,25 @@
   "td-289": "in_review",
   "td-290": "in_review",
   "td-291": "in_review",
-  "td-292": "in_progress",
+  "td-292": "in_review",
   "td-293": "open",
   "td-294": "in_progress",
   "td-295": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-10-31T05:54:01.966569+00:00",
+  "ts": "2026-10-31T06:14:26.307121+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30672min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (30692min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "ALIVE td-292 (heartbeat -11min ago (complete: PR #1245 open (branch worker/td-292-visu); open PR #1245 td-292: visual workshop panel, project pins on both maps, sh; open PR #)",
-    "ALIVE td-294 (heartbeat 4min ago ())"
+    "ALIVE td-294 (heartbeat -11min ago ())",
+    "GRACE td-293 (dispatched 1min ago; no heartbeat file; session 4beeb15f-f36c-487c-b28d-8f1fccd5107b classification stale/missing)"
    ],
    "transitions": [
-    "FLIP td-291: in_progress -> in_review [wake-validator]"
+    "FLIP td-292: in_progress -> in_review [wake-validator]"
    ],
    "classification-health": [
-    "STALE-RUNS=564"
+    "STALE-RUNS=565"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2444,10 +2444,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-31T05:54:01.966569+00:00",
-   "liveness": "2026-10-31T05:53:46.112502+00:00",
-   "classification-health": "2026-10-31T05:52:14.327780+00:00",
-   "transitions": "2026-10-31T05:45:38.312206+00:00",
-   "conflicts": "2026-10-31T05:45:30.906023+00:00",
+   "liveness": "2026-10-31T06:14:01.687999+00:00",
+   "classification-health": "2026-10-31T06:14:26.307121+00:00",
+   "transitions": "2026-10-31T06:14:09.504228+00:00",
+   "conflicts": "2026-10-31T06:14:07.424846+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
