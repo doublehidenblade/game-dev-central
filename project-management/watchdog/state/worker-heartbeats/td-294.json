@@ -1,1 +1,1 @@
-{"task":"td-294","ts":"2026-10-31T08:40:00Z","status":"waiting on heavy gate (td293)","note":"Attempt-12 (run C) + regression launchers retrying through gate held by td293 attempts 1-2. Banked: attempt-9 A+B PASS, attempt-11 D PASS."}
+{"task":"td-294","ts":"2026-10-31T11:20:00Z","status":"complete — in_review","note":"PR tokyo-drift-3d#1253 (worker/td-294-gig-dialog, mergeable clean). Board PR game-dev-central#562. All harness runs PASS post-fix post-integration. Report delivered."}

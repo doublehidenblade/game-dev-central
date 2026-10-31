@@ -49,6 +49,14 @@
    "merged_sha": "e933ccd5f2c8a4a8fcf10a59f8d11de188459c11",
    "merged_at": "2026-10-31T08:02:44.342380+00:00",
    "summary": "Cash-only starter upgrades: roof light bar \u00a51800, driving lamps \u00a52500, alloy wheels \u00a53200 priced from starting-gig fares; single authoritative debit, visible fitments, purchase dialog with mechanic portrait; 43/43 interaction checks"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-294",
+   "pr": 1253,
+   "merged_sha": "5562e511517897129e9d66454a1b8381aec32c2f",
+   "merged_at": "2026-10-31T11:07:49.176159+00:00",
+   "summary": "Gig dialog system: portrait briefings/closings, mid-gig cargo-hit/wrong-way/encouragement triggers on existing gig signals; route_progress coordinate bug found and fixed (CityData.plan); integrated with td-291 damage sampling"
   }
  ]
 }
