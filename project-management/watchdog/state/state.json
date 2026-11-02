@@ -2105,7 +2105,9 @@
   "2026-10-31T08:02Z assigned td-293 PR #1249 -> session 4beeb15f-f36c-487c-b28d-8f1fccd5107b",
   "2026-10-31T08:02Z deregistered td-293 (subagent): auto \u2014 PR #1249 merged (record-pending)",
   "2026-10-31T11:07Z assigned td-294 PR #1253 -> session 88fa690f-ba54-4c95-b104-faac19ac02ce",
-  "2026-10-31T11:07Z deregistered td-294 (subagent): auto \u2014 PR #1253 merged (record-pending)"
+  "2026-10-31T11:07Z deregistered td-294 (subagent): auto \u2014 PR #1253 merged (record-pending)",
+  "2026-11-02T16:53Z assigned td-297 PR #1310 -> session 9f3cac09-04d5-4e15-873d-ae5c14a6b5be",
+  "2026-11-02T16:53Z deregistered td-297 (subagent): auto \u2014 PR #1310 merged (record-pending)"
  ],
  "workers": {
   "td-217": {
@@ -2123,15 +2125,6 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-218.md",
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
-  },
-  "td-297": {
-   "kind": "subagent",
-   "session": "9f3cac09-04d5-4e15-873d-ae5c14a6b5be",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-297.md",
-   "dispatched_at": "2026-11-02T14:48:24.043956+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
   }
