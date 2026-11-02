@@ -2142,7 +2142,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 676
+  "stale_runs": 677
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2414,7 +2414,7 @@
   "td-297": "in_progress"
  },
  "run_verdicts": {
-  "ts": "2026-11-02T15:44:24.058589+00:00",
+  "ts": "2026-11-02T15:48:37.805102+00:00",
   "checks": {
    "liveness": [
     "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (34143min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
@@ -2425,7 +2425,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=676"
+    "STALE-RUNS=677"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2447,7 +2447,7 @@
   "check_ts": {
    "board-check": "2026-10-31T05:54:01.966569+00:00",
    "liveness": "2026-11-02T15:44:22.578468+00:00",
-   "classification-health": "2026-11-02T15:18:17.261451+00:00",
+   "classification-health": "2026-11-02T15:48:37.805102+00:00",
    "transitions": "2026-11-02T15:44:24.058589+00:00",
    "conflicts": "2026-11-02T15:44:22.805986+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
