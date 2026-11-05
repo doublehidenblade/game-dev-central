@@ -2107,7 +2107,8 @@
   "2026-10-31T11:07Z assigned td-294 PR #1253 -> session 88fa690f-ba54-4c95-b104-faac19ac02ce",
   "2026-10-31T11:07Z deregistered td-294 (subagent): auto \u2014 PR #1253 merged (record-pending)",
   "2026-11-02T16:53Z assigned td-297 PR #1310 -> session 9f3cac09-04d5-4e15-873d-ae5c14a6b5be",
-  "2026-11-02T16:53Z deregistered td-297 (subagent): auto \u2014 PR #1310 merged (record-pending)"
+  "2026-11-02T16:53Z deregistered td-297 (subagent): auto \u2014 PR #1310 merged (record-pending)",
+  "2026-11-05T16:48Z LIVENESS: td-297 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-297-20261105-164811.md)."
  ],
  "workers": {
   "td-217": {
@@ -2127,15 +2128,6 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-297": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-297.md",
-   "dispatched_at": "2026-11-05T16:11:18.235225+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -2144,7 +2136,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 814
+  "stale_runs": 815
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2416,18 +2408,18 @@
   "td-297": "done-pending-verdict"
  },
  "run_verdicts": {
-  "ts": "2026-11-05T16:18:55.961425+00:00",
+  "ts": "2026-11-05T16:49:33.000135+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (38497min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (38526min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "GRACE td-297 (dispatched 8min ago; no heartbeat file)"
+    "DEAD td-297 (replacement queued; no heartbeat file)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=814"
+    "STALE-RUNS=815"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2448,10 +2440,10 @@
   },
   "check_ts": {
    "board-check": "2026-10-31T05:54:01.966569+00:00",
-   "liveness": "2026-11-05T16:18:54.537207+00:00",
-   "classification-health": "2026-11-05T15:49:29.204755+00:00",
-   "transitions": "2026-11-05T16:18:55.961425+00:00",
-   "conflicts": "2026-11-05T16:18:54.696351+00:00",
+   "liveness": "2026-11-05T16:48:11.664218+00:00",
+   "classification-health": "2026-11-05T16:49:33.000135+00:00",
+   "transitions": "2026-11-05T16:45:29.911504+00:00",
+   "conflicts": "2026-11-05T16:45:18.498850+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
