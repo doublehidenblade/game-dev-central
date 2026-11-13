@@ -73,6 +73,30 @@
    "merged_sha": "2ad6af032f06e19c5b11e9093d3b3807bf28e5b3",
    "merged_at": "2026-11-02T16:53:26.643853+00:00",
    "summary": "Desktop detector fixed: physical-touchscreen query excludes mouse-to-touch emulation, so the compact desktop HUD now engages in production; touch layout unchanged (0 px diff)"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-297",
+   "pr": 1565,
+   "merged_sha": "df9b6b731055ed091a0d9c07099da80bd6cf4408",
+   "merged_at": "2026-11-13T09:53:11.824138+00:00",
+   "summary": "Dispatch card web width fix 429->404px under the 420 cap; inspector PASS on branch"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-298",
+   "pr": 1562,
+   "merged_sha": "f8d381a938abda7e148ef4507eae9faa5f836106",
+   "merged_at": "2026-11-13T09:54:22.334207+00:00",
+   "summary": "Smoke-timeout split: Shuto job separated, main timeout raised to 35m; main job green on confirmation run"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-299",
+   "pr": 1570,
+   "merged_sha": "07839199cbce6597b7f4c36e90ffd984bfb99940",
+   "merged_at": "2026-11-13T09:57:32.517744+00:00",
+   "summary": "Shuto script-error fix: DesktopScale decoupled from CityTouchControls; local detector/export proof, smoke dispatch is the post-merge acceptance step"
   }
  ]
 }
