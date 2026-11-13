@@ -2154,7 +2154,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 1135
+  "stale_runs": 1136
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2428,19 +2428,19 @@
   "td-298": "open"
  },
  "run_verdicts": {
-  "ts": "2026-11-13T03:48:16.002781+00:00",
+  "ts": "2026-11-13T04:15:57.264254+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (49263min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (49294min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "ALIVE td-297 (heartbeat stale (9358min); open PR #1565 td-297: fix dispatch card web width (429 -> 404 px, criterio)",
+    "ALIVE td-297 (heartbeat stale (9388min); open PR #1565 td-297: fix dispatch card web width (429 -> 404 px, criterio)",
     "ALIVE td-298 (no heartbeat file; open PR #1563 Inspector report 2026-11-12 20:34 EST - report only, do not ; open PR #1562 td-298: split Shuto smoke check into its own job, r)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1135"
+    "STALE-RUNS=1136"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2461,10 +2461,10 @@
   },
   "check_ts": {
    "board-check": "2026-11-12T03:17:59.890352+00:00",
-   "liveness": "2026-11-13T03:45:24.784575+00:00",
-   "classification-health": "2026-11-13T03:48:16.002781+00:00",
-   "transitions": "2026-11-13T03:45:37.199936+00:00",
-   "conflicts": "2026-11-13T03:45:31.616815+00:00",
+   "liveness": "2026-11-13T04:15:32.987950+00:00",
+   "classification-health": "2026-11-13T04:15:57.264254+00:00",
+   "transitions": "2026-11-13T04:15:40.834731+00:00",
+   "conflicts": "2026-11-13T04:15:36.067278+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
