@@ -2422,12 +2422,12 @@
   "td-299": "open"
  },
  "run_verdicts": {
-  "ts": "2026-11-13T13:15:07.991409+00:00",
+  "ts": "2026-11-13T13:46:21.003132+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (49832min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (49865min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
-    "ALIVE td-297 (heartbeat stale (9927min); task-file commit df9b6b7 2026-11-13T09:53; open PR #1574 Inspector report 2026-11-13 05:34 EST - report only, do not ; open PR #1573 )"
+    "ALIVE td-297 (heartbeat stale (9959min); task-file commit df9b6b7 2026-11-13T09:53; open PR #1574 Inspector report 2026-11-13 05:34 EST - report only, do not ; open PR #1573 )"
    ],
    "transitions": [
     "FLIP td-298: in_review -> open [silent]",
@@ -2455,10 +2455,10 @@
   },
   "check_ts": {
    "board-check": "2026-11-12T03:17:59.890352+00:00",
-   "liveness": "2026-11-13T13:14:17.594237+00:00",
+   "liveness": "2026-11-13T13:46:21.003132+00:00",
    "classification-health": "2026-11-13T13:15:07.991409+00:00",
-   "transitions": "2026-11-13T13:14:42.921432+00:00",
-   "conflicts": "2026-11-13T13:14:37.111110+00:00",
+   "transitions": "2026-11-13T13:45:47.936937+00:00",
+   "conflicts": "2026-11-13T13:45:36.711068+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
