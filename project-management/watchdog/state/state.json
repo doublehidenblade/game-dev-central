@@ -2112,7 +2112,9 @@
   "2026-11-13T09:52Z assigned td-298 PR #1562 -> session d203e64e-e230-40c2-8e71-e4df3776870b",
   "2026-11-13T09:54Z deregistered td-298 (subagent): auto \u2014 PR #1562 merged (record-pending)",
   "2026-11-14T01:25Z assigned td-301 PR #1593 -> session 4fdd2294-f114-4a88-9e0b-3a4635912ea9",
-  "2026-11-14T01:26Z deregistered td-301 (muse-subagent): worker reported done"
+  "2026-11-14T01:26Z deregistered td-301 (muse-subagent): worker reported done",
+  "2026-11-14T05:37Z assigned td-302 PR #1598 -> session 53908c9e-dc7f-45e0-aef6-358df749032f",
+  "2026-11-14T05:38Z deregistered td-302 (muse-subagent): worker reported done"
  ],
  "workers": {
   "td-217": {
@@ -2132,15 +2134,6 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-302": {
-   "kind": "muse-subagent",
-   "session": "53908c9e-dc7f-45e0-aef6-358df749032f",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-302.md",
-   "dispatched_at": "2026-11-14T04:54:34.637972+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
   }
  },
  "dispatch_denylist": {
@@ -2658,6 +2651,13 @@
    "game": "tokyo",
    "recorded_at": "2026-11-14T01:25:20.708432+00:00",
    "reg_dispatched_at": "2026-11-14T00:52:26.542960+00:00"
+  },
+  "td-302:1598": {
+   "session": "53908c9e-dc7f-45e0-aef6-358df749032f",
+   "repo": "doublehidenblade/tokyo-drift-3d",
+   "game": "tokyo",
+   "recorded_at": "2026-11-14T05:37:45.534372+00:00",
+   "reg_dispatched_at": "2026-11-14T04:54:34.637972+00:00"
   }
  }
 }
