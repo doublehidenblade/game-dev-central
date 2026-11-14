@@ -2116,7 +2116,9 @@
   "2026-11-14T05:37Z assigned td-302 PR #1598 -> session 53908c9e-dc7f-45e0-aef6-358df749032f",
   "2026-11-14T05:38Z deregistered td-302 (muse-subagent): worker reported done",
   "2026-11-14T14:07Z assigned td-303 PR #1604 -> session ec481c04-146d-4359-9b3b-79224881ae30",
-  "2026-11-14T14:09Z deregistered td-303 (muse-subagent): worker reported done"
+  "2026-11-14T14:09Z deregistered td-303 (muse-subagent): worker reported done",
+  "2026-11-14T18:14Z assigned td-304 PR #1613 -> session 4fe02fd8-9189-494b-aae9-fdcb5d15911d",
+  "2026-11-14T18:15Z deregistered td-304 (muse-subagent): worker reported done"
  ],
  "workers": {
   "td-217": {
@@ -2136,15 +2138,6 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-304": {
-   "kind": "muse-subagent",
-   "session": "4fe02fd8-9189-494b-aae9-fdcb5d15911d",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-304.md",
-   "dispatched_at": "2026-11-14T17:50:33.806059+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -2429,14 +2422,16 @@
   "td-300": "done-pending-verdict",
   "td-301": "done-pending-verdict",
   "td-302": "done-pending-verdict",
-  "td-303": "in_review"
+  "td-303": "in_review",
+  "td-304": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-11-14T17:15:12.027459+00:00",
+  "ts": "2026-11-14T18:15:22.517515+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (51513min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
-    "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (51573min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
+    "ALIVE td-304 (no heartbeat file; task-file commit 2729302 2026-11-14T18:14)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2463,10 +2458,10 @@
   },
   "check_ts": {
    "board-check": "2026-11-12T03:17:59.890352+00:00",
-   "liveness": "2026-11-14T17:14:28.249433+00:00",
+   "liveness": "2026-11-14T18:15:20.346081+00:00",
    "classification-health": "2026-11-14T17:15:12.027459+00:00",
-   "transitions": "2026-11-14T17:14:38.039335+00:00",
-   "conflicts": "2026-11-14T17:14:32.005875+00:00",
+   "transitions": "2026-11-14T18:15:22.517515+00:00",
+   "conflicts": "2026-11-14T18:15:20.510132+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
@@ -2678,6 +2673,13 @@
    "game": "tokyo",
    "recorded_at": "2026-11-14T14:07:46.820037+00:00",
    "reg_dispatched_at": "2026-11-14T13:07:17.032667+00:00"
+  },
+  "td-304:1613": {
+   "session": "4fe02fd8-9189-494b-aae9-fdcb5d15911d",
+   "repo": "doublehidenblade/tokyo-drift-3d",
+   "game": "tokyo",
+   "recorded_at": "2026-11-14T18:14:24.187481+00:00",
+   "reg_dispatched_at": "2026-11-14T17:50:33.806059+00:00"
   }
  }
 }
