@@ -2146,7 +2146,7 @@
    "task_file": "godot/docs/tasks/td-305.md",
    "dispatched_at": "2026-11-14T22:08:43.671759+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "registered"
+   "last_verdict": "alive"
   }
  },
  "dispatch_denylist": {
@@ -2435,11 +2435,12 @@
   "td-304": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-11-14T21:44:25.164020+00:00",
+  "ts": "2026-11-14T22:15:27.759502+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-217 (heartbeat stale (51782min); open PR #1617 Inspector report 2026-11-14 16:34 EST - report only, do not ; open PR #1616 Inspector report 2026-11-14 15:34 EST - re)",
-    "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
+    "ALIVE td-217 (heartbeat stale (51813min); open PR #1617 Inspector report 2026-11-14 16:34 EST - report only, do not ; open PR #1616 Inspector report 2026-11-14 15:34 EST - re)",
+    "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
+    "ALIVE td-305 (no heartbeat file; open PR #1618 td-305: record close-out \u2014 flip td-303 and td-304 to done-pe)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2466,10 +2467,10 @@
   },
   "check_ts": {
    "board-check": "2026-11-12T03:17:59.890352+00:00",
-   "liveness": "2026-11-14T21:43:49.871865+00:00",
+   "liveness": "2026-11-14T22:15:12.999374+00:00",
    "classification-health": "2026-11-14T21:44:25.164020+00:00",
-   "transitions": "2026-11-14T21:44:15.202742+00:00",
-   "conflicts": "2026-11-14T21:43:56.277488+00:00",
+   "transitions": "2026-11-14T22:15:27.759502+00:00",
+   "conflicts": "2026-11-14T22:15:24.028590+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
