@@ -2110,7 +2110,9 @@
   "2026-11-02T16:53Z deregistered td-297 (subagent): auto \u2014 PR #1310 merged (record-pending)",
   "2026-11-05T16:48Z LIVENESS: td-297 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-297-20261105-164811.md).",
   "2026-11-13T09:52Z assigned td-298 PR #1562 -> session d203e64e-e230-40c2-8e71-e4df3776870b",
-  "2026-11-13T09:54Z deregistered td-298 (subagent): auto \u2014 PR #1562 merged (record-pending)"
+  "2026-11-13T09:54Z deregistered td-298 (subagent): auto \u2014 PR #1562 merged (record-pending)",
+  "2026-11-14T01:25Z assigned td-301 PR #1593 -> session 4fdd2294-f114-4a88-9e0b-3a4635912ea9",
+  "2026-11-14T01:26Z deregistered td-301 (muse-subagent): worker reported done"
  ],
  "workers": {
   "td-217": {
@@ -2130,15 +2132,6 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-301": {
-   "kind": "muse-subagent",
-   "session": "4fdd2294-f114-4a88-9e0b-3a4635912ea9",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-301.md",
-   "dispatched_at": "2026-11-14T00:52:26.542960+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -2648,5 +2641,13 @@
   "verdict_pr": 691,
   "verdict_merge_sha": "87c7fc2254955f64f61f63406a87f043332d8657"
  },
- "assignments": {}
+ "assignments": {
+  "td-301:1593": {
+   "session": "4fdd2294-f114-4a88-9e0b-3a4635912ea9",
+   "repo": "doublehidenblade/tokyo-drift-3d",
+   "game": "tokyo",
+   "recorded_at": "2026-11-14T01:25:20.708432+00:00",
+   "reg_dispatched_at": "2026-11-14T00:52:26.542960+00:00"
+  }
+ }
 }
