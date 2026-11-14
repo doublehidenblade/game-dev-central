@@ -2426,10 +2426,10 @@
   "td-304": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-11-14T20:14:21.626621+00:00",
+  "ts": "2026-11-14T20:45:15.919005+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-217 (heartbeat stale (51692min); open PR #1615 Inspector report 2026-11-14 14:34 EST - report only, do not )",
+    "ALIVE td-217 (heartbeat stale (51723min); open PR #1616 Inspector report 2026-11-14 15:34 EST - report only, do not ; open PR #1615 Inspector report 2026-11-14 14:34 EST - re)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
    ],
    "transitions": [
@@ -2457,10 +2457,10 @@
   },
   "check_ts": {
    "board-check": "2026-11-12T03:17:59.890352+00:00",
-   "liveness": "2026-11-14T20:14:01.096732+00:00",
+   "liveness": "2026-11-14T20:45:13.911306+00:00",
    "classification-health": "2026-11-14T20:14:21.626621+00:00",
-   "transitions": "2026-11-14T20:14:12.799569+00:00",
-   "conflicts": "2026-11-14T20:14:03.983054+00:00",
+   "transitions": "2026-11-14T20:45:15.919005+00:00",
+   "conflicts": "2026-11-14T20:45:14.092280+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
