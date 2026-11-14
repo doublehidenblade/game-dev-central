@@ -2140,7 +2140,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 1179
+  "stale_runs": 1180
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2416,17 +2416,17 @@
   "td-300": "done-pending-verdict"
  },
  "run_verdicts": {
-  "ts": "2026-11-14T03:47:28.501052+00:00",
+  "ts": "2026-11-14T04:16:08.331708+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (50704min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (50734min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1179"
+    "STALE-RUNS=1180"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2447,10 +2447,10 @@
   },
   "check_ts": {
    "board-check": "2026-11-12T03:17:59.890352+00:00",
-   "liveness": "2026-11-14T03:45:41.725948+00:00",
-   "classification-health": "2026-11-14T03:47:28.501052+00:00",
-   "transitions": "2026-11-14T03:45:47.380431+00:00",
-   "conflicts": "2026-11-14T03:45:44.477873+00:00",
+   "liveness": "2026-11-14T04:15:18.458040+00:00",
+   "classification-health": "2026-11-14T04:16:08.331708+00:00",
+   "transitions": "2026-11-14T04:15:44.196558+00:00",
+   "conflicts": "2026-11-14T04:15:29.004178+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
