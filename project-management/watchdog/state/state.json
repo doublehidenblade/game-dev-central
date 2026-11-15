@@ -2144,6 +2144,15 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
+  },
+  "td-308": {
+   "kind": "subagent",
+   "session": "9d6f0cb5-3fd8-4c5a-8013-81ee1474e3f4",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-308.md",
+   "dispatched_at": "2026-11-15T10:11:47.030349+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
