@@ -2125,28 +2125,11 @@
   "2026-11-15T02:17Z deregistered td-306 (muse-subagent): worker reported done",
   "2026-11-15T06:14Z assigned td-307 PR #1628 -> session 6001568c-9d69-4d88-9d90-3b7e1c7e59d0",
   "2026-11-15T06:15Z deregistered td-307 (muse-subagent): record close-out merged: tokyo PR #1628 + gdc PR #579",
-  "2026-11-15T11:15Z LIVENESS: td-218 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-218-20261115-111509.md)."
+  "2026-11-15T11:15Z LIVENESS: td-218 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-218-20261115-111509.md).",
+  "2026-11-15T14:16Z deregistered td-309 (muse-subagent): worker reported done",
+  "2026-11-15T14:16Z deregistered td-217 (muse-subagent): stale registration retired at td-309 merge: heartbeat frozen since 2026-10-09, liveness freshness fix live, inspector-routed retirement in td-308 record close-out"
  ],
- "workers": {
-  "td-217": {
-   "kind": "muse-subagent",
-   "session": "b4c71eb0-50e9-4723-bb42-bca7eb10a7c3",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-217.md",
-   "dispatched_at": "2026-10-09T22:18:39.271176+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "stale"
-  },
-  "td-309": {
-   "kind": "muse-subagent",
-   "session": "03658241-9376-4ad5-a01c-f6f939f83c92",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-309.md",
-   "dispatched_at": "2026-11-15T14:04:36.604271+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
-  }
- },
+ "workers": {},
  "dispatch_denylist": {
   "td-138": "Opus-owned per Craig 2026-10-05 (player Tripo car); Muse fleet does continuation from Opus notes only",
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only",
