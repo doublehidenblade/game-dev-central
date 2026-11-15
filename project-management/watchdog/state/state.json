@@ -2122,7 +2122,9 @@
   "2026-11-14T22:27Z assigned td-305 PR #1618 -> session 5616512e-ee1b-4427-b08e-ddfe5fef9d76",
   "2026-11-14T22:29Z deregistered td-305 (muse-subagent): worker reported done",
   "2026-11-15T02:16Z assigned td-306 PR #1623 -> session f1260d80-6421-451b-9b2a-dc68a9e3c6c7",
-  "2026-11-15T02:17Z deregistered td-306 (muse-subagent): worker reported done"
+  "2026-11-15T02:17Z deregistered td-306 (muse-subagent): worker reported done",
+  "2026-11-15T06:14Z assigned td-307 PR #1628 -> session 6001568c-9d69-4d88-9d90-3b7e1c7e59d0",
+  "2026-11-15T06:15Z deregistered td-307 (muse-subagent): record close-out merged: tokyo PR #1628 + gdc PR #579"
  ],
  "workers": {
   "td-217": {
@@ -2142,15 +2144,6 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-307": {
-   "kind": "muse-subagent",
-   "session": "6001568c-9d69-4d88-9d90-3b7e1c7e59d0",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-307.md",
-   "dispatched_at": "2026-11-15T05:51:41.496098+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -2159,7 +2152,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 1220
+  "stale_runs": 1221
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2441,17 +2434,18 @@
   "td-306": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-11-15T05:45:54.045423+00:00",
+  "ts": "2026-11-15T06:16:06.150651+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-217 (heartbeat stale (52263min); open PR #1617 Inspector report 2026-11-14 16:34 EST - report only, do not ; open PR #1616 Inspector report 2026-11-14 15:34 EST - re)",
-    "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
+    "ALIVE td-217 (heartbeat stale (52293min); open PR #1617 Inspector report 2026-11-14 16:34 EST - report only, do not ; open PR #1616 Inspector report 2026-11-14 15:34 EST - re)",
+    "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)",
+    "ALIVE td-307 (no heartbeat file; open PR #1628 td-307: record close-out \u2014 flip td-306 to done-pending-verdi)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1220"
+    "STALE-RUNS=1221"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2472,10 +2466,10 @@
   },
   "check_ts": {
    "board-check": "2026-11-12T03:17:59.890352+00:00",
-   "liveness": "2026-11-15T05:44:16.286193+00:00",
-   "classification-health": "2026-11-15T05:45:54.045423+00:00",
-   "transitions": "2026-11-15T05:44:19.081378+00:00",
-   "conflicts": "2026-11-15T05:44:16.464000+00:00",
+   "liveness": "2026-11-15T06:14:22.403619+00:00",
+   "classification-health": "2026-11-15T06:16:06.150651+00:00",
+   "transitions": "2026-11-15T06:14:23.791991+00:00",
+   "conflicts": "2026-11-15T06:14:22.570619+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
@@ -2708,6 +2702,13 @@
    "game": "tokyo",
    "recorded_at": "2026-11-15T02:16:57.542167+00:00",
    "reg_dispatched_at": "2026-11-15T02:08:50.987194+00:00"
+  },
+  "td-307:1628": {
+   "session": "6001568c-9d69-4d88-9d90-3b7e1c7e59d0",
+   "repo": "doublehidenblade/tokyo-drift-3d",
+   "game": "tokyo",
+   "recorded_at": "2026-11-15T06:14:28.291012+00:00",
+   "reg_dispatched_at": "2026-11-15T05:51:41.496098+00:00"
   }
  }
 }
