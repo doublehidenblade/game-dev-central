@@ -2134,7 +2134,7 @@
    "task_file": "godot/docs/tasks/td-217.md",
    "dispatched_at": "2026-10-09T22:18:39.271176+00:00",
    "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "last_verdict": "stale"
   },
   "td-218": {
    "kind": "subagent",
@@ -2142,8 +2142,8 @@
    "repo": "tokyo-drift-3d",
    "task_file": "godot/docs/tasks/td-218.md",
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "alive"
+   "quiet_cycles": 1,
+   "last_verdict": "quiet-1"
   }
  },
  "dispatch_denylist": {
@@ -2432,14 +2432,15 @@
   "td-304": "done-pending-verdict",
   "td-305": "done-pending-verdict",
   "td-306": "done-pending-verdict",
-  "td-307": "done-pending-verdict"
+  "td-307": "done-pending-verdict",
+  "td-308": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-11-15T10:15:47.191788+00:00",
+  "ts": "2026-11-15T10:45:28.075130+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-217 (heartbeat stale (52533min); open PR #1617 Inspector report 2026-11-14 16:34 EST - report only, do not ; open PR #1616 Inspector report 2026-11-14 15:34 EST - re)",
-    "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (52564min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "QUIET(1) td-218 (no heartbeat file)"
    ],
    "transitions": [
     "NO-FLIPS"
@@ -2466,10 +2467,10 @@
   },
   "check_ts": {
    "board-check": "2026-11-12T03:17:59.890352+00:00",
-   "liveness": "2026-11-15T10:15:02.637006+00:00",
+   "liveness": "2026-11-15T10:45:26.792854+00:00",
    "classification-health": "2026-11-15T10:15:47.191788+00:00",
-   "transitions": "2026-11-15T10:15:04.617962+00:00",
-   "conflicts": "2026-11-15T10:15:02.827743+00:00",
+   "transitions": "2026-11-15T10:45:28.075130+00:00",
+   "conflicts": "2026-11-15T10:45:26.942250+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
