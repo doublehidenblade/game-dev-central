@@ -2131,7 +2131,17 @@
   "2026-11-15T18:25Z assigned td-310 PR #1643 -> session 610a2255-bc04-488b-b219-331dd634fbc8",
   "2026-11-15T18:26Z deregistered td-310 (muse-subagent): td-310 merged: GDC PR #583 (e0d9aa15), board PR #584 (5c26d649), Tokyo PR #1643 (0eaff484); tooling/docs only, no pending-release entry"
  ],
- "workers": {},
+ "workers": {
+  "td-311": {
+   "kind": "subagent",
+   "session": "d0740179-3e3b-4ded-a518-941182a7013d",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-311.md",
+   "dispatched_at": "2026-11-15T22:10:29.850152+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
+  }
+ },
  "dispatch_denylist": {
   "td-138": "Opus-owned per Craig 2026-10-05 (player Tripo car); Muse fleet does continuation from Opus notes only",
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only",
