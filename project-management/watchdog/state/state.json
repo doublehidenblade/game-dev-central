@@ -2124,7 +2124,8 @@
   "2026-11-15T02:16Z assigned td-306 PR #1623 -> session f1260d80-6421-451b-9b2a-dc68a9e3c6c7",
   "2026-11-15T02:17Z deregistered td-306 (muse-subagent): worker reported done",
   "2026-11-15T06:14Z assigned td-307 PR #1628 -> session 6001568c-9d69-4d88-9d90-3b7e1c7e59d0",
-  "2026-11-15T06:15Z deregistered td-307 (muse-subagent): record close-out merged: tokyo PR #1628 + gdc PR #579"
+  "2026-11-15T06:15Z deregistered td-307 (muse-subagent): record close-out merged: tokyo PR #1628 + gdc PR #579",
+  "2026-11-15T11:15Z LIVENESS: td-218 proclaimed DEAD (2 quiet cycles; no heartbeat file). Replacement dispatch-subagent queued (brief td-218-20261115-111509.md)."
  ],
  "workers": {
   "td-217": {
@@ -2135,15 +2136,6 @@
    "dispatched_at": "2026-10-09T22:18:39.271176+00:00",
    "quiet_cycles": 0,
    "last_verdict": "stale"
-  },
-  "td-218": {
-   "kind": "subagent",
-   "session": null,
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-218.md",
-   "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
-   "quiet_cycles": 1,
-   "last_verdict": "quiet-1"
   }
  },
  "dispatch_denylist": {
@@ -2152,7 +2144,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 1227
+  "stale_runs": 1228
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2436,17 +2428,17 @@
   "td-308": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-11-15T10:45:28.075130+00:00",
+  "ts": "2026-11-15T11:17:32.100957+00:00",
   "checks": {
    "liveness": [
-    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (52564min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
-    "QUIET(1) td-218 (no heartbeat file)"
+    "STALE td-217 (no fresh observation; counter frozen; heartbeat stale (52593min); session b4c71eb0-50e9-4723-bb42-bca7eb10a7c3 classification stale/missing)",
+    "DEAD td-218 (replacement queued; no heartbeat file)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1227"
+    "STALE-RUNS=1228"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2467,10 +2459,10 @@
   },
   "check_ts": {
    "board-check": "2026-11-12T03:17:59.890352+00:00",
-   "liveness": "2026-11-15T10:45:26.792854+00:00",
-   "classification-health": "2026-11-15T10:15:47.191788+00:00",
-   "transitions": "2026-11-15T10:45:28.075130+00:00",
-   "conflicts": "2026-11-15T10:45:26.942250+00:00",
+   "liveness": "2026-11-15T11:15:09.396285+00:00",
+   "classification-health": "2026-11-15T11:17:32.100957+00:00",
+   "transitions": "2026-11-15T11:15:11.618568+00:00",
+   "conflicts": "2026-11-15T11:15:09.578059+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
