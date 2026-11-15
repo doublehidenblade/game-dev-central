@@ -2140,6 +2140,15 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
+  },
+  "td-306": {
+   "kind": "muse-subagent",
+   "session": "f1260d80-6421-451b-9b2a-dc68a9e3c6c7",
+   "repo": "tokyo-drift-3d",
+   "task_file": "godot/docs/tasks/td-306.md",
+   "dispatched_at": "2026-11-15T02:08:50.987194+00:00",
+   "quiet_cycles": 0,
+   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
