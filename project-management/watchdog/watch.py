@@ -836,6 +836,10 @@ LIVENESS_QUIET_CYCLES = 2       # quiet this many consecutive cycles -> DEAD
 LIVENESS_HEARTBEAT_MAX_MIN = 35  # heartbeat older than this does not prove life
 LIVENESS_CLASSIFY_MAX_MIN = 25  # classification older than this -> observation STALE, counter frozen
 LIVENESS_GRACE_MIN = 30         # freshly dispatched worker: ~2 cycles of grace
+LIVENESS_EVIDENCE_MAX_MIN = 180  # GitHub evidence (task-file commit, branch
+# commit, open PR) older than this does not prove life. td-308: td-218 stayed
+# ALIVE forever on a pre-dispatch branch and td-217 on hourly inspector-report
+# PR mentions; without a recency bound queue-health counts phantom workers.
 # NOTE: LIVENESS_TERMINAL is defined once below as an alias of
 # STATUS_PREFIXES_TERMINAL — do not re-add a separate set here.
 
@@ -884,9 +888,11 @@ def _worker_evidence(repo_full, task, task_file, dispatched_dt):
                  if (d := parse_ts(c["commit"]["committer"]["date"])) and
                  (not dispatched_dt or d > dispatched_dt)]
         if fresh:
-            alive = True
-            reasons.append(f"task-file commit {fresh[0]['sha'][:7]} "
-                           f"{fresh[0]['commit']['committer']['date'][:16]}")
+            newest_dt = parse_ts(fresh[0]["commit"]["committer"]["date"])
+            if newest_dt and (now() - newest_dt).total_seconds() / 60 <= LIVENESS_EVIDENCE_MAX_MIN:
+                alive = True
+                reasons.append(f"task-file commit {fresh[0]['sha'][:7]} "
+                               f"{fresh[0]['commit']['committer']['date'][:16]}")
             salvage.append("Recent task-file commits:\n" + "\n".join(
                 f"  {c['sha'][:7]} {c['commit']['message'].splitlines()[0]}" for c in fresh))
     except Exception as e:
@@ -904,8 +910,13 @@ def _worker_evidence(repo_full, task, task_file, dispatched_dt):
                                 for c in cmp.get("commits", [])[-5:]]
                         salvage.append(f"Branch {b['name']} ({ahead} ahead of main):\n" +
                                        "\n".join(f"  - {m}" for m in msgs))
-                        alive = True
-                        reasons.append(f"branch {b['name']} {ahead} ahead")
+                        dates = [d for c in cmp.get("commits", [])
+                                 if (d := parse_ts(c["commit"]["committer"]["date"]))]
+                        newest_dt = max(dates) if dates else None
+                        if newest_dt and (not dispatched_dt or newest_dt > dispatched_dt) and \
+                                (now() - newest_dt).total_seconds() / 60 <= LIVENESS_EVIDENCE_MAX_MIN:
+                            alive = True
+                            reasons.append(f"branch {b['name']} {ahead} ahead")
                     else:
                         salvage.append(f"Branch {b['name']}: already on main (no unique commits)")
                 except Exception:
@@ -916,10 +927,17 @@ def _worker_evidence(repo_full, task, task_file, dispatched_dt):
     try:
         prs = _gh(f"/repos/{repo_full}/pulls?state=open&per_page=30")
         for p in prs:
-            if task.lower() in (p.get("title") or "").lower() or \
+            title_l = (p.get("title") or "").lower()
+            head_ref = ((p.get("head") or {}).get("ref") or "")
+            if "inspector report" in title_l or "report only" in title_l or \
+                    head_ref.startswith("inspector/"):
+                continue  # report-only PRs mention every task id hourly (td-308)
+            if task.lower() in title_l or \
                task.lower() in (p.get("body") or "")[:500].lower():
-                alive = True
-                reasons.append(f"open PR #{p['number']} {p['title'][:60]}")
+                updated_dt = parse_ts(p.get("updated_at"))
+                if updated_dt and (now() - updated_dt).total_seconds() / 60 <= LIVENESS_EVIDENCE_MAX_MIN:
+                    alive = True
+                    reasons.append(f"open PR #{p['number']} {p['title'][:60]}")
                 salvage.append(f"Open PR #{p['number']}: {p['title']} — {p.get('html_url','')}")
     except Exception as e:
         reasons.append(f"PR check failed: {e}")
