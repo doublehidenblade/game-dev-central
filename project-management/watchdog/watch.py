@@ -1084,6 +1084,7 @@ def cmd_liveness():
             salvage = []
         # Signal C: cloud session classification (codex/claude).
         session = w.get("session")
+        cls = None
         if session and not alive:
             sst = state.get("sessions", {}).get(session, {})
             cls, cls_ts = sst.get("last_classification"), parse_ts(sst.get("last_classification_ts"))
@@ -1091,6 +1092,30 @@ def cmd_liveness():
                 if cls == "WORKING":
                     alive = True
                     reasons.append(f"session {session} classified WORKING recently")
+                elif cls == "DEAD":
+                    # td-311: a fresh DEAD classification is a positive
+                    # ended-session receipt — the session itself reports
+                    # that it ended. Only this receipt (or the
+                    # terminal-status DROPPED path above) may advance the
+                    # quiet counter toward a DEAD proclamation for a
+                    # session-backed worker, so fresh_observation stays
+                    # True on this branch only.
+                    reasons.append(f"session {session} classified DEAD recently (ended-session receipt)")
+                else:
+                    # td-311 (FLEET-019 residual): a fresh STALLED,
+                    # UNKNOWN, or any other non-terminal classification
+                    # is NOT an ended-session receipt. The session has
+                    # not reported ending — a STALLED session is handled
+                    # by decide_action (nudge / re-brief), and UNKNOWN
+                    # means the classifier could not determine the state.
+                    # Treating either as a fresh observation of death let
+                    # QUIET -> DEAD drop the registration and queue a
+                    # replacement with no ended-session receipt. Treat
+                    # the observation exactly like the stale path below:
+                    # counter frozen, registration kept, no replacement
+                    # queued.
+                    fresh_observation = False
+                    reasons.append(f"session {session} classified {cls} recently; no ended-session receipt")
             else:
                 fresh_observation = False
                 reasons.append(f"session {session} classification stale/missing")
@@ -1124,6 +1149,9 @@ def cmd_liveness():
             w["last_verdict"] = "stale"
             if not session:
                 print(f"STALE {task} (session-less registration; no ended-session receipt; "
+                      f"counter frozen; {'; '.join(reasons)[:120]})")
+            elif cls and cls not in ("WORKING", "DEAD"):
+                print(f"STALE {task} (fresh {cls} classification; no ended-session receipt; "
                       f"counter frozen; {'; '.join(reasons)[:120]})")
             else:
                 print(f"STALE {task} (no fresh observation; counter frozen; {'; '.join(reasons)[:120]})")

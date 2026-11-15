@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
-"""Unit tests for watch.py cmd_liveness ownership-safety rules (td-310).
+"""Unit tests for watch.py cmd_liveness ownership-safety rules (td-310/td-311).
 
-History: cmd_liveness's Signal C (cloud-session classification) only runs
-when a registration carries a session id. For a session-less registration
-(session=None, e.g. registered with '-'), fresh_observation stayed True,
-so two consecutive cycles with no heartbeat file and no fresh GitHub
-evidence advanced quiet_cycles QUIET(1) -> DEAD: the registration was
-deleted and a replacement dispatch-subagent was queued in
-pending_actions.json — with no ended-session receipt of any kind.
+History (td-310): cmd_liveness's Signal C (cloud-session classification)
+only runs when a registration carries a session id. For a session-less
+registration (session=None, e.g. registered with '-'), fresh_observation
+stayed True, so two consecutive cycles with no heartbeat file and no
+fresh GitHub evidence advanced quiet_cycles QUIET(1) -> DEAD: the
+registration was deleted and a replacement dispatch-subagent was queued
+in pending_actions.json — with no ended-session receipt of any kind.
 Absence of evidence was treated as a fresh observation of death, but for
 a session-less registration the checker has NO channel that could observe
 the session ending. Reproduced by td-218 (2026-11-15: registered
 session=null, quiet_cycles=1; the next sync proclaimed it DEAD and queued
 a replacement nobody authorized).
 
-Fix (cmd_liveness only; _worker_evidence is td-308 and untouched here):
+Fix td-310 (cmd_liveness only; _worker_evidence is td-308, untouched):
 1. Session-less + no life signs is NOT a fresh observation: STALE with a
    reason naming the missing ended-session receipt, counter frozen,
    registration kept, no replacement queued. Alive paths (fresh
@@ -25,6 +25,28 @@ Fix (cmd_liveness only; _worker_evidence is td-308 and untouched here):
    list-or-dict, plus the td-054 default). A denylisted worker whose
    death WAS observed through a session channel is still proclaimed
    DEAD, noted, and dropped — only the replacement is not queued.
+
+Residual (td-311, Dot's FLEET-019 review): the td-310 fix left the
+session-backed path unsafe. Signal C treated only a fresh WORKING
+classification as alive and only marked the observation not-fresh when
+the classification was stale/missing — so a FRESH STALLED or UNKNOWN
+classification left fresh_observation=True, quiet_cycles incremented,
+and after 2 cycles the worker was proclaimed DEAD, dropped, and a
+replacement queued. A fresh STALLED/UNKNOWN is not an ended-session
+receipt. The old test (b) in this file expected that unsafe transition.
+
+Fix td-311 (cmd_liveness only): a fresh classification advances the
+quiet counter toward DEAD only when it is itself a positive
+ended-session receipt — a fresh DEAD classification. A fresh STALLED,
+UNKNOWN, or any other non-terminal classification is NOT a fresh
+observation of death: STALE with a reason naming the missing
+ended-session receipt, counter frozen, registration kept, no
+replacement queued. Test (b) now expects the safe behaviour; tests
+(b2)/(b4) add the UNKNOWN and other-non-terminal regressions, and
+test (b3) is the positive control: a fresh DEAD classification still
+goes QUIET(1) -> DEAD with a replacement queued. The denylist tests
+(e)/(e2)/(e3) now reach DEAD through the DEAD-classification receipt,
+so the denylist behaviour itself is unchanged.
 
 Run: python3 test_liveness_caller.py  (exit 0 = all pass)
 """
@@ -65,7 +87,7 @@ def _load_watch_unwrapped():
     sys.modules["coordinator_cli"] = stub
     try:
         spec = importlib.util.spec_from_file_location(
-            "watch_td310_liveness",
+            "watch_td311_liveness",
             os.path.join(os.path.dirname(os.path.abspath(__file__)), "watch.py"))
         mod = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(mod)
@@ -192,19 +214,68 @@ class LivenessHarness(unittest.TestCase):
             self.assertEqual(self.read_pa()["actions"], [],
                              "no replacement may be queued for a STALE worker")
 
-    # -- (b) session-backed QUIET -> DEAD behaviour preserved -----------------
-    def test_b_session_backed_quiet_then_dead_replacement_queued(self):
-        # Current-code semantics: Signal C marks the observation stale only
-        # when the classification itself is stale/missing. A FRESH
-        # classification that is not WORKING (here STALLED) is a fresh
-        # observation with no life signs, so the counter advances:
-        # run 1 QUIET(1), run 2 DEAD + replacement queued + registry drop.
+    # -- (b) fresh STALLED is NOT an ended-session receipt (td-311) -----------
+    def test_b_session_backed_fresh_stalled_stale_never_dead(self):
+        # td-311 / Dot's FLEET-019 criterion: a session-backed registration
+        # with a FRESH STALLED classification and no ended-session receipt
+        # must NOT go QUIET -> DEAD. (The td-310 version of this test
+        # expected exactly that unsafe transition; it is flipped here.)
+        # STALLED is not a receipt: the counter stays frozen, the
+        # registration is kept, and nothing is queued — across repeated
+        # cycles, starting from quiet_cycles=1, the point where one more
+        # quiet cycle under the old code proclaimed DEAD immediately.
         task = "td-900"
         self.set_workers(
-            {task: worker(task, session="sess-b")},
+            {task: worker(task, session="sess-b", quiet=1)},
             sessions=self.fresh_classification("sess-b", "STALLED"))
+        for _ in range(3):
+            out = self.run_liveness()
+            self.assertTrue(out.startswith(f"STALE {task}"), out)
+            self.assertIn("fresh STALLED classification", out)
+            self.assertIn("no ended-session receipt", out)
+            st = self.read_state()
+            self.assertIn(task, st["workers"],
+                          "fresh-STALLED registration must NOT be dropped")
+            self.assertEqual(st["workers"][task]["quiet_cycles"], 1,
+                             "quiet_cycles must never advance without a receipt")
+            self.assertEqual(st["workers"][task]["last_verdict"], "stale")
+            self.assertEqual(self.read_pa()["actions"], [],
+                             "no replacement may be queued for a STALE worker")
+
+    # -- (b2) fresh UNKNOWN is NOT an ended-session receipt (td-311) ----------
+    def test_b2_session_backed_fresh_unknown_stale_never_dead(self):
+        # UNKNOWN means the classifier could not determine the session
+        # state — it is not a receipt that the session ended. Same safe
+        # behaviour as STALLED, across repeated cycles.
+        task = "td-906"
+        self.set_workers(
+            {task: worker(task, session="sess-u", quiet=1)},
+            sessions=self.fresh_classification("sess-u", "UNKNOWN"))
+        for _ in range(3):
+            out = self.run_liveness()
+            self.assertTrue(out.startswith(f"STALE {task}"), out)
+            self.assertIn("fresh UNKNOWN classification", out)
+            self.assertIn("no ended-session receipt", out)
+            st = self.read_state()
+            self.assertIn(task, st["workers"],
+                          "fresh-UNKNOWN registration must NOT be dropped")
+            self.assertEqual(st["workers"][task]["quiet_cycles"], 1)
+            self.assertEqual(st["workers"][task]["last_verdict"], "stale")
+            self.assertEqual(self.read_pa()["actions"], [])
+
+    # -- (b3) fresh DEAD classification IS the receipt: DEAD path preserved ---
+    def test_b3_session_backed_fresh_dead_quiet_then_dead_queued(self):
+        # Positive control: a fresh DEAD classification itself reports the
+        # session ended, so it IS a positive ended-session receipt — the
+        # existing QUIET(1) -> DEAD + replacement-queued behaviour is
+        # preserved for exactly this case.
+        task = "td-907"
+        self.set_workers(
+            {task: worker(task, session="sess-d")},
+            sessions=self.fresh_classification("sess-d", "DEAD"))
         out1 = self.run_liveness()
         self.assertTrue(out1.startswith(f"QUIET(1) {task}"), out1)
+        self.assertIn("ended-session receipt", out1)
         out2 = self.run_liveness()
         self.assertTrue(out2.startswith(f"DEAD {task}"), out2)
         self.assertIn("replacement queued", out2)
@@ -215,6 +286,29 @@ class LivenessHarness(unittest.TestCase):
         self.assertEqual(len(actions), 1)
         self.assertEqual(actions[0]["type"], "dispatch-subagent")
         self.assertEqual(actions[0]["task"], task)
+
+    # -- (b4) other fresh non-terminal classifications: also not receipts -----
+    def test_b4_other_fresh_nonterminal_classifications_stale(self):
+        # FINISHED / OUT_OF_TOKENS / LOGIN_BLOCKED have their own flows
+        # (SHIP / FAILOVER / REPORT_LOGIN in decide_action); none of them
+        # is a liveness ended-session receipt, so liveness must not
+        # proclaim DEAD, drop, or queue a replacement for any of them.
+        for i, cls in enumerate(("FINISHED", "OUT_OF_TOKENS", "LOGIN_BLOCKED")):
+            with self.subTest(classification=cls):
+                task = f"td-91{i}"
+                session = f"sess-{cls.lower()}"
+                self.set_workers(
+                    {task: worker(task, session=session, quiet=1)},
+                    sessions=self.fresh_classification(session, cls))
+                self._write_pa({"actions": [], "notes": []})
+                for _ in range(2):
+                    out = self.run_liveness()
+                    self.assertTrue(out.startswith(f"STALE {task}"), out)
+                    self.assertIn("no ended-session receipt", out)
+                    st = self.read_state()
+                    self.assertIn(task, st["workers"])
+                    self.assertEqual(st["workers"][task]["quiet_cycles"], 1)
+                    self.assertEqual(self.read_pa()["actions"], [])
 
     # -- (c) session-less + fresh heartbeat -> ALIVE ---------------------------
     def test_c_sessionless_fresh_heartbeat_alive_counter_reset(self):
@@ -241,10 +335,14 @@ class LivenessHarness(unittest.TestCase):
 
     # -- (e) denylisted session-backed DEAD: dropped, NO replacement -----------
     def test_e_denylisted_dead_recorded_dropped_no_replacement(self):
+        # td-311: DEAD is reached through the fresh DEAD classification —
+        # the positive ended-session receipt. The denylist behaviour
+        # itself (DEAD recorded and dropped, replacement NOT queued) is
+        # the td-310 behaviour, unchanged.
         task = "td-901"
         self.set_workers(
             {task: worker(task, session="sess-e", quiet=1)},
-            sessions=self.fresh_classification("sess-e", "STALLED"),
+            sessions=self.fresh_classification("sess-e", "DEAD"),
             denylist={task: "gated: test denylist entry"})
         out = self.run_liveness()
         self.assertTrue(out.startswith(f"DEAD {task}"), out)
@@ -264,7 +362,7 @@ class LivenessHarness(unittest.TestCase):
         task = "td-054"
         self.set_workers(
             {task: worker(task, session="sess-054", quiet=1)},
-            sessions=self.fresh_classification("sess-054", "STALLED"))
+            sessions=self.fresh_classification("sess-054", "DEAD"))
         out = self.run_liveness()
         self.assertTrue(out.startswith(f"DEAD {task}"), out)
         self.assertIn("NOT queued", out)
@@ -274,7 +372,7 @@ class LivenessHarness(unittest.TestCase):
         task = "td-904"
         self.set_workers(
             {task: worker(task, session="sess-l", quiet=1)},
-            sessions=self.fresh_classification("sess-l", "STALLED"),
+            sessions=self.fresh_classification("sess-l", "DEAD"),
             denylist=[task])
         out = self.run_liveness()
         self.assertTrue(out.startswith(f"DEAD {task}"), out)
