@@ -2129,19 +2129,11 @@
   "2026-11-15T14:16Z deregistered td-309 (muse-subagent): worker reported done",
   "2026-11-15T14:16Z deregistered td-217 (muse-subagent): stale registration retired at td-309 merge: heartbeat frozen since 2026-10-09, liveness freshness fix live, inspector-routed retirement in td-308 record close-out",
   "2026-11-15T18:25Z assigned td-310 PR #1643 -> session 610a2255-bc04-488b-b219-331dd634fbc8",
-  "2026-11-15T18:26Z deregistered td-310 (muse-subagent): td-310 merged: GDC PR #583 (e0d9aa15), board PR #584 (5c26d649), Tokyo PR #1643 (0eaff484); tooling/docs only, no pending-release entry"
+  "2026-11-15T18:26Z deregistered td-310 (muse-subagent): td-310 merged: GDC PR #583 (e0d9aa15), board PR #584 (5c26d649), Tokyo PR #1643 (0eaff484); tooling/docs only, no pending-release entry",
+  "2026-11-15T22:33Z assigned td-311 PR #1648 -> session d0740179-3e3b-4ded-a518-941182a7013d",
+  "2026-11-15T22:34Z deregistered td-311 (subagent): td-311 PRs merged by coordinator: GDC #585/#586, Tokyo #1648"
  ],
- "workers": {
-  "td-311": {
-   "kind": "subagent",
-   "session": "d0740179-3e3b-4ded-a518-941182a7013d",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-311.md",
-   "dispatched_at": "2026-11-15T22:10:29.850152+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "grace"
-  }
- },
+ "workers": {},
  "dispatch_denylist": {
   "td-138": "Opus-owned per Craig 2026-10-05 (player Tripo car); Muse fleet does continuation from Opus notes only",
   "td-137": "Opus-owned per Craig 2026-10-05 (Shuto split/merge/highway); Muse fleet does continuation from Opus notes only",
@@ -2714,6 +2706,13 @@
    "game": "tokyo",
    "recorded_at": "2026-11-15T18:25:16.876280+00:00",
    "reg_dispatched_at": "2026-11-15T18:08:43.086101+00:00"
+  },
+  "td-311:1648": {
+   "session": "d0740179-3e3b-4ded-a518-941182a7013d",
+   "repo": "doublehidenblade/tokyo-drift-3d",
+   "game": "tokyo",
+   "recorded_at": "2026-11-15T22:33:11.122144+00:00",
+   "reg_dispatched_at": "2026-11-15T22:10:29.850152+00:00"
   }
  }
 }
