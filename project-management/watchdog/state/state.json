@@ -2144,15 +2144,6 @@
    "dispatched_at": "2026-10-12T03:13:28.609540+00:00",
    "quiet_cycles": 0,
    "last_verdict": "alive"
-  },
-  "td-308": {
-   "kind": "subagent",
-   "session": "9d6f0cb5-3fd8-4c5a-8013-81ee1474e3f4",
-   "repo": "tokyo-drift-3d",
-   "task_file": "godot/docs/tasks/td-308.md",
-   "dispatched_at": "2026-11-15T10:11:47.030349+00:00",
-   "quiet_cycles": 0,
-   "last_verdict": "registered"
   }
  },
  "dispatch_denylist": {
@@ -2161,7 +2152,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 1226
+  "stale_runs": 1227
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2444,17 +2435,17 @@
   "td-307": "done-pending-verdict"
  },
  "run_verdicts": {
-  "ts": "2026-11-15T09:44:21.736560+00:00",
+  "ts": "2026-11-15T10:15:47.191788+00:00",
   "checks": {
    "liveness": [
-    "ALIVE td-217 (heartbeat stale (52503min); open PR #1617 Inspector report 2026-11-14 16:34 EST - report only, do not ; open PR #1616 Inspector report 2026-11-14 15:34 EST - re)",
+    "ALIVE td-217 (heartbeat stale (52533min); open PR #1617 Inspector report 2026-11-14 16:34 EST - report only, do not ; open PR #1616 Inspector report 2026-11-14 15:34 EST - re)",
     "ALIVE td-218 (no heartbeat file; branch docs/td218-guidance-test-plan-admission-20261009 8 ahead; branch docs/td218-paid-recovery-provenance-20261009 5 ahead; branch docs/td2)"
    ],
    "transitions": [
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1226"
+    "STALE-RUNS=1227"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2475,10 +2466,10 @@
   },
   "check_ts": {
    "board-check": "2026-11-12T03:17:59.890352+00:00",
-   "liveness": "2026-11-15T09:44:13.880580+00:00",
-   "classification-health": "2026-11-15T09:15:38.276558+00:00",
-   "transitions": "2026-11-15T09:44:21.736560+00:00",
-   "conflicts": "2026-11-15T09:44:16.920214+00:00",
+   "liveness": "2026-11-15T10:15:02.637006+00:00",
+   "classification-health": "2026-11-15T10:15:47.191788+00:00",
+   "transitions": "2026-11-15T10:15:04.617962+00:00",
+   "conflicts": "2026-11-15T10:15:02.827743+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
