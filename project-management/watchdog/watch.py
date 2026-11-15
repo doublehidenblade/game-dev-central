@@ -1094,6 +1094,22 @@ def cmd_liveness():
             else:
                 fresh_observation = False
                 reasons.append(f"session {session} classification stale/missing")
+        # td-310: a session-less registration (session falsy, e.g. registered
+        # with '-') has NO channel that could observe the session ending —
+        # Signal C above only runs when a session id is present. A
+        # no-life-signs observation for such a worker is therefore NOT a
+        # fresh observation of death: absence of evidence is not an
+        # ended-session receipt. The coordinator deregisters subagent
+        # workers explicitly on completion (assign-pr / deregister-worker
+        # flow); liveness must never manufacture a death for a worker whose
+        # ending it cannot observe. Treat the observation exactly like the
+        # stale-classification path below: counter frozen, registration
+        # kept, no replacement queued. (The alive path above is unchanged:
+        # a fresh heartbeat or fresh GitHub evidence still proves life,
+        # and the terminal-status DROPPED path above is a positive receipt.)
+        if not session and not alive:
+            fresh_observation = False
+            reasons.append("session-less registration; no ended-session receipt")
         if alive:
             w["quiet_cycles"] = 0
             w["last_verdict"] = "alive"
@@ -1106,7 +1122,11 @@ def cmd_liveness():
             continue
         if not fresh_observation:
             w["last_verdict"] = "stale"
-            print(f"STALE {task} (no fresh observation; counter frozen; {'; '.join(reasons)[:120]})")
+            if not session:
+                print(f"STALE {task} (session-less registration; no ended-session receipt; "
+                      f"counter frozen; {'; '.join(reasons)[:120]})")
+            else:
+                print(f"STALE {task} (no fresh observation; counter frozen; {'; '.join(reasons)[:120]})")
             continue
         w["quiet_cycles"] = w.get("quiet_cycles", 0) + 1
         qc = w["quiet_cycles"]
@@ -1115,6 +1135,29 @@ def cmd_liveness():
             print(f"QUIET({qc}) {task} ({'; '.join(reasons)[:160]})")
             continue
         # DEAD: proclaim, record, queue deterministic replacement, drop from registry.
+        # td-310: automatic replacement queueing must respect the dispatch
+        # denylist, built exactly the way _dispatch_rows builds it (state
+        # dispatch_denylist, list-or-dict, plus the td-054 default). A
+        # denylisted or gated task must never become dispatchable through
+        # the liveness path, bypassing board ownership and Craig's gates.
+        # The death itself WAS observed through a session channel, so a
+        # denylisted worker is still proclaimed DEAD, noted, and dropped —
+        # only the replacement queueing is suppressed.
+        denylist = state.get("dispatch_denylist", {})
+        if isinstance(denylist, list):
+            denylist = {t: "" for t in denylist}
+        denylist = dict(denylist or {})
+        denylist.setdefault("td-054", "explicit no-redispatch per Craig")
+        if task in denylist:
+            why = denylist[task] or "denylisted"
+            notes.append(f"{now().isoformat()[:16]}Z LIVENESS: {task} proclaimed DEAD "
+                         f"({qc} quiet cycles; {'; '.join(reasons)[:160]}). "
+                         f"Replacement dispatch-subagent NOT queued: task is on the "
+                         f"dispatch denylist ({why}).")
+            del workers[task]
+            print(f"DEAD {task} (replacement NOT queued: dispatch denylist ({why}); "
+                  f"{'; '.join(reasons)[:160]})")
+            continue
         brief_path, brief = _build_replacement_brief(task, task_file, salvage)
         pa_path = os.path.join(STATE_DIR, "pending_actions.json")
         try:
