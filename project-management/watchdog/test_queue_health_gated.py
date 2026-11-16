@@ -22,6 +22,21 @@ Fix (td-313, _dispatch_rows + cmd_queue_health only):
    way: it names the first not_started UNGATED item, else the first
    ungated remaining item, and never a gated item.
 
+td-315 extension (same file): the td-313 DUE fallback reconciled the
+selected vision item only against the Craig gate. Two gaps remained:
+1. Selected-item ownership was not reconciled: police-wanted's
+   follow-up rows td-220/221/222 are open, owned, and carry 'no new
+   worker; coordination queue' restrictions, yet DUE printed
+   unqualified — a consumer reading it as a fresh-breakdown trigger
+   would dispatch duplicate police work against those owners. The
+   fallback now annotates DUE as already-owned / review-only when the
+   selected item's follow-up rows already cover it (DUE itself is
+   preserved as a review signal, never suppressed).
+2. A plain 'STOP: do not dispatch' marker in a board row's status was
+   recognized nowhere: a STOP-marked unowned row still read 'unowned'.
+   _dispatch_rows now SKIPs STOP-marked rows (general word-token text
+   rule, like the Craig-gate rule).
+
 Run: python3 test_queue_health_gated.py  (exit 0 = all pass)
 """
 import importlib.util
@@ -231,6 +246,127 @@ class QueueHealthDueTests(unittest.TestCase):
             [UNGATED_NOT_STARTED])
         self.assertEqual(
             out, "QUEUE-HEALTH OK workers=0 candidates=1 vision_remaining=1")
+
+
+class StopMarkerTests(unittest.TestCase):
+    def test_d_stop_row_is_skip_never_unowned(self):
+        out = classify([("td-920", "open — STOP: do not dispatch; "
+                                   "held by the coordinator", "unassigned")])
+        self.assertEqual(len(out), 1)
+        task, _prefix, mark, _status = out[0]
+        self.assertEqual(task, "td-920")
+        self.assertTrue(mark.startswith("SKIP"), mark)
+        self.assertIn("STOP", mark)
+        self.assertNotEqual(mark, "unowned")
+
+    def test_d_stop_variants_skip_and_non_markers_do_not(self):
+        variants = [
+            ("td-921", "open — stop. Do not dispatch this row.", "unassigned"),
+            ("td-922", "open — STOP — no dispatch until the lane reopens", "unassigned"),
+            ("td-923", "in_progress — STOP: never dispatch a second worker", "unassigned"),
+        ]
+        marks = marks_by_task(classify(variants))
+        for task, _status, _owner in variants:
+            self.assertTrue(marks[task].startswith("SKIP"), (task, marks[task]))
+        # 'stop' as a substring or as an ordinary word, with no dispatch
+        # prohibition, is NOT a STOP marker.
+        negatives = [
+            ("td-924", "open — bus stop signage is missing; ready", "unassigned"),
+            ("td-925", "open — unstoppable regression in the stopgap build; ready", "unassigned"),
+            ("td-926", "open — do not dispatch yet; awaiting art", "unassigned"),
+        ]
+        marks = marks_by_task(classify(negatives))
+        for task, _status, _owner in negatives:
+            self.assertEqual(marks[task], "unowned", (task, marks[task]))
+
+
+POLICE_WANTED = {
+    "id": "police-wanted",
+    "name": "Police and wanted system: crimes raise the wanted level, "
+            "cops pursue and arrest",
+    "status": "in_progress",
+    "task": "td-195",
+    "notes": "Core system merged; defect tail still open (cop collision "
+             "td-195, cop spawn placement td-274, wanted HUD evidence "
+             "td-245).",
+    "source": "GAME_DESIGN.md section 4; police system tasks td-190+",
+}
+POLICE_FOLLOWUPS = [
+    ("td-220", "open — no new worker; coordination queue; no parallel "
+               "dot police implementation", "Muse police lanes td-188/190/192"),
+    ("td-221", "open — no new worker; coordination queue; cones excluded "
+               "from dot map-access lane", "Muse police/map lanes td-190/203"),
+    ("td-222", "open — no new worker; coordination queue; countdown not "
+               "claimed under active dot repair",
+     "Muse td-190 wanted owner / dot presentation coordination"),
+]
+
+
+class DueOwnershipTests(unittest.TestCase):
+    def run_queue_health(self, board_rows, checklist_items):
+        tmp = tempfile.mkdtemp(prefix="td315-qh-")
+        state_dir = os.path.join(tmp, "state")
+        os.makedirs(state_dir)
+        with open(os.path.join(state_dir, "state.json"), "w") as f:
+            json.dump({"workers": {}, "sessions": {}}, f)
+        with open(os.path.join(state_dir, "pending_actions.json"), "w") as f:
+            json.dump({"actions": [], "notes": []}, f)
+        board_file = os.path.join(tmp, "board.md")
+        with open(board_file, "w") as f:
+            f.write(board_text(board_rows))
+        checklist = os.path.join(tmp, "vision.json")
+        with open(checklist, "w") as f:
+            json.dump({"items": checklist_items}, f)
+        buf = io.StringIO()
+        with redirect_stdout(buf):
+            watch.cmd_queue_health(["tokyo-drift-3d", "--state-dir", state_dir,
+                                    "--board-file", board_file,
+                                    "--checklist", checklist])
+        return buf.getvalue().strip()
+
+    def test_a_owned_followups_yield_already_owned_review_only_due(self):
+        out = self.run_queue_health(
+            POLICE_FOLLOWUPS + [("td-285", TD285_STATUS, "unassigned")],
+            [POLICE_WANTED, STORY_LAYER])
+        # DUE is preserved as a review signal naming the same item...
+        self.assertTrue(
+            out.startswith("QUEUE-EMPTY-VISION-DUE police-wanted"), out)
+        # ...but qualified already-owned / review-only, naming the
+        # covering follow-up rows — never an unqualified DUE.
+        self.assertIn("ALREADY-OWNED", out)
+        self.assertIn("review-only", out)
+        for task in ("td-220", "td-221", "td-222"):
+            self.assertIn(task, out)
+        self.assertNotIn("story-layer", out)
+
+    def test_a_linked_task_row_owned_also_covers(self):
+        out = self.run_queue_health(
+            [("td-195", "in_progress — defect tail being fixed",
+              "Muse worker")],
+            [POLICE_WANTED])
+        self.assertTrue(
+            out.startswith("QUEUE-EMPTY-VISION-DUE police-wanted"), out)
+        self.assertIn("ALREADY-OWNED", out)
+        self.assertIn("td-195", out)
+
+    def test_a_unowned_unrestricted_followup_does_not_cover(self):
+        # The linked task's own row is open, unowned and unrestricted:
+        # nothing covers the item, so DUE stays a plain signal.
+        out = self.run_queue_health(
+            [("td-195", "open — ready to implement", "unassigned")],
+            [dict(POLICE_WANTED, notes="Core merged.", source="")])
+        # td-195 unowned counts as a candidate, so queue-health is OK,
+        # not DUE at all — coverage must not be invented either way.
+        self.assertTrue(out.startswith("QUEUE-HEALTH OK"), out)
+        self.assertIn("candidates=1", out)
+
+    def test_b_unowned_unrestricted_selected_item_plain_due(self):
+        out = self.run_queue_health(
+            [("td-285", TD285_STATUS, "unassigned")],
+            [UNGATED_NOT_STARTED, STORY_LAYER])
+        self.assertEqual(
+            out, "QUEUE-EMPTY-VISION-DUE ungated-feature :: Ungated feature")
+        self.assertNotIn("ALREADY-OWNED", out)
 
 
 if __name__ == "__main__":
