@@ -2644,6 +2644,98 @@ def _vision_item_gated(item):
     return False
 
 
+def _stop_dispatch_reason(status):
+    """Return a reason if a board status carries a plain STOP marker.
+
+    General status-text rule (td-315), NOT a per-task special case: a
+    row whose status carries a plain 'STOP: do not dispatch' marker is
+    never dispatchable, exactly like a denylisted or Craig-gated row —
+    before this, _dispatch_rows skipped denylisted and Craig-gated
+    rows but a STOP-marked row with no owner still read 'unowned' and
+    counted as a dispatchable candidate. Word-token based like
+    _craig_gated_reason: 'stop' must appear as a word token (so
+    'unstoppable' or 'stopgap' do not count) AND a dispatch
+    prohibition phrase must be present ('do not dispatch', 'no
+    dispatch', or 'never dispatch' — so a status merely mentioning a
+    bus stop or a stop sign does not count either)."""
+    text = (status or "").lower()
+    if not text:
+        return None
+    import re
+    words = set(re.findall(r"[a-z][a-z\-]*", text))
+    if "stop" not in words:
+        return None
+    if ("do not dispatch" in text or "no dispatch" in text
+            or "never dispatch" in text):
+        return "STOP marker (do not dispatch)"
+    return None
+
+
+def _task_refs_in(text):
+    """Task ids named in a text (td-315 helper).
+
+    Matches td-NNN / p3d-NNN ids, expanding the board's slash
+    abbreviation ('td-188/190/192' names td-188, td-190 and td-192 —
+    the live td-220 owner cell uses exactly that form)."""
+    import re
+    refs = set()
+    for m in re.finditer(r"((?:td|p3d)-)(\d+(?:/\d+)*)", (text or "").lower()):
+        for part in m.group(2).split("/"):
+            refs.add(m.group(1) + part)
+    return refs
+
+
+def _vision_item_task_refs(item):
+    """Task ids a vision-checklist item references (td-315).
+
+    The item's own linked task (its 'task' field) plus every task id
+    named in its notes/source — the defect-tail and lane tasks the
+    item's own record points at (police-wanted: task td-195, notes
+    naming td-195/td-274/td-245, source naming the td-190+ police
+    lanes)."""
+    refs = set()
+    task = item.get("task")
+    if task:
+        refs.add(str(task).strip().lower())
+    text = " ".join(str(item.get(k) or "") for k in ("notes", "source"))
+    refs |= _task_refs_in(text)
+    return refs
+
+
+def _due_coverage(item, classified, rows):
+    """Open board rows that already cover a DUE vision item (td-315).
+
+    A row covers the item when it is one of the item's follow-up rows —
+    the row's task is referenced by the item, or the row's
+    defect/status/owner text references one of the item's tasks (the
+    live police follow-ups td-220/221/222 name the td-190 police lanes
+    in their owner cells) — AND the row is already owned (its
+    _dispatch_rows mark is owned(...)) or restricted (a SKIP mark, or
+    a 'no new worker' status restriction). Returns the sorted covering
+    task ids; empty means the item is genuinely uncovered and its DUE
+    line stays a plain fresh-breakdown signal. General rule over the
+    item's own references — no per-item special cases."""
+    refs = _vision_item_task_refs(item)
+    if not refs:
+        return []
+    by_task = {r["task"].lower(): r for r in rows}
+    covered = []
+    for task, _prefix, mark, status in classified:
+        row = by_task.get(task.lower())
+        texts = " ".join([task,
+                          (row or {}).get("defect", ""),
+                          status,
+                          (row or {}).get("owner", "")])
+        found = _task_refs_in(texts)
+        if task.lower() not in refs and not (found & refs):
+            continue
+        restricted = (mark.startswith("SKIP")
+                      or "no new worker" in status.lower())
+        if mark.startswith("owned(") or restricted:
+            covered.append(task)
+    return sorted(set(covered))
+
+
 def _dispatch_rows(rows, state, pa=None):
     """Classify board rows for dispatch -> [(task, prefix, mark, status)].
     Only rows whose status prefix is open/in_progress appear. mark is
@@ -2654,7 +2746,9 @@ def _dispatch_rows(rows, state, pa=None):
     happened because nothing counted what dispatch-candidates saw.
     The Craig-gated SKIP is td-313: before it, the gated td-285 spec
     row read 'unowned', queue-health counted it as the sole candidate,
-    and QUEUE-EMPTY-VISION-DUE could never fire."""
+    and QUEUE-EMPTY-VISION-DUE could never fire. The STOP-marker SKIP
+    is td-315: a row whose status carries a plain 'STOP: do not
+    dispatch' marker is likewise never a dispatchable candidate."""
     if pa is None:
         pa = _load_pending_actions()
     owned = set(state.get("workers", {}))
@@ -2675,6 +2769,10 @@ def _dispatch_rows(rows, state, pa=None):
         if r["task"] in denylist:
             why = denylist[r["task"]] or "denylisted"
             out.append((r["task"], r["prefix"], f"SKIP {why}", r["status"]))
+            continue
+        stop = _stop_dispatch_reason(r["status"])
+        if stop:
+            out.append((r["task"], r["prefix"], f"SKIP {stop}", r["status"]))
             continue
         gated = _craig_gated_reason(r["status"])
         if gated:
@@ -2757,6 +2855,12 @@ def cmd_queue_health(args):
         (td-313: Craig-gated items such as story-layer are never named
         as due) — the cron's STEP 2b breaks it down and dispatches in
         the SAME run)
+      QUEUE-EMPTY-VISION-DUE <id> :: <name> [ALREADY-OWNED review-only:
+        covered by <task, ...>]
+        (td-315: the selected item's work is already covered by open
+        owned/restricted follow-up board rows — DUE stays as a review
+        signal, but it is NOT a fresh-breakdown trigger and no consumer
+        may dispatch duplicate work against those owners)
       VISION-COMPLETE
         (nothing remains on the checklist — the only quiet-queue state)
     An unreadable checklist prints QUEUE-HEALTH-ERROR <reason> and exits 3.
@@ -2816,7 +2920,8 @@ def cmd_queue_health(args):
             rows = _parse_board_rows(f.read())
     else:
         rows = _board_rows(game)
-    candidates = sum(1 for _t, _p, mark, _s in _dispatch_rows(rows, state, pa)
+    classified = _dispatch_rows(rows, state, pa)
+    candidates = sum(1 for _t, _p, mark, _s in classified
                      if mark == "unowned")
     if not remaining:
         print("VISION-COMPLETE")
@@ -2831,7 +2936,23 @@ def cmd_queue_health(args):
         if ungated:
             due = next((it for it in ungated
                         if it["status"] == "not_started"), ungated[0])
-            print(f"QUEUE-EMPTY-VISION-DUE {due['id']} :: {due['name']}")
+            # td-315: reconcile the selected item against the board
+            # before any consumer reads DUE as a fresh-breakdown
+            # trigger. When the item's follow-up rows are already open
+            # and owned/restricted (the live police-wanted item:
+            # td-220/221/222, owned, 'no new worker; coordination
+            # queue'), DUE is reported already-owned / review-only —
+            # preserved as a review signal (never suppressed, never
+            # skipped to a different item), but never as an unqualified
+            # fresh-breakdown signal that would dispatch duplicate
+            # work against those owners.
+            covered = _due_coverage(due, classified, rows)
+            if covered:
+                print(f"QUEUE-EMPTY-VISION-DUE {due['id']} :: {due['name']} "
+                      f"[ALREADY-OWNED review-only: covered by "
+                      f"{', '.join(covered)}]")
+            else:
+                print(f"QUEUE-EMPTY-VISION-DUE {due['id']} :: {due['name']}")
             return
         # Every remaining vision item is Craig-gated: no ungated item
         # can be named or dispatched, so fall through to the OK line
