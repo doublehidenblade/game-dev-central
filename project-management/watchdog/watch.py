@@ -2587,14 +2587,74 @@ def cmd_brief_check(args):
     raise SystemExit(coordinator_cli.run_evidence('brief-check', list(args)))
 
 
+def _craig_gated_reason(status):
+    """Return a gated reason if a board status carries a Craig gate.
+
+    General status-text rule (td-313), NOT a per-task special case: a
+    row is Craig-gated when its status text says so — a Craig gate
+    phrase ('gated on Craig', 'BLOCKED-ON-CRAIG', 'no implementation
+    until Craig approves', or Craig named together with a gate word:
+    gated / blocked / approv* / no implementation / no dispatch), or
+    a spec-only marker ('spec/design only', 'spec only'). A bare Craig
+    mention (a verdict note, 'Craig's direct order') is NOT a gate.
+    Gated rows are never dispatchable: the gate is Craig's, and no
+    worker may be dispatched past it (td-285, the gig-city world-bible
+    story spec, is the live instance: its status carries both the
+    spec-only marker and the Craig-approval gate)."""
+    text = (status or "").lower()
+    if not text:
+        return None
+    import re
+    words = set(re.findall(r"[a-z][a-z\-]*", text))
+    spec_only = "spec/design only" in text or "spec only" in text
+    craig_gate = (
+        "blocked-on-craig" in text
+        or "gated on craig" in text
+        or ("craig" in words and (
+            "gated" in words or "blocked" in words
+            or any(w.startswith("approv") for w in words)
+            or "no implementation" in text or "no dispatch" in text)))
+    if craig_gate:
+        return "Craig-gated (no implementation until Craig approves)"
+    if spec_only:
+        return "spec-only (no implementation dispatch)"
+    return None
+
+
+def _vision_item_gated(item):
+    """True if a vision-checklist item is Craig-gated (td-313).
+
+    Same gate signals as _craig_gated_reason, read over the item's
+    id/name/notes: 'GATED' or 'BLOCKED-ON-CRAIG' anywhere in that text,
+    or a 'no implementation until ... approv*' rule. The live instance
+    is story-layer, whose notes say GATED / BLOCKED-ON-CRAIG and whose
+    only breakdown (td-285) is itself gated. A bare Craig mention is
+    not a gate (world-inspector's notes cite Craig's direct order to
+    file its breakdown — that item is ungated)."""
+    text = " ".join(str(item.get(k) or "")
+                    for k in ("id", "name", "notes")).lower()
+    import re
+    words = set(re.findall(r"[a-z][a-z\-]*", text))
+    # Token match, not substring: 'ungated' must not read as gated.
+    if "blocked-on-craig" in text or "gated" in words:
+        return True
+    if ("no implementation until" in text
+            and any(w.startswith("approv") for w in words)):
+        return True
+    return False
+
+
 def _dispatch_rows(rows, state, pa=None):
     """Classify board rows for dispatch -> [(task, prefix, mark, status)].
     Only rows whose status prefix is open/in_progress appear. mark is
-    'SKIP <reason>' for denylisted rows, 'unowned' for dispatchable ones,
-    or 'owned(<sources>)'. Shared by dispatch-candidates (prints the list)
-    and queue-health (counts the unowned) so the two can never diverge —
-    the 2026-10-17 idle happened because nothing counted what
-    dispatch-candidates saw."""
+    'SKIP <reason>' for denylisted or Craig-gated rows, 'unowned' for
+    dispatchable ones, or 'owned(<sources>)'. Shared by
+    dispatch-candidates (prints the list) and queue-health (counts the
+    unowned) so the two can never diverge — the 2026-10-17 idle
+    happened because nothing counted what dispatch-candidates saw.
+    The Craig-gated SKIP is td-313: before it, the gated td-285 spec
+    row read 'unowned', queue-health counted it as the sole candidate,
+    and QUEUE-EMPTY-VISION-DUE could never fire."""
     if pa is None:
         pa = _load_pending_actions()
     owned = set(state.get("workers", {}))
@@ -2615,6 +2675,10 @@ def _dispatch_rows(rows, state, pa=None):
         if r["task"] in denylist:
             why = denylist[r["task"]] or "denylisted"
             out.append((r["task"], r["prefix"], f"SKIP {why}", r["status"]))
+            continue
+        gated = _craig_gated_reason(r["status"])
+        if gated:
+            out.append((r["task"], r["prefix"], f"SKIP {gated}", r["status"]))
             continue
         srcs = []
         if r["task"] in owned:
@@ -2689,8 +2753,10 @@ def cmd_queue_health(args):
       QUEUE-HEALTH OK workers=<n> candidates=<n> vision_remaining=<n>
       QUEUE-EMPTY-VISION-DUE <checklist-item-id> :: <name>
         (workers=0 AND candidates=0 AND vision remains; names the first
-        not-started item, else the first remaining one — the cron's
-        STEP 2b breaks it down and dispatches in the SAME run)
+        not-started UNGATED item, else the first ungated remaining one
+        (td-313: Craig-gated items such as story-layer are never named
+        as due) — the cron's STEP 2b breaks it down and dispatches in
+        the SAME run)
       VISION-COMPLETE
         (nothing remains on the checklist — the only quiet-queue state)
     An unreadable checklist prints QUEUE-HEALTH-ERROR <reason> and exits 3.
@@ -2756,10 +2822,21 @@ def cmd_queue_health(args):
         print("VISION-COMPLETE")
         return
     if workers == 0 and candidates == 0:
-        due = next((it for it in remaining if it["status"] == "not_started"),
-                   remaining[0])
-        print(f"QUEUE-EMPTY-VISION-DUE {due['id']} :: {due['name']}")
-        return
+        # td-313: never name a Craig-gated vision item as due — the
+        # gated story-layer item is the only not_started item, and
+        # naming it would send the breakdown at work Craig has gated.
+        # Skip gated items exactly as gated board rows are skipped:
+        # first not_started UNGATED item, else first ungated remaining.
+        ungated = [it for it in remaining if not _vision_item_gated(it)]
+        if ungated:
+            due = next((it for it in ungated
+                        if it["status"] == "not_started"), ungated[0])
+            print(f"QUEUE-EMPTY-VISION-DUE {due['id']} :: {due['name']}")
+            return
+        # Every remaining vision item is Craig-gated: no ungated item
+        # can be named or dispatched, so fall through to the OK line
+        # (vision_remaining still counts the gated work) rather than
+        # naming a gated item as due.
     print(f"QUEUE-HEALTH OK workers={workers} candidates={candidates} "
           f"vision_remaining={len(remaining)}")
 
