@@ -1,1 +1,1 @@
-{"ts": "2026-11-18T03:51:55Z", "task": "td-319", "step": "creating staging tree td319-sovereign", "status": "working"}
+{"ts": "2026-11-18T04:58:00Z", "task": "td-319", "step": "diagnosed attempt2 stall: record=1 shot awaits frame_post_draw under --headless dummy renderer; verifying regressions vs golden main", "status": "working"}
