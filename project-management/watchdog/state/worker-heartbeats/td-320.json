@@ -1,1 +1,1 @@
-{"ts": "2026-11-18T10:53:24Z", "task": "td-320", "step": "verified banked correction notes + regression-main logs; starting parent regression comparison", "status": "working"}
+{"ts": "2026-11-18T11:14:12Z", "task": "td-320", "step": "attempt1 VIP settled ok=true (5000->9740) but no closing-modal frame (window < 1 render under --fixed-fps); attempt2 changed approach: no --fixed-fps, render-locked physics", "status": "working"}
