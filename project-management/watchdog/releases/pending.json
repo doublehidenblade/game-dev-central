@@ -97,6 +97,14 @@
    "merged_sha": "07839199cbce6597b7f4c36e90ffd984bfb99940",
    "merged_at": "2026-11-13T09:57:32.517744+00:00",
    "summary": "Shuto script-error fix: DesktopScale decoupled from CityTouchControls; local detector/export proof, smoke dispatch is the post-merge acceptance step"
+  },
+  {
+   "game": "tokyo",
+   "task": "td-323",
+   "pr": 1734,
+   "merged_sha": "50c0bbe74010a268ddfedc2facc58b45a394691d",
+   "merged_at": "2026-11-18T23:39:26.756227+00:00",
+   "summary": ""
   }
  ]
 }
