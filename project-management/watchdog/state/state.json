@@ -2426,7 +2426,7 @@
   "td-310": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-11-19T04:15:08.550389+00:00",
+  "ts": "2026-11-19T04:44:33.116155+00:00",
   "checks": {
    "liveness": [
     "GRACE td-311 (dispatched 4min ago; no heartbeat file; session d0740179-3e3b-4ded-a518-941182a7013d classification stale/missing)"
@@ -2459,7 +2459,7 @@
    "liveness": "2026-11-15T22:14:21.588577+00:00",
    "classification-health": "2026-11-19T04:15:08.550389+00:00",
    "transitions": "2026-11-15T22:14:29.875760+00:00",
-   "conflicts": "2026-11-19T04:14:54.013286+00:00",
+   "conflicts": "2026-11-19T04:44:33.116155+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
