@@ -105,6 +105,14 @@
    "merged_sha": "50c0bbe74010a268ddfedc2facc58b45a394691d",
    "merged_at": "2026-11-18T23:39:26.756227+00:00",
    "summary": ""
+  },
+  {
+   "game": "tokyo",
+   "task": "td-328",
+   "pr": 1762,
+   "merged_sha": "8ba34d6923c36b0eaa3a40744fd9193b9ff46603",
+   "merged_at": "2026-11-19T22:20:09.798751+00:00",
+   "summary": ""
   }
  ]
 }
