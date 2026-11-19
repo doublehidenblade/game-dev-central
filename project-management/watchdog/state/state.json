@@ -2140,7 +2140,7 @@
   "td-249": "Backlog per Craig 2026-10-09 task file: \"Priority: LOW \u2014 backlog. Not in any deploy gate. Do not dispatch until higher-priority work clears.\" Re-evaluate only after higher-priority open work is dispatched/cleared."
  },
  "classification_health": {
-  "stale_runs": 1381
+  "stale_runs": 1382
  },
  "board_snapshot": {
   "td-001": "done",
@@ -2426,7 +2426,7 @@
   "td-310": "in_review"
  },
  "run_verdicts": {
-  "ts": "2026-11-19T11:44:08.266963+00:00",
+  "ts": "2026-11-19T12:14:23.939082+00:00",
   "checks": {
    "liveness": [
     "GRACE td-311 (dispatched 4min ago; no heartbeat file; session d0740179-3e3b-4ded-a518-941182a7013d classification stale/missing)"
@@ -2435,7 +2435,7 @@
     "NO-FLIPS"
    ],
    "classification-health": [
-    "STALE-RUNS=1381"
+    "STALE-RUNS=1382"
    ],
    "conflicts": [
     "OK no duplicate task ownership"
@@ -2457,9 +2457,9 @@
   "check_ts": {
    "board-check": "2026-11-16T03:16:06.123382+00:00",
    "liveness": "2026-11-15T22:14:21.588577+00:00",
-   "classification-health": "2026-11-19T11:44:08.266963+00:00",
+   "classification-health": "2026-11-19T12:14:23.939082+00:00",
    "transitions": "2026-11-15T22:14:29.875760+00:00",
-   "conflicts": "2026-11-19T11:43:51.892117+00:00",
+   "conflicts": "2026-11-19T12:13:39.484861+00:00",
    "all-blocked": "2026-10-16T16:53:27.046916+00:00",
    "idle-defect-check": "2026-10-09T11:46:25.256829+00:00"
   }
