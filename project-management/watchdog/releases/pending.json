@@ -113,6 +113,14 @@
    "merged_sha": "8ba34d6923c36b0eaa3a40744fd9193b9ff46603",
    "merged_at": "2026-11-19T22:20:09.798751+00:00",
    "summary": ""
+  },
+  {
+   "game": "tokyo",
+   "task": "td-330",
+   "pr": 1772,
+   "merged_sha": "22d51070ef5efa0a67bfca6ca87808a4df1e67c7",
+   "merged_at": "2026-11-20T07:18:37.037808+00:00",
+   "summary": "Mirage Zero sixth vehicle + prestige gig class"
   }
  ]
 }
