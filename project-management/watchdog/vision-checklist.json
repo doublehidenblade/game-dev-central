@@ -143,17 +143,17 @@
    "id": "gps-pre-gig-planning",
    "name": "GPS pre-gig route planning before accepting a gig",
    "source": "Craig direction 2026-10-05",
-   "status": "in_progress",
+   "status": "implemented",
    "task": "td-236",
-   "notes": "Re-scoped 2026-10-17 (PR #907): first slice = route preview in the gig detail panel; allowlist avoids map_sheet.gd so it runs parallel to td-235. Implementation dispatched 2026-10-17. Full-screen map overlay is a recorded follow-on after td-235 merges."
+   "notes": "Reconciled 2026-11-20 (td-334): td-236 task file and board row both read done-pending-verdict (route preview merged 2026-10-23, tokyo-drift-3d PR #920, squash fe40de75) and the full-screen overlay follow-on td-317 task file and board row both read done-pending-verdict (implementation merged in PR #1701, squash 1c7e2c6c; legibility/clean-web-boot follow-up PR #1705, squash 44c53bcc; record closed 2026-11-17 by td-318, inspector PASS report 2026-11-17-2234). Both slices agree, so the promised GPS pre-gig planning scope is complete; only Craig's phone verdict is outstanding."
   },
   {
    "id": "seasons",
    "name": "Seasons for the living sky (phase 2)",
    "source": "td-267 phase-2 specification (living sky)",
-   "status": "in_progress",
+   "status": "implemented",
    "task": "td-276",
-   "notes": "Task td-276 filed 2026-10-17 (vision tranche 1) and dispatched."
+   "notes": "Reconciled 2026-11-20 (td-334): td-276 task file and board row both read done-pending-verdict (implementation merged 2026-10-23, tokyo-drift-3d PR #913, squash d9a12716; td-332 reconciliation PR #1777 verified all five criteria first-hand; record closed 2026-11-20 by td-333, tokyo-drift-3d PR #1778, inspector PASS in reports 2026-11-20-1334, 2026-11-20-1434 and 2026-11-20-1534, 67 PASS / 28 WEAK / 0 FAIL, 95 judged). Only Craig's phone verdict is outstanding."
   },
   {
    "id": "multiplayer-races",
@@ -191,7 +191,7 @@
   "in_progress",
   "not_started"
  ],
- "updated": "2026-10-23",
+ "updated": "2026-11-20",
  "version": 1,
  "world_bible_extension": {
   "doc": "game-dev-central game-design/gig-city-world-bible.md",
