@@ -88,9 +88,9 @@
   {
    "id": "police-wanted",
    "name": "Police and wanted system: crimes raise the wanted level, cops pursue and arrest",
-   "notes": "Core system merged; defect tail still open (cop collision td-195, cop spawn placement td-274, wanted HUD evidence td-245).",
+   "notes": "Reconciled 2026-11-20 (td-336): all slices agree done / done-pending-verdict / validated on both records — td-195 task file flipped to done-pending-verdict under td-336 (PR #911 merged 2026-10-18, squash e53c069f, evidence banked in godot/qa/td-195/); td-274 flipped under td-336 (PR #910 merged 2026-10-18, squash 2ad16365, evidence banked in godot/qa/td-274/); td-245 already terminal validated (PR #712 merged ec99d69ad5, verdict PR #906 merged 29f04e8b11, not rewritten). Only Craig's phone verdict is outstanding.",
    "source": "GAME_DESIGN.md section 4 (traffic/collision); police system tasks td-190+",
-   "status": "in_progress",
+   "status": "implemented",
    "task": "td-195"
   },
   {
@@ -110,26 +110,26 @@
   {
    "id": "living-sky-weather",
    "name": "Living sky: day/night cycle, dawn and dusk palettes, weather states, street trees",
-   "notes": "Phase 1 merged 2026-10-17; seasons are the separate item below.",
+   "notes": "Reconciled 2026-11-20 (td-336): td-267 task file flipped to done-pending-verdict under td-336 (phase 1 merged 2026-10-17, PR #819, squash febb792e, evidence banked in godot/qa/td-267/); phase 1 is this item's scope and seasons are the separate, already-implemented item. Only Craig's phone verdict is outstanding.",
    "source": "Craig directive 2026-10-14 (td-267)",
-   "status": "in_progress",
+   "status": "implemented",
    "task": "td-267"
   },
   {
    "id": "race-gig-class",
    "name": "Race gigs as a gig class on the gig board",
    "source": "Craig direction 2026-10-05 (gigs = timed delivery, races, personal delivery)",
-   "status": "in_progress",
+   "status": "implemented",
    "task": "td-280",
-   "notes": "Task td-280 filed 2026-10-23 by the recovery coordinator (tokyo-drift-3d PR #1045, merged 132edfdc); implementation dispatched 2026-10-23."
+   "notes": "Reconciled 2026-11-20 (td-336): td-280 task file flipped to done-pending-verdict under td-336 (merged 2026-10-23, PR #1055, squash f07eabcb, evidence banked in godot/qa/td-280/). Only Craig's phone verdict is outstanding."
   },
   {
    "id": "vehicle-unlocks",
    "name": "New vehicles that unlock additional gig classes",
    "source": "Craig direction 2026-10-05",
-   "status": "in_progress",
+   "status": "implemented",
    "task": "td-277",
-   "notes": "First slice td-277 (Tatsumi Hauler cargo van) MERGED 2026-10-18 (PR #915, main b93c7abd): buyable/ownable/drivable, heavy-gig capability flip proven. Roster remainder still to task."
+   "notes": "Reconciled 2026-11-20 (td-336): td-277 task file flipped to done-pending-verdict under td-336 (merged 2026-10-18, PR #915, squash b93c7abd, evidence banked in godot/qa/td-277/evidence/); roster slices td-319, td-323, td-328 and td-330 already read done-pending-verdict on both records, so all slices now agree. Only Craig's phone verdict is outstanding."
   },
   {
    "id": "personal-delivery-gigs",
@@ -175,9 +175,9 @@
    "id": "world-inspector",
    "name": "World Inspector: in-menu per-asset viewer plus 2D city-plan view",
    "source": "GAME_DESIGN.md sections 6/11 milestone 3",
-   "status": "in_progress",
+   "status": "implemented",
    "task": "td-286",
-   "notes": "Breakdown filed 2026-10-26 under Craig’s direct order: td-286 asset registry (dispatched), td-287 per-asset viewer (sequenced), td-288 2D city-plan view (sequenced)."
+   "notes": "Reconciled 2026-11-20 (td-336): td-286, td-287 and td-288 task files all flipped to done-pending-verdict under td-336 (PR #1129 squash 80a9b2dd, PR #1133 squash 5a222509, PR #1135 squash 1249dc96, all merged 2026-10-26, evidence banked in godot/qa/td-286/, godot/qa/td-287/ and godot/qa/td-288/). Only Craig's phone verdict is outstanding."
   }
  ],
  "purpose": "Never-idle checklist for `watch.py queue-health` (Craig 2026-10-17). One entry per feature of the full game vision, in dependency order. When the dispatch queue is empty and no worker is live, the watchdog takes the first not_started item here, breaks it into tasks, and dispatches — game dev never idles while vision work remains. Canonical copy: game-dev-central project-management/watchdog/vision-checklist.json (this file is the local working copy; keep them in sync by PR).",
