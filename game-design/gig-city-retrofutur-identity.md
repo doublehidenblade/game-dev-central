@@ -1,7 +1,7 @@
 # WHAT MAKES IT SHOWA RETRO-FUTURISTIC — Identity Plan
 ### KUROGANE BAY / Tokyo Drift 3D
 
-*Written 2026-10-05, revised same day with Craig's refinements (Mad-Max dust city, three strata, mask law, Tekkonkinkreet). Supplements `gig-city-world-bible.md` (v2). Research: 3 Gemini consult rounds (`consult/gig-city-retrofur/`, `consult/gig-city-v2/round1-vertical-city.md`) + web research on Showa retro aesthetics, retro-future games, and scope-trick design (Death Stranding). No implementation tasks until Craig approves the bible + this identity plan.*
+*Written 2026-10-05, revised same day with Craig's refinements (Mad-Max dust city, three strata, mask law, Tekkonkinkreet). Supplements `gig-city-world-bible.md` (v2.1 systems draft). Research: 3 Gemini consult rounds (`consult/gig-city-retrofur/`, `consult/gig-city-v2/round1-vertical-city.md`) + web research on Showa retro aesthetics, retro-future games, and scope-trick design (Death Stranding). 2026-10-06 systems reconciliation is in draft: the visual canon is retained, recommendations are marked below, and existing game workers keep their scope. This document grants no new implementation authority. See [source audit](README.md) and [research review](art-book/design-review.md).*
 
 ---
 
@@ -14,7 +14,7 @@ The one-glance test: a player screenshots any frame and a stranger says *"that's
 ### The 8 instant visual markers (the shorthand)
 
 1. **The fleet cab** — boxy high-deck sedan (Cedric/Crown mashup), faded mustard cream, fender-mounted chrome bullet mirrors, mechanical roof sign lit by an *incandescent bulb*, white lace seat covers over cracked tobacco-brown vinyl, pneumatic-lever rear door that snaps open with a hiss. Dust caked on every horizontal surface.
-2. **The dashboard suite** — green monochrome vector CRT route-computer bolted to stamped sheet metal; exposed-blade 12V oscillating metal fan clamped to the A-pillar; mechanical split-drum taximeter flipping physical brass plates; red-felt tray of coins, delivery chits, cigarette butts.
+2. **The dashboard suite** — green monochrome vector CRT manifest terminal bolted to stamped sheet metal; exposed-blade 12V oscillating metal fan clamped to the A-pillar; mechanical split-drum taximeter flipping physical brass plates; red-felt tray of coins, delivery chits, cigarette butts.
 3. **Street-level infrastructure** — enamel-coated cantilevered steel gantries with hand-stenciled Romanized kanji; giant soot-stained **Solari split-flap panels** that *clack* mechanically as traffic conditions update. No digital message boards, ever.
 4. **The comms booth** — octagonal pressed-steel phone kiosk, smoked-amber acrylic glazing, cast-iron rotary phone in olive drab, plumbed to an overhead brass pneumatic tube station that shoots billing canisters into the sidewalk conduit.
 5. **Metabolist harbor architecture** — prefabricated concrete residential pods with round porthole windows clipped onto central utility shafts via rusted turnbuckles (Nakagin Capsule Tower lineage); buildings don't hide their services — braided-rubber hydraulic lines and galvanized ducting crawl up the façades. Offshore: the bay carpeted with **floating solar/industrial panel arrays** to the horizon.
@@ -27,20 +27,22 @@ The one-glance test: a player screenshots any frame and a stranger says *"that's
 
 ---
 
-## 2. What makes it UNIQUE vs. a generic cab simulator or GTA
+## 2. Positioning hypothesis — Showa delivery work with visible consequences
 
-| # | Differentiator | Why no competitor has it |
+Cloudpunk is a direct reference, not an omitted edge case. Its official base-game material emphasizes story/exploration by hovercar and on foot; its achievements confirm fuel, repairs, upgrades and timed deliveries. A dated 2019 developer reply excludes payload mass/protection from that intended loop. City of Ghosts separately adds racing/customization. [Full comparison, primary sources and limits](art-book/design-review.md). Do not claim competitors lack police, progression, vertical cities, meaningful maps or systemic play without evidence.
+
+| Design emphasis | How it serves Kurogane Bay | Limit / proof needed |
 |---|---|---|
-| 1 | **One fixed map; shortcut mastery IS progression.** Geography never shifts procedurally. Your mental map is the skill tree. | GTA randomizes; cab sims are level-based. Nobody makes *the map itself* the progression. |
-| 2 | **The ROUTE-88 punch-card computer.** No satellite GPS exists. You feed a punched card into a brass slot (*CHUNK-CHUNK*), an amber phosphor CRT traces your route with a visible sweep beam. Planning is *gambling with time*: gas stops, garage drops, hitchhiker stacks, Quick-Dispatch bonuses. | Every other driving game has magic GPS. Ours is diegetic, tactile, and a gameplay verb. |
-| 3 | **Gigs as the storytelling vehicle, not crime.** The economy/politics/business wars/characters are revealed through *who hires you and what they need moved* — never through a crime sandbox. | GTA's verbs are steal/kill. Ours are haul/ferry/shadow. The cab is sovereign ground: syndicates don't murder neutral drivers, or the food stops moving. |
-| 4 | **Comedy is systemic, never written.** No jokes in the script, ever. Unsecured cargo physics, aggro-redirect cascades, passenger Ejection Meters, hazardous spills, the silent Meter Maid. | Every narrative game writes jokes that decay. Ours come from physics + conflicting AI goals. |
-| 5 | **The wheelman never leaves the wheel.** No on-foot mode, no shooter. The vehicle is body, weapon, shield, livelihood. All interactions through windows, bumper, horn, trunk, radio. | GTA's identity is the on-foot/off-foot split. We delete half the genre's scope by canon. |
-| 6 | **Factions fight over logistics chokepoints, not turf.** Dockers, fishmongers, cabaret owners, drivers — every war is a drivable route-planning problem: a blockade is a detour puzzle, a rivalry is a dispatcher-loyalty choice. | Crime games fight over colored map zones. Ours fight over *roads you drive*. |
-| 7 | **No pedestrians, no traffic lights — by law, not by budget.** The Kuro-Kiri dust ordinance and the Tonnage Priority rule (§7). | Every city game fakes crowds. We make their absence the setting's most memorable feature. |
-| 8 | **Bureaucratic heat, not action-movie heat.** KMTED traffic cops pin you with push-bars and paperwork; you shed heat by killing your headlamps in an alley, crossing a toll jurisdiction, or firing a bribe envelope into a pneumatic drop-box. | GTA's wanted stars are military escalation. Ours is municipal procedure — funnier, cheaper, more Showa. |
-| 9 | **A vertical city, not a flat one.** Three strata — dust-drowned Lower City, sunlit Upper City, teal-sea Outskirts — linked by car sky-elevators and one highway. The strata have radically opposed road topologies, lighting, and economies; the minimap never shows both layers. | No driving game has built its whole identity on vertical stratification. Ours makes the elevator ride the signature vista and the tollbooth. |
-| 10 | **The dust is a mechanic, not weather.** Particulate filters saturate, engines choke, rinses cost money; Upper City air clears what the Lower City clogs. | Weather in other games is decoration. Ours taxes you. |
+| Fixed authored city, procedural work | Stock-backed manifests change useful loads while signs, landmarks and shortcuts reward memory. | The economy must produce meaningful choices on replay; geography itself does not regenerate. |
+| ROUTE-88 + paper briefing | Punch-card manifests, receipts, gas/rinse notices and physical maps make the cab a Showa workplace. | No computed route trace, live position dot, waypoint snapping or turn-by-turn GPS. |
+| Local production and delivery | Raw goods feed downstream businesses; loading, access, urgency and consolidation earn service fees. | Start small and deterministic; large local price gaps do not substitute for logistics. |
+| Load-dependent driving | Cargo mass/slots, seats, braking, fuel and handling support different jobs and vehicles. | Fuel/repair/upgrades already exist in other games. Test the combined choices, not an exclusivity claim. |
+| Home garage growth | Sell materials now or invest in a rack, handling module, storage, later another vehicle or rented bay. | No required rare-part grind, free-refuel loop or dominant all-purpose chassis. Fleet AI is later. |
+| Authored world, fewer mandatory story branches | Preserve dispatchers, motives, physical paperwork and occasional milestone scenes. | No required 25-mission campaign. Templates/state combinations still need authoring and review. |
+| Municipal risk | Visible inspections, tolls and optional premium risk fit the masked working city. | Use a safe legal baseline and recovery; preserve active cops work. No promise that bureaucratic heat is unique or cheap. |
+| Strata and dust | Ochre trench below, clean Aerium above clouds and teal Nagisa retain the visual identity. | Prove the local loop first. Intercity markets, terminal wars and convoys are later, not slice prerequisites. |
+
+The distinction is a testable emphasis, not proof of market uniqueness. Retain the serious world and allow humor to emerge from mundane work colliding with pressure; extensive physics comedy is optional future scope.
 
 ---
 
@@ -50,7 +52,7 @@ Not set dressing — the retro-futurist tech ceiling *rewrites* how the world wo
 
 - **No internet, no smartphones → information moves physically.** The Neon Wash (Chidori cash laundered through cab drivers to Tenjin banks) only exists because there is no wire transfer. Every secret in the city travels by *courier* — which is why the player, a driver, is the protagonist of every plot.
 - **Pneumatic tubes replace the network.** Dispatch orders, bribes, billing canisters, blackmail photos — all physical capsules in brass tube stations. Intercepting a tube capsule is a gig type that cannot exist in a smartphone world.
-- **Sol-88 synthetic fuel is the blood.** The entire economy (and the KPC monopoly, and the siphoned gray-fuel underground) exists because energy is *refined kerosene*, not electricity. Fuel price fluctuates with faction wars — gas is never free, never infinite. An EV/cyberpunk setting could not have fuel wars.
+- **Sol-88 synthetic fuel is the blood.** The entire economy (and the KPC monopoly, and the siphoned gray-fuel underground) exists because energy is *refined kerosene*, not electricity. Fuel price fluctuates with faction wars — gas is never free, never infinite. This gives our fuel chain a specific industrial identity; it is not a claim that other settings cannot model energy scarcity.
 - **Councilman Minami's toll empire** is the reason the gig driver exists at all: he suppresses public rail so his family's bus networks and taxi concessions toll every wheel. The setting's *transport economics* generate the protagonist's job.
 - **Factory shift horns replace the clock.** Time is told by shift whistles and Solari boards, not the sky — which canonically justifies the fixed dust-murk lighting (§7).
 - **Characters are shaped by analog work.** The split-drum taximeter, the brass abacus (Tsuru-kai's Sato), the punch-card computer, the pneumatic dispatch — every cast member's *props* are retro-futurist, and their personalities are built around tending machines, not swiping screens.
@@ -59,7 +61,7 @@ Not set dressing — the retro-futurist tech ceiling *rewrites* how the world wo
 
 ## 4. What AFFECTS GAMEPLAY / GIGS / VEHICLES / PROGRESSION / STORY
 
-Mechanics that **only exist because of this setting** — a generic cab game has none of these:
+These mechanics express this setting. They are not exclusive inventions; specialist systems are staged behind the small delivery-economy proof:
 
 **Vehicles**
 - All 6 archetypes are analog machines: carburetors (tunable by ear at Kotobuki), vacuum-tube taillights, pneumatic courier cylinders, hand-crank windows. Upgrades are *mechanical* (bore out the carb, re-jet for gray fuel) — no "install the hacking chip."
@@ -71,10 +73,11 @@ Mechanics that **only exist because of this setting** — a generic cab game has
 - **Solari-board runs** — traffic conditions update on mechanical split-flap boards; reading them *while driving* is a skill (no HUD minimap feed).
 - **Dust-lull deliveries** — the dust thins for 20 minutes at shift-change; certain gigs only pay during the lull (the layer never clears — visibility just stretches from 100 m to 300 m, and the light goes gold).
 - **Toll-gate jurisdiction escapes** — heat sheds at corporate district borders (ties to the cop system).
-- **Shift-horn rushes** — factory shift changes flood specific arteries with hauler traffic on a fixed schedule; planning around them is the ROUTE-88's job.
+- **Shift-horn rushes** — factory shift changes flood specific arteries with hauler traffic on a fixed schedule; the driver plans around the posted schedule using signs and the paper briefing.
 
 **Progression**
-- **Infrastructure bribes** — sink endgame cash into *your* map: remove the bridge speed camera ($150k), install a canal jump-ramp ($300k). Only meaningful because the map is fixed and the setting is municipal-corrupt.
+- **Home garage first (2026-10-06 recommendation)** — return with cash and legally owned materials; choose storage, repairs and a useful load/handling module before expanding to another vehicle/rented bay. Customer freight cannot fund crafting. Following trucks and intercity trade come later; [Fleet §B6](art-book/fleet-gear/chapter.md) gives the tradeoffs.
+- **Infrastructure bribes (later ambition)** — sink endgame cash into *your* map: remove the bridge speed camera ($150k), install a canal jump-ramp ($300k). Only meaningful because the map is fixed and the setting is municipal-corrupt.
 - **Gray-fuel tuning** — siphoned Sol-88 boosts performance but fouls vacuum-tube electronics; a risk/reward economy that only exists with analog fuel.
 - **Union standing with the Iron Wheel Union** — reputation is stamped on a paper union card, upgraded at chop shops, not an XP bar.
 
@@ -83,9 +86,11 @@ Mechanics that **only exist because of this setting** — a generic cab game has
 
 ---
 
-## 5. COPS SYSTEM — the KMTED (design: BUILD)
+## 5. COPS SYSTEM — the KMTED (historical proposals; current tasks govern)
 
-**Do we need one? Yes — but not GTA's.** Heat drives gig stakes (contraband runs, faction extractions). The Showa answer is *bureaucratic enforcement*, not military escalation. Kurogane Bay has no GPS, no helicopters, no centralized compute — and that weakness is the fun.
+**2026-10-06 boundary:** current police, arrest and traffic work continues under its existing owners. The detailed heat levels/timers below are historical proposals, not instructions to overwrite their implementation. New economic risk uses warnings, quoted loss limits and viable recovery; [Faction pressure rules](art-book/factions/chapter.md) govern the proposal.
+
+**World role:** Heat drives gig stakes (contraband runs, faction extractions). The Showa answer is *bureaucratic enforcement*, not military escalation. Kurogane Bay has no GPS, no helicopters, no centralized compute — and that weakness is the fun.
 
 **The Kurogane Municipal Traffic Enforcement Division (KMTED):** bored, underpaid officers in heavy, understeered pursuit sedans with mechanical roof sirens and dashboard dispatch radios. They don't shoot — they use **mechanical leverage**: pull alongside, scrape your paint, force you into street furniture, seawalls, or tram corridors with heavy push-bars until your chassis is immobilized.
 
@@ -107,11 +112,11 @@ Mechanics that **only exist because of this setting** — a generic cab game has
 
 **Inspector Dan (canon cast) is the system's chaos agent:** while he's riding as your fare, Heat locks to **zero** — patrols salute, toll gates open. But he's a chain-smoking degenerate who orders you to commit violations to settle personal beefs, and if you carry syndicate contraband *with him in the cab*, payout doubles — until heavy chassis damage triggers his glovebox contraband check and he flips into a close-quarters cabin threat.
 
-**Scope note:** 2-car chase state machine, pinning physics, line-of-sight timer, 3 shed mechanics. No helicopters, no spike-strip AI, no wanted-level army. This is the cheapest pursuit system that still produces stories.
+**Scope note:** 2-car chase state machine, pinning physics, line-of-sight timer, 3 shed mechanics. No helicopters, no spike-strip AI, no wanted-level army. Its cost and fun remain to be measured; do not treat it as a proven cheapest option.
 
 ---
 
-## 6. PEDESTRIANS & TRAFFIC LIGHTS — the setting trick (design: KILL BOTH)
+## 6. PEDESTRIANS & TRAFFIC — world constraints, not cancellation of active work
 
 ### The Kuro-Kiri (Black Mist) — canonical justification (v2: DUST is the mechanism)
 
@@ -119,37 +124,37 @@ Mechanics that **only exist because of this setting** — a generic cab game has
 
 Kurogane Bay sits under this permanent dust layer. **Ground-level foot travel without an industrial filter suit is a municipal felony** and a fast track to silicosis. The civilian populace moves through pressurized upper-level skybridges and subterranean shopping arcades. **The street is a machine trench; humans stay masked, above, or inside. Your cab is your life-support capsule.**
 
-This is our Death Stranding bunker trick: a canonical reason the streets are empty of walkers, which *reinforces* the Mad-Max-Tokyo atmosphere instead of apologizing for it. It also justifies the aggressive distance fog — which doubles as the game's draw-distance culling (see bible §14, "Performance by canon").
+**Suited workers at their posts are explicitly permitted**: stall hands, mechanics, booth officers and stevedores have a reason to be outside. Unsuited outdoor wandering is forbidden; the law does not erase workers or prohibit the current pedestrian/Forge tasks. Sheltered silhouettes and drive-up transactions reinforce the Mad-Max-Tokyo atmosphere. It also justifies the aggressive distance fog — which doubles as the game's draw-distance culling (see bible §14, performance hypotheses).
 
-### What we DON'T build
-- Walking pedestrian AI, sidewalk navmeshes, ped-vehicle collision, hit-and-run morality systems, crowd LODs, screaming barks, pedestrian hitboxes. **Estimated savings: the single largest AI/animation scope item in the project, deleted.**
+### Scope boundary after the current worker audit
+The earlier blanket deletion of walking AI, pedestrian collision/hit reactions and traffic steering is superseded as an implementation directive. Keep existing td-188/Forge pedestrian and road-graph traffic work under its owners. Use the following inexpensive background options where appropriate; do not restart those tasks or silently remove approved behavior.
 
-### What we build INSTEAD (cheap, and more memorable)
+### Background options that preserve the drive-up world
 - **Backlit silhouettes** in yellow-tinted second-story skybridge windows (2D cards, zero AI).
 - **Drive-up infrastructure** — the city serves drivers, not walkers: pneumatic capsule pods, curbside ticket booths, drive-up ramen windows, cargo bays where masked workers lean into your window. Every NPC interaction happens *through the car* — which is the game's thesis anyway.
 - **Static curb-side figures** at pickup/drop points: a masked docker waving you in, a hostess ducking into the back seat. Zero locomotion; they exist at the window and the trunk.
 - Heavy ambient steam, dripping pipes, exhaust stacks across the lower streets — the street feels alive *as a machine*.
 
-### Traffic lights: CUT — the Tonnage Priority rule
+### Tonnage Priority — authored world rule, integration subject to current traffic work
 Showa industrial deregulation grants right-of-way strictly by **gross vehicle weight**: harbor trams yield to nothing → zaibatsu haulers yield only to rail → sedans/taxis (you) yield to heavy trucks → kei three-wheelers yield to everyone. Intersections carry **blinking amber hazard beacons** and **painted iron mirrors on poles**. You navigate by momentum, horn blasts, and aggressive posture — never by waiting on a timer. (Bonus: no intersection state-machine bugs, no idle downtime breaking driving flow.)
 
-### Traffic AI: FAKE — the minimal viable city
+### Historical traffic budget sketch — not a replacement for current road-graph traffic
 - **3 archetypes only:** the Harbor Tram (fixed rail spline, kinematic, unstoppable, brass bell — moving cover or lethal wall), the Zaibatsu Heavy Hauler (artery splines, doesn't brake for you, air-horn warning), the Kei/Midget van (brittle, panic-brakes when you honk within 12 m, swerves to the gutter).
 - **Implementation:** baked `Path3D` lane splines, no dynamic steering AI; 2 raycasts per car (4 m hard-brake, 15 m half-throttle); hard cap of **12–16 active vehicles** in a 150 m donut around the player, recycled ahead along the velocity vector.
 - **The horn is a gameplay verb:** honking scatters kei vans — the Tonnage Priority rule made mechanical.
 
 ---
 
-## 7. Scope decision table (canon)
+## 7. Scope table — visual canon retained, technical budgets provisional
 
 | System | Verdict | Technical justification | Canonical lore reason |
 |---|---|---|---|
-| **Pedestrians** | **FAKE** | No walking AI, navmeshes, ragdolls, or hitboxes — the project's biggest AI/animation scope item, deleted. | **Kuro-Kiri Dust Ordinance:** ground-level foot travel without a filter suit is a municipal felony. |
+| **Pedestrians** | **PRESERVE CURRENT WORK** | Background silhouettes are an option; current pedestrian/Forge work owns locomotion/hit reactions. | Unsuited outdoor travel is a felony; suited workers at posts are legal. |
 | **Traffic lights** | **CUT** | Eliminates idle downtime + intersection state-machine bugs. | **Tonnage Priority rule:** right-of-way by gross vehicle weight; amber beacons + iron mirrors only. |
-| **Traffic AI** | **FAKE** | 12–16 car donut pool on baked lane splines, raycast braking, horn-yield trigger. No pathfinding. | Faked, not cut — the street is a machine trench with scheduled industrial traffic. |
-| **Cops / heat** | **BUILD** | Lightweight 2-car pinning chase state + 3 shed mechanics. No helicopters, no SWAT. | **KMTED:** bored municipal traffic division; enforcement is paperwork + push-bars. |
+| **Traffic AI** | **PRESERVE CURRENT WORK** | Use active road-graph traffic/spawn work; the earlier spline pool was a budget sketch. | Scheduled industrial traffic serves the machine trench. |
+| **Cops / heat** | **PRESERVE CURRENT WORK** | Reuse existing police/arrest work; additional pressures need fairness and recovery gates. | **KMTED:** bored municipal traffic division; enforcement is paperwork + push-bars. |
 | **Day/night cycle** | **CUT** | Dynamic shadows + GI passes on an open-world Godot map destroy frame budgets. | **Perpetual dust murk:** the inversion layer fixes the Lower City under ochre haze; time is told by **factory shift horns** and Solari boards, not the sky. Districts get *authored* fixed lighting as identity (Chidori = night, Daikoku = dusk, Upper City = clean pale sun, Nagisa = teal afternoon). |
-| **Sky elevators** | **BUILD** | 3 terminal set pieces; elevator = moving playfield with queue/toll/inspection state machine. The 8-second ascent doubles as the Gig Triage Screen (ROUTE-88 updates mid-climb). No Mass-Effect-1 dead waits — the player plans while climbing. | The only way between strata. Faction control of terminals is the endgame war map. |
+| **Sky elevators** | **LATER PHASE** | 3 terminal set pieces; elevator = moving playfield with queue/toll/inspection state machine. The 8-second ascent doubles as the Gig Triage Screen (ROUTE-88 updates mid-climb). No Mass-Effect-1 dead waits — the player plans while climbing. | The only way between strata. Faction control of terminals is the endgame war map. |
 | **Outskirts transitions** | **FAKE (cutscene)** | No open-world streaming between districts. 4–6 s three-shot cutscene IS the loading screen; player enters the new district at full cruising speed. | One highway, one cutscene. The city ends where the road does. |
 | **Distant skyscrapers** | **FAKE (skybox)** | Painted silhouette cards on the horizon. Zero draw calls beyond the fog wall. | The city across the water is always *over there*. |
 | **Character faces** | **CUT** | No facial rigs, no lip-sync, no expression animation. Silhouette + mask + props carry identity. | **Character law:** every face is masked. Mysterious and cheap. |
@@ -212,4 +217,4 @@ Image-to-image re-imaginings (nano-banana) selling the identity fast. All opened
 
 ---
 
-*End of identity plan. Awaiting Craig's approval alongside the world bible. Nothing dispatches until he approves.*
+*End of identity plan. Systems revision is in review alongside the world bible; no new dispatch is authorized and current worker scope is preserved.*
